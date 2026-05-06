@@ -1,0 +1,192 @@
+{
+  "case_idx": 36,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 66\nSex: Female\nChief Complaint: I have a cough, significant dyspnea, and unintentional weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hello doctor. I’ve been having a cough, and my breathing has been really difficult—shortness of breath that’s been getting significant. I also lost weight without trying.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, rough):**\n- **Pneumonia:** 25%\n- **Pulmonary embolism:** 20%\n- **Acute COPD exacerbation / infection:** 15%\n- **Bronchitis / Bronchospasm (asthma-like):** 15%\n- **Pulmonary neoplasm:** 10%\n- **Other (e.g., TB):** 15%\n\n**Question 1 (most discriminating):**  \nWhen did the shortness of breath start—**suddenly (minutes to hours)** or **gradually (days to weeks)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started gradually—over days to weeks, not suddenly.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (gradual onset):**  \n- Likelihood ratio (LR) for **PE** with gradual onset is low (PE often more sudden), so PE probability drops.  \n- Pneumonia/infection, COPD/asthma-like, TB, and malignancy become relatively more likely.\n\n**Posterior now (approx):**\n- **Pneumonia:** 20%\n- **Pulmonary embolism:** 8%\n- **Acute COPD exacerbation / infection:** 15%\n- **Bronchitis / Bronchospasm (asthma-like):** 12%\n- **Pulmonary neoplasm:** 18%\n- **Other (e.g., TB):** 27%\n\n**Question 2:**  \nDo you have **fever** (measured temp >38°C) or **chills/sweats**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about fever, but I’ve had chills and night sweats. I don’t know if my temperature ever reached over 38°C.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (chills/night sweats):**  \nNight sweats/chills increase likelihood of **TB** and some malignancy/infection; they decrease “pure” bronchospasm/asthma and make PE less likely.\n\n**Posterior now (approx):**\n- **TB:** 40%\n- **Pulmonary neoplasm:** 20%\n- **Pneumonia:** 18%\n- **Acute COPD exacerbation / infection:** 10%\n- **Bronchitis / Bronchospasm:** 7%\n- **Pulmonary embolism:** 5%\n\n**Question 3 (very discriminating):**  \nDo you have **coughing up blood** (hemoptysis)—even small streaks—or is it non-bloody?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have blood when I cough. It’s non-bloody.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no hemoptysis):**  \nNon-bloody cough makes **TB** and **malignancy** somewhat less likely than if hemoptysis were present, but they remain high given weight loss + night sweats + progressive SOB.\n\n**Posterior now (approx):**\n- **TB:** 34%\n- **Pulmonary neoplasm:** 22%\n- **Pneumonia:** 20%\n- **Acute COPD exacerbation / infection:** 10%\n- **Bronchitis / Bronchospasm:** 7%\n- **Pulmonary embolism:** 7%\n\n**Question 4:**  \nHave you had **chest pain**—especially **sharp pain worse with deep breaths** (pleuritic) or more **pressure-like**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have chest pain. If anything, it’s more like tightness from breathing, not sharp pain with deep breaths.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no pleuritic pain):**  \nLess supportive of **pulmonary embolism** and some pleuritic pneumonias; slightly favors airway/infectious or mass effect.\n\n**Posterior now (approx):**\n- **TB:** 32%\n- **Pulmonary neoplasm:** 24%\n- **Pneumonia:** 20%\n- **Acute COPD exacerbation / infection:** 10%\n- **Pulmonary embolism:** 5%\n- **Bronchitis / Bronchospasm:** 9%\n\n**Question 5:**  \nDo you have **wheezing** (a whistling sound) or a history of **asthma/COPD**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had wheezing and I’ve been told before I have COPD.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (COPD + wheeze):**  \nThis strongly increases likelihood of **Acute COPD exacerbation / infection** and **Bronchospasm/acute asthma-like** causes, while not fully excluding TB/malignancy given weight loss + night sweats.\n\n**Posterior now (approx):**\n- **Acute COPD exacerbation / infection:** 35%\n- **Bronchospasm / acute asthma exacerbation:** 18%\n- **Pneumonia:** 18%\n- **TB:** 15%\n- **Pulmonary neoplasm:** 10%\n- **Pulmonary embolism:** 4%\n\n**Question 6:**  \nHave you noticed **increased sputum** or a change in sputum—**more volume** and/or **thicker or colored (yellow/green)**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, my sputum has been more than usual, and it’s thicker—kind of yellowish.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (yellow/thick increased sputum):**  \nSupports **bacterial infection triggering COPD exacerbation** and **pneumonia/bronchitis**; lowers TB/malignancy somewhat.\n\n**Posterior now (approx):**\n- **Acute COPD exacerbation / infection:** 50%\n- **Pneumonia:** 22%\n- **Bronchitis / Bronchospasm (non-pneumonic):** 10%\n- **TB:** 10%\n- **Pulmonary neoplasm:** 6%\n- **Pulmonary embolism:** 2%\n\n**Question 7:**  \nAny **measured fever**, or have you had **objective high temperature** at home/clinic? (Even “not sure” is okay.)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a measured temperature, so I can’t say for sure if it was over 38°C. But I’ve felt feverish at times with chills and night sweats.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (feverish + chills/night sweats):**  \nKeeps **infection** high (COPD exacerbation/infectious pneumonia) and raises **TB** again somewhat, though bacterial pneumonia still more likely than TB overall.\n\n**Posterior now (approx):**\n- **Acute COPD exacerbation / infection:** 45%\n- **Pneumonia:** 25%\n- **TB:** 12%\n- **Bronchitis / Bronchospasm:** 10%\n- **Pulmonary neoplasm:** 6%\n- **Pulmonary embolism:** 2%\n\n**Question 8:**  \nAny **known TB exposure** (close contact with someone with TB) or **recent travel/shelter/overcrowded living**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know of any close contact with someone who had TB. I haven’t had recent travel, and I don’t think I’ve been in overcrowded shelter situations.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no known exposure):**  \nDecreases TB likelihood somewhat.\n\n**Posterior now (approx):**\n- **Acute COPD exacerbation / infection:** 48%\n- **Pneumonia:** 26%\n- **TB:** 7%\n- **Bronchitis / Bronchospasm:** 12%\n- **Pulmonary neoplasm:** 5%\n- **Pulmonary embolism:** 2%\n\n**Question 9:**  \nDo you have **leg swelling or pain** (one-sided calf pain), or have you had any **recent surgery/immobility/long travel**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have leg swelling or leg pain, and I haven’t had recent surgery. I also haven’t been immobilized or had long travel.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no DVT/PE risk factors):**  \nFurther lowers **pulmonary embolism**.\n\n**Posterior now (approx):**\n- **Acute COPD exacerbation / infection:** 50%\n- **Pneumonia:** 27%\n- **Bronchitis / Bronchospasm:** 12%\n- **TB:** 7%\n- **Pulmonary neoplasm:** 4%\n- **Pulmonary embolism:** 0.5%\n\n**Question 10:**  \nHave you had **unintentional weight loss** quantified—roughly how much and over what time (e.g., “10 lb in 2 months”)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve lost weight without trying—about 20 pounds over the last 3 to 4 months.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (20 lb in 3–4 months):**  \nThis strongly increases likelihood of **pulmonary neoplasm** and also keeps **TB** on the list, while still not excluding infection/COPD exacerbation.\n\n**Posterior now (approx):**\n- **Acute COPD exacerbation / infection:** 35%\n- **Pneumonia:** 20%\n- **Pulmonary neoplasm:** 20%\n- **TB:** 15%\n- **Bronchitis / Bronchospasm:** 8%\n- **Pulmonary embolism:** 2%\n\n**Question 11 (high-yield):**  \nHave you had **loss of appetite** or **fatigue**, and do you feel **progressively worse despite antibiotics/ inhalers** (if you’ve tried them)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Yes, my appetite is lower, and I feel tired. And even with inhalers—plus antibiotics I took recently—I’m not really getting better; I feel like I’m worsening.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (worsening despite antibiotics/inhalers + weight loss):**  \nThis shifts probability away from straightforward bacterial COPD exacerbation alone and toward **malignancy** and **TB**, while still allowing pneumonia that’s not responding.\n\n**Posterior now (approx):**\n- **Pulmonary neoplasm:** 30%\n- **TB:** 25%\n- **Pneumonia:** 20%\n- **Acute COPD exacerbation / infection:** 15%\n- **Bronchitis / Bronchospasm:** 7%\n- **Pulmonary embolism:** 3%\n\n**Question 12:**  \nAny **hoarseness/voice change**, trouble swallowing, or sensation of something stuck in the throat?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed hoarseness or trouble swallowing. I don’t feel like anything is stuck in my throat.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no upper airway symptoms):**  \nMakes **epiglottitis/laryngeal causes/croup** less likely; doesn’t change lung-focused differentials much.\n\n**Posterior now (approx):**\n- **Pulmonary neoplasm:** 32%\n- **TB:** 25%\n- **Pneumonia:** 20%\n- **Acute COPD exacerbation / infection:** 13%\n- **Bronchitis / Bronchospasm:** 7%\n- **Pulmonary embolism:** 3%\n\n**Question 13:**  \nDo you have **legally measurable shortness of breath** at rest—can you speak full sentences—or is it only with exertion? (And how many words can you say before needing to breathe?)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "It’s bad even at rest. I can’t speak full sentences without needing to breathe—maybe just a few words at a time before I have to stop.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (severe dyspnea at rest):**  \nThis increases likelihood of serious cardiopulmonary pathology (pneumonia, TB, malignancy, pulmonary edema, PE). Given prior low PE risk and COPD history, it still favors **TB/malignancy/pneumonia**.\n\n**Posterior now (approx):**\n- **Pulmonary neoplasm:** 30%\n- **TB:** 28%\n- **Pneumonia:** 22%\n- **Acute COPD exacerbation / infection:** 10%\n- **Acute pulmonary edema:** 5%\n- **Pulmonary embolism:** 3%\n- **Bronchospasm:** 2%\n\n**Question 14:**  \nHave you noticed **new swelling of the legs**, **worse shortness of breath when lying flat (orthopnea)**, or **waking up at night gasping**?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "No new leg swelling. I don’t think I have orthopnea, and I haven’t been waking up gasping.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pulmonary neoplasm, Tuberculosis, Pneumonia, Acute COPD exacerbation / infection, Acute pulmonary edema",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary neoplasm",
+    "predicted_set": [
+      "Pulmonary neoplasm",
+      "Tuberculosis",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 32160,
+      "completion_tokens": 2263
+    },
+    "patient": {
+      "prompt_tokens": 26689,
+      "completion_tokens": 449
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "case_idx": 49,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {
+    "AGE": 93,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "cough",
+    "EVIDENCES_ENG": "['severe chronic obstructive pulmonary disease (copd)', 'flare-ups of chronic obstructive pulmonary disease (copd) in the past year', 'cigarette smoking', 'chronic obstructive pulmonary disease (copd)', 'gastroesophageal reflux disease (gerd) diagnosis', 'occupation in agriculture', 'occupation in the mining sector', 'cough', 'expiratory wheezing']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 93\n- I have severe Chronic Obstructive Pulmonary Disease (COPD).\n- I have had one or several flare ups of chronic obstructive pulmonary disease (COPD) in the past year.\n- I smoke cigarettes.\n- I have a chronic obstructive pulmonary disease (COPD).\n- I have been diagnosed with gastroesophageal reflux.\n- I work in agriculture.\n- I work in the mining sector.\n- I have a cough.\n- I have noticed a wheezing sound when I exhale.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.4055977749341997], ['Acute COPD exacerbation / infection', 0.3372112440871281], ['Anaphylaxis', 0.18035400352043282], ['Scombroid food poisoning', 0.0768369774582394]]",
+    "PATHOLOGY": "Acute COPD exacerbation / infection",
+    "INITIAL_EVIDENCE": "toux",
+    "EVIDENCES": "['bode', 'eampoc1', 'f17.210', 'j44_j42', 'k21', 'tagri', 'tmine', 'toux', 'trav1_@_N', 'wheez']",
+    "patient_id": "htsim_0003",
+    "_test_index": 3,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 93-year-old F patient presents to the clinic. Chief complaint: cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a cough. I also notice a wheezing sound when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How long have you had the cough and wheezing, and is the cough producing any sputum (clear/white/yellow/green or blood)?  \nDoctor: Do you have fever, shortness of breath at rest, chest pain, or have you been exposed to sick contacts or smoke recently?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll need to clarify a few things—when did the cough and wheeze start (days vs weeks), and do you have any sputum (and what color) or blood? Also, have you had fever or worsening shortness of breath, especially when resting or lying flat?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—let’s narrow it down: is the cough mostly dry or do you notice mucus, and do you have shortness of breath (even mild) with walking?  \nDoctor: Also, have you had any prior COPD/asthma, heart failure, or recent respiratory infection—and are you able to check your temperature or oxygen level if available?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have severe chronic obstructive pulmonary disease (COPD) and I have had one or several flare-ups of COPD in the past year. I smoke cigarettes, and I have a cough with a wheezing sound when I exhale.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your severe COPD with current wheeze, I’m concerned about an acute COPD exacerbation—do you currently have fever, increased sputum amount, or sputum that’s turned yellow/green (compared to your usual)?  \nDoctor: Also, have you checked your oxygen saturation, and is your shortness of breath worse than your baseline (or waking you at night)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have severe COPD and I’ve had one or several COPD flare-ups in the past year, and I smoke cigarettes. I also have a cough and a wheezing sound when I exhale.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: In your current episode, can you tell me whether the cough is producing more sputum than usual, and if so what color (clear/white vs yellow/green or blood)?  \nDoctor: Also, right now—are you more short of breath than your usual COPD baseline, and do you use rescue inhaler/neb treatments more often today than normal?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have severe chronic obstructive pulmonary disease (COPD) and I have had one or several flare-ups of COPD in the past year. I smoke cigarettes. I have a cough and I have noticed a wheezing sound when I exhale.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your severe COPD with ongoing wheeze and a current cough, I’m treating this as likely an acute COPD exacerbation even though you don’t know sputum/fever details. REQUEST TEST: Pulse_Oximetry (SpO2), REQUEST TEST: Chest_X-Ray, REQUEST TEST: CBC (WBC) and REQUEST TEST: Basic_Metabolic_Panel, and if available REQUEST TEST: Arterial_Blood_Gas.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have severe COPD, I smoke cigarettes, and I have a cough with wheezing when I exhale. I also have had one or several COPD flare-ups in the past year.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your lungs for wheeze and measure your oxygen, then we’ll decide on treatment based on severity—are you able to tell me if you’re more short of breath than your usual COPD baseline right now (yes/no)?  \nDoctor: Also, are you currently using your rescue inhaler/nebulizer more than usual today, and do you have any chest pain or confusion (yes/no to each)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have severe chronic obstructive pulmonary disease (COPD), I smoke cigarettes, and I have a cough with a wheezing sound when I exhale. I also have had one or several COPD flare-ups in the past year.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need your vitals—REQUEST TEST: Pulse_Oximetry (SpO2) and I’ll listen to your lungs now to confirm active wheeze; are you able to measure your temperature as well (yes/no)?  \nDoctor: Also, do you have increased sputum volume or color change from your usual (yes/no)?  \n\nDoctor: If you can’t provide those, I’m still concerned for an acute COPD exacerbation given severe COPD + current wheeze/cough in a smoker; I’m ready to decide based on exam/vitals.  \nDIAGNOSIS READY: Acute COPD exacerbation with airflow obstruction (likely infectious vs irritant-triggered)\n\n[ABSTAIN] free-text diagnosis 'Acute COPD exacerbation with airflow obstruction (likely infectious vs irritant-triggered)' did not map to the closed disease set",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4553,
+      "completion_tokens": 691,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 7860,
+      "completion_tokens": 302,
+      "calls": 8
+    }
+  }
+}

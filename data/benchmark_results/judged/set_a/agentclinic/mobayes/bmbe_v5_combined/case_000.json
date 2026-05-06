@@ -1,0 +1,356 @@
+{
+  "case_idx": 0,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old woman",
+    "History": "The patient has been in home hospice care and has experienced a recent change in mental status, showing signs of confusion and an inability to communicate her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status with confusion",
+      "Secondary_Symptoms": [
+        "Elevated temperature",
+        "Discomfort in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is in home hospice, indicating a history of significant chronic illness, though specifics are not provided. No explicit history of gallbladder disease mentioned.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "Unable to complete due to patient's altered mental state."
+  },
+  "objective_for_doctor": "Evaluate and manage a senior patient presenting with altered mental status and abdominal pain.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’ve been in home hospice, and lately I’ve felt very confused and can’t always get my thoughts together. I’ve also had a higher temperature and some discomfort in my right upper abdomen.",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_right_upper_quadrant_pain_5ae0b53e": "yes",
+        "f_altered_mental_status_f460088f": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6109408029774464
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.08567460576537976
+        ],
+        [
+          "Pneumonia",
+          0.03984045453287205
+        ],
+        [
+          "Bacillus cereus infection",
+          0.028377964141851682
+        ],
+        [
+          "Factitious disorder",
+          0.02356701893105697
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_breast_contour_change_c42a5a9b",
+      "doctor_question": "Have you noticed any change in the shape or contour of either breast—such as one becoming noticeably different in size, shape, or position compared with before? (Yes or no)",
+      "patient_answer": "“No.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6135193125724329
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.08603620019799268
+        ],
+        [
+          "Pneumonia",
+          0.040008603384251724
+        ]
+      ],
+      "entropy": 2.6051781953580444
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or run-down more than usual lately (for example, lacking energy or feeling unusually tired)?",
+      "patient_answer": "Patient: Yes, I’ve felt more weak and run-down than usual, like I don’t have my normal energy. I’ve also been tired and it’s been harder to think clearly.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8181270912596547
+        ],
+        [
+          "Pneumonia",
+          0.048587894106226305
+        ],
+        [
+          "Bacillus cereus infection",
+          0.024429656022185445
+        ]
+      ],
+      "entropy": 1.325448923913148
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_diarrhea_29117dc0",
+      "doctor_question": "Have you had diarrhea recently (loose or watery stools)?",
+      "patient_answer": "“No, I haven’t had diarrhea recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8289687614603364
+        ],
+        [
+          "Pneumonia",
+          0.04923177196979183
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020390163583579198
+        ]
+      ],
+      "entropy": 1.2657727217184618
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_profuse_sweating_8ae10c5c",
+      "doctor_question": "Are you having **profuse sweating**—so much that it soaks through your clothes or drips noticeably, even when you’re not doing strenuous activity?",
+      "patient_answer": "“No, I’m not having profuse sweating like that—nothing that’s soaking my clothes or dripping noticeably.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8333196594555335
+        ],
+        [
+          "Pneumonia",
+          0.04949016821814505
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.02049718272106907
+        ]
+      ],
+      "entropy": 1.2290674917997844
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Do you currently have pain in your wrist? (yes or no)",
+      "patient_answer": "Patient: No, I don’t have pain in my wrist. I’ve mostly been feeling confused and weak, with a higher temperature and some discomfort in my right upper abdomen.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8335282360012007
+        ],
+        [
+          "Pneumonia",
+          0.049502555407399854
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020502313083132846
+        ]
+      ],
+      "entropy": 1.2264565830837069
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_lasting_more_than_30_m_5fb75ee0",
+      "doctor_question": "Do you usually have morning stiffness that lasts **more than 30 minutes** after you wake up? (Yes or no)",
+      "patient_answer": "“No, I don’t usually have morning stiffness that lasts that long after I wake up.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8336917801490232
+        ],
+        [
+          "Pneumonia",
+          0.049512268159637225
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020506335782276976
+        ]
+      ],
+      "entropy": 1.2242417552494549
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_fixed_breast_mass_c5d3cf9f",
+      "doctor_question": "Have you noticed a breast lump or mass that feels **fixed in place**—meaning it doesn’t move much when you gently press it? (Yes or no)",
+      "patient_answer": "Patient: No, I haven’t noticed any breast lump or mass that feels fixed in place. I mostly just feel more confused, very weak, and I’ve had a higher temperature with discomfort in my right upper abdomen.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.833732923790893
+        ],
+        [
+          "Pneumonia",
+          0.04951471164664024
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020507347793376967
+        ]
+      ],
+      "entropy": 1.2236748640291186
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Do you currently have any pain in your knee (yes or no)?",
+      "patient_answer": "Patient: No, I don’t currently have pain in my knee. I’ve mostly been feeling very confused, very weak, and I’ve had a higher temperature with discomfort in my right upper abdomen.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8338767871204429
+        ],
+        [
+          "Pneumonia",
+          0.04952325557129033
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020510886402983954
+        ]
+      ],
+      "entropy": 1.2216492609144325
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "When you walk, do you get pain or cramping in your calf that improves or goes away when you stop and rest? (yes/no)",
+      "patient_answer": "Patient: I don’t know that—I haven’t really been able to walk or notice any calf cramping, because I’ve mostly been too weak and confused lately.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8341108130713172
+        ],
+        [
+          "Pneumonia",
+          0.0495371541797592
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020516642744649618
+        ]
+      ],
+      "entropy": 1.2185823977938415
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_firm_thigh_mass_f5980639",
+      "doctor_question": "Have you noticed a **firm, hard lump or mass in your thigh** that feels different from the surrounding tissue? (Yes/No)",
+      "patient_answer": "“No, I haven’t noticed a firm or hard lump in my thigh. I’ve mainly been feeling more confused and very weak, with a higher temperature and discomfort in my right upper abdomen.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8344435413837668
+        ],
+        [
+          "Pneumonia",
+          0.049556914640186626
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020524826870560207
+        ]
+      ],
+      "entropy": 1.2147310420773048
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_painless_vision_loss_97e17a49",
+      "doctor_question": "I’m sorry you’re dealing with this. **Have you noticed any vision loss that happened without pain** (for example, blurry vision or loss of vision that isn’t accompanied by eye pain)?",
+      "patient_answer": "“No, I haven’t noticed any vision loss or changes like blurry vision or loss of sight. I’ve mainly just been confused and very weak, with a higher temperature and discomfort in my right upper abdomen.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.8347382683144157
+        ],
+        [
+          "Pneumonia",
+          0.04957441822984844
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.02053207627561358
+        ]
+      ],
+      "entropy": 1.2107242110268364
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis",
+    "predicted_top3": [
+      "Acalculous cholecystitis",
+      "Pneumonia",
+      "Pancreatic adenocarcinoma"
+    ],
+    "confidence": 0.8347382683144157,
+    "final_entropy": 1.2107242110268364,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Pneumonia",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6781,
+      "completion_tokens": 442
+    },
+    "patient": {
+      "prompt_tokens": 7202,
+      "completion_tokens": 420,
+      "calls": 12
+    }
+  }
+}

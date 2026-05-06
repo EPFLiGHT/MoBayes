@@ -1,0 +1,105 @@
+{
+  "case_idx": 41,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Influenza",
+  "objective_for_doctor": "A 9-year-old Female patient presents to the clinic. Chief complaint: I have a fever, sensitive pain, and exhausting pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I have a fever with chills, and I feel really tired. My head hurts (back, top, and forehead), and my neck is very painful on the right side/back of my neck, plus my muscles ache all over. I also have pink skin redness/lesions there with some swelling and a little itching.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you tell me when this started and whether the rash appeared before or after the fever? Also, is the neck pain making it hard to move your head, and have you had any sore throat, cough, or runny nose?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—like within hours. The fever came first, and then the pink rash/redness showed up after. The neck pain is making it hard to move my head. I don’t have a sore throat, cough, or runny nose.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any new exposure recently—tick/mosquito bites, sick contacts, new medications/antibiotics, or a recent travel/outdoor activity? Also, can you describe the rash: are the spots raised/hives-like vs tiny pinpoint dots, and do they blanch (turn pale) when you press them?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No recent travel, and no tick or mosquito bites that I know of. I don’t know of any sick contacts either, and I haven’t started any new medicines or antibiotics. The rash looks pink and there are bigger spots (more than 1 cm), and I think it’s swollen; I’m not sure about blanching when you press it.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to check a few things: do the rash areas feel warm/tender, and is it mainly on one side or more widespread? Also, can you look at the whites of your eyes—any redness or “bloodshot” appearance?  \nDoctor: REQUEST TEST: CBC_with_diff, CRP/ESR, and blood cultures.  \nDoctor: REQUEST TEST: Rapid_strep_and_throat_culture (even without a sore throat) and consider a swab if any crusting is present.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "The rash areas feel tender, and I think they’re a bit warm. It’s mostly on the right side/back of my neck, but I also feel my whole body muscles hurt. I haven’t noticed any redness in my eyes or bloodshot eyes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a serious skin/soft-tissue infection or meningitis-spectrum illness because you have fever, rapid onset, tender warm swelling, and significant neck pain with stiffness—could you confirm: have you vomited, had light sensitivity, confusion, or a new headache that’s getting steadily worse? Also, did the rash start exactly on the neck or did any appear on the face/hands/legs?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t vomited. I don’t think I have light sensitivity or confusion. I do have a headache, but it doesn’t feel like it’s getting steadily worse. The rash started on the neck area and I don’t have rash on my face, hands, or legs.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Because the rash is tender/warm, started on the right neck after a rapid fever, and you have marked neck pain with difficulty moving, I’m worried about a deep bacterial skin/soft-tissue infection (or cellulitis/abscess) with possible spread to deeper tissues; to decide quickly, I need imaging and labs—REQUEST TEST: Ultrasound_of_neck_soft_tissue (and if concern persists, CT_neck_with_contrast). Also, do you have any numbness/weakness of an arm, trouble swallowing, or muffled “hot potato” voice?  \nDoctor: Next, can you confirm your temperature (how high) and whether the rash blanches at all when you press it firmly for 5 seconds?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have numbness or weakness in my arm, and I don’t have trouble swallowing or a muffled voice. I don’t know the exact temperature number, but I have a fever with chills. I’m not sure if the rash blanches when you press it firmly for 5 seconds.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially serious until proven otherwise—please get the remaining key vitals and bedside checks: I need you to press on the rash firmly for 5 seconds to see if it blanches, and tell me if there’s any central blistering/blackening or rapidly spreading redness.  \nDoctor: REQUEST TEST: Urgent_Imaging_CT_or_Ultrasound_of_affected_neck_area (STAT if ultrasound can’t confirm depth), plus RECHECK: Vital_signs (temp, HR, BP, RR) and document rash extent.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I pressed on the rash firmly for about 5 seconds, and I’m not sure if it turned pale or not—it seemed the same. I don’t see any central blistering or blackening, and I don’t think it’s rapidly spreading beyond the right side of the neck. I don’t know my exact numbers for HR/BP/RR or my temperature, but I do have fever and chills.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on your rapid fever followed by tender/warm pink swollen rash on the right neck plus significant neck stiffness and difficulty moving your head, I’m most worried about a deep bacterial infection such as cervical cellulitis/early abscess (with possible spread).  \nDoctor: REQUEST TEST: MRI_or_CT_neck_with_contrast (urgent) and repeat vitals now (temp/HR/BP/RR) plus blood cultures/CBC_with_diff/CRP; if there’s any abscess on imaging, we’ll need IV antibiotics immediately and possible drainage.  \nDoctor: DIAGNOSIS READY: Right-sided cervical cellulitis/early deep neck soft-tissue infection (possible abscess); meningitis less likely but must be ruled out—treat as severe bacterial soft-tissue infection pending urgent imaging/labs.\n\n[ABSTAIN] free-text diagnosis 'Right-sided cervical cellulitis/early deep neck soft-tissue infection (possible abscess); meningitis less likely but must be ruled out—treat as severe bacterial soft-tissue infection pending urgent imaging/labs.' did not map to the closed disease set",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4940,
+      "completion_tokens": 768,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 7957,
+      "completion_tokens": 461
+    }
+  }
+}

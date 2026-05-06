@@ -1,0 +1,119 @@
+{
+  "case_idx": 22,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Guillain-Barré syndrome",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 21\nSex: M\nChief Complaint: limb weakness/paralysis",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a viral infection recently, and now I’m having significant shortness of breath or difficulty breathing, weakness in both arms and/or both legs, and numbness/loss of sensation/tingling in my feet. I’ve also had weakness or paralysis on one side of my face, which may still be present or may be completely resolved, and I’ve had weakness/paralysis in one or more of my limbs or in my face.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step. First, I need to know the *pattern* of the weakness.\n\n**Question 1 (one at a time):**  \nDid the weakness/tingling start in the **feet/legs and then move upward** (ascending), or did it start in the **arms/face and move downward** (descending)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next most discriminating feature is whether this is **true numbness/tingling with weakness** and whether it’s **progressive over hours to days**.\n\n**Question 2:**  \nOver how long did the symptoms worsen—**hours**, **1–2 days**, or **more than 3–5 days**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. Next, I want to clarify whether the weakness is **symmetrical** (both sides) or **mostly one side**.\n\n**Question 3:**  \nIs the limb weakness/tingling **on both sides equally** (symmetrical), or is it **more on one side** (asymmetrical)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next, I need to know whether the facial weakness was **upper face only** (forehead spared) or involved the whole side of the face—this helps distinguish **central stroke** vs **peripheral facial nerve** vs **neuromuscular** causes.\n\n**Question 4:**  \nWhen the facial weakness happened, was your **forehead/ability to raise your eyebrow affected**, or was it **only the lower face** (mouth droop, but you could still wrinkle your forehead)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. I’ll switch to a question that strongly separates **neuromuscular syndromes** from **stroke** and **lung/heart causes**.\n\n**Question 5:**  \nDo you have **trouble swallowing**, **choking on liquids**, or a **new weak/hoarse voice**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask about breathing pattern, because **respiratory muscle weakness** (e.g., Guillain-Barré) is a key discriminator.\n\n**Question 6:**  \nIs your shortness of breath **worse when lying flat** or when you try to **speak for a long time**, and do you feel you **can’t get a deep breath**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t confidently narrow this yet because several key discriminators are unknown (time course, symmetry, facial involvement pattern, swallowing/voice, breathing triggers). With the information given, the most concerning unifying possibilities are **neuromuscular causes after a viral illness** (especially **Guillain-Barré syndrome**) versus **central neurologic events** (stroke) or **other systemic causes**.\n\n**Question 7:**  \nDo you have **new trouble breathing with a weak cough** or do you feel like you **can’t clear mucus** / your cough is weaker than usual?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I still don’t have enough discriminating details (especially **time course**, **symmetry**, and **whether facial weakness was upper-face spared**, plus **swallow/voice** and **breathing pattern**). Given your combination of **recent viral infection + progressive weakness/numbness + facial weakness + shortness of breath**, I’m concerned for serious neurologic and cardiopulmonary causes, but I can’t rank them reliably without those key features.\n\n**[ABSTAIN]** — Insufficient history to confidently differentiate among major causes (time course, facial weakness pattern, symmetry, and swallowing/voice/breathing triggers are unknown).  \n**[POSSIBLE]** Guillain-Barré syndrome, Possible NSTEMI / STEMI, Pulmonary embolism, Myasthenia gravis, Acute pulmonary edema",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Guillain-Barré syndrome",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Myasthenia gravis",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9381,
+      "completion_tokens": 763
+    },
+    "patient": {}
+  }
+}

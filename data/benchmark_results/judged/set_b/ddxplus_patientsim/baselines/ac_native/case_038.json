@@ -1,0 +1,84 @@
+{
+  "case_idx": 38,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Pneumonia",
+  "objective_for_doctor": "A 47-year-old Male patient presents to the clinic. Chief complaint: I have right side of the chest pain, left side of the chest pain, and been coughing up blood.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having sharp, knife-like pain on both sides of my chest, and I’m also coughing up blood. I feel pretty short of breath, I’ve had chills, and my cough has been producing more colored sputum than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a serious cause of chest pain with blood in your sputum—before we decide next steps, I need to ask a few quick questions: when did this start and is the pain worse when you take a deep breath or lie down?  \nDoctor: Also, do you smoke or have recent travel/immobility, leg swelling, or a history of blood clots or lung disease?  \nDoctor: Finally, can you tell me your temperature (or any measured fever) and whether you’re taking any blood thinners?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—like within minutes, about 5/10 in speed—and the pain is around 7/10 where I feel it most, though my overall pain is low. I’m not sure if it’s worse with deep breaths or lying down.  \n\nI don’t smoke. I haven’t had recent travel or any leg swelling that I noticed, and I don’t have a known history of blood clots. I do have asthma history and I used a bronchodilator before.  \n\nI don’t have my temperature measured right now, and I’m not sure about blood thinners—I'm not taking any that I know of.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as urgent—your rapid onset pleuritic chest pain with coughing up blood and shortness of breath could be pulmonary embolism or pneumonia/other lung bleeding; I need two quick answers: do you feel lightheaded/faint, and what’s the color/amount of blood (streaks vs clots, teaspoons vs more)?  \nDoctor: REQUEST TEST: Chest_CT_Angiography (or CT pulmonary angiogram)  \nDoctor: REQUEST TEST: Chest_X-Ray + CBC + Troponin + D-dimer",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t feel faint or lightheaded.  \n\nThe blood is more than just tiny streaks—there’s enough that it looks like more than usual, but I can’t say for sure if it’s clots versus just heavier blood mixed with my sputum.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still most concerned about a dangerous lung cause—can you confirm if the shortness of breath is getting worse quickly and whether you have any wheezing/feeling like your asthma is flaring?  \nDoctor: While you answer, I’m ordering the urgent CT results you requested plus a coagulation panel to assess bleeding risk: REQUEST TEST: PT/INR + aPTT.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, the shortness of breath feels like it’s getting worse pretty quickly since it started. I have some breathing tightness, but I’m not sure if it’s wheezing exactly—I do feel like my asthma could be acting up.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This combination—rapidly worsening shortness of breath, pleuritic chest pain, and hemoptysis—makes pulmonary embolism and/or a serious pulmonary infection with bleeding top concerns; I’m ordering immediate results if not already done: REQUEST TEST: Vitals_SPO2 + ABG + Coagulation_panel (PT/INR, aPTT already requested).  \nDoctor: While we wait, I need one last key question: do you have any signs of infection like high fever/sweats or do you have a known recent respiratory illness, and is the chest pain sharp/better when you sit up and worse when you cough?  \nDoctor: Based on your presentation and urgency, I’m making a working diagnosis now.  \nDIAGNOSIS READY: Pulmonary embolism with hemoptysis (life-threatening; rule out PE-related pulmonary infarct vs other causes of hemoptysis pending CT angiography).\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2289,
+      "completion_tokens": 507,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 4561,
+      "completion_tokens": 297
+    }
+  }
+}

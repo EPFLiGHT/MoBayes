@@ -1,0 +1,99 @@
+{
+  "case_idx": 35,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 72\nSex: Male\nChief Complaint: I have burning pain, right tonsil pain, and thyroid cartilage pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having burning pain and pain on my right tonsil, and also pain around the thyroid cartilage area. My palate also hurts, and my voice is hoarse. It started pretty gradually and the pain is about 7 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever with sore throat and difficulty swallowing** (possible infectious upper airway pharyngitis/laryngitis/epiglottitis)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever— I haven’t noticed one. I also don’t have difficulty swallowing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a high fever (≥38.5°C) with a productive cough (phlegm/mucus) or shortness of breath?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath. I also don’t have a productive cough with phlegm.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have fever with a sore throat (painful swallowing) and no cough/hoarseness?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have painful swallowing. I also do have hoarseness, so it’s not “no cough/hoarseness.” I’m not sure about fever.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (temperature ≥ 38°C) along with your current symptoms?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure. I haven’t checked my temperature, and I can’t say I have a fever.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have a barking cough with hoarseness/stridor that is worse at night (suggesting croup)?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a barking cough. I only have hoarseness.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Allergic sinusitis, Chronic rhinosinusitis  ",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Allergic sinusitis",
+    "predicted_set": [
+      "Allergic sinusitis",
+      "Chronic rhinosinusitis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4336,
+      "completion_tokens": 186
+    }
+  }
+}

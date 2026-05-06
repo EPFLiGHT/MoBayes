@@ -1,0 +1,219 @@
+{
+  "case_idx": 26,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {
+    "AGE": 48,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "stridor",
+    "EVIDENCES_ENG": "['cigarette smoking', 'recent cold', 'stridor', 'daily exposure to secondhand cigarette smoke']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 48\n- I smoke cigarettes.\n- I have had a cold in the last 2 weeks.\n- I have noticed a high pitched sound when breathing in.\n- I am exposed to secondhand cigarette smoke on a daily basis.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Larygospasm', 1.0]]",
+    "PATHOLOGY": "Larygospasm",
+    "INITIAL_EVIDENCE": "stridor",
+    "EVIDENCES": "['f17.210', 'j06.9', 'stridor', 'trav1_@_N', 'z77.22']",
+    "patient_id": "htsim_0936",
+    "_test_index": 936,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 48-year-old F patient presents to the clinic. Chief complaint: stridor.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had stridor—a high-pitched sound when breathing in. It’s been going on along with a cold I had in the last 2 weeks. I also smoke cigarettes, and I’m exposed to secondhand cigarette smoke daily.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When did the stridor start—suddenly or gradually—and is it worse when breathing in (inspiratory) or out (expiratory)?  \nPatient:  \nDoctor: Do you have any trouble swallowing, drooling, choking, fever, or a muffled “hot potato” voice?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On a scale of 0–10, how bad is the stridor right now, and does it come and go or is it constant? Also, do you have any shortness of breath, chest tightness, or symptoms of wheezing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you—sit upright, I’ll listen to your lungs and upper airway, and I need your vitals including oxygen saturation; do you feel worse lying flat or at night?  \nPatient:  \nDoctor: Also, since you said it started with a cold 2 weeks ago, do you have any history of recent intubation, throat surgery, or known allergies/asthma?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll start with some urgent checks: can you tell me your current temperature and oxygen saturation (SpO₂), and are you in any distress right now (unable to speak full sentences, blue lips, or worsening fast)?  \nPatient:  \nDoctor: Also, have you noticed any voice changes, throat pain, or a “lump in the throat,” and does the stridor change with cold air or exertion?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m sorry—since you don’t know those details, I need you to answer what you can: 1) are you able to speak in full sentences right now without gasping, and 2) does your voice sound hoarse or muffled today?  \nPatient:  \nDoctor: REQUEST TEST: Pulse_Oximetry (SpO₂ at rest) and Vital_Signs (temp, HR, RR, BP).  \nPatient:",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this could be serious—can you try speaking a full sentence right now and tell me whether your voice is hoarse, and if you have any trouble swallowing or drooling?  \nPatient:  \nDoctor: I need the numbers—REQUEST TEST: Vital_Signs (temp, HR, RR, BP) and Pulse_Oximetry (SpO₂ at rest) and, if possible, repeat after 5 minutes of talking/walking; also, can you rate how quickly it’s getting worse (same / slowly worse / quickly worse)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely proceed without whether you’re in active respiratory distress—right now can you speak a full sentence comfortably, and is your breathing worse quickly (minutes–hours) rather than slowly over days?  \nDoctor: REQUEST TEST: ENT/Throat_Exam (oral cavity, tonsils, palpate neck nodes; inspect for tongue base/uvula deviation) and REQUEST TEST: Flexible_Nasopharyngolaryngoscopy (if available) given 2-week post-viral stridor.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure. I don’t know whether I’m able to speak a full sentence comfortably or if my breathing is getting worse quickly versus slowly.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned we may be dealing with significant upper-airway narrowing—do you feel short of breath at rest or can you speak at least one full sentence right now without gasping or pausing? If yes, also tell me whether your voice is hoarse.  \nPatient:  \nDoctor: REQUEST TEST: Immediate repeat Pulse_Oximetry (SpO₂), plus ENT bedside airway exam now (voice quality, oral cavity, neck swelling, and palpation for thyroid/neck masses).",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can speak at least one full sentence right now without gasping or pausing, and I don’t know whether my voice is hoarse.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t reliably report your ability to speak or voice hoarseness, I’m going to treat this as potentially significant upper-airway obstruction—do you have oxygen available, and can we get your SpO₂ and vitals immediately while you’re resting upright?  \nDoctor: REQUEST TEST: Pulse_Oximetry (SpO₂) immediately, plus Vital_Signs (temp, HR, RR, BP) and bedside ENT airway exam.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a safe diagnosis without knowing if you’re in active respiratory distress—can you try right now to speak one full sentence (no gasping)? Also, please tell me your SpO₂ and temperature if you have them; if not, can we obtain them immediately.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to escalate as if this could be **significant upper-airway obstruction**—please answer two quick safety questions: can you speak **one full sentence** right now without gasping, and do you know your **SpO₂** or oxygen requirement?  \nDoctor: REQUEST TEST: Immediate repeat **Pulse_Oximetry (SpO₂)** and **Vital_Signs (temp, HR, RR, BP)**; **ENT bedside airway exam** (including voice quality, oropharynx, neck swelling/tenderness) and prepare for **Flexible_Nasopharyngolaryngoscopy** if available.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume you may be in risk of significant upper-airway obstruction since we can’t confirm breathing/voice status—are you able to speak one full sentence right now, yes or no? If you’re not sure, call for help and get your SpO₂ and vitals immediately (REQUEST TEST: Pulse_Oximetry + Vital_Signs).",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a yes/no for safety: can you speak one full sentence right now without gasping—yes or no? If you can’t answer, call for immediate help and we will get **REQUEST TEST: Pulse_Oximetry (SpO₂)** and **REQUEST TEST: Vital_Signs (temp, HR, RR, BP)** immediately.  \nDoctor: While that’s happening, tell me whether the stridor is mainly **inspiratory** (when breathing in) rather than out—yes or no/uncertain is okay.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I have noticed a high pitched sound when breathing in.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Inspiratory stridor after a 2-week cold raises concern for **upper-airway narrowing** (e.g., post-viral laryngeal edema or vocal cord dysfunction), and we need to know if you’re in distress—can you speak one full sentence right now without gasping (yes/no)?  \nDoctor: REQUEST TEST: Pulse_Oximetry (SpO₂) and Vital_Signs (temp, HR, RR, BP) immediately.",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have noticed a high pitched sound when breathing in.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Good—if you can speak one full sentence, that’s reassuring; now I need your **SpO₂** and **vital signs** (temp/HR/RR/BP) right now. Also, is your voice hoarse, or do you have trouble swallowing/drooling?  \nDoctor: If you can’t get those numbers immediately, please ask a staff member to measure them now and tell me what they are.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since I still don’t have your SpO₂/vitals or confirmation of hoarseness/dysphagia, I’m treating this as potentially significant **upper-airway obstruction**—please call staff for immediate **REQUEST TEST: Vital_Signs (temp, HR, RR, BP)** and **REQUEST TEST: Pulse_Oximetry (SpO₂) now** while you stay upright and calm.  \nDoctor: Given the **2-week post-viral inspiratory stridor** pattern, the most likely diagnosis is **post-viral laryngeal edema causing inspiratory upper-airway obstruction (laryngitis/acute laryngeal inflammation)**.  \nDIAGNOSIS READY: Post-viral laryngeal edema causing inspiratory stridor (acute laryngeal inflammation/laryngitis)\n\n[ABSTAIN] free-text diagnosis 'Post-viral laryngeal edema causing inspiratory stridor (acute laryngeal inflammation/laryngitis)' did not map to the closed disease set",
+      "turn": 16
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 16,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15307,
+      "completion_tokens": 1555,
+      "calls": 16
+    },
+    "patient": {
+      "prompt_tokens": 21502,
+      "completion_tokens": 235,
+      "calls": 16
+    }
+  }
+}

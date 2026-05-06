@@ -1,0 +1,84 @@
+{
+  "case_idx": 31,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient presents to the urgent care clinic complaining of epigastric discomfort and cramping pain for the past 2 hours. She reports experiencing similar pain episodes in the past, mostly post-meals, which often subside several hours after eating. This has led her to avoid eating, resulting in weight loss over the past couple of months. She has a habit of smoking and drinks alcohol occasionally. Her past medical history is insignificant except for chronic knee pain, for which she takes over-the-counter painkillers.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Pain subsides hours after eating",
+        "Weight loss",
+        "Avoidance of eating",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Chronic knee pain treated with over-the-counter painkillers. No other significant medical history.",
+    "Social_History": "Smoker, occasional alcohol drinker.",
+    "Review_of_Systems": "Patient denies any changes in bowel or urinary habits, no nausea or vomiting reported."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had cramping pain and discomfort in my epigastric area for about two hours. It’s been happening in episodes for a while, mostly after meals, and it tends to ease after several hours, but I’ve been avoiding eating and I’m losing weight.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **gastric peptic ulcer**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure, but it feels like cramping discomfort right in the upper middle of my abdomen that often starts after I eat and then improves a few hours later. I haven’t noticed any vomiting or changes in my bowel habits, but I have been avoiding food because the episodes come back.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Gastric peptic ulcer, Pancreatic adenocarcinoma  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Gastric peptic ulcer",
+    "predicted_set": [
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Gastric peptic ulcer",
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 834,
+      "completion_tokens": 141,
+      "calls": 2
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "case_idx": 12,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiolitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: F\nChief Complaint: expiratory wheezing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having expiratory wheezing and difficulty breathing, and I also have a fever. I have a clear runny nose or nasal congestion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: expiratory wheezing + dyspnea + fever + clear rhinorrhea/nasal congestion. This pattern suggests an acute lower respiratory process triggered by an upper respiratory infection, but we need to distinguish asthma/COPD exacerbation vs pneumonia/bronchitis vs influenza/other viral illness.\nTop candidates:\n1) Acute COPD exacerbation / infection — wheeze + dyspnea; fever suggests infectious trigger (more likely if older with COPD history).\n2) Bronchitis — wheeze can occur; often follows URIs and may have fever.\n3) Bronchospasm / acute asthma exacerbation — expiratory wheeze and dyspnea; fever can occur with viral triggers (more likely if asthma history).\n4) Pneumonia — fever + dyspnea; wheeze can be present, but we need to assess for focal symptoms/pleuritic pain/hypoxia.\n5) Influenza — fever + URI symptoms; can cause wheeze/dyspnea, but wheezing is less specific.\nMost informative next question: determine whether the patient has a history of asthma or COPD (and age/smoking), which strongly shifts the differential.\n[/REASONING]\nDo you have a history of asthma or COPD (or do you smoke), and how old are you?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my mother suffers from asthma. I don’t know about me having asthma or COPD, and I don’t smoke.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: wheezing + dyspnea + fever + URI symptoms; no smoking; family history of asthma. Patient’s own asthma/COPD status unknown.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — strong fit with wheezing/expiratory pattern and family history; viral URI can trigger fever.\n2) Acute COPD exacerbation / infection — less likely without smoking and unknown COPD.\n3) Bronchitis — can cause wheeze after URI; fever supports infection.\n4) Pneumonia — still possible; need to assess for focal chest findings, pleuritic pain, or hypoxia.\n5) Influenza — viral URI with fever; wheeze can occur.\nMost informative next question: has the patient ever been diagnosed with asthma (or used an inhaler/neb before), and if so, is this similar to prior episodes?\n[/REASONING]\nHave you ever been diagnosed with asthma or used an inhaler/nebulizer before (and is this episode similar to past ones)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: wheezing + dyspnea + fever + nasal congestion; no smoking; family history of asthma; patient doesn’t know personal asthma history.\nTop candidates remain:\n1) Bronchospasm / acute asthma exacerbation — still plausible given wheeze + family history + viral trigger.\n2) Bronchitis — viral URI with wheeze.\n3) Pneumonia — must rule out with oxygenation/focal symptoms.\n4) Influenza — viral illness with wheeze.\n5) Acute COPD exacerbation / infection — less likely without smoking/known COPD.\nMost informative next question: do you have a cough, and if yes is it dry or producing sputum (and what color)?\n[/REASONING]\nDo you have a cough—dry or are you bringing up mucus/sputum (and what color)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: wheezing + dyspnea + fever + nasal congestion; cough characteristics unknown.\nNeed discriminating features: pneumonia vs asthma/bronchitis vs influenza. Cough quality and sputum help, but next most informative is severity/oxygenation and chest pain/pleuritic symptoms.\nMost informative next question: any chest pain (especially sharp/pleuritic) or trouble speaking in full sentences, or have you measured oxygen saturation?\n[/REASONING]\nDo you have any chest pain (especially sharp or worse with breathing), and can you speak full sentences without stopping for breath?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: limited history—wheezing + dyspnea + fever + URI symptoms; no smoking; personal asthma status unknown; cough/chest pain/oxygenation unknown.\nWith insufficient discriminating details, we can’t confidently rank pneumonia vs asthma/bronchitis vs influenza.\nMost informative next question: measure vitals—specifically fever magnitude and oxygen saturation—but we can ask about known measurements.\n[/REASONING]\nHave you checked your temperature or oxygen level (pulse oximeter), and if so what were the numbers?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: wheezing + dyspnea + fever + nasal congestion; no smoking; personal asthma history unknown; no data on cough, chest pain, oxygenation, or severity.\nWe still lack key discriminators (hypoxia, focal lung findings, pleuritic pain, productive cough, prior asthma). With continued “I don’t know,” evidence is insufficient to confidently produce a ranked top 5.\nMost informative next question: ask about onset and severity—how fast symptoms started and whether they are worsening rapidly (e.g., minutes-hours) vs gradual (days).\n[/REASONING]\nDid the breathing difficulty and wheezing start suddenly (within minutes to hours) or gradually over days—and is it getting worse?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: wheezing + dyspnea + fever + nasal congestion; no smoking; family history of asthma; patient unable to provide key discriminators (cough type, chest pain, oxygenation, onset speed, prior asthma).\nGiven the limited information, I cannot confidently rank the top 5 diagnoses without risking a wrong call (e.g., pneumonia vs asthma/bronchospasm vs influenza vs pulmonary embolism).\nMost informative next question would be oxygen saturation or ability to speak, but we’re not getting measurable data.\n[/REASONING]\n[ABSTAIN] Insufficient discriminating clinical details (no vitals/SpO2, cough characteristics, chest pain, onset speed, or prior asthma history) to confidently rank diagnoses.\n[POSSIBLE] Bronchospasm / acute asthma exacerbation, Pneumonia, Bronchitis, Influenza, Acute COPD exacerbation / infection",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Bronchitis",
+      "Influenza",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9969,
+      "completion_tokens": 1260
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "case_idx": 33,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 40\nSex: M\nChief Complaint: chest pain with deep breaths",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having chest pain when I breathe in deeply, and it feels like a knife stroke. It’s in my lower and upper chest, both breasts (right and left), and the epigastric area, and it radiates to my posterior chest wall on both sides. It started very fast (pace 9/10), the pain is about 5/10. I also had a recent viral infection, and I’ve had pericarditis. I’m also experiencing shortness of breath that’s significant, and my heart feels like it’s beating fast with irregular missing beats/palpitations. The symptoms are worse when I lie down and better when I sit up.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: pleuritic “knife-like” chest pain (worse with deep inspiration), bilateral anterior and epigastric with posterior radiation; recent viral infection; history of pericarditis; significant shortness of breath; palpitations with irregular “missing beats”; worse when lying down, better when sitting up (positional).\nTop candidates:\n1) Acute pulmonary embolism — pleuritic sharp pain, SOB, tachy/palpitations; viral history/pericarditis history doesn’t exclude PE.\n2) Acute pericarditis — viral association; positional component (often worse supine, better leaning forward/sitting up); chest pain can be sharp/pleuritic.\n3) Possible NSTEMI / STEMI — chest pain with SOB and palpitations; pleuritic features make it less classic but still must consider.\n4) Pneumonia — recent viral infection can precede bacterial pneumonia; pleuritic pain and SOB possible, though positional “better sitting up” is more pericardial.\n5) Bronchospasm / acute asthma exacerbation or Bronchitis — SOB and chest discomfort after viral illness, but “knife with inspiration” and positional relief are less typical.\nMost informative next question: determine whether there are leg symptoms or PE risk factors (high-yield for PE).\n[/REASONING]\nFirst question: Have you had any recent risk factors for blood clots—",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have limited PE risk-factor info. “I don’t know” means we should ask a very specific, high-yield PE risk question that patients can answer quickly.\nTop candidates remain: PE, acute pericarditis, possible ACS, pneumonia, bronchitis/asthma.\nMost informative next action: ask about recent immobility/surgery/long travel or prior DVT/PE—common and memorable.\n[/REASONING]\nIn the past 4 weeks, have you had any long travel (e.g., >4 hours), recent surgery, being bedridden/immobile, or a prior blood clot (DVT/PE)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient PE risk-factor data. Next most discriminating history is whether the pain is clearly positional (pericarditis) and whether there’s fever/URI symptoms (infectious causes). We already have “worse lying down, better sitting up,” which strongly supports pericarditis, but we must still rule out PE/ACS.\nTop candidates:\n1) Acute pericarditis — viral association + worse supine/better sitting up.\n2) Acute pulmonary embolism — still possible given pleuritic pain + SOB + palpitations.\n3) Possible NSTEMI / STEMI — must not miss.\n4) Pneumonia — recent viral infection; pleuritic pain possible.\n5) Bronchitis/bronchospasm — less consistent with positional relief.\nMost informative next question: ask about fever and whether pain improves leaning forward (classic pericarditis maneuver).\n[/REASONING]\nDo you have a fever or chills, and does leaning forward (or sitting up) significantly improve the chest pain compared with lying flat?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’re missing key discriminators (fever/response to leaning forward) and PE risk factors. However, the positional pattern you already gave (worse lying down, better sitting up) plus recent viral infection and known pericarditis makes acute pericarditis the leading diagnosis. We still must consider PE and ACS because of significant SOB and palpitations/irregular beats.\nTop candidates:\n1) Acute pericarditis — viral trigger; positional worse supine/better sitting up; pleuritic/sharp pain.\n2) Acute pulmonary embolism — pleuritic pain + SOB; palpitations; cannot exclude without risk factors/oxygenation.\n3) Possible NSTEMI / STEMI — chest pain + SOB + palpitations; pleuritic quality reduces likelihood but doesn’t eliminate.\n4) Pneumonia — post-viral; pleuritic pain + SOB possible.\n5) Atrial fibrillation — irregular “missing beats” could be AF causing SOB; but would not fully explain pleuritic positional pain.\nMost informative next question: ask about measured vitals/oxygen—specifically any known low oxygen or coughing blood.\n[/REASONING]\nHave you had any cough, especially coughing up blood (hemoptysis), or have you been told your oxygen level is low?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack critical objective data (vitals/oxygen/hemoptysis) and key history (PE risk factors, fever, response to leaning forward). With the information provided, the strongest pattern is positional pleuritic chest pain worse when lying down and better when sitting up, with a recent viral illness and history of pericarditis—this most strongly supports acute pericarditis. Significant SOB and palpitations/irregular beats keep PE and ACS on the differential, but we can’t confidently rank without oxygenation, ECG/telemetry, and labs.\nTop candidates with current support:\n1) Acute pericarditis — viral association; positional worse supine/better sitting up; sharp/pleuritic pain.\n2) Acute pulmonary embolism — pleuritic pain + significant SOB; palpitations possible; cannot exclude.\n3) Possible NSTEMI / STEMI — chest pain + SOB; palpitations; pleuritic quality lowers likelihood but doesn’t rule out.\n4) Pneumonia — post-viral; pleuritic pain possible; would expect cough/fever (unknown).\n5) Atrial fibrillation — irregular “missing beats” could explain palpitations/SOB, but doesn’t fully explain pleuritic positional pain.\nMost informative next step would be objective: current heart rate, blood pressure, oxygen saturation, and ECG findings—but I can’t ask more questions beyond the allowed limit.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminating information is missing (vitals/oxygen saturation, ECG findings, fever/response to leaning forward, PE risk factors, cough/hemoptysis). While the positional pleuritic pain pattern with recent viral illness and prior pericarditis strongly suggests acute pericarditis, significant SOB and palpitations also require ruling out PE and ACS, which I can’t confidently rank without objective data.\n\n[POSSIBLE] Acute pericarditis, Acute pulmonary edema, Acute pulmonary embolism, Possible NSTEMI / STEMI, Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute pericarditis",
+      "Acute pulmonary edema",
+      "Acute pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9009,
+      "completion_tokens": 1358
+    },
+    "patient": {}
+  }
+}

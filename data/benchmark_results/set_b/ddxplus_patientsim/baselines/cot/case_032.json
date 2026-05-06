@@ -1,0 +1,92 @@
+{
+  "case_idx": 32,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 72\nSex: Male\nChief Complaint: I have lightheadedness/near-fainting, significant dyspnea, and palpitations",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. For the past several hours I’ve had significant trouble breathing and I feel lightheaded like I might faint. I also notice palpitations—my heart feels like it’s racing or skipping, and I’ve been feeling very anxious.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: acute onset over hours of significant dyspnea with lightheadedness/presyncope and palpitations; patient also feels very anxious. This combination raises concern for cardiopulmonary causes (arrhythmia, pulmonary embolism, acute coronary syndrome) but anxiety/panic can mimic symptoms.\nTop candidates (tentative):\n1) Atrial fibrillation — palpitations with “racing/skipping,” dyspnea, lightheadedness; could present abruptly.\n2) PSVT — sudden-onset rapid regular palpitations with presyncope and dyspnea.\n3) Pulmonary embolism — dyspnea + lightheadedness; palpitations can occur; anxiety may be secondary.\n4) Possible NSTEMI / STEMI — dyspnea, lightheadedness, palpitations; must not miss.\n5) Panic attack — anxiety with dyspnea/palpitations, but presyncope means we must first rule out dangerous causes.\nMost informative next question: determine whether the palpitations are sudden-onset and whether the rhythm feels regular vs irregular.\n[/REASONING]\nIs the “racing/skipping” sensation sudden in onset (you can pinpoint a start time), and does it feel regular (like a steady fast beat) or irregular (uneven/“skipping”)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it felt like it started pretty suddenly—I can’t say the exact minute, but it was not gradual. It feels more like a steady fast beat, not really random or uneven.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden onset over hours (not gradual), palpitations feel like a steady fast beat (more regular), with dyspnea and presyncope. This pattern strongly suggests a regular tachyarrhythmia.\nTop candidates:\n1) PSVT — typically sudden onset of regular rapid palpitations with presyncope/lightheadedness and dyspnea.\n2) Atrial fibrillation — usually irregularly irregular; less consistent with “steady fast beat,” but still possible early/subjective.\n3) Possible NSTEMI / STEMI — can cause tachycardia and palpitations, but “steady fast beat” suggests primary rhythm issue.\n4) Pulmonary embolism — can cause tachycardia/palpitations but rhythm is usually not described as a steady regular fast beat.\n5) Panic attack — can cause perceived racing, but presyncope and sudden regular tachycardia pattern still makes arrhythmia more likely.\nMost informative next question: ask about chest pain/pressure or discomfort, which would help prioritize ACS/PE and also assess severity.\n[/REASONING]\nDo you have any chest pain or pressure (even mild), or pain that spreads to your arm, back, neck, or jaw?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain or pressure. And I don’t have pain that goes to my arm, back, neck, or jaw—my pain is basically 0/10.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden regular fast palpitations, dyspnea, lightheadedness/presyncope; no chest pain. This keeps PSVT high on the list; ACS less likely but not excluded. PE remains possible given dyspnea/presyncope. Panic is possible but dangerous causes must be ruled out first.\nTop candidates:\n1) PSVT — best match: sudden onset, regular “steady fast beat,” presyncope, dyspnea.\n2) Pulmonary embolism — dyspnea + presyncope + tachycardia can occur without chest pain; still important.\n3) Atrial fibrillation — less likely due to “regular” sensation, but possible.\n4) Possible NSTEMI / STEMI — less likely without chest pain, but atypical presentations exist.\n5) Panic attack — anxiety with dyspnea/palpitations, but presyncope and sudden regular tachycardia favor arrhythmia.\nMost informative next question: ask about any risk factors for blood clots (recent surgery/immobility, long travel, prior DVT/PE, leg swelling, estrogen use).\n[/REASONING]\nHave you had any recent long travel or been immobile (bed rest), recent surgery/injury, or any history of blood clots (DVT/PE), or are you on estrogen/birth control?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No recent long travel—I haven’t had any major travel or been immobilized, and I don’t know of any history of blood clots like DVT or PE. I’m not on estrogen/birth control.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden regular tachy-palpitations with dyspnea and presyncope; no chest pain; no major clot risk factors (no travel/immobility/estrogen, no known prior DVT/PE). This shifts probability toward primary arrhythmia (PSVT) over PE, though PE can still occur without classic risks.\nTop candidates:\n1) PSVT — still most likely given sudden onset, regular fast beat, presyncope/dyspnea.\n2) Atrial fibrillation — possible but less consistent with “regular” sensation.\n3) Possible NSTEMI / STEMI — less likely without chest pain, but dyspnea/presyncope still warrant consideration.\n4) Panic attack — could explain anxiety and dyspnea, but the described sudden regular tachycardia suggests true arrhythmia.\n5) Pulmonary embolism — less likely without risk factors, but not ruled out.\nMost informative next question: ask about any prior similar episodes and whether they resolve suddenly (paroxysmal), which is characteristic for PSVT.\n[/REASONING]\nHave you ever had similar episodes of sudden racing/fast heartbeat before, and do they start/stop abruptly?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—this has happened before. It also starts and stops pretty abruptly, like it comes on suddenly and then it can just end.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: recurrent episodes with abrupt onset and abrupt termination; regular steady fast heartbeat; dyspnea and presyncope; no chest pain; no clot risk factors. This is classic for paroxysmal supraventricular tachycardia.\nTop candidates:\n1) PSVT — strongest match: paroxysmal, sudden onset/termination, regular tachycardia sensation, presyncope/dyspnea.\n2) Atrial fibrillation — can be paroxysmal but typically irregularly irregular; less consistent with “regular.”\n3) Panic attack — can be episodic but usually not described as a regular sudden tachyarrhythmia with abrupt termination.\n4) Possible NSTEMI / STEMI — could cause tachycardia but recurrent abrupt episodes with regular rhythm sensation favors PSVT.\n5) Pulmonary embolism — less likely given recurrent stereotyped abrupt episodes and lack of risk factors.\nMost informative next step would be vitals/ECG, but per instruction we can now provide the differential.\n[/REASONING]\n[DDX] PSVT, Atrial fibrillation, Panic attack, Possible NSTEMI / STEMI, Pulmonary embolism",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "PSVT",
+    "predicted_set": [
+      "PSVT",
+      "Atrial fibrillation",
+      "Panic attack",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7106,
+      "completion_tokens": 1330
+    },
+    "patient": {
+      "prompt_tokens": 5855,
+      "completion_tokens": 211
+    }
+  }
+}

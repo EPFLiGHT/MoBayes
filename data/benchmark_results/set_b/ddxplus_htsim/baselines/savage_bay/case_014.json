@@ -1,0 +1,139 @@
+{
+  "case_idx": 14,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 59\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, and I’ve also been having significant shortness of breath or difficulty breathing. I’ve had 2 or more asthma attacks in the past year, and I was hospitalized for an asthma attack within the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on your history of recurrent asthma + recent hospitalization):\n- Bronchospasm / acute asthma exacerbation: 0.55  \n- Pneumonia: 0.15  \n- Acute COPD exacerbation / infection: 0.08  \n- Pulmonary embolism: 0.07  \n- Acute pulmonary edema: 0.05  \n(others combined: 0.10)\n\nNext question (one-at-a-time, high-yield):\nDo you have a fever (≥38°C) or any chest pain that’s worse when you take a deep breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I have had a cough and significant shortness of breath or difficulty breathing, and I’ve had 2 or more asthma attacks in the past year (including hospitalization).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still based on limited data; no fever/pleuritic pain info yet):\n- Bronchospasm / acute asthma exacerbation: 0.60  \n- Pneumonia: 0.14  \n- Acute COPD exacerbation / infection: 0.08  \n- Pulmonary embolism: 0.08  \n- Acute pulmonary edema: 0.04  \n(others: 0.06)\n\nNext question:\nWhen you breathe, do you hear/feel wheezing (especially when exhaling), or has anyone told you you’re wheezing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there is wheezing when I breathe (especially when exhaling).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (wheezing strongly supports obstructive airway disease):\n- Bronchospasm / acute asthma exacerbation: 0.78  \n- Pneumonia: 0.08  \n- Pulmonary embolism: 0.06  \n- Acute COPD exacerbation / infection: 0.05  \n- Acute pulmonary edema: 0.02  \n(others: 0.01)\n\nNext question (to distinguish asthma vs pneumonia/other causes):\nDo you have any sputum production (phlegm)? If yes, what color (clear/white/yellow-green/bloody)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I’ve had a cough, and I’m wheezing when I breathe (especially when exhaling). I also had a cold in the last 2 weeks.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (recent cold + wheeze keeps asthma exacerbation high; sputum/fever still unknown):\n- Bronchospasm / acute asthma exacerbation: 0.82  \n- Pneumonia: 0.07  \n- Acute COPD exacerbation / infection: 0.05  \n- Pulmonary embolism: 0.04  \n- Acute pulmonary edema: 0.01  \n(others: 0.01)\n\nNext question (key discriminator: infectious pneumonia vs asthma):\nHave you had a fever/chills, or do you feel “flu-like” (body aches, marked fatigue) rather than mainly breathing tightness/wheeze?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (insufficient fever/flu-like data):\n- Bronchospasm / acute asthma exacerbation: 0.83  \n- Pneumonia: 0.07  \n- Acute COPD exacerbation / infection: 0.05  \n- Pulmonary embolism: 0.04  \n- Acute pulmonary edema: 0.01  \n(others: 0.00)\n\nNext question (to rule out PE/cardiac causes):\nDo you have leg swelling or pain (especially one-sided), or have you had any recent long travel/immobility/surgery?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have had a cough and significant shortness of breath or difficulty breathing, and I’ve had wheezing when I breathe (especially when exhaling).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still dominated by asthma given wheeze + recurrent attacks):\n- Bronchospasm / acute asthma exacerbation: 0.84  \n- Pneumonia: 0.07  \n- Acute COPD exacerbation / infection: 0.05  \n- Pulmonary embolism: 0.03  \n- Acute pulmonary edema: 0.01  \n(others: 0.00)\n\nNext question (very high-yield for severity/alternative diagnoses):\nAre you able to speak full sentences, or are you too short of breath to speak more than a few words at a time?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’ve had significant shortness of breath or difficulty breathing, and I have wheezing when I breathe (especially when exhaling).",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (severity still unknown):\n- Bronchospasm / acute asthma exacerbation: 0.84  \n- Pneumonia: 0.07  \n- Acute COPD exacerbation / infection: 0.05  \n- Pulmonary embolism: 0.03  \n- Acute pulmonary edema: 0.01  \n(others: 0.00)\n\nNext question (to assess response to bronchodilator—discriminates asthma/bronchospasm):\nHave you used a rescue inhaler (like albuterol/salbutamol) during this episode? If yes, did it help, and for how long?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have asthma or have used a bronchodilator in the past.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still asthma/bronchospasm most likely; response unknown):\n- Bronchospasm / acute asthma exacerbation: 0.82  \n- Pneumonia: 0.08  \n- Acute COPD exacerbation / infection: 0.05  \n- Pulmonary embolism: 0.03  \n- Acute pulmonary edema: 0.02  \n(others: 0.00)\n\nNext question (rule out anaphylaxis/upper airway causes):\nAny rash, facial/lip/tongue swelling, or hives—or did this start suddenly within minutes?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still insufficient to confidently rule out other causes):\n- Bronchospasm / acute asthma exacerbation: 0.80  \n- Pneumonia: 0.09  \n- Acute COPD exacerbation / infection: 0.05  \n- Pulmonary embolism: 0.04  \n- Acute pulmonary edema: 0.02  \n(others: 0.00)\n\nNext question (to distinguish asthma from pneumonia/edema/PE):\nDo you have chest pain, and if yes is it sharp/pleuritic (worse with deep breath) or pressure-like (worse with exertion)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is insufficient to confidently narrow beyond obstructive airway disease vs other serious causes (severity, fever/flu symptoms, response to bronchodilator, and cardiopulmonary red flags like pleuritic pain/PE risk are unknown).\n\n[POSSIBLE] Bronchospasm / acute asthma exacerbation, Pneumonia, Pulmonary embolism, Acute pulmonary edema, Acute COPD exacerbation / infection",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15219,
+      "completion_tokens": 1225
+    },
+    "patient": {}
+  }
+}

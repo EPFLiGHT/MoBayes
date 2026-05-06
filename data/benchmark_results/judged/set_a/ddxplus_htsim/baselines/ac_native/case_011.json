@@ -1,0 +1,259 @@
+{
+  "case_idx": 11,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {
+    "AGE": 56,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "cough",
+    "EVIDENCES_ENG": "['cystic fibrosis', 'rheumatoid arthritis', 'coughing up blood', \"crohn's disease or ulcerative colitis\", 'productive cough', 'chronic obstructive pulmonary disease (copd)', 'asthma or bronchodilator use', 'cough', 'immunosuppression']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 56\n- I have cystic fibrosis.\n- I have Rheumatoid Arthritis.\n- I have been coughing up blood.\n- I suffer from Crohn's disease or ulcerative colitis (UC).\n- I have a cough that produces colored or more abundant sputum than usual.\n- I have a chronic obstructive pulmonary disease (COPD).\n- I have asthma or have used a bronchodilator in the past.\n- I have a cough.\n- I am immunosuppressed.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.27235574032370874], ['Bronchiectasis', 0.20980178445128608], ['Pneumonia', 0.18085990899087884], ['Tuberculosis', 0.1717361238958971], ['Pulmonary neoplasm', 0.16524644233822927]]",
+    "PATHOLOGY": "Bronchiectasis",
+    "INITIAL_EVIDENCE": "toux",
+    "EVIDENCES": "['ap_fk', 'ap_par', 'crach_sg', 'crohn_cu', 'expecto', 'j44_j42', 'j45', 'toux', 'trav1_@_N', 'z92.25']",
+    "patient_id": "htsim_0396",
+    "_test_index": 396,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 56-year-old F patient presents to the clinic. Chief complaint: cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, and I’ve been coughing up blood. I also have a cough that produces colored or more abundant sputum than usual. I’m immunosuppressed, and I have cystic fibrosis, COPD, and asthma (or I’ve used a bronchodilator in the past).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a serious lung infection or bleeding—how long has the cough with blood been going on, and do you have fever, chest pain, shortness of breath, or weight loss?  \nDoctor: Do you smoke or use inhaled/oral steroids, and have you recently been treated with antibiotics or had any imaging done?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know how long the cough with blood has been going on. I don't know if I have fever, chest pain, shortness of breath, or weight loss.  \n\nI don't know whether I smoke or whether I use inhaled/oral steroids, and I don't know if I’ve recently been treated with antibiotics or had any imaging done.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a few key details—are you currently short of breath, and can you estimate how much blood you’re coughing (streaks vs teaspoons vs more), and when was the last time you had a chest CT/X-ray?  \nDoctor: Also, have you had recent sick contacts or a TB exposure, and are you currently on any immunosuppressant medications for your cystic fibrosis/COPD/asthma?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know if I’m currently short of breath.\n\nI don’t know how much blood I’m coughing.\n\nI don’t know when my last chest CT/X-ray was.\n\nI don’t know about recent sick contacts or TB exposure.\n\nI don’t know which immunosuppressant medications I’m currently on, but I am immunosuppressed.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially significant hemoptysis; I need to know 1) are you coughing blood right now or only occasionally, and 2) do you take any blood thinners (warfarin/apixaban/rivaroxaban/aspirin) or have easy bruising?  \nDoctor: Because your history (immunosuppressed, COPD/CF) makes serious causes more likely, I’m ordering urgent tests—REQUEST TEST: Chest_X-Ray and REQUEST TEST: CBC_coagulation_panel (PT/INR, aPTT) .",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood. I don’t know whether I take any blood thinners (warfarin/apixaban/rivaroxaban/aspirin) or if I have easy bruising.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—since you’re actively coughing blood, we need to assess the source and rule out dangerous bleeding; are you having worsening shortness of breath or chest pain right now, and do you have any black/tarry stools or vomiting blood?  \nDoctor: In the meantime, REQUEST TEST: CT_Chest_with_contrast and REQUEST TEST: Sputum_Gram_stain_Culture plus REQUEST TEST: TB_test (AFB_sputum_or_GeneXpert).",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having worsening shortness of breath or chest pain right now.\n\nI don’t know about black/tarry stools or vomiting blood.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need two quick safety checks: are you dizzy/faint, and has the blood gotten heavier or come as clots rather than streaks? Also, are you able to speak full sentences without getting breathless.  \nDoctor: REQUEST TEST: Vital_Signs_And_Oxygen_Saturation_(pulse_ox)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’m dizzy or faint.\n\nI don’t know whether the blood has gotten heavier or come as clots rather than streaks.\n\nI don’t know if I’m able to speak full sentences without getting breathless.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need immediate vitals and oxygen level—REQUEST TEST: Vital_Signs_And_Oxygen_Saturation_(pulse_ox); if you’re very breathless, dizzy/faint, or clots/rapidly increasing blood happen, go to the ER now.  \nDoctor: Next, I’m going to clarify severity: can you describe the blood as **bright red vs dark**, and is it **intermittent streaks vs filling/sizable amounts**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether the blood is bright red or dark.\n\nI don’t know whether it’s intermittent streaks or filling/sizable amounts.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m ordering immediate clarification plus another safety check—REQUEST TEST: Type_and_Screen_and_Blood_Grouping; and please tell me right now: are you able to breathe comfortably and speak full sentences, yes or no.  \nDoctor: Also, if you can, estimate the pattern over the last hour: still just streaks, or larger amounts/clots—or have you had any increase.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood. I don’t know whether I’m able to breathe comfortably and speak full sentences, yes or no.\n\nI don’t know how the pattern has been over the last hour (just streaks vs larger amounts/clots, or any increase).",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as urgent—can you **safely** answer: are you able to speak full sentences without stopping for breath **right now** (yes/no), and is the blood **bright red** or **dark**?  \nDoctor: While you answer, I need the urgent results—REQUEST TEST: Type_and_Screen_and_Blood_Grouping; REQUEST TEST: CT_Chest_with_contrast (and repeat Vital_Signs_And_Oxygen_Saturation if not already done).",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood. I don’t know whether I’m able to speak full sentences without stopping for breath right now (yes/no).\n\nI don’t know whether the blood is bright red or dark.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need one yes/no right now: can you speak full sentences without stopping for breath? If not, or if the bleeding is increasing, you need the ER immediately.  \nDoctor: Next, do you take any blood thinners or antiplatelets (warfarin/apixaban/rivaroxaban/clopidogrel/aspirin), and have you noticed it getting worse over the last hour (yes/no)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I take any blood thinners or antiplatelets (warfarin/apixaban/rivaroxaban/clopidogrel/aspirin) or whether it’s getting worse over the last hour. I am coughing up blood.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Because you’re actively coughing blood and we still don’t know severity, are you currently able to speak full sentences without stopping for breath—yes or no?  \nDoctor: If yes, do you know roughly how much blood it is (just streaks vs teaspoon vs more than a teaspoon or clots)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood. I don’t know whether I’m currently able to speak full sentences without stopping for breath.\n\nI don’t know roughly how much blood it is (just streaks vs teaspoon vs more than a teaspoon or clots).",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely determine severity from your answers—if you cannot speak full sentences right now, or if the bleeding is increasing/clots are present, please go to the ER immediately.  \nDoctor: REQUEST TEST: Immediate_Vitals_And_Oxygen_Saturation_(pulse_ox); REQUEST TEST: Repeat_CBC_Coagulation_(CBC, PT/INR, aPTT) now.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a yes/no right now—can you speak full sentences without stopping for breath?  \nDoctor: Also yes/no: is the blood increasing or are there clots rather than just streaks?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to speak full sentences without stopping for breath.\n\nI don’t know whether the blood is increasing or whether there are clots rather than just streaks.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t confirm breathing or bleeding severity, I’m treating this as **potentially serious hemoptysis**—please go to the **ER now** for immediate airway/bleeding assessment, continuous vitals, and CT imaging.  \nDoctor: REQUEST TEST: STAT repeat **Vital_Signs_And_Oxygen_Saturation_(pulse_ox)** + **CBC_with_differential_and_Platelets** + **PT/INR_and_aPTT** and **Type_and_Screen** now.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as **life-threatening hemoptysis until proven otherwise**—are you having any shortness of breath right now, yes or no?  \nDoctor: Also, how much blood in the last few hours: **streaks only**, **teaspoon amounts**, or **more than a teaspoon/clots**—which is it?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.\n\nI don’t know whether I’m having any shortness of breath right now.\n\nI don’t know how much blood it is in the last few hours (streaks only vs teaspoon amounts vs more than a teaspoon/clots).",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: You’re actively coughing blood and can’t confirm breathing or amount—this requires emergency evaluation now; go to the ER/911 immediately for airway protection and rapid imaging.  \nDoctor: REQUEST TEST: Immediate_Vitals_And_Oxygen_Saturation_(pulse_ox) + STAT_CBC_with_differential + PT/INR_and_aPTT + Type_and_Screen.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood. I don’t know whether I’m having any shortness of breath right now. I don’t know how much blood it is.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to answer yes/no right now: are you **short of breath at rest** (not just when coughing), and are you on **any blood thinners/antiplatelets** (warfarin, apixaban, rivaroxaban, clopidogrel, aspirin)?  \nDoctor: Also, go to the ER immediately for airway/bleeding assessment—REQUEST TEST: STAT Vital_Signs_And_Oxygen_Saturation_(pulse_ox) and REQUEST TEST: STAT CBC_with_differential_and_Platelets, PT/INR_and_aPTT, Type_and_Screen.  \nDoctor: Given active hemoptysis with immunosuppression/CF/COPD/asthma and inability to assess severity, I will treat this as **significant hemoptysis likely from infection/bronchiectasis** until imaging proves otherwise.",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.\n\nI don’t know whether I’m short of breath at rest.\n\nI don’t know whether I’m on any blood thinners/antiplatelets (warfarin, apixaban, rivaroxaban, clopidogrel, aspirin). I am immunosuppressed.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re actively coughing blood and can’t confirm shortness of breath or clots, this is **emergency hemoptysis**—you need to go to the ER/911 now for airway monitoring, oxygen, and rapid CT.  \nDoctor: REQUEST TEST: STAT Vital_Signs_And_Oxygen_Saturation_(pulse_ox) + STAT CBC_with_differential_and_Platelets + STAT PT/INR_and_aPTT + Type_and_Screen.",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m very concerned—active hemoptysis in an immunosuppressed patient needs emergency care. Are you able to call emergency services/go to the ER right now, and do you have someone with you to take you?  \nDoctor: REQUEST TEST: STAT Vital_Signs_And_Oxygen_Saturation_(pulse_ox) + STAT CBC_with_differential_and_Platelets + STAT PT/INR_and_aPTT + Type_and_Screen.",
+      "turn": 18
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.\n\nI don’t know whether I can call emergency services or go to the ER right now, or whether I have someone with me to take me.",
+      "turn": 18
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re actively coughing blood and can’t confirm breathing stability or bleeding amount, you need emergency care now—call 911/your local emergency number immediately (or have someone call) and do not drive yourself.  \nDoctor: While help is on the way, tell me: are you feeling faint/dizzy or struggling to breathe right now (yes/no)?",
+      "turn": 19
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up blood.",
+      "turn": 19
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given **active hemoptysis** in an **immunosuppressed** patient with **COPD/CF**, the most likely urgent cause is **infectious bronchiectasis/pneumonia (including possible TB or fungal infection)**, but this can’t be safely distinguished without the STAT labs and CT—so the working diagnosis is **significant hemoptysis due to severe lower-respiratory infection/bronchiectasis**.  \nDIAGNOSIS READY: Significant hemoptysis most consistent with severe lower-respiratory infection/bronchiectasis (infectious etiology—TB/fungal and other causes must be ruled out urgently)\n\n[DDX]\n1. Bronchiectasis",
+      "turn": 20
+    }
+  ],
+  "final": {
+    "predicted": "Bronchiectasis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 20,
+    "predicted_remapped": "Bronchiectasis",
+    "predicted_set_remapped": [
+      "Bronchiectasis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30303,
+      "completion_tokens": 1902,
+      "calls": 20
+    },
+    "patient": {
+      "prompt_tokens": 38683,
+      "completion_tokens": 849,
+      "calls": 20
+    }
+  }
+}

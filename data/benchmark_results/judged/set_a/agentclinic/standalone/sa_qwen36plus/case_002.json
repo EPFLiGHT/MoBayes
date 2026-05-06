@@ -1,0 +1,116 @@
+{
+  "case_idx": 2,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here for my annual well-check, but I’ve also noticed a rough, scaly, sandpaper-like plaque on the back of my left hand. It doesn’t hurt and isn’t tender.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long has this plaque been present, and have you noticed any changes in its size, color, or surface (such as bleeding, crusting, or rapid growth)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I first noticed the plaque a few months ago, and I think it’s been slowly getting a bit larger. The color seems about the same—rough and scaly—with no bleeding, crusting, or rapid growth.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of significant cumulative sun exposure, fair skin, or frequent sunburns?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve had a lot of time outdoors over the years, and I do enjoy walking and sunbathing, so I get regular sun exposure. I’m not sure about having fair skin or frequent sunburns—I don’t recall significant sunburns.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "When you press on the plaque, does it feel firm or hard underneath, or is it relatively flat and soft?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It feels firm underneath, not soft—like it’s slightly raised and hard.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "What color is the plaque (e.g., pink, red, brown, or skin-colored)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“It’s kind of skin-colored to slightly pinkish-brown, not bright red. The surface looks rough and scaly, and it feels firm when I press on it.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic keratosis, Squamous cell carcinoma, Bowen disease, Seborrheic keratosis, Verruca vulgaris",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Actinic keratosis",
+    "predicted_set": [
+      "Actinic keratosis",
+      "Squamous cell carcinoma",
+      "Bowen disease",
+      "Seborrheic keratosis",
+      "Verruca vulgaris"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Actinic Keratosis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1967,
+      "completion_tokens": 10679
+    },
+    "patient": {
+      "prompt_tokens": 2219,
+      "completion_tokens": 202,
+      "calls": 5
+    }
+  }
+}

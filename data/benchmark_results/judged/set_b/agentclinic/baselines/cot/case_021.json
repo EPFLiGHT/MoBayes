@@ -1,0 +1,108 @@
+{
+  "case_idx": 21,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient reports a 2-month history of symptoms that she believes are indicative of pregnancy, including breast tenderness, nausea, weight gain, and urinary frequency. She has been attempting to conceive for 6 months after discontinuing oral contraceptives. She announces that she believes she is pregnant due to these symptoms.",
+    "Symptoms": {
+      "Primary_Symptom": "Reports of pregnancy symptoms",
+      "Secondary_Symptoms": [
+        "Breast tenderness",
+        "Nausea",
+        "6.6-lb weight gain",
+        "Urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Has been off oral contraceptives for 6 months. No other significant medical history.",
+    "Social_History": "Married, trying to conceive. Non-smoker. Drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain. Reports increased fatigue."
+  },
+  "objective_for_doctor": "Evaluate a 34-year-old woman requesting prenatal care, with subjective feelings of pregnancy but negative urine β-hCG.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello—what brings you in today? Patient: For the past two months I’ve had breast tenderness, nausea, some weight gain (about 6.6 pounds), urinary frequency, and increased fatigue, and I think I might be pregnant since we’ve been trying to conceive.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 2 months of breast tenderness, nausea, mild weight gain, urinary frequency, fatigue, and trying to conceive → raises pregnancy-related causes (normal early pregnancy) and also endocrine mimics (e.g., aromatase deficiency is unlikely; but we should consider other hormone-related conditions). From the provided disease list, the most directly matching condition is **Pseudocyesis** (false pregnancy symptoms) if pregnancy tests are negative, but we don’t yet know test results. Need to discriminate: is she actually pregnant?\nTop candidates (provisional):\n1) **Pseudocyesis** — can present with pregnancy-like symptoms (breast tenderness, nausea, weight gain, fatigue) especially if pregnancy tests are negative.\n2) **Situational syncope** — not a match (no syncope).\n3) **Silent Thyroiditis** — can cause fatigue and weight changes, but breast tenderness/nausea/urinary frequency are less typical.\n4) **Aromatase deficiency** — would more likely affect puberty/fertility, not classic pregnancy symptoms.\n5) **Asthma/COPD** — not relevant.\nMost informative next question: confirm pregnancy status with testing.\n[/REASONING]\nHave you taken a home urine pregnancy test or had a blood (serum) hCG test yet—if so, what were the results and when was the test done?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had a pregnancy test yet, so I’m not sure—I only based it on how I’ve been feeling and that we’ve been trying to conceive. Doctor, what test should I do first?",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: No pregnancy test yet; symptoms for 2 months; trying to conceive. We need to establish whether this is true pregnancy vs pseudocyesis vs endocrine disorder.\nTop candidates:\n1) **Pseudocyesis** — only becomes likely if pregnancy tests are negative.\n2) **Silent Thyroiditis** — could explain fatigue/weight change; would be considered after pregnancy is ruled out.\n3) **Aromatase deficiency** — less likely for these specific symptoms.\n4) **Acute lymphoblastic leukemia / Acute myelogenous leukemia** — fatigue/weight change could occur, but breast tenderness/nausea/urinary frequency are not typical; still, we’ll only consider if pregnancy and endocrine causes don’t fit.\nMost informative next action: recommend first-line test.\n[/REASONING]\nFor the first test, do a **home urine pregnancy test today** (first-morning urine if possible). If it’s negative but your symptoms persist, the next step is a **blood (serum) quantitative hCG** and then we can evaluate other causes.\n\nOne question: **Have you had any vaginal bleeding or spotting, or severe pelvic/abdominal pain?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any vaginal bleeding or spotting, or severe pelvic/abdominal pain? Patient: I haven’t had any bleeding or spotting, and I don’t have severe pelvic or abdominal pain—just the breast tenderness, nausea, fatigue, urinary frequency, and that slight weight gain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: No vaginal bleeding/spotting; no severe pelvic/abdominal pain; symptoms are breast tenderness, nausea, fatigue, urinary frequency, mild weight gain; trying to conceive; no pregnancy test yet.\nTop candidates:\n1) **Pseudocyesis** — still possible, but only after pregnancy is ruled out.\n2) **Silent Thyroiditis** — fatigue and weight change fit; nausea can occur; urinary frequency is less classic but could be from other causes.\n3) **Acute myelogenous leukemia / Acute lymphoblastic leukemia** — fatigue/weight change could fit, but lack of other red flags (bruising, infections) and the “trying to conceive” context makes pregnancy/endocrine more likely.\n4) **Aromatase deficiency** — not typical for these symptoms.\n5) **Situational syncope** — not relevant.\nMost informative next question: confirm pregnancy status with testing.\n[/REASONING]\nNext step: **please do a urine pregnancy test today** (first-morning urine if you can).  \n\nOne question while you’re arranging that: **Have you noticed any breast discharge (milky or bloody), or any new lumps in the breast?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any breast discharge (milky or bloody), or any new lumps in the breast? Patient: No, I haven’t noticed any discharge or any new lumps—just the breast tenderness. Doctor: Okay—please do a home urine pregnancy test today, and if it’s negative we’ll follow up with a blood hCG.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: No vaginal bleeding/spotting, no severe pelvic/abdominal pain, no breast discharge or new lumps; symptoms include breast tenderness, nausea, fatigue, urinary frequency, mild weight gain; trying to conceive; no pregnancy test yet.\nTop candidates:\n1) **Pseudocyesis** — pregnancy-like symptoms without confirmed pregnancy; becomes more likely if urine/blood hCG are negative.\n2) **Silent Thyroiditis** — can cause fatigue and weight change; nausea can occur; urinary frequency is less specific but could be secondary (e.g., fluid shifts) or coincidental.\n3) **Acute lymphoblastic leukemia** — fatigue/weight change could fit, but breast tenderness and urinary frequency are not typical; no other systemic symptoms provided yet.\n4) **Acute myelogenous leukemia** — similar reasoning; would expect more red flags (fevers, bruising, infections).\n5) **Aromatase deficiency** — not a good fit for adult pregnancy-like symptoms.\nMost discriminating next step is already planned: pregnancy testing (urine then serum hCG). I’ll wait for results before committing to a narrower diagnosis.\n[/REASONING]\n[ABSTAIN] Pregnancy status is not yet confirmed (no urine/blood hCG results), so it’s premature to distinguish true pregnancy from pseudocyesis and endocrine causes.  \n[POSSIBLE] Pseudocyesis, Silent Thyroid",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pseudocyesis",
+      "Silent Thyroiditis"
+    ],
+    "predicted_raw": [
+      "Pseudocyesis",
+      "Silent Thyroid"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Pseudocyesis",
+      "Silent Thyroiditis",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5283,
+      "completion_tokens": 1101
+    },
+    "patient": {
+      "prompt_tokens": 3277,
+      "completion_tokens": 247,
+      "calls": 4
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "case_idx": 28,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "AGE": 30,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "muscle weakness with fatigue",
+    "EVIDENCES_ENG": "['speech difficulties', 'shortness of breath', 'muscle weakness with fatigue', 'eyelid drooping (ptosis)']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 30\n- I have difficulty articulating words/speaking.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- My symptoms of muscle weakness increase with fatigue and/or stress.\n- I have a hard time opening/raising one or both eyelids.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Myocarditis', 0.29305308585042955], ['Anemia', 0.22668713305350277], ['Myasthenia gravis', 0.18563805256960447], ['Scombroid food poisoning', 0.143392546344565], ['Acute dystonic reactions', 0.08300196512498118], ['Possible NSTEMI / STEMI', 0.06822721705691703], ['Pulmonary embolism', 0.0]]",
+    "PATHOLOGY": "Myasthenia gravis",
+    "INITIAL_EVIDENCE": "fatigabilité_msk",
+    "EVIDENCES": "['dysarthrie', 'dyspn', 'fatigabilité_msk', 'ptose', 'trav1_@_N']",
+    "patient_id": "htsim_1008",
+    "_test_index": 1008,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 30-year-old M patient presents to the clinic. Chief complaint: muscle weakness with fatigue.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My main issue is muscle weakness that gets worse with fatigue and/or stress. I also have difficulty articulating words/speaking, shortness of breath or difficulty breathing in a significant way, and I have a hard time opening or raising one or both eyelids.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thanks. Does your weakness come on and worsen after repeated use of the same muscles (e.g., talking longer or using your arms), and do you ever notice symptoms improve with rest or a nap?  \nDoctor: Also, any double vision, drooping eyelids, trouble swallowing, or feeling like food/liquids “go down the wrong way”?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have difficulty opening or raising one or both eyelids. I also have difficulty articulating words/speaking and shortness of breath or difficulty breathing in a significant way.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given the eyelid weakness and slurred/altered speech with breathing trouble, do these symptoms fluctuate during the day and get worse later (especially with prolonged talking), and have you had any true double vision?  \nREQUEST TEST: Acetylcholine_Receptor_Antibody (AChR) + MuSK_antibody  \nREQUEST TEST: Bedside_edrophonium_or_Icing_test_for_myhasthenia (if available)  \nREQUEST TEST: Pulmonary_Function_Tests_with_FVC (to assess breathing muscle weakness)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have muscle weakness that gets worse with fatigue and/or stress, and I have difficulty opening or raising one or both eyelids. I also have difficulty articulating words/speaking and shortness of breath or difficulty breathing in a significant way.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this pattern (fatigable weakness with eyelid and speech involvement) makes myasthenia gravis likely; do you have any trouble swallowing or choking on liquids, and are your symptoms worse after chewing/talking and better after lying down?  \nDoctor: If possible, bring any prior test results; meanwhile I want to assess severity—have you ever had to go to the ER for breathing trouble, and do you have a weaker cough or can you count to 20 in one breath?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have shortness of breath or difficulty breathing in a significant way, and my muscle weakness increases with fatigue and/or stress. I also have difficulty articulating words/speaking and trouble opening or raising one or both eyelids.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on your fatigable weakness plus eyelid and speech involvement with significant breathing trouble, this fits **myasthenia gravis** most strongly; have you had recent infections, new medications (especially antibiotics like aminoglycosides/fluoroquinolones or beta-blockers), or rapidly worsening symptoms over hours to days?  \nREQUEST TEST: Chest_CT_or_X-ray_for_Thymoma (and to assess lungs/mediastinum)  \nREQUEST TEST: Serum_Creatine_Kinase_CK_and_Thyroid_panel (to help rule out mimics like myopathies/thyroid disease)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have muscle weakness that gets worse with fatigue and/or stress, difficulty articulating words/speaking, a hard time opening/raising one or both eyelids, and shortness of breath or difficulty breathing in a significant way.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to clarify a few urgent details: since breathing trouble is significant, are you having symptoms right now (at rest), and have you had any choking/stridor or trouble swallowing saliva?  \nDoctor: Also, does your weakness improve after rest and do you notice it fluctuates over minutes to hours (e.g., worse later in the day)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, and a hard time opening/raising one or both eyelids. I also have muscle weakness that increases with fatigue and/or stress.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you may have fatigable muscle weakness affecting breathing, I’m going to treat this as urgent: are you currently having trouble breathing, speaking in full sentences, or feeling like you can’t catch your breath, and can you swallow saliva without choking?  \nDoctor: Also, over the last 24 hours, did this worsen suddenly (hours–day), and have you recently started or changed any medications or had an infection?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, and a hard time opening or raising one or both eyelids. I also have muscle weakness that increases with fatigue and/or stress.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given fatigable eyelid weakness and speech changes plus significant shortness of breath, I’m concerned about potentially life-threatening myasthenic weakness; are you able to breathe comfortably right now and speak full sentences, or are you feeling worse at rest?  \nDoctor: Also, do you have a history of thymus disease/thymoma, autoimmune disease, or prior similar episodes, and have you had any recent infection or new medication in the last 2 months?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, and a hard time opening or raising one or both eyelids. I also have muscle weakness that increases with fatigue and/or stress.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you’re having significant shortness of breath along with fatigable eyelid and speech weakness, we must treat this as urgent; right now, are you able to speak full sentences without stopping for breath, and can you swallow saliva normally?  \nDoctor: Also, have these symptoms been getting worse over hours to days, and do you have any history of thymoma/thymus disease or recent new medications (especially antibiotics or beta-blockers)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, and a hard time opening or raising one or both eyelids. I also have muscle weakness that increases with fatigue and/or stress.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you’re not sure and you report significant shortness of breath, I need to assume possible **myasthenic respiratory involvement** until proven otherwise: are you currently able to speak full sentences and breathe comfortably at rest, yes or no?  \nDoctor: Also, can you swallow saliva without choking, yes or no—if either answer is “no,” we’re treating this as an emergency and you should go to the ER/activate emergency services now.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, and I have a hard time opening or raising one or both eyelids. I also have muscle weakness that increases with fatigue and/or stress.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely confirm your breathing/swallowing status because you’re unsure, and your pattern (fatigable eyelid + speech weakness with significant shortness of breath) could represent **myasthenic crisis**—are you currently struggling to speak full sentences or feeling worse at rest **right now** (yes/no)?  \nDoctor: If there’s any doubt, please **go to the ER/Call emergency services immediately**; in the meantime, do you have someone who can take you and drive you now (yes/no)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, a hard time opening or raising one or both eyelids, and muscle weakness that increases with fatigue and/or stress.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t confirm whether you can speak full sentences or swallow saliva safely and you report significant shortness of breath with fatigable eyelid/speech weakness, this could be **myasthenic crisis**; please **go to the ER now or call emergency services**.  \nDoctor: While you go, can you tell me if you have a history of thymoma/myasthenia, or if any symptoms started/worsened over the last 24 hours (yes/no)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have shortness of breath or difficulty breathing in a significant way, difficulty articulating words/speaking, a hard time opening or raising one or both eyelids, and my muscle weakness increases with fatigue and/or stress.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you have uncertain but significant breathing trouble plus fatigable eyelid and speech weakness, I’m treating this as an emergency consistent with **myasthenic crisis**; you must go to the ER now or call emergency services.  \nDoctor: DIAGNOSIS READY: Myasthenia gravis with suspected myasthenic crisis (urgent respiratory muscle involvement)\n\n[DDX]\n1. Myasthenia gravis",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12,
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13182,
+      "completion_tokens": 1231,
+      "calls": 12
+    },
+    "patient": {
+      "prompt_tokens": 17423,
+      "completion_tokens": 671,
+      "calls": 12
+    }
+  }
+}

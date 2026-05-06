@@ -1,0 +1,147 @@
+{
+  "case_idx": 3,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Hemophilia A",
+  "patient_actor_hidden": {
+    "Demographics": "18-month-old boy",
+    "History": "The patient is brought in by his parents due to swelling in his right knee noticed after playing in the park. The parents report that there was no obvious injury or incident at the park that could have led to the swelling. Upon further questioning, the mother recalls that an uncle on her side of the family had similar problems, suggesting a possible genetic component.",
+    "Symptoms": {
+      "Primary_Symptom": "Swelling of the right knee",
+      "Secondary_Symptoms": [
+        "No recent trauma or injury",
+        "Familial history of similar symptoms"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "The parents report no known allergies, normal birth and developmental history for the child.",
+    "Review_of_Systems": "Denies fever, rash, or recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with swelling in the right knee and a familial history of similar problems.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s start: when did your right knee swelling begin, and was there an injury or sudden twist beforehand? Patient: Doctor: Do you have fever, redness/warmth over the knee, or pain mainly with walking or at rest? Patient: Doctor: Any prior episodes of similar knee swelling (in you or other family members), and does it ever involve other joints?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Doctor: When did your right knee swelling begin, and was there an injury or sudden twist beforehand? Patient: It started after he was playing in the park, and there wasn’t any obvious injury or twisting that we could recall."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: On a scale of 0–10, how painful is the swollen right knee, and is it warm/red to the touch or does he have fever or chills? Patient: Doctor: REQUEST TEST: Knee_Ultrasound (look for effusion; assess for DVT if any calf symptoms)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.1°C (98.8°F); Blood Pressure 90/52 mm Hg; Heart Rate 146/min; Respiratory Rate 26/min. Right knee: noticeable warm swelling without overlying redness or signs of local infection. Knee ultrasound: compatible with hemarthrosis of the right knee; no evidence of fracture or dislocation. CBC: Hemoglobin 12.2 g/dL, Hematocrit 36%, Leukocyte count 7,300/mm³, Platelet count 200,000/mm³. Coagulation: ACT 52.0 s (prolonged), PT 14.0 s, Thrombin time within <2 seconds deviation from control, Reticulocyte count 1.2%."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this is bleeding into the joint (hemarthrosis) after minimal trauma; I need to know: does he have a personal or family history of easy bruising, nosebleeds, prolonged bleeding after cuts/dental work, or similar episodes in relatives? Doctor: Also, can you tell me whether he’s on any blood thinners/NSAIDs (including aspirin) and whether you’ve noticed abnormalities in other joints besides the right knee?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Patient: We haven’t noticed unusual bruising, nosebleeds, or bleeding that lasts longer than expected after cuts or dental work. Patient: He’s not taking any blood thinners or aspirin/NSAIDs, and the only swelling we’ve seen is in his right knee."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Thank you—given the hemarthrosis after minor/uncertain trauma plus a prolonged ACT (52 s) with no infection signs or other bleeding, I’m most concerned about an inherited coagulation disorder; have you seen hemarthroses or bleeding issues in any family members, especially males (e.g., hemophilia), or any known “factor” diagnoses? Doctor: REQUEST TEST: Factor VIII_Activity Doctor: REQUEST TEST: Factor IX_Activity",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.1°C (98.8°F); Blood Pressure 90/52 mm Hg; Heart Rate 146/min; Respiratory Rate 26/min. Right knee swelling: warm to touch, no overlying redness or infection signs. Knee ultrasound: compatible with hemarthrosis of the right knee; no fracture or dislocation. CBC: Hemoglobin 12.2 g/dL; Hematocrit 36%; Leukocyte count 7,300/mm³; Platelet count 200,000/mm³. Coagulation: ACT 52.0 s (prolonged); PT 14.0 s; Thrombin time within <2 seconds deviation from control; Reticulocyte count 1.2%. Factor VIII activity: NORMAL READINGS (not provided). Factor IX activity: NORMAL READINGS (not provided)."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: With hemarthrosis on ultrasound and a prolonged ACT but *normal* factor VIII and IX levels, I’m thinking of an intrinsic pathway inhibitor or contact-system abnormality—did we send a **mixing study (PTT mixing)**, and is there any family history of bleeding with normal factor assays? Doctor: Also, can you confirm whether his **ACT/APTT repeat** corrects on immediate repeat testing and whether **lupus anticoagulant testing** or **factor XI/ XII** testing has been done yet?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "patient",
+      "content": "Doctor: Did the ACT/APTT prolongations correct on immediate repeat testing, and have you had a PTT mixing study done yet? Patient: Yes, we did repeat the test immediately and it stayed prolonged, and we haven’t received results for a mixing study yet."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since the ACT/APTT stays prolonged on repeat and mixing hasn’t been done, we need a PTT mixing study to check for an inhibitor; I suspect an inhibitor-type coagulation problem causing hemarthrosis. Doctor: REQUEST TEST: PTT_Mixing_Study (immediate and incubated) Doctor: REQUEST TEST: Lupus_Anticoagulant_Testing (dRVVT/LA-sensitive)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 6,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.1°C (98.8°F); Blood Pressure 90/52 mm Hg; Heart Rate 146/min; Respiratory Rate 26/min. Right knee: warm to touch swelling with no overlying redness or signs of local infection. Ultrasound knee: compatible with hemarthrosis of the right knee; no evidence of fracture or dislocation. CBC: Hemoglobin 12.2 g/dL; Hematocrit 36%; Leukocyte count 7,300/mm³; Platelet count 200,000/mm³. Coagulation: ACT 52.0 s (prolonged); PT 14.0 s; Thrombin time within <2 seconds deviation from control; Reticulocyte count 1.2%. Factor VIII activity: NORMAL READINGS (not provided). Factor IX activity: NORMAL READINGS (not provided). PTT Mixing Study: NORMAL READINGS. Lupus Anticoagulant Testing"
+    },
+    {
+      "turn": 7,
+      "role": "doctor",
+      "content": "Doctor: We’ve now got hemarthrosis on ultrasound, no infection signs, normal PT/thrombin, prolonged ACT, and a **normal PTT mixing study** (so an inhibitor is less likely); did Factor VIII activity and Factor IX activity come back definitively normal, and is there any family history of “hemophilia-like” bleeding? Doctor: Given hemarthrosis with a prolonged ACT but normal mixing, the next highest-yield step is to check the **contact/intrinsic factors that can present this way**—I’m ordering **Factor XI activity** and **Factor XII activity**. Doctor: REQUEST TEST: Factor_XI_Activity Doctor: REQUEST TEST: Factor_XII_Activity",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 7,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.1°C (98.8°F); Blood Pressure 90/52 mm Hg; Heart Rate 146/min; Respiratory Rate 26/min. Right knee: warm swelling consistent with hemarthrosis; no overlying redness or signs of local infection. Ultrasound knee: compatible with hemarthrosis of the right knee; no fracture or dislocation. CBC: Hemoglobin 12.2 g/dL, Hematocrit 36%, Leukocyte count 7,300/mm³, Platelet count 200,000/mm³. Coagulation: ACT 52.0 s (prolonged), PT 14.0 s, Thrombin time within <2 seconds deviation from control. Factor VIII activity: NORMAL READINGS (not provided). Factor IX activity: NORMAL READINGS (not provided). PTT Mixing Study: NORMAL READINGS. Lupus anticoagulant testing: not provided. Factor XI activity: NORMAL"
+    },
+    {
+      "turn": 8,
+      "role": "doctor",
+      "content": "Doctor: Thanks—so far we have right-knee hemarthrosis on ultrasound after minor trauma, PT and thrombin are normal, ACT/aPTT is prolonged, PTT mixing is normal, Factor XI is normal, and there’s a family history pattern. Is there a known deficiency in the family (especially Factor XII) or any reports of bleeding being unusual for that person/age? Doctor: Also, do you have the Factor XII activity result (or any “contact factor” workup), and were we able to repeat the coagulation panel with aPTT specifically reported (not just ACT)? DIAGNOSIS READY: Hemophilia is unlikely (normal VIII/IX and normal mixing); hemarthrosis with isolated prolonged ACT/aPTT and normal PT suggests **Factor XII deficiency vs other contact factor abnormality**, so I need **Factor XII activity** to confirm—but the current best diagnosis is **contact system factor abnormality (Factor XII deficiency)**.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thanks—so far we have right-knee hemarthrosis on ultrasound after minor trauma, PT and thrombin are normal, ACT/aPTT is prolonged, PTT mixing is normal, Factor XI is normal, and there’s a family history pattern. Is there a known deficiency in the family (especially Factor XII) or any reports of bleeding being unusual for that person/age? Doctor: Also, do you have the Factor XII activity result (or any “contact factor” workup), and were we able to repeat the coagulation panel with aPTT specifically reported (not just ACT)? DIAGNOSIS READY: Hemophilia is unlikely (normal VIII/IX and normal mixing); hemarthrosis with isolated prolonged ACT/aPTT and normal PT suggests **Factor XII deficiency vs other contact factor abnormality**, so I need **Factor XII activity** to confirm—but the current best diagnosis is **contact system factor abnormality (Factor XII deficiency)**.",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7099,
+      "completion_tokens": 910,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 2084,
+      "completion_tokens": 168,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 3641,
+      "completion_tokens": 738,
+      "calls": 4
+    },
+    "moderator": {
+      "prompt_tokens": 258,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

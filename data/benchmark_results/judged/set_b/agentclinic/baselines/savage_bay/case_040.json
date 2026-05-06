@@ -1,0 +1,224 @@
+{
+  "case_idx": 40,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Steven-Johnson syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "47-year-old male",
+    "History": "The patient presents with a rash that started last night, finding it very concerning. He does not recall being exposed to any new environmental stimuli such as detergents or plants like poison ivy. He mentions he recently started seeing a primary care provider for arthritis management and a new onset cough.",
+    "Symptoms": {
+      "Primary_Symptom": "Rash on the upper half of the back",
+      "Secondary_Symptoms": [
+        "Concern over sudden onset",
+        "Recent cough",
+        "Unaware of exposure to new environmental stimuli",
+        "Mucositis"
+      ]
+    },
+    "Past_Medical_History": "Has been diagnosed with arthritis. No other significant past medical history has been mentioned.",
+    "Social_History": "The patient didn't provide any specific social history details during the initial consultation.",
+    "Review_of_Systems": "Reports a new onset cough along with skin and mucosal changes but denies fever, shortness of breath, joint pains, gastrointestinal symptoms, or recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a concerning rash and recent health changes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I started with a rash on the upper half of my back last night, and it’s happened pretty suddenly. I’m also noticing some mouth changes, and I’ve had a new cough recently.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To start, I’ll set a baseline (pre-test) and then narrow with one key question at a time.\n\n**Current posterior (very rough priors given limited info):**\n- Steven-Johnson syndrome: 0.20  \n- Toxic exposure: 0.20  \n- Bed bug bite: 0.15  \n- Asthma: 0.10  \n- Histoplasmosis: 0.10  \n(others combined: 0.25)\n\n**Question 1 (most discriminating):**  \nDid you recently start any new medication in the last 1–3 weeks (especially antibiotics, anti-seizure meds, allopurinol, or NSAIDs), or have you had any new exposure (new supplement/chemical)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t started any new medications that I’m aware of—my arthritis care recently began with my new primary doctor, but I can’t recall any specific new drug or supplement. I also don’t remember any new chemical exposure or irritants.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (after “no new meds/exposures”):**\n- Steven-Johnson syndrome: 0.10  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.25  \n- Asthma: 0.10  \n- Histoplasmosis: 0.15  \n- others combined: 0.30\n\n**Question 2:**  \nCan you describe the rash more specifically: is it **blistering/peeling**, **painful**, or are there **target-like spots** (dark center with lighter ring), versus **itchy small bumps**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Can you describe the rash more specifically—are there blisters or peeling, is it very painful, do you see target-like spots, or is it more like itchy small bumps? Patient: It’s mainly red patches on the upper back; I wouldn’t say blistering or peeling yet, and it’s more uncomfortable than severely painful—there aren’t obvious target-like spots.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (after “red patches, not blistering/peeling, not target-like”):**\n- Steven-Johnson syndrome: 0.05  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.30  \n- Asthma: 0.05  \n- Histoplasmosis: 0.20  \n- others combined: 0.30\n\n**Question 3 (key for rash + mouth changes):**  \nDo you have **mouth sores/ulcers** (painful spots inside the mouth), and do you also have **eye redness or pain**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do have mouth changes, like sores inside the mouth, and I’m not sure about my eyes—I haven’t noticed redness or eye pain so far.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (mouth sores present):**\n- Steven-Johnson syndrome: 0.15  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.15  \n- Asthma: 0.05  \n- Histoplasmosis: 0.25  \n- others combined: 0.30\n\n**Question 4:**  \nDo you have **fever** (measured or felt), and if yes what’s the highest temperature?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had a fever that I’m aware of, and I don’t feel like I’ve had any chills or measured high temperatures.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no fever):**\n- Steven-Johnson syndrome: 0.10  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.20  \n- Asthma: 0.05  \n- Histoplasmosis: 0.20  \n- others combined: 0.35\n\n**Question 5 (to separate SJS vs infection vs insect):**  \nAre the mouth sores **painful and widespread**, and do you also have **skin tenderness** (pain when you touch the rash) or **rapidly increasing rash area** since last night?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are the mouth sores painful and widespread, and do you also have skin tenderness or rapidly increasing rash area since last night? Patient: The mouth sores are pretty painful and feel fairly widespread in my mouth, and the rash seems tender and may be spreading since last night, though it hasn’t blistered or peeled yet.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (painful widespread mouth sores + tender spreading rash):**\n- Steven-Johnson syndrome: 0.30  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.10  \n- Asthma: 0.03  \n- Histoplasmosis: 0.17  \n- others combined: 0.30\n\n**Question 6 (very discriminating):**  \nHave you noticed **any skin involvement on the face/eyes/genitals**, or any **new difficulty swallowing**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any skin involvement on the face or around the eyes or genitals, and any new difficulty swallowing? Patient: I haven’t noticed any rash on my face, eyes, or genitals, but the mouth sores make swallowing a bit uncomfortable.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no face/eye/genital involvement; swallowing uncomfortable from mouth sores):**\n- Steven-Johnson syndrome: 0.35  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.05  \n- Asthma: 0.02  \n- Histoplasmosis: 0.18  \n- others combined: 0.30\n\n**Question 7 (to separate SJS vs toxic exposure vs infection):**  \nDo you have **any current or recent sore throat**, **conjunctival symptoms** (burning/gritty eyes), or **any genital/urinary pain**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any current or recent sore throat, any burning or gritty eye symptoms, or any genital/urinary pain? Patient: I don’t have sore throat or eye burning/grittiness, and I haven’t noticed any genital or urinary pain.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no sore throat/eye/genital/urinary symptoms):**\n- Steven-Johnson syndrome: 0.40  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.03  \n- Asthma: 0.02  \n- Histoplasmosis: 0.15  \n- others combined: 0.30\n\n**Question 8 (cough + rash + mouth sores):**  \nIs the cough **dry or productive**? If productive, what color is the sputum (clear/white/yellow/green/bloody)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My cough is mostly dry, with no mucus coming up, and I haven’t noticed any blood in it.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (dry cough):**\n- Steven-Johnson syndrome: 0.42  \n- Toxic exposure: 0.10  \n- Bed bug bite: 0.03  \n- Asthma: 0.05  \n- Histoplasmosis: 0.10  \n- others combined: 0.30\n\n**Question 9 (SJS key physical sign):**  \nDo you have **any areas of skin that are unusually tender to touch** or that look like **they’re starting to blister/peel**, even if you haven’t noticed obvious blistering yet?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any areas of skin that are unusually tender to touch, or that look like they’re starting to blister or peel, even if you haven’t noticed obvious blistering yet? Patient: Yes—when I touch the red patches on my upper back, it feels noticeably tender, but I haven’t seen any blistering or peeling yet.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (tender rash + painful mucosal sores):**\n- Steven-Johnson syndrome: 0.55  \n- Toxic exposure: 0.12  \n- Bed bug bite: 0.05  \n- Asthma: 0.03  \n- Histoplasmosis: 0.10  \n(others combined: 0.15)\n\n**Question 10 (to confirm severity pattern):**  \nAre you having **any trouble breathing**, wheezing, or chest tightness right now?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are you having any trouble breathing, wheezing, or chest tightness right now? Patient: No—I'm breathing okay and I haven’t noticed wheezing or chest tightness.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no respiratory distress):**\n- Steven-Johnson syndrome: 0.52  \n- Toxic exposure: 0.13  \n- Bed bug bite: 0.05  \n- Asthma: 0.03  \n- Histoplasmosis: 0.10  \n(others combined: 0.17)\n\n**Question 11 (SJS vs other):**  \nHave you had **any new medication at all** in the last **8 weeks** (even if you don’t think it’s “for arthritis”), including over-the-counter pain meds, antibiotics, or herbal supplements?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I really can’t think of any new medications in the last couple of months, including over-the-counter pain relievers, antibiotics, or supplements—nothing that I started intentionally.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no new meds in 8 weeks):**\n- Steven-Johnson syndrome: 0.45  \n- Toxic exposure: 0.15  \n- Bed bug bite: 0.05  \n- Asthma: 0.03  \n- Histoplasmosis: 0.10  \n(others combined: 0.22)\n\n**Question 12 (to distinguish SJS from insect/toxic):**  \nDo you have **any skin rash elsewhere** besides the upper back (e.g., arms/legs/chest), or is it localized to the upper back?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any skin rash elsewhere besides the upper back—like on your arms, legs, chest—or is it only localized there? Patient: It seems mostly on the upper half of my back right now, though it does feel like it’s starting to spread a bit beyond the original patch.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (mostly localized but spreading):**\n- Steven-Johnson syndrome: 0.48  \n- Toxic exposure: 0.18  \n- Bed bug bite: 0.07  \n- Asthma: 0.03  \n- Histoplasmosis: 0.10  \n(others combined: 0.14)\n\n**Question 13 (important for SJS):**  \nHave you noticed **any skin pain with a “burning” sensation** or **any dark/purple spots** developing within the red areas?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any skin pain with a “burning” sensation, or any dark/purple spots developing within the red areas? Patient: It feels tender and uncomfortable, but I wouldn’t describe it as burning, and I haven’t seen any dark or purple spots yet.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (tender, no burning, no purpura):**\n- Steven-Johnson syndrome: 0.44  \n- Toxic exposure: 0.20  \n- Bed bug bite: 0.10  \n- Asthma: 0.03  \n- Histoplasmosis: 0.08  \n(others combined: 0.15)\n\n**Question 14 (to test insect vs drug reaction):**  \nAre the mouth sores and rash appearing **together at the same time**, or did the rash start first and then the mouth sores followed (how many hours apart)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are the mouth sores and rash appearing together at the same time, or did the rash start first and then the mouth sores followed—how many hours apart? Patient: The rash started last night, and the mouth sores seemed to show up shortly after—within a few hours.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Steven-Johnson syndrome, Toxic exposure, Bed bug bite, Histoplasmosis, Asthma",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Steven-Johnson syndrome",
+    "predicted_set": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Bed bug bite",
+      "Histoplasmosis",
+      "Asthma"
+    ],
+    "predicted_raw": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Bed bug bite",
+      "Histoplasmosis",
+      "Asthma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Steven-Johnson syndrome",
+    "predicted_set_remapped": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Bed bug bite"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 32011,
+      "completion_tokens": 1746
+    },
+    "patient": {
+      "prompt_tokens": 23317,
+      "completion_tokens": 817,
+      "calls": 15
+    }
+  }
+}

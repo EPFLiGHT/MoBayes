@@ -1,0 +1,311 @@
+{
+  "case_idx": 48,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache three days after undergoing an open cholecystectomy. She mentions right-sided chest pain that increases on inspiration and has had a productive cough for the last 12 hours. She also had an episode of hypotension post-operation that was resolved with IV fluids. Additionally, she had an abdominal hysterectomy 16 years ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fever and productive cough",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Headache",
+        "Right-sided chest pain that increases on inspiration"
+      ]
+    },
+    "Past_Medical_History": "Underwent abdominal hysterectomy 16 years ago for multiple fibroids of the uterus. She has a 17-year history of smoking one pack of cigarettes daily.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 17 years.",
+    "Review_of_Systems": "Reports discomfort. No other abnormalities noted apart from the symptoms related to her recent surgery and current complaints."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fever, chills, headache, right-sided chest pain, and a productive cough following an abdominal surgery.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m a 57-year-old woman, and three days after my open cholecystectomy I developed fever and chills with a headache. I also have right-sided chest pain that gets worse when I take a deep breath, and I’ve had a productive cough for about the last 12 hours.",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_chills_4b723a54": "yes",
+        "f_headache_380f4309": "yes",
+        "f_chest_pain_27a0380f": "yes",
+        "f_pleuritic_chest_pain_b80fdbc8": "yes",
+        "f_productive_cough_f91866cd": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pneumonia",
+          0.8708188219322965
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016577836901967128
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.01262488779028287
+        ],
+        [
+          "Somatization disorder",
+          0.012494625842369336
+        ],
+        [
+          "Factitious disorder",
+          0.011560150184179241
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a dimple in the center?",
+      "patient_answer": "“No, I haven’t noticed any small raised bumps on my skin with a dimple in the center.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8721093640901831
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01660240504044751
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.012643597709638764
+        ]
+      ],
+      "entropy": 1.1039710568394558
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“No, I haven’t needed to urinate more often than usual, and I haven’t noticed any change in my urination pattern.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8736357670944144
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01663146327783686
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.012665727073595796
+        ]
+      ],
+      "entropy": 1.0909168473460054
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual strength lately?",
+      "patient_answer": "“Yes, I’ve been feeling generally weak since the surgery, with low energy and just not feeling like myself.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9331812839532884
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01950670544486972
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.010876255969137438
+        ]
+      ],
+      "entropy": 0.5722460643116521
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“Dressing myself has felt a bit harder since the surgery—I’m weaker and more easily fatigued, but I can still manage with some effort. I haven’t been totally unable to dress, just slower and uncomfortable.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9278623460153096
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019395521307961034
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.01081426358727961
+        ]
+      ],
+      "entropy": 0.6168580678939245
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes, bumps, or sores along the veins in my arms.” I’ve mainly just had the fever and chills, my productive cough, and the right-sided chest pain when I breathe in.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9278623460153097
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019395521307961034
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.01081426358727961
+        ]
+      ],
+      "entropy": 0.6168580678939245
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "“No, I haven’t had any itchiness on my skin, and I haven’t noticed any new rash or skin changes.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9301177046857696
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019442666078236342
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.010840549860508562
+        ]
+      ],
+      "entropy": 0.5952316970204392
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain in your calves when you walk that goes away once you stop and rest?",
+      "patient_answer": "“No, I haven’t had any calf pain when I walk, and I don’t notice that it improves with rest—my main issues have been the fever and chills, the productive cough, and the right-sided chest pain when I take a deep breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9302070727817815
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019444534179488528
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.010841591448359085
+        ]
+      ],
+      "entropy": 0.5939017440468384
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-colored recently?",
+      "patient_answer": "“No, I haven’t noticed my stools becoming pale or clay-colored—my bowel movements look about the same as usual.” “I’ve mainly just been dealing with the fever and chills, the productive cough, and that right-sided chest pain when I breathe in.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9306490632148783
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01945377330305018
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.010846742860168276
+        ]
+      ],
+      "entropy": 0.5891372571298252
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, or have you had any trouble gripping or holding onto objects lately?",
+      "patient_answer": "“No, I haven’t noticed any weakness in my hands or trouble gripping things—I can hold and use my hands normally, though I’ve felt more tired overall since the surgery.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9349878872093776
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01954446968015633
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.010897311984496722
+        ]
+      ],
+      "entropy": 0.5542190593670772
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_top3": [
+      "Pneumonia",
+      "Acalculous cholecystitis",
+      "Chronic obstructive pulmonary disease"
+    ],
+    "confidence": 0.9349878872093776,
+    "final_entropy": 0.5542190593670772,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Acalculous cholecystitis",
+      "Chronic obstructive pulmonary disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7513,
+      "completion_tokens": 352
+    },
+    "patient": {
+      "prompt_tokens": 6294,
+      "completion_tokens": 439,
+      "calls": 10
+    }
+  }
+}

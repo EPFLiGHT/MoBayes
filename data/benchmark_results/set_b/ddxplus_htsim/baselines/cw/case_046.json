@@ -1,0 +1,109 @@
+{
+  "case_idx": 46,
+  "baseline": "cw",
+  "column": "htsim_v1",
+  "ground_truth": "Unstable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 70\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms have worsened over the last 2 weeks, and I have pain that’s heavy and rated about 4 out of 10. It’s in my lower chest, right and left breast areas, and the epigastric area, and it gets worse with physical exertion but is alleviated with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.  \n\n**Question 1:** When the pain happens, do you also get **shortness of breath** (at rest or with exertion)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify another key feature.\n\n**Question 2:** Do you have **any nausea or vomiting**, or does the pain feel **burning/acid-like** (worse after meals or when lying down)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Question 3:** Have you noticed **fever**, chills, or a **new cough** during these 2 weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Question 4:** Does the pain change with **breathing in deeply** or **pressing on the chest/upper abdomen** (tender to touch)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Question 5:** Any **palpitations** (feeling like your heart is racing or irregular), or have you ever been told you have an **abnormal heart rhythm**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. I’ll ask one more that helps a lot.\n\n**Question 6:** Do you have any **risk factors for blood clots**—for example recent long travel/immobility, leg swelling/pain, recent surgery, or you’re on estrogen/hormone therapy?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I don’t have enough discriminating information yet (shortness of breath, GI symptoms, fever/cough, tenderness/pleuritic component, palpitations/arrhythmia, and clot risk factors are all unknown).  \n\n**[ABSTAIN]** Key symptom features needed to distinguish cardiac ischemia vs pulmonary causes vs GI causes are not provided.  \n**[POSSIBLE]** Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, GERD, Acute pulmonary edema",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "GERD",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6012,
+      "completion_tokens": 377
+    },
+    "patient": {}
+  }
+}

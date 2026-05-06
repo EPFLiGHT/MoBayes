@@ -1,0 +1,288 @@
+{
+  "case_idx": 8,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with complaints of abdominal cramps, nausea, vomiting, and diarrhea which started 2 hours ago. Reports eating reheated food from the afternoon about an hour before symptoms started. Denies any recent travel, sick contacts, or similar symptoms in people around him.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant medical or surgical history.",
+    "Social_History": "College student, reports studying for exams late at night. No recent travel. No history of alcohol or drug abuse.",
+    "Review_of_Systems": "Denies fever, headache, rash, chest pain, dysuria, or cough."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms of food poisoning, taking into account the history of presentation and clinical findings.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor—I'm a 20-year-old male college student. About two hours ago I started having abdominal cramps with nausea, vomiting, and diarrhea. I ate reheated food about an hour before it began, and I haven’t had fever or any other recent travel or sick contacts.”",
+      "extracted_features": {
+        "f_fever_6c156205": "no",
+        "f_abdominal_cramps_5c525b72": "yes",
+        "f_nausea_072ff6bd": "yes",
+        "f_vomiting_7ed7266d": "yes",
+        "f_diarrhea_29117dc0": "yes",
+        "f_recent_travel_3ef3faf4": "no",
+        "f_reheated_food_ingestion_d2b86bba": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.896718245315803
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.02881177060118569
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.008560201782473216
+        ],
+        [
+          "Chronic kidney failure",
+          0.008560201782473216
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006135499418273168
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you experienced any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“No, doctor—I haven’t had any changes in my vision, like blurriness, blind spots, or any loss of sight.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.8984330507576606
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.028866867708080238
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.008576571562698683
+        ]
+      ],
+      "entropy": 0.8857341376784016
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, doctor—I don’t smoke and I don’t have a history of smoking.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9188986816368904
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.016700689542383778
+        ],
+        [
+          "Chronic kidney failure",
+          0.008771939428633121
+        ]
+      ],
+      "entropy": 0.7522512692890203
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lumps or masses in my breast area, painful or painless.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9200952880517065
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.016722437481125695
+        ],
+        [
+          "Chronic kidney failure",
+          0.00878336240616094
+        ]
+      ],
+      "entropy": 0.740336427073339
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of psychological stress or emotional strain?",
+      "patient_answer": "“No, doctor—though I’ve been studying late for exams, I wouldn’t say I’ve had significant emotional strain or psychological stress beyond the usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9314400676363523
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.016928625220379433
+        ],
+        [
+          "Chronic kidney failure",
+          0.008891661309333198
+        ]
+      ],
+      "entropy": 0.6420413875418094
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, could you tell me if you have noticed any changes in the color of your urine, specifically if it has appeared darker than usual?",
+      "patient_answer": "“No, doctor—my urine hasn’t seemed darker than usual, and I haven’t noticed any color changes.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9379001020639584
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.014807666141570863
+        ],
+        [
+          "Chronic kidney failure",
+          0.00687326322728499
+        ]
+      ],
+      "entropy": 0.5961108525089135
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, doctor—I haven’t noticed any breast mass at all, so there’s nothing that’s growing or changing in size. My main issue right now is the sudden abdominal cramps with nausea, vomiting, and diarrhea that started a couple hours ago.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9383033838055715
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.014814033196417819
+        ],
+        [
+          "Chronic kidney failure",
+          0.006876218618332255
+        ]
+      ],
+      "entropy": 0.5911458833242327
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what you're experiencing, could you please tell me if you are currently having any pain in your wrist?",
+      "patient_answer": "“No, doctor—I’m not having any pain in my wrist. My discomfort is mainly in my abdomen, with nausea, vomiting, and diarrhea.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9394313089534202
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.014831840998107223
+        ],
+        [
+          "Chronic kidney failure",
+          0.006884484452214541
+        ]
+      ],
+      "entropy": 0.5805602116010005
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what you're experiencing, could you please tell me if you have noticed any skin lesions, rashes, or unusual marks running along the veins of your arms?",
+      "patient_answer": "“No, doctor—I haven’t noticed any skin lesions, rashes, or unusual marks on my arms or elsewhere. I’ve mainly just had the abdominal cramps with nausea, vomiting, and diarrhea since it started a couple hours ago.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9394313089534202
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.014831840998107223
+        ],
+        [
+          "Chronic kidney failure",
+          0.006884484452214541
+        ]
+      ],
+      "entropy": 0.5805602116010005
+    }
+  ],
+  "final": {
+    "predicted": "Bacillus cereus infection",
+    "predicted_top3": [
+      "Bacillus cereus infection",
+      "Gastric peptic ulcer",
+      "Chronic kidney failure"
+    ],
+    "confidence": 0.9394313089534202,
+    "final_entropy": 0.5805602116010005,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Bacillus cereus infection",
+    "predicted_set_remapped": [
+      "Bacillus cereus infection",
+      "Gastric peptic ulcer",
+      "Chronic kidney failure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6538,
+      "completion_tokens": 506
+    },
+    "patient": {
+      "prompt_tokens": 5315,
+      "completion_tokens": 325,
+      "calls": 9
+    }
+  }
+}

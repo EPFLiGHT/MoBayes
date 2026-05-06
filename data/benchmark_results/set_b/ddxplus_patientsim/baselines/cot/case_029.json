@@ -1,0 +1,172 @@
+{
+  "case_idx": 29,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 77\nSex: Male\nChief Complaint: I have significant dyspnea and your heart is beating very irregularly or in a disorganized pattern",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hello doctor. I’m having significant trouble breathing, and I can feel my heart beating very irregularly—like it’s disorganized. I also have severe COPD, diabetes, high blood pressure, and I’m quite overweight, plus a known heart defect.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe dyspnea, sensation of irregular/disorganized heartbeat; significant comorbidities including severe COPD, diabetes, HTN, obesity, and a known heart defect. This raises concern for cardiopulmonary causes (arrhythmia, ischemia, heart failure/pulmonary edema, pulmonary embolism) as well as COPD exacerbation/bronchospasm and infection.\nTop candidates (tentative):\n1) Atrial fibrillation — “irregularly disorganized” heartbeat strongly suggests AF; dyspnea can be from rapid ventricular response or associated heart failure.\n2) Acute COPD exacerbation / infection — severe COPD with dyspnea; infection can trigger tachyarrhythmia/AF.\n3) Acute pulmonary edema — dyspnea with possible cardiac history/defect; can coexist with arrhythmias.\n4) Pulmonary embolism — can cause sudden/worsening dyspnea and tachyarrhythmias; obesity is a risk factor.\n5) Possible NSTEMI / STEMI — dyspnea and arrhythmia can occur with ischemia.\nMost informative next question: determine whether the dyspnea is sudden vs gradual and whether there are chest pain or pleuritic features to discriminate PE/MI vs COPD exacerbation/AF.\n[/REASONING]\nFirst question (one at a time): **Did this breathing trouble start suddenly (minutes to an hour) or has it been building",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly—within the last hour or so. It’s not something that has been slowly building over days.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden onset dyspnea within ~1 hour + sensation of irregular/disorganized heartbeat + severe COPD and cardiac history/defect + obesity/HTN/diabetes.\nTop candidates:\n1) Atrial fibrillation (or other tachyarrhythmia) — irregular “disorganized” pulse + acute dyspnea; sudden onset fits.\n2) Pulmonary embolism — sudden dyspnea is classic; obesity increases risk; can also cause tachyarrhythmias.\n3) Acute pulmonary edema — sudden/worsening dyspnea can occur, especially with underlying heart disease; may accompany arrhythmias.\n4) Possible NSTEMI / STEMI — ischemia can present with sudden dyspnea and arrhythmias, sometimes without classic chest pain.\n5) Acute COPD exacerbation / infection or bronchospasm — can be sudden, but the prominent irregular heartbeat sensation keeps PE/arrhythmia higher.\nMost informative next question: ask about chest pain/pressure and/or pleuritic pain to help separate PE/MI from primary COPD/arrhythmia.\n[/REASONING]\nNext question: **Are you having any chest pain or chest pressure right now—if yes, is it more like tightness/pressure or sharp pain that worsens when you take a deep breath?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not having chest pain or chest pressure right now. It’s mainly the breathing problem and the feeling that my heartbeat is very irregular.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden dyspnea within 1 hour; no chest pain/pressure; prominent irregular heartbeat sensation; severe COPD; obesity; HTN/diabetes; known heart defect.\nTop candidates:\n1) Atrial fibrillation — best match for “very irregular/disorganized” heartbeat; sudden dyspnea can be due to rapid ventricular response or associated heart failure.\n2) Pulmonary embolism — sudden dyspnea without chest pain is still possible; can cause tachyarrhythmias/irregular rhythm.\n3) Acute pulmonary edema — can cause sudden dyspnea; arrhythmias may coexist; no chest pain doesn’t rule it out.\n4) Bronchospasm / acute asthma exacerbation — can cause sudden dyspnea, but typically not “irregular heartbeat” as the primary symptom.\n5) Possible NSTEMI / STEMI — less likely without chest pain, but still possible; dyspnea/arrhythmia can be atypical.\nMost informative next question: determine whether there are signs of hypoxia/respiratory distress and whether there’s wheezing vs “can’t get air” pattern—also ask about cough/fever and leg swelling to discriminate PE vs COPD/AF.\nSingle most discriminating: **Do you have new wheezing or a cough/fever, or is it more that you can’t catch your breath even without much cough?** \n[/REASONING]",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a cough or fever that I know of. It feels more like I can’t catch my breath—like I’m struggling to get air in.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden dyspnea ~1 hour, no chest pain, no cough/fever; prominent irregular heartbeat sensation; severe COPD; obesity; known heart defect.\nTop candidates:\n1) Atrial fibrillation (or other tachyarrhythmia) — irregular rhythm sensation + sudden dyspnea; COPD can coexist but doesn’t explain irregularity.\n2) Pulmonary embolism — sudden dyspnea with minimal respiratory symptoms can occur; may present with tachyarrhythmias.\n3) Acute pulmonary edema — sudden dyspnea can occur; often with underlying cardiac disease; may not have cough/fever.\n4) Bronchospasm / acute asthma exacerbation — “can’t catch breath” fits, but irregular heartbeat sensation still points to arrhythmia.\n5) Acute COPD exacerbation / infection — less likely without cough/fever, but infection isn’t required; however irregular heartbeat remains key.\nMost informative next question: assess for leg symptoms and oxygenation clues—ask about unilateral leg swelling/pain or recent immobility/surgery to support PE.\n[/REASONING]\nNext question: **Have you noticed any swelling or pain in one leg (especially the calf), or any recent long travel/immobility, surgery, or being bedridden in the past few weeks?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed swelling or pain in one leg. I also haven’t had any recent long travel, surgery, or been bedridden in the past few weeks.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden dyspnea within 1 hour; no chest pain; no cough/fever; no unilateral leg swelling/pain; no recent travel/surgery/immobility; irregular/disorganized heartbeat sensation; severe COPD and known heart defect; obesity/HTN/diabetes.\nTop candidates:\n1) Atrial fibrillation — still most likely given irregular rhythm sensation + acute dyspnea.\n2) Acute pulmonary edema — sudden dyspnea with cardiac history; may occur without cough/fever; can coexist with AF.\n3) Bronchospasm / acute asthma exacerbation — can cause sudden “can’t catch breath,” but irregular heartbeat sensation suggests arrhythmia as primary driver.\n4) Acute COPD exacerbation / infection — less supported (no cough/fever), but COPD exacerbations can occur without infection.\n5) Possible NSTEMI / STEMI — less supported without chest pain, but atypical presentations occur; dyspnea/arrhythmia possible.\nMost informative next question: ask about prior history of AF and whether the irregular rhythm is new; also ask about measured heart rate if known.\n[/REASONING]\nNext question: **Have you ever been told you have atrial fibrillation (or another irregular rhythm) before, and is this irregular heartbeat new for you today?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t remember being told I have atrial fibrillation. But this irregular heartbeat feeling is new for me today.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden dyspnea within 1 hour; new irregular/disorganized heartbeat sensation; no chest pain; no cough/fever; no unilateral leg symptoms or recent immobility; severe COPD; obesity; HTN/diabetes; known heart defect.\nTop candidates:\n1) Atrial fibrillation — strongest match: new irregular rhythm sensation + acute dyspnea.\n2) PSVT or other tachyarrhythmia — can feel sudden and “disorganized,” though classically more regular; still possible.\n3) Acute pulmonary edema — sudden dyspnea in someone with cardiac defect; arrhythmia may be secondary.\n4) Pulmonary embolism — still possible despite no leg symptoms/travel; obesity is risk; sudden dyspnea can occur without chest pain.\n5) Bronchospasm / acute asthma exacerbation or Acute COPD exacerbation — can cause sudden dyspnea; would not explain irregular heartbeat as well, but could coexist.\nMost informative next question: ask about oxygen/respiratory distress markers—specifically whether they’re having trouble speaking full sentences or any bluish lips, and whether they have home pulse oximeter readings.\n[/REASONING]\nNext question: **Are you able to speak full sentences, and do you have any oxygen saturation reading (or do you look/feel blue around the lips)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m having trouble speaking full sentences. I don’t have an oxygen saturation reading, and I haven’t noticed my lips turning blue.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden dyspnea within 1 hour; new irregular heartbeat sensation; severe COPD; known heart defect; difficulty speaking full sentences (significant respiratory distress); no chest pain; no cough/fever; no unilateral leg symptoms; no known AF history; no home SpO2; no cyanosis noticed.\nTop candidates:\n1) Atrial fibrillation with rapid ventricular response — explains new irregular rhythm sensation + acute severe dyspnea and inability to speak full sentences.\n2) Acute pulmonary edema — cardiac defect makes this plausible; severe dyspnea can be prominent; may be associated with arrhythmias.\n3) Pulmonary embolism — sudden severe dyspnea with distress; PE can present without leg symptoms.\n4) Bronchospasm / acute asthma exacerbation or Acute COPD exacerbation — severe COPD can cause inability to speak full sentences; however irregular heartbeat sensation still suggests arrhythmia.\n5) Possible NSTEMI / STEMI — atypical dyspnea/arrhythmia possible, though no chest pain.\nMost informative next question: ask about wheezing/known inhaler response to discriminate bronchospasm/COPD exacerbation from primarily cardiac/PE.\n[/REASONING]\nNext question: **Do you hear wheezing or feel tightness in your chest, and have you tried your rescue inhaler (if you have one) — did it help at all?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I do feel chest tightness, and I have inhalers for my COPD, but I haven’t been able to tell if the rescue one helped—things have felt too bad and fast.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden severe dyspnea within 1 hour; difficulty speaking full sentences; chest tightness; new irregular heartbeat sensation; severe COPD; known heart defect; no cough/fever; no leg swelling/pain; no cyanosis noticed; no home SpO2.\nTop candidates:\n1) Atrial fibrillation with rapid ventricular response — best for new irregular rhythm + sudden severe dyspnea.\n2) Acute pulmonary edema — known cardiac defect makes sudden severe dyspnea plausible; can coexist with AF.\n3) Bronchospasm / acute asthma exacerbation or Acute COPD exacerbation — chest tightness and COPD history fit; but irregular heartbeat sensation suggests arrhythmia is also present.\n4) Pulmonary embolism — sudden severe dyspnea with distress; can occur without leg symptoms; obesity risk.\n5) Possible NSTEMI / STEMI — atypical dyspnea/arrhythmia possible; less supported without chest pain.\nMost informative next question: ask about any history of heart failure/edema and whether symptoms include orthopnea/PND, which would favor pulmonary edema over primary bronchospasm/PE.\n[/REASONING]\nNext question: **When this started, were you worse when lying flat, or do you feel short of breath at night and have to sit up to breathe?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when I lie flat I feel worse. I’ve had to sit up to breathe since it started.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden severe dyspnea within 1 hour; difficulty speaking full sentences; chest tightness; new irregular heartbeat sensation; severe COPD; known heart defect; no cough/fever; no leg symptoms/travel; worse when lying flat and needs to sit up (orthopnea).\nTop candidates:\n1) Acute pulmonary edema — orthopnea strongly supports cardiogenic pulmonary edema; known heart defect increases risk; can present suddenly and with severe distress.\n2) Atrial fibrillation with rapid ventricular response — irregular rhythm sensation + acute dyspnea; AF can precipitate/worsen pulmonary edema.\n3) Pulmonary embolism — can cause dyspnea but orthopnea is less typical (though not impossible).\n4) Bronchospasm / acute COPD exacerbation — can cause dyspnea but orthopnea is more suggestive of heart failure/pulmonary edema.\n5) Possible NSTEMI / STEMI — ischemia can cause acute heart failure/pulmonary edema and arrhythmias; chest pain absent doesn’t exclude.\nMost informative next question: ask about frothy sputum or pink-tinged sputum and whether there’s leg swelling/rapid weight gain (fluid overload) to further support pulmonary edema.\n[/REASONING]\nNext question: **Have you noticed any frothy sputum, coughing up pink or blood-tinged mucus, or sudden weight gain/leg swelling?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed frothy sputum or coughing up pink or blood-tinged mucus. I also haven’t noticed sudden weight gain or leg swelling.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden severe dyspnea within 1 hour; orthopnea (worse lying flat, needs to sit up); difficulty speaking full sentences; chest tightness; new irregular heartbeat sensation; severe COPD; known heart defect; no cough/fever; no leg swelling/travel; no frothy/pink sputum.\nTop candidates:\n1) Acute pulmonary edema — orthopnea + sudden severe respiratory distress + cardiac history/defect; sputum findings not required.\n2) Atrial fibrillation with rapid ventricular response — irregular sensation + sudden dyspnea; AF can precipitate/worsen pulmonary edema.\n3) Bronchospasm / acute COPD exacerbation — COPD history + chest tightness; orthopnea makes primary bronchospasm less likely, but coexistence possible.\n4) Pulmonary embolism — sudden dyspnea possible; orthopnea less typical; no leg symptoms/travel lowers but doesn’t eliminate.\n5) Possible NSTEMI / STEMI — can cause acute heart failure/pulmonary edema and arrhythmias; no chest pain doesn’t exclude.\nMost informative next question: ask about rapid onset of palpitations and whether the irregular rhythm is persistent; also ask if they have a history of heart failure or reduced ejection fraction (known “heart defect” specifics). Single best discriminant: known heart failure history.\n[/REASONING]\nNext question: **Have you ever been",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Have you ever been told you have heart failure, or that your heart’s pumping function is weak (low ejection fraction)?",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden severe dyspnea within 1 hour; orthopnea; difficulty speaking full sentences; chest tightness; new irregular heartbeat sensation; severe COPD; known heart defect; no cough/fever; no leg swelling/travel; no frothy/pink sputum.\nTop candidates:\n1) Acute pulmonary edema — orthopnea + sudden severe dyspnea + cardiac defect history strongly support; AF may be trigger.\n2) Atrial fibrillation with rapid ventricular response — new irregular rhythm sensation + acute dyspnea; can precipitate/worsen pulmonary edema.\n3) Possible NSTEMI / STEMI — ischemia can cause acute heart failure/pulmonary edema and arrhythmias; chest pain absent doesn’t exclude.\n4) Bronchospasm / acute asthma exacerbation or Acute COPD exacerbation — COPD history + chest tightness; orthopnea makes primary lung cause less likely but not impossible.\n5) Pulmonary embolism — sudden dyspnea possible; orthopnea less typical; risk factors not strong here.\nMost informative next question: ask about current vitals/observations—specifically whether they’re very sweaty/clammy or have severe anxiety, and whether they have measured heart rate (or can feel very fast). This helps distinguish AF with RVR vs pulmonary edema alone.\n[/REASONING]\nNext question: **Do you feel like your heart rate is very fast right now (",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels very fast and irregular right now. I don’t know the exact number, but it feels like it’s racing.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden severe dyspnea within 1 hour; orthopnea (worse lying flat, needs to sit up); difficulty speaking full sentences; chest tightness; new irregular “racing” heartbeat; severe COPD; known heart defect; no cough/fever; no leg swelling/travel; no frothy/pink sputum; no known prior AF; no known prior low ejection fraction/heart failure history (not confirmed).\nTop candidates:\n1) Atrial fibrillation with rapid ventricular response — “very fast and irregular/racing” strongly supports AF with RVR; can cause acute dyspnea and precipitate/worsen pulmonary edema.\n2) Acute pulmonary edema — orthopnea + severe distress + cardiac defect history; AF with RVR can be the trigger.\n3) Bronchospasm / acute asthma exacerbation or Acute COPD exacerbation — chest tightness and COPD history; but irregular racing heartbeat is more suggestive of primary arrhythmia.\n4) Possible NSTEMI / STEMI — can present with acute heart failure/pulmonary edema and arrhythmias; chest pain absent doesn’t exclude.\n5) Pulmonary embolism — sudden severe dyspnea possible; orthopnea less typical; no leg symptoms/travel lowers likelihood but not zero.\nMost informative next step would be immediate objective assessment (SpO2, BP, ECG), but per instruction we can provide differential now given sufficient",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Yes doctor—my heart feels very fast and irregular right now. I don’t know the exact number, but it feels like it’s racing.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Atrial fibrillation, Acute pulmonary edema, Bronchospasm / acute asthma exacerbation, Acute COPD exacerbation / infection, Possible NSTEMI / STEMI",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Atrial fibrillation",
+    "predicted_set": [
+      "Atrial fibrillation",
+      "Acute pulmonary edema",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute COPD exacerbation / infection",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 35629,
+      "completion_tokens": 3526
+    },
+    "patient": {
+      "prompt_tokens": 31827,
+      "completion_tokens": 435
+    }
+  }
+}

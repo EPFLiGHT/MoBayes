@@ -1,0 +1,132 @@
+{
+  "case_idx": 1,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 16\nSex: Male\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I have chest pain—more on the lower and left side, and also some upper chest pain. It feels like a knife-stab pain, and I also get out of breath with very little effort, with trouble breathing even when I lie flat (orthopnea).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I need to narrow this down quickly.\n\n**One question:** When did the chest pain start (exact time or how many hours/days ago)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I noticed it recently, but I can’t say the exact time. It started gradually—so not suddenly—and it’s been going on for a bit (not just minutes).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **One question:** Does the pain get worse when you take a deep breath or cough (pleuritic pain), or is it more constant regardless of breathing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s kind of there regardless of breathing. I don’t notice it clearly getting worse with a deep breath or coughing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **One question:** Do you have any leg symptoms—pain/swelling in one calf, or recent long travel/immobility?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No. I don’t have leg pain or swelling in one calf, and I haven’t had recent travel or long immobility.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **One question:** Have you had any fever, cough, or recent cold/flu symptoms?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I recently had a viral infection. I don’t want to say I have a current cough or fever right now, but the viral illness was recent.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** When you say “trouble breathing even when you lie flat,” do you wake up at night short of breath, or need extra pillows to breathe?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I feel short of breath when I lie flat, and I need extra pillows to breathe. I don’t know about waking up at night specifically.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **One question:** Have you noticed swelling in your legs/ankles, or sudden weight gain over days?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed swelling in my legs or ankles, and I haven’t had sudden weight gain over a few days.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **One question:** Do you have any history of heart disease, high blood pressure, or atrial fibrillation—or have you felt palpitations/fast irregular heartbeat?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No history of heart disease or high blood pressure, and I haven’t noticed palpitations or a fast irregular heartbeat.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one last key question to narrow this down.\n\n**One question:** Is the chest pain worse with pressing on the area (tender to touch), or does it feel more “inside” the chest?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It feels more inside the chest rather than tender to touch.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I can’t confidently narrow to a single diagnosis yet because the combination of pleuritic uncertainty (pain not clearly worse with breathing), recent viral illness, and orthopnea/shortness of breath could fit multiple serious causes (cardiac vs pulmonary) and I still need key discriminators (vitals, oxygen level, exam findings, and whether there are signs of infection or heart strain).\n\n[POSSIBLE] Possible NSTEMI / STEMI, Acute pulmonary edema, Pneumonia, Pulmonary embolism, Bronchitis",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Bronchitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9613,
+      "completion_tokens": 403
+    },
+    "patient": {
+      "prompt_tokens": 7872,
+      "completion_tokens": 292
+    }
+  }
+}

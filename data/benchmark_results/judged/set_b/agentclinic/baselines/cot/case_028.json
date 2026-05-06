@@ -1,0 +1,158 @@
+{
+  "case_idx": 28,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Lambert-Eaton Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient reports a 3-month history of chronic cough and progressively worsening difficulty in walking up stairs in his apartment. Interestingly, he notes that his ability to climb stairs improves after he has exercised. Over the last 6 months, he has also experienced a weight loss of 4.6 kg (10.1 lb). The patient has been smoking one pack of cigarettes daily for 35 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Difficulty walking up stairs",
+      "Secondary_Symptoms": [
+        "Chronic cough",
+        "Weight loss of 4.6 kg over 6 months",
+        "Improvement in muscle strength post-exercise"
+      ]
+    },
+    "Past_Medical_History": "No significant previous medical or surgical history reported.",
+    "Social_History": "Smokes one pack of cigarettes daily for 35 years, occasional alcohol consumption.",
+    "Review_of_Systems": {
+      "General": "Weight loss",
+      "Respiratory": "Chronic cough",
+      "Musculoskeletal": "Progressive muscle weakness, improving with exertion",
+      "Neurological": "Sluggish pupil reaction to light"
+    }
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a chronic cough, difficulty walking up stairs which improves after exercise, and significant weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had a chronic cough for about three months, and over the same time my walking up stairs has been getting progressively harder. Oddly, after I exercise it improves, and I’ve also lost about 4.6 kg over the past six months.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: chronic cough x3 months; progressive exertional difficulty (stairs) over same period that improves with exercise; unintentional weight loss ~4.6 kg over 6 months. This suggests a systemic or cardiopulmonary process (e.g., malignancy, chronic lung disease, infection, inflammatory disease, or less commonly a neuromuscular/hematologic cause). The “improves with exercise” pattern can sometimes be seen in certain neuromuscular or cardiac conditions, but we need more discriminating details.\nTop candidates (tentative):\n1) COPD — chronic cough; exertional limitation; weight loss can occur in advanced disease. Would expect smoking history and possibly wheeze/sputum.\n2) Asthma — chronic cough possible, but progressive functional decline and weight loss are less typical; exertion improving symptoms is not classic.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause constitutional symptoms and cough (e.g., infection, mediastinal involvement), but 3 months with exertional decline needs more hematologic clues (fever, bruising, night sweats).\n4) Histoplasmosis — chronic cough and weight loss; can cause progressive respiratory symptoms; risk depends on exposures.\n5) Takotsubo cardiomyopathy / Hypertrophic cardiomyopathy — exertional dyspnea can worsen over time; but chronic cough and weight loss are less typical; still",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: With those symptoms, I’m concerned about a cardiopulmonary or systemic cause. Have you noticed any wheezing, sputum, fevers or night sweats, chest pain, or shortness of breath when you climb stairs? Patient: I don’t really have fevers or night sweats, but I do get more sluggish with stairs, and the cough has been steady. After I exercise, I can climb a bit better, though I haven’t had significant chest pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: chronic steady cough x3 months; progressive stair difficulty but improves somewhat after exercising; no fevers/night sweats; no significant chest pain; weight loss ~4.6 kg/6 months.\nTop candidates:\n1) COPD — chronic cough; exertional limitation; weight loss possible. Refuting: “improves with exercise” is not classic, and no mention of sputum/wheeze.\n2) Asthma — cough can be chronic; exertional symptoms fluctuate; refuting: weight loss and progressive decline over months less typical, and no wheeze reported.\n3) Histoplasmosis — can present with chronic cough and weight loss; refuting: no fevers/night sweats, and “improves with exercise” not typical.\n4) Acute myelogenous leukemia / Acute lymphoblastic leukemia — constitutional symptoms can occur without fevers/night sweats; refuting: no bruising/bleeding symptoms yet; cough could be infection/mediastinal process.\n5) Hypertrophic cardiomyopathy / Takotsubo cardiomyopathy — exertional symptoms are key; refuting: cough and weight loss are less typical, and “improves with exercise” could fit some cardiac physiology but needs more cardiac symptom detail.\nMost informative next question: ask about smoking and/or occupational/environmental exposures, because COPD and certain infections (e.g., histoplasmosis) hinge on that.\n[/REASONING]",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve smoked about a pack a day for 35 years, and I sometimes work around dusty areas with old buildings, but I can’t say I’ve had any specific exposure like birds or bat droppings. I don’t feel chest pain, but I do notice I get more winded and weak going up stairs unless I’ve just exercised a bit.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 3 months chronic cough; progressive exertional dyspnea/weakness on stairs that improves after some exercise; 35 pack-years smoking; dusty work around old buildings; no fevers/night sweats; no chest pain.\nTop candidates:\n1) COPD — strong support: heavy smoking + chronic cough + exertional limitation + weight loss possible. Refuting: “improves with exercise” can happen (warm-up effect) but is not classic; also need sputum/wheeze history.\n2) Lung malignancy (not in provided list) — weight loss + chronic cough + smoking; could cause exertional decline. Not enough data yet (hemoptysis, focal symptoms).\n3) Histoplasmosis — dusty old buildings exposure is a risk; can cause chronic cough and weight loss. Refuting: usually more systemic symptoms, but not required.\n4) Acute myelogenous leukemia / Acute lymphoblastic leukemia — constitutional symptoms possible; cough could be infection/mediastinal involvement. Refuting: no bruising/bleeding, fevers, or night sweats yet.\n5) Asthma — less likely given age/smoking and weight loss; also no wheeze reported.\nMost informative next question: ask about sputum characteristics and hemoptysis (especially blood), because it discriminates COPD vs malignancy vs infection.\n[/REASONING]\nWhat kind of mucus are you coughing up (if",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: What kind of mucus are you coughing up, and have you had any blood in it (even small streaks)? Patient: Mostly my cough is dry or with a little thick mucus, not much at a time, and I haven’t noticed any blood.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: chronic cough mostly dry or small amounts thick mucus; no hemoptysis; heavy smoking; dusty old buildings exposure; progressive exertional dyspnea/weakness improving with warm-up; weight loss.\nTop candidates:\n1) COPD — still most likely: chronic cough, smoking, exertional limitation; sputum can be minimal; no hemoptysis doesn’t rule out COPD.\n2) Lung malignancy — still possible: smoking + weight loss + chronic cough; refuting: no hemoptysis and no focal symptoms yet, but early disease can lack hemoptysis.\n3) Histoplasmosis — exposure risk; can cause chronic cough/weight loss; refuting: no fevers/night sweats and no mention of significant sputum.\n4) Asthma — less likely: weight loss and smoking history; refuting: no wheeze reported.\n5) Acute myelogenous leukemia / Acute lymphoblastic leukemia — less likely without systemic signs (bruising, infections, fevers), but cough could be from infection/mediastinal disease.\nMost informative next question: ask about wheezing/shortness of breath at rest and any history of COPD/asthma meds, because that helps confirm COPD severity and distinguish from cardiac causes.\n[/REASONING]\nDo you wheeze or have shortness of breath even when you’re resting, and have you ever been told you have COPD or asthma or",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t really wheeze, but I do get short of breath even with mild activity, and it’s worst going up stairs unless I’ve warmed up a bit. I’ve never been told I have COPD or asthma, and I’m not on any inhalers or breathing medications.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: chronic cough x3 months; heavy smoking; dusty old buildings exposure; progressive exertional dyspnea/weakness on stairs that improves with warm-up; minimal sputum; no hemoptysis; no wheeze; no known COPD/asthma; no inhalers.\nTop candidates:\n1) COPD — still top: smoking + chronic cough + exertional dyspnea. Lack of wheeze doesn’t exclude COPD; some patients have chronic bronchitis or emphysema without prominent wheeze.\n2) Lung malignancy — smoking + weight loss + chronic cough + progressive dyspnea. Lack of hemoptysis doesn’t rule out.\n3) Histoplasmosis — dusty old buildings exposure; can cause chronic cough and weight loss; dyspnea possible. Less likely without systemic symptoms, but still plausible.\n4) Asthma — less likely: no wheeze, significant smoking history, weight loss.\n5) Acute myelogenous leukemia / Acute lymphoblastic leukemia — constitutional symptoms possible; cough could be infection/mediastinal involvement; currently no bruising/fever/night sweats.\nMost informative next question: ask about oxygenation/associated symptoms—specifically, do you have leg swelling, orthopnea (worse lying flat), or waking up short of breath at night (paroxysmal nocturnal dyspnea)—to screen for heart failure/cardiac causes.\n[/RE",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any leg swelling, trouble breathing when lying flat, or waking up at night short of breath? Patient: I haven’t had leg swelling, but I do feel more winded if I lie down for a while, and I’ve had some nights where I wake up feeling breathless.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: chronic cough; heavy smoking; dusty old buildings exposure; progressive exertional dyspnea improving with warm-up; weight loss; no hemoptysis; no wheeze; now also orthopnea (worse lying flat) and paroxysmal nocturnal dyspnea (waking breathless). This strongly suggests a cardiac cause (heart failure or cardiomyopathy) rather than primary lung disease alone. COPD can cause dyspnea but orthopnea/PNA is more cardiac. Need to consider cardiomyopathy types in provided list: Takotsubo cardiomyopathy, hypertrophic cardiomyopathy. Also consider acute mesenteric ischemia? no. For cough + heart failure: could be heart failure with pulmonary congestion causing cough. Next discriminate: ask about palpitations/syncope, and whether onset followed stress/illness (Takotsubo) or has family history (HCM).\nTop candidates:\n1) Takotsubo cardiomyopathy — can present with acute/subacute heart failure symptoms (orthopnea, PND, dyspnea) and cough from congestion; refuting: no chest pain/stress trigger yet, and chronic 3 months.\n2) Hypertrophic cardiomyopathy — can cause exertional dyspnea/weakness and sometimes orthopnea; refuting: chronic cough and weight loss less typical; also usually earlier onset.\n3) COPD — still possible for dysp",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you ever feel your heart racing or pounding, get dizzy or faint, and did this all start after any major stress, infection, or sudden event? Also, is there any family history of heart disease or sudden death? Patient: I’ve had some palpitations at times but I haven’t fainted. It seemed to build gradually over months, and I don’t know of any family history of sudden death.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: chronic cough 3 months; heavy smoking; dusty old buildings exposure; progressive exertional dyspnea/weakness improving with warm-up; weight loss; now orthopnea and paroxysmal nocturnal dyspnea; intermittent palpitations; no syncope; gradual onset over months; no known family sudden death.\nTop candidates:\n1) Takotsubo cardiomyopathy — supports: subacute onset over months, palpitations, orthopnea/PND, cough from congestion. Refuting: typically triggered by acute stress and often more abrupt; no clear trigger given.\n2) Hypertrophic cardiomyopathy — supports: exertional dyspnea, palpitations. Refuting: usually earlier in life; orthopnea/PND can occur but cough/weight loss less typical; no family history.\n3) COPD — supports smoking + chronic cough + dyspnea. Refuting: orthopnea/PND points more to cardiac failure than COPD alone.\n4) Histoplasmosis — supports dusty old buildings + chronic cough + weight loss. Refuting: orthopnea/PND and palpitations are not classic.\n5) Acute myelogenous leukemia / Acute lymphoblastic leukemia — could cause constitutional symptoms and dyspnea from anemia/infection; refuting: no fevers/bruising/bleeding; orthopnea/PND less typical.\nMost informative next question: ask",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Given your orthopnea and waking up breathless, I’m going to listen to your chest and check your oxygen level and heart rhythm—do you have any swelling in your legs, and have you noticed frothy sputum or waking up coughing? Patient: I haven’t had leg swelling, but I sometimes cough more at night when I’m lying down, and I do feel worse lying flat. Doctor: Alright—I'll check your vitals now and we’ll get an ECG and a chest X-ray; if those suggest fluid overload or heart failure, we’ll follow up with an echocardiogram.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Takotsubo cardiomyopathy, Hypertrophic cardiomyopathy, COPD, Histoplasmosis, Acute myelogenous leukemia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Takotsubo cardiomyopathy",
+    "predicted_set": [
+      "Takotsubo cardiomyopathy",
+      "Hypertrophic cardiomyopathy",
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Histoplasmosis",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Takotsubo cardiomyopathy",
+      "Hypertrophic cardiomyopathy",
+      "COPD",
+      "Histoplasmosis",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Takotsubo cardiomyopathy",
+    "predicted_set_remapped": [
+      "Takotsubo cardiomyopathy",
+      "Hypertrophic cardiomyopathy",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17401,
+      "completion_tokens": 2132
+    },
+    "patient": {
+      "prompt_tokens": 13358,
+      "completion_tokens": 658,
+      "calls": 8
+    }
+  }
+}

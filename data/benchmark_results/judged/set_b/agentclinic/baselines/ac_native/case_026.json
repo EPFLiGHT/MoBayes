@@ -1,0 +1,115 @@
+{
+  "case_idx": 26,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Hirschsprung disease",
+  "patient_actor_hidden": {
+    "Demographics": "8-month-old boy",
+    "History": "The patient has been very fussy and has shown decreased interest in feeding for the past few days. His mother reports that despite the feeding difficulties, she believes the child has been gaining weight. There were no complications during birth at 39 weeks of gestation.",
+    "Symptoms": {
+      "Primary_Symptom": "Crying, especially intense with abdominal palpation",
+      "Secondary_Symptoms": [
+        "Distended abdomen",
+        "Decreased feeding",
+        "Weight gain despite decreased feeding"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. Delivered vaginally at 39 weeks without complications.",
+    "Social_History": "First child to young parents, no history of similar illness in the family.",
+    "Review_of_Systems": "No episodes of fever, vomiting, or diarrhea. The baby has not had any known illnesses since birth."
+  },
+  "objective_for_doctor": "Diagnose the underlying condition based on clinical presentation and examination findings in an 8-month-old boy with feeding difficulties and abdominal distension.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’ll start by asking a few key questions about your baby’s symptoms—what is his feeding pattern, and how quickly does the abdominal distension worsen after meals? Doctor: Also, has he had vomiting (especially green/bilious), blood in the stool, fewer wet diapers, or failure to gain weight?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: He’s been feeding much less and seems fussy, and the belly looks more swollen after meals, though he still seems to be gaining weight overall. There’s been no vomiting, no green/bilious vomit, no blood in the stool, and his wet diapers haven’t noticeably decreased."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any constipation or difficulty passing stools (how many bowel movements per day), and do you ever see peristaltic waves or feel a firm “sausage-like” mass in the abdomen? Doctor: Also, has his birth history been normal, and is the distension present from early infancy or did it start later?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: He seems to have constipation—stools are less frequent and harder when he finally passes them. I haven’t noticed any obvious “waves” in his belly, and I don’t feel a firm sausage-like lump, but his abdomen is definitely more distended after eating. He was normal at birth and this started later over the past few days."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Thank you—at 8 months with new, worsening abdominal distension after a few days plus constipation and no bilious vomiting, I need to clarify one more thing: is the distension mostly upper abdomen, and has there been any visible loss of appetite with possible painful crying after feeds? Doctor: Also, has he had fever, a recent viral/diarrheal illness, or any prior abdominal surgery/known hernia?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Doctor: Is the distension mostly in the upper abdomen, and does he cry or seem in pain specifically after feeds with a clear drop in appetite? Also, any fever, recent illness, or any prior surgery or hernia? Patient: It seems mostly like the belly is swollen overall, and yes—he cries more after meals and his appetite is definitely worse. No fever, no recent illness, and no surgeries or known hernias."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask one urgent targeted question—are there any signs that he can pass stool/gas normally in between these episodes, or is there progressive worsening with increasing distension and irritability? Doctor: REQUEST TEST: Abdominal Ultrasound (pylorus/obstruction) and abdominal X-ray (air-fluid levels/constipation pattern). Doctor: If those show a proximal obstruction pattern with no bilious vomiting and feeding-triggered pain, I’ll be ready to diagnose accordingly.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98.2°F). Blood Pressure normal for age. Heart Rate 120 bpm (normal for age). Respiratory Rate 30 breaths/min (normal for age). Abdominal exam: distension; normal bowel sounds; tympanitic sound in left lower quadrant; abdomen soft but distended, crying intensifies on palpation (especially left lower quadrant). Blood tests: WBC normal, Hemoglobin normal, Platelets normal. Abdominal X-ray: dilated bowel segments with absence of gas in the rectum, suggesting possible obstruction. Barium enema: transition zone in distal colon compatible with Hirschsprung disease."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Given the constipation, failure to have rectal gas, and the barium enema showing a distal transition zone consistent with Hirschsprung disease, I’m ready to finalize the diagnosis. DIAGNOSIS READY: Hirschsprung disease (aganglionic megacolon causing distal colonic obstruction).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Given the constipation, failure to have rectal gas, and the barium enema showing a distal transition zone consistent with Hirschsprung disease, I’m ready to finalize the diagnosis. DIAGNOSIS READY: Hirschsprung disease (aganglionic megacolon causing distal colonic obstruction).",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 5,
+    "predicted_remapped": "Hirschsprung disease",
+    "predicted_set_remapped": [
+      "Hirschsprung disease",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2567,
+      "completion_tokens": 402,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 1539,
+      "completion_tokens": 230,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 618,
+      "completion_tokens": 138,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 125,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

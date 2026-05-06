@@ -1,0 +1,109 @@
+{
+  "case_idx": 9,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: M\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having shortness of breath, and it gets worse with physical exertion but improves with rest. I also feel slightly dizzy/lightheaded.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: Exertional shortness of breath that improves with rest + mild dizziness/lightheadedness. This pattern raises concern for cardiopulmonary causes (ischemia/arrhythmia/heart failure/PE) as well as respiratory causes, but we need discriminating features.\nTop candidates (tentative):\n1) Possible NSTEMI / STEMI — exertional dyspnea with lightheadedness can be anginal equivalent; no chest pain mentioned yet.\n2) Pulmonary embolism — can present with exertional dyspnea and lightheadedness; pleuritic pain/cough/leg swelling not yet asked.\n3) Acute pulmonary edema — dyspnea with exertion; would expect orthopnea/PND and crackles; not yet asked.\n4) Atrial fibrillation — can cause exertional dyspnea and dizziness; need palpitations/irregular pulse.\n5) Bronchospasm / acute asthma exacerbation or Pneumonia — possible, but exertional-only without infectious symptoms makes these less certain until we ask about cough/fever/wheeze.\nMost informative next question: ask about chest pain/pressure or palpitations to quickly separate cardiac vs non-cardiac causes.\n[/REASONING]\nDo you have any chest discomfort (pressure/tightness/pain) or palpitations along with the shortness of breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have heart beating fast (racing), irregularly (missing a beat), and I have palpitations. My heart feels very irregular or in a disorganized pattern.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: Exertional dyspnea + lightheadedness + palpitations with a “racing” and “irregular/missing a beat” sensation. This strongly suggests an arrhythmia.\nTop candidates:\n1) Atrial fibrillation — classic description: irregularly irregular rhythm, palpitations, dizziness, exertional dyspnea.\n2) PSVT — “fast” palpitations, but typically more regular; irregularity would be less typical unless misperceived.\n3) Possible NSTEMI / STEMI — ischemia can trigger arrhythmias, but the dominant symptom is palpitations with irregularity; still must consider due to exertional dyspnea/lightheadedness.\n4) Pulmonary embolism — can cause tachycardia/palpitations and dyspnea, but “irregularly irregular” is more consistent with AF than PE.\n5) Acute pulmonary edema — would expect volume overload symptoms (orthopnea/PND/leg swelling) rather than irregular palpitations.\nMost informative next question: confirm onset and associated symptoms—specifically chest pain/pressure and whether there is shortness of breath at rest/orthopnea.\n[/REASONING]\nWhen did this start (sudden vs gradual), and are you short of breath at rest or only with exertion?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started gradually. I’m short of breath in a significant way, and it gets worse with physical exertion but improves with rest. I don’t know about being short of breath at rest.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Gradual onset; significant dyspnea worse with exertion (improves with rest); palpitations with irregular/missing beats; lightheadedness.\nTop candidates:\n1) Atrial fibrillation — fits irregular palpitations + dizziness + exertional dyspnea; gradual onset common.\n2) PSVT — can cause exertional dyspnea/lightheadedness, but usually more abrupt onset and more regular rhythm.\n3) Possible NSTEMI / STEMI — can cause dyspnea and trigger AF; still possible even without chest pain.\n4) Pulmonary embolism — can be gradual, but irregular palpitations are less typical.\n5) Acute pulmonary edema — would more often have orthopnea/PND; not yet assessed.\nMost informative next question: ask about orthopnea/PND (breathlessness when lying flat or waking up short of breath), which helps distinguish AF-related decompensation/heart failure from primary lung/PE causes.\n[/REASONING]\nDo you get short of breath when lying flat (orthopnea) or wake up at night gasping (paroxysmal nocturnal dyspnea)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: We have strong arrhythmia features (irregular/missing beats, racing) plus exertional dyspnea and lightheadedness. We still lack key discriminators: orthopnea/PND, chest pain, leg swelling, fever/cough, and vitals.\nTop candidates remain:\n1) Atrial fibrillation\n2) PSVT (less likely due to irregularity)\n3) Possible NSTEMI / STEMI (arrhythmia secondary to ischemia)\n4) Pulmonary embolism (still possible)\n5) Acute pulmonary edema (less likely without orthopnea/volume symptoms yet)\nMost informative next question: ask about syncope/near-syncope severity—this helps risk-stratify arrhythmia/ischemia/PE.\n[/REASONING]\nHave you felt like you might faint or actually fainted (near-syncope or syncope)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Exertional dyspnea + palpitations with irregularity + lightheadedness; onset gradual. Still missing whether there is chest pain, syncope, orthopnea/PND, and whether there are PE/respiratory symptoms.\nTop candidates:\n1) Atrial fibrillation — best match for irregular palpitations + dizziness + dyspnea.\n2) Possible NSTEMI / STEMI — can present with dyspnea/lightheadedness and trigger arrhythmia.\n3) Pulmonary embolism — dyspnea with possible tachycardia/palpitations; irregularity less classic.\n4) PSVT — could cause palpitations and dyspnea but irregularity argues against.\n5) Acute pulmonary edema — would expect orthopnea/PND/edema.\nMost informative next question: ask about leg swelling/pain or recent immobility/travel/surgery, which would strongly support PE.\n[/REASONING]\nHave you had any leg swelling or pain (especially one-sided), or any recent long travel, surgery, or being bedridden?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: We have limited history; patient can’t answer several symptom-specific questions. Still, the irregular “missing a beat” palpitations plus lightheadedness and exertional dyspnea make an arrhythmia—especially atrial fibrillation—most likely. But we must still consider ischemia and PE because we lack chest pain, orthopnea/PND, and thromboembolic risk details.\nTop candidates:\n1) Atrial fibrillation — irregularly irregular palpitations + dizziness/lightheadedness + dyspnea.\n2) Possible NSTEMI / STEMI — ischemia can cause dyspnea and precipitate arrhythmias; chest pain not confirmed.\n3) Pulmonary embolism — dyspnea with possible tachycardia/palpitations; risk factors unknown.\n4) PSVT — palpitations and dyspnea possible, but “irregular/missing a beat” is less typical.\n5) Acute pulmonary edema — would require signs of heart failure/volume overload (unknown).\nMost informative next question: ask about cough/fever/pleuritic chest pain (helps separate pneumonia/bronchitis/PE) and also about chest pain/pressure (ischemia).\n[/REASONING]\nDo you have any chest pain/pressure, cough, fever, or pain that gets worse when you take a deep breath?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history is too incomplete: we have strong clues for an arrhythmia (irregular/missing-beat palpitations with lightheadedness and exertional dyspnea), but key discriminators for dangerous alternatives (ischemia/NSTEMI, pulmonary embolism, heart failure/pulmonary edema) are unknown because the patient can’t confirm chest pain, orthopnea/PND, syncope, leg swelling/risk factors, or infectious/pleuritic symptoms.  \n\n[POSSIBLE] Atrial fibrillation, Possible NSTEMI / STEMI, Pulmonary embolism, Acute pulmonary edema, PSVT",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Atrial fibrillation",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "PSVT"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11430,
+      "completion_tokens": 1659
+    },
+    "patient": {}
+  }
+}

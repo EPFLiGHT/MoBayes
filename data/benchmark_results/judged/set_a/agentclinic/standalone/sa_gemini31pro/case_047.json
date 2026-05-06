@@ -1,0 +1,156 @@
+{
+  "case_idx": 47,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache starting three days after undergoing an open cholecystectomy. She has a history of an abdominal hysterectomy 16 years ago. She has been smoking one pack of cigarettes daily for 17 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Right-sided chest pain that increases on inspiration",
+      "Secondary_Symptoms": [
+        "Productive cough for the last 12 hours",
+        "Fever",
+        "Chills",
+        "Headache"
+      ]
+    },
+    "Past_Medical_History": {
+      "Surgeries": [
+        "Open cholecystectomy three days prior",
+        "Abdominal hysterectomy 16 years ago"
+      ],
+      "Chronic_Conditions": [
+        "None reported"
+      ],
+      "Medications": [
+        "None reported"
+      ]
+    },
+    "Social_History": {
+      "Smoking_Status": "Current smoker, one pack daily for 17 years",
+      "Alcohol_Use": "Not specified",
+      "Occupation": "Not specified",
+      "Activities": "Not specified"
+    },
+    "Review_of_Systems": {
+      "Respiratory": "Productive cough",
+      "Cardiovascular": "No reported abnormalities",
+      "Gastrointestinal": "Surgical site below right ribcage, otherwise unremarkable",
+      "Musculoskeletal": "No reported abnormalities",
+      "Neurological": "No reported abnormalities"
+    }
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with postoperative fever, chest pain that increases on inspiration, and a productive cough, and determine the correct diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had fever and chills with a headache, and I’ve also been having right-sided chest pain that gets worse when I take a deep breath. I started about three days after my open cholecystectomy, and I’ve had a productive cough for the last 12 hours.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe the sputum you are coughing up? What color is it, and is there any blood in it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The sputum I’m coughing up is yellow-green, and it’s fairly thick. I haven’t noticed any blood in it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any shortness of breath or difficulty breathing, especially when you are resting or walking?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do feel more short of breath than usual, especially when I’m walking, and it’s not very comfortable to breathe deeply because the right-sided chest pain gets worse. I’m okay at rest, but I feel winded with activity.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swelling, redness, or pain in",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swelling or redness, but the pain is mainly on the right side and gets sharper when I take a deep breath. I do feel generally unwell with fever and chills, and I’m more short of breath when I’m up and moving.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any pain, swelling, or redness in your",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swelling or redness, but I do have a sharp pain on the right side when I take a deep breath, and I’m still running fevers with chills and feeling generally weak. I’m okay lying still, but when I’m walking around I get more winded and it’s uncomfortable to breathe deeply.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "3. Can cause fever, but usually not purulent sputum",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve been coughing up that thick yellow-green sputum and I still have fevers with chills. My breathing feels okay when I’m lying still, but when I’m walking I get winded and the right-sided sharp pain gets worse with deep breaths. I haven’t noticed any swelling or redness anywhere.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any nausea, vomiting, or worsening abdominal pain",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had nausea or vomiting, and my abdominal pain around the surgical area hasn’t really gotten worse. Mostly I’ve felt generally weak, with ongoing fevers and chills.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hospital-acquired pneumonia, Pulmonary embolism,",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Hospital-acquired pneumonia",
+    "predicted_set": [
+      "Hospital-acquired pneumonia",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3291,
+      "completion_tokens": 1925
+    },
+    "patient": {
+      "prompt_tokens": 4435,
+      "completion_tokens": 400,
+      "calls": 7
+    }
+  }
+}

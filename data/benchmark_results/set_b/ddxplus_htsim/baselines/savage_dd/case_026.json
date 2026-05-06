@@ -1,0 +1,119 @@
+{
+  "case_idx": 26,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 51\nSex: F\nChief Complaint: stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a high pitched sound when breathing in (stridor).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Stridor suggests an upper-airway issue. One key discriminator is whether it’s **sudden onset after a trigger** (allergy/aspiration) versus **infectious/inflammatory**.\n\n**Question 1 (one at a time):**  \nDid the stridor start **suddenly** (minutes to a few hours), especially after **choking/aspiration** or **new exposure** (food/medication/insect sting)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next discriminator: stridor with **fever/sore throat** (infection) versus **hives/itching** (allergy/anaphylaxis) versus **progressive hoarseness** (laryngeal inflammation).\n\n**Question 2:**  \nDo you have **fever**, **sore throat**, or **pain when swallowing**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. Let’s focus on airway severity: **drooling, inability to swallow, or muffled “hot potato” voice** points toward epiglottitis.\n\n**Question 3:**  \nAre you **drooling** or unable to **swallow** your saliva (or is your voice muffled)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "We’ll narrow by whether there are **allergic signs** (hives, swelling) or **croup/viral symptoms** (barky cough).  \n\n**Question 4:**  \nHave you noticed **hives/itching** or **swelling of lips/tongue/face**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next: **croup** typically has a **barky cough** and occurs with viral symptoms (often in children, but can occur in adults).  \n\n**Question 5:**  \nDo you have a **barky cough** or a **recent cold/viral symptoms**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the limited history so far, I need one more high-yield discriminator: **respiratory distress severity**—especially **worsening over minutes/hours** and any **cyanosis**.\n\n**Question 6:**  \nAre you having **trouble breathing right now** (worse when lying down or at rest), or any **blue lips/face**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I still don’t have enough discriminating clinical features (timing, infectious vs allergic vs mechanical, and severity). I need at least one concrete detail to avoid guessing.\n\n**Question 7:**  \nIs the stridor **worse when breathing in** only, or do you also hear it **when breathing out** (wheezing/expiratory noise)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient information: we only know “high-pitched sound when breathing in (stridor)” and the patient can’t provide key discriminators (timing/sudden onset, infectious vs allergic symptoms, drooling/voice changes, barky cough, severity/cyanosis, or whether it’s inspiratory vs expiratory).\n\n[POSSIBLE] Epiglottitis, Croup, Acute laryngitis, Anaphylaxis, Acute dystonic reactions",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Epiglottitis",
+      "Croup",
+      "Acute laryngitis",
+      "Anaphylaxis",
+      "Acute dystonic reactions"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8387,
+      "completion_tokens": 620
+    },
+    "patient": {}
+  }
+}

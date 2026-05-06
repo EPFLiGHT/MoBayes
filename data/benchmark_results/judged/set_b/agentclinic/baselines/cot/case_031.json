@@ -1,0 +1,153 @@
+{
+  "case_idx": 31,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Acute Mesenteric Ischemia",
+  "patient_actor_hidden": {
+    "Demographics": "74-year-old male",
+    "History": "The patient presents with sudden onset of abdominal pain around the umbilicus 16 hours ago, with recent history of hospitalization for an acute myocardial infarction a week ago. Reports several episodes of bloody loose bowel movements. Denies vomiting.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Bloody loose bowel movements",
+        "No vomiting",
+        "Sudden onset"
+      ]
+    },
+    "Past_Medical_History": "Known diabetes mellitus for 35 years and hypertension for 20 years. History of acute myocardial infarction.",
+    "Social_History": "Smokes 15–20 cigarettes per day for the past 40 years.",
+    "Review_of_Systems": "Denies fever, vomiting. Reports bloody loose bowel movements."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with sudden onset of abdominal pain, focusing on the relevance of the patient's medical history and current symptoms.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had sudden, severe abdominal pain around my umbilicus for about 16 hours, and I’ve also had several episodes of bloody loose bowel movements. I don’t have vomiting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden severe periumbilical abdominal pain for ~16 hours + several episodes of bloody loose stools; no vomiting reported.\nTop candidates (from provided list):\n1) Acute Mesenteric Ischemia — sudden severe abdominal pain can be disproportionate; GI bleeding/ bloody diarrhea can occur, especially with ischemia.\n2) Perforated gastric peptic ulcer — can cause severe abdominal pain, but typically more epigastric/“board-like” abdomen and bleeding is less classically bloody loose stools.\n3) Fulminant hepatic failure — can cause GI bleeding, but would not typically present as sudden focal abdominal pain with bloody diarrhea.\n4) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause GI bleeding/diarrhea, but sudden severe abdominal pain is less typical.\n5) Histoplasmosis — can cause GI symptoms/bleeding in immunocompromised, but acute sudden onset is less typical.\nMost informative next question: ask about fever and/or signs of systemic illness, which helps distinguish ischemia vs infectious/inflammatory causes and malignancy.\n[/REASONING]\nDo you have a fever or feel lightheaded/faint, sweaty, or very weak since the pain started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t had a fever, and I don’t feel faint or sweaty—just very weak from the pain. I’ve also noticed the bloody loose stools continuing since it started.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: Sudden severe periumbilical abdominal pain (~16h) + ongoing bloody loose stools; afebrile; no presyncope/sweating; weakness due to pain; no vomiting.\nTop candidates:\n1) Acute Mesenteric Ischemia — classic “sudden severe pain” with possible bloody diarrhea; afebrile early; ongoing bleeding fits.\n2) Perforated gastric peptic ulcer — can cause severe pain and bleeding, but bloody loose stools are less typical; perforation often leads to peritonitis and may have different pain pattern.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause GI bleeding/diarrhea; sudden severe abdominal pain is less typical, and would often have other systemic symptoms.\n4) Fulminant hepatic failure — would more likely have jaundice/encephalopathy; pain pattern less typical.\n5) Histoplasmosis — usually subacute/chronic or immunocompromised; sudden onset less typical.\nMost informative next question: ask about risk factors for mesenteric ischemia—especially atrial fibrillation, known vascular disease, or recent hypotension/heart issues.\n[/REASONING]\nDo you have a history of atrial fibrillation, heart disease/heart failure, or have you had any recent episodes of low blood pressure or major illness/trauma?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have atrial fibrillation that I know of, but I did have a heart attack about a week ago and I’ve been dealing with my heart since then. I’m not sure about my blood pressure, but I haven’t had any major trauma.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden severe periumbilical pain + ongoing bloody loose stools; afebrile; no presyncope; recent myocardial infarction 1 week ago; no known AF.\nTop candidates:\n1) Acute Mesenteric Ischemia — recent MI strongly suggests a hypercoagulable/embolic or low-flow state; ischemia can present with severe pain and later bloody diarrhea.\n2) Perforated gastric peptic ulcer — could cause severe pain and bleeding, but recent MI is a stronger ischemia clue; also perforation usually causes peritonitis (often worsening with movement).\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause bleeding/diarrhea, but recent MI is not directly supportive.\n4) Fulminant hepatic failure — less likely without jaundice/encephalopathy.\n5) Histoplasmosis — less likely with sudden onset and no immunosuppression mentioned.\nMost informative next question: ask about whether the abdominal pain is out of proportion to exam and whether there are peritoneal signs (rebound/guarding). Clinically, this helps separate ischemia (often minimal early peritonitis) from perforation.\n[/REASONING]\nWhen you press on your belly or move/cough, does the pain get much worse (rebound/guarding), or is it mainly severe pain without much tenderness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you press on your belly or move/cough, does the pain get much worse (rebound/guarding), or is it mainly severe pain without much tenderness? Patient: It’s mainly very severe, and I don’t feel much worsening with pressing or coughing—more like constant deep pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden severe periumbilical pain with minimal worsening on pressing/coughing; ongoing bloody loose stools; afebrile; recent MI 1 week ago.\nTop candidates:\n1) Acute Mesenteric Ischemia — severe pain with relatively minimal peritoneal signs early (“pain out of proportion”); bloody diarrhea can occur; recent MI supports embolic/thrombotic/low-flow risk.\n2) Perforated gastric peptic ulcer — would more often have peritoneal irritation (worse with movement/guarding) and pain pattern often more epigastric; less consistent.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause GI bleeding, but sudden severe focal pain with minimal peritoneal signs is less typical; would expect other systemic signs.\n4) Fulminant hepatic failure — bleeding possible but pain pattern less typical.\n5) Histoplasmosis — usually not this acute.\nMost informative next question: ask about anticoagulation/antiplatelet use after the MI (e.g., heparin, warfarin, DOACs, aspirin, clopidogrel), which can both increase bleeding and influence ischemia likelihood.\n[/REASONING]\nAre you currently taking blood thinners or antiplatelet medications after your heart attack (aspirin, clopidogrel, warfarin, heparin, or a DOAC like apixaban",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I think I’m on aspirin and maybe clopidogrel after the heart attack, but I’m not sure about any other blood thinner—no one has told me the exact list clearly.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden severe periumbilical pain + ongoing bloody loose stools; minimal peritoneal signs; recent MI; on at least aspirin and possibly clopidogrel.\nTop candidates:\n1) Acute Mesenteric Ischemia — recent MI + antiplatelet therapy (and possible unrecognized anticoagulation) increases risk of ischemia and can worsen bleeding; pain out of proportion with minimal peritoneal signs fits.\n2) Perforated gastric peptic ulcer — antiplatelets increase bleeding risk, but perforation usually has more peritoneal irritation.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — bleeding/diarrhea possible, but recent MI is a strong competing clue.\n4) Fulminant hepatic failure — less likely without jaundice/encephalopathy.\n5) Disseminated gonococcal infection / Histoplasmosis — unlikely with sudden onset and no systemic/infectious features.\nMost informative next question: ask about stool characteristics and any mucus/tenesmus, and whether there’s black/tarry stool—helps distinguish ischemic colitis vs infectious/inflammatory vs upper GI bleeding.\n[/REASONING]\nAre the stools bright red blood mixed with diarrhea, or is it darker/maroon/black (tarry)? Any mucus or strong urge to go (tenesmus)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The blood is bright red mixed in with the loose diarrhea, and I don’t have a strong urge to go or mucus—just repeated watery stools with blood.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Bright red blood mixed with watery diarrhea; no tenesmus/mucus; sudden severe periumbilical pain; minimal peritoneal signs; recent MI; on aspirin ± clopidogrel.\nTop candidates:\n1) Acute Mesenteric Ischemia — can cause ischemic colitis with bright red blood and watery diarrhea; pain can be severe early with limited peritoneal signs; recent MI supports vascular event.\n2) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause GI bleeding/diarrhea, but sudden severe pain is less typical; would expect other systemic symptoms (fatigue, bruising, infections).\n3) Perforated gastric peptic ulcer — antiplatelets increase bleeding risk, but bright red blood with watery diarrhea is less typical than melena/hematemesis; perforation usually more peritoneal signs.\n4) Histoplasmosis — usually not acute sudden; often immunocompromised.\n5) Fulminant hepatic failure — would more likely cause melena/hematemesis and systemic signs.\nMost informative next question: ask about age and any history of vascular disease or smoking, but the single most discriminating next step is to ask about current vital signs symptoms: has there been any drop in blood pressure, fainting, or severe tachycardia/palpitations since onset? (We can’t measure, but symptoms like dizziness/palpitations help",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you felt any dizziness, fainting, palpitations, or noticed you’re much more short of breath or weaker than usual since the pain started? Patient: I feel very weak, but I haven’t fainted or felt palpitations—just worsening weakness because of the pain.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden severe periumbilical pain (~16h) + repeated watery diarrhea with bright red blood; minimal worsening with pressing/coughing; afebrile; no tenesmus/mucus; recent MI 1 week ago; on aspirin ± clopidogrel; no fainting/palpitations.\nTop candidates:\n1) Acute Mesenteric Ischemia — strongest fit: sudden severe pain, bright red blood diarrhea (ischemic colitis/mesenteric ischemia), and very recent MI (vascular risk/hypercoagulability).\n2) Perforated gastric peptic ulcer — bleeding risk with antiplatelets, but bright red watery diarrhea is less typical and perforation usually causes more peritoneal irritation.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause GI bleeding/diarrhea, but sudden focal severe pain is less characteristic; would expect other systemic signs (bruising, infections).\n4) Fulminant hepatic failure — can cause GI bleeding, but pain pattern and lack of systemic hepatic symptoms make less likely.\n5) Histoplasmosis — unlikely given acute sudden onset and no immunosuppression mentioned.\nMost informative next question: ask about age and whether there’s known peripheral vascular disease/stroke/previous clots, which would further support mesenteric ischemia. But we’re already fairly confident.\n[/REASONING]\nHow old are you,",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How old are you, and do you have any history of stroke, peripheral artery disease, or prior blood clots? Patient: I’m 74 years old. I don’t recall any previous clots or strokes, but I’ve had heart problems recently.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 74M with sudden severe periumbilical abdominal pain for 16h, ongoing watery diarrhea with bright red blood, minimal peritoneal signs, afebrile, no tenesmus/mucus, and recent MI 1 week ago; on aspirin ± clopidogrel.\nTop candidates:\n1) Acute Mesenteric Ischemia — best match: sudden severe pain, ischemic colitis/mesenteric ischemia can cause bright red blood diarrhea; recent MI increases thrombotic/low-flow risk.\n2) Perforated gastric peptic ulcer — antiplatelets increase bleeding risk, but bright red watery diarrhea is less typical and perforation usually has more peritoneal irritation.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can present with GI bleeding/diarrhea, but sudden severe focal pain and recent MI are less supportive.\n4) Fulminant hepatic failure — can cause GI bleeding, but pain pattern and lack of hepatic features make less likely.\n5) Histoplasmosis — unlikely to present this acutely without immunosuppression.\nMost informative next action would be immediate vitals/labs/imaging, but per your instruction we can now provide a differential.\n[/REASONING]\n[DDX] Acute Mesenteric Ischemia, Perforated gastric peptic ulcer, Acute myelogenous leukemia, Fulminant hepatic failure, Histoplasmosis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Acute Mesenteric Ischemia",
+    "predicted_set": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure",
+      "Histoplasmosis"
+    ],
+    "predicted_raw": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure",
+      "Histoplasmosis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Acute Mesenteric Ischemia",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15987,
+      "completion_tokens": 2311
+    },
+    "patient": {
+      "prompt_tokens": 11635,
+      "completion_tokens": 422,
+      "calls": 8
+    }
+  }
+}

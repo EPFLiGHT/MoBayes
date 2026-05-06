@@ -1,0 +1,89 @@
+{
+  "case_idx": 38,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and been coughing up blood",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having sharp, knife-like chest pain on both sides—right and left—and I’ve also been coughing up blood. I’m very short of breath, with chills and I cough up more colored sputum than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have wheezing or shortness of breath?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m short of breath. I don’t know about wheezing—I haven’t noticed it clearly.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) or chills along with your respiratory symptoms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my exact temperature, but I do have chills/shivers along with the cough and breathing problems.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have shortness of breath or wheezing (especially if you have COPD/asthma history)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—shortness of breath is significant. I have asthma history and I’ve needed a bronchodilator before, but I’m not sure about wheezing right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) with new/worsening cough and sputum?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have a fever of 38°C or higher, but I do have chills, and my cough is worse with colored sputum.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Influenza  , Pneumonia",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Influenza  ",
+    "predicted_set": [
+      "Influenza  ",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4865,
+      "completion_tokens": 172
+    }
+  }
+}

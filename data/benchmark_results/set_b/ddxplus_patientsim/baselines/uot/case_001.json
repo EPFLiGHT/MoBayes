@@ -1,0 +1,78 @@
+{
+  "case_idx": 1,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 16\nSex: Male\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had pain in my lower chest and also the left and upper part of my chest—like a knife-stab feeling. I also get out of breath with very little effort, and I feel worse when I lie flat (I need to sit up), and it happens with exertion too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **chest pain that is worse with breathing in (pleuritic) or coughing**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about coughing making it worse. I do feel it more when I breathe in, like it’s sharper with breathing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **sudden shortness of breath with low oxygen / respiratory distress**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, it didn’t start suddenly. But I do feel really short of breath even with minimal physical effort, and it gets pretty bad.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain that is worse when you take a deep breath or lie flat (and/or improves when you sit up)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it's worse when I take a deep breath, and it also gets worse when I lie flat. It feels a bit better if I sit up.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pericarditis  ",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis  ",
+    "predicted_set": [
+      "Pericarditis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2740,
+      "completion_tokens": 160
+    }
+  }
+}

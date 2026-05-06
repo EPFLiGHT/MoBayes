@@ -1,0 +1,103 @@
+{
+  "case_idx": 2,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Congenital Rubella Infection",
+  "patient_actor_hidden": {
+    "Demographics": "Newborn, female",
+    "History": "The patient is a 3000-g (6.6-lb) female newborn delivered at term to a 23-year-old primigravida mother. The mother reports having had no prenatal care, and immunization records for the newborn are not available.",
+    "Symptoms": {
+      "Primary_Symptom": "Continuous heart murmur",
+      "Secondary_Symptoms": [
+        "Bluish macules on the skin that do not blanch with pressure",
+        "Cloudy lenses in both eyes noticed upon examination",
+        "Failure to pass auditory screening tests"
+      ]
+    },
+    "Past_Medical_History": "Newborn, no past medical history available.",
+    "Social_History": "Mother is a primigravida, no prenatal care received.",
+    "Review_of_Systems": "No additional symptoms noted by the mother."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn with specific findings on physical examination and history provided.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m a newborn, and the nurses and family have noticed a continuous heart murmur. I also have bluish skin spots that don’t fade with pressure, cloudy lenses in both eyes, and I didn’t pass the hearing screening.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **kidney disease with protein in the urine (proteinuria/edema)**?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have any known swelling or protein in the urine that anyone has told me about, and I haven’t been noted to have kidney problems. I’m a newborn, so I can only report what’s been observed—mainly the murmur, the non-fading bluish spots, cloudy lenses, and the hearing screen failure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Has the patient had **persistent constipation and difficulty passing stool since birth** (newborn period), suggesting a bowel motility problem?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t been told about any persistent constipation or trouble passing stool since birth. I’m only aware of the continuous heart murmur, the bluish non-fading skin spots, the cloudy lenses, and failing the hearing screening.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **bleeding that is hard to stop or frequent unexplained bruising** (e.g., nose/gum bleeding, prolonged bleeding after minor cuts)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t been told about any bleeding problems or bruises that don’t stop—no nose or gum bleeding and no prolonged bleeding after minor cuts has been mentioned. I’m mostly just being monitored for the continuous heart murmur, the non-fading bluish spots, cloudy lenses, and the failed hearing screening.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hemophilia A  ",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Hemophilia A",
+    "predicted_set": [
+      "Hemophilia A"
+    ],
+    "predicted_raw": [
+      "Hemophilia A  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Hemophilia A",
+    "predicted_set_remapped": [
+      "Hemophilia A"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1794,
+      "completion_tokens": 258,
+      "calls": 4
+    }
+  }
+}

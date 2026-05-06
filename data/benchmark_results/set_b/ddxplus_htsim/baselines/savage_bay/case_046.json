@@ -1,0 +1,99 @@
+{
+  "case_idx": 46,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Unstable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 70\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain, which has worsened over the last 2 weeks. It’s heavy and I’d rate the intensity about 4 out of 10. It’s in my lower chest and side of the chest on the right, also my breast areas on both sides and the epigastric area. It radiates to my biceps on both sides, the thyroid cartilage, the thoracic spine, and my right shoulder. It gets worse with physical exertion and is alleviated with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need to focus on the *type* of chest pain and whether it sounds cardiac vs pulmonary vs GI.\n\n**Current posterior (pre-test, rough):**\n- Possible NSTEMI / STEMI: 0.22  \n- Unstable angina: 0.18  \n- GERD: 0.15  \n- Pulmonary embolism: 0.12  \n- Pneumonia: 0.08  \n(Other causes collectively: 0.25)\n\n**Evidence so far:** exertional worsening + relief with rest (typical of ischemic pain) → shifts probability toward cardiac causes.\n\n**Likelihood ratio update (qualitative):**\n- Exertional, rest-relieved pain increases ischemic likelihood (LR ~2–3 vs non-cardiac).\n- Radiation to arms/shoulders and epigastric involvement also supports ischemia (LR ~1.5–2).\n\nBefore I ask the next question, I want one key discriminator:\n\n**Question 1 (one at a time):**  \nWhen the pain comes on, do you also get **shortness of breath, sweating, nausea/vomiting, or a sense of impending doom**? (Yes/No; which ones?)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—then we’ll use a more objective discriminator.\n\n**Current posterior (updated with “exertional, rest-relieved” only; still uncertain about associated symptoms):**\n- Possible NSTEMI / STEMI: 0.24  \n- Unstable angina: 0.20  \n- GERD: 0.14  \n- Pulmonary embolism: 0.11  \n- Pneumonia: 0.06  \n(Other causes: 0.25)\n\n**Question 2:**  \nDoes the pain change with **deep breathing, coughing, or twisting your torso** (i.e., worse with movement/respiration), or is it mainly triggered by **exertion**? (Choose one: “worse with breathing/movement” vs “mainly exertion-related”).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Mainly exertion-related.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (exertion-related, not pleuritic/movement-related):**\n- Possible NSTEMI / STEMI: 0.27  \n- Unstable angina: 0.23  \n- GERD: 0.12  \n- Pulmonary embolism: 0.08  \n- Pneumonia: 0.05  \n(Other causes: 0.25)\n\n**Likelihood ratio update (qualitative):**\n- Not pleuritic/movement-related lowers PE/pneumonia likelihood (LR ~0.6–0.7 each).\n- Keeps ischemic causes higher.\n\n**Question 3:**  \nDo you have any **risk factors for heart disease**—for example: age >40, smoking, diabetes, high blood pressure, high cholesterol, or a strong family history of early heart disease? (Yes/No; if yes, which?)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’m 70, I smoke cigarettes, I have diabetes, I have high blood pressure (or I take medications to treat high blood pressure), and I’m significantly overweight.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (major cardiac risk factors added):**\n- Possible NSTEMI / STEMI: 0.36  \n- Unstable angina: 0.31  \n- GERD: 0.08  \n- Pulmonary embolism: 0.06  \n- Pneumonia: 0.03  \n(Other causes: 0.16)\n\n**Likelihood ratio update (qualitative):**\n- Multiple strong CAD risk factors substantially increase pre-test probability of ischemia (LR ~2–3 vs non-cardiac).\n- Still can’t fully separate NSTEMI vs unstable angina without ECG/troponin, but both remain top.\n\n**Question 4:**  \nDuring the pain, have you noticed **new shortness of breath** compared with your usual baseline (even if mild), or **do you need to stop activity because of breathlessness**? (Yes/No)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—next discriminator.\n\n**Current posterior (unchanged for “unknown SOB”):**\n- Possible NSTEMI / STEMI: 0.36  \n- Unstable angina: 0.31  \n- GERD: 0.08  \n- Pulmonary embolism: 0.06  \n- Pneumonia: 0.03  \n(Other: 0.16)\n\n**Question 5:**  \nDoes pressing on your chest wall or moving your arms/shoulders **reproduce the exact same pain** (Yes/No)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I still don’t have enough discriminating info to safely narrow beyond “cardiac ischemia vs other serious causes,” and I’m at the limit of questions.\n\n**[ABSTAIN]** — Key features (associated symptoms like dyspnea/diaphoresis, reproducibility with palpation, and objective data like ECG/troponin) are unknown, so I can’t confidently rank a single diagnosis.\n\n[POSSIBLE] Possible NSTEMI / STEMI, Unstable angina, GERD, Pulmonary embolism, Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "GERD",
+      "Pulmonary embolism",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8457,
+      "completion_tokens": 1026
+    },
+    "patient": {}
+  }
+}

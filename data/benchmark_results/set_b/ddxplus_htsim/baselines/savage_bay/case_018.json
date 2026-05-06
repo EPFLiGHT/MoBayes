@@ -1,0 +1,89 @@
+{
+  "case_idx": 18,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 4\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, and I also have nasal congestion with a clear runny nose. My symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors, rough):\n- Influenza: 0.20\n- URTI (viral URI): 0.25\n- Acute rhinosinusitis: 0.15\n- Allergic sinusitis: 0.10\n- Pneumonia: 0.10\n(Other causes lower for now.)\n\nEvidence 1: “Fever” + “nasal congestion with clear runny nose” → favors viral URI/flu over bacterial sinusitis or pneumonia.\n- Likelihood ratio (LR) for URTI/viral vs pneumonia: ~3\n- LR for URTI/viral vs allergic sinusitis: ~0.3 (fever argues against allergy)\n\nUpdate (approx):\n- URTI (viral URI): 0.25 → ~0.55\n- Influenza: 0.20 → ~0.30\n- Acute rhinosinusitis: 0.15 → ~0.08\n- Allergic sinusitis: 0.10 → ~0.03\n- Pneumonia: 0.10 → ~0.04\n\nOne question to sharpen between influenza vs generic URTI:\n**Do you have body aches and/or a severe headache (and how high is the fever, if you know it)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms are more prominent at night, and I have a fever, but I don’t know the temperature.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- URTI (viral URI): 0.55\n- Influenza: 0.30\n- Acute rhinosinusitis: 0.08\n- Allergic sinusitis: 0.03\n- Pneumonia: 0.04\n\nEvidence 2: “More prominent at night” is common with viral URTI (post-nasal drip/cough worse supine) and can occur with influenza; it doesn’t strongly distinguish between them.\n- Likelihood ratio for URTI vs influenza: ~1 (neutral)\n- Likelihood ratio for pneumonia vs URTI: ~0.8 (slightly less likely without focal chest symptoms)\n\nSo little change.\n\nNext question (to discriminate influenza and also check for pneumonia):\n**Do you have a cough? If yes, is it dry or productive (any phlegm), and do you have any shortness of breath or chest pain?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have noticed a high pitched sound when breathing in.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- URTI (viral URI): 0.55\n- Influenza: 0.30\n- Pneumonia: 0.04\n- Acute rhinosinusitis: 0.08\n- Allergic sinusitis: 0.03\n\nEvidence 3: “High pitched sound when breathing in” suggests **upper airway involvement/stridor** (e.g., laryngitis/croup/epiglottitis/laryngeal edema) rather than uncomplicated nasal viral illness.\n- Likelihood ratio: stridor/upper-airway noise vs URTI: ~2–3 (raises laryngeal causes)\n- Likelihood ratio vs pneumonia: ~0.3 (pneumonia less likely to cause inspiratory stridor)\n\nThis shifts probability toward laryngeal diagnoses not yet considered.\n\nUpdated (approx):\n- URTI (viral URI): 0.35\n- Influenza: 0.20\n- Acute laryngitis: 0.20\n- Croup: 0.10\n- Epiglottitis: 0.10\n(acute rhinosinusitis drops; allergic sinusitis drops)\n\nOne key safety discriminator:\n**Do you have trouble swallowing, drooling, or muffled “hot potato” voice—or is it mainly just noisy breathing?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms are mainly the high pitched sound when breathing in, and I have a fever. I also have nasal congestion with a clear runny nose.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still rough):\n- Acute laryngitis: 0.20\n- URTI (viral URI): 0.35\n- Influenza: 0.20\n- Croup: 0.10\n- Epiglottitis: 0.10\n\nEvidence 4: “Fever + inspiratory high-pitched sound” keeps concern for **significant upper airway inflammation** (epiglottitis/laryngitis/croup) rather than simple viral rhinitis. Clear runny nose still supports viral illness, but doesn’t rule out laryngeal involvement.\n- Likelihood ratio for epiglottitis vs URTI: ~2 (fever + inspiratory noise)\n- Likelihood ratio for laryngitis vs URTI: ~1.5\n\nUpdate (approx):\n- URTI (viral URI): 0.25\n- Acute laryngitis: 0.30\n- Influenza: 0.20\n- Croup: 0.10\n- Epiglottitis: 0.15\n\nNext question (high yield, also safety):\n**Are you able to speak in full sentences and breathe comfortably when sitting upright, or do you feel worsening breathing difficulty/need to lean forward?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can tell you my symptoms are mainly the high pitched sound when breathing in, and I also have nasal congestion with a clear runny nose and a fever.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating information about airway severity (e.g., ability to speak, drooling/muffled voice, stridor at rest vs only with exertion, age/possible exposures) to confidently rank epiglottitis vs croup vs laryngitis vs other causes of inspiratory noise.\n\n[POSSIBLE] Acute laryngitis, Influenza, URTI (viral URI), Croup, Epiglottitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute laryngitis",
+      "Influenza",
+      "URTI (viral URI)",
+      "Croup",
+      "Epiglottitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6704,
+      "completion_tokens": 1087
+    },
+    "patient": {}
+  }
+}

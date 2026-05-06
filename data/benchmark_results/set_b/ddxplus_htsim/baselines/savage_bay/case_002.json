@@ -1,0 +1,139 @@
+{
+  "case_idx": 2,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 63\nSex: M\nChief Complaint: changes in voice",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My voice has become deeper, softer, or hoarse. I also have a cough and a fever, and I’ve had a cold in the last 2 weeks.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough):\n- Pneumonia: 20%\n- Bronchitis: 20%\n- Influenza: 15%\n- URTI / Viral pharyngitis: 15%\n- Acute laryngitis: 10%\n(others lower)\n\nEvidence so far: hoarseness + cough + fever after a recent cold (2 weeks).\n- This increases likelihood of infectious respiratory causes (pneumonia/bronchitis/influenza/acute laryngitis) and decreases isolated GERD/anaphylaxis, etc.\n- Likelihood ratios (qualitative): infectious respiratory syndrome LR+ ~2–4 vs noninfectious.\n\n**Question 1 (one-at-a-time):**\nDo you have **shortness of breath** or **chest pain**, or is it mainly hoarseness/cough/fever?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still rough; no new discriminating info):\n- Pneumonia: 22%\n- Bronchitis: 22%\n- Influenza: 16%\n- URTI / Viral pharyngitis: 14%\n- Acute laryngitis: 10%\n\nSince you’re unsure about shortness of breath/chest pain, I’ll ask a more concrete question.\n\n**Question 2:**\nHave you had **any trouble breathing**, **wheezing**, or **needing to sit up to breathe**? (yes/no)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no new discriminating info):\n- Pneumonia: 22%\n- Bronchitis: 22%\n- Influenza: 16%\n- URTI / Viral pharyngitis: 14%\n- Acute laryngitis: 10%\n\nWe need a question that patients can answer reliably.\n\n**Question 3:**\nWhat is your **highest temperature** (or approximate fever) and for how many days? (e.g., “38.5°C for 2 days”)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still rough):\n- Pneumonia: 22%\n- Bronchitis: 22%\n- Influenza: 16%\n- URTI / Viral pharyngitis: 14%\n- Acute laryngitis: 10%\n\nLet’s use a question that doesn’t require exact numbers.\n\n**Question 4:**\nIs your cough **dry** or **bringing up mucus/phlegm**? If phlegm: what color (clear/white/yellow/green/bloody)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s a cough with mucus/phlegm. I don’t know the color.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with productive cough):\n- Pneumonia: 28%\n- Bronchitis: 26%\n- Influenza: 14%\n- URTI / Viral pharyngitis: 12%\n- Acute laryngitis: 8%\n(Reasoning: productive cough shifts toward pneumonia/bronchitis vs purely viral URI/laryngitis.)\n\nNext discriminating question: pneumonia vs bronchitis often hinges on severity and focal symptoms.\n\n**Question 5:**\nDo you have **chest pain that’s worse when you breathe in deeply** (pleuritic pain)? (yes/no/unsure)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no new discriminating info):\n- Pneumonia: 28%\n- Bronchitis: 26%\n- Influenza: 14%\n- URTI / Viral pharyngitis: 12%\n- Acute laryngitis: 8%\n\nNext, we can separate influenza/viral from bacterial pneumonia by risk factors and course.\n\n**Question 6:**\nHave you had **known asthma/COPD** or do you smoke? (yes/no)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I smoke cigarettes.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (smoking increases COPD/bronchitis risk and pneumonia risk):\n- Pneumonia: 30%\n- Bronchitis: 27%\n- Acute COPD exacerbation / infection: 15%\n- Influenza: 12%\n- URTI / Viral pharyngitis: 10%\n\nNow we should ask about wheeze/known COPD to decide between “bronchitis” vs “acute COPD exacerbation”.\n\n**Question 7:**\nDo you have **wheezing** or a history of **COPD** (or have you been told you have COPD)? (yes/no)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still uncertain about COPD diagnosis):\n- Pneumonia: 30%\n- Bronchitis: 27%\n- Acute COPD exacerbation / infection: 15%\n- Influenza: 12%\n- URTI / Viral pharyngitis: 10%\n\nNext question should help: pneumonia vs bronchitis vs COPD exacerbation—ask about **how sick** and **breathing rate/ability to speak**.\n\n**Question 8:**\nAre you able to **speak full sentences** without stopping for breath? (yes/no/unsure)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no new discriminating info):\n- Pneumonia: 30%\n- Bronchitis: 27%\n- Acute COPD exacerbation / infection: 15%\n- Influenza: 12%\n- URTI / Viral pharyngitis: 10%\n\nWe’re at question 8; we need one more high-yield discriminator.\n\n**Question 9:**\nHave you noticed **rapid worsening** over hours to a day, or is it more **gradual** since the cold? (rapid / gradual / unsure)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating history so far (fever severity/duration, breathing difficulty, chest pain, wheeze/COPD history, and course/rapidity are all unknown), so I can’t confidently rank a single diagnosis.\n\n[POSSIBLE] Pneumonia, Bronchitis, Acute COPD exacerbation / infection, Influenza, Acute laryngitis",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Bronchitis",
+      "Acute COPD exacerbation / infection",
+      "Influenza",
+      "Acute laryngitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14241,
+      "completion_tokens": 1163
+    },
+    "patient": {}
+  }
+}

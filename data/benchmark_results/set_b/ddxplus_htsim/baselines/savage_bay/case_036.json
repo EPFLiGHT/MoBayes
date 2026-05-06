@@ -1,0 +1,129 @@
+{
+  "case_idx": 36,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 83\nSex: F\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had shortness of breath or difficulty breathing in a significant way. I’m also coughing up blood, and I’ve had pain when I breathe in deeply.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. I’ll ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, rough):**\n- **Pulmonary embolism:** 0.30  \n- **Pneumonia:** 0.25  \n- **Acute pulmonary edema:** 0.15  \n- **Spontaneous pneumothorax:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.10  \n(Other causes like bronchitis/acute COPD exacerbation are less likely given hemoptysis + pleuritic pain.)\n\n**Question 1 (most discriminating):**  \nWhen did this start—**hours, days, or weeks ago**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. We’ll still narrow it down.\n\n**Current posterior (unchanged, since timing unknown):**\n- **Pulmonary embolism:** 0.30  \n- **Pneumonia:** 0.25  \n- **Acute pulmonary edema:** 0.15  \n- **Spontaneous pneumothorax:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.10  \n\n**Question 2:**  \nDo you have a **fever** (measured or feeling feverish/chills)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Current posterior (unchanged):**\n- Pulmonary embolism: 0.30  \n- Pneumonia: 0.25  \n- Acute pulmonary edema: 0.15  \n- Spontaneous pneumothorax: 0.10  \n- Possible NSTEMI / STEMI: 0.10  \n\n**Question 3:**  \nHave you noticed **leg swelling or pain** (especially one-sided), or any recent **long travel/immobility** or **recent surgery**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve had deep vein thrombosis (DVT). I also have swelling in one or more areas of my body—specifically the posterior aspect of my ankle on both sides. And I’ve had surgery within the last month, plus I traveled out of the country to North America in the last 4 weeks.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "That’s very important.\n\n**Current posterior (updated):**\n- **Pulmonary embolism:** 0.80  \n- Pneumonia: 0.08  \n- Acute pulmonary edema: 0.04  \n- Spontaneous pneumothorax: 0.03  \n- Possible NSTEMI / STEMI: 0.05  \n\n**Bayesian update (key evidence):** Recent surgery + travel + known DVT + unilateral/bilateral leg swelling strongly increases likelihood of **pulmonary embolism** (large likelihood ratio vs the other options).\n\n**Question 4 (to confirm/triage severity):**  \nAre you **short of breath at rest**, and do you have **any chest pressure/tightness** (as opposed to pain only when you take a deep breath)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I'm experiencing shortness of breath or difficulty breathing in a significant way. I also have pain that’s increased when I breathe in deeply, but I don’t know about any chest pressure or tightness.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (slightly updated):**\n- **Pulmonary embolism:** 0.86  \n- **Pneumonia:** 0.06  \n- **Possible NSTEMI / STEMI:** 0.04  \n- **Acute pulmonary edema:** 0.02  \n- **Spontaneous pneumothorax:** 0.02  \n\nPleuritic pain + hemoptysis + major VTE risk factors keeps PE as the clear leader.\n\n**Question 5 (high-yield):**  \nHow much blood are you coughing up—**streaks**, **teaspoon amounts**, or **more than that** (e.g., tablespoons/cups)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Current posterior (unchanged):**\n- **Pulmonary embolism:** 0.86  \n- **Pneumonia:** 0.06  \n- **Possible NSTEMI / STEMI:** 0.04  \n- **Acute pulmonary edema:** 0.02  \n- **Spontaneous pneumothorax:** 0.02  \n\n**Question 6 (to distinguish PE vs pneumonia):**  \nDo you have a **new cough** with **purulent (yellow/green) sputum** or **fever/chills**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- **Pulmonary embolism:** 0.86  \n- **Pneumonia:** 0.06  \n- **Possible NSTEMI / STEMI:** 0.04  \n- **Acute pulmonary edema:** 0.02  \n- **Spontaneous pneumothorax:** 0.02  \n\n**Question 7 (another discriminator):**  \nHave you had **rapid heart rate/palpitations** or do you feel **faint/lightheaded**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I lost consciousness.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "That’s a major severity signal.\n\n**Current posterior (updated):**\n- **Pulmonary embolism:** 0.93  \n- **Possible NSTEMI / STEMI:** 0.04  \n- **Pneumonia:** 0.02  \n- **Acute pulmonary edema:** 0.01  \n- **Spontaneous pneumothorax:** 0.00  \n\nSyncope/loss of consciousness with hemoptysis and pleuritic pain in the setting of recent surgery + travel + DVT makes **massive/submassive PE** especially likely.\n\n**Question 8 (critical for immediate management):**  \nAre you currently **very low on oxygen** or have you been told your **oxygen saturation is low**, or are you **unable to speak full sentences**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- **Pulmonary embolism:** 0.93  \n- **Possible NSTEMI / STEMI:** 0.04  \n- **Pneumonia:** 0.02  \n- **Acute pulmonary edema:** 0.01  \n- **Spontaneous pneumothorax:** ~0  \n\nGiven syncope + hemoptysis + pleuritic pain + strong VTE risk, I’m confident enough to give a focused differential.\n\n[DDX] Pulmonary embolism, Possible NSTEMI / STEMI, Pneumonia, Acute pulmonary edema, Spontaneous pneumothorax",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Spontaneous pneumothorax"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12956,
+      "completion_tokens": 1216
+    },
+    "patient": {}
+  }
+}

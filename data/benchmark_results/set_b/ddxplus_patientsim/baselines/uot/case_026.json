@@ -1,0 +1,69 @@
+{
+  "case_idx": 26,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have a very bad pain in my chest—mostly the lower chest and right side, also upper chest and right breast area. It started fast and feels heavy, sharp, and “scary,” with a lot of sweating and shortness of breath, plus nausea and pain that can go into my biceps and shoulders and even into my upper back and epigastric area.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **chest pain/pressure that is worse with exertion or may radiate to the arm/jaw** (possible cardiac ischemia)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. The pain is in my chest and it radiates into both arms—my biceps—and also my right shoulder. I’m also very short of breath and sweating a lot with it, and it came on quickly.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain/pressure that is new, worsening, or occurring at rest (not just with exertion)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s new and it feels worse. I’m having the chest pain now, even though it’s not a 0/10—it was about 7 out of 10.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI  , Unstable angina",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI  ",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI  ",
+      "Unstable angina"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2964,
+      "completion_tokens": 173
+    }
+  }
+}

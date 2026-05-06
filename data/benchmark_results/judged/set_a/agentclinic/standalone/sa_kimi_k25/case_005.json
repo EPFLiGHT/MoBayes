@@ -1,0 +1,138 @@
+{
+  "case_idx": 5,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.",
+    "Symptoms": {
+      "Primary_Symptom": "Stiffness in the arm",
+      "Secondary_Symptoms": [
+        "Difficulty combing hair",
+        "Trouble reaching high objects",
+        "Decreased range of motion in shoulder",
+        "Arm strength 4/5"
+      ]
+    },
+    "Past_Medical_History": "Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.",
+    "Social_History": "Sedentary lifestyle, predominately staying indoors and watching television.",
+    "Review_of_Systems": "Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the past few months my arm has felt stiff, and it’s been harder to comb my hair and reach things on high shelves. My shoulder range of motion feels reduced, and my strength is about 4 out of 5.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How old are you, and did this start after any specific injury or trauma, or did it come on gradually?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 65 years old, and it didn’t happen after any injury or trauma—it started gradually over the past few months.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Is there significant pain associated with the stiffness, and if so, does it worsen at night or with specific movements? Also, do you have any pain or stiffness in your neck, or any numbness/tingling running down your arm?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: There isn’t significant pain—mostly stiffness—and it feels a bit worse with certain movements like lifting my arm overhead. I don’t have numbness or tingling down my arm, and I haven’t noticed neck pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Is the stiffness and limited range of motion affecting both shoulders, or just one? And if it's one, is it your dominant arm?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It seems mostly in one shoulder, my right one, which is also my dominant side. It’s mainly the reduced range of motion there that makes combing my hair and reaching overhead harder.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When you try to move your shoulder, is the limitation the same whether you move it yourself versus when someone else moves it for you? And do you have diabetes, thyroid disease, or have you had any recent prolonged immobilization of the arm?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: When I try to move it myself, it’s limited, but my movement feels even more restricted than when someone else helps move it—though it’s still stiff either way. I do have diabetes, but I’m not aware of any thyroid disease, and I haven’t had any prolonged immobilization of my arm.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Can you tell me if you have difficulty reaching across your body to touch your opposite shoulder, or reaching behind your back (like to tuck in a shirt or fasten a bra)? And specifically, is turning your arm outward (external rotation) particularly limited compared to your other shoulder?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, reaching across my body to touch my opposite shoulder is difficult, and reaching behind my back is also very hard. Turning my right arm outward feels especially limited compared to the other shoulder, and that’s what makes daily tasks like dressing and combing my hair so troublesome.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Have you noticed any swelling, warmth, or redness in the shoulder, and have you had any fever, weight loss, or pain in other joints like your hips or knees?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swelling, warmth, or redness, and I don’t have any fever or weight loss. I don’t have pain or stiffness in other joints like my hips or knees. It’s mainly the shoulder stiffness and reduced range of motion on my right side.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Can you tell me if you experience a specific \"painful arc\" when lifting your arm out to the side between roughly 60-120 degrees, or is the restriction and discomfort fairly consistent throughout the entire range of motion?\n\n[Wait for response - if consistent restriction without painful arc, confirms adhesive capsulitis; if painful arc, suggests impingement/rotator cuff]\n\nActually, based on the information gathered—gradual onset, diabetes, global capsular restriction pattern (especially external rotation), limited passive ROM, stiffness greater than pain, and no trauma—I have sufficient information to provide a differential diagnosis.\n\n[DDX] Adhesive capsulitis (frozen shoulder), Rotator cuff tear with secondary stiffness, Glenohumeral osteoarthritis, Calcific tendinopathy, Parkinson's disease-related shoulder rigidity",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Adhesive capsulitis (frozen shoulder)",
+    "predicted_set": [
+      "Adhesive capsulitis (frozen shoulder)",
+      "Rotator cuff tear with secondary stiffness",
+      "Glenohumeral osteoarthritis",
+      "Calcific tendinopathy",
+      "Parkinson's disease-related shoulder rigidity"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Adhesive capsulitis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Adhesive capsulitis",
+      "Unknown",
+      "Osteoarthritis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3774,
+      "completion_tokens": 3944
+    },
+    "patient": {
+      "prompt_tokens": 4064,
+      "completion_tokens": 379,
+      "calls": 7
+    }
+  }
+}

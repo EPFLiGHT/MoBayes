@@ -1,0 +1,124 @@
+{
+  "case_idx": 43,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Unstable angina",
+  "objective_for_doctor": "A 26-year-old Female patient presents to the clinic. Chief complaint: I have lower chest pain, upper chest pain, and tedious pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having chest pain for the last two weeks, and it’s getting worse—now it happens with less and less effort. I also get sweating with it, and the pain feels heavy and exhausting, like it spreads to my shoulders and left biceps, and I feel it in my upper and lower chest plus epigastric area.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—your symptoms sound concerning for a heart-related cause. Are you having shortness of breath, nausea/vomiting, or pain when you press on the chest or take a deep breath (pleuritic pain)? Also, do you have any history of high blood pressure, diabetes, smoking, high cholesterol, or recent cocaine/amphetamines use?  \nREQUEST TEST: ECG  \nREQUEST TEST: Troponin (serial)  \nREQUEST TEST: Chest_X-Ray  \nREQUEST TEST: Basic_Metabolic_Panel + CBC",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about nausea/vomiting or shortness of breath—I haven’t noticed those. I don’t know if it’s pleuritic, but the main pain is heavy and exhausting and it radiates to my left biceps and both shoulders.  \n\nYes, I have high blood pressure and diabetes. I don’t smoke, and I haven’t used cocaine/amphetamines. I do drink alcohol heavily.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the exertional, heavy “pressure” pain radiating to the left arm with sweating plus your diabetes and hypertension, this could be unstable angina or a heart attack—are you currently having the pain right now, and how long does each episode last (minutes)?  \nREQUEST TEST: Repeat_12-lead_ECG_now_(compare)  \nREQUEST TEST: D-dimer/CTA_Chest_if_indicated_by_exam",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m having the pain right now. Each episode lasts about 10–15 minutes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m very concerned this is acute coronary syndrome (unstable angina or NSTEMI); can you tell me your age you already said 26, so any family history of early heart disease, and are you taking aspirin or nitroglycerin at all? Also, do you have any fainting, marked breathlessness, or palpitations right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m 26. Yes—there is family history of heart disease before age 50. I’m not taking aspirin or nitroglycerin right now. I don’t feel fainting, and I’m not sure about palpitations, but I do have the chest pain and sweating right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as **acute coronary syndrome** until proven otherwise—please stay still and I’ll have you get immediate care; can you confirm if you’ve taken any aspirin today, and do you have any allergy to aspirin/other blood thinners?  \nREQUEST TEST: Repeat_Troponin_serial + repeat_ECG_in_1-2_hours  \nREQUEST TEST: Lipid_Panel + HbA1c",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t taken aspirin today. I don’t know of any allergy to aspirin or other blood thinners.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Please take **chewed aspirin 325 mg now** (unless you have true allergy or serious bleeding history), and are you able to **describe the pain level 0–10** and whether it’s **improving or worsening at this moment**?  \nDoctor: Also, do you have **shortness of breath, feeling faint, or vomiting** right now, and can you tell me your **blood pressure/heart rate** if you’ve measured them?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "My pain is about **7/10**, and it feels **worsening** right now. I’m not sure about shortness of breath, but I do have sweating with the pain; I’m not vomiting and I don’t feel faint. I haven’t measured my blood pressure or heart rate.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With 7/10 worsening exertional “pressure” pain radiating to the left arm/shoulders plus sweating, and high-risk history (HTN, diabetes, family history), this is **acute coronary syndrome**—I’m going to treat this as an emergency: **call EMS now** and do **chewed aspirin 325 mg immediately** if not already taken, and keep you NPO.  \nDoctor: While EMS/ED prepares, we’ll reassess—do you have any aspirin allergy or history of major bleeding/active GI bleed, and have you taken any NSAIDs or blood thinners today?  \nREQUEST TEST: Start_ECG_monitoring_and_administer_antiplatelet_therapy_as_per_ED_protocol",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have an aspirin allergy and I don’t have a history of major bleeding or active GI bleeding that I know of. I haven’t taken any NSAIDs or blood thinners today.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Good—no aspirin allergy or bleeding history means aspirin is safe; we’ll proceed with emergency ACS care—do you have any severe active asthma/aspirin-exacerbated respiratory disease or known bleeding disorder?  \nDoctor: If not, I’m ordering immediate **REQUEST TEST: Immediate_Cardiology_ED_Workup (repeat ECGs + serial troponins + monitor) and start ACS meds per protocol**—and I need one last answer: are you able to lie still while you continue to have 7/10 pain right now?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have severe active asthma or any aspirin-related breathing problems, and I don’t have a known bleeding disorder. And yes—I can lie still while the pain is still at about 7/10.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—no aspirin-exacerbated asthma or bleeding disorder, and you can lie still. With ongoing 7/10 worsening exertional pressure pain radiating to the left arm/shoulders and diaphoresis, plus HTN/diabetes and strong family history, this is **acute coronary syndrome**—I’m treating as **NSTEMI/unstable angina** now.  \nDIAGNOSIS READY: Acute coronary syndrome (NSTEMI vs unstable angina), requiring emergency ED management.\n\n[DDX]\n1. Unstable angina\n2. Stable angina",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unstable angina",
+    "predicted_set_remapped": [
+      "Unstable angina",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6447,
+      "completion_tokens": 845,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 11045,
+      "completion_tokens": 430
+    }
+  }
+}

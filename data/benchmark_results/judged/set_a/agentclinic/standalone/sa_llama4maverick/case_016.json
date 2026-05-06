@@ -1,0 +1,126 @@
+{
+  "case_idx": 16,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "71-year-old male",
+    "History": "The patient complains of fatigue and malaise over the last few months. He also reports an unintentional weight loss of 18.1 kg over the past 6 months. He does not recall any changes in diet or exercise routines that could explain the weight loss.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue and malaise",
+      "Secondary_Symptoms": [
+        "Significant unintentional weight loss",
+        "No change in diet or exercise"
+      ]
+    },
+    "Past_Medical_History": "Has a history of diabetes mellitus type II, hypertension, non-seminomatous testicular cancer treated in the past, and hypercholesterolemia.",
+    "Social_History": "Currently smokes 1 pack of cigarettes per day and drinks a glass of wine daily. Denies any illicit drug use.",
+    "Review_of_Systems": "No fever, night sweats, or significant changes in bowel habits."
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with fatigue, malaise, and unintentional weight loss, and assess the need for further diagnostic workup.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been feeling fatigued and generally unwell for a few months, and I’ve also lost about 18 kilograms unintentionally over the last six months without any change in my diet or exercise.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me more about the nature of your fatigue? Is it constant or does it vary throughout the day?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s been fairly constant, though some days feel a bit worse than others, but it doesn’t really go away. I mostly feel drained and weak throughout the day, and it’s not improved by rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any other symptoms such as fever, night sweats, or changes in your bowel habits?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any fever or night sweats, and I haven’t noticed any significant changes in my bowel habits. It’s mainly been the ongoing fatigue and the unexplained weight loss.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned significant unintentional weight loss. Have you noticed any changes in your appetite or any difficulties swallowing?\nThe presence or absence of these symptoms can help guide towards diagnoses such as malignancy or gastrointestinal disorders.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My appetite has been noticeably lower than usual, and I don’t feel like eating much, but I haven’t had any trouble swallowing. I just keep feeling drained and I’m still losing weight without any clear reason.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The loss of appetite alongside weight loss and fatigue is concerning for a systemic illness. Have you noticed any pain or discomfort in your abdomen or any other parts of your body?\nThe presence and location of pain can help narrow down the differential diagnosis. \n\n(I will rephrase the question to make it more specific)\nDo you have any abdominal pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any significant abdominal pain or specific discomfort that I can point to. It’s mostly just the ongoing drained feeling, lower appetite, and continued unintentional weight loss.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The absence of abdominal pain doesn't rule out a significant underlying condition. Have you noticed any changes in your urination habits, such as increased frequency or blood in your urine?\n \n(I will keep the questioning going to gather more information)\n\nAlternatively, I'll ask: Have you noticed any lumps or swellings anywhere on your body?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any lumps or swellings anywhere, and my urination habits haven’t changed—no increased frequency or blood that I’m aware of. It’s mainly the steady fatigue, lower appetite, and the continued unintentional weight loss.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "You've been experiencing significant and unexplained weight loss, fatigue, and decreased appetite. Given the information gathered so far, it seems we are reaching the limit of our questioning. \n\nLet's review the key findings: significant unintentional weight loss, persistent fatigue not relieved by rest, decreased appetite, and no specific pain or other localizing symptoms.\n\n[DDX] Cancer (e.g., lymphoma, gastrointestinal malignancy), Chronic infection (e.g., tuberculosis, HIV), Endocrine disorders (e.g., hyperthyroidism, adrenal insufficiency), Chronic inflammatory diseases (e.g., rheumatoid arthritis, lupus), Depression with significant weight loss and fatigue.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Cancer (e.g",
+    "predicted_set": [
+      "Cancer (e.g",
+      "lymphoma",
+      "gastrointestinal malignancy)",
+      "Chronic infection (e.g",
+      "tuberculosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2860,
+      "completion_tokens": 352
+    },
+    "patient": {
+      "prompt_tokens": 3257,
+      "completion_tokens": 296,
+      "calls": 6
+    }
+  }
+}

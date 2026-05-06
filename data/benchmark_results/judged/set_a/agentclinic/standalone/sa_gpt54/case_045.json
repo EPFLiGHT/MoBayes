@@ -1,0 +1,147 @@
+{
+  "case_idx": 45,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Phyllodes tumor",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old woman",
+    "History": "The patient reports noticing a mass in her right breast 3 weeks ago, which has rapidly increased in size. She denies experiencing any pain associated with the mass.",
+    "Symptoms": {
+      "Primary_Symptom": "Rapidly enlarging right breast mass",
+      "Secondary_Symptoms": [
+        "No pain",
+        "No changes in skin or nipple appearance",
+        "No noticeable lymphadenopathy"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No history of breast masses or cancer in herself or her family.",
+    "Social_History": "Non-smoker, moderate alcohol use. Works as a teacher.",
+    "Review_of_Systems": "No weight loss, fever, night sweats, or changes in appetite."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I noticed a lump in my right breast about three weeks ago, and it’s been growing quickly. It isn’t painful, and I haven’t noticed any skin or nipple changes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?\nHow old are you?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 45 years old.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any nipple discharge from that breast, especially bloody or clear discharge?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any nipple discharge—nothing clear or bloody.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you feel any lumps or swelling in your armpit or above the collarbone on that side?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any lumps or swelling in my armpit or above the collarbone on that side.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Is the lump mobile under the skin, or does it feel fixed to the breast or chest wall?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels pretty firm and I don’t think it’s very mobile under the skin—it seems more fixed than movable.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any fever, redness, warmth of the breast, or are you breastfeeding?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any fever, and I haven’t noticed redness or warmth in the breast. I’m not breastfeeding.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any family history of breast or ovarian cancer, especially in a first-degree relative?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, there’s no family history of breast or ovarian cancer in my immediate family. I also haven’t had any prior breast masses or cancer myself.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had a recent mammogram, and if so was it normal?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had a recent mammogram, so I don’t know if it would be considered normal.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Invasive ductal carcinoma of the breast, Phyllodes tumor, Fibroadenoma, Invasive lobular carcinoma, Breast cyst\n\nA rapidly enlarging, firm, relatively fixed, painless breast mass in a 45-year-old is most concerning for breast cancer, especially invasive ductal carcinoma. A phyllodes tumor is also a strong consideration because it can grow quickly and may be painless. Fibroadenoma and cyst are less likely at this age and with a fixed feel, but still possible. Invasive lobular carcinoma is possible though it more often presents less discretely.\n\nThis needs prompt in-person evaluation with diagnostic mammography and targeted breast ultrasound, and likely core needle biopsy.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Invasive ductal carcinoma of the breast",
+    "predicted_set": [
+      "Invasive ductal carcinoma of the breast",
+      "Phyllodes tumor",
+      "Fibroadenoma",
+      "Invasive lobular carcinoma",
+      "Breast cyst\n\nA rapidly enlarging"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Phyllodes tumor",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3264,
+      "completion_tokens": 293
+    },
+    "patient": {
+      "prompt_tokens": 3600,
+      "completion_tokens": 234,
+      "calls": 8
+    }
+  }
+}

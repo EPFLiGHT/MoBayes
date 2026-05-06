@@ -1,0 +1,85 @@
+{
+  "case_idx": 8,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Perforated gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient is brought in by his wife due to experiencing severe abdominal pain for the past hour. The patient is in too much discomfort to provide detailed information. His wife reports that he has a history of peptic ulcer disease, which has been treated with antacids without significant improvement. She mentions that he has vomited several times in the last few hours, with the vomit being brown/red in color.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Repeated vomiting",
+        "Brown/red-colored vomitus"
+      ]
+    },
+    "Past_Medical_History": "Known history of peptic ulcer disease, treated with antacids.",
+    "Social_History": "Not provided.",
+    "Review_of_Systems": "Unable to provide due to the patient's condition."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with acute, severe abdominal pain, with a background of peptic ulcer disease.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I have severe abdominal pain that started about an hour ago, and I’ve been vomiting several times—my vomit looks brown/red. I can’t tolerate it long enough to talk much, but I have a history of peptic ulcer disease and antacids haven’t helped.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have severe, sudden abdominal pain (especially with guarding/rigid abdomen) that started within the last 24 hours?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, it’s severe and sudden—I felt it start about an hour ago, and my abdomen feels very tender and tight.” “I’m not sure about guarding exactly, but it hurts intensely when I move or you press on it.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute Mesenteric Ischemia, Perforated gastric peptic ulcer  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Acute Mesenteric Ischemia",
+    "predicted_set": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "predicted_raw": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer  "
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Acute Mesenteric Ischemia",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 733,
+      "completion_tokens": 128,
+      "calls": 2
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "case_idx": 4,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "objective_for_doctor": "A 29-year-old Female patient presents to the clinic. Chief complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and swelling in one or more areas of your body.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m having lightheadedness/near-fainting and I feel nauseous like I might vomit, plus my face and some other areas are swelling. I also have a pink itchy rash, and I’ve had trouble breathing with a kind of noisy throat sound (stridor) after being in contact with or eating something I’m severely allergic to.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this sounds like a possible severe allergic reaction (anaphylaxis). Do you currently have any wheezing or trouble speaking/swallowing, and did the symptoms start within minutes to an hour after exposure to the trigger?  \nDoctor: Also, have you checked your blood pressure or pulse, and do you have any history of similar episodes, asthma, or use of any new medicines (like antibiotics or NSAIDs)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I have trouble breathing and that noisy throat sound (stridor). I’m not sure about wheezing, but my throat feels involved. My symptoms started pretty fast—within minutes to about an hour after the exposure.  \n\nI haven’t checked my blood pressure or pulse. I’ve had severe food allergy before, and this feels similar to my past reactions. I haven’t taken any new medicines like antibiotics or NSAIDs today.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—based on fast onset after a known allergen, facial swelling, nausea/near-fainting, and stridor/throat involvement, this is consistent with anaphylaxis. Right now, are you able to speak full sentences, and do you have any hives or swelling spreading quickly beyond your face?  \nDoctor: REQUEST TEST: Pulse_oximetry_and_vitals (BP, HR, RR, SpO2)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I can speak but it feels hard because my throat is affected—I’m not sure if I can do full sentences comfortably. Yes, the swelling is spreading beyond just my face, and I also have itchy pink rash/lesions in other areas. I haven’t had my vitals or pulse ox checked yet.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This is severe anaphylaxis with airway involvement—do you have an epinephrine auto-injector with you, and if yes have you used it yet? Also, are you alone or is someone able to call emergency services right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I do have an epinephrine auto-injector with me, but I haven’t used it yet. I’m not alone—someone is with me, and they can call emergency services right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "DIAGNOSIS READY: Anaphylaxis with airway involvement (severe allergic reaction causing stridor and progressing swelling)—treat immediately with epinephrine.\n\n[DDX]\n1. Anaphylaxis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Anaphylaxis",
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2153,
+      "completion_tokens": 276,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 4649,
+      "completion_tokens": 274
+    }
+  }
+}

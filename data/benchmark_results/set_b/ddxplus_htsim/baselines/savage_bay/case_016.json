@@ -1,0 +1,189 @@
+{
+  "case_idx": 16,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Chronic rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 35\nSex: F\nChief Complaint: purulent nasal discharge",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had greenish or yellowish nasal discharge and a cough. I also have pain around my forehead, cheek (left), nose, eye (left), and temple (right), which feels burning and sharp, with intensity 5/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on your symptoms of nasal discharge + cough + facial pain):  \n- Acute rhinosinusitis: 0.45  \n- Allergic sinusitis: 0.20  \n- URTI / Viral pharyngitis: 0.15  \n- Influenza: 0.10  \n- Pneumonia: 0.10  \n\nTo update this, I need one key discriminating detail:\n\n**Question 1 (one at a time):**  \nDo you have a **fever** (measured or felt), and if so how high?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “fever unknown”):  \n- Acute rhinosinusitis: 0.40  \n- Allergic sinusitis: 0.20  \n- URTI / Viral pharyngitis: 0.18  \n- Influenza: 0.12  \n- Pneumonia: 0.10  \n\n**Question 2:**  \nHow long has this been going on—**days** (e.g., 2–3 days vs >10 days)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still broad because duration unknown):  \n- Acute rhinosinusitis: 0.40  \n- Allergic sinusitis: 0.20  \n- URTI / Viral pharyngitis: 0.18  \n- Influenza: 0.12  \n- Pneumonia: 0.10  \n\n**Question 3:**  \nIs the facial pain **worse when you bend forward** or when you press over the cheek/forehead? (yes/no)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it's worse when I press over the cheek/forehead.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (facial pain worse with pressure → supports sinus inflammation):  \n- Acute rhinosinusitis: 0.62  \n- Allergic sinusitis: 0.14  \n- URTI / Viral pharyngitis: 0.12  \n- Influenza: 0.07  \n- Pneumonia: 0.05  \n\nLikelihood ratio (approx): pressure-tenderness for acute rhinosinusitis vs others ~3–4.\n\n**Question 4:**  \nDo you have **tooth pain** (upper teeth) or **bad breath** along with the left-sided facial pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis: 0.60  \n- Allergic sinusitis: 0.14  \n- URTI / Viral pharyngitis: 0.13  \n- Influenza: 0.08  \n- Pneumonia: 0.05  \n\n**Question 5:**  \nIs your nasal discharge **mostly one-sided (left)** or **both sides**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Left.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (one-sided discharge increases bacterial/acute sinusitis likelihood):  \n- Acute rhinosinusitis: 0.72  \n- Allergic sinusitis: 0.10  \n- URTI / Viral pharyngitis: 0.10  \n- Influenza: 0.05  \n- Pneumonia: 0.03  \n\nLikelihood ratio for unilateral purulent discharge for acute rhinosinusitis vs allergic ~2–3.\n\n**Question 6:**  \nDo you have **shortness of breath** or **chest pain**, or is it mainly nasal symptoms + cough?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no new cardiopulmonary info):  \n- Acute rhinosinusitis: 0.70  \n- Allergic sinusitis: 0.11  \n- URTI / Viral pharyngitis: 0.11  \n- Influenza: 0.06  \n- Pneumonia: 0.02  \n\n**Question 6 (focused):**  \nIs your cough **dry** or are you bringing up **phlegm**? If phlegm, what color?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still dominated by acute rhinosinusitis):  \n- Acute rhinosinusitis: 0.68  \n- Allergic sinusitis: 0.12  \n- URTI / Viral pharyngitis: 0.12  \n- Influenza: 0.06  \n- Pneumonia: 0.02  \n\n**Question 7:**  \nAny **sore throat** or **hoarseness**? (yes/no)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis: 0.66  \n- Allergic sinusitis: 0.13  \n- URTI / Viral pharyngitis: 0.13  \n- Influenza: 0.06  \n- Pneumonia: 0.02  \n\n**Question 8:**  \nDo you have **eye symptoms** on the left—redness, swelling around the eye, or pain with eye movement? (yes/no)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still sinusitis most likely, but orbital complications can’t be assessed):  \n- Acute rhinosinusitis: 0.64  \n- Allergic sinusitis: 0.14  \n- URTI / Viral pharyngitis: 0.14  \n- Influenza: 0.06  \n- Pneumonia: 0.02  \n\n**Question 9 (important for severity):**  \nAny **vision changes** (blurred/double vision) or **swelling/redness around the left eye**? (yes/no)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis: 0.62  \n- Allergic sinusitis: 0.15  \n- URTI / Viral pharyngitis: 0.15  \n- Influenza: 0.06  \n- Pneumonia: 0.02  \n\n**Question 10 (safety):**  \nAre you having **severe headache** that’s rapidly worsening, **neck stiffness**, confusion, or vomiting? (yes/no)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still sinusitis most likely; red-flag status unknown):  \n- Acute rhinosinusitis: 0.60  \n- Allergic sinusitis: 0.16  \n- URTI / Viral pharyngitis: 0.16  \n- Influenza: 0.06  \n- Pneumonia: 0.02  \n\n**Question 11 (key):**  \nDo you have **known asthma/COPD** or wheezing with the cough? (yes/no)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have asthma or have used a bronchodilator in the past.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (asthma history shifts some probability toward lower airway causes, but facial pain still points to sinusitis):  \n- Acute rhinosinusitis: 0.48  \n- Bronchospasm / acute asthma exacerbation: 0.25  \n- Allergic sinusitis: 0.12  \n- URTI / Viral pharyngitis: 0.10  \n- Influenza: 0.05  \n\nLikelihood update: asthma history + cough increases bronchospasm likelihood (LR ~2), while sinus tenderness still supports rhinosinusitis.\n\n**Question 12 (discriminating):**  \nRight now, do you have **wheezing** or **shortness of breath**? (yes/no)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still uncertain due to unknown wheeze/SOB):  \n- Acute rhinosinusitis: 0.46  \n- Bronchospasm / acute asthma exacerbation: 0.27  \n- Allergic sinusitis: 0.13  \n- URTI / Viral pharyngitis: 0.10  \n- Influenza: 0.04  \n\n**Question 13 (one at a time):**  \nIs the cough **triggered by cold air, exercise, or lying down**, and does it improve with your bronchodilator? (yes/no)",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key severity/discriminating features are unknown (duration/fever, wheeze/SOB, cough character, and any red-flag eye/neurologic symptoms), so I can’t confidently rank beyond the top possibilities.\n\n[POSSIBLE] Acute rhinosinusitis, Bronchospasm / acute asthma exacerbation, Allergic sinusitis, URTI / Viral pharyngitis, Influenza",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Allergic sinusitis",
+      "URTI / Viral pharyngitis",
+      "Influenza"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 25145,
+      "completion_tokens": 1644
+    },
+    "patient": {}
+  }
+}

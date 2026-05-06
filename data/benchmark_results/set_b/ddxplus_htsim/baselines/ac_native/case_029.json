@@ -1,0 +1,170 @@
+{
+  "case_idx": 29,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {
+    "AGE": 78,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "shortness of breath",
+    "EVIDENCES_ENG": "['recent viral infection', 'pain', 'shortness of breath', 'symptoms worse when lying down and alleviated while sitting up', 'exertional symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 78\n- I have recently had a viral infection.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- My symptoms are worse when lying down and alleviated while sitting up.\n- I have symptoms that are increased with physical exertion but alleviated with rest.\n- On a scale of 0-10, the pain intensity is 6\n- On a scale of 0-10, the pain's location precision is 2\n- On a scale of 0-10, the pace at which the pain appear is 0\n- The pain is:\n* a knife stroke\n- The pain locations are:\n* breast(R)\n* breast(L)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute pulmonary edema', 0.14132784034295345], ['Unstable angina', 0.1396328535739049], ['Stable angina', 0.1311837210976081], ['Myocarditis', 0.12160604916796258], ['Possible NSTEMI / STEMI', 0.11930317074610028], ['Pericarditis', 0.10652085132993405], ['Guillain-Barré syndrome', 0.08818573474315171], ['Acute dystonic reactions', 0.06210130980641507], ['Sarcoidosis', 0.05085584726047793], ['Scombroid food poisoning', 0.03928262193149195], ['Pulmonary embolism', 0.0]]",
+    "PATHOLOGY": "Myocarditis",
+    "INITIAL_EVIDENCE": "dyspn",
+    "EVIDENCES": "['B34.9', 'douleurxx', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_endroitducorps_@_sein_G_', 'douleurxx_intens_@_6', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_2', 'douleurxx_soudain_@_0', 'dyspn', 'trav1_@_N', 'ww_dd', 'ww_effort']",
+    "patient_id": "htsim_1045",
+    "_test_index": 1045,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 78-year-old F patient presents to the clinic. Chief complaint: shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significant shortness of breath, and I also have chest pain around both breasts. The breathing gets worse when I lie down and is better when I’m sitting up, and it’s also worse with physical exertion and better with rest. The pain is a knife-stroke type, intensity 6 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can I ask a few quick questions to understand this shortness of breath and chest pain?  \n1) Do you also have fever, cough, or coughing up blood? 2) Any leg swelling/pain or recent long travel/surgery? 3) Is the chest pain worse when you take a deep breath or when you press on the chest?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nI have recently had a viral infection.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given your recent viral infection, shortness of breath worse lying down, and sharp 6/10 chest pain, I’m concerned about causes like pneumonia/pleurisy, pulmonary embolism, or heart-related problems; can you answer these: 1) Do you get short of breath suddenly, and do you feel your heart racing? 2) Any swelling of one or both legs or new calf pain? 3) Is your chest pain worse with a deep breath or is it more pressure-like?  \nDoctor: If you can’t answer those precisely, I’ll order urgent tests—REQUEST TEST: ECG, REQUEST TEST: Chest_X-Ray, REQUEST TEST: Troponin, REQUEST TEST: BNP, REQUEST TEST: D-dimer (or CT_Pulmonary_Angiography if high suspicion).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t rely on “I don’t know,” so I’m ordering urgent rule-out tests—REQUEST TEST: ECG, REQUEST TEST: Chest_X-Ray, REQUEST TEST: Troponin, REQUEST TEST: BNP, REQUEST TEST: D-dimer.  \nDoctor: While those are pending, do you currently have low oxygen (if you know your SpO₂), and is the pain definitely sharp with breathing or more like pressure/heaviness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you now—what is your current oxygen saturation (SpO₂) if you’ve had it checked, and I’ll listen to your lungs and heart; also, can you tell me if the chest pain is sharp and worse with a deep breath (pleuritic) or not?  \nDoctor: If you can’t answer, we’ll proceed anyway with the urgent results I already ordered—REQUEST TEST: ECG, REQUEST TEST: Chest_X-Ray, REQUEST TEST: Troponin, REQUEST TEST: BNP, REQUEST TEST: D-dimer.  \nDoctor: Once I have those results, I’ll decide between pulmonary embolism/pleurisy, acute coronary syndrome/heart failure, or pneumonia.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have recently had a viral infection. My shortness of breath is worse when lying down and better when sitting up, and it’s increased with physical exertion but alleviated with rest. I also have pain around both breasts (right and left), a knife-stroke type, with intensity 6/10.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given “worse lying down, better sitting up” plus exertional dyspnea after a viral illness, I’m most concerned about an acute cardiac cause (e.g., heart failure/pericarditis) but I also need to rule out pneumonia/PE. REQUEST TEST: ECG; REQUEST TEST: Chest_X-Ray; REQUEST TEST: Troponin; REQUEST TEST: BNP; REQUEST TEST: D-dimer.  \nDoctor: While we wait, can you tell me: 1) do you get worse symptoms at night or when you lie flat (need extra pillows), 2) any fever, new cough, or leg swelling, 3) does the chest pain improve when you sit forward or worsen when you lie back?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t reliably answer those symptoms, I need objective data right now; REQUEST TEST: ECG, REQUEST TEST: Chest_X-Ray, REQUEST TEST: Troponin, REQUEST TEST: BNP, REQUEST TEST: D-dimer.  \nDoctor: Also during the exam, I’ll check your SpO₂, blood pressure, heart sounds (murmur/rub), and lung sounds for crackles, then we’ll decide if this is more likely heart failure/pericarditis versus pneumonia or pulmonary embolism.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll now examine you immediately—please tell me your current SpO₂ if available, and I’ll check vital signs, lung sounds, and heart sounds for crackles, rub, or abnormal murmurs. REQUEST TEST: CBC, CMP, and repeat vital signs; also please obtain the previously ordered ECG, Chest_X-Ray, Troponin, BNP, and D-dimer STAT.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given you don’t know key symptom details, I have to decide based on STAT objective results; **while you’re being evaluated, I need the results of your ECG, Chest_X-Ray, Troponin, BNP, and D-dimer**, and your **vital signs + SpO₂**.  \nDoctor: If Troponin/ECG suggest myocardial injury or BNP is high with crackles/edema, I’ll treat for **acute coronary syndrome/heart failure**; if D-dimer is elevated and imaging can’t exclude PE, I’ll move to **CT_Pulmonary_Angiography**.  \nDoctor: For you to stay safe right now—are you currently on oxygen, and do you feel worse breathing at rest compared with your worst moment earlier today?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t provide symptom details, I need the STAT results now: ECG, Chest_X-Ray, Troponin, BNP, D-dimer, plus your vital signs (BP/HR/RR) and SpO₂; do you have those numbers available?  \nDoctor: Also, I’m going to proceed assuming safety first—do you have oxygen available, and are you currently able to speak full sentences without stopping for breath?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you don’t know the numbers and you’re short of breath, I need you to stay seated and I’m treating this as potentially serious until proven otherwise. REQUEST TEST: Stat_vitals_with_SpO2; REQUEST TEST: ECG; REQUEST TEST: Chest_X-Ray; REQUEST TEST: Troponin; REQUEST TEST: BNP; REQUEST TEST: D-dimer.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have recently had a viral infection. My shortness of breath is worse when lying down and better when sitting up, and it’s increased with physical exertion but alleviated with rest. I also have pain around both breasts (right and left) that is a knife-stroke type, intensity 6/10.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on your symptoms (worse lying flat, better sitting up, exertional dyspnea after a recent viral illness, and chest pain), I’m most concerned about heart involvement such as heart failure or pericarditis, but we must also rule out pneumonia/PE. REQUEST TEST: Stat_vitals_with_SpO2; REQUEST TEST: ECG; REQUEST TEST: Chest_X-Ray; REQUEST TEST: Troponin; REQUEST TEST: BNP; REQUEST TEST: D-dimer.  \nDoctor: While we await results, are you able to speak full sentences, and do you have any new leg swelling or recent prolonged immobility/travel?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have recently had a viral infection. My shortness of breath is worse when lying down and better when sitting up, and it’s increased with physical exertion but alleviated with rest. I also have pain around both breasts (right and left) that is a knife-stroke type, intensity 6/10.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need your STAT results to decide quickly—REQUEST TEST: Stat_vitals_with_SpO2 (including BP/HR/RR), REQUEST TEST: ECG, REQUEST TEST: Chest_X-Ray, REQUEST TEST: Troponin, REQUEST TEST: BNP, REQUEST TEST: D-dimer; if SpO₂ is low or D-dimer is high, we’ll escalate to CT_Pulmonary_Angiography and/or echocardiography.  \nDoctor: While that’s running, I’m going to ask only one thing: are you currently able to speak full sentences without stopping for breath, yes or no?  \nDoctor: DIAGNOSIS READY: Pending STAT ECG/biomarkers/imaging—concern for acute cardiopulmonary disease (most likely heart failure/pericarditis after viral illness vs pulmonary embolism/pneumonia), requires immediate rule-out.\n\n[DDX]\n1. Pulmonary embolism\n2. Pneumonia\n3. Pericarditis",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12298,
+      "completion_tokens": 1527,
+      "calls": 12
+    },
+    "patient": {
+      "prompt_tokens": 18159,
+      "completion_tokens": 357,
+      "calls": 12
+    }
+  }
+}

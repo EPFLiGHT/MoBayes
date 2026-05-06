@@ -1,0 +1,134 @@
+{
+  "case_idx": 40,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Steven-Johnson syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "47-year-old male",
+    "History": "The patient presents with a rash that started last night, finding it very concerning. He does not recall being exposed to any new environmental stimuli such as detergents or plants like poison ivy. He mentions he recently started seeing a primary care provider for arthritis management and a new onset cough.",
+    "Symptoms": {
+      "Primary_Symptom": "Rash on the upper half of the back",
+      "Secondary_Symptoms": [
+        "Concern over sudden onset",
+        "Recent cough",
+        "Unaware of exposure to new environmental stimuli",
+        "Mucositis"
+      ]
+    },
+    "Past_Medical_History": "Has been diagnosed with arthritis. No other significant past medical history has been mentioned.",
+    "Social_History": "The patient didn't provide any specific social history details during the initial consultation.",
+    "Review_of_Systems": "Reports a new onset cough along with skin and mucosal changes but denies fever, shortness of breath, joint pains, gastrointestinal symptoms, or recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a concerning rash and recent health changes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I have a rash that started last night on the upper half of my back, and I’m really worried because I can’t think of any new exposures like detergents or plants. I’ve also had a new onset cough and some mouth/mucosal sores.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. **One question at a time:**  \n\n**Do you have any fever or feel systemically ill (chills, body aches), and if so what’s the highest temperature you’ve measured?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any fever or chills, and I don’t feel systemically ill—at most I haven’t measured a temperature, but I haven’t felt hot or achy.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question:**  \n\n**Are the mouth/mucosal sores painful ulcers (like blisters/erosions), and do you also have any eye symptoms (redness, pain, light sensitivity)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are the mouth/mucosal sores painful ulcers (like blisters/erosions), and do you also have any eye symptoms (redness, pain, light sensitivity)? Patient: Yes, the mouth sores are painful and look like ulcers/erosions, and I haven’t noticed any eye redness, pain, or light sensitivity.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **Next question:**  \n\n**Can you describe the rash—are there any blisters, skin peeling, or “target”/ring-shaped lesions, or is it more like flat red patches?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The rash is mainly flat red patches on the upper half of my back; I don’t see blisters, peeling, or any ring-shaped or “target” lesions.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **Next question:**  \n\n**Do the mouth sores and rash involve the same time course—did the mouth sores start around the same time as the rash (last night), or were they earlier/later?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The mouth sores started around the same time as the rash—within the last day, and they’ve felt painful since then.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question:**  \n\n**Do you have any shortness of breath, wheezing, or chest pain with the new cough?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No—no shortness of breath, wheezing, or chest pain with the cough. It’s just a new cough along with the rash and painful mouth ulcers.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The presentation (acute onset flat erythematous truncal rash with painful oral mucosal ulcers and a new cough, no fever, no eye symptoms, no blistering/peeling) could fit several serious mucocutaneous processes, but key discriminators (skin tenderness, progression to blisters/skin sloughing, genital involvement, medication exposures, and objective exam findings) are missing.  \n[POSSIBLE] Steven-Johnson syndrome, Toxic exposure, Asthma, Bed bug bite, Acute lymphoblastic leukemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Asthma",
+      "Bed bug bite",
+      "Acute lymphoblastic leukemia"
+    ],
+    "predicted_raw": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Asthma",
+      "Bed bug bite",
+      "Acute lymphoblastic leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Asthma"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5824,
+      "completion_tokens": 337
+    },
+    "patient": {
+      "prompt_tokens": 3522,
+      "completion_tokens": 295,
+      "calls": 6
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "case_idx": 48,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Anemia",
+  "objective_for_doctor": "A 39-year-old Male patient presents to the clinic. Chief complaint: I have lightheadedness/near-fainting, a cramp pain, and back of head pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling lightheaded like I might faint, with severe fatigue and shortness of breath. I also have cramp pain and pain in the back of my head, plus pain on the top of my head and forehead. I noticed bloody stool too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the bloody stool and head/back-of-head pain start, and is the blood bright red or dark/black?  \nDoctor: Do you have chest pain, palpitations, fever, vomiting, or any known bleeding/ulcer history or blood thinners—and have you felt worse when standing up?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The bloody stool and the head/back-of-head pain started around the same time—pretty quickly, like it came on fast. The blood is bright red.  \n\nI don’t have chest pain or fever or vomiting. I am taking oral anticoagulants, and yes—I feel worse when I stand up, like I might pass out.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: You’re on oral anticoagulants—what’s the exact medication name/dose (and when was your last dose), and have you had any recent missed doses or increased bleeding/bruising?  \nDoctor: Also, where is the cramp pain located (abdomen vs legs), and how low is your blood pressure/heart rate if you’ve checked—or do you feel clammy/sweaty?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m on oral anticoagulants, but I don’t remember the exact medication name or dose right now. I took my last dose as scheduled—no missed doses that I know of. I’ve also had more bleeding than usual and some bruising.\n\nThe cramp pain is in my abdomen, not in my legs. I haven’t checked my blood pressure or heart rate, but I do feel clammy and sweaty at times.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need two quick specifics: do you have any black/tarry stool or vomiting blood, and have you had severe ongoing diarrhea/abdominal pain or symptoms that suggest a GI bleed (e.g., weakness getting rapidly worse)?  \nDoctor: Also, can you tell me the result of any recent hemoglobin/INR labs if you’ve had them, and any recent change in diet/antibiotics that could raise your anticoagulant effect?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No—my stool is bright red, not black/tarry, and I’m not vomiting blood. I don’t have severe ongoing diarrhea; the main thing is the abdominal cramp pain and the bleeding, and yes I feel like the weakness is getting worse.\n\nI haven’t had any recent hemoglobin or INR labs that I know of, and I don’t recall any recent diet change or antibiotics.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this is an acute lower-GI bleed causing symptomatic blood loss while on anticoagulants—can you answer: do you have any history of hemorrhoids, diverticulosis, colon polyps/cancer, or inflammatory bowel disease?  \nDoctor: Also, are you passing more blood than usual (how many episodes today), and do you have dizziness that improves when lying flat?  \nDoctor: I need urgent confirmation—REQUEST TEST: CBC (hemoglobin/hematocrit) + CMP, REQUEST TEST: PT/INR (and medication-specific level if available), REQUEST TEST: Type & Screen.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a known history of hemorrhoids, diverticulosis, colon polyps/cancer, or inflammatory bowel disease.\n\nI’ve had more blood than usual today—multiple episodes, but I can’t give an exact number right now. Yes, I feel dizzy/lightheaded, and it’s worse when I’m upright; it feels a bit better when I lie flat.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given bright red hematochezia with worsening dizziness/near-syncope on oral anticoagulants, I’m treating this as an acute GI bleed with symptomatic hypovolemia. REQUEST TEST: CBC (repeat/STAT if possible) + CMP, REQUEST TEST: PT/INR and anticoagulant-specific level if available (e.g., DOAC level/anti-Xa), REQUEST TEST: Type & Screen.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Okay. Please go ahead with the CBC, CMP, PT/INR (and any anticoagulant-specific level if you can), and Type & Screen. I’m feeling weak and lightheaded right now, especially when I’m upright.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—are you currently having active bleeding right now, and do you have any black/tarry stool, chest pain, or fainting/near-fainting episodes since we spoke?  \nDoctor: While we wait for labs, are you able to lie flat comfortably, and can you estimate your current heart rate (fast/pounding) or skin pallor/clamminess?  \nDoctor: Based on your symptomatic bright-red hematochezia while on anticoagulants, I’m preparing to diagnose and manage an acute lower-GI hemorrhage causing hypovolemia; if you want, I can proceed with immediate supportive steps like IV access and reversal planning—DIAGNOSIS READY: Acute lower gastrointestinal bleeding (bright red hematochezia) with symptomatic hypovolemia in an anticoagulated patient.\n\n[ABSTAIN] free-text diagnosis 'Acute lower gastrointestinal bleeding (bright red hematochezia) with symptomatic hypovolemia in an anticoagulated patient.' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4068,
+      "completion_tokens": 642,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6231,
+      "completion_tokens": 428
+    }
+  }
+}

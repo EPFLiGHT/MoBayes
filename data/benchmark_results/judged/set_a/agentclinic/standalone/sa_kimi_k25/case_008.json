@@ -1,0 +1,127 @@
+{
+  "case_idx": 8,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with complaints of abdominal cramps, nausea, vomiting, and diarrhea which started 2 hours ago. Reports eating reheated food from the afternoon about an hour before symptoms started. Denies any recent travel, sick contacts, or similar symptoms in people around him.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant medical or surgical history.",
+    "Social_History": "College student, reports studying for exams late at night. No recent travel. No history of alcohol or drug abuse.",
+    "Review_of_Systems": "Denies fever, headache, rash, chest pain, dysuria, or cough."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms of food poisoning, taking into account the history of presentation and clinical findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello—I'm your doctor today. What brings you in today? Patient: I started having abdominal cramps about two hours ago, and I’ve also had nausea, vomiting, and diarrhea since then. It began shortly after I ate reheated food from earlier today.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you developed any fever or chills since these symptoms began?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any fever or chills. I’ve mainly just been dealing with the cramps, nausea, vomiting, and diarrhea since it started.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What type of food did you reheat and eat? (For example: rice, pasta, meat, dairy, or creamy dishes)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It was reheated rice with a creamy sauce and some meat mixed in. I ate it about an hour before the cramps and the nausea started.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed if anyone else who ate the same reheated rice has developed similar symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t think anyone else who ate the same reheated rice has symptoms that I’ve heard about.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "How long was the rice left at room temperature before you reheated it, and was it refrigerated promptly after the initial cooking?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure exactly how long it was out, but it had been sitting at room temperature for a few hours before I reheated it, and I think it wasn’t refrigerated right away after it was cooked earlier.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any blood in your diarrhea, or is the pain localized to one specific area of your abdomen rather than generalized cramping?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t seen any blood in my diarrhea. The cramps feel generalized across my abdomen rather than in one specific spot.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bacillus cereus food poisoning (emetic type), Staphylococcus aureus food poisoning, Clostridium perfringens food poisoning, Viral gastroenteritis, Early invasive bacterial gastroenteritis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Bacillus cereus food poisoning (emetic type)",
+    "predicted_set": [
+      "Bacillus cereus food poisoning (emetic type)",
+      "Staphylococcus aureus food poisoning",
+      "Clostridium perfringens food poisoning",
+      "Viral gastroenteritis",
+      "Early invasive bacterial gastroenteritis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2431,
+      "completion_tokens": 5018
+    },
+    "patient": {
+      "prompt_tokens": 2757,
+      "completion_tokens": 236,
+      "calls": 6
+    }
+  }
+}

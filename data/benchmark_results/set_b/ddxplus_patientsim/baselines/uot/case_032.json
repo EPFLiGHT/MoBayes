@@ -1,0 +1,89 @@
+{
+  "case_idx": 32,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 72\nSex: Male\nChief Complaint: I have lightheadedness/near-fainting, significant dyspnea, and palpitations",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having significant shortness of breath and palpitations, and I feel lightheaded like I might faint. It started today and it’s been pretty intense, and I’m also feeling very anxious.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (or chills) as a prominent symptom?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have fever or chills.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **sudden shortness of breath with low oxygen and/or chest pain that is pleuritic (worse when you breathe in)**?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have shortness of breath, but I don’t have chest pain—so it’s not pleuritic.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **chest pain that is exertional/pressure-like** (worse with activity, relieved by rest) and/or typical angina features?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain. I don’t have any pressure-like pain with activity, and nothing is relieved by rest.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden, sharp chest pain that is worse when you breathe in (pleuritic pain) or sudden shortness of breath?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No—no sharp chest pain. I do have shortness of breath, but it’s not sudden sharp pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pericarditis  , Respiratory Diseases",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis  ",
+    "predicted_set": [
+      "Pericarditis  ",
+      "Respiratory Diseases"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3293,
+      "completion_tokens": 138
+    }
+  }
+}

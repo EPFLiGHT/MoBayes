@@ -1,0 +1,81 @@
+{
+  "case_idx": 46,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had left-sided chest pain for about a week along with a productive cough with purulent sputum and shortness of breath. I also had fever and malaise, and I was recently diagnosed with influenza but didn’t follow the treatment plan.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing pneumonia?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure if it’s pneumonia, but I do have a week of left-sided chest pain, fever and malaise, and a productive cough with purulent sputum along with shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic obstructive pulmonary disease  , Pneumonia",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease  ",
+    "predicted_set": [
+      "Chronic obstructive pulmonary disease  ",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Chronic obstructive pulmonary disease",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 698,
+      "completion_tokens": 118,
+      "calls": 2
+    }
+  }
+}

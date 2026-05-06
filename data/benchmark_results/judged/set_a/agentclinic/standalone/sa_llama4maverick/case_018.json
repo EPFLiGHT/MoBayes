@@ -1,0 +1,125 @@
+{
+  "case_idx": 18,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hello, doctor. I’m here for my annual blood pressure check—I've been feeling well overall. I only have occasional knee pain from my osteoarthritis, and I take acetaminophen as needed.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To focus on your chief complaint and the reason for your visit, can you tell me more about your blood pressure history and if you've noticed any recent changes or symptoms related to it, such as headaches or dizziness?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Sure, doctor. I’ve had hypertension for years and my readings are usually stable, and I haven’t noticed any recent changes. I also haven’t had headaches, dizziness, chest pain, or palpitations.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Since you're here for a routine check and haven't reported any acute symptoms related to your hypertension or other cardiovascular issues, I'll shift my focus to your mention of knee pain and osteoarthritis. Can you describe the nature of your knee pain - is it constant or does it come and go, and are there any specific activities that trigger or relieve it?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Most days it comes and goes rather than being constant, and it’s usually worse with walking or going up and down stairs. It tends to feel better with rest, and acetaminophen helps when it flares.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Your description is consistent with osteoarthritis. To further assess your condition, have you noticed any swelling, redness, or warmth in the affected knee, which could suggest an inflammatory or acute component to your knee pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Mostly there’s no noticeable swelling, redness, or warmth—just the pain that flares with walking or stairs and improves with rest. When it does bother me, I’ll take acetaminophen as needed.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "It seems your osteoarthritis is relatively well-managed with acetaminophen. To ensure we're not missing anything else that could be contributing to your knee pain, have you experienced any recent trauma or injuries to your knee?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any recent trauma or injuries to my knee. It flares mainly with walking or stairs, and I don’t recall any specific incident that started it.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Since you've had hypertension for years and are here for a routine check, and your knee pain seems consistent with osteoarthritis without any red flags for other serious conditions, I'm starting to think about your overall clinical picture. You've had no recent changes in your hypertension symptoms, and your osteoarthritis is being managed. Let's consider if there's anything else we should be concerned about given your age and history. Have you noticed any changes in your urination, such as frequency or difficulty starting to urinate, which could be related to other potential issues?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed any new changes in my urination—no increased frequency or difficulty starting, and nothing unusual.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "With your hypertension being stable, osteoarthritis being managed, and no new urinary symptoms, it seems you're not presenting with any acute or concerning issues today. Given the information gathered, I'm going to provide a differential diagnosis.\n\n[DDX] Hypertension (routine follow-up), Osteoarthritis, Age-related musculoskeletal pain, Degenerative joint disease, No acute condition.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Hypertension (routine follow-up)",
+    "predicted_set": [
+      "Hypertension (routine follow-up)",
+      "Osteoarthritis",
+      "Age-related musculoskeletal pain",
+      "Degenerative joint disease",
+      "No acute condition"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2998,
+      "completion_tokens": 374
+    },
+    "patient": {
+      "prompt_tokens": 3240,
+      "completion_tokens": 253,
+      "calls": 6
+    }
+  }
+}

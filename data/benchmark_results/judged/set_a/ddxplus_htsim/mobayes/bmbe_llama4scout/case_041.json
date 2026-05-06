@@ -1,0 +1,178 @@
+{
+  "case_idx": 41,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 52\nSex: M\nChief Complaint: resting chest pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I have resting chest pain. It’s a 9/10, very violent and like a knife stroke. It’s on the left side of my chest and upper chest, and also my breast on both sides, though it doesn’t radiate anywhere. It gets worse when I breathe in deeply.",
+      "extracted_features": {
+        "f_e_14": "yes",
+        "f_e_54_v_191": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_54_v_192": "no",
+        "f_e_55_v_56": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_55_v_160": "yes",
+        "f_e_55_v_159": "yes",
+        "f_e_57_v_123": "no",
+        "f_e_220": "yes",
+        "f_e_56": "9"
+      },
+      "top5_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.8348361669336168
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.06359239334597382
+        ],
+        [
+          "Unstable angina",
+          0.03725450454814227
+        ],
+        [
+          "Pulmonary embolism",
+          0.013163214221718922
+        ],
+        [
+          "Myocarditis",
+          0.012725137386813992
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_21",
+      "doctor_question": "Have you ever experienced a sudden and severe chest pain that caused shortness of breath, and was diagnosed with a collapsed lung, even if it happened without any apparent injury or",
+      "patient_answer": "I don't know. My family members have had a pneumothorax, and I smoke cigarettes—I also have COPD.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.4471274384847871
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.2128703890514608
+        ],
+        [
+          "Unstable angina",
+          0.1247064382989534
+        ]
+      ],
+      "entropy": 2.539401683520172
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_216",
+      "doctor_question": "When you move around or change positions, does your pain get worse?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.4471274384847871
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.2128703890514608
+        ],
+        [
+          "Unstable angina",
+          0.1247064382989534
+        ]
+      ],
+      "entropy": 2.539401683520172
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_203",
+      "doctor_question": "Have you been experiencing any intense coughing fits lately, where you just can't seem to catch your breath or stop coughing?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.5432953328201635
+        ],
+        [
+          "Unstable angina",
+          0.15152822231184154
+        ],
+        [
+          "Pulmonary embolism",
+          0.0535397927074696
+        ]
+      ],
+      "entropy": 2.4334507461066757
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_71",
+      "doctor_question": "I'm here to help you understand what's going on with your body. Can you tell me, is your pain so intense that it feels like it's breaking your heart or making you feel extremely sad?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Unstable angina",
+          0.2701291272516016
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.25181825459592067
+        ],
+        [
+          "Pulmonary embolism",
+          0.09544530554536974
+        ]
+      ],
+      "entropy": 3.087116982130877
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_top3": [
+      "Unstable angina",
+      "Spontaneous pneumothorax",
+      "Pulmonary embolism"
+    ],
+    "confidence": 0.2701291272516016,
+    "final_entropy": 3.087116982130877,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Unstable angina",
+    "predicted_set_remapped": [
+      "Unstable angina",
+      "Spontaneous pneumothorax",
+      "Pulmonary embolism"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9300,
+      "completion_tokens": 798
+    },
+    "patient": {}
+  }
+}

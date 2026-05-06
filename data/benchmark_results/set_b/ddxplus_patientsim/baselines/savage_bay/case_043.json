@@ -1,0 +1,152 @@
+{
+  "case_idx": 43,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 65\nSex: Male\nChief Complaint: I have a cough, significant dyspnea, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having a bad cough and I’m really short of breath. When I breathe out, I can hear a wheezing sound. I’ve had a few COPD flare-ups in the past year, and I’m still a current smoker.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s narrow this down.\n\n**Current posterior (pre-test, based on your history of COPD + current smoker + wheeze/SOB):**\n- **Acute COPD exacerbation / infection:** 0.45  \n- **Bronchospasm / acute asthma exacerbation:** 0.15  \n- **Pneumonia:** 0.15  \n- **Pulmonary embolism:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n(others combined: 0.10)\n\n**Question 1 (most discriminating):**  \nDo you have **fever** (≥38°C) or **chills**, or has your sputum **increased** and/or changed color (e.g., yellow/green) compared with usual?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my temperature, but I haven’t had fever or chills that I can tell. My cough is worse, but I can’t say for sure that my sputum is a new color or much more than usual.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Update with evidence:** no known fever/chills and no clear change in sputum → this slightly lowers pneumonia/“infection-triggered” COPD, but doesn’t rule it out.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.50  \n- **Bronchospasm / acute asthma exacerbation:** 0.18  \n- **Pneumonia:** 0.10  \n- **Pulmonary embolism:** 0.12  \n- **Acute pulmonary edema:** 0.05  \n(others combined: 0.05)\n\n**Question 2:**  \nWhen did this start, and is it **sudden over minutes-hours** or **gradual over days**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started a few days ago, and it’s been getting worse gradually, not suddenly.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** gradual onset over days → makes PE and acute pulmonary edema less likely; slightly favors COPD/asthma/infectious causes.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.58  \n- **Bronchospasm / acute asthma exacerbation:** 0.20  \n- **Pneumonia:** 0.10  \n- **Pulmonary embolism:** 0.06  \n- **Acute pulmonary edema:** 0.03  \n(others combined: 0.03)\n\n**Question 3:**  \nDo you have **chest pain** (especially sharp/pleuritic or worse with breathing), or is it mainly **tightness** from breathing difficulty?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain. It’s mainly tightness because I can’t breathe well.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** no chest pain/pleuritic features → lowers PE and cardiac causes a bit; supports obstructive airway process.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.62  \n- **Bronchospasm / acute asthma exacerbation:** 0.22  \n- **Pneumonia:** 0.09  \n- **Pulmonary embolism:** 0.04  \n- **Acute pulmonary edema:** 0.02  \n(others combined: 0.01)\n\n**Question 4:**  \nHave you noticed **leg swelling or pain** (one-sided calf pain/swelling), or any recent **long travel/immobility** or **surgery**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or leg pain, and no recent travel or surgery. I haven’t been immobilized.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** no DVT/PE risk features → further lowers PE.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.64  \n- **Bronchospasm / acute asthma exacerbation:** 0.23  \n- **Pneumonia:** 0.08  \n- **Pulmonary embolism:** 0.02  \n- **Acute pulmonary edema:** 0.02  \n(others combined: 0.01)\n\n**Question 5:**  \nDo you have a history of **asthma** (or childhood allergies/eczema), or is this strictly COPD?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a known history of asthma or childhood allergies/eczema. It’s been COPD for me.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** no asthma history → slightly lowers asthma/bronchospasm probability.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.68  \n- **Bronchospasm / acute asthma exacerbation:** 0.18  \n- **Pneumonia:** 0.08  \n- **Pulmonary embolism:** 0.02  \n- **Acute pulmonary edema:** 0.02  \n\n**Question 6 (to separate pneumonia vs COPD flare):**  \nHave you had **increased sputum volume** or **more difficulty clearing mucus**, even if you’re unsure about color?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my cough is producing more mucus than usual, and it’s harder to clear.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** increased mucus production + harder to clear → strongly supports **infectious-triggered COPD exacerbation** over primary bronchospasm/asthma.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.78  \n- **Bronchospasm / acute asthma exacerbation:** 0.12  \n- **Pneumonia:** 0.07  \n- **Pulmonary embolism:** 0.01  \n- **Acute pulmonary edema:** 0.02  \n\n**Question 7 (key for pneumonia):**  \nAny **new/worsening fever**, **sweats**, or **feeling generally very unwell**, or have you had **pleuritic pain** at all?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had fever or sweats, and I don’t have pleuritic pain. I do feel pretty unwell from the breathing, but not like I’m “systemically” sick with chills.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** no fever/sweats/pleuritic pain → lowers pneumonia further; still possible but less likely.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.83  \n- **Bronchospasm / acute asthma exacerbation:** 0.10  \n- **Pneumonia:** 0.04  \n- **Pulmonary embolism:** 0.01  \n- **Acute pulmonary edema:** 0.02  \n\n**Question 8 (severity/alternative causes):**  \nAre you having **any swelling in the legs**, **waking up at night short of breath**, or needing to sit up to breathe (orthopnea)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling. I don’t think I’m waking up at night short of breath, and I’m not sure about orthopnea—I’ve mostly just been struggling to breathe during the day.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** no leg swelling/PND; orthopnea unclear → keeps pulmonary edema low.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.85  \n- **Bronchospasm / acute asthma exacerbation:** 0.10  \n- **Acute pulmonary edema:** 0.02  \n- **Pneumonia:** 0.03  \n- **Pulmonary embolism:** 0.01  \n\n**Question 9 (very discriminating):**  \nHave you had **increased use of your rescue inhaler** (e.g., albuterol/salbutamol) and is it **not helping as much as usual**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve been using my rescue inhaler more than usual, but it’s not helping like it usually does.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** increased rescue use + poor response → supports **significant COPD exacerbation** (and can also occur with pneumonia/PE), but with your mucus increase it still points to COPD flare.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.90  \n- **Bronchospasm / acute asthma exacerbation:** 0.06  \n- **Pneumonia:** 0.03  \n- **Acute pulmonary edema:** 0.01  \n- **Pulmonary embolism:** 0.00  \n\n**Question 10 (final key check):**  \nDo you have **any known heart failure** or history of **fluid in the lungs**, or are you noticing **frothy sputum**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have known heart failure, and I haven’t been told I had fluid in the lungs. I don’t notice frothy sputum—mostly it’s just more mucus than usual.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection, Bronchospasm / acute asthma exacerbation, Pneumonia, Acute pulmonary edema, Pulmonary embolism",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 19185,
+      "completion_tokens": 1534
+    },
+    "patient": {
+      "prompt_tokens": 16100,
+      "completion_tokens": 368
+    }
+  }
+}

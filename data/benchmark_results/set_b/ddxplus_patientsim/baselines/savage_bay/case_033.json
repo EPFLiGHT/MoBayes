@@ -1,0 +1,182 @@
+{
+  "case_idx": 33,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Spontaneous rib fracture",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 15\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and right posterior chest wall pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had chest pain on both sides—right and left—and also pain in my right back/chest wall that can radiate, plus pain on the left back/chest wall too. It feels like a knife-stroke pain, and I’ve been having intense coughing fits; the pain is worse when I move and it’s pleuritic. It started really fast, and it’s about 7 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down quickly. First, a safety check:\n\n**Question 1 (one at a time):** Are you short of breath, and if so is it sudden/worse than usual?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’m short of breath right now. The main thing is the chest and chest-wall pain, and it gets worse with coughing and movement.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.  \n\n**Current posterior (rough, based on your description so far):**\n- **Pulmonary embolism:** 25%\n- **Pneumonia:** 20%\n- **Spontaneous pneumothorax:** 15%\n- **Acute COPD exacerbation / infection:** 10%\n- **Possible NSTEMI / STEMI:** 10%\n(Other causes like pleurisy/viral illness, bronchitis, musculoskeletal pain remain possible but lower.)\n\nNext question to discriminate pleuritic causes (PE/pneumothorax/pneumonia) from cardiac:\n\n**Question 2:** Does the pain change with **deep breathing** (i.e., is it clearly worse when you take a full breath)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s clearly worse with deep breathing—especially when I take a full breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That strongly supports a **pleuritic** process (lung/pleura) rather than purely cardiac.\n\n**Update (likelihood ratio):**\n- Pleuritic pain makes **PE/pneumothorax/pneumonia** more likely than cardiac causes (LR ~2–4 each vs MI).\n- I’ll update qualitatively:\n\n**Current posterior:**\n- **Pulmonary embolism:** 35%\n- **Spontaneous pneumothorax:** 20%\n- **Pneumonia:** 20%\n- **Acute COPD exacerbation / infection:** 8%\n- **Possible NSTEMI / STEMI:** 5%\n\nNow I want to discriminate **pneumothorax** vs **PE/pneumonia**.\n\n**Question 3:** Have you had any **fever** or chills, or are you coughing up **sputum/phlegm** (and if yes, what color)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have fever or chills that I know of. I’ve had intense coughing fits, but I’m not sure about any phlegm color—if there is any, it’s not really notable.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—no fever/chills and no notable sputum lowers pneumonia a bit, but doesn’t rule it out.\n\n**Update (qualitative likelihood):**\n- Afebrile + minimal sputum → pneumonia less likely (LR ~0.7–0.8).\n- Still consistent with PE or pneumothorax (LR ~1).\n\n**Current posterior:**\n- **Pulmonary embolism:** 40%\n- **Spontaneous pneumothorax:** 25%\n- **Pneumonia:** 15%\n- **Acute COPD exacerbation / infection:** 8%\n- **Possible NSTEMI / STEMI:** 5%\n\nNext, to separate **pneumothorax** from **PE**:\n\n**Question 4:** Any history of **lung disease** (COPD/asthma), or have you had a **recent injury/strain**, or any **sudden one-sided** symptoms in the past? Also—do you feel worse on one side more than the other?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a known lung disease like COPD or asthma. I don’t recall any injury or strain. And it feels kind of on both sides, but the right posterior chest wall pain is the most noticeable, and it feels worse when I move or cough.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. No COPD/asthma and no injury makes musculoskeletal less likely; bilateral pleuritic pain still fits PE, but pneumothorax can be unilateral—your “mostly right” nudges pneumothorax slightly, though PE remains strong.\n\n**Update (qualitative):**\n- No lung disease → slightly down COPD/asthma (LR ~0.7).\n- “Mostly right” → slight up pneumothorax vs PE (LR ~1.2).\n- Still pleuritic and abrupt → keeps PE high.\n\n**Current posterior:**\n- **Pulmonary embolism:** 42%\n- **Spontaneous pneumothorax:** 28%\n- **Pneumonia:** 15%\n- **Acute COPD exacerbation / infection:** 6%\n- **Possible NSTEMI / STEMI:** 5%\n\nNow I need one key discriminator: pneumothorax often causes **sudden shortness of breath** and/or **reduced breath sounds**; PE can have risk factors (immobility, surgery, leg swelling).\n\n**Question 5:** In the last 4 weeks, have you had **recent surgery/immobility/long travel**, or do you have **leg swelling/pain** (especially one-sided)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No surgery, no long travel, and I haven’t been immobile. I don’t have leg swelling or leg pain that I’ve noticed.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "That lowers PE somewhat (no classic provoking factors) and keeps pneumothorax/pneumonia on the table.\n\n**Update (qualitative likelihood):**\n- No provoking factors/leg symptoms → PE down (LR ~0.7).\n- Pneumothorax not strongly affected (LR ~1).\n- Afebrile/minimal sputum still down pneumonia.\n\n**Current posterior:**\n- **Pulmonary embolism:** 34%\n- **Spontaneous pneumothorax:** 30%\n- **Pneumonia:** 18%\n- **Acute COPD exacerbation / infection:** 7%\n- **Possible NSTEMI / STEMI:** 4%\n\nAt this point, I’m not yet confident enough to declare one diagnosis—because we still lack crucial discriminators like **vital signs** (O2 sat, HR), **breath sounds**, and **risk factors** (clotting history, cancer, estrogen use), and we haven’t assessed for **hemoptysis**.\n\n**Question 6:** Have you had **coughing up blood (hemoptysis)**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t coughed up blood.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "No hemoptysis makes PE slightly less likely, but it doesn’t exclude it.\n\n**Update (qualitative):**\n- No hemoptysis → PE down a bit (LR ~0.8).\n- Pneumothorax/pneumonia relatively unchanged.\n\n**Current posterior:**\n- **Pulmonary embolism:** 30%\n- **Spontaneous pneumothorax:** 32%\n- **Pneumonia:** 20%\n- **Acute COPD exacerbation / infection:** 8%\n- **Possible NSTEMI / STEMI:** 4%\n\nNow I need to decide between **pneumothorax** and **pneumonia/bronchitis**. Pneumothorax often comes with **sudden onset** and may cause **worsening with breathing**; pneumonia often has **productive cough** and sometimes fever. We already have afebrile/minimal sputum.\n\n**Question 7:** Do you have any **wheezing** or a history of smoking, or is your cough mostly **dry**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have wheezing that I’ve noticed. I don’t really know if I smoke—my cough feels mostly dry, more like intense coughing fits than bringing up phlegm.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Dry cough + no wheeze keeps pneumonia/bronchitis lower and keeps pneumothorax/PE higher.\n\n**Update (qualitative):**\n- Dry cough → pneumonia down (LR ~0.7).\n- No wheeze → COPD/asthma down (LR ~0.6).\n- Pneumothorax/PE relatively unchanged.\n\n**Current posterior:**\n- **Spontaneous pneumothorax:** 35%\n- **Pulmonary embolism:** 28%\n- **Pneumonia:** 14%\n- **Acute COPD exacerbation / infection:** 7%\n- **Possible NSTEMI / STEMI:** 4%\n\nWe still need one more high-yield discriminator: pneumothorax often causes **marked pleuritic pain with decreased breath sounds** and sometimes **unilateral** symptoms; PE can be associated with **tachycardia** and sometimes **leg symptoms** (already negative). Since we can’t examine, the next best history is **prior episodes** or **risk factors for pneumothorax** (tall thin, smoking, connective tissue disease), and also whether pain started after coughing/strain (can precipitate pneumothorax).\n\n**Question 8:** Are you **tall and thin**, do you **smoke**, or have you ever had a **collapsed lung** before?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’m not really tall and thin, and I don’t know about smoking. I’ve never had a collapsed lung before.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—no classic pneumothorax risk factors lowers it a bit, but sudden pleuritic pain still keeps it possible.\n\n**Update (qualitative):**\n- No tall/thin/smoking history known → pneumothorax down (LR ~0.8).\n- PE unchanged.\n\n**Current posterior:**\n- **Pulmonary embolism:** 33%\n- **Spontaneous pneumothorax:** 28%\n- **Pneumonia:** 18%\n- **Acute COPD exacerbation / infection:** 8%\n- **Possible NSTEMI / STEMI:** 4%\n\nAt this stage, evidence is still not sufficient to confidently rank one diagnosis over the others, and we haven’t assessed vitals (O2 sat/HR/BP), oxygenation, or ECG/troponin—those are critical in ED decision-making for PE/MI/pneumothorax.\n\n**Question 9:** What is your **heart rate** (if you know it) and your **oxygen saturation** (pulse ox), and do you feel **lightheaded** or faint?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my heart rate or oxygen saturation. I’m not feeling lightheaded or like I’m going to faint.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—no lightheadedness lowers massive PE/instability a bit, but we still need objective vitals.\n\n**Current posterior:**\n- **Pulmonary embolism:** 30%\n- **Spontaneous pneumothorax:** 28%\n- **Pneumonia:** 18%\n- **Acute COPD exacerbation / infection:** 9%\n- **Possible NSTEMI / STEMI:** 4%\n\nWe’re still missing key discriminators. Next question: pneumothorax often worsens with exertion and may cause **sudden dyspnea**; PE can cause **pleuritic pain** with **tachycardia** even without dyspnea. Since you denied shortness of breath earlier, I’ll ask about **any recent exertional breathlessness**.\n\n**Question 10:** Since the pain started, have you noticed **any shortness of breath with walking or climbing stairs**, even if you’re okay at rest?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No—I haven’t noticed shortness of breath when walking or climbing stairs. It’s mostly the chest pain that’s been bothering me, especially with deep breaths, coughing, and moving.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Lack of exertional dyspnea makes large PE and significant pneumothorax less likely, but small PE or early pneumothorax can still present with pleuritic pain alone.\n\n**Update (qualitative):**\n- No exertional dyspnea → PE down (LR ~0.7)\n- Pneumothorax down slightly (LR ~0.8)\n- Pneumonia/bronchitis slightly up (LR ~1.1) given cough fits, though still afebrile.\n\n**Current posterior:**\n- **Pulmonary embolism:** 24%\n- **Spontaneous pneumothorax:** 24%\n- **Pneumonia:** 22%\n- **Acute COPD exacerbation / infection:** 10%\n- **Possible NSTEMI / STEMI:** 3%\n\nWe still need to separate pneumonia/bronchitis from PE/pneumothorax. A key discriminator is **localized vs diffuse chest pain** and **any recent viral symptoms** (sore throat, runny nose) or **productive cough**.\n\n**Question 11:** Any **sore throat, runny nose, or recent viral illness** in the days before this started?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No sore throat or runny nose that I remember. I just had the intense coughing fits and then the pain started.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "No URI symptoms makes viral bronchitis/pneumonia less likely, but cough-induced pleuritic pain can still occur.\n\n**Update (qualitative):**\n- No preceding viral symptoms → pneumonia/bronchitis down (LR ~0.8)\n- PE/pneumothorax unchanged\n- Cough-triggered onset keeps pleuritic causes in play\n\n**Current posterior:**\n- **Pulmonary embolism:** 26%\n- **Spontaneous pneumothorax:** 26%\n- **Pneumonia:** 18%\n- **Acute COPD exacerbation / infection:** 12%\n- **Possible NSTEMI / STEMI:** 3%\n\nAt this point, I still can’t confidently rank because we lack objective findings (O2 sat, HR, lung exam, ECG). I’ll ask one last high-yield question that can also point to pneumonia/pleurisy: **pleuritic pain with focal findings** often comes with fever or recent infection, but we already have afebrile.\n\n**Question 12:** Do you have **any history of blood clots**, **cancer**, or **hormone therapy** (estrogen), or are you **pregnant/postpartum**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I do have metastatic cancer. I’m not on any hormone therapy, and I’m not pregnant/postpartum. I don’t know about any prior blood clots.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "That’s a major risk factor for **venous thromboembolism**, which strongly increases PE probability.\n\n**Update (likelihood ratio):**\n- Metastatic cancer → PE becomes much more likely (LR ~3–6 vs pneumothorax/pneumonia).\n- Pneumothorax risk may also be higher in some cancers, but less directly.\n- Pneumonia/bronchitis less linked to metastatic cancer without infectious symptoms.\n\n**Current posterior (updated):**\n- **Pulmonary embolism:** 55%\n- **Spontaneous pneumothorax:** 20%\n- **Pneumonia:** 15%\n- **Acute COPD exacerbation / infection:** 7%\n- **Possible NSTEMI / STEMI:** 3%\n\nWe’re now confident enough to provide a differential, but I still want one quick discriminator for pneumothorax vs PE: pneumothorax often causes **sudden worsening with breathing** and may be associated with **asymmetric breath sounds**—history-wise, patients often report **new shortness of breath**. You denied dyspnea earlier, which supports PE.\n\n**Question 13:** Since the pain started, have you had *any* new cough-related **worsening shortness of breath** at all, even mild?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "No—no new shortness of breath with the pain. It’s mainly the sharp pain, coughing fits, and it gets worse with deep breaths and movement.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pulmonary embolism, Spontaneous pneumothorax, Pneumonia, Acute COPD exacerbation / infection, Possible NSTEMI / STEMI",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Spontaneous pneumothorax",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 33217,
+      "completion_tokens": 2855
+    },
+    "patient": {
+      "prompt_tokens": 30600,
+      "completion_tokens": 531
+    }
+  }
+}

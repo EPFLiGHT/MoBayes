@@ -1,0 +1,150 @@
+{
+  "case_idx": 39,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Sarcoidosis",
+  "patient_actor_hidden": {
+    "AGE": 62,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "swollen lymph nodes",
+    "EVIDENCES_ENG": "['swollen lymph nodes', 'pain', 'shortness of breath']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 62\n- I have swollen or painful lymph nodes.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- On a scale of 0-10, the pain intensity is 5\n- On a scale of 0-10, the pain's location precision is 4\n- On a scale of 0-10, the pace at which the pain appear is 2\n- On a scale of 0-10, the rash swelling is 0\n- On a scale of 0-10, the pain intensity caused by the rash is 0\n- On a scale of 0-10, the severity of the rash itching is 0\n- The pain is:\n* sensitive\n* burning\n- The pain locations are:\n* finger (ring finger)(L)\n* finger (little finger)(R)\n* finger (index)(R)\n* finger (index)(L)\n* finger (middle)(R)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Sarcoidosis', 0.3691014351950872], ['Acute dystonic reactions', 0.3691014351950872], ['Myocarditis', 0.2617971296098256], ['Pulmonary embolism', 0.0]]",
+    "PATHOLOGY": "Sarcoidosis",
+    "INITIAL_EVIDENCE": "adp_dlr",
+    "EVIDENCES": "['adp_dlr', 'douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_endroitducorps_@_doigt_annulaire__G_', 'douleurxx_endroitducorps_@_doigt_auriculaire__D_', 'douleurxx_endroitducorps_@_doigt_index__D_', 'douleurxx_endroitducorps_@_doigt_index__G_', 'douleurxx_endroitducorps_@_doigt_majeur__D_', 'douleurxx_intens_@_5', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_4', 'douleurxx_soudain_@_2', 'dyspn', 'lesions_peau_couleur_@_NA', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_0', 'lesions_peau_endroitducorps_@_nulle_part', 'lesions_peau_intens_@_0', 'lesions_peau_plusqu1cm_@_N', 'lesions_peau_prurit_@_0', 'trav1_@_N']",
+    "patient_id": "htsim_1405",
+    "_test_index": 1405,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 62-year-old F patient presents to the clinic. Chief complaint: swollen lymph nodes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My swollen or painful lymph nodes are part of what brings me in. I also have some pain related to my reason for consulting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine your lymph nodes today—before that, can you tell me how long they’ve been swollen and whether they started suddenly or gradually? Also, are you having fever, night sweats, or unexplained weight loss?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have swollen or painful lymph nodes, and I’m also having pain related to why I’m consulting. I’m not sure about the timeline (whether it started suddenly or gradually).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—on exam today, can you point to where the swollen nodes are (neck, armpit, groin, or other), and are they tender to touch or hard/fixed? Also, have you had any recent infections or dental/throat symptoms, skin wounds, or new medications?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "They’re swollen or painful lymph nodes, but I don’t know where they are (neck, armpit, groin, or other). I don’t know whether they’re tender to touch or hard/fixed. I also don’t know about any recent infections or dental/throat symptoms, skin wounds, or new medications.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to quickly examine you now—please tell me: do you feel the lumps more in the **neck, under the jaw, armpit, or groin**, and do you have any **fever** or **night sweats/weight loss**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have swollen or painful lymph nodes, but I’m not sure where they’re located. I also don’t know about fever or night sweats/weight loss.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can still do an exam—while I assess your neck/under-jaw, armpits, and groin, I need answers: how old are you, and roughly how long do you think the nodes have been present (days/weeks/months)?  \nDoctor: Also, are the nodes on one side or both sides, and have you noticed any recent sore throat, dental pain, cough, skin rash, or wounds on the head/neck/arms?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 62. I don’t know roughly how long the nodes have been present, whether they’re on one side or both sides, or whether I’ve had recent sore throat, dental pain, cough, skin rash, or wounds on the head/neck/arms.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll check your neck/under-jaw, armpits, and groin today, but I need a few key details—are the nodes **tender (sore)** or **painless**, and do you have any **breathing symptoms** (shortness of breath, persistent cough), **abdominal symptoms** (early fullness, belly pain), or **itching**?  \nDoctor: Also, have you had any **biopsy, prior cancers/lymphoma**, or **recent travel/animal bites**?  \nDoctor: REQUEST TEST: CBC_with_diff_and_peripheral_smear",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about any biopsy or prior cancers/lymphoma, and I don’t know about recent travel or animal bites.\n\nI am experiencing shortness of breath or difficulty breathing in a significant way. I also have pain related to my reason for consulting.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—because you’re having significant shortness of breath with lymph node swelling, I need to know: do you also have chest pain or new/worsening cough, and are the swollen nodes mainly in the neck (under the jaw/side of neck) or elsewhere?  \nDoctor: REQUEST TEST: Chest_X-Ray  \nDoctor: REQUEST TEST: CT_Chest_with_contrast",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about chest pain or any new/worsening cough. I’m not sure whether the swollen nodes are mainly in the neck (under the jaw/side of neck) or elsewhere. I do have significant shortness of breath or difficulty breathing, and I’m also having pain related to my reason for consulting.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your significant shortness of breath, I’m concerned about a serious cause and I need to check for danger—right now, do you have low oxygen symptoms (blue lips, severe breathlessness at rest, fainting) and is the shortness of breath sudden (minutes-hours) or gradual (days-weeks)?  \nDoctor: Also, while we wait for imaging, do you notice facial/neck swelling or trouble swallowing, and have you had any rapid weight loss?  \nDoctor: REQUEST TEST: Pulse_Oximetry_and_Vitals  \nDoctor: REQUEST TEST: D_dimer_and_Blood_Gas_(if_hypoxic)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have significant shortness of breath or difficulty breathing in a significant way. I’m not sure whether it’s sudden or gradual, and I don’t know about any low oxygen symptoms like blue lips, severe breathlessness at rest, or fainting. I also don’t know about facial or neck swelling, trouble swallowing, or rapid weight loss.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially urgent—right now, are you short of breath while resting, and can you tell me your oxygen saturation if you have it (otherwise I’ll repeat vitals immediately)? Also, do you have one-sided leg swelling/pain, recent surgery/immobility, or are you on estrogen/hormone therapy?  \nDoctor: REQUEST TEST: ECG  \nDoctor: REQUEST TEST: CT_Pulmonary_Angiography",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have significant shortness of breath or difficulty breathing in a significant way, but I’m not sure if I’m short of breath while resting or what my oxygen saturation is. I’m also not sure about one-sided leg swelling/pain, recent surgery/immobility, or whether I’m on estrogen/hormone therapy.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as an emergency until proven otherwise—right now please get your oxygen saturation and pulse (if you can, tell me the number) and I’ll repeat your vitals immediately. While we’re doing that, are you able to speak full sentences without stopping for breath, and do you have new chest pain or coughing blood?  \n\nDoctor: REQUEST TEST: Repeat_Vitals_including_SpO2  \nDoctor: REQUEST TEST: Bedside_Assessment_for_ability_to_speak_full_sentences  \nDoctor: REQUEST TEST: Troponin_and_NT_proBNP",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have significant shortness of breath or difficulty breathing in a significant way, but I’m not sure whether I can speak full sentences without stopping for breath, and I don’t know about new chest pain or coughing blood.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need immediate triage answers: are you able to speak full sentences without stopping for breath, and do you have any chest pain, coughing up blood, blue/gray lips, or fainting right now? Also—what’s your current oxygen saturation (SpO₂) and heart rate if you can check?  \nDoctor: REQUEST TEST: Repeat_Vitals_SpO2_and_Heart_Rate_now  \nDoctor: Based on your age, new significant dyspnea, and concern for bulky lymph nodes, I’m treating this as **possible pulmonary embolism or another life-threatening thoracic cause** until imaging returns; after your vitals/oxygen and ECG/imaging, I’ll finalize the diagnosis—are you currently stable enough to stay in the clinic, or should we activate emergency services now?  \n\nDIAGNOSIS READY: Suspected acute pulmonary embolism (life-threatening) pending CT pulmonary angiography and oxygen/ECG/vitals.\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8327,
+      "completion_tokens": 1035,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 13563,
+      "completion_tokens": 573,
+      "calls": 10
+    }
+  }
+}

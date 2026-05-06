@@ -1,0 +1,449 @@
+{
+  "case_idx": 42,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient has experienced gradual yellow discoloration of the skin and generalized pruritus over the past 2 weeks. He also reports a decreased appetite and a weight loss of 6.3 kg (14 lb). The patient’s stool has been pale, and his urine is very dark. Three years ago, he had an episode of acute upper abdominal pain, which was managed with IV fluids, NSAIDs, and dietary modification. The patient has abstained from alcohol for these three years, after having consumed 1–2 beers daily for 40 years. He has a 50-year history of smoking a pack of cigarettes daily.",
+    "Symptoms": {
+      "Primary_Symptom": "Yellow discoloration of the skin",
+      "Secondary_Symptoms": [
+        "Generalized pruritus",
+        "Decreased appetite",
+        "Weight loss",
+        "Pale stool",
+        "Dark urine"
+      ]
+    },
+    "Past_Medical_History": "Episode of acute upper abdominal pain treated three years ago. History of long-term alcohol consumption and smoking.",
+    "Social_History": "Stopped alcohol consumption three years ago; 50-year history of smoking a pack of cigarettes daily.",
+    "Review_of_Systems": "No additional symptoms were reported."
+  },
+  "objective_for_doctor": "Assess the patient and determine the cause of jaundice, pruritus, weight loss, pale stool, and dark urine.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: Over the past two weeks my skin has gradually turned yellow, with generalized itching, dark urine, and pale stools. I’ve also had decreased appetite and lost about 6.3 kg, and three years ago I had an episode of upper abdominal pain that was treated with IV fluids and NSAIDs.",
+      "extracted_features": {},
+      "top5_posterior": [
+        [
+          "Vitiligo",
+          0.03225806451612903
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.03225806451612903
+        ],
+        [
+          "Actinic Keratosis",
+          0.03225806451612903
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03225806451612903
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.03225806451612903
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Have you noticed any swelling in your joints?",
+      "patient_answer": "Patient: No, I haven’t noticed any swelling in my joints. I’ve just been dealing with the yellowing of my skin, itching, dark urine, pale stools, and the loss of appetite and weight.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Vitiligo",
+          0.033299697275479316
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.033299697275479316
+        ],
+        [
+          "Actinic Keratosis",
+          0.033299697275479316
+        ]
+      ],
+      "entropy": 4.9372681652115835
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Have you noticed any bumps, sores, or unusual spots on your scalp?",
+      "patient_answer": "“No, I haven’t noticed any bumps, sores, or unusual spots on my scalp.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.034548518090296375
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.034548518090296375
+        ],
+        [
+          "Adhesive capsulitis",
+          0.034548518090296375
+        ]
+      ],
+      "entropy": 4.920117460661211
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching or a persistent urge to scratch anywhere on your body?",
+      "patient_answer": "Yes—I've had generalized itching all over, and it’s persistent enough that I find myself wanting to scratch most of the time. It started along with the yellow discoloration and hasn’t really let up over these past two weeks.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.2590757153593049
+        ],
+        [
+          "Chronic kidney failure",
+          0.1687004658153613
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.13857538263404673
+        ]
+      ],
+      "entropy": 3.706644094922028
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_raising_arms_overhead_d93533c5",
+      "doctor_question": "Do you have any trouble raising your arms above your head?",
+      "patient_answer": "“I can raise my arms above my head without much trouble, and I haven’t noticed weakness or any new pain when I do that.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.2620046513473103
+        ],
+        [
+          "Chronic kidney failure",
+          0.17060767994708576
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.14014202281367757
+        ]
+      ],
+      "entropy": 3.666358633522006
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_painless_vision_loss_97e17a49",
+      "doctor_question": "Have you noticed any loss of vision that isn’t accompanied by pain?",
+      "patient_answer": "“No, I haven’t noticed any loss of vision or any vision changes that aren’t accompanied by pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.26427364569873624
+        ],
+        [
+          "Chronic kidney failure",
+          0.17208516464103754
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.14135567095513796
+        ]
+      ],
+      "entropy": 3.629268729387091
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_severe_hyperthermia_b928b55e",
+      "doctor_question": "Have you had a fever that’s felt extremely hot—like a temperature above 104 °F (40 °C) that’s made you feel dizzy or very uncomfortable?",
+      "patient_answer": "No, I haven’t had any fever or felt extremely hot like that, and I haven’t felt dizzy or unusually uncomfortable beyond the itching and the yellowing.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.2662460129481893
+        ],
+        [
+          "Chronic kidney failure",
+          0.17336949680347208
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.14241065808856634
+        ]
+      ],
+      "entropy": 3.5954326473225278
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "Have you been feeling unusually stressed or overwhelmed lately?",
+      "patient_answer": "“Not really—no unusual stress or overwhelming feelings. It’s mostly been the constant itching, the yellowing of my skin, and the changes in my urine and stools that have been worrying me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.2748850769650685
+        ],
+        [
+          "Chronic kidney failure",
+          0.178994933837719
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.14703155279526917
+        ]
+      ],
+      "entropy": 3.470082630630785
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_burning_with_urination_ca21e5cd",
+      "doctor_question": "Have you experienced any burning or discomfort when you urinate?",
+      "patient_answer": "Patient: No—there’s been no burning or discomfort when I urinate. I’ve only noticed that my urine has become very dark over the past two weeks.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.21427611151495035
+        ],
+        [
+          "Chronic kidney failure",
+          0.19455400626250977
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.15981221942991872
+        ]
+      ],
+      "entropy": 3.5836151565036842
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_chills_4b723a54",
+      "doctor_question": "Have you been feeling chills lately?",
+      "patient_answer": "“No, I haven’t had chills or felt feverish—just the persistent itching, the gradual yellowing of my skin, and the dark urine with pale stools.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.21796910693251687
+        ],
+        [
+          "Chronic kidney failure",
+          0.19790709610774213
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16256654323135958
+        ]
+      ],
+      "entropy": 3.5242338789061494
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_fixed_breast_mass_c5d3cf9f",
+      "doctor_question": "Have you noticed any lumps or masses in your breasts that feel fixed or don’t move?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breasts, and nothing feels fixed or doesn’t move.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.21862467320845907
+        ],
+        [
+          "Chronic kidney failure",
+          0.19850232365995693
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1630554801492503
+        ]
+      ],
+      "entropy": 3.5144301484538794
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Have you been feeling any pain or discomfort on the side of your back or abdomen, between your ribs and hips?",
+      "patient_answer": "“I haven’t really had any significant pain or discomfort on my side of the back or abdomen between my ribs and hips—nothing that stands out the way the itching and the skin yellowing do.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.2195315438655296
+        ],
+        [
+          "Chronic kidney failure",
+          0.19932572538331084
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16373184585057673
+        ]
+      ],
+      "entropy": 3.4983828666820895
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you feel pain in your calf when you walk, and does it go away when you stop and rest?",
+      "patient_answer": "“No, I don’t feel any pain in my calves when I walk, and it doesn’t improve when I stop and rest—this has mainly been the persistent generalized itching, gradual yellowing, dark urine, and pale stools.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lichen Sclerosus",
+          0.22175597862235852
+        ],
+        [
+          "Chronic kidney failure",
+          0.20134542179534157
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16539088218903056
+        ]
+      ],
+      "entropy": 3.455569248549641
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "Have you noticed that your urine looks darker than usual?",
+      "patient_answer": "“Yes—my urine has become very dark over the past two weeks, darker than it used to be. It’s persistent and seems to line up with the yellowing of my skin and the pale stools.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.5323434792571945
+        ],
+        [
+          "Chronic kidney failure",
+          0.33038879190045833
+        ],
+        [
+          "Lichen Sclerosus",
+          0.04198622134832249
+        ]
+      ],
+      "entropy": 1.8922793015511357
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_reduced_shoulder_range_of_motion_96d160df",
+      "doctor_question": "Do you find it hard to lift your arm above your head or reach across your body?",
+      "patient_answer": "“I don’t find it hard to lift my arms above my head or reach across my body—no new weakness or pain with those movements. What’s been most noticeable is the persistent itching, the gradual yellowing of my skin, and the changes in my dark urine and pale stools.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.5323434792571945
+        ],
+        [
+          "Chronic kidney failure",
+          0.33038879190045833
+        ],
+        [
+          "Lichen Sclerosus",
+          0.04198622134832249
+        ]
+      ],
+      "entropy": 1.8922793015511357
+    },
+    {
+      "turn": 15,
+      "kind": "qa",
+      "feature_id": "f_repetitive_joint_overuse_f93eca0d",
+      "doctor_question": "Do you often use the same joints repeatedly—like typing, playing an instrument, or doing manual work—and have you noticed any pain or stiffness?",
+      "patient_answer": "“No, I haven’t noticed any joint pain, stiffness, or specific trouble with using my joints repeatedly. It’s mainly been the persistent generalized itching with gradual yellowing of my skin, very dark urine, and pale stools, along with decreased appetite and weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.53282721704232
+        ],
+        [
+          "Chronic kidney failure",
+          0.3306890144985584
+        ],
+        [
+          "Lichen Sclerosus",
+          0.042024374011992126
+        ]
+      ],
+      "entropy": 1.8849105262208072
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic adenocarcinoma",
+    "predicted_top3": [
+      "Pancreatic adenocarcinoma",
+      "Chronic kidney failure",
+      "Lichen Sclerosus"
+    ],
+    "confidence": 0.53282721704232,
+    "final_entropy": 1.8849105262208072,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Chronic kidney failure",
+      "Lichen Sclerosus"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9117,
+      "completion_tokens": 3657
+    },
+    "patient": {
+      "prompt_tokens": 13015,
+      "completion_tokens": 685,
+      "calls": 16
+    }
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "case_idx": 16,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "71-year-old male",
+    "History": "The patient complains of fatigue and malaise over the last few months. He also reports an unintentional weight loss of 18.1 kg over the past 6 months. He does not recall any changes in diet or exercise routines that could explain the weight loss.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue and malaise",
+      "Secondary_Symptoms": [
+        "Significant unintentional weight loss",
+        "No change in diet or exercise"
+      ]
+    },
+    "Past_Medical_History": "Has a history of diabetes mellitus type II, hypertension, non-seminomatous testicular cancer treated in the past, and hypercholesterolemia.",
+    "Social_History": "Currently smokes 1 pack of cigarettes per day and drinks a glass of wine daily. Denies any illicit drug use.",
+    "Review_of_Systems": "No fever, night sweats, or significant changes in bowel habits."
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with fatigue, malaise, and unintentional weight loss, and assess the need for further diagnostic workup.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: For the last few months I’ve had ongoing fatigue and malaise, and in that time I’ve also lost about 18 kilograms without meaning to. I haven’t changed my diet or exercise to explain it.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.13861019909319366
+        ],
+        [
+          "Chronic kidney failure",
+          0.11069673084476378
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.09433760805982332
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.09433760805982332
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08266886313629936
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any loss of vision?",
+      "patient_answer": "I haven’t noticed any changes in my eyesight—no blurriness, dark spots, or loss of vision. My main issues have just been the ongoing fatigue and the significant unintentional weight loss.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.1406106860027944
+        ],
+        [
+          "Chronic kidney failure",
+          0.11229435758824499
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.09569913232889846
+        ]
+      ],
+      "entropy": 4.293902860591048
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Yes, I currently smoke about one pack of cigarettes per day, and I also drink about a glass of wine daily.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.3555736604132706
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.3521853463846687
+        ],
+        [
+          "Pneumonia",
+          0.07470658601464954
+        ]
+      ],
+      "entropy": 2.5970558987478354
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“I haven’t really had nausea or a feeling of being sick to my stomach. Mostly it’s just the fatigue and the ongoing weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.42927542715961964
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.2837151890291219
+        ],
+        [
+          "Pneumonia",
+          0.0778939797964238
+        ]
+      ],
+      "entropy": 2.569436827931795
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and I don’t have any pain there. My main concerns are still the fatigue and the significant unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.42993334793328203
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.28415001968761283
+        ],
+        [
+          "Pneumonia",
+          0.07801336251485796
+        ]
+      ],
+      "entropy": 2.5585588367519807
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can sometimes be linked to how we are feeling overall. Have you been experiencing a significant amount of stress or emotional pressure lately?",
+      "patient_answer": "“I wouldn’t say I’ve been under any unusual stress or emotional pressure lately. It’s mainly the ongoing fatigue and the significant unintentional weight loss that concern me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.4323786481934007
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.2857661588412629
+        ],
+        [
+          "Pneumonia",
+          0.07845707337508162
+        ]
+      ],
+      "entropy": 2.5202633456868204
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“I haven’t noticed any significant change in the color of my urine—it seems about the same as usual, and I haven’t had anything that stands out.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.4888141763213621
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.19851002047211952
+        ],
+        [
+          "Pneumonia",
+          0.08869755677961004
+        ]
+      ],
+      "entropy": 2.555857861216333
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast mass or anything changing in size over a short period of time. My symptoms have mainly been the ongoing fatigue and the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.4890901241152806
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.19862208432966194
+        ],
+        [
+          "Pneumonia",
+          0.0887476287625944
+        ]
+      ],
+      "entropy": 2.5506673520631313
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“I haven’t had any pain in my wrist. My symptoms have been mainly ongoing fatigue and the significant unintentional weight loss over the past several months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.48970395093169594
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.19887136264398975
+        ],
+        [
+          "Pneumonia",
+          0.08885901043182418
+        ]
+      ],
+      "entropy": 2.542648379741279
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what you're experiencing, could you please tell me if you have noticed any skin lesions, rashes, or unusual marks running along the veins of your arms?",
+      "patient_answer": "“I haven’t noticed any skin lesions, rashes, or unusual marks along the veins of my arms. It’s mostly just the ongoing fatigue and the significant unintentional weight loss over the past few months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.48970395093169594
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.19887136264398975
+        ],
+        [
+          "Pneumonia",
+          0.08885901043182418
+        ]
+      ],
+      "entropy": 2.542648379741279
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Have you noticed any shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“I haven’t noticed shortness of breath—at least not any difficulty catching my breath when I’m walking or climbing stairs. It’s mainly persistent fatigue and the significant unintentional weight loss over the last few months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.3331674299332626
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.22733884056871284
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.11369722519778536
+        ]
+      ],
+      "entropy": 3.098861233533027
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your current health, could you tell me if you have used any recreational drugs recently?",
+      "patient_answer": "“I haven’t used any recreational drugs recently, and I don’t have any history of illicit drug use.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.33438309020855733
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.2281683538184513
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.11411208327713562
+        ]
+      ],
+      "entropy": 3.0775220887855683
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_rough_scaly_skin_lesion_e053073e",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you have noticed any areas of skin that feel rough or have a scaly texture?",
+      "patient_answer": "“I haven’t noticed any areas of skin that feel rough or have a scaly texture. My main symptoms are still the ongoing fatigue and the significant unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.3358841289582372
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.2291925968216443
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.11462433004983832
+        ]
+      ],
+      "entropy": 3.0518865797737074
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_fixed_thigh_mass_018ca7d5",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you have noticed any firm or immovable lumps or masses in your thigh area?",
+      "patient_answer": "“No, I haven’t noticed any firm or immovable lumps or masses in my thigh area. My main problems are still the ongoing fatigue and the unintentional weight loss over the past several months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.3383618558098594
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.230883288945441
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.11546988289359592
+        ]
+      ],
+      "entropy": 3.0282418439183387
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic adenocarcinoma",
+    "predicted_top3": [
+      "Pancreatic adenocarcinoma",
+      "Chronic obstructive pulmonary disease",
+      "Femoropopliteal artery stenosis"
+    ],
+    "confidence": 0.3383618558098594,
+    "final_entropy": 3.0282418439183387,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Chronic obstructive pulmonary disease",
+      "Femoropopliteal artery stenosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12431,
+      "completion_tokens": 587
+    },
+    "patient": {
+      "prompt_tokens": 11485,
+      "completion_tokens": 558,
+      "calls": 14
+    }
+  }
+}

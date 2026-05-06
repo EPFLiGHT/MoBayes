@@ -1,0 +1,99 @@
+{
+  "case_idx": 5,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Acute rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 61\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had pain in my mouth, forehead, and right cheek/nose, with a burning and sharp feeling. I also have a cough and a cold in the last 2 weeks, with greenish or yellowish nasal discharge, and I’ve had a fever. I’ve also lost my sense of smell.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on your symptoms):  \n- Acute rhinosinusitis: 0.35  \n- Influenza: 0.15  \n- Pneumonia: 0.10  \n- URTI / Viral pharyngitis: 0.20  \n- Acute COPD exacerbation / infection: 0.05  \n\nEvidence so far: 2 weeks of cold symptoms + fever + green/yellow nasal discharge + facial pain/pressure + loss of smell → this increases likelihood of bacterial or complicated sinusitis over purely viral illness.\n\n**Question 1 (most discriminating):**  \nDo you have **severe facial pain/pressure that’s worse when you bend forward**, or **pain mostly on the right side** (matching the cheek/nose)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my pain/pressure is worse when I bend forward, and it’s mostly on the right side.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):  \n- Acute rhinosinusitis: 0.65  \n- Influenza: 0.10  \n- Pneumonia: 0.05  \n- URTI / Viral pharyngitis: 0.15  \n- Acute COPD exacerbation / infection: 0.05  \n\nEvidence: unilateral (right-sided) facial pain/pressure + worse when bending forward strongly supports acute bacterial rhinosinusitis rather than viral URTI.\n\n**Question 2:**  \nHow high was your fever (highest temperature), and is it **≥ 39°C (102.2°F)** or have you had **fever lasting ≥ 3–4 days**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no fever quantification):  \n- Acute rhinosinusitis: 0.62  \n- Influenza: 0.12  \n- URTI / Viral pharyngitis: 0.16  \n- Pneumonia: 0.05  \n- Acute COPD exacerbation / infection: 0.05  \n\nEvidence so far still favors bacterial acute rhinosinusitis, but we need to check for “complicated” features and for lower respiratory causes.\n\n**Question 3:**  \nDo you have **any swelling around the eye**, **eye pain**, **vision changes**, or **severe headache/neck stiffness**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Acute rhinosinusitis: 0.60  \n- Influenza: 0.15  \n- URTI / Viral pharyngitis: 0.15  \n- Pneumonia: 0.05  \n- Acute COPD exacerbation / infection: 0.05  \n\nWe can’t rule out complications or pneumonia without key negatives.\n\n**Question 4:**  \nDo you have **shortness of breath**, **chest pain**, or **wheezing**, or is it mainly nasal/facial symptoms plus cough?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Acute rhinosinusitis: 0.58  \n- Influenza: 0.18  \n- URTI / Viral pharyngitis: 0.14  \n- Pneumonia: 0.05  \n- Acute COPD exacerbation / infection: 0.05  \n\nBecause you have fever + cough + facial pain, influenza remains plausible; pneumonia is still possible but unassessed.\n\n**Question 5:**  \nHave you had **shortness of breath** or **chest pain**, or has anyone measured your oxygen saturation (SpO₂) or respiratory rate?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key “rule-in/rule-out” details are missing (fever magnitude/duration, eye/neurologic red flags, and respiratory status such as SOB/chest pain/SpO₂). With these unknowns, I can’t confidently narrow beyond the leading possibility.\n\n[POSSIBLE] Acute rhinosinusitis, Influenza, Pneumonia, URTI, Acute COPD exacerbation / infection",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Influenza",
+      "Pneumonia",
+      "URTI",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7347,
+      "completion_tokens": 767
+    },
+    "patient": {}
+  }
+}

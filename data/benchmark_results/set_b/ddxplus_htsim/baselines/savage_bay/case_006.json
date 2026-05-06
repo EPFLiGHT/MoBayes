@@ -1,0 +1,189 @@
+{
+  "case_idx": 6,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 49\nSex: F\nChief Complaint: nasal or throat itching",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Mostly nasal or throat itching, along with severe itching in one or both eyes. I also have nasal congestion or a clear runny nose and I have a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need to know whether this is more like an allergy pattern vs an infection.\n\n**Current posterior (rough priors):**\n- Allergic sinusitis: 0.30  \n- Acute laryngitis: 0.10  \n- URTI: 0.15  \n- Acute rhinosinusitis: 0.15  \n- Bronchitis: 0.10  \n(others lower)\n\n**Question 1 (one at a time):**  \nDo you have **itchy eyes with watery discharge** (tearing) and **sneezing**, especially with symptoms starting suddenly or after an allergen exposure (pollen, pets, dust)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have severe itching in one or both eyes, and I also have nasal congestion or a clear runny nose. I don’t know about watery discharge (tearing) or sneezing, and I don’t know about sudden onset or after a specific allergen exposure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated):**\n- Allergic sinusitis: 0.45  \n- URTI: 0.12  \n- Acute rhinosinusitis: 0.12  \n- Acute laryngitis: 0.08  \n- Bronchitis: 0.08  \n(others lower)\n\n**Likelihood update (qualitative):** Itchy eyes + clear nasal symptoms strongly favors an allergic process over infection (LR > 1 for allergy).\n\n**Question 2:**  \nDo you have **fever** (≥38°C / 100.4°F) or **facial/tooth pain** or **thick/yellow-green nasal discharge**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I don’t have that information about fever, facial or tooth pain, or thick/yellow-green nasal discharge.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.50  \n- URTI: 0.15  \n- Acute rhinosinusitis: 0.15  \n- Acute laryngitis: 0.07  \n- Bronchitis: 0.08  \n\n**Question 3:**  \nHow long has this been going on—**hours/days** or **more than 2 weeks**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say it’s mainly nasal or throat itching with severe itching in one or both eyes, plus nasal congestion or a clear runny nose and a cough.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (uncertain duration):**\n- Allergic sinusitis: 0.50  \n- URTI: 0.18  \n- Acute rhinosinusitis: 0.15  \n- Bronchitis: 0.08  \n- Acute laryngitis: 0.07  \n\n**Question 4:**  \nIs the cough **dry** or **with phlegm**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.50  \n- URTI: 0.18  \n- Acute rhinosinusitis: 0.15  \n- Bronchitis: 0.08  \n- Acute laryngitis: 0.07  \n\n**Question 5:**  \nAny **wheezing** or **shortness of breath**, or is it mainly upper-airway itching/congestion?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have asthma or have used a bronchodilator in the past, and I live in a big city.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with asthma history):**\n- Allergic sinusitis: 0.40  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- URTI: 0.15  \n- Acute rhinosinusitis: 0.15  \n- Bronchitis: 0.10  \n\n(Reasoning: asthma history raises likelihood that cough is from bronchospasm triggered by allergic rhinitis; itchy eyes also keeps allergy high.)\n\n**Question 6:**  \nRight now, do you have **wheezing** or **chest tightness** (even intermittently)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have asthma or have used a bronchodilator in the past.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged/limited by missing symptom details):**\n- Allergic sinusitis: 0.40  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- URTI: 0.15  \n- Acute rhinosinusitis: 0.15  \n- Bronchitis: 0.10  \n\n**Question 7:**  \nHave you had **any rash, lip/tongue swelling, or trouble breathing** (beyond cough), or is it strictly itching/congestion?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I only have the nasal or throat itching, severe itching in one or both eyes, nasal congestion or a clear runny nose, and a cough. I don’t have any other information about rash, lip/tongue swelling, or trouble breathing.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.42  \n- Bronchospasm / acute asthma exacerbation: 0.22  \n- URTI: 0.14  \n- Acute rhinosinusitis: 0.14  \n- Bronchitis: 0.08  \n\n**Question 8:**  \nIs the cough mainly **worse at night** or **with exercise/cold air**, or is it more constant regardless of triggers?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I have a cough along with nasal or throat itching, severe itching in one or both eyes, and nasal congestion or a clear runny nose.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still, limited by missing key discriminators):**\n- Allergic sinusitis: 0.45  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- URTI: 0.15  \n- Acute rhinosinusitis: 0.15  \n- Bronchitis: 0.05  \n\n**Question 9:**  \nDo you have **itching in the nose/palate** and **frequent sneezing** (even if you’re unsure about watery tearing)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I have nasal or throat itching and severe itching in one or both eyes, plus nasal congestion or a clear runny nose and a cough. I don’t have information about itching in the nose/palate or frequent sneezing.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.48  \n- Bronchospasm / acute asthma exacerbation: 0.22  \n- URTI: 0.14  \n- Acute rhinosinusitis: 0.12  \n- Bronchitis: 0.04  \n\n**Question 10:**  \nAny **sore throat** (pain when swallowing) or is it mainly **itching**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly itching. I don’t have information about a sore throat pain when swallowing.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated):**\n- Allergic sinusitis: 0.52  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- URTI: 0.12  \n- Acute rhinosinusitis: 0.10  \n- Bronchitis: 0.06  \n\n**Question 11:**  \nDo you have **loss of smell**, **facial pressure**, or **headache**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t have that information about loss of smell, facial pressure, or headache.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.52  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- URTI: 0.12  \n- Acute rhinosinusitis: 0.10  \n- Bronchitis: 0.06  \n\n**Question 12:**  \nHave you had **any known exposure** in the last few days—new pet, dust/mold, pollen season, smoke, or strong fragrances?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I live in a big city. I don’t have any other information about exposure in the last few days (like new pet, dust/mold, pollen, smoke, or strong fragrances).",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.55  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- URTI: 0.10  \n- Acute rhinosinusitis: 0.10  \n- Bronchitis: 0.05  \n\n**Question 13:**  \nDo you have **any eye redness** or **eye discharge** (clear vs yellow/green), or is it mainly itching?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I only have severe itching in one or both eyes. I don’t have information about eye redness or eye discharge.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Allergic sinusitis: 0.58  \n- Bronchospasm / acute asthma exacerbation: 0.18  \n- URTI: 0.10  \n- Acute rhinosinusitis: 0.10  \n- Bronchitis: 0.04  \n\n**Question 14:**  \nIs your cough associated with **post-nasal drip** sensation (needing to clear throat, mucus in the back of throat), or is it from the chest?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "It seems mainly related to the upper airway itching/congestion—I have nasal or throat itching, severe itching in one or both eyes, nasal congestion or a clear runny nose, and a cough. I don’t have more information about a post-nasal drip sensation or mucus in the back of my throat.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Allergic sinusitis, Bronchospasm / acute asthma exacerbation, URTI, Acute rhinosinusitis, Acute laryngitis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Allergic sinusitis",
+    "predicted_set": [
+      "Allergic sinusitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "URTI",
+      "Acute rhinosinusitis",
+      "Acute laryngitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27979,
+      "completion_tokens": 1535
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "case_idx": 7,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Anaphylaxis",
+  "objective_for_doctor": "A 74-year-old Female patient presents to the clinic. Chief complaint: I have lightheadedness/near-fainting, swelling in one or more areas of your body, and swelling (forehead).",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I came in because I felt very lightheaded, like I might pass out. I also have swelling on my face—forehead, both cheeks, and my nose—plus a rash that’s pink and very itchy. I was in contact with or ate something I’m allergic to, and I also have some epigastric pain and overall pain around where the rash is.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll ask a few quick questions to pinpoint this—did the lightheadedness/near-fainting happen soon after the exposure/food, and do you have trouble breathing, wheezing, throat tightness, or tongue/lip swelling?  \nDoctor: Also, when you press on the swollen areas, is it pitting (leaves a dent), and do you have fever or new medications (especially ACE inhibitors like lisinopril) or did this start after a known allergen?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it happened soon after I was exposed/ate the thing I’m allergic to. I do have trouble breathing and I noticed a wheezing sound when I exhale, but I don’t know about throat tightness specifically.  \n\nI don’t think the swelling is pitting—I haven’t noticed dents when pressing. I don’t have fever, and I haven’t started any new medications. It started after the known allergen exposure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With the rapid onset after an allergen exposure plus wheezing and facial/forehead/cheek swelling, this sounds like anaphylaxis with angioedema—have you had any hives/welts anywhere else, and do you have any vomiting/diarrhea or worsening stomach pain?  \nDoctor: If you have an epinephrine auto-injector, can you use it right now—while I arrange emergency treatment—and do you know your blood pressure or heart rate?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a rash/redness and it’s very itchy, like hives/welts, and it’s on more than one area. I also have epigastric pain, and I don’t know about vomiting or diarrhea—I haven’t noticed those.\n\nI do have an epinephrine auto-injector, but I haven’t used it yet. I don’t know my blood pressure or heart rate.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This is very concerning for anaphylaxis—do you have worsening throat tightness, hoarse voice, or worsening shortness of breath right now, and is the facial swelling continuing to spread?  \nDoctor: Please use your epinephrine auto-injector immediately (if not yet), then tell me whether you’ve received oxygen or called emergency services/EMS.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My shortness of breath feels worse than before, and I’m worried my throat is getting tighter, but I can’t say for sure about hoarse voice. The facial swelling is continuing to spread.\n\nI will use my epinephrine auto-injector right now. I have not received oxygen yet, and I think EMS has not fully arrived, but I’m calling/emergency services are being arranged now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: You’re having a life-threatening anaphylaxis with angioedema (worsening breathing, progressing facial swelling, possible throat involvement); I want you to inject the epinephrine auto-injector now if it’s not already done correctly, then lie flat with legs raised.  \nDoctor: REQUEST TEST: SpO2 (pulse oximetry) and blood pressure now, plus obtain IV access and start high-flow oxygen/continuous monitoring per emergency protocol.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Okay—I’ve injected the epinephrine into my outer thigh now. I’m lying down and keeping my legs raised.\n\nI don’t have the SpO2 or blood pressure numbers myself, but you can take them now—please start the oxygen and monitoring, and I’ll stay still.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—before we move on, can you tell me if you’ve had any fainting or confusion since the symptoms started, and whether you can speak full sentences without stopping to breathe?  \nDoctor: Also, do you have any history of prior anaphylaxis, asthma, or known autoimmune/thyroid disease, and what exact allergen was involved or what you ate/exposed to?  \nDoctor: I’m going to decide based on what we’ve already established; DIAGNOSIS READY: Anaphylaxis (with progressive angioedema affecting face and likely upper airway), currently life-threatening—treat with epinephrine, oxygen, IV fluids, and adjuncts per emergency protocol.\n\n[DDX]\n1. Anaphylaxis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Anaphylaxis",
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3300,
+      "completion_tokens": 530,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 6216,
+      "completion_tokens": 404
+    }
+  }
+}

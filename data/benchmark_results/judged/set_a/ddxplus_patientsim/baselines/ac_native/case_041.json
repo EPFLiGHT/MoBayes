@@ -1,0 +1,74 @@
+{
+  "case_idx": 41,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Stable angina",
+  "objective_for_doctor": "A 44-year-old Female patient presents to the clinic. Chief complaint: I have lower chest pain, left side of the chest pain, and upper chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m having lower chest pain—more on the left side—and also upper chest pain. It feels heavy and exhausting, and it radiates to my left biceps, my jaw under the thyroid cartilage area, and both shoulders; it also comes with right breast pain. I’ve also been feeling chronic fatigue and I get symptoms when I exert myself.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this sounds concerning for a heart-related cause (like angina/heart attack). On a scale of 0–10, how severe is the pain, and when did it start (sudden vs gradual, and how long does each episode last)?  \nDoctor: Also, do you have any shortness of breath, sweating, nausea/vomiting, dizziness/fainting, or do you feel worse when you exert yourself and better with rest?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The pain is about **8/10**. It started **fairly quickly**—like **6/10** for how fast it came on—and it feels **tedious/heavy**; it’s been happening in episodes related to **exertion**, and I generally **feel worse with activity** and **better with rest**.  \n\nI don’t have any shortness of breath, sweating, nausea/vomiting, or dizziness/fainting that I can tell.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With exertion-triggered, heavy 8/10 chest pain radiating to left arm/jaw and improving with rest, this is very concerning for angina (possible unstable angina/ACS). REQUEST TEST: STAT_ECG and REQUEST TEST: High_sensitivity_Troponin x2 (0 and 3 hours) and REQUEST TEST: Chest_X-Ray.  \n\nDoctor: Do you have any history of high blood pressure, diabetes, high cholesterol, smoking, or a strong family history of heart disease—yes or no?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes— I have **diabetes**, **high cholesterol** (or I take meds for it), I **smoke**, and I’m **significantly overweight**. My **family history is unknown**.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With your diabetes, smoking, high cholesterol, and exertional heavy pain radiating to the left arm and jaw, this remains most consistent with **acute coronary syndrome/unstable angina** even without the classic sweating/nausea.  \nDoctor: I’m ordering the urgent tests and you should not wait at home—REQUEST TEST: Repeat/continuous ECG + Cardiac_monitoring and REQUEST TEST: Repeat_high_sensitivity_Troponin per ACS protocol (plus CK-MB if available).  \nDoctor: DIAGNOSIS READY: Acute Coronary Syndrome (unstable angina vs evolving NSTEMI)\n\n[DDX]\n1. Unstable angina\n2. Stable angina",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Unstable angina",
+    "predicted_set_remapped": [
+      "Unstable angina",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1422,
+      "completion_tokens": 342,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 2818,
+      "completion_tokens": 222
+    }
+  }
+}

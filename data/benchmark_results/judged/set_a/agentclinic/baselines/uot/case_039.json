@@ -1,0 +1,82 @@
+{
+  "case_idx": 39,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by the police after he was found undressing himself outdoors in extremely hot weather. He is uncooperative, refuses to answer questions, and exhibits paranoid behavior. He has a recent history of presenting to the emergency department for polysubstance intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Somnolence and non-responsiveness",
+      "Secondary_Symptoms": [
+        "High fever (104°F or 40°C)",
+        "Hypertension",
+        "Tachycardia",
+        "Muscle rigidity",
+        "Dry mucous membranes"
+      ]
+    },
+    "Past_Medical_History": "History of substance use. No other significant medical history reported.",
+    "Social_History": "Recently started college. History of polysubstance abuse.",
+    "Review_of_Systems": "Unable to complete due to patient's non-responsiveness and lack of cooperation."
+  },
+  "objective_for_doctor": "Assess and manage a young adult patient presenting with altered mental status, suspected of having a serious drug reaction.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I... can’t answer right now. I feel extremely hot, confused, and I’m not really able to respond.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Has the patient recently started or increased the dose of an antipsychotic (or other dopamine-blocking) medication?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has the patient recently started or increased the dose of an antipsychotic (or other dopamine-blocking) medication? Patient: I can’t say—I’m extremely hot and confused, and I’m not able to talk much right now.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Neuroleptic Malignant Syndrome  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome  ",
+    "predicted_set": [
+      "Neuroleptic Malignant Syndrome  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 727,
+      "completion_tokens": 100,
+      "calls": 2
+    }
+  }
+}

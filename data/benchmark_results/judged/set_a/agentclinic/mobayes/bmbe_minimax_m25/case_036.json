@@ -1,0 +1,447 @@
+{
+  "case_idx": 36,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "35-year-old female",
+    "History": "The patient reports a 1-month history of experiencing double vision (diplopia), difficulty in climbing stairs, and weakness when trying to brush her hair. She notes that these symptoms tend to worsen after physical activity but improve significantly after a few hours of rest.",
+    "Symptoms": {
+      "Primary_Symptom": "Double vision",
+      "Secondary_Symptoms": [
+        "Difficulty climbing stairs",
+        "Weakness in upper limbs",
+        "Improvement of symptoms after rest"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Non-smoker, drinks wine occasionally. Works as a graphic designer.",
+    "Review_of_Systems": "Patient denies experiencing any chest pain, palpitations, shortness of breath, or recent infections."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with double vision, difficulty climbing stairs, and upper limb weakness.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m a 35-year-old woman, and for the past month I’ve had double vision that gets worse with activity. I also feel weak when climbing stairs and when brushing my hair, but after a few hours of rest the symptoms improve a lot.",
+      "extracted_features": {},
+      "top5_posterior": [
+        [
+          "Vitiligo",
+          0.03225806451612903
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.03225806451612903
+        ],
+        [
+          "Actinic Keratosis",
+          0.03225806451612903
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03225806451612903
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.03225806451612903
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Good morning. I'd like to ask you a few questions about how you've been feeling.\n\nDo you notice any stiffness in your joints, especially in the morning when you wake up? If so, how long does it usually last before you start feeling better?",
+      "patient_answer": "Patient: No, I haven’t noticed joint stiffness in the morning, and I don’t think I feel any significant stiffness when I wake up.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Vitiligo",
+          0.03413793103448275
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.03413793103448275
+        ],
+        [
+          "Actinic Keratosis",
+          0.03413793103448275
+        ]
+      ],
+      "entropy": 4.923187630024298
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\nAre you currently feeling any pain or discomfort in your chest?",
+      "patient_answer": "“No, I’m not having any chest pain or discomfort, and I also haven’t noticed palpitations or shortness of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Vitiligo",
+          0.03726006774557772
+        ],
+        [
+          "Lichen Sclerosus",
+          0.03726006774557772
+        ],
+        [
+          "Actinic Keratosis",
+          0.03726006774557772
+        ]
+      ],
+      "entropy": 4.8862688173252415
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you having any difficulty lifting objects, such as picking up groceries or lifting things around the house?",
+      "patient_answer": "Yes—I've noticed it’s difficult to lift things, especially anything above shoulder level like reaching or brushing my hair, and my weakness seems to come on more after I’ve been active. After I rest for a few hours, I can do those tasks much better.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2309134074721979
+        ],
+        [
+          "Syringomyelia",
+          0.18892915156816192
+        ],
+        [
+          "Adhesive capsulitis",
+          0.13061768503477864
+        ]
+      ],
+      "entropy": 3.753646954701719
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I'd like to ask you a few questions about your arms. Have you noticed any skin changes, such as rashes, sores, or unusual spots along the veins in your arms?",
+      "patient_answer": "Patient: No, I haven’t noticed any rashes, sores, or unusual spots on my arms or along the veins. My main problem is the double vision and the weakness that worsens with activity and improves after resting.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.23091340747219793
+        ],
+        [
+          "Syringomyelia",
+          0.18892915156816198
+        ],
+        [
+          "Adhesive capsulitis",
+          0.13061768503477864
+        ]
+      ],
+      "entropy": 3.753646954701719
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Are you experiencing any pain in your side or flank area, perhaps around your lower ribs or on the sides of your back?",
+      "patient_answer": "“No, I haven’t had any pain in my side or flank area around my lower ribs or back.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.23274559193954664
+        ],
+        [
+          "Syringomyelia",
+          0.19042821158690182
+        ],
+        [
+          "Adhesive capsulitis",
+          0.13165407220822836
+        ]
+      ],
+      "entropy": 3.7283647349932827
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions about your skin to better understand what you're experiencing.\n\nHave you noticed any rough, scaly patches on your skin that have persisted for some time and haven't gone away?",
+      "patient_answer": "“No, I haven’t noticed any rough, scaly patches on my skin or any spots that have persisted and wouldn’t go away.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.23550401427297066
+        ],
+        [
+          "Syringomyelia",
+          0.19268510258697602
+        ],
+        [
+          "Adhesive capsulitis",
+          0.13321439191198334
+        ]
+      ],
+      "entropy": 3.683678204056287
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your scalp.\n\nHave you noticed any sores, lesions, or unusual patches on your scalp? This could include anything from bumps or scabs to areas of skin that feel different or look red or inflamed.",
+      "patient_answer": "“No, I haven’t noticed any sores, bumps, scabs, or unusual patches on my scalp—I think it looks and feels normal.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2374680047973335
+        ],
+        [
+          "Syringomyelia",
+          0.19429200392509105
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1343253360469764
+        ]
+      ],
+      "entropy": 3.655539224094515
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your eating habits and appetite.\n\nHave you been experiencing any unusual food cravings lately?",
+      "patient_answer": "“No, I haven’t had any unusual food cravings. My appetite has been about the same, and I haven’t noticed any major changes in how much I want to eat.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2374680047973335
+        ],
+        [
+          "Syringomyelia",
+          0.19429200392509105
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1343253360469764
+        ]
+      ],
+      "entropy": 3.655539224094515
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello, I'd like to ask you a few quick questions about how you're feeling today.\n\nAre you currently experiencing any pain in your knee or knees?",
+      "patient_answer": "“No, I’m not experiencing any pain in my knees. My main issues are the double vision and the weakness that gets worse with activity and improves after I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.25052887398412504
+        ],
+        [
+          "Syringomyelia",
+          0.20497816962337506
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14171330245566657
+        ]
+      ],
+      "entropy": 3.621653733245108
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello! I'd like to ask you a quick question to help understand what you're experiencing.\n\nWhen you move your knee—does it cause any pain in your thigh area? For example, when you bend or straighten your knee, do you feel any discomfort in the upper part of your leg?",
+      "patient_answer": "“No, bending or straightening my knees doesn’t cause any pain or discomfort in my thigh area. My main problem stays the double vision and the weakness that worsens with activity and improves after resting.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.25052887398412504
+        ],
+        [
+          "Syringomyelia",
+          0.20497816962337506
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14171330245566657
+        ]
+      ],
+      "entropy": 3.621653733245108
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting at all?",
+      "patient_answer": "Patient: No, I haven’t been vomiting at all. My symptoms are mainly the double vision and muscle weakness that worsen with activity and improve after resting.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.25874038983037345
+        ],
+        [
+          "Syringomyelia",
+          0.21169668258848737
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14635820030808988
+        ]
+      ],
+      "entropy": 3.516297653277531
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_vulvar_itching_2bb4c1ea",
+      "doctor_question": "Hello, thank you for sharing some information with me today.\n\nI'd like to ask you a few questions to help with your assessment. \n\nAre you currently experiencing any itching or discomfort in the vulvar area?",
+      "patient_answer": "“No, I haven’t had any itching or discomfort in my vulvar area. My concerns are mainly the double vision and the weakness that comes on with activity and improves after rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2620423840808191
+        ],
+        [
+          "Syringomyelia",
+          0.2143983142479429
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14822599503561468
+        ]
+      ],
+      "entropy": 3.468515653701395
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling. \n\nAre you currently experiencing any pain or discomfort in your wrist?",
+      "patient_answer": "“No, I don’t have any pain or discomfort in my wrist. My symptoms are mainly the double vision and the muscle weakness that worsen with activity and improve after a few hours of rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.26459876134541555
+        ],
+        [
+          "Syringomyelia",
+          0.21648989564624913
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14967202661962886
+        ]
+      ],
+      "entropy": 3.4495823629701103
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your legs.\n\n**Are you currently feeling any unusual warmth in one or both of your legs?**\n\nThis can sometimes help us understand more about your circulation or if there's any inflammation we should be aware of. Take your time to answer.",
+      "patient_answer": "Patient: No, I haven’t noticed any unusual warmth in either of my legs. My main symptoms are still the double vision and the muscle weakness that gets worse with activity and improves after resting.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.26528246340278283
+        ],
+        [
+          "Syringomyelia",
+          0.2170492882386405
+        ],
+        [
+          "Adhesive capsulitis",
+          0.15005876717733155
+        ]
+      ],
+      "entropy": 3.4422724881307554
+    },
+    {
+      "turn": 15,
+      "kind": "qa",
+      "feature_id": "f_hip_pain_b43bcb14",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions to help understand what you're experiencing.\n\n**Are you currently experiencing any pain in your hip or hip area?** This could be pain in the side of your hip, in the groin area, or even pain that radiates down to your thigh or knee.\n\nPlease take a moment to think about it, and let me know yes or no, and if yes, feel free to describe what the pain feels like if you'd like to share more.",
+      "patient_answer": "“No, I’m not having any pain in my hip area. My main issues are still the double vision and muscle weakness that gets worse with activity and improves after a few hours of rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.26806174989881515
+        ],
+        [
+          "Syringomyelia",
+          0.21932324991721242
+        ],
+        [
+          "Adhesive capsulitis",
+          0.15163088883165288
+        ]
+      ],
+      "entropy": 3.4171628382827137
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.26806174989881515,
+    "final_entropy": 3.4171628382827137,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7783,
+      "completion_tokens": 4153
+    },
+    "patient": {
+      "prompt_tokens": 14274,
+      "completion_tokens": 644,
+      "calls": 16
+    }
+  }
+}

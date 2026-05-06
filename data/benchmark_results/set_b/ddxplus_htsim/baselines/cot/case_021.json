@@ -1,0 +1,79 @@
+{
+  "case_idx": 21,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 78\nSex: M\nChief Complaint: symptoms worse when lying down and alleviated while sitting up",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms get worse when I lie down and they’re alleviated when I’m sitting up. I also have a cough, and the pain intensity is about 6 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: positional chest/throat discomfort worse when lying down, better when sitting up; associated cough; pain ~6/10. This pattern raises concern for reflux-related pain (GERD) and some cardiopulmonary causes (e.g., pericarditis can be worse lying flat and better leaning forward, pneumonia/PE can also cause cough and pain but are less classically positional).\nTop candidates (not yet definitive):\n1) GERD — classic worse when lying down; can cause cough and chest discomfort.\n2) Pericarditis — pleuritic/positional chest pain can improve leaning forward; cough may occur if there’s associated inflammation.\n3) Pneumonia — cough with chest pain; positional component can occur with pleurisy.\n4) Pulmonary embolism — pleuritic pain and cough possible; positional relief is less typical but can be reported.\n5) Acute COPD exacerbation / infection or Bronchitis — cough and chest discomfort, but strong positional pattern is less typical.\nMost informative next question: determine whether the pain is sharp/pleuritic and whether it worsens with deep breaths or coughing (helps separate pericarditis/pleurisy/PE/pneumonia from GERD).\n[/REASONING]\nDoes the pain get worse when you take a deep breath or when you cough (i.e., is it pleuritic)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: worse lying down, better sitting up; cough; pain 6/10. We need a discriminating feature. Since you can’t tell about deep breaths/cough, the next best is to characterize the pain location and quality (burning vs sharp/pressure) and whether it radiates—this helps separate GERD (burning/retrosternal) from pericarditis/pleurisy/PE (often sharp/pleuritic) and cardiac ischemia (pressure/heaviness).\nTop candidates remain:\n1) GERD — positional worse when lying down; cough can be reflux-related.\n2) Pericarditis — positional (often worse lying flat, better leaning forward); chest pain.\n3) Pneumonia/pleurisy — cough with chest pain; may be pleuritic.\n4) Pulmonary embolism — pleuritic pain possible with cough; positional less classic.\n5) Possible NSTEMI / STEMI or Unstable angina — can present with pain, but positional relief is less typical.\nMost informative next question: where exactly is the pain (center of chest vs throat/upper abdomen vs one side), and does it feel like burning/acid or like pressure/sharp pain?\n[/REASONING]\nWhere is the pain located exactly, and does it feel more like burning/acid or more like pressure/sharp pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s in my upper chest, right hypochondrium, and epigastric area. It feels haunting, sensitive, like a knife stroke, tugging, and sickening.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: upper chest + epigastric + right hypochondrium; described as “knife stroke,” tugging, sickening; worse lying down, better sitting up; cough present. This distribution and positional relief strongly suggest reflux/esophagitis or gastritis (GERD) with possible esophageal spasm; the “knife-like” quality can occur with esophageal pain. Pericarditis is possible but epigastric/right upper quadrant involvement and reflux-type positional pattern make GERD more likely. Pneumonia/PE/pericarditis are less consistent with epigastric/right hypochondrium dominance.\nTop candidates:\n1) GERD — worse lying down, better sitting up; epigastric/upper chest symptoms; cough can be reflux-related; can feel sharp/burning.\n2) Acute pulmonary edema/other cardiopulmonary causes — less likely given epigastric/right hypochondrium and positional relief.\n3) Pericarditis — positional chest pain possible, but epigastric/right RUQ predominance and reflux-like description favor GERD.\n4) Pneumonia — cough + chest discomfort, but epigastric/right hypochondrium pattern and positional relief favor GI.\n5) Anemia/ischemia — possible but description and positional component reduce likelihood.\nMost informative next question: do you have heartburn or sour/bitter taste in the mouth, or symptoms after meals?\n[/RE",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my symptoms get worse after eating.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] GERD, Acute dystonic reactions, Pericarditis, Pneumonia, Pulmonary embolism",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [
+      "GERD",
+      "Acute dystonic reactions",
+      "Pericarditis",
+      "Pneumonia",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4987,
+      "completion_tokens": 908
+    },
+    "patient": {}
+  }
+}

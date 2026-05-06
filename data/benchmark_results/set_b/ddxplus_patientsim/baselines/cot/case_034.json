@@ -1,0 +1,82 @@
+{
+  "case_idx": 34,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Unstable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Male\nChief Complaint: I have chest pain even at rest, right side of the chest pain, and left side of the chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have chest pain even at rest. It’s on both the right and left upper chest, kind of heavy and exhausting, and I’m also sweating a lot and feel short of breath. The pain started very fast and it also goes to my left biceps and shoulders, and I even feel epigastric pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden-onset heavy “exhausting” chest pain at rest (bilateral upper chest), diaphoresis, shortness of breath, radiation to left biceps/shoulder, and epigastric pain.\n\nTop candidates (most to least likely):\n1) Possible NSTEMI / STEMI — sudden severe chest pain with diaphoresis, SOB, and left arm/shoulder radiation; epigastric discomfort can be ischemic.\n2) Pulmonary embolism — acute chest pain and dyspnea with diaphoresis can occur; radiation pattern is less classic but still possible.\n3) Unstable angina — ischemic pain at rest with autonomic symptoms; may be less “sudden” than MI but overlaps.\n4) Acute pulmonary edema — can cause sudden dyspnea and chest discomfort with sweating, though classic features like orthopnea/leg swelling would help.\n5) Pericarditis — can cause chest pain and sometimes radiation, but diaphoresis/SOB with sudden onset could still fit; pleuritic/positional pain would be more typical.\n\nMost informative next question: determine whether the pain is pleuritic/positional and whether there are respiratory triggers, which helps separate PE/pulmonary causes from ACS.\n[/REASONING]\nOne question: Does the chest pain get worse when you take a deep breath or when you lie flat (and does it improve when you sit",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It feels worse when I’m moving or trying to do anything, but I can’t say it’s clearly worse with a deep breath. I also don’t notice a strong change just from lying flat versus sitting up—it mainly stays as this heavy, exhausting pain in my chest even at rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nUpdated findings: sudden severe heavy chest pain at rest with diaphoresis and shortness of breath; not clearly pleuritic (not clearly worse with deep breath) and not clearly positional (no strong change lying vs sitting). Worse with movement/effort.\n\nThis shifts probability toward cardiac ischemia (ACS) rather than PE/pleuritic causes, though PE can still present atypically. Pericarditis becomes less likely without positional/pleuritic features.\n\nTop candidates:\n1) Possible NSTEMI / STEMI — classic: sudden severe chest pain, diaphoresis, SOB, left shoulder/arm radiation, epigastric pain.\n2) Unstable angina — ischemic pain at rest with autonomic symptoms; may not show “sudden” but overlaps.\n3) Pulmonary embolism — still possible given SOB/diaphoresis, but less supported without pleuritic/positional features.\n4) Pericarditis — less likely without positional/pleuritic pattern.\n5) Acute pulmonary edema — can cause sudden dyspnea and chest discomfort; would be supported by crackles, orthopnea, frothy sputum.\n\nMost informative next question: ask about exertional/ischemic triggers and associated symptoms like nausea/vomiting, and—most discriminating—any history of risk factors for clot (recent immobilization/surgery, leg swelling) vs cardiac risk factors (known CAD, diabetes",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It gets worse with any effort or movement, and I feel like I can’t really push through it. I also feel really tired/chronic fatigue, and I’m short of breath with it—no clear nausea or vomiting, though. I don’t have any recent travel or anything like that that would make a clot more likely.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden-onset heavy exhausting chest pain at rest, diaphoresis, shortness of breath, radiation to left shoulder/biceps, epigastric pain; worse with any movement/effort; no clear pleuritic/positional component; no recent travel/immobilization to suggest PE.\n\nThis pattern most strongly supports acute coronary syndrome (MI/unstable angina). PE is less likely without clot risk factors and without pleuritic features, but it can’t be excluded yet. Pericarditis is less likely without positional/pleuritic pain. Pulmonary edema is possible but would need signs like crackles/orthopnea/leg swelling.\n\nTop candidates:\n1) Possible NSTEMI / STEMI — best fit: diaphoresis + SOB + left arm/shoulder radiation + epigastric pain + severe rest pain.\n2) Unstable angina — similar ischemic presentation at rest with autonomic symptoms.\n3) Pulmonary embolism — still possible despite no travel; atypical presentations occur.\n4) Acute pulmonary edema — sudden dyspnea/chest discomfort; would be supported by orthopnea, crackles, frothy sputum.\n5) Pericarditis — less likely without positional/pleuritic features, but still on the list.\n\nMost informative next question: ask about cardiovascular risk factors and prior history of heart disease (diabetes, smoking, hypertension,",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have diabetes, and I also have high cholesterol and I take meds for it. I smoke cigarettes, and my family has had cardiovascular disease problems before age 50. I’ve also been told I’ve had heart trouble before—like a heart attack or angina.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, Acute pulmonary edema, Pericarditis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Pericarditis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5418,
+      "completion_tokens": 933
+    },
+    "patient": {
+      "prompt_tokens": 5355,
+      "completion_tokens": 259
+    }
+  }
+}

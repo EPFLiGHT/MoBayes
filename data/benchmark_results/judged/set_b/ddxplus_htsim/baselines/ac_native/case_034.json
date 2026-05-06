@@ -1,0 +1,249 @@
+{
+  "case_idx": 34,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "AGE": 23,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['coughing up blood', 'pain', 'productive cough', 'cigarette smoking', \"parkinson's disease\", 'asthma or bronchodilator use', 'skin lesions', 'loss of appetite', 'general fatigue or discomfort', 'cough', 'nocturnal symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 23\n- I have been coughing up blood.\n- I have pain somewhere related to my reason for consulting.\n- I have a cough that produces colored or more abundant sputum than usual.\n- I smoke cigarettes.\n- I have Parkinson's disease.\n- I have asthma or have used a bronchodilator in the past.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I have recently had a loss of appetite or I get full more quickly than usually.\n- I have noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in my general well-being related to my consultation today.\n- I have a cough.\n- My symptoms are more prominent at night.\n- On a scale of 0-10, the pain intensity is 3\n- On a scale of 0-10, the pain's location precision is 4\n- On a scale of 0-10, the pace at which the pain appear is 4\n- The color of the rash is pink.\n- My lesions peel off.\n- On a scale of 0-10, the rash swelling is 0\n- On a scale of 0-10, the pain intensity caused by the rash is 3\n- On a scale of 0-10, the severity of the rash itching is 2\n- The pain is:\n* sharp\n- The pain locations are:\n* posterior chest wall(L)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* commissure(L)\n* buttock(L)\n* posterior chest wall(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.19474554448611991], ['Bronchiectasis', 0.14989895253719004], ['Tuberculosis', 0.12270184046394207], ['Spontaneous rib fracture', 0.11869078925592087], ['Pneumonia', 0.11727522719679832], ['Unstable angina', 0.11277039386102715], ['Possible NSTEMI / STEMI', 0.11045423044385938], ['Stable angina', 0.07346302175514226]]",
+    "PATHOLOGY": "Pneumonia",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['crach_sg', 'douleurxx', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_thorax_postérieur_G_', 'douleurxx_intens_@_3', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_4', 'douleurxx_soudain_@_4', 'expecto', 'f17.210', 'g20', 'j45', 'lesions_peau', 'lesions_peau_couleur_@_rose', 'lesions_peau_desquame_@_O', 'lesions_peau_elevee_@_0', 'lesions_peau_endroitducorps_@_commissure_G_', 'lesions_peau_endroitducorps_@_fesse_G_', 'lesions_peau_endroitducorps_@_thorax_postérieur_G_', 'lesions_peau_intens_@_3', 'lesions_peau_plusqu1cm_@_N', 'lesions_peau_prurit_@_2', 'perte_appet', 'rds_deg', 'toux', 'trav1_@_N', 'ww_nuit']",
+    "patient_id": "htsim_1225",
+    "_test_index": 1225,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 23-year-old F patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood and I have pain in my posterior chest wall (left). My cough produces colored or more abundant sputum than usual, and my symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m sorry you’re going through this—when did the cough and left posterior chest wall pain start, and how much blood are you seeing (streaks vs teaspoons per day)? Also, do you have fever, shortness of breath, recent travel, leg swelling, or any smoking/vaping or known lung/bleeding conditions?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know when it started.\n\nI don’t know how much blood I’m seeing (streaks vs teaspoons per day).\n\nI do have a cough, and I’ve been coughing up blood.\n\nI smoke cigarettes.\n\nI have pain in my posterior chest wall (left), and the pain is sharp, intensity 3/10. My rash is pink, it peels off, and I have lesions/redness/problems on my skin.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—how old are you again, and can you describe the rash/skin issue in more detail: where is it (face/chest/back/hands), is it itchy or painful, and do you have any mouth sores or new medications in the last month? Also, do you feel short of breath or have fever/night sweats right now?  \n\nDoctor: Considering cigarette smoking plus hemoptysis and sharp left posterior chest pain, I need to assess lung bleeding/infection urgently—REQUEST TEST: Chest_X-Ray and REQUEST TEST: CBC (including hemoglobin) and coags (PT/INR, aPTT).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 23 and female.\n\nI don’t know about fever or night sweats right now.\n\nI have asthma or have used a bronchodilator in the past.\n\nMy rash is pink and it peels off. I have lesions/redness/problems on my skin. The rash itching severity is 2/10. The pain caused by the rash is 3/10, and the pain is sharp. The affected regions I have listed include the commissure (L), buttock (L), and posterior chest wall (L).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about hemoptysis with focal left posterior chest pain plus a peeling pink rash—do you also have fever, sore throat, mouth ulcers, or red/watery eyes? Also, are you having shortness of breath, and have you had any weight loss, recent immobilization/travel, or use of hormonal birth control (estrogen)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.\n\nI do smoke cigarettes.\n\nI have a cough, and my symptoms are more prominent at night.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a few key details: is the blood bright red or dark, and is it mixed with sputum or more “pure blood”? Also, do you have any shortness of breath or wheezing right now, and have you noticed recent weight loss or night sweats?\n\nDoctor: Given cigarette smoking + hemoptysis + focal left posterior chest pain, I’d like to rule out pneumonia, mass, or pulmonary embolism—REQUEST TEST: Chest_CT_Angiography (or CTPA if available) and REQUEST TEST: Pregnancy_test (urine/serum β-hCG).",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about weight loss or night sweats.\n\nI have a cough, and my symptoms are more prominent at night.\n\nI smoke cigarettes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to clarify the rash—when did it start relative to the cough/bleeding, is it widespread or localized, and does it worsen with sun or after starting any new medication/OTC supplements? Also, are the mouth/tongue/nasal areas sore or have you had painful ulcers or a blistering rash?\n\nDoctor: Next, for the bleeding—have you had any nosebleeds, gum bleeding, easy bruising, or heavy menstrual bleeding, and do you take aspirin/NSAIDs/anticoagulants?\n\nDoctor: Based on hemoptysis with chest pain and a peeling pink rash, I’m also concerned about an inflammatory/infectious cause—REQUEST TEST: Urinalysis and ESR/CRP.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have a cough, and my symptoms are more prominent at night.\n\nI smoke cigarettes.\n\nI don’t know about nosebleeds, gum bleeding, easy bruising, or heavy menstrual bleeding.\n\nI don’t know if I take aspirin/NSAIDs/anticoagulants.\n\nI have a pink rash with lesions/redness/problems on my skin, and it peels off. The rash itching severity is 2/10, and the pain caused by the rash is 3/10 (sharp). The affected regions I have listed include the commissure (L), buttock (L), and posterior chest wall (L).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still worried about hemoptysis with left-sided chest pain plus a peeling pink rash—could the rash be a widespread “sunburn-like” rash over multiple areas (not just left posterior chest/buttock/commissure), and do you have any mouth sores or red/watery eyes? Also, have you had any shortness of breath or wheezing today, and did the cough/bleeding start before the rash or after?  \nDoctor: REQUEST TEST: HIV_test (4th gen) and autoimmune/inflammation labs (ANA, ANCA) plus sputum culture/Gram stain; if your pregnancy status isn’t already confirmed, we need β-hCG first.  \nDoctor: While we wait, are you having any rapid breathing, fainting, or chest pain that’s worsening, and can you rate shortness of breath 0–10?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—you don’t know about the timing of the rash. While we’re clarifying, I need to check safety: are you short of breath right now (0–10), and are you coughing up bright red blood or dark blood?  \n\nDoctor: Also, I’m going to prioritize ruling out life-threatening causes—REQUEST TEST: Vital_signs_+_Pulse_oximetry and REQUEST TEST: CT_Chest_with_Contrast_or_CTPA if not already done.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about whether I’m short of breath right now (0–10).\n\nI don’t know if the blood is bright red or dark.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to reassess right now—can you check your oxygen saturation (SpO₂) if available and tell me your current breathing difficulty 0–10, and do you have any dizziness/fainting or worsening chest pain? Also, have you had any recent nose/gum bleeding, easy bruising, or black/tarry stools (to look for bleeding elsewhere)?  \n\nDoctor: REQUEST TEST: Pulse_Oximetry + repeat vitals (HR/BP/RR/temp) and REQUEST TEST: Type_and_Screen (if bleeding continues) + repeat CBC.  \n\nDoctor: Given active hemoptysis with focal left posterior pleuritic-type pain and a peeling pink rash, my top priority is pulmonary hemorrhage/infection or pulmonary embolism while we evaluate for a systemic inflammatory/vasculitic process—please confirm: are you on any hormonal birth control/estrogen or recent immobilization/travel?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely diagnose yet because you’re unsure about key bleeding and breathing details—right now, what is your current shortness of breath score 0–10, and do you know your SpO₂ or pulse if you’ve checked it?  \nDoctor: Also, for the rash: when did the pink peeling rash start relative to the cough/hemoptysis (before, after, or same time), and is it worse with sun exposure?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need those missing safety details—right now what are your SpO₂ and shortness of breath score (0–10), and is the blood bright red vs dark or clots?  \nDoctor: REQUEST TEST: Repeat_vitals_(HR/BP/RR/temp) + Pulse_Oximetry + Urgent_CBC + Coags_(PT/INR,aPTT) + Type_and_Screen.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my SpO₂.\n\nI’m not sure about my shortness of breath score (0–10).\n\nI don’t know whether the blood is bright red or dark.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you now—can you take a deep breath and tell me if the left posterior chest pain worsens (yes/no), and do you have any wheezing or coughing that feels hard to control?  \nDoctor: I also need vitals and oxygen urgently—REQUEST TEST: Pulse_Oximetry + Repeat_vitals_(HR/BP/RR/temp) + Bedside_peak_flow if available.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I have pain in my posterior chest wall (left), and my cough symptoms are more prominent at night.\n\nI don’t know if the left posterior chest pain worsens with a deep breath.\n\nI also have asthma or have used a bronchodilator in the past.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask directly for safety: can you tell me if you’re short of breath right now (0–10) and whether taking a deep breath makes the left posterior chest pain worse (yes/no/unknown)? Also, do you have any fever or chills right now?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m worried enough about your hemoptysis that we have to treat this as potentially serious—right now, do you have any trouble speaking full sentences or any feeling of “impending doom” (yes/no), and can you check your temperature if you can?  \nDoctor: REQUEST TEST: Urgent_Chest_X-Ray + Pulse_Oximetry (now) + CBC + PT/INR + aPTT + β-hCG.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as urgent while we finish assessing—can you look at a thermometer and tell me your temperature, and are you able to speak full sentences without stopping for breath?  \nDoctor: REQUEST TEST: Rapid_β-hCG_urine (pregnancy screen) + Stat_CBC + PT/INR + aPTT + Pulse_Oximetry_right_now + Urgent_Chest_X-Ray.",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I hear you—given ongoing coughing up blood, we can’t wait for more details: I’m going to proceed with emergency evaluation, and I need one quick check—are you currently able to speak full sentences (yes/no) and do you feel short of breath at rest (yes/no)? Also, I’m ordering immediate tests: REQUEST TEST: Pulse_Oximetry_right_now + Repeat_vitals_(HR/BP/RR/temp) + Urgent_Chest_X-Ray + Stat_CBC + PT/INR+aPTT + β-hCG.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as an emergency because you’re coughing up blood and have left posterior chest pain—can you tell me yes/no: are you currently short of breath at rest and can you speak full sentences without stopping? Also, right now, is your oxygen saturation known (SpO₂), and do you have a thermometer reading for your temperature?  \nDoctor: REQUEST TEST: Pulse_Oximetry_right_now + Repeat_vitals_(HR/BP/RR/temp) + Urgent_Chest_X-Ray + Stat_CBC + PT/INR+aPTT + β-hCG + Type_and_Screen.",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to decide this is an emergency until proven otherwise—REQUEST TEST: Pulse_Oximetry_right_now + Repeat_vitals_(HR/BP/RR/temp) + Urgent_Chest_X-Ray + Stat_CBC + PT/INR+aPTT + β-hCG + Type_and_Screen; while those run, are you able to speak full sentences and is your shortness of breath at rest “yes/no”?  \nDoctor: Given hemoptysis plus unilateral pleuritic chest-wall pain in a 23-year-old smoker, I must rule out **pulmonary embolism and serious airway/lung bleeding (including infection/mass)** first—do you have any known autoimmune diagnosis (e.g., lupus/vasculitis) or recent new medications?",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know about any known autoimmune diagnosis or recent new medications.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely narrow this yet, but coughing up blood with left pleuritic chest-wall pain in a smoker is an emergency until proven otherwise—REQUEST TEST: CT_Chest_with_Contrast/CTPA (if possible) and REQUEST TEST: Arterial_blood_gas (ABG) and D-dimer (if PE pathway used).  \nDoctor: While those results return, are you able to sit upright and speak full sentences without stopping, and has the rash with peeling appeared anywhere *besides* the left commissure/buttock/posterior chest (yes/no)?",
+      "turn": 18
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 18
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you don’t know your oxygen level, shortness of breath, or the amount/color of blood, this must be treated as an emergency—please go to the ER now. **DIAGNOSIS READY: Acute hemoptysis with suspected pulmonary embolism or serious pulmonary pathology (infection/malignancy/vasculitis) pending urgent imaging and labs.**\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 19
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 19,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 31338,
+      "completion_tokens": 2168,
+      "calls": 19
+    },
+    "patient": {
+      "prompt_tokens": 44141,
+      "completion_tokens": 658,
+      "calls": 19
+    }
+  }
+}

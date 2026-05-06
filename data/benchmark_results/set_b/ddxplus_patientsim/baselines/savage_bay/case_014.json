@@ -1,0 +1,132 @@
+{
+  "case_idx": 14,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute dystonic reactions",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 58\nSex: Female\nChief Complaint: I have episodes of suffocation, trouble keeping your tongue in your mouth, and a hard time opening/raising one or both eyelids",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve been having episodes where it feels like I can’t breathe or I’m suffocating, and I also have trouble keeping my tongue in my mouth. My eyes are hard to open or raise, and I get annoying muscle spasms and soreness in my face and neck that make it hard to turn my head, plus some jaw difficulty.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.\n\n**Current best candidates (posterior probabilities, rough):**\n- **Acute dystonic reactions** 35%\n- **Larygospasm** 20%\n- **Myasthenia gravis** 15%\n- **Anaphylaxis** 15%\n- **Acute COPD exacerbation / infection** 5%\n(others less likely)\n\n**Question 1 (most discriminating):**  \nWhen these episodes happen, do you notice **swelling of the lips/tongue/face or hives/itching**, or is it mainly breathing difficulty and muscle/tongue/jaw/eye symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Mostly it feels like breathing gets stuck—like I can’t get air—and I also have these muscle problems (tongue, jaw, and my eyes). I don’t recall swelling of my lips or tongue, and I haven’t noticed hives or itching with the episodes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 45% (no hives/itching makes anaphylaxis less likely)\n- **Larygospasm** 25% (breathing “stuck” sensation fits)\n- **Myasthenia gravis** 20% (eye/tongue/jaw involvement fits)\n- **Anaphylaxis** 5%\n- **Acute COPD exacerbation / infection** 5%\n\n**Question 2 (key discriminator):**  \nDuring an episode, is your voice **strangulated/hoarse** or do you have **noisy breathing (high-pitched stridor)**—and does it improve when you try to **speak/cough**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "My voice gets kind of weird during it, like it’s hard to get words out, but I don’t really remember high-pitched noisy breathing like stridor. I think it doesn’t really improve just by trying to speak or cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 50%\n- **Larygospasm** 20%\n- **Myasthenia gravis** 20%\n- **Anaphylaxis** 5%\n- **Acute COPD exacerbation / infection** 5%\n\n**Question 3 (timing/trigger):**  \nHow fast do these episodes start—**seconds to minutes**, or **gradually over hours**? And do they happen after starting/changing any medication (especially **antipsychotics like haloperidol/risperidone**, anti-nausea meds like **metoclopramide**, or similar)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They usually start pretty fast—more like within minutes, not hours. I can’t point to a clear trigger, but I did have recent hospital treatment where they gave me medicines by IV or injection for agitation/intoxication/nausea, and these episodes started around that time.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 60% (rapid onset after IV/injection meds is classic)\n- **Larygospasm** 15%\n- **Myasthenia gravis** 15%\n- **Anaphylaxis** 5%\n- **Acute COPD exacerbation / infection** 5%\n\n**Question 4 (very discriminating):**  \nDuring an episode, do you have **involuntary twisting/abnormal neck posture** (e.g., head pulling to one side, jaw clenching), or is it mainly **inability to breathe** with otherwise normal posture?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my neck and face muscles feel like they lock up or twist, and my jaw feels like it tightens. It’s not just “I can’t breathe” while everything else stays normal.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 75% (neck/face/jaw involvement + rapid onset after IV meds)\n- **Larygospasm** 10%\n- **Myasthenia gravis** 10%\n- **Anaphylaxis** 3%\n- **Acute COPD exacerbation / infection** 2%\n\n**Question 5 (to confirm and triage):**  \nWhich medications were you given around the time this started—do you remember names (or what they were for), especially **antipsychotics** (haloperidol, droperidol, risperidone, olanzapine, quetiapine) or **metoclopramide/compazine**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t remember the exact names clearly. I know they treated me in the hospital for nausea/agitation/intoxication or aggressive behavior, and they gave me medicine through an IV or injection right before these episodes started. I can’t say for sure if it was an antipsychotic or metoclopramide, though.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 70%\n- **Larygospasm** 10%\n- **Myasthenia gravis** 10%\n- **Anaphylaxis** 5%\n- **Acute COPD exacerbation / infection** 5%\n\nI can’t fully confirm the medication exposure, but the pattern you described—**rapid onset within minutes after IV/injection meds**, plus **neck/face/jaw/tongue/eye muscle locking/twisting**—most strongly points to an **acute dystonic reaction**.\n\n**Question 6 (safety/confirmation):**  \nDuring an episode, do you have **fever**, **confusion**, or **sweating/very high heart rate**, or is it mainly the muscle spasms/abnormal movements and breathing sensation?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Mostly it’s the muscle spasms and the weird breathing sensation. I don’t remember having fever or being very confused, and I don’t think I had heavy sweating or a very fast heartbeat.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 78%\n- **Larygospasm** 10%\n- **Myasthenia gravis** 7%\n- **Anaphylaxis** 3%\n- **Acute COPD exacerbation / infection** 2%\n\nAt this point, the evidence is fairly consistent with an **acute dystonic reaction** (often triggered by dopamine-blocking meds like antipsychotics or metoclopramide), which can cause **jaw/neck/face/tongue/eye muscle spasms** and a **throat/airway sensation**.\n\n**Question 7 (helps distinguish from myasthenia):**  \nDo your symptoms **worsen with repeated use** (e.g., talking longer, chewing, looking up for a while) and then **improve with rest**, or is it more like sudden episodes that resolve?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s more like sudden episodes. I don’t notice it getting worse gradually with talking, chewing, or looking up, and it usually feels like it comes on fast and then settles.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (posterior probabilities):**\n- **Acute dystonic reactions** 82%\n- **Larygospasm** 8%\n- **Myasthenia gravis** 6%\n- **Anaphylaxis** 2%\n- **Acute COPD exacerbation / infection** 2%\n\nThis pattern—**sudden onset after IV/injection meds**, **neck/face/jaw/tongue/eye muscle involvement**, and **no clear exertional fatigue pattern**—makes **acute dystonic reaction** the leading diagnosis.\n\n**Question 8 (final discriminator):**  \nWhen the episode happens, can you **stick out your tongue** or is it difficult to move it at all? And do you have any **difficulty swallowing** or drooling?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s difficult to move my tongue normally—like I can’t keep it in place—so sticking it out is hard. I don’t think I’m drooling a lot, and I can’t say I have major trouble swallowing, but it feels very tight and weird in that area.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute dystonic reactions, Larygospasm, Myasthenia gravis, Anaphylaxis, Acute COPD exacerbation / infection",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Acute dystonic reactions",
+    "predicted_set": [
+      "Acute dystonic reactions",
+      "Larygospasm",
+      "Myasthenia gravis",
+      "Anaphylaxis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15115,
+      "completion_tokens": 1305
+    },
+    "patient": {
+      "prompt_tokens": 12644,
+      "completion_tokens": 500
+    }
+  }
+}

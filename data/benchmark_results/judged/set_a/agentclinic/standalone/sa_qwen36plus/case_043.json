@@ -1,0 +1,124 @@
+{
+  "case_idx": 43,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I've been dealing with persistent fatigue and poor sleep quality, and over the past month I've lost weight without trying. I’ve also noticed some yellowing, though I don’t have fever, abdominal pain, or any change in my bowel habits.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any darkening of your urine or pale, clay-colored stools?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I’ve noticed my urine has been darker than usual, and my stools have looked paler, almost clay-colored at times. I’m also still feeling very tired despite trying to rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you been experiencing any significant itching (pruritus), particularly on your palms, soles, or trunk?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I have noticed some itching lately, mostly on my palms and soles, and it seems to come and go rather than staying constant. I haven’t had any rash that I can see, just the itchiness.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Could you please tell me your age and biological sex?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 65 years old and male.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of significant alcohol use, or have you recently started any new prescription medications, over-the-counter drugs, or herbal supplements?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do drink about 5 alcoholic beverages a day, and I still smoke about a pack a day. I haven’t started any new prescription medications, over-the-counter drugs, or herbal supplements recently.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pancreatic head adenocarcinoma, Cholangiocarcinoma, Ampullary carcinoma, Choledocholithiasis, Alcoholic liver disease with cholestatic features",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic head adenocarcinoma",
+    "predicted_set": [
+      "Pancreatic head adenocarcinoma",
+      "Cholangiocarcinoma",
+      "Ampullary carcinoma",
+      "Choledocholithiasis",
+      "Alcoholic liver disease with cholestatic features"
+    ],
+    "predicted_raw": [
+      "Pancreatic head adenocarcinoma",
+      "Cholangiocarcinoma",
+      "Ampullary carcinoma",
+      "Choledocholithiasis",
+      "Alcoholic liver disease with cholestatic features"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1984,
+      "completion_tokens": 9809
+    },
+    "patient": {
+      "prompt_tokens": 2139,
+      "completion_tokens": 219,
+      "calls": 5
+    }
+  }
+}

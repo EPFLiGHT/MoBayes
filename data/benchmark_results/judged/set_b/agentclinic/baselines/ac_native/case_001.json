@@ -1,0 +1,116 @@
+{
+  "case_idx": 1,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Fulminant hepatic failure",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male",
+    "History": "The patient was previously healthy and has been brought to the emergency department due to agitation over the past 24 hours. Family members have noticed a yellowish coloring of his skin and eyes over the past week. The patient has a history of occasional cocaine and ecstasy use, and drinks alcohol socially on weekends. The patient also admits to high-risk sexual behaviors without using appropriate protection.",
+    "Symptoms": {
+      "Primary_Symptom": "Agitation",
+      "Secondary_Symptoms": [
+        "Psychomotor agitation",
+        "Not oriented to time and space",
+        "Jaundice on the skin and mucous membranes",
+        "Epistaxis"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Occasional use of cocaine and ecstasy. Social alcohol consumption (about 20 g on weekends).",
+    "Review_of_Systems": "The patient shows signs of psychomotor agitation and confusion. No other symptoms provided."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with agitation, yellowish coloring of the skin and eyes, and abnormal lab findings.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, can you tell me when the yellowing of your skin/eyes started and whether it began suddenly or gradually? Doctor: Also, have you had dark urine, pale stools, fever, or severe right-upper-belly pain?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It started about a week ago and felt more gradual than sudden. I’ve noticed my urine getting darker, but I haven’t had fever or severe right-upper-belly pain. I’m not sure about pale stools."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any itching of the skin or unintentional weight loss, and do you drink alcohol heavily or take acetaminophen/any new meds or supplements? Doctor: Also, have you had nausea/vomiting, easy bruising/bleeding, or confusion (possible liver dysfunction)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: Yes, I’ve had some itching, but not major weight loss. I’ve been mostly using alcohol on weekends and I haven’t taken acetaminophen or any new meds that I can recall—though I did use cocaine and ecstasy occasionally. I’ve had nausea with some vomiting and I’ve also been bleeding from the nose with easy bruising, and I’ve felt confused and not oriented."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Thank you—next, have you noticed yellowing of the gums/eyes worsening with time and any swelling of the legs/abdomen or vomiting blood/black tarry stools? Doctor: Also, any history of viral hepatitis (jaundice after travel, IV drug use), prior liver disease, or a recent illness/tick exposure?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Patient: The yellowing has been getting worse over the past week, but I don’t think I’ve noticed leg or belly swelling. I haven’t vomited blood or had black tarry stools, and I don’t have a history of viral hepatitis or prior liver disease. I did have a recent illness with no clear cause, but no tick exposure or travel that I can recall."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Given the progressive jaundice over a week plus dark urine, itching, nausea/vomiting, nose bleeding/easy bruising, and confusion without fever or severe RUQ pain, I’m concerned about acute liver failure—likely from toxin/drug-induced hepatitis (including alcohol and occasional cocaine/MDMA). Doctor: I need urgent labs and coagulation status—REQUEST TEST: Comprehensive metabolic panel (AST/ALT, bilirubin, ALP, GGT), INR/PT, CBC, ammonia, acetaminophen level, viral hepatitis panel (A/B/C/E), and urine toxicology.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.0°C (98.6°F); Blood Pressure 110/60 mm Hg; Heart Rate 94/min; Respiratory Rate 13/min. Neurological: Not oriented to time and space; asterixis present (possible liver failure). Skin: Jaundice on skin and mucous membranes. ENT: Epistaxis noted. Blood Work: Hemoglobin 16.3 g/dL; Hematocrit 47%; Leukocyte Count 9,750/mm3; Neutrophils 58% (Bands 2%); Eosinophils 1%; Basophils 0%; Lymphocytes 24%; Monocytes 2%; Platelets 365,000/mm3. Liver/Coagulation: Bilirubin 25 mg/dL (elevated); AST 600 IU/L (elevated); ALT 650 IU/L (elevated); TP Activity < 40%"
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Your labs (bilirubin 25, AST/ALT ~600–650), low total protein activity <40%, and confusion with **asterixis** strongly suggest **acute liver failure**; the next step is to confirm severity urgently with clotting. Doctor: REQUEST TEST: **INR/PT**, **serum ammonia**, and **acetaminophen level now**; simultaneously start **IV N-acetylcysteine** while results are pending and involve ICU/emergency. Doctor: Given the timing (about a week), no chronic liver history, ongoing toxin exposure risk (alcohol and occasional cocaine/ecstasy), and hepatic encephalopathy, DIAGNOSIS READY: **Acute liver failure—likely toxin/drug-induced hepatitis (e.g., alcohol/illicit drug–related), with hepatic encephalopathy and coagulopathy**",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Your labs (bilirubin 25, AST/ALT ~600–650), low total protein activity <40%, and confusion with **asterixis** strongly suggest **acute liver failure**; the next step is to confirm severity urgently with clotting. Doctor: REQUEST TEST: **INR/PT**, **serum ammonia**, and **acetaminophen level now**; simultaneously start **IV N-acetylcysteine** while results are pending and involve ICU/emergency. Doctor: Given the timing (about a week), no chronic liver history, ongoing toxin exposure risk (alcohol and occasional cocaine/ecstasy), and hepatic encephalopathy, DIAGNOSIS READY: **Acute liver failure—likely toxin/drug-induced hepatitis (e.g., alcohol/illicit drug–related), with hepatic encephalopathy and coagulopathy**",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 5,
+    "predicted_remapped": "Fulminant hepatic failure",
+    "predicted_set_remapped": [
+      "Fulminant hepatic failure",
+      "Toxic exposure",
+      "Chronic Granulomatous Disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2480,
+      "completion_tokens": 497,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 1513,
+      "completion_tokens": 212,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 696,
+      "completion_tokens": 200,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 237,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

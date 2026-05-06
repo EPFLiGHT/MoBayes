@@ -1,0 +1,99 @@
+{
+  "case_idx": 15,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Chagas",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: F\nChief Complaint: weight loss or loss of appetite",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency, along with fever and unintentionally losing weight or losing my appetite. I also have pain—about 7 out of 10—mostly in the back of my head/occiput and my back of the neck/cervical spine.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: GI symptoms (diarrhea/increased stool frequency) + fever + unintentional weight loss/poor appetite + severe posterior head/neck pain (occiput/cervical spine), 7/10. This combination raises concern for an infectious/inflammatory systemic process; the neck pain could reflect meningitis/serious infection, but we need discriminating features (e.g., neck stiffness, headache characteristics, neurologic symptoms).\nTop candidates (tentative):\n1) Infectious & Parasitic Diseases — systemic infection can cause fever, diarrhea, weight loss, and headache/neck pain.\n2) Influenza — can cause fever and headache, sometimes GI symptoms, but severe focal occipital/cervical pain and weight loss are less typical.\n3) Tuberculosis — can cause weight loss/poor appetite and systemic symptoms; neck pain could occur if there’s CNS involvement, but diarrhea is less classic.\n4) Anemia — can contribute to constitutional symptoms, but fever and diarrhea are less explained.\n5) SLE — can cause systemic symptoms and headache/neck pain, but fever + diarrhea + weight loss could fit infection more than autoimmune.\nMost informative next question: determine whether this is meningitis-like (neck stiffness/photophobia/altered mental status).\n[/REASONING]\nDo you have neck stiffness—i.e., does bending your neck forward make the pain much worse, or have you noticed trouble keeping",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have limited discriminating info: fever + diarrhea + weight loss/poor appetite + severe occipital/cervical pain. The key fork is whether this is a CNS infection/inflammation (meningitis/encephalitis) versus a more GI/systemic infection without meningeal signs.\nNext most informative question is to assess for meningeal symptoms and neurologic status.\nTop candidates remain:\n1) Infectious & Parasitic Diseases (broad) — could include meningitis-associated infections.\n2) Tuberculosis — weight loss/fever; CNS involvement possible but diarrhea less typical.\n3) Influenza — fever/headache; diarrhea possible but severe neck/cervical pain and weight loss less typical.\n4) URTI/viral syndromes — less likely given diarrhea + weight loss.\n5) SLE — possible but fever + diarrhea suggests infection first.\nMost informative next action: ask about altered mental status or severe headache features (photophobia/vomiting).\n[/REASONING]\nHave you had any confusion, extreme sleepiness, or trouble staying awake—or sensitivity to light (bright light makes the headache much worse)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient to confirm/deny meningitis/encephalitis. We need another discriminating feature that doesn’t rely on the patient knowing “meningitis signs.”\nNext best discriminator: presence of vomiting, severe headache “worst ever,” and whether there’s a rash (especially petechial/purpuric) or recent sick contacts/travel—these help triage serious infection.\nTop candidates (unchanged):\n1) Infectious & Parasitic Diseases — broad, includes meningitis/serious systemic infection.\n2) Tuberculosis — constitutional symptoms with possible CNS involvement.\n3) Influenza — fever/headache with possible GI symptoms.\n4) SLE — less likely but can cause systemic symptoms.\n5) Anemia — less likely to explain fever/diarrhea.\nMost informative next question: rash, because it’s a high-yield serious-infection clue.\nDo you have any new rash (red/purple spots that don’t fade when pressed), or any sores?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’re stuck because the patient can’t reliably report key discriminators (meningeal signs, photophobia/AMS, rash). We must ask something more objective and yes/no that the patient can answer.\nNext discriminating question: Are you able to touch your chin to your chest without severe worsening of the neck pain? (patient may not know “stiff neck,” but can usually tell if flexion is extremely painful.)\nTop candidates remain broad infectious etiologies.\nMost informative next action: ask about neck flexion pain.\n[/REASONING]\nWhen you try to bend your neck forward (bring your chin toward your chest), does it cause a marked worsening of the neck pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill no actionable discriminators. With only fever + diarrhea/increased stool frequency + weight loss/poor appetite + severe occipital/cervical pain, we cannot confidently narrow to a specific diagnosis from the provided list. We must avoid guessing.\nNext question that’s objective and commonly known: duration and severity timeline (how many days, and whether symptoms are rapidly worsening). This can help separate acute viral/bacterial from subacute TB/other.\nMost informative next action: ask how long symptoms have been going on.\n[/REASONING]\nHow long has this been happening—days, weeks, or months?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack critical discriminators (timeline, meningeal signs/AMS, rash, vomiting/photophobia). With “I don’t know” to multiple high-yield questions, the evidence is insufficient to confidently select among the listed diagnoses.\nTo avoid guessing, we should either obtain at least one more objective detail (e.g., measured temperature, age, immunocompromise, recent travel/sick contacts, blood in stool) or, if not possible, abstain.\nGiven the current uncertainty, I will abstain and provide the broadest plausible candidates that fit fever + diarrhea + weight loss and can include serious infection with headache/neck pain.\n[/REASONING]\n[ABSTAIN] Patient cannot provide key discriminating features (meningeal signs/photophobia/AMS, rash, duration), so there isn’t enough information to narrow safely.\n[POSSIBLE] Infectious & Parasitic Diseases, Tuberculosis, Influenza, Pneumonia, SLE",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Infectious & Parasitic Diseases",
+      "Tuberculosis",
+      "Influenza",
+      "Pneumonia",
+      "SLE"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8443,
+      "completion_tokens": 1224
+    },
+    "patient": {}
+  }
+}

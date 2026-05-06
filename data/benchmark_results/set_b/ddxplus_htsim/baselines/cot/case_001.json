@@ -1,0 +1,89 @@
+{
+  "case_idx": 1,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute dystonic reactions",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 79\nSex: F\nChief Complaint: laryngospasm",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had laryngospasm—at times I’ve felt like I was suffocating for a very short time with inability to breathe or speak. I also have significant shortness of breath or difficulty breathing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: brief episodes of “suffocating” with inability to breathe or speak (suggesting laryngeal closure/spasm), plus ongoing or recurrent significant shortness of breath/dyspnea.\nTop candidates (tentative):\n1) Larygospasm — fits the sudden, very brief inability to breathe/speak from laryngeal closure.\n2) Bronchospasm / acute asthma exacerbation — can cause sudden dyspnea, sometimes with difficulty speaking; would expect wheeze and longer respiratory symptoms.\n3) Anaphylaxis — can cause acute airway symptoms and dyspnea; would expect triggers and other features (rash, swelling, hypotension).\n4) Acute pulmonary edema — can cause marked dyspnea; episodes are usually not “seconds-long” laryngeal closure.\n5) Panic attack — can cause sudden dyspnea/air hunger; usually no true inability to speak from airway obstruction, but can mimic it.\nMost informative next question: determine whether there are allergic/anaphylactic features or a clear trigger.\n[/REASONING]\nDo these episodes happen after an exposure or trigger such as a new food/medication, insect sting, or do you notice any rash/hives, lip or tongue swelling, or itching?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: brief “suffocating” episodes with inability to breathe or speak, plus significant dyspnea.\nWe lack discriminators for anaphylaxis (trigger, rash/swelling) and for asthma/bronchospasm (wheeze, longer expiratory difficulty).\nNext most informative question should separate airway obstruction/laryngeal spasm from asthma/other lung causes by looking for wheeze and chest tightness.\n[/REASONING]\nDuring these episodes, do you hear wheezing or feel chest tightness, or is it mainly a “throat closing” sensation?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill unclear: whether symptoms are primarily throat/larynx (laryngospasm) vs lower-airway bronchospasm/asthma.\nWe need a discriminating detail: can they make a sound/voice during the episode, and is the sensation localized to the throat/neck?\nNext question should directly probe throat vs chest origin.\n[/REASONING]\nWhen it happens, is the sensation clearly in your throat/neck (like your voice can’t come out), or is it more in your chest with wheezing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have very limited symptom characterization: brief suffocating episodes with inability to breathe or speak, plus significant dyspnea. We still can’t distinguish laryngeal closure from bronchospasm/anxiety.\nGiven uncertainty, the single most informative next question is about timing/duration and recovery: larygospasm often resolves quickly (seconds to <1–2 min) and may recur; asthma/anaphylaxis often persist longer without rapid throat-specific closure.\nNext question: how long do the “can’t breathe/can’t speak” episodes last, and do they resolve completely between episodes?\n[/REASONING]\nAbout how long do each of these episodes last (seconds vs minutes), and do you feel completely back to normal between episodes?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating details so far (no clear trigger, duration, wheeze/chest vs throat localization, or associated signs like rash/swelling/hypotension). I can’t confidently narrow to a specific diagnosis yet.\n\n[POSSIBLE] Larygospasm, Bronchospasm / acute asthma exacerbation, Anaphylaxis, Panic attack, Acute COPD exacerbation / infection",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Larygospasm",
+      "Bronchospasm / acute asthma exacerbation",
+      "Anaphylaxis",
+      "Panic attack",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5851,
+      "completion_tokens": 755
+    },
+    "patient": {}
+  }
+}

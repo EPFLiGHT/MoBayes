@@ -1,0 +1,90 @@
+{
+  "case_idx": 16,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Chronic rhinosinusitis",
+  "patient_actor_hidden": {
+    "AGE": 35,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "purulent nasal discharge",
+    "EVIDENCES_ENG": "['pain', 'cigarette smoking', 'recent cold', 'history of pneumonia', 'nasal polyps', 'deviated nasal septum', 'asthma or bronchodilator use', 'gastroesophageal reflux disease (gerd) diagnosis', 'purulent nasal discharge', 'cough', 'increased risk of common allergies']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 35\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I have had a cold in the last 2 weeks.\n- I have had pneumonia.\n- I have polyps in my nose.\n- I have a deviated nasal septum.\n- I have asthma or have used a bronchodilator in the past.\n- I have been diagnosed with gastroesophageal reflux.\n- I have greenish or yellowish nasal discharge.\n- I have a cough.\n- I am more likely to develop common allergies than the general population.\n- On a scale of 0-10, the pain intensity is 5\n- On a scale of 0-10, the pain's location precision is 4\n- On a scale of 0-10, the pace at which the pain appear is 1\n- The pain is:\n* burning\n* sharp\n- The pain locations are:\n* forehead\n* cheek(L)\n* nose\n* eye(L)\n* temple(R)\n- The pain radiates to these locations:\n* back of head\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute rhinosinusitis', 0.26484152759874147], ['Bronchitis', 0.2473563752287478], ['Chronic rhinosinusitis', 0.17137498014358163], ['Cluster headache', 0.14209017296256424], ['Chagas', 0.08716847203318245], ['Anemia', 0.08716847203318245]]",
+    "PATHOLOGY": "Chronic rhinosinusitis",
+    "INITIAL_EVIDENCE": "rhino_pur",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_front', 'douleurxx_endroitducorps_@_joue_G_', 'douleurxx_endroitducorps_@_nez', 'douleurxx_endroitducorps_@_oeil_G_', 'douleurxx_endroitducorps_@_tempe_D_', 'douleurxx_intens_@_5', 'douleurxx_irrad_@_arrière_de_tête', 'douleurxx_precis_@_4', 'douleurxx_soudain_@_1', 'f17.210', 'j06.9', 'j17_j18', 'j33', 'j34.2', 'j45', 'k21', 'rhino_pur', 'toux', 'trav1_@_N', 'z84.89']",
+    "patient_id": "htsim_0577",
+    "_test_index": 577,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 35-year-old F patient presents to the clinic. Chief complaint: purulent nasal discharge.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had greenish or yellowish nasal discharge, along with a cough and a cold in the last 2 weeks. I also have burning and sharp pain rated 5/10 in my forehead, left cheek, nose, left eye, and right temple, and it radiates to the back of my head.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you confirm: do you have fever (≥38°C), facial swelling, and does the pain worsen when you bend forward? Also, is the nasal discharge foul-smelling or mostly from one side?  \nDoctor: REQUEST TEST: Nasal/sinus exam and vitals; consider requesting Sinus_X-ray or CT if severe/one-sided or not improving.",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know about fever (≥38°C), facial swelling, or whether the pain worsens when I bend forward. I also don’t know if the nasal discharge is foul-smelling or mostly from one side.\n\nI do have greenish or yellowish nasal discharge and I’ve had a cold in the last 2 weeks, along with a cough.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few key questions to narrow this down—do you have tooth pain (upper teeth), worsening one-sided facial pain, or symptoms of allergy (itchy eyes/sneezing) rather than a typical infection? Also, is the discharge thick/post-nasal drip with cough mainly at night?  \nDoctor: REQUEST TEST: Vitals (T), and if possible a focused nasal/sinus exam (tenderness, unilateral discharge, erythema), plus CBC if fever or severe symptoms.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nI do have polyps in my nose and a deviated nasal septum, and I’m more likely to develop common allergies than the general population. I also have greenish or yellowish nasal discharge and a cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—given 2 weeks of thick green/yellow discharge with facial pressure/pain and your nasal polyps/deviated septum, this fits **acute rhinosinusitis**, but I need 2 quick answers: do you have fever (≥38°C) or clear worsening of facial pain when bending forward? Also, is the discharge mainly **one-sided** or truly both sides?  \nDoctor: REQUEST TEST: Vitals (T) and focused sinus/nasal exam for unilateral purulence and tenderness (consider CBC only if fever or severe), and if not improving after 10 days or if severe: REQUEST TEST: CT_Orbits/Sinuses.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever (≥38°C) or whether my facial pain gets worse when I bend forward. I also don’t know if the discharge is mainly one-sided or truly both sides.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you now—on exam I’m checking your nasal cavity for unilateral purulence, visible polyps, and sinus tenderness (percussion/pressing the maxillary/frontal areas).  \nDoctor: While I do that, can you answer just one thing: is the pain and discharge mostly on the **left side** (yes/no)?  \nDoctor: DIAGNOSIS READY: Acute rhinosinusitis (likely bacterial) on a background of nasal polyps/deviated septum.\n\n[DDX]\n1. Acute rhinosinusitis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2042,
+      "completion_tokens": 438,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 4043,
+      "completion_tokens": 243,
+      "calls": 4
+    }
+  }
+}

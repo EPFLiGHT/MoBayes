@@ -1,0 +1,144 @@
+{
+  "case_idx": 23,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Ewing sarcoma",
+  "patient_actor_hidden": {
+    "Demographics": "13-year-old boy",
+    "History": "The patient has been experiencing left leg pain progressively getting worse over 2 months, now interfering with sleep. Symptoms did not improve with ibuprofen. Noted trauma to the leg with a baseball hit one week before the onset of symptoms, which caused redness and swelling.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive left leg pain",
+      "Secondary_Symptoms": [
+        "Interference with sleep",
+        "History of trauma to the leg",
+        "Redness and swelling following trauma"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. First episode of such symptoms.",
+    "Social_History": "The patient is a middle school student. No relevant social history.",
+    "Review_of_Systems": "Denies fever, weight loss, or any recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive left leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: My left leg pain has been getting worse for about two months and it’s now keeping me from sleeping. It started after I was hit on the leg by a baseball, and I had redness and swelling afterward, but ibuprofen hasn’t helped.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and exactly where on your",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 13 years old, and the pain is mainly in my left leg near where I was hit by the baseball, with redness and swelling that started right after the injury. It’s been progressively getting worse over the last two months.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "subacute/chronic, Brodie's",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It started after the baseball hit and the area stayed swollen and red, then the pain gradually got worse over the next couple of months. It’s mostly in the same spot on my left leg and I can’t sleep because of it, and ibuprofen hasn’t made any difference.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "*\n\n3.  **Formulate",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have a fever or any recent illness, and I haven’t lost weight. The pain is getting worse over time and is still mostly at the spot where I was hit. It also hurts enough that I’m losing sleep, and the ibuprofen didn’t help.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me exactly which part of your left",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s mostly around the area of the baseball impact on my left lower leg—right where it was red and swollen afterward. The pain is the same spot and it keeps getting worse, and it’s bad enough that I can’t sleep.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Has the swelling and redness gone away,",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, the redness and swelling haven’t really gone away; it’s stayed around that same area since the baseball hit. The pain has continued to gradually worsen there and it’s severe enough to keep me from sleeping.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed a hard lump or mass forming",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I think there’s a firm, tender spot/lump in the same area on my left lower leg where it was red and swollen after the baseball hit. It feels thicker than the surrounding skin, and it hurts more when I press on it.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Does the pain wake you up from sleep, or does it",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, it wakes me up from sleep, and it keeps me up even when I’m trying to lie still. It’s especially worse when I press on the firm spot in the same area, and it’s been getting gradually worse over the last two months.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteosarcoma, Ewing sarcoma,",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Osteosarcoma",
+    "predicted_set": [
+      "Osteosarcoma",
+      "Ewing sarcoma"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Ewing sarcoma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3845,
+      "completion_tokens": 2368
+    },
+    "patient": {
+      "prompt_tokens": 4304,
+      "completion_tokens": 456,
+      "calls": 8
+    }
+  }
+}

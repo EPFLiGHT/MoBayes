@@ -1,0 +1,102 @@
+{
+  "case_idx": 19,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had lower chest pain on the right side and also upper chest pain—kind of a burning feeling. I’m having significant trouble breathing, with a cough that brings up more colored sputum than usual, a fever, and some nasal congestion/runny nose, and I hear wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: right-sided lower chest pain + upper burning chest pain, significant dyspnea, cough with increased colored sputum, fever, nasal congestion/runny nose, and expiratory wheeze.\n\nTop candidates (provisional):\n1) Pneumonia — fever + colored sputum + pleuritic-type chest pain + dyspnea.\n2) Acute COPD exacerbation / infection — wheeze and increased sputum with infection trigger (if COPD history).\n3) Bronchitis — cough with colored sputum and wheeze; fever can occur, though pneumonia is often more likely with significant dyspnea/pleuritic pain.\n4) Influenza — fever + UR symptoms (congestion/runny nose) + cough; wheeze can occur.\n5) Bronchospasm / acute asthma exacerbation — wheeze and dyspnea, but fever/colored sputum/pleuritic pain makes infection more likely.\n\nMost informative next question: determine whether there’s a history of COPD/asthma and whether this is similar to prior wheezing episodes.\n[/REASONING]\nDo you have a history of asthma or COPD (or have you ever been told you have chronic lung disease)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve been told I have COPD. This episode feels like it started with a chest infection—my breathing got worse and I started wheezing when I exhale, and my cough sputum is more than usual and colored.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: known COPD + infection-like onset (worse breathing, increased colored sputum) + expiratory wheeze. This strongly supports COPD exacerbation triggered by infection, but pneumonia still needs to be considered because of fever + colored sputum + significant dyspnea and chest pain.\n\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — classic: COPD + increased colored sputum + worsening dyspnea + wheeze; fever supports infectious trigger.\n2) Pneumonia — fever + colored sputum + pleuritic/right-sided chest pain + significant dyspnea; can coexist with COPD exacerbation.\n3) Bronchitis — can cause colored sputum and wheeze, but pneumonia is more concerning with significant dyspnea and chest pain.\n4) Influenza — can trigger COPD exacerbation; would fit fever + UR symptoms, but doesn’t fully explain localized chest pain.\n5) Bronchospasm / acute asthma exacerbation — less likely given COPD history, though overlap exists.\n\nMost informative next question: ask about severity/oxygenation and whether there are red flags like inability to speak full sentences or cyanosis.\n[/REASONING]\nAre you able to speak full sentences comfortably, or do you get short of breath after just a few words?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I can’t really speak full sentences—I get short of breath pretty quickly, like after a few words.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSeverity is high: dyspnea after a few words suggests significant respiratory compromise. With COPD + wheeze + increased colored sputum + fever, the leading diagnosis remains COPD exacerbation due to infection. Pneumonia remains a key alternative/complication. Need to assess for other life-threatening causes (e.g., pulmonary embolism) but fever/sputum/wheeze point more toward infection.\n\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — COPD + wheeze + increased colored sputum + fever + marked dyspnea.\n2) Pneumonia — fever + colored sputum + pleuritic chest pain + severe dyspnea; may coexist with COPD exacerbation.\n3) Pulmonary embolism — can cause sudden dyspnea and pleuritic pain, but fever/colored sputum/wheeze are less typical.\n4) Acute pulmonary edema — would expect CHF history/orthopnea; not yet suggested.\n5) Influenza — can trigger severe COPD exacerbation; still infection-related.\n\nMost informative next question: ask about oxygen-related symptoms and whether there’s leg swelling/pain or recent immobility (to help rule in/out PE).\n[/REASONING]\nHave you had any leg swelling or pain (especially one-sided), or any recent long travel/immobility/surgery?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed any leg swelling or pain. And I haven’t had recent travel or been immobile or had any surgery.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’ve ruled against some PE risk factors (no leg swelling/pain, no recent immobility/travel/surgery). Severe dyspnea after a few words still makes this potentially serious, but infection-triggered COPD exacerbation remains most likely. Pneumonia is still a major alternative/complication. Next discriminating feature: whether the chest pain is pleuritic (worse with deep breath/cough) and whether there’s hemoptysis.\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — strong: COPD + wheeze + increased colored sputum + fever + worsening breathing.\n2) Pneumonia — strong alternative: fever + colored sputum + pleuritic/right-sided chest pain + severe dyspnea.\n3) Influenza — strong trigger: fever + UR symptoms + can cause severe COPD exacerbation.\n4) Bronchitis — possible but pneumonia more concerning with significant dyspnea and chest pain.\n5) Pulmonary embolism — less likely without risk factors and with wheeze/sputum/fever, but not impossible.\n\nMost informative next question: Is the chest pain worse when you take a deep breath or cough (pleuritic), and have you had any coughing up blood?\n[/REASONING]\nDoes the chest pain get worse with deep breaths or coughing, and have you coughed up any blood?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels worse when I take a deep breath and when I cough. No, I haven’t coughed up any blood.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nPleuritic chest pain (worse with deep breath/cough) plus fever and colored sputum increases likelihood of pneumonia (or less commonly pleurisy), though COPD exacerbation can also cause chest discomfort. No hemoptysis lowers PE likelihood further. At this point, the top diagnoses are COPD exacerbation due to infection vs pneumonia (possibly with concurrent COPD exacerbation). Influenza remains a trigger. Need one more discriminating question: any prior similar episodes and whether you have increased sputum volume vs just color, and whether you have known heart disease/orthopnea (to rule out pulmonary edema). But we can likely proceed to differential.\nTop candidates:\n1) Acute COPD exacerbation / infection — COPD + wheeze + increased colored sputum + fever + severe dyspnea.\n2) Pneumonia — fever + colored sputum + pleuritic right-sided chest pain + severe dyspnea.\n3) Influenza — fever + UR symptoms + can precipitate COPD exacerbation.\n4) Bronchitis — colored sputum and wheeze, but pleuritic pain and severity favor pneumonia.\n5) Pulmonary embolism — less likely now (no risk factors, no hemoptysis, wheeze/infectious symptoms), but severe dyspnea still warrants consideration if not improving.\n\nMost informative next step would be to ask about orthopnea/leg swelling, but we have enough for a focused ED",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had similar breathing/wheezing episodes before with COPD, but this one feels worse than usual. My sputum is more than normal and it’s colored. I don’t have known heart problems or trouble breathing when I lie flat.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Known COPD. Current episode: infection-like onset with fever, nasal congestion/runny nose, cough with increased volume of colored sputum, expiratory wheeze, and severe dyspnea (can’t speak full sentences). Chest pain is pleuritic (worse with deep breath/cough). No hemoptysis. No PE risk factors (no leg swelling/pain, no recent immobility/travel/surgery). No orthopnea/known heart disease (less supportive of pulmonary edema).\n\nMost likely: COPD exacerbation triggered by infection; pneumonia is a major competing diagnosis given fever + colored sputum + pleuritic chest pain + severity. Influenza can trigger COPD exacerbation and cause fever/UR symptoms. Bronchitis is possible but less likely than pneumonia with pleuritic pain/severity. PE is less likely but still a consideration in severe dyspnea; current infectious features and wheeze reduce probability.\n\nTop 5 diagnoses (most to least likely):\n1) Acute COPD exacerbation / infection\n2) Pneumonia\n3) Influenza\n4) Bronchitis\n5) Pulmonary embolism\n[/REASONING]\n[DDX]Acute COPD exacerbation / infection, Pneumonia, Influenza, Bronchitis, Pulmonary embolism",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Influenza",
+      "Bronchitis",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9512,
+      "completion_tokens": 1671
+    },
+    "patient": {
+      "prompt_tokens": 8578,
+      "completion_tokens": 256
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "case_idx": 8,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Perforated gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient is brought in by his wife due to experiencing severe abdominal pain for the past hour. The patient is in too much discomfort to provide detailed information. His wife reports that he has a history of peptic ulcer disease, which has been treated with antacids without significant improvement. She mentions that he has vomited several times in the last few hours, with the vomit being brown/red in color.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Repeated vomiting",
+        "Brown/red-colored vomitus"
+      ]
+    },
+    "Past_Medical_History": "Known history of peptic ulcer disease, treated with antacids.",
+    "Social_History": "Not provided.",
+    "Review_of_Systems": "Unable to provide due to the patient's condition."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with acute, severe abdominal pain, with a background of peptic ulcer disease.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I have severe abdominal pain that started about an hour ago, and I’ve been vomiting several times—my vomit looks brown/red. I’ve had peptic ulcer disease before, but antacids haven’t helped much.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given ED abdominal pain + vomiting + possible blood):  \n- Acute Mesenteric Ischemia: 0.25  \n- Perforated gastric peptic ulcer: 0.25  \n- Fulminant hepatic failure: 0.05  \n- Acute myelogenous leukemia: 0.05  \n- Acute lymphoblastic leukemia: 0.05  \n(Other causes collectively: 0.35)\n\nEvidence 1: **Severe abdominal pain starting ~1 hour ago + multiple vomiting episodes**  \n- Likelihood ratio (LR) for **acute mesenteric ischemia** vs others: ~2.0 (sudden severe pain)  \n- LR for **perforated gastric peptic ulcer** vs others: ~1.5 (can be sudden severe pain)  \nUpdated posteriors (normalized):  \n- Acute Mesenteric Ischemia: ~0.33  \n- Perforated gastric peptic ulcer: ~0.28  \n- Fulminant hepatic failure: ~0.04  \n- Acute myelogenous leukemia: ~0.04  \n- Acute lymphoblastic leukemia: ~0.04  \n(Other: ~0.27)\n\nEvidence 2: **Vomiting “brown/red”** (suggests possible upper GI bleeding/hematemesis)  \n- LR for **perforated gastric peptic ulcer**: ~2.5 (ulcer",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The pain is constant and unbearable, and I’ve been vomiting repeatedly that looks brown/red. I’ve had ulcer disease before, but antacids didn’t improve it this time. I feel very distressed and can’t really describe anything else.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (from prior update):  \n- Acute Mesenteric Ischemia: 0.33  \n- Perforated gastric peptic ulcer: 0.28  \n- Fulminant hepatic failure: 0.04  \n- Acute myelogenous leukemia: 0.04  \n- Acute lymphoblastic leukemia: 0.04  \n- Other: 0.27  \n\nEvidence 3: **“Constant and unbearable” severe pain**  \n- LR for **acute mesenteric ischemia** vs others: ~1.3 (often severe, relentless)  \n- LR for **perforated gastric peptic ulcer** vs others: ~1.2 (can be sudden severe)  \nUpdated posteriors (normalized):  \n- Acute Mesenteric Ischemia: ~0.39  \n- Perforated gastric peptic ulcer: ~0.31  \n- Fulminant hepatic failure: ~0.04  \n- Acute myelogenous leukemia: ~0.04  \n- Acute lymphoblastic leukemia: ~0.04  \n- Other: ~0.18  \n\nNext question (one at a time, high-yield):  \n**Where exactly is the pain located (epigastric/mid-upper abdomen, right upper, left upper, around the belly button, lower abdomen, or diffuse)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s mostly in the upper middle part of my abdomen, right around the stomach area—deep and constant.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute Mesenteric Ischemia: 0.39  \n- Perforated gastric peptic ulcer: 0.31  \n- Fulminant hepatic failure: 0.04  \n- Acute myelogenous leukemia: 0.04  \n- Acute lymphoblastic leukemia: 0.04  \n- Other: 0.18  \n\nEvidence 4: **Upper mid/epigastric “stomach area” pain**  \n- LR for **perforated gastric peptic ulcer**: ~2.0 (epigastric localization)  \n- LR for **acute mesenteric ischemia**: ~0.8 (often more diffuse/less classically epigastric)  \nUpdated posteriors (normalized):  \n- Perforated gastric peptic ulcer: ~0.52  \n- Acute Mesenteric Ischemia: ~0.31  \n- Fulminant hepatic failure: ~0.03  \n- Acute myelogenous leukemia: ~0.03  \n- Acute lymphoblastic leukemia: ~0.03  \n- Other: ~0.10  \n\nNext question (one at a time):  \n**Do you have any fever, or does the pain worsen when you press on your abdomen or when you move/breathe (rebound/guarding)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any fever, or does the pain worsen when I press on your abdomen or when you move/breathe? Patient: I don’t feel feverish, but any pressing on my belly makes it much worse, and even moving or breathing hurts.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Perforated gastric peptic ulcer: ~0.52  \n- Acute Mesenteric Ischemia: ~0.31  \n- Fulminant hepatic failure: ~0.03  \n- Acute myelogenous leukemia: ~0.03  \n- Acute lymphoblastic leukemia: ~0.03  \n- Other: ~0.10  \n\nEvidence 5: **Pain much worse with pressing + hurts with movement/breathing** (peritoneal irritation/guarding)  \n- LR for **perforated gastric peptic ulcer**: ~3.0  \n- LR for **acute mesenteric ischemia**: ~1.0 (can be severe but peritonitis is less classic early)  \nUpdated posteriors (normalized):  \n- Perforated gastric peptic ulcer: ~0.78  \n- Acute Mesenteric Ischemia: ~0.18  \n- Fulminant hepatic failure: ~0.01  \n- Acute myelogenous leukemia: ~0.01  \n- Acute lymphoblastic leukemia: ~0.01  \n- Other: ~0.01  \n\nI’m now confident enough to give the differential.  \n\n[DDX] Perforated gastric peptic ulcer, Acute Mesenteric Ischemia, Fulminant hepatic failure, Acute myelogenous leukemia, Acute lymphoblastic leukemia",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Perforated gastric peptic ulcer",
+    "predicted_set": [
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia",
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "predicted_raw": [
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia",
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Perforated gastric peptic ulcer",
+    "predicted_set_remapped": [
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia",
+      "Fulminant hepatic failure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5416,
+      "completion_tokens": 1134
+    },
+    "patient": {
+      "prompt_tokens": 3276,
+      "completion_tokens": 201,
+      "calls": 4
+    }
+  }
+}

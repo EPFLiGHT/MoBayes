@@ -1,0 +1,109 @@
+{
+  "case_idx": 41,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and exhausting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi—I've had a fever with chills, and I feel very tired. I also have painful, sensitive pain on my head (back, top, and forehead) and my muscles feel sore all over. The pain is mostly in the back/right side of my neck, and I have pink red skin lesions there that are a bit swollen and mildly itchy.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a high fever (≥ 38.0°C) with a new cough or sore throat that started within the last 7 days?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have fever, but I don’t have a cough or sore throat that I can say started in the last 7 days.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have a high fever with a cough (or coughing fits) and shortness of breath?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a cough or shortness of breath.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have a high fever with severe sore throat and difficulty swallowing/drooling (suggesting a potentially life-threatening throat infection)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No—I don’t have severe sore throat, trouble swallowing, or drooling.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have a fever plus a sore throat (pain when swallowing) and symptoms that started suddenly (within the last few days)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a sore throat or pain when swallowing. It started pretty fast, but it’s mainly fever, head pain, neck pain, and muscle aches.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a high fever (≥38.5°C) along with severe diarrhea or vomiting within the last 1–2 weeks, and have you had known exposure to someone with Ebola?  ",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have severe diarrhea or vomiting, and I don’t know of any exposure to Ebola.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Croup, Infectious & Parasitic Diseases  ",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Croup",
+    "predicted_set": [
+      "Croup",
+      "Infectious & Parasitic Diseases  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 6152,
+      "completion_tokens": 212
+    }
+  }
+}

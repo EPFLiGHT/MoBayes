@@ -1,0 +1,80 @@
+{
+  "case_idx": 43,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been feeling persistent fatigue and my sleep quality is poor. I’ve also had unintentional weight loss over the past month and I’ve noticed jaundice.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a long-term history of smoking or chronic shortness of breath with wheezing/cough (COPD-type symptoms)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I smoke about a pack a day, but I don’t have any chronic wheezing or cough, and I haven’t noticed shortness of breath beyond my usual.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic obstructive pulmonary disease  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease  ",
+    "predicted_set": [
+      "Chronic obstructive pulmonary disease  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Chronic obstructive pulmonary disease",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 670,
+      "completion_tokens": 94,
+      "calls": 2
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "case_idx": 1,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Acute dystonic reactions",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 79\nSex: F\nChief Complaint: laryngospasm",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having laryngospasm—I’ve felt like I was suffocating for a very short time with inability to breathe or speak. I’m also experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need a key discriminating detail.\n\n**Current posterior (rough priors):**\n- Larygospasm: 0.30  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- Anaphylaxis: 0.15  \n- Acute pulmonary edema: 0.10  \n- Panic attack: 0.10  \n(others combined: 0.15)\n\n**Question 1 (one at a time):**  \nDuring these episodes, do you have **any swelling of the lips/tongue/face or hives/itching** (suggesting anaphylaxis)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s target another high-yield discriminator.\n\n**Current posterior (updated with “unknown” for anaphylaxis features):**\n- Larygospasm: 0.32  \n- Bronchospasm / acute asthma exacerbation: 0.22  \n- Anaphylaxis: 0.12  \n- Acute pulmonary edema: 0.10  \n- Panic attack: 0.10  \n(others combined: 0.14)\n\n**Question 2:**  \nDo these episodes happen **right after eating, drinking, or with reflux/heartburn**, or when you **lie down**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—next question to separate upper-airway (laryngospasm/epiglottitis/croup) from lower-airway (asthma/bronchospasm/pneumonia/PE).\n\n**Current posterior:**\n- Larygospasm: 0.34  \n- Bronchospasm / acute asthma exacerbation: 0.23  \n- Anaphylaxis: 0.11  \n- Acute pulmonary edema: 0.10  \n- Panic attack: 0.10  \n(others combined: 0.12)\n\n**Question 3:**  \nWhen it happens, is your breathing difficulty mainly **inspiratory** (you can’t get air *in*) or **expiratory** (you can’t get air *out*)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s use another discriminator: fever/infectious symptoms vs sudden non-infectious events.\n\n**Current posterior:**\n- Larygospasm: 0.35  \n- Bronchospasm / acute asthma exacerbation: 0.22  \n- Anaphylaxis: 0.11  \n- Acute pulmonary edema: 0.10  \n- Panic attack: 0.10  \n(others combined: 0.12)\n\n**Question 4:**  \nHave you had **fever, sore throat, cough, or recent upper respiratory infection** in the last few days?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We need a question that doesn’t rely on you knowing specifics.\n\n**Current posterior:**\n- Larygospasm: 0.36  \n- Bronchospasm / acute asthma exacerbation: 0.22  \n- Anaphylaxis: 0.11  \n- Acute pulmonary edema: 0.10  \n- Panic attack: 0.10  \n(others combined: 0.11)\n\n**Question 5:**  \nDuring the episode, do you notice **stridor** (a high-pitched sound when breathing in) or **wheezing** (a whistling sound when breathing out)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not getting discriminating features from the history so far, so I can’t confidently narrow to a single diagnosis.\n\n**[ABSTAIN]** Insufficient/unknown key discriminators (allergy/urticaria, trigger pattern, inspiratory vs expiratory, infectious symptoms, stridor vs wheeze) to produce a reliable differential.\n\n[POSSIBLE] Larygospasm, Bronchospasm / acute asthma exacerbation, Anaphylaxis, Acute pulmonary edema, Panic attack",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Larygospasm",
+      "Bronchospasm / acute asthma exacerbation",
+      "Anaphylaxis",
+      "Acute pulmonary edema",
+      "Panic attack"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7086,
+      "completion_tokens": 788
+    },
+    "patient": {}
+  }
+}

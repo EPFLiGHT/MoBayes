@@ -1,0 +1,149 @@
+{
+  "case_idx": 7,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 55\nSex: M\nChief Complaint: stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had trouble breathing in a significant way, and I’ve noticed a high-pitched sound when breathing in (stridor). I also have a severe food allergy, and I’ve been in contact with or ate something I’m allergic to. I have swelling in my forehead and both cheeks, and my skin has pink lesions with very strong itching.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "That combination is concerning for an acute allergic reaction with airway involvement.\n\n**One question:** Did the breathing difficulty and stridor start **within minutes to 1–2 hours** after the suspected food exposure?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question (to narrow airway vs other causes):\n\n**One question:** Do you have **any swelling of the lips, tongue, or throat**, or a **change in voice/hoarseness**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question:\n\n**One question:** Are you having **hives/itchy pink raised welts** anywhere else on your body (besides the face), and do they **move around** or change location over hours?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have pink lesions with very strong itching, and I believe they are related to the condition I’m consulting for.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (helps distinguish anaphylaxis vs isolated airway infection):\n\n**One question:** Have you had **any vomiting, diarrhea, stomach cramps, or feeling faint/lightheaded** since the reaction started?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’m feeling nauseous or like vomiting, and I also lost consciousness.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (most discriminating for severity/etiology):\n\n**One question:** When you lost consciousness, did you have **low blood pressure symptoms** like **dizziness on standing**, **weakness**, or **feeling like you might pass out**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**One question:** Do you have **wheezing** (a whistling sound when breathing out) or is it mainly **high-pitched on inhalation (stridor)**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’ve noticed a wheezing sound when I exhale, and a high-pitched sound when breathing in.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**One question:** Do you have **any fever or symptoms of infection** (sore throat, cough, runny nose) that started before this episode, or did everything start suddenly after the food exposure?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (to rule out other airway causes like epiglottitis/croup):\n\n**One question:** Can you **swallow liquids** or are you **drooling / unable to swallow**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (helps decide between anaphylaxis vs other respiratory diagnoses):\n\n**One question:** Are you currently able to **speak full sentences**, or is your voice **muffled/hoarse** or you’re **struggling to talk**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (to assess for asthma/COPD vs anaphylaxis):\n\n**One question:** Do you have a history of **asthma/COPD**, and has this episode felt like your usual asthma attacks or is it clearly different?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not able to narrow this safely with the “I don’t know” responses, but the combination you gave—**known severe food allergy + exposure + stridor + wheeze + widespread intensely itchy pink lesions + facial swelling + nausea/vomiting + loss of consciousness**—is highly concerning for a life-threatening allergic reaction.\n\n[ABSTAIN] Key timing and airway-swallowing/voice details are missing, but the overall pattern strongly suggests anaphylaxis; I can’t confidently exclude other causes (e.g., airway obstruction from infection) without those discriminators.  \n[POSSIBLE] Anaphylaxis, Acute dystonic reactions, Bronchospasm / acute asthma exacerbation, Pulmonary embolism, Acute pulmonary edema",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Acute dystonic reactions",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12397,
+      "completion_tokens": 631
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "case_idx": 12,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 8\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and upper chest pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m an 8-year-old boy. I have chest pain on both sides—right and left—and also upper chest pain. It feels like a knife-stroke, violent pain that started very fast (like 9/10 speed), and it gets worse when I move or exert myself. I also feel significant trouble breathing, and it hurts more when I take a breath in.",
+      "extracted_features": {
+        "f_e_55_v_55": "yes",
+        "f_e_55_v_56": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_53": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_54_v_191": "yes",
+        "f_e_59": "9",
+        "f_e_56": "9",
+        "f_e_216": "yes",
+        "f_e_218": "yes",
+        "f_e_220": "yes",
+        "f_e_66": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Spontaneous rib fracture",
+          0.5517287653576087
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.31924078451800786
+        ],
+        [
+          "Pulmonary embolism",
+          0.037387342436335264
+        ],
+        [
+          "Myocarditis",
+          0.02619674223424878
+        ],
+        [
+          "Pneumonia",
+          0.023748489919294444
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_203",
+      "doctor_question": "Do you have intense coughing fits—episodes where coughing becomes very hard to control? (Yes or no)",
+      "patient_answer": "No. I don’t have intense coughing fits like that.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.5889709373256007
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.17304140966002524
+        ],
+        [
+          "Pulmonary embolism",
+          0.06897633130455949
+        ]
+      ],
+      "entropy": 2.111554720172454
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_21",
+      "doctor_question": "Have you ever had a spontaneous pneumothorax (a collapsed lung that happened without a clear injury or accident)?",
+      "patient_answer": "Yes. I’ve had a spontaneous pneumothorax before.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.9840295066914768
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00672350674449038
+        ],
+        [
+          "Pulmonary embolism",
+          0.0026800684856160416
+        ]
+      ],
+      "entropy": 0.16225617484469462
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_192",
+      "doctor_question": "Is your pain **sharp** (like a stabbing or cutting feeling)?",
+      "patient_answer": "Yes. It feels sharp, like a knife-stroke.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.6990228274685318
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.16955376392604377
+        ],
+        [
+          "Pulmonary embolism",
+          0.07044186622631869
+        ]
+      ],
+      "entropy": 1.4492182043964172
+    }
+  ],
+  "final": {
+    "predicted": "Spontaneous pneumothorax",
+    "predicted_top3": [
+      "Spontaneous pneumothorax",
+      "Spontaneous rib fracture",
+      "Pulmonary embolism"
+    ],
+    "confidence": 0.6990228274685318,
+    "final_entropy": 1.4492182043964172,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10083,
+      "completion_tokens": 422
+    },
+    "patient": {
+      "prompt_tokens": 2887,
+      "completion_tokens": 126
+    }
+  }
+}

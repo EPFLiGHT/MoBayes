@@ -1,0 +1,160 @@
+{
+  "case_idx": 47,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache starting three days after undergoing an open cholecystectomy. She has a history of an abdominal hysterectomy 16 years ago. She has been smoking one pack of cigarettes daily for 17 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Right-sided chest pain that increases on inspiration",
+      "Secondary_Symptoms": [
+        "Productive cough for the last 12 hours",
+        "Fever",
+        "Chills",
+        "Headache"
+      ]
+    },
+    "Past_Medical_History": {
+      "Surgeries": [
+        "Open cholecystectomy three days prior",
+        "Abdominal hysterectomy 16 years ago"
+      ],
+      "Chronic_Conditions": [
+        "None reported"
+      ],
+      "Medications": [
+        "None reported"
+      ]
+    },
+    "Social_History": {
+      "Smoking_Status": "Current smoker, one pack daily for 17 years",
+      "Alcohol_Use": "Not specified",
+      "Occupation": "Not specified",
+      "Activities": "Not specified"
+    },
+    "Review_of_Systems": {
+      "Respiratory": "Productive cough",
+      "Cardiovascular": "No reported abnormalities",
+      "Gastrointestinal": "Surgical site below right ribcage, otherwise unremarkable",
+      "Musculoskeletal": "No reported abnormalities",
+      "Neurological": "No reported abnormalities"
+    }
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with postoperative fever, chest pain that increases on inspiration, and a productive cough, and determine the correct diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: What brings you in today? Patient: Three days after my open cholecystectomy, I started having fever and chills along with a headache. I also have right-sided chest pain that gets worse when I take a deep breath, and I’ve had a productive cough for the last 12 hours.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What is your age, and do you have any major medical problems like diabetes, lung disease, or immune suppression?\nWhat is your age, and do you have any major medical problems like diabetes, lung disease, or immune suppression?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 57 years old, and I don’t have diabetes, known lung disease, or any immune suppression that I’m aware of. I do currently smoke about one pack a day and I just had an open cholecystectomy three days ago.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you been short of breath, and if so did the chest pain and cough come on suddenly or gradually?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve been short of breath, and the chest pain got worse and the productive cough started pretty suddenly over the last day. The pain with deep breaths has been gradually increasing since it began.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "What color is the sputum, and have you noticed any leg swelling or calf pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It’s been producing yellowish, thick sputum. I haven’t noticed any leg swelling or calf pain.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you measured your temperature, and do you know your oxygen level or heart rate?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t measured my temperature or checked my oxygen level, but I do feel feverish with chills. I haven’t noticed my heart racing or any clear changes in my heart rate.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Any abdominal pain, nausea/vomiting, jaundice, or drainage/redness from the surgical incision?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have much abdominal pain, nausea, vomiting, or jaundice. The surgical site below my right ribcage feels sore, but I haven’t noticed any drainage or redness from the incision.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Any history of blood clots, recent long travel, or are you mostly bedridden since surgery?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any history of blood clots, and I haven’t taken any long trips recently. Since the surgery I’ve been mostly resting in bed, not moving around much.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Postoperative pneumonia, pulmonary embolism, postoperative atelectasis with secondary infection, subphrenic abscess, pleural effusion/empyema",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Postoperative pneumonia",
+    "predicted_set": [
+      "Postoperative pneumonia",
+      "pulmonary embolism",
+      "postoperative atelectasis with secondary infection",
+      "subphrenic abscess",
+      "pleural effusion/empyema"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3407,
+      "completion_tokens": 206
+    },
+    "patient": {
+      "prompt_tokens": 4451,
+      "completion_tokens": 314,
+      "calls": 7
+    }
+  }
+}

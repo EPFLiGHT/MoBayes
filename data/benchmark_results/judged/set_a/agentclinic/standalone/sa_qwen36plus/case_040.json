@@ -1,0 +1,123 @@
+{
+  "case_idx": 40,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m having pain in my left great toe as well as in my hips and knees. It’s been getting worse over the past few years, tends to flare when I’m active, and eases when I rest.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long does the stiffness last when you first wake up in the morning, and does it improve once you start moving around?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the stiffness in the morning usually lasts a short while—about 30 minutes or so—and once I get moving it does improve, though the pain returns when I’m more active.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any visible swelling, redness, or warmth in these joints, particularly the big toe, during these painful episodes?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the big toe gets tender and sometimes looks a bit swollen, but I don’t recall much redness or significant warmth. The other joints—hips and knees—feel more achy than visibly inflamed during the episodes.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Could you tell me your age?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m 69 years old.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever had blood tests showing elevated uric acid levels, or do you take diuretic medications for blood pressure?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m not sure if I’ve ever had my uric acid checked, and I haven’t been told it was high. I do take blood pressure medicine, but I don’t know if it’s a diuretic.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteoarthritis, Gout, Calcium pyrophosphate deposition disease (Pseudogout), Rheumatoid arthritis, Psoriatic arthritis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_set": [
+      "Osteoarthritis",
+      "Gout",
+      "Calcium pyrophosphate deposition disease (Pseudogout)",
+      "Rheumatoid arthritis",
+      "Psoriatic arthritis"
+    ],
+    "predicted_raw": [
+      "Osteoarthritis",
+      "Gout",
+      "Calcium pyrophosphate deposition disease (Pseudogout)",
+      "Rheumatoid arthritis",
+      "Psoriatic arthritis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Osteoarthritis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1918,
+      "completion_tokens": 8836
+    },
+    "patient": {
+      "prompt_tokens": 2096,
+      "completion_tokens": 205,
+      "calls": 5
+    }
+  }
+}

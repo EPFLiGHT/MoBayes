@@ -1,0 +1,102 @@
+{
+  "case_idx": 2,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’m here for my annual well-check, but I also have a rough, scaly, sandpaper-like plaque on the left dorsal hand. It doesn’t hurt and there’s no tenderness.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long has this rough, scaly patch been",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“About a few months now—it’s been slowly staying about the same, and it still doesn’t hurt or feel tender.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any bleeding, ulceration, or rapid growth",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Since I’ve noticed it, I haven’t had any bleeding or ulceration, and it hasn’t been rapidly growing—just a slow, steady plaque on the back of my left hand.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had a lot of sun exposure over your lifetime, or do you have a personal or family history of skin cancer?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve had a fair amount of sun exposure over the years—I enjoy walking outside and sunbathing—but I don’t recall any personal history of skin cancer, and there’s no known family history either.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic keratosis,",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Actinic keratosis",
+    "predicted_set": [
+      "Actinic keratosis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Actinic Keratosis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1197,
+      "completion_tokens": 1034
+    },
+    "patient": {
+      "prompt_tokens": 1524,
+      "completion_tokens": 156,
+      "calls": 4
+    }
+  }
+}

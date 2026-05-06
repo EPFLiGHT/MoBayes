@@ -1,0 +1,119 @@
+{
+  "case_idx": 22,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Guillain-Barré syndrome",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 21\nSex: M\nChief Complaint: limb weakness/paralysis",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve recently had a viral infection, and I’m experiencing significant shortness of breath. I also have weakness/paralysis—especially in my limbs—and numbness or tingling in my feet. I’ve also had weakness/paralysis on one side of my face, which may still be present or completely resolved.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I need to clarify a few key details to narrow this down.\n\n**One question:** Did the weakness/numbness start **suddenly** (minutes to hours) or **gradually** (days), and is it **progressively worsening**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s use a more concrete timing question.\n\n**One question:** About how long ago did the symptoms (shortness of breath and the weakness/tingling) begin—**hours, days, or weeks**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. I’ll ask something that doesn’t require exact timing.\n\n**One question:** Do you have **difficulty swallowing**, **choking on liquids**, or a **change in voice** (nasal/hoarse) along with the weakness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question focuses on a key discriminating feature.\n\n**One question:** Is the weakness **more on both sides** (symmetrical) or is it **clearly one-sided** (like left vs right)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I hear you—this is making it hard to pin down. I’ll ask about a very specific pattern.\n\n**One question:** When you say “one side of my face,” did you notice **facial droop** (can’t smile evenly) or **trouble closing one eye**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the combination of **recent viral illness + significant shortness of breath + limb weakness/tingling + possible facial weakness**, I need to determine whether this is primarily a **neuromuscular** process (e.g., post-viral) versus a **cardiopulmonary** emergency.\n\n**One question:** Are you having **trouble breathing when lying flat** or **waking up at night short of breath** (orthopnea/PND)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t get timing or exam details, so I need one more high-yield discriminator that you might be able to answer.\n\n**One question:** Do you have **chest pain** or **a fast/irregular heartbeat** along with the shortness of breath?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not able to obtain the key discriminating details (timing, distribution, swallowing/voice, and cardiopulmonary symptoms). With the information given, I can’t confidently narrow to a specific diagnosis from the list.\n\n**[ABSTAIN]** Insufficient/unknown symptom details (timing, distribution, swallowing/voice, and cardiopulmonary features), so I can’t reliably choose among serious causes.  \n**[POSSIBLE]** Guillain-Barré syndrome, Acute pulmonary edema, Pulmonary embolism, Myocarditis, Acute COPD exacerbation / infection",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Guillain-Barré syndrome",
+      "Acute pulmonary edema",
+      "Pulmonary embolism",
+      "Myocarditis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8295,
+      "completion_tokens": 552
+    },
+    "patient": {}
+  }
+}

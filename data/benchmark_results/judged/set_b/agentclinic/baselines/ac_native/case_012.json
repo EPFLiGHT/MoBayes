@@ -1,0 +1,102 @@
+{
+  "case_idx": 12,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Hemorrhoids",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old female",
+    "History": "The patient reports a 2-week history of rectal bleeding occurring daily with bowel movements. She denies any pain with defecation and does not present with any other complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Rectal bleeding daily with bowel movements",
+      "Secondary_Symptoms": [
+        "No pain with defecation"
+      ]
+    },
+    "Past_Medical_History": "The patient's past medical history is unremarkable except for 5 normal vaginal deliveries.",
+    "Social_History": "Information not specified.",
+    "Review_of_Systems": "The patient denies any changes in bowel habits, abdominal pain, weight loss, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with rectal bleeding and a palpable rectal mass.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—I'll ask a few quick questions. 1) How old are you, and is the rectal bleeding bright red (on toilet paper) or darker/maroon? Doctor: 2) How long has the bleeding and rectal mass been present, and do you feel weight loss, change in bowel habits, or pain?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 45, and the bleeding is bright red on toilet paper. It’s been going on for about two weeks, and I haven’t had weight loss, any change in bowel habits, or any pain with bowel movements."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—bright red blood for 2 weeks at age 45 without pain or bowel-change suggests a distal anorectal source (hemorrhoid/anal fissure) but we still must rule out rectal cancer or inflammatory causes. 2) Do you notice a tender “lump” at the anus (worse with wiping/sitting) versus a firm mass deeper in the rectum that persists?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I don’t feel a tender lump at the anus, and nothing seems worse with wiping or sitting—no mass that persists deeper either. I’ve only noticed the bright red bleeding with bowel movements."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Thanks—no tender perianal lump makes an anal fissure less likely; with 45-year-old new bright red bleeding for 2 weeks and a “palpable rectal mass,” we must evaluate for a distal rectal tumor. REQUEST TEST: Rectal_exam_with_proctoscopy (or rigid sigmoidoscopy) Doctor: Also, REQUEST TEST: CBC (for anemia) and Iron_studies (if iron deficiency), and if a lesion is seen, we’ll need biopsy. Doctor: Can you confirm—when you say “palpable rectal mass,” did you feel it yourself, or did I find it on my exam (if you’ve had one)? And do you have any family history of colorectal cancer/polyps or inflammatory bowel disease?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: - Vital Signs: Temperature 36.7°C (98.1°F); Blood Pressure 115/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 15 breaths/min. - Rectovaginal/Rectal Exam: Palpable, non-tender, prolapsed mass that can be easily pushed back into the anal sphincter by the examiner’s finger. - CBC: WBC normal; Hemoglobin within normal limits; Platelets within normal limits. - Anoscopy/Proctoscopy Findings: Visualization of internal hemorrhoids. - Note: No iron studies provided. No biopsy results provided."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: A prolapsed, easily reducible non-tender mass with anoscopy showing internal hemorrhoids fits internal hemorrhoid bleeding causing the palpable/prolapsed finding; since CBC is normal there’s no current anemia, which is reassuring. Can you tell me whether you’re straining or constipated, and if you’ve had any black/tarry stools or bleeding since today? DIAGNOSIS READY: Internal hemorrhoids with reducible prolapsed internal hemorrhoid causing bright red rectal bleeding (no anemia; low suspicion for malignancy given exam/proctoscopy findings).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: A prolapsed, easily reducible non-tender mass with anoscopy showing internal hemorrhoids fits internal hemorrhoid bleeding causing the palpable/prolapsed finding; since CBC is normal there’s no current anemia, which is reassuring. Can you tell me whether you’re straining or constipated, and if you’ve had any black/tarry stools or bleeding since today? DIAGNOSIS READY: Internal hemorrhoids with reducible prolapsed internal hemorrhoid causing bright red rectal bleeding (no anemia; low suspicion for malignancy given exam/proctoscopy findings).",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Hemorrhoids",
+    "predicted_set_remapped": [
+      "Hemorrhoids",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1717,
+      "completion_tokens": 446,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 819,
+      "completion_tokens": 95,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 473,
+      "completion_tokens": 136,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 178,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

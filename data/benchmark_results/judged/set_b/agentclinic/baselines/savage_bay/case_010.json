@@ -1,0 +1,135 @@
+{
+  "case_idx": 10,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Borderline personality disorder",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old woman",
+    "History": "The patient presents to the emergency department with abdominal pain and reports being 10 weeks pregnant. She has a history of constipation, anxiety, and substance abuse. The patient is not currently on any medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal pain and contractions",
+      "Secondary_Symptoms": [
+        "Bloody vaginal discharge",
+        "Recent positive pregnancy test",
+        "Emotional distress upon learning of a spontaneous abortion",
+        "Anger and aggression post-news",
+        "New lacerations over her wrists"
+      ]
+    },
+    "Past_Medical_History": "Constipation, anxiety, substance abuse",
+    "Social_History": "Details on social history not provided, but the doctor should inquire about current life stressors, support systems, and substance use.",
+    "Review_of_Systems": "Negative except for symptoms presented."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with symptoms indicative of a spontaneous abortion and assess for any psychiatric conditions based on patient behavior.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hi doctor—I'm 10 weeks pregnant, and I'm having abdominal pain that feels like contractions, along with bloody vaginal discharge. I’m also feeling very distressed, and I’ve made new lacerations on my wrists.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m concerned about **pregnancy-related bleeding with abdominal cramping** and also **self-harm**, which can be immediately life-threatening.\n\n**Question 1 (one at a time):**  \nHow would you describe the abdominal pain—**is it one-sided (right or left) or more generalized**, and is it **severe** (e.g., making it hard to stand/walk)?  \n\n*(Before you answer, here are the current rough posterior probabilities based on limited info:)*  \n- **Acute Mesenteric Ischemia:** 5%  \n- **Perforated gastric peptic ulcer:** 5%  \n- **Endometritis:** 10%  \n- **Acute lymphoblastic leukemia:** 1%  \n- **Acute myelogenous leukemia:** 1%  \n- **Other pregnancy-specific causes (not in list):** ~77% (e.g., threatened miscarriage, ectopic pregnancy)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It’s more generalized across my lower abdomen, not clearly on just the right or left, and it feels severe enough that I have to stop and brace myself when it comes.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "I’m still very concerned—**severe cramping + bloody discharge at 10 weeks** raises concern for **inevitable/ongoing miscarriage** or **ectopic pregnancy complications**, and the **self-harm** makes this an emergency requiring immediate safety steps.\n\n**Question 2 (one at a time):**  \nIs the pain **associated with dizziness, fainting, shoulder pain, or feeling like you might pass out**?\n\n*(Posterior update after your new info—generalized severe lower abdominal cramping:)*  \n- **Acute Mesenteric Ischemia:** 2% (less likely—pregnancy bleeding points elsewhere)  \n- **Perforated gastric peptic ulcer:** 1% (less likely—pain location/bleeding pattern)  \n- **Endometritis:** 8% (possible but usually more fever/uterine tenderness)  \n- **Acute lymphoblastic leukemia:** 1%  \n- **Acute myelogenous leukemia:** 1%  \n- **Other pregnancy-related causes (not in list):** ~87% (e.g., threatened/inevitable miscarriage, ectopic pregnancy)  \n\nIf you answer the dizziness/fainting/shoulder pain question, I can narrow the pregnancy-related causes much more.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I feel really scared but I’m not dizzy or faint, and I don’t have shoulder pain.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you. No dizziness/fainting/shoulder pain makes **ruptured ectopic pregnancy** less likely, but **severe cramping + bloody discharge** at 10 weeks still strongly suggests an **ongoing miscarriage** (inevitable/inevitable abortion) or other pregnancy complication.\n\n**Question 3 (one at a time):**  \nDo you have **fever** (≥38°C / 100.4°F) or **chills**, or does anyone say you look very ill?\n\n*(Posterior probabilities update—no syncope/shoulder pain):*  \n- **Acute Mesenteric Ischemia:** 1%  \n- **Perforated gastric peptic ulcer:** 1%  \n- **Endometritis:** 6% (would rise if fever/uterine tenderness)  \n- **Acute lymphoblastic leukemia:** 1%  \n- **Acute myelogenous leukemia:** 1%  \n- **Other pregnancy-related causes (not in list):** ~90% (most consistent with miscarriage-spectrum causes)  \n\nAlso, because you mentioned **new wrist lacerations**, I need to ask: **Are you currently safe right now, and can you tell me if you have any thoughts of harming yourself further today?**  \n(You can answer briefly—this is to keep you safe.)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t have a fever or chills, and I don’t think I look very ill—I’m just in a lot of pain and very scared. I’m not safe right now, and I’ve been having thoughts about hurting myself further today, so I need help staying safe.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "I’m really glad you told me. **You are not safe right now**, and with **self-harm thoughts plus severe abdominal pain and bleeding in early pregnancy**, this is an **immediate emergency**—we need to keep you safe first while we evaluate the pregnancy.\n\n**Question 4 (one at a time):**  \nAre you having **heavy bleeding** right now—e.g., **soaking 1 pad per hour** or passing large clots/tissue?\n\n*(Posterior probabilities—based on what we have so far: severe cramping + bloody discharge at 10 weeks, no fever, no syncope/shoulder pain):*  \n- **Acute Mesenteric Ischemia:** 0.5%  \n- **Perforated gastric peptic ulcer:** 0.5%  \n- **Endometritis:** 4%  \n- **Acute lymphoblastic leukemia:** 1%  \n- **Acute myelogenous leukemia:** 1%  \n- **Other pregnancy-related causes (not in list):** ~93% (miscarriage-spectrum most likely)\n\nIf you answer the bleeding severity question, I can better distinguish **threatened vs inevitable miscarriage** and whether we should worry about other causes.\n\nIn parallel, I’m going to treat this as high-risk: **call for immediate security/mental health support**, ensure **1:1 observation**, and start urgent evaluation for pregnancy bleeding (vitals, pelvic",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I’m not sure exactly how many pads—I’m bleeding enough that it keeps coming, and I’ve passed some clots, but I don’t think I’m soaking a pad an hour.” “I can’t promise I’ll stay safe alone right now, but I’m willing to get help immediately.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I hear you—and thank you for agreeing to get help. With **ongoing bleeding/clots + severe cramping at 10 weeks**, plus **you can’t promise safety alone**, you need **immediate in-person emergency care** (right now). I’m going to focus on the medical differential, but safety-wise: please **stay with staff**, and we’ll arrange **1:1 observation** and urgent mental health support.\n\n**Question 5 (one at a time):**  \nHave you had an **ultrasound yet** in this pregnancy, and if so did it show an **intrauterine pregnancy** (baby in the uterus) or was anything unclear?\n\n*(Posterior probabilities update with “passed clots,” not soaking a pad/hour, no fever/syncope):*  \n- **Acute Mesenteric Ischemia:** 0.3%  \n- **Perforated gastric peptic ulcer:** 0.3%  \n- **Endometritis:** 3%  \n- **Acute lymphoblastic leukemia:** 1%  \n- **Acute myelogenous leukemia:** 1%  \n- **Other pregnancy-related causes (not in list):** ~94% (still most consistent with miscarriage-spectrum; ultrasound status will strongly shift ectopic vs intrauterine causes)\n\nAnswering the ultrasound question will help me narrow whether we should worry about **ectopic pregnancy** (if no intrauterine pregnancy seen) versus",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had an ultrasound yet in this pregnancy—only a positive pregnancy test.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given **10 weeks pregnant by dates**, **severe generalized lower abdominal cramping**, and **bloody discharge with clots**, and **no ultrasound yet**, the most likely diagnosis is still in the **miscarriage/early pregnancy complication** spectrum—but we must also urgently rule out **ectopic pregnancy** (which can be life-threatening even without shoulder pain/syncope).\n\nHowever, from the disease list you provided, the only pregnancy-related item that fits the symptom pattern is **Endometritis** (though your lack of fever makes it less likely). The more fitting diagnoses (threatened/inevitable miscarriage, incomplete abortion, ectopic pregnancy) are **not in your list**, so I can’t confidently map to the allowed diseases.\n\n**[ABSTAIN]** Insufficient match to the provided disease list: the presentation most strongly suggests early pregnancy loss or ectopic pregnancy, but those specific diagnoses aren’t included in the list.  \n**[POSSIBLE]** Endometritis, Acute Mesenteric Ischemia, Perforated gastric peptic ulcer, Acute lymphoblastic leukemia, Acute myelogenous leukemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Endometritis",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "** Endometritis",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Endometritis",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9470,
+      "completion_tokens": 1570
+    },
+    "patient": {
+      "prompt_tokens": 6227,
+      "completion_tokens": 260,
+      "calls": 6
+    }
+  }
+}

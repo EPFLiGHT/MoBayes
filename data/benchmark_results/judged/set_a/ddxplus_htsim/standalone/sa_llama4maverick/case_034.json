@@ -1,0 +1,129 @@
+{
+  "case_idx": 34,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: F\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood, and I’ve also had shortness of breath and a cough with colored or more abundant sputum than usual. I’ve also had a fever, and I have pain that gets worse when I breathe in deeply—kind of sharp and knife-stroke–like, mostly in my chest and posterior chest wall (right and left), and my neck/upper thoracic spine area. My symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To better understand your condition, can you tell me how long you've been experiencing these symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Let's try to narrow it down. Have you experienced these symptoms for more than a week, or have they developed more recently?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That's okay. Let's focus on another aspect. You mentioned coughing up blood (hemoptysis) and sharp, knife-like pain that worsens with deep breathing. Can you tell me if the pain is localized to one side of your chest or is it more diffuse?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s in both sides of my chest—right and left—especially the upper chest and posterior chest wall on both sides.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The bilateral nature of your chest pain is noted. You also mentioned pain in your neck and upper thoracic spine area. Have you recently traveled or been exposed to anyone with a similar illness?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Let's move on to another question. You mentioned coughing up blood and having a cough with colored sputum. Was the sputum yellow, green, or was it more brown or rust-colored?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The color of the sputum can be an important clue. Let's try to gather more information in a different way. Have you had any recent medical conditions or underlying health issues, such as heart disease, lung disease, or cancer?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have Parkinson’s disease and heart failure, and I’ve had a stroke and pneumonia. I also smoke cigarettes. I also have skin lesions/redness or problems that I believe are related to the condition I’m consulting for.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "The presence of underlying conditions such as heart failure, history of pneumonia, and smoking history are significant risk factors for several respiratory conditions. The mention of skin lesions or redness is also an interesting clue. Can you describe the skin lesions or redness in more detail - are they painful, and where are they located on your body?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I have lesions, redness, or problems on my skin that I believe are related to the condition I’m consulting for. The rash is pink, and the lesions peel off.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "The presence of a rash that is pink and peels off, in conjunction with your respiratory symptoms, is an important finding. Given your complex medical history and the combination of symptoms you're experiencing, I'm going to take a closer look at potential diagnoses.\n\n[DDX] Pulmonary embolism with possible underlying condition such as vasculitis or autoimmune disease (less likely given the description), pneumonia (more likely given history and symptoms), acute exacerbation of heart failure, pulmonary vasculitis (e.g., due to conditions like granulomatosis with polyangiitis), Sweet syndrome (given the skin lesions and systemic symptoms).\n\nHowever, considering the information and re-evaluating, a more appropriate response would be:\n[DDX] Pneumonia, pulmonary embolism, acute exacerbation of heart failure, granulomatosis with polyangiitis, Sweet syndrome \n\nLet's directly provide the differential diagnosis as the information gathered is sufficient to make an educated guess.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [
+      "Pneumonia",
+      "pulmonary embolism",
+      "acute exacerbation of heart failure",
+      "granulomatosis with polyangiitis",
+      "Sweet syndrome \n\nLet's directly provide the differential diagnosis as the information gathered is sufficient to make an educated guess"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3913,
+      "completion_tokens": 481
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "case_idx": 18,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {
+    "AGE": 3,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "excessive salivation",
+    "EVIDENCES_ENG": "['family history of croup', 'shortness of breath', 'excessive salivation', 'stridor', 'whooping cough', 'vaccination status', 'nocturnal symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 3\n- I or some members of my family have had croup.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have noticed that I produce more saliva than usual.\n- I have noticed a high pitched sound when breathing in.\n- The person has a whooping cough.\n- My vaccinations are up to date.\n- My symptoms are more prominent at night.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Croup', 0.10859365579799293], ['Pneumonia', 0.09101412866192134], ['Bronchitis', 0.08967087798505875], ['Epiglottitis', 0.07702084783811239], ['Larygospasm', 0.0646753852228423], ['Pulmonary embolism', 0.0646753852228423], ['Anaphylaxis', 0.060581700433624514], ['Guillain-Barré syndrome', 0.055375203054361596], ['Bronchospasm / acute asthma exacerbation', 0.0537375774189945], ['Atrial fibrillation', 0.05289333253450105], ['Myocarditis', 0.052235844020296365], ['Acute dystonic reactions', 0.03899579280580985], ['Myasthenia gravis', 0.03899579280580985], ['Anemia', 0.03899579280580985], ['Tuberculosis', 0.037251482875329894], ['Scombroid food poisoning', 0.024667064035921206], ['PSVT', 0.020830177306456178], ['SLE', 0.018053190597156595], ['Chagas', 0.011736768577158736]]",
+    "PATHOLOGY": "Croup",
+    "INITIAL_EVIDENCE": "sialorhee",
+    "EVIDENCES": "['J05.0', 'dyspn', 'sialorhee', 'stridor', 'toux_Aboy', 'trav1_@_N', 'vaccination', 'ww_nuit']",
+    "patient_id": "htsim_0648",
+    "_test_index": 648,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 3-year-old F patient presents to the clinic. Chief complaint: excessive salivation.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Excessive salivation, and I also have shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the excessive drooling start, and has it been getting worse quickly?  \nDoctor: Also, do you have fever, sore throat, pain when swallowing, or choking/gagging episodes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started recently. It seems to be getting worse.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—does your child have trouble swallowing, a hoarse/changed voice, or can you notice any drooling specifically with coughing/choking episodes?  \nDoctor: Any known ingestion of chemicals/toxic plants, recent dental/throat infection, or has anyone noticed mouth sores or a swollen tongue?  \nDoctor: I’m going to request results to check for airway/foreign body or infection. REQUEST TEST: Neck_Throat_Exam (ENT/Oral exam) ; REQUEST TEST: Pulse_Oximetry ; REQUEST TEST: Chest_X-Ray",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started recently and seems to be getting worse. I have more saliva than usual. I have a high pitched sound when breathing in. My symptoms are more prominent at night.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—high-pitched inspiratory sound plus worsening drooling, especially at night, raises concern for airway obstruction (e.g., croup/epiglottitis/foreign body). On exam, I’m going to listen for stridor and assess work of breathing—REQUEST TEST: Flexible_Nasopharyngoscopy (ENT) ; REQUEST TEST: CBC_and_Inflammatory_Markers.  \nDoctor: Quick questions: is there fever and does swallowing cause pain, and has anyone observed sudden onset after eating/playing with small objects?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned because new or worsening drooling with a high-pitched breathing sound suggests upper-airway obstruction (like croup, epiglottitis, or a foreign body)—right now, are you noticing stridor when the child is resting, blue lips, or can she speak/cry normally?  \nDoctor: Also, has she had any recent fever or does she refuse fluids because swallowing is hard?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume we should treat this as potentially serious upper-airway obstruction—right now, can you tell me if she has noisy breathing/stridor at rest and whether she’s able to drink or cry normally?  \nDoctor: Also, do you have any thermometer reading for fever, and is she breathing faster or pulling in at the ribs/neck?  \nDoctor: If you can, please go to ER now for airway evaluation; meanwhile I’d like you to provide the oxygen saturation result from the pulse-ox and the Chest_X-Ray report—REQUEST TEST: Pulse_Oximetry_Result ; REQUEST TEST: Chest_X-Ray_Result.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m not comfortable waiting—new/worsening drooling with a high-pitched inspiratory sound (stridor) in a 3-year-old can mean significant upper-airway obstruction (croup/epiglottitis/foreign body); please go to the ER immediately for airway management.  \nDoctor: While you’re there, can you confirm her current status: is she breathing with stridor at rest, is she unable to drink/cry normally, or are there any blue lips/poor responsiveness?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need one immediate answer—right now, is she having noisy breathing/stridor at rest and is she unable to swallow/drink or cry normally?  \nDoctor: If you’re unsure, we should treat this as a possible life-threatening upper-airway obstruction—please go to the ER immediately for airway evaluation and keep her sitting upright with close monitoring.  \nDoctor: DIAGNOSIS READY: Acute upper-airway obstruction causing stridor and drooling (suspect croup/epiglottitis or foreign body—requires emergency evaluation).\n\n[DDX]\n1. Epiglottitis\n2. Croup",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Epiglottitis",
+    "predicted_set_remapped": [
+      "Epiglottitis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3789,
+      "completion_tokens": 722,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 6662,
+      "completion_tokens": 109,
+      "calls": 7
+    }
+  }
+}

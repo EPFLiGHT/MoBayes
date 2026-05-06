@@ -1,0 +1,79 @@
+{
+  "case_idx": 27,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Stable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 22\nSex: Female\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m having lower chest pain on the left side, and it also feels like upper chest pain. It’s a tedious, exhausting kind of pain, about 5/10, and it can radiate to my right biceps and shoulder, to my thoracic spine, and even under my jaw—plus I have epigastric pain and I feel significant shortness of breath, especially with exertion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure that is worse with exertion or stress** (and/or you feel short of breath with it)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. The chest pain feels worse with exertion, and I also get significant shortness of breath with it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain or pressure that is worse with exertion or stress and/or does not go away quickly with rest?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it happens with exertion. Right now my pain is around 5/10, and it doesn’t go away quickly with rest.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain/pressure that is new, worsening, or occurring at rest (not just with exertion) within the last 48 hours?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s been new/worsening within the last 48 hours, and it can be there even without exertion.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI  , Unstable angina",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI  ",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI  ",
+      "Unstable angina"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3528,
+      "completion_tokens": 176
+    }
+  }
+}

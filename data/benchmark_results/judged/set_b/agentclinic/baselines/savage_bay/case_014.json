@@ -1,0 +1,186 @@
+{
+  "case_idx": 14,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Primary sclerosing cholangitis",
+  "patient_actor_hidden": {
+    "Demographics": "32-year-old male",
+    "History": "The patient reports a 2-month history of increasing generalized fatigue and severe pruritus. He has known hypertension and was diagnosed with ulcerative colitis 5 years ago. He mentions being sexually active with 2 female partners and inconsistent condom use.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue and severe pruritus",
+      "Secondary_Symptoms": [
+        "Scleral icterus",
+        "Multiple scratch marks on trunk and extremities"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Ulcerative Colitis",
+    "Current_Medications": [
+      "Lisinopril",
+      "Rectal Mesalamine"
+    ],
+    "Social_History": "Sexually active with inconsistent condom use",
+    "Review_of_Systems": "Denies fever, diarrhea, joint pain, or recent travel."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with generalized fatigue, severe pruritus, and abnormal liver function tests.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about two months I’ve had worsening generalized fatigue and severe itching all over, and I’ve noticed my eyes look a bit yellow. I’ve been scratching a lot, and I have multiple scratch marks on my trunk and arms/legs.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (initial priors, based on your symptoms of 2 months of worsening generalized fatigue + severe pruritus + new yellow eyes):\n- Primary sclerosing cholangitis: 0.30  \n- Fulminant hepatic failure: 0.20  \n- Histoplasmosis: 0.05  \n- Membranous nephropathy: 0.05  \n- Acute myelogenous leukemia: 0.05  \n(Other causes collectively: 0.35)\n\nTo update this, the most discriminating next question is about the jaundice pattern.\n\n**Question 1:** Do you have **dark urine** and/or **pale (light-colored) stools**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—my urine has looked darker than usual, and my stools have seemed lighter in color.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with dark urine + pale stools, suggesting cholestatic/obstructive or hepatobiliary process rather than purely hepatic failure):\n- Primary sclerosing cholangitis: 0.55  \n- Fulminant hepatic failure: 0.15  \n- Histoplasmosis: 0.05  \n- Membranous nephropathy: 0.03  \n- Acute myelogenous leukemia: 0.02  \n(Other causes collectively: 0.20)\n\nLikelihood ratio for primary sclerosing cholangitis vs fulminant hepatic failure given cholestatic features (dark urine + pale stools) is strongly supportive.\n\n**Question 2:** Have you had **abdominal pain**, especially **right upper quadrant or upper abdominal pain**, or **fever/chills**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any abdominal pain—especially right upper quadrant/upper abdominal pain—or any fever or chills? Patient: I don’t have fever or chills, and I haven’t really noticed any significant abdominal pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no fever/chills and minimal abdominal pain):\n- Primary sclerosing cholangitis: 0.62  \n- Fulminant hepatic failure: 0.10  \n- Histoplasmosis: 0.06  \n- Membranous nephropathy: 0.03  \n- Acute myelogenous leukemia: 0.02  \n(Other collectively: 0.17)\n\nLikelihood ratio: absence of fever/chills and lack of significant abdominal pain slightly increases likelihood of a chronic cholestatic process (like primary sclerosing cholangitis) over infectious causes or acute fulminant presentations.\n\n**Question 3:** Do you have a history of **inflammatory bowel disease**, especially **ulcerative colitis** (or symptoms like chronic bloody diarrhea, urgency, or abdominal cramps)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have a history of inflammatory bowel disease—especially ulcerative colitis—and do you have any symptoms like chronic bloody diarrhea, urgency, or abdominal cramps? Patient: Yes, I was diagnosed with ulcerative colitis about five years ago, but lately I haven’t had significant diarrhea, urgency, or abdominal cramping.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (ulcerative colitis history is a classic association with primary sclerosing cholangitis):\n- Primary sclerosing cholangitis: 0.78  \n- Fulminant hepatic failure: 0.08  \n- Histoplasmosis: 0.05  \n- Membranous nephropathy: 0.03  \n- Acute myelogenous leukemia: 0.02  \n(Other collectively: 0.04)\n\nLikelihood ratio for PSC given ulcerative colitis history is high.\n\n**Question 4:** Have you noticed **unintentional weight loss**, **night sweats**, **easy bruising/bleeding**, or **frequent infections**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed unintentional weight loss, night sweats, or frequent infections. I don’t think I’ve had unusual bruising or bleeding either.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no B symptoms, no bleeding/infection clues):\n- Primary sclerosing cholangitis: 0.82  \n- Fulminant hepatic failure: 0.06  \n- Histoplasmosis: 0.05  \n- Membranous nephropathy: 0.03  \n- Acute myelogenous leukemia: 0.02  \n(Other collectively: 0.02)\n\nLikelihood ratio: lack of systemic “cancer/infection” features further supports a chronic hepatobiliary cholestatic disorder like PSC.\n\n**Question 5:** Have you ever been told you have **elevated liver enzymes** or **cholestatic labs** before (e.g., high alkaline phosphatase or bilirubin), or do you have any known abnormal imaging of the bile ducts?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you ever been told you have elevated liver enzymes or cholestatic labs before, or had any imaging showing bile-duct issues? Patient: I haven’t had any prior liver tests that I know of, and I haven’t had any imaging of my bile ducts before.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still strongly favoring PSC given classic symptom cluster + UC history + cholestatic jaundice):\n- Primary sclerosing cholangitis: 0.85  \n- Fulminant hepatic failure: 0.05  \n- Histoplasmosis: 0.04  \n- Membranous nephropathy: 0.03  \n- Acute myelogenous leukemia: 0.02  \n(Other collectively: 0.01)\n\nLikelihood ratio: lack of prior testing/imaging doesn’t change much; PSC remains most consistent with the overall pattern.\n\n**Question 6:** Are you taking any medications or supplements that could cause liver injury (e.g., antibiotics like amoxicillin-clavulanate, anabolic steroids, methotrexate), or have you had recent travel/exposures?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any recent new medications or antibiotics, and I don’t take supplements or anabolic steroids. I also haven’t traveled recently, and I don’t recall any specific exposures beyond everyday life.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no medication/toxin trigger identified):\n- Primary sclerosing cholangitis: 0.88  \n- Fulminant hepatic failure: 0.05  \n- Histoplasmosis: 0.04  \n- Membranous nephropathy: 0.02  \n- Acute myelogenous leukemia: 0.01  \n(Other collectively: 0.00)\n\nLikelihood ratio: absence of drug/toxin exposure increases relative probability of an intrinsic cholestatic disease like PSC.\n\n**Question 7:** Do you have **itching that’s worse at night** and are you able to sleep, or is it constant and severe? (Also, any **skin rash** besides scratch marks?)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Is the itching worse at night, and can you sleep, or is it constant and severe? Any rash besides the scratch marks? Patient: It’s pretty constant and severe, and it definitely keeps me from sleeping well. I don’t really have any rash—just the scratch marks from itching.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (severe pruritus with cholestatic jaundice pattern):\n- Primary sclerosing cholangitis: 0.90  \n- Fulminant hepatic failure: 0.04  \n- Histoplasmosis: 0.03  \n- Membranous nephropathy: 0.02  \n- Acute myelogenous leukemia: 0.01  \n(Other collectively: 0.00)\n\nLikelihood ratio: constant/severe pruritus without rash is typical of cholestasis (supports PSC over fulminant hepatic failure or systemic malignancy/infection).\n\n**Question 8:** Have you had any **swelling of your legs/abdomen**, **vomiting blood/black stools**, or **confusion/sleepiness**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any swelling of your legs or abdomen, vomiting blood or black stools, or confusion/sleepiness? Patient: No—I haven’t noticed any leg or abdominal swelling, no black stools or vomiting blood, and I haven’t had confusion or unusual sleepiness.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no decompensation signs like GI bleed/encephalopathy):\n- Primary sclerosing cholangitis: 0.93  \n- Fulminant hepatic failure: 0.03  \n- Histoplasmosis: 0.02  \n- Membranous nephropathy: 0.01  \n- Acute myelogenous leukemia: 0.01  \n(Other collectively: 0.00)\n\nLikelihood ratio: no encephalopathy/bleeding makes fulminant hepatic failure less likely.\n\n**Question 9:** Have you noticed **yellowing of the skin/eyes** progressing over weeks, and do you have **darkening of urine** that’s persistent rather than intermittent?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed the yellowing of your skin/eyes has been progressing over the past weeks, and is the darker urine persistent rather than coming and going? Patient: Yes—the yellowing seems to be getting worse, and the darker urine has been pretty consistent.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (progressive jaundice + persistent dark urine strongly cholestatic):\n- Primary sclerosing cholangitis: 0.95  \n- Fulminant hepatic failure: 0.02  \n- Histoplasmosis: 0.02  \n- Membranous nephropathy: 0.01  \n- Acute myelogenous leukemia: 0.00  \n(Other collectively: 0.00)\n\nLikelihood ratio: progressive, persistent cholestatic jaundice with severe pruritus in a patient with ulcerative colitis is highly characteristic of PSC.\n\n**Question 10:** Have you ever had **cholangiography/MRCP/ERCP** or been told you have **bile duct strictures** or “beading”/duct irregularities?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any MRCP or ERCP, and I’ve never been told I have bile-duct strictures or anything like “beading” on imaging.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Primary sclerosing cholangitis, Fulminant hepatic failure, Histoplasmosis, Membranous nephropathy, Acute myelogenous leukemia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Primary sclerosing cholangitis",
+    "predicted_set": [
+      "Primary sclerosing cholangitis",
+      "Fulminant hepatic failure",
+      "Histoplasmosis",
+      "Membranous nephropathy",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Primary sclerosing cholangitis",
+      "Fulminant hepatic failure",
+      "Histoplasmosis",
+      "Membranous nephropathy",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11,
+    "predicted_remapped": "Primary sclerosing cholangitis",
+    "predicted_set_remapped": [
+      "Primary sclerosing cholangitis",
+      "Fulminant hepatic failure",
+      "Histoplasmosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20973,
+      "completion_tokens": 1605
+    },
+    "patient": {
+      "prompt_tokens": 14616,
+      "completion_tokens": 579,
+      "calls": 11
+    }
+  }
+}

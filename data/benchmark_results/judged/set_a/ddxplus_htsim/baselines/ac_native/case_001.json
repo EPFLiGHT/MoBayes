@@ -1,0 +1,119 @@
+{
+  "case_idx": 1,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Acute dystonic reactions",
+  "patient_actor_hidden": {
+    "AGE": 2,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "jaw stiffness",
+    "EVIDENCES_ENG": "['recent antipsychotic medication use', 'regular use of stimulant drugs', 'laryngospasm', 'recent hospitalization for psychiatric reasons', 'protruding tongue', 'muscle spasms', 'jaw stiffness']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 2\n- I have started or taken any antipsychotic medication within the last 7 days.\n- I regularly take stimulant drugs.\n- I have felt like I was suffocating for a very short time associated with inability to breathe or speak.\n- I have been treated in the hospital recently for nausea, agitation, intoxication, or aggressive behavior and received medication via an intravenous or intramuscular route.\n- I have trouble keeping my tongue in my mouth.\n- I have annoying muscle spasms in my face, neck or any other part of my body.\n- I suddenly have difficulty or an inability to open my mouth or have jaw pain when opening it.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute dystonic reactions', 1.0]]",
+    "PATHOLOGY": "Acute dystonic reactions",
+    "INITIAL_EVIDENCE": "trismus",
+    "EVIDENCES": "['antipsy_récent', 'drogues_stimul', 'laryngospasme', 'nau_psy_recent', 'protu_langue', 'spasmes_msk', 'trav1_@_N', 'trismus']",
+    "patient_id": "htsim_0036",
+    "_test_index": 36,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 2-year-old M patient presents to the clinic. Chief complaint: jaw stiffness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Jaw stiffness. I also have annoying muscle spasms in my face, neck, or other parts of my body. I have suddenly had difficulty or an inability to open my mouth, with jaw pain when opening it.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the jaw stiffness and pain start, and is it sudden (over hours) or gradual (over days)? Also, do the facial/neck spasms come with fever or any recent injury/illness?  \nDoctor: Does your child have trouble swallowing, drooling, voice change, or stiffness that’s spreading to the rest of the body?  \nDoctor: Any recent wound/cut, dental work, or possible exposure to contaminated soil—and has the child received the full tetanus vaccination series?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to check for safety—right now, is your child drooling or having trouble swallowing, and can they open their mouth at all (even a little) or is it completely locked?  \nDoctor: Also, do you see a fever, a painful swollen jaw/neck area, or any stiffening of the whole body/back that comes in spasms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to assess urgency—right now, is your child drooling or unable to swallow, and does any jaw opening happen (even 1–2 finger widths), or is it completely locked?  \nDoctor: Also, do you see fever or a hot, swollen, very tender area near the jaw/neck, and is the back/neck becoming rigid or arching with spasms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine them now—can you let me check mouth opening (how many fingers), look for drooling, and feel the jaw/neck for swelling or tenderness?  \nDoctor: While I do that, I need one quick history: any fever, recent dental/ear/throat infection, or a new bite/skin wound in the last 2–4 weeks?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t answer history, I’ll focus on exam: can you confirm if the child can open the mouth at all (even 1–2 finger widths) and whether there’s drooling or trouble swallowing; I’m also checking for swollen/tender jaw or neck.  \nDoctor: Next, I need one last key check—look for muscle stiffness/spasms triggered by light touch/sound and whether the child is fully vaccinated for tetanus (or any missing doses); if you truly don’t know, I’ll treat this as possibly serious.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t risk waiting—since history is unknown, I’m going to treat this as potentially **tetanus vs other life‑threatening jaw lock**. First, right now: is the child **drooling or unable to swallow**, and can they open the mouth **at least 1–2 finger widths**?  \nDoctor: REQUEST TEST: Tetanus risk assessment labs as available (CBC, CRP) and **vitals** now; REQUEST TEST: consider **CT/MRI only if stable** to rule out deep neck space infection.  \nDoctor: I’m moving toward **tetanus (trismus with facial/neck spasms and inability to open mouth, especially if vaccination status is uncertain)** unless you confirm an alternative like fever with a swollen tender jaw/neck or clear dental/ear infection.  \nDIAGNOSIS READY: Suspected neonatal/infantile tetanus (trismus with generalized muscle spasms; vaccination status unknown)\n\n[ABSTAIN] free-text diagnosis 'Suspected neonatal/infantile tetanus (trismus with generalized muscle spasms; vaccination status unknown)' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2920,
+      "completion_tokens": 679,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 5699,
+      "completion_tokens": 86,
+      "calls": 6
+    }
+  }
+}

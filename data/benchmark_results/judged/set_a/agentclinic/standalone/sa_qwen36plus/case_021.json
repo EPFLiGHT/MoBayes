@@ -1,0 +1,165 @@
+{
+  "case_idx": 21,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic obstructive pulmonary disease",
+  "patient_actor_hidden": {
+    "Demographics": "56-year-old male",
+    "History": "The patient is a former construction worker and worked in a steel mill during high school. He is an active smoker with a 36-pack-year history. He presents a 1-year history of progressive shortness of breath and weight loss.",
+    "Symptoms": {
+      "Primary_Symptom": "Worsening shortness of breath",
+      "Secondary_Symptoms": [
+        "Weight loss"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history noted.",
+    "Social_History": "Active smoker. Former construction worker and steel mill worker. No other hazardous exposures mentioned.",
+    "Review_of_Systems": "Denies recent fevers, cough, or chest pain. No history of asthma or allergic diseases mentioned."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a 1-year history of worsening shortness of breath and weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had worsening shortness of breath over the past year, and I’ve also lost weight. I don’t have fevers, cough, or chest pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Do you currently smoke, or have you smoked in the past?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I currently smoke and I have a long history—about 36 pack-years. I also used to work construction and in a steel mill when I was younger.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you coughed up any blood or noticed blood-tinged sputum?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t coughed up blood and I haven’t noticed blood-tinged sputum.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you experience shortness of breath when lying flat, or do you wake up at night gasping for air?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I get short of breath more with activity, and I haven’t noticed it specifically when lying flat. I don’t wake up at night gasping for air.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swelling in your legs or ankles?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any swelling in my legs or ankles.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you experience any wheezing or a whistling sound when you breathe, particularly during exertion?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t really notice wheezing or a whistling sound when I breathe. It’s mainly that I get more short of breath with exertion over time.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any changes in the shape of your fingertips or nails, such as them becoming rounded or swollen?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any change in my fingertips or nails—nothing like rounding or swelling. My main issue is that I’m getting more short of breath with activity over the past year, along with the weight loss.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Was the weight loss unintentional, and roughly how many pounds have you lost over the past year?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, the weight loss wasn’t intentional. I’ve lost about 15 to 20 pounds over the past year.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’m 56 years old.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any drenching night sweats, persistent fatigue, or a significant loss of appetite alongside the weight loss?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had drenching night sweats, and I do feel tired, but it’s mostly from the shortness of breath; my appetite has been reduced a bit since the weight loss started.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Lung cancer, COPD (emphysema-predominant), Interstitial lung disease/Pneumoconiosis, Heart failure, Chronic thromboembolic pulmonary hypertension",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Lung cancer",
+    "predicted_set": [
+      "Lung cancer",
+      "COPD (emphysema-predominant)",
+      "Interstitial lung disease/Pneumoconiosis",
+      "Heart failure",
+      "Chronic thromboembolic pulmonary hypertension"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Chronic obstructive pulmonary disease",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5139,
+      "completion_tokens": 21208
+    },
+    "patient": {
+      "prompt_tokens": 5245,
+      "completion_tokens": 347,
+      "calls": 10
+    }
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Fulminant hepatic failure",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male",
+    "History": "The patient was previously healthy and has been brought to the emergency department due to agitation over the past 24 hours. Family members have noticed a yellowish coloring of his skin and eyes over the past week. The patient has a history of occasional cocaine and ecstasy use, and drinks alcohol socially on weekends. The patient also admits to high-risk sexual behaviors without using appropriate protection.",
+    "Symptoms": {
+      "Primary_Symptom": "Agitation",
+      "Secondary_Symptoms": [
+        "Psychomotor agitation",
+        "Not oriented to time and space",
+        "Jaundice on the skin and mucous membranes",
+        "Epistaxis"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Occasional use of cocaine and ecstasy. Social alcohol consumption (about 20 g on weekends).",
+    "Review_of_Systems": "The patient shows signs of psychomotor agitation and confusion. No other symptoms provided."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with agitation, yellowish coloring of the skin and eyes, and abnormal lab findings.",
+  "kb_dir": "data/cases/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’ve been very agitated and confused for about a day, and I’m not really oriented to time or where I am. My family also says I’ve had yellowing of my skin and eyes for the past week, and I’ve had some nosebleeds.”",
+      "extracted_features": {
+        "f_agitation_10f6de33": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_jaundice_7519dd8b": "yes",
+        "f_epistaxis_9205eb2c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4066427877745175
+        ],
+        [
+          "Toxic exposure",
+          0.0610337340142198
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.02916454137061775
+        ],
+        [
+          "Schizoaffective disorder",
+          0.026770737228463255
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.026370920652736995
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_skin_excoriations_65bc0a02",
+      "doctor_question": "Have you noticed any skin excoriations—such as areas where the skin is scratched, rubbed raw, or has small open spots—anywhere on your body? (Yes/No)",
+      "patient_answer": "Doctor, I don’t recall any skin being scratched or rubbed raw or any small open spots; mostly it’s the agitation, confusion, yellowing of my skin and eyes, and the nosebleeds.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4040520416601222
+        ],
+        [
+          "Toxic exposure",
+          0.06371551141148143
+        ],
+        [
+          "Schizoaffective disorder",
+          0.027947023738978845
+        ]
+      ],
+      "entropy": 4.1218819579791734
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_apnea_episodes_a1c0e66c",
+      "doctor_question": "Have you ever been told that you stop breathing during sleep, or have you noticed episodes where you briefly stop breathing and then gasp or wake up? (yes/no)",
+      "patient_answer": "“Doctor, no—I haven’t been told I stop breathing during sleep, and I haven’t noticed any episodes where I briefly stop breathing and then gasp or wake up.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4063783203220846
+        ],
+        [
+          "Toxic exposure",
+          0.06408234543123681
+        ],
+        [
+          "Schizoaffective disorder",
+          0.0281079252028651
+        ]
+      ],
+      "entropy": 4.10963273690642
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_fractures_after_minor_trauma_9dcefc97",
+      "doctor_question": "After your minor injury or fall, have you noticed any signs that a bone might be broken—such as severe pain, swelling, deformity, or trouble using the injured area? (Yes/No)",
+      "patient_answer": "“Doctor, I haven’t had any fall or injury, and I don’t have severe pain, swelling, deformity, or trouble using any body part—my main issues are the agitation and confusion, the yellowing of my skin and eyes, and the nosebleeds.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4079029293766101
+        ],
+        [
+          "Toxic exposure",
+          0.06432276308934971
+        ],
+        [
+          "Schizoaffective disorder",
+          0.02821337767196888
+        ]
+      ],
+      "entropy": 4.097988498706702
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_left_wrist_erythema_5984b3bb",
+      "doctor_question": "Have you noticed any redness or warmth on your **left wrist** (for example, a red patch or skin that feels hot compared with the other side)?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any redness or warmth on my left wrist, or any hot red patches compared with the other side.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.40930322429698335
+        ],
+        [
+          "Toxic exposure",
+          0.0645435774839804
+        ],
+        [
+          "Schizoaffective disorder",
+          0.028310231718839795
+        ]
+      ],
+      "entropy": 4.08802454063522
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_chest_wall_bruising_70fb0c33",
+      "doctor_question": "Have you noticed any bruising on your chest wall (for example, dark or discolored areas on the chest), especially after any recent injury or coughing?",
+      "patient_answer": "“Doctor, no—I haven’t had any recent injury or significant coughing, and I haven’t noticed any bruising or dark discoloration on my chest wall.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.41750888140469644
+        ],
+        [
+          "Toxic exposure",
+          0.06583753862061285
+        ],
+        [
+          "Schizoaffective disorder",
+          0.02887779151396163
+        ]
+      ],
+      "entropy": 4.040819676407725
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_polyuria_44686a96",
+      "doctor_question": "Have you been urinating much more than usual lately—like needing to go to the bathroom more often or producing a larger amount of urine?",
+      "patient_answer": "“Doctor, I haven’t noticed urinating much more than usual—no real increase in frequency or amount. My main issues have been the agitation and confusion, the yellowing of my skin and eyes, and the nosebleeds.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4184928207430974
+        ],
+        [
+          "Toxic exposure",
+          0.06599269734196592
+        ],
+        [
+          "Schizoaffective disorder",
+          0.028945847539455328
+        ]
+      ],
+      "entropy": 4.032654575100297
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_substance_use_history_c8c2090d",
+      "doctor_question": "Have you used any substances such as alcohol, tobacco, cannabis, opioids, stimulants, or other drugs in the past or currently?",
+      "patient_answer": "“Doctor, I’ve used cocaine and ecstasy occasionally, and I drink alcohol socially on weekends, but I haven’t been using tobacco or opioids or anything else.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.46133891209800865
+        ],
+        [
+          "Toxic exposure",
+          0.10424878951930172
+        ],
+        [
+          "Schizoaffective disorder",
+          0.05296298904473521
+        ]
+      ],
+      "entropy": 3.5734723269024724
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_urinary_incontinence_d51fa8e3",
+      "doctor_question": "Have you had any trouble controlling your urine—such as leaking urine or not making it to the bathroom in time? (yes or no)",
+      "patient_answer": "“Doctor, no—I haven’t had trouble controlling my urine; I haven’t been leaking or missing the bathroom, and my urination hasn’t really changed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4693261584114114
+        ],
+        [
+          "Toxic exposure",
+          0.10605366818426862
+        ],
+        [
+          "Schizoaffective disorder",
+          0.051702979555669305
+        ]
+      ],
+      "entropy": 3.528677761476654
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesion_0967b116",
+      "doctor_question": "Have you noticed any new or changing skin lesion (such as a new spot, sore, mole, or patch) anywhere on your body?",
+      "patient_answer": "“Doctor, I haven’t noticed any new or changing skin lesions like new spots, sores, moles, or patches—just the yellowing of my skin and eyes and the nosebleeds.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4838179212948317
+        ],
+        [
+          "Toxic exposure",
+          0.10932837295982495
+        ],
+        [
+          "Schizoaffective disorder",
+          0.05329945421760426
+        ]
+      ],
+      "entropy": 3.378356429508575
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_rash_on_the_trunk_f4572efa",
+      "doctor_question": "Have you noticed any rash on your trunk (chest, back, or belly)?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any rash on my trunk, chest, back, or belly. It’s mostly the yellowing of my skin and eyes, along with the nosebleeds and the agitation/confusion.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4905249030166586
+        ],
+        [
+          "Toxic exposure",
+          0.11084395013637141
+        ],
+        [
+          "Schizoaffective disorder",
+          0.05403832404752726
+        ]
+      ],
+      "entropy": 3.318645243196746
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_varicose_veins_338a247a",
+      "doctor_question": "Do you have any swollen, twisted, or bulging veins in your legs (varicose veins), especially after standing for a long time?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any swollen, twisted, or bulging veins in my legs, and nothing seems worse after standing for a long time.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.49072024988802293
+        ],
+        [
+          "Toxic exposure",
+          0.11088809268394775
+        ],
+        [
+          "Schizoaffective disorder",
+          0.05405984429547294
+        ]
+      ],
+      "entropy": 3.316819731673571
+    }
+  ],
+  "final": {
+    "predicted": "Fulminant hepatic failure",
+    "predicted_top3": [
+      "Fulminant hepatic failure",
+      "Toxic exposure",
+      "Schizoaffective disorder"
+    ],
+    "confidence": 0.49072024988802293,
+    "final_entropy": 3.316819731673571,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Fulminant hepatic failure",
+    "predicted_set_remapped": [
+      "Fulminant hepatic failure",
+      "Toxic exposure",
+      "Schizoaffective disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7255,
+      "completion_tokens": 502
+    },
+    "patient": {
+      "prompt_tokens": 9131,
+      "completion_tokens": 514,
+      "calls": 12
+    }
+  }
+}

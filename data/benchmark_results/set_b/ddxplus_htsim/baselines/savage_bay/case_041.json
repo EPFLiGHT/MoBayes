@@ -1,0 +1,109 @@
+{
+  "case_idx": 41,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have very severe pain—right breast pain. It started with a pace of 6/10, the intensity is 9/10, and it gets worse when I breathe in deeply. It’s also increased with physical exertion but relieved with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, rough):**\n- **Possible NSTEMI / STEMI:** 0.25  \n- **Pulmonary embolism:** 0.20  \n- **Acute pulmonary edema:** 0.10  \n- **Pneumonia:** 0.10  \n- **Spontaneous pneumothorax:** 0.10  \n(Other causes collectively: 0.25)\n\n**Question 1 (most discriminating):**  \nWhen you say “right breast pain,” is it **sharp and worse with deep breaths** (pleuritic), or is it more **pressure/tightness** like “an ache/heaviness”?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s sharp and worse when I breathe in deeply.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with pleuritic sharp pain (worse with deep inspiration):**  \nLikelihood ratio (LR) for **pulmonary/pleural causes** (PE, pneumonia, pneumothorax, pleuritis) vs cardiac causes: ~3.  \nNew rough posteriors:\n- **Pulmonary embolism:** 0.35  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Spontaneous pneumothorax:** 0.15  \n- **Pneumonia:** 0.15  \n- **Acute pulmonary edema:** 0.08  \n- (Other collectively): 0.15\n\n**Question 2:**  \nDo you have **shortness of breath** right now (yes/no), and if yes is it **sudden** or **gradual**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify quickly.\n\n**Current posterior (with pleuritic pain, SOB unknown):**\n- **Pulmonary embolism:** 0.35  \n- **Spontaneous pneumothorax:** 0.15  \n- **Pneumonia:** 0.15  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.08  \n- **Other:** 0.15\n\n**Question 2 (direct):**  \nAre you **able to speak full sentences** without getting more breathless, or do you feel **significantly short of breath**? (full sentences vs can’t / very breathless)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—then we’ll focus on other high-yield discriminators.\n\n**Current posterior (still):**\n- **Pulmonary embolism:** 0.35  \n- **Spontaneous pneumothorax:** 0.15  \n- **Pneumonia:** 0.15  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.08  \n- **Other:** 0.15\n\n**Question 3:**  \nHave you had **any recent risk factors for clot** in the last 4 weeks—such as **long travel/immobility, recent surgery, leg swelling/pain (one-sided), or you’re on estrogen/birth control**? (yes/no)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s use another discriminator.\n\n**Current posterior (unchanged):**\n- **Pulmonary embolism:** 0.35  \n- **Spontaneous pneumothorax:** 0.15  \n- **Pneumonia:** 0.15  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.08  \n- **Other:** 0.15\n\n**Question 4:**  \nDo you have **cough** or **fever/chills**? (yes/no).",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "We need something you can answer more reliably.\n\n**Current posterior (still):**\n- **Pulmonary embolism:** 0.35  \n- **Spontaneous pneumothorax:** 0.15  \n- **Pneumonia:** 0.15  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.08  \n- **Other:** 0.15\n\n**Question 5:**  \nDid this pain start **suddenly** (seconds to minutes) or **gradually** (over hours)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not getting enough discriminating history—“I don’t know” repeatedly prevents narrowing safely among several potentially life-threatening causes.\n\n**[ABSTAIN]** — Insufficient reliable history (can’t determine key features like dyspnea severity, infectious symptoms, timing, or clot risk factors), so I can’t confidently rank a top diagnosis.\n\n[POSSIBLE] Pulmonary embolism, Spontaneous pneumothorax, Pneumonia, Possible NSTEMI / STEMI, Acute pulmonary edema",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Spontaneous pneumothorax",
+      "Pneumonia",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9225,
+      "completion_tokens": 984
+    },
+    "patient": {}
+  }
+}

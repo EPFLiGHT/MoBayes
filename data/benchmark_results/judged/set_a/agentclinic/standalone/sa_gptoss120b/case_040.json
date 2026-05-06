@@ -1,0 +1,106 @@
+{
+  "case_idx": 40,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I've been having pain in my left great toe, hips, and knees that gets worse when I’m active and improves when I rest. It’s been slowly getting worse over the past several years.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Do you notice any stiffness in the affected joints when you first get out of bed in the morning, and if so, how long does it usually last?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I do get some stiffness when I first get out of bed, but it usually doesn’t last very long—about 10 to 20 minutes—then it eases as I move around.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you ever notice swelling, redness, or warmth around the painful joints, especially the big toe?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve noticed occasional swelling and some warmth around the big toe, but I wouldn’t say it’s always red. It comes and goes, and it tends to flare after I’ve been on my feet.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever experienced a sudden, intense pain episode in your big toe that started rapidly—often at night or after a meal—and then resolved within a few days?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—sometimes I get a sudden, very intense pain in my big toe that often starts at night and then improves within a few days, especially after certain meals. It feels like it flares up intensely and then settles down.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Gout, Osteoarthritis, Calcium pyrophosphate deposition disease (pseudogout), Rheumatoid arthritis, Septic arthritis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Gout",
+    "predicted_set": [
+      "Gout",
+      "Osteoarthritis",
+      "Calcium pyrophosphate deposition disease (pseudogout)",
+      "Rheumatoid arthritis",
+      "Septic arthritis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1690,
+      "completion_tokens": 1232
+    },
+    "patient": {
+      "prompt_tokens": 1640,
+      "completion_tokens": 203,
+      "calls": 4
+    }
+  }
+}

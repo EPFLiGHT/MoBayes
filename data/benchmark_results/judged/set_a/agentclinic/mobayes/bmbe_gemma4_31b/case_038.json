@@ -1,0 +1,360 @@
+{
+  "case_idx": 38,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I don’t want to talk—someone is watching me. I’m not safe to explain anything, but I feel confused and I’m having trouble staying awake.”",
+      "extracted_features": {
+        "f_confusion_c52e29d9": "yes",
+        "f_altered_mental_status_f460088f": "yes",
+        "f_drowsiness_420d2bd9": "yes",
+        "f_paranoia_a9786791": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.39882235359335944
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.1987083121051709
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.047404727518404605
+        ],
+        [
+          "Chronic kidney failure",
+          0.034144663876892814
+        ],
+        [
+          "Pneumonia",
+          0.034144663876892814
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "“No—I don’t think so. I can’t really focus on looking at my skin; I feel too out of it, and I’m trying to stay awake.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.402308320132699
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.20044515188069045
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.04781907564219146
+        ]
+      ],
+      "entropy": 3.3297855226969215
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“I don’t know—I’m not really keeping track of anything like that right now. I feel too confused and I’m having a hard time staying awake, and I don’t want to answer questions that feel like I’m being monitored.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.40479269827663134
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.20168296260810797
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.04811437320488995
+        ]
+      ],
+      "entropy": 3.317233190760379
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual strength lately?",
+      "patient_answer": "“Yeah—I feel weak and off, like I can’t keep my body under control, and I’ve been unusually drowsy and hard to stay awake.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.17019671906228714
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.16778194690533405
+        ],
+        [
+          "Pneumonia",
+          0.15280141593164348
+        ]
+      ],
+      "entropy": 3.7278837207333857
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“I can’t really manage dressing right now—I feel too out of it and my body isn’t cooperating. I’m confused and I’m trying to stay awake, but I keep getting overwhelmed and I don’t feel safe talking.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3233736611646315
+        ],
+        [
+          "Syringomyelia",
+          0.13246465830315884
+        ],
+        [
+          "Chronic kidney failure",
+          0.08415071854805997
+        ]
+      ],
+      "entropy": 3.3983343131258628
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "“I can’t tell about my arms or any bumps or rashes along the veins—I’m not able to focus or examine myself because I feel watched and too confused, and I’m getting drowsy and out of control.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3233736611646315
+        ],
+        [
+          "Syringomyelia",
+          0.13246465830315884
+        ],
+        [
+          "Chronic kidney failure",
+          0.08415071854805997
+        ]
+      ],
+      "entropy": 3.3983343131258628
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "“No, I don’t know about itching—I’m too confused and drowsy to notice anything on my skin right now, and I don’t feel safe talking in detail.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.34241172737063635
+        ],
+        [
+          "Syringomyelia",
+          0.1402632864463688
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08784071483436681
+        ]
+      ],
+      "entropy": 3.329216018201524
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calf muscles when you walk that goes away once you stop and rest?",
+      "patient_answer": "“No—I’m not really able to walk or pay attention to that right now. I feel intensely drowsy, my body feels rigid and out of control, and I’m too confused to track symptoms while moving.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3428347813278549
+        ],
+        [
+          "Syringomyelia",
+          0.14043658348511007
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08794924313245092
+        ]
+      ],
+      "entropy": 3.3200436747942317
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-colored recently?",
+      "patient_answer": "“I don’t know—I haven’t been able to pay attention to my stools, and I feel too confused and drowsy to answer anything reliably.” “I’m not safe to talk about this; I feel like I’m being watched, and I just keep getting overwhelmed and out of control.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3428347813278549
+        ],
+        [
+          "Syringomyelia",
+          0.14043658348511007
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08794924313245092
+        ]
+      ],
+      "entropy": 3.3200436747942317
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or opening jars?",
+      "patient_answer": "“I can barely coordinate my hands—I feel weak and out of control, like my grip isn’t working right, and I’m too drowsy to focus on trying.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.6428284014525416
+        ],
+        [
+          "Syringomyelia",
+          0.29194616909068616
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.010754883500040998
+        ]
+      ],
+      "entropy": 1.4299187092051078
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_staying_conscious_during_shaking_episode_38ad282a",
+      "doctor_question": "During these shaking episodes, are you able to remain conscious and aware of your surroundings, or do you lose consciousness?",
+      "patient_answer": "“I don’t stay fully conscious—I get extremely drowsy and sometimes I feel non-responsive, like I’m not fully aware of what’s going on around me. I’m aware enough to feel confused and rigid, but I can’t consistently stay alert or answer clearly.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.6428284014525416
+        ],
+        [
+          "Syringomyelia",
+          0.29194616909068616
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.010754883500040998
+        ]
+      ],
+      "entropy": 1.4299187092051078
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_abdominal_pain_f8a79ef3",
+      "doctor_question": "Are you currently experiencing any pain or discomfort in your abdominal area?",
+      "patient_answer": "“No—I’m not aware of any stomach pain right now. I feel mainly extremely drowsy and confused, and my body feels rigid and out of control. I’m too scared to answer more questions if it means I’m being monitored.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.6428284014525416
+        ],
+        [
+          "Syringomyelia",
+          0.29194616909068616
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.010754883500040998
+        ]
+      ],
+      "entropy": 1.4299187092051078
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.6428284014525416,
+    "final_entropy": 1.4299187092051078,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9794,
+      "completion_tokens": 324
+    },
+    "patient": {
+      "prompt_tokens": 7698,
+      "completion_tokens": 544,
+      "calls": 12
+    }
+  }
+}

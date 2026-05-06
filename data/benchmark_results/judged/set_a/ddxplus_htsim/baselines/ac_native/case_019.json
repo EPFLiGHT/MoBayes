@@ -1,0 +1,189 @@
+{
+  "case_idx": 19,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Ebola",
+  "patient_actor_hidden": {
+    "AGE": 22,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "fatigue",
+    "EVIDENCES_ENG": "['recent contact with a symptomatic person', 'diarrhea', 'recent contact with someone infected with the ebola virus', 'fatigue', 'sore throat', 'nausea', 'unusual bleeding or bruising', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 22\n- I have been in contact with a person with similar symptoms in the past 2 weeks.\n- I have had diarrhea or an increase in stool frequency.\n- In the last month, I have been in contact with someone infected with the Ebola virus.\n- I constantly feel fatigued or I have non-restful sleep.\n- I have a sore throat.\n- I am feeling nauseous or I feel like vomiting.\n- I have noticed unusual bleeding or bruising related to my consultation today.\n- I have a cough.\n- I have traveled out of the country to West Africa in the last 4 weeks.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Ebola', 0.49405962300201606], ['Anemia', 0.21348151332094273], ['Bronchitis', 0.1936271135919858], ['Pancreatic neoplasm', 0.09883175008505547]]",
+    "PATHOLOGY": "Ebola",
+    "INITIAL_EVIDENCE": "fatig_mod",
+    "EVIDENCES": "['contact', 'diarrhee', 'ebolacase', 'fatig_mod', 'gorge_dlr', 'nausee', 'rds_sg', 'toux', 'trav1_@_AfriqO']",
+    "patient_id": "htsim_0684",
+    "_test_index": 684,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 22-year-old M patient presents to the clinic. Chief complaint: fatigue.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling constantly fatigued with non-restful sleep. I also have a sore throat, a cough, diarrhea/increased stool frequency, and I feel nauseous or like vomiting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How long has this been going on, and do you have fever or swollen neck glands? Also, have you had any recent sick contacts, travel, or new foods/unsafe water?  \nDoctor: On exam, I’d like to check your temperature and look at your throat/tonsils and neck—any trouble swallowing or shortness of breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do know I’ve been in contact with a person with similar symptoms in the past 2 weeks, and I traveled out of the country to West Africa in the last 4 weeks. I also had contact in the last month with someone infected with the Ebola virus. I have a sore throat and I have a cough, but I don’t know about fever, swollen neck glands, trouble swallowing, or shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the recent West Africa travel and possible Ebola exposure, I need urgent evaluation—do you currently have a measured fever (or chills), vomiting, abdominal pain, or any rash/bleeding/bruising? Also, do you have headache, severe muscle aches, or difficulty keeping fluids down?  \nDoctor: REQUEST TEST: CBC_with_diff, CMP (including AST/ALT, creatinine), PT/INR, and malaria test; REQUEST TEST: Ebola_virus_RT-PCR (and arrange airborne/contact isolation per protocol).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a measured fever, chills, vomiting, abdominal pain, headache, severe muscle aches, or difficulty keeping fluids down.  \n\nI have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned because you reported unusual bleeding/bruising after recent West Africa travel and possible Ebola exposure—do you have any active bleeding (nose/gums/urine/stool), black/tarry stool, vomiting blood, or severe weakness/dizziness when standing?  \nDoctor: REQUEST TEST: Repeat vital signs (temp, BP, HR, SpO₂), peripheral smear/platelet count, urinalysis for hematuria, and Ebola viral testing (RT-PCR plus Ebola antigen/serology per protocol) while keeping you in isolation.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a medical emergency—right now are you having any ongoing bleeding (nose/gums, in your urine or stool, vomiting blood) or new widespread rash? Also, can you tell me your current temperature if you can measure it, and whether you feel lightheaded when standing.  \nDoctor: REQUEST TEST: Vital_signs_set (temp/BP/HR/SpO₂), Platelets_and_Coagulation_profile (PT/INR, aPTT, fibrinogen), and Ebola_or_Arenavirus_panels per local protocol (Ebola RT-PCR priority).",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—you’re not able to confirm the bleeding or measure your temperature, which makes this still high-risk; right now I need you to stay in isolation and let us check your vitals (temp, BP, HR, SpO₂) immediately.  \nDoctor: REQUEST TEST: Vital_signs_set (temp/BP/HR/SpO₂), Platelets_count, PT/INR and aPTT, CBC_with_diff, CMP.  \nDoctor: Also—are you currently bleeding from any site (nose/gums/urine/stool) or unable to keep fluids down?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask you directly—are you currently bleeding from any site (nose/gums/urine/stool), and are you able to drink and keep fluids down? If not, this requires immediate resuscitation and isolation until results return.  \nDoctor: Also, right now do you have a rash, severe headache, confusion, or a new yellowing of the eyes/skin?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a clear yes/no—are you actively bleeding anywhere right now (nose/gums/urine/stool), do you have a new rash, and can you drink without vomiting?  \nDoctor: If you can’t answer reliably, I’m treating this as suspected viral hemorrhagic fever until proven otherwise—do you have any known major medical problems or take blood thinners (warfarin, apixaban, aspirin/NSAIDs in the last week)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as suspected viral hemorrhagic fever/serious coagulopathy until proven otherwise—do you have any active bleeding right now (nose/gums/urine/stool) and what’s your current temperature (if you can get it)?  \nDoctor: REQUEST TEST: Blood_type_and_screen, STAT repeat CBC_with_diff + platelet_count, PT/INR + aPTT + fibrinogen + D-dimer, and STAT Ebola_RT-PCR (continue isolation).",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess you as a suspected viral hemorrhagic fever case until proven otherwise—right now, can you *look for and tell me* if you have active bleeding (nose/gums, vomiting blood, urine blood, or black/tarry/maroon stool) and whether you have a new widespread rash?  \nDoctor: REQUEST TEST: STAT Vitals_now (temp/BP/HR/SpO₂), bedside blood glucose, repeat CBC with platelet count, PT/INR/aPTT/fibrinogen/D-dimer, CMP, urinalysis, and blood culture; continue strict isolation.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask 2 quick yes/no questions: do you have any active bleeding right now (nose/gums, urine, black/maroon stool, or vomiting blood) and do you have a rash (especially widespread or pinpoint “petechiae”)?  \nDoctor: REQUEST TEST: STAT CTN/clinic note for current bleeding sites + repeat platelet count/PT-INR/aPTT/fibrinogen (as VHF/consumptive coagulopathy workup).",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you can’t confirm active bleeding or vitals, I’m going to treat this as suspected viral hemorrhagic fever until proven otherwise—right now, can you tell me if you have taken **any aspirin/NSAIDs** (ibuprofen/naproxen) or **blood thinners** in the last 7 days?  \nDoctor: Also, do you currently feel **faint/lightheaded**, and are you able to **drink fluids and keep them down**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t reliably confirm bleeding, temperature, or ability to keep fluids down, I’m treating you as suspected viral hemorrhagic fever/serious coagulopathy with immediate stabilization needs—can you answer just this: right now are you able to drink and keep fluids down without vomiting?  \nDoctor: Also, please tell me your temperature if measured (even approximate), or say “not available”; REQUEST TEST: STAT repeat Vitals_now (temp/BP/HR/SpO₂) and repeat CBC_with_platelets + PT/INR + aPTT + fibrinogen + CMP.",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to proceed as high-risk for viral hemorrhagic fever until proven otherwise—on a 0–1 scale, is your bleeding/bruising **more than mild** (i.e., spreading or soaking through gauze), and do you have **any** measured fever/chills?  \nDoctor: REQUEST TEST: STAT malaria thick/thin smear or rapid antigen, Ebola_RT-PCR result priority review, and peripheral smear with repeat platelets immediately (plus ABO/Rh and crossmatch in case transfusion is needed).\n\nDoctor: Based on your West Africa travel, possible Ebola exposure, systemic symptoms (fatigue, sore throat/cough, GI symptoms), and reported unusual bruising/bleeding with unknown vitals/fever, DIAGNOSIS READY: Suspected viral hemorrhagic fever (Ebola) with possible coagulopathy.\n\n[DDX]\n1. Ebola",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Ebola",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13,
+    "predicted_remapped": "Ebola",
+    "predicted_set_remapped": [
+      "Ebola",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13315,
+      "completion_tokens": 1481,
+      "calls": 13
+    },
+    "patient": {
+      "prompt_tokens": 19178,
+      "completion_tokens": 344,
+      "calls": 13
+    }
+  }
+}

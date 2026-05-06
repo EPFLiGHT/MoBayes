@@ -1,0 +1,135 @@
+{
+  "case_idx": 42,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Multiple system atrophy",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old male",
+    "History": "The patient has been experiencing a gradual difficulty in walking over the past 3 months, requiring wheelchair assistance for the last month. Additionally, there is a history of urinary incontinence for 1 year and recent onset of speech slurring making communication challenging.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive difficulty walking",
+      "Secondary_Symptoms": [
+        "Urinary incontinence",
+        "Slurred speech",
+        "Rigidity in limbs",
+        "Mild hand tremor",
+        "Orthostatic hypotension"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable. No known chronic diseases.",
+    "Social_History": "Occasionally consumes alcohol. Non-smoker. Works as a bank clerk.",
+    "Review_of_Systems": "Denies recent infections, fever, weight loss, vision changes or seizures."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive difficulty walking, urinary incontinence, and speech difficulties.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: Over the past three months my walking has been gradually getting worse, and for the last month I’ve needed a wheelchair. I also have urinary incontinence for about a year and recently my speech has started to slur.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (pre-test):\n- Parkinson disease: 0.20  \n- Multiple system atrophy: 0.20  \n- Benign paroxysmal positional vertigo: 0.05  \n- Huntington disease: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.05  \n- Other (not yet specified): 0.45  \n\nTo update these, I need one key discriminating feature:\n\n**Question 1 (one at a time):**  \nDo you have **any tremor at rest** (shaking when your hands are relaxed), or is it mainly stiffness/slow movement and trouble walking?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any tremor at rest, or is it mainly stiffness/slow movement and trouble walking? Patient: I do notice a mild shaking in my hands even when I’m relaxed, along with stiffness and slowed movement that have made walking harder.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q1 evidence: rest tremor present + parkinsonism):\n- Parkinson disease: 0.45  \n- Multiple system atrophy: 0.25  \n- Huntington disease: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.05  \n- Benign paroxysmal positional vertigo: 0.02  \n- Other: 0.18  \n\nNext discriminating feature: autonomic dysfunction is more typical of **multiple system atrophy** than Parkinson disease.\n\n**Question 2 (one at a time):**  \nDo you have **significant lightheadedness or fainting when standing**, or problems with **blood pressure** (e.g., feeling dizzy on standing)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have significant lightheadedness or fainting when standing, or problems with blood pressure—like feeling dizzy when you get up? Patient: Yes, I often feel lightheaded when standing, and my blood pressure seems to drop; I’ve also had episodes of dizziness.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q2 evidence: orthostatic hypotension/autonomic failure):\n- Multiple system atrophy: 0.60  \n- Parkinson disease: 0.20  \n- Huntington disease: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.05  \n- Benign paroxysmal positional vertigo: 0.02  \n- Other: 0.08  \n\nNext discriminating feature: MSA often has **rapid progression** and prominent **early urinary dysfunction** and **speech/swallowing problems**; we should also check for cerebellar signs (ataxia) which would push further toward MSA-C.\n\n**Question 3 (one at a time):**  \nDo you have **trouble with balance/coordination**—like unsteady gait, frequent falls, or difficulty with finger-to-nose—or is it mainly stiffness/slow movement?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have trouble with balance or coordination—like unsteady gait, frequent falls, or difficulty with finger-to-nose—or is it mainly stiffness and slow movement? Patient: Mostly it feels like stiffness and slowness, but I do get unsteady when walking and have to be careful, though I haven’t had many falls.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q3 evidence: some unsteadiness but not clear cerebellar ataxia):\n- Multiple system atrophy: 0.63  \n- Parkinson disease: 0.22  \n- Huntington disease: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.05  \n- Benign paroxysmal positional vertigo: 0.02  \n- Other: 0.03  \n\nNext discriminating feature: **early severe autonomic dysfunction + early urinary incontinence** and **rapid decline to wheelchair within ~1 month** favors MSA. To further separate from Parkinson disease, ask about **timing of symptom onset and response to levodopa**.\n\n**Question 4 (one at a time):**  \nHave you been tried on **carbidopa/levodopa** (Sinemet) or other Parkinson meds—if so, did you notice a clear improvement?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t tried levodopa or other Parkinson medications yet, so I can’t say whether I would improve. I’ve just been getting steadily worse, and in the last month I’ve needed a wheelchair.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q4: no levodopa trial; rapid decline to wheelchair):\n- Multiple system atrophy: 0.68  \n- Parkinson disease: 0.18  \n- Huntington disease: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.05  \n- Benign paroxysmal positional vertigo: 0.02  \n- Other: 0.02  \n\nNext discriminating feature: **speech/swallowing**—MSA commonly causes early dysarthria and dysphagia; Parkinson can too but often later. Also, ask about **swallowing/choking**.\n\n**Question 5 (one at a time):**  \nHave you had **choking on liquids/food, coughing during meals, or trouble swallowing** (in addition to slurred speech)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had choking on liquids/food, coughing during meals, or trouble swallowing in addition to the slurred speech? Patient: I’ve noticed more difficulty coordinating my mouth and tongue when I eat, and sometimes I cough a bit during meals, especially with thicker liquids.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q5 evidence: dysarthria + cough with meals/thick liquids → dysphagia):\n- Multiple system atrophy: 0.78  \n- Parkinson disease: 0.12  \n- Progressive multifocal leukoencephalopathy: 0.04  \n- Huntington disease: 0.03  \n- Benign paroxysmal positional vertigo: 0.01  \n- Other: 0.02  \n\nAt this point MSA is strongly favored. One last high-yield discriminator would be **whether symptoms are symmetric vs predominantly one side**, but we already have enough for a top-5 differential.\n\n[DDX] Multiple system atrophy, Parkinson disease, Progressive multifocal leukoencephalopathy, Huntington disease, Benign paroxysmal positional vertigo",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Multiple system atrophy",
+    "predicted_set": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Progressive multifocal leukoencephalopathy",
+      "Huntington disease",
+      "Benign paroxysmal positional vertigo"
+    ],
+    "predicted_raw": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Progressive multifocal leukoencephalopathy",
+      "Huntington disease",
+      "Benign paroxysmal positional vertigo"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Multiple system atrophy",
+    "predicted_set_remapped": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Progressive multifocal leukoencephalopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8481,
+      "completion_tokens": 1015
+    },
+    "patient": {
+      "prompt_tokens": 5149,
+      "completion_tokens": 362,
+      "calls": 6
+    }
+  }
+}

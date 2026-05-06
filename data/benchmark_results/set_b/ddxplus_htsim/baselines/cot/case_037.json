@@ -1,0 +1,88 @@
+{
+  "case_idx": 37,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Pulmonary neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 43\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood, and I also have pain in my posterior chest wall on both the right and left sides, along with significant shortness of breath.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: hemoptysis (“coughing up blood”), significant shortness of breath, and bilateral posterior chest wall pain.\n\nTop candidates (not yet discriminated):\n1) Pulmonary embolism — hemoptysis + significant SOB can occur; pleuritic chest pain can be present.\n2) Pneumonia — can cause hemoptysis and dyspnea; chest wall pain may be pleuritic.\n3) Acute pulmonary edema — can cause dyspnea and sometimes blood-tinged sputum, though chest wall pain is less typical.\n4) Spontaneous pneumothorax — can cause sudden SOB and chest pain; hemoptysis is less classic but can occur.\n5) Possible NSTEMI / STEMI — can cause dyspnea and chest pain; hemoptysis is not typical but can be misattributed.\n\nMost informative next question: determine whether the onset was sudden and whether there are PE risk factors.\n[/REASONING]\nOne question: Did the shortness of breath and chest pain start suddenly (minutes to hours), and do you have any recent risk factors for blood clots—like recent surgery/immobility, long travel, pregnancy/postpartum, or a history of DVT/PE?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: hemoptysis + significant SOB + bilateral posterior chest wall pain. We lack timing (sudden vs gradual) and PE risk factors, which are crucial.\n\nTop candidates remain:\n1) Pulmonary embolism — still high concern given hemoptysis + SOB; timing/risk factors unknown.\n2) Pneumonia — hemoptysis + dyspnea; chest wall pain could be pleuritic.\n3) Acute pulmonary edema — dyspnea ± blood-tinged sputum; chest wall pain less typical.\n4) Spontaneous pneumothorax — SOB + chest pain; hemoptysis less typical.\n5) Possible NSTEMI / STEMI — dyspnea + chest pain; hemoptysis atypical.\n\nMost informative next question: ask about fever/infectious symptoms to support pneumonia vs PE/other.\n[/REASONING]\nOne question: Have you had a fever, chills, or a recent “flu-like” illness (feeling sick) before the coughing up blood?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill limited history: hemoptysis + significant SOB + bilateral posterior chest wall pain. We don’t know timing, risk factors, or infectious symptoms.\n\nTo discriminate, we should assess for classic pneumonia features vs PE/other causes: productive cough, sputum amount/color, and whether symptoms are worse with breathing (pleuritic pain).\n\nTop candidates:\n1) Pulmonary embolism — hemoptysis + SOB; pleuritic chest pain possible.\n2) Pneumonia — hemoptysis possible; would expect fever/productive cough.\n3) Acute pulmonary edema — dyspnea prominent; may have frothy sputum.\n4) Spontaneous pneumothorax — sudden SOB + unilateral pain more typical.\n5) Possible NSTEMI / STEMI — dyspnea/chest pain; hemoptysis atypical.\n\nMost informative next question: is the chest pain worse when you take a deep breath or cough (pleuritic)?\n[/REASONING]\nOne question: Does the chest wall pain get significantly worse with deep breaths or coughing (pleuritic pain)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have persistent core symptoms: hemoptysis + significant shortness of breath + bilateral posterior chest wall pain. We still lack discriminators: timing/sudden onset, infection symptoms, pleuritic nature, and cardiovascular/PE risk factors.\n\nGiven the uncertainty, we should ask about the amount/appearance of blood in the sputum—this can help triage toward massive hemoptysis sources (e.g., PE, pneumonia, malignancy) versus small blood streaks.\n\nTop candidates (unchanged):\n1) Pulmonary embolism — hemoptysis + SOB.\n2) Pneumonia — hemoptysis + dyspnea.\n3) Acute pulmonary edema — dyspnea ± blood-tinged sputum.\n4) Spontaneous pneumothorax — SOB + chest pain (hemoptysis less typical).\n5) Possible NSTEMI / STEMI — dyspnea/chest pain (hemoptysis atypical).\n\nMost informative next question: quantify hemoptysis.\n[/REASONING]\nOne question: About how much blood are you coughing up—just streaks in the sputum, teaspoons, or more (and is it bright red or dark/rust-colored)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings remain: hemoptysis (unknown quantity/appearance) + significant shortness of breath + bilateral posterior chest wall pain. We still lack the most discriminating details: onset timing, infection symptoms, pleuritic nature, PE risk factors, and blood quantity/color.\n\nAt this point, evidence is insufficient to confidently rank a single diagnosis, but the most dangerous/likely categories given hemoptysis + dyspnea include:\n- Pulmonary embolism (must not miss)\n- Pneumonia (common cause of hemoptysis)\n- Acute pulmonary edema (dyspnea prominent; hemoptysis can occur)\n- Spontaneous pneumothorax (SOB + chest pain, though hemoptysis less typical)\n- Possible NSTEMI/STEMI (dyspnea/chest pain; hemoptysis atypical)\n\nMost informative next question would be: do you have leg swelling/pain or recent immobilization—but we’re already at 6 questions with no useful history. I will provide a cautious differential based on current limited data.\n\n[/REASONING]\n[ABSTAIN] Insufficient history (timing, PE risk factors, infection symptoms, pleuritic features, and hemoptysis amount/color are unknown), so I can’t confidently discriminate among life-threatening causes.\n[POSSIBLE] Pulmonary embolism, Pneumonia, Acute pulmonary edema, Spontaneous pneumothorax,",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Spontaneous pneumothorax"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6410,
+      "completion_tokens": 1273
+    },
+    "patient": {}
+  }
+}

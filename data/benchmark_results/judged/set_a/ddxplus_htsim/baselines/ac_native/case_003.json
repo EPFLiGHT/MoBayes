@@ -1,0 +1,149 @@
+{
+  "case_idx": 3,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {
+    "AGE": 66,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['oral antibiotic for ear infection', 'pain', 'irritability', 'nasal congestion', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 66\n- I am currently being treated or have recently been treated with an oral antibiotic for an ear infection.\n- I have pain somewhere related to my reason for consulting.\n- I am more irritable or my mood has been very unstable recently.\n- I have nasal congestion or a clear runny nose.\n- I have a cough.\n- On a scale of 0-10, the pain intensity is 9\n- On a scale of 0-10, the pain's location precision is 8\n- On a scale of 0-10, the pace at which the pain appear is 6\n- The pain is:\n* sharp\n- The pain locations are:\n* ear(R)\n* ear(L)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.36770446467578644], ['Acute otitis media', 0.3590770119679635], ['URTI', 0.27321852335624996]]",
+    "PATHOLOGY": "Acute otitis media",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['H6690', 'douleurxx', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_oreille_D_', 'douleurxx_endroitducorps_@_oreille_G_', 'douleurxx_intens_@_9', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_8', 'douleurxx_soudain_@_6', 'irritable', 'rhino_clair', 'toux', 'trav1_@_N']",
+    "patient_id": "htsim_0108",
+    "_test_index": 108,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 66-year-old M patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had severe pain in both ears—right and left—with a sharp quality. It’s about a 9/10 in intensity, and roughly 8/10 for how precisely I can point it out. I also have nasal congestion or a clear runny nose and a cough. I’m also more irritable or my mood has been very unstable recently, and I’ve recently been treated with an oral antibiotic for an ear infection.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the ear pain and cough/runny nose start, and do you have fever, hearing loss, or any ear drainage (fluid/pus/blood)?  \nDoctor: Also, does swallowing or chewing make the ear pain worse, and how long ago was the oral antibiotic started/finished?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. \n\nI can tell you I’ve had nasal congestion or a clear runny nose and a cough, and I’m currently being treated or have recently been treated with an oral antibiotic for an ear infection.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—can you tell me whether your ear pain is worse when you pull on the outer ear or press the little flap in front of the ear (tragus), and do you have any ear drainage?  \nDoctor: Also, do you have fever or sore throat, and has your hearing noticeably decreased since the pain began?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check you now—can you tell me if pulling on your outer ear or pressing the tragus strongly worsens the pain, and do you have any known hearing loss or ear drainage?  \nDoctor: Also, did the pain start more after the recent antibiotic course began, or did it start before and persist despite treatment?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t decide without key details—please tell me: (1) does touching or pulling on the ear make the pain much worse, and (2) do you have any fever or sore throat?  \nDoctor: Also, have you had any hearing loss or ear drainage (clear, pus, or blood), even if you’re unsure of the type?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you—please respond yes/no: does pressing the tragus or pulling the outer ear reproduce the ear pain, and do you have any visible ear drainage?  \nDoctor: Also, request: do you have a recent temperature reading (fever) and have you noticed reduced hearing or severe sore throat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you’re unsure, I’m going to focus on a likely pattern—your severe bilateral sharp ear pain plus nasal congestion/clear runny nose and cough suggests an upper-respiratory viral illness with referred ear pain or eustachian-tube dysfunction rather than confirmed bacterial drainage; I need one quick check: do you have any visible ear drainage (yes/no) and is your hearing clearly decreased (yes/no)?  \nDoctor: REQUEST TEST: Otoscopic_Ear_Exam (including tympanic membrane appearance: erythema, bulging, perforation)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine and visualize the eardrums now—REQUEST TEST: Otoscopic_Ear_Exam (tympanic membrane appearance: erythema, bulging, perforation) and note whether there’s any effusion or perforation.  \nDoctor: While we do that, one last question: is the ear pain triggered more by chewing/swallowing or by lying down (yes/no)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to make quick bedside checks: when you chew/swallow, and when you press the tragus or pull the pinna, does the pain reliably worsen (yes/no)?  \nDoctor: Also, do you have any ear discharge you can see, or sudden muffled hearing (yes/no)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to decide based on the pattern we have so far: severe bilateral sharp ear pain with concurrent nasal congestion/clear rhinorrhea and cough, plus recent oral antibiotics without clear confirmed improvement details—this most strongly fits referred otalgia from an upper-respiratory viral illness with eustachian-tube dysfunction rather than acute otitis media with effusion or perforation.  \n\nDIAGNOSIS READY: Bilateral otalgia due to eustachian-tube dysfunction/referred pain from viral upper respiratory infection (acute URI)\n\n[ABSTAIN] free-text diagnosis 'Bilateral otalgia due to eustachian-tube dysfunction/referred pain from viral upper respiratory infection (acute URI)' did not map to the closed disease set",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5755,
+      "completion_tokens": 746,
+      "calls": 9
+    },
+    "patient": {
+      "prompt_tokens": 10115,
+      "completion_tokens": 193,
+      "calls": 9
+    }
+  }
+}

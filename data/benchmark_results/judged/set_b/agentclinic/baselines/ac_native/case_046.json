@@ -1,0 +1,92 @@
+{
+  "case_idx": 46,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Impaired erythropoietin production",
+  "patient_actor_hidden": {
+    "Demographics": "1-month-old boy",
+    "History": "The patient’s mother reports that the infant occasionally stops breathing while sleeping, with episodes increasing in frequency. The patient was born prematurely at 32 weeks due to placental insufficiency and required respiratory support immediately post-birth. Prenatal testing indicated the mother was not immune to rubella. The pregnancy was otherwise uncomplicated, with the mother taking only prenatal vitamins. The family history includes a healthy 3-year-old sister and a father with a heart condition.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodes of not breathing (apnea) during sleep",
+      "Secondary_Symptoms": [
+        "Increased frequency of apneic episodes",
+        "Pale conjunctiva"
+      ]
+    },
+    "Past_Medical_History": "Premature birth at 32 weeks due to placental insufficiency. Stay in the neonatal intensive care unit for respiratory support.",
+    "Social_History": "The patient’s mother took prenatal vitamins. Father has a heart condition. One healthy sibling.",
+    "Review_of_Systems": "Patient has pale conjunctiva but no other symptoms or complaints provided by the mother."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the infant presenting with episodes of apnea and anemia.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I diagnose, I’ll ask a few questions: has the infant had episodes of apnea with pallor or cyanosis soon after feeding or during sleep? Doctor: Also, are there signs of hemolytic anemia (jaundice, dark urine) or poor growth/feeding, and how old is the infant now?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Doctor: The infant is 1 month old—episodes of not breathing have been happening during sleep and are becoming more frequent, and the mother also noticed pallor in the eyes during these times; there haven’t been any reports of jaundice or dark urine. Doctor: And as for feeding and growth, the mother says nothing specific has changed besides the increasing apnea."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Dr. Agent: I’m Dr. Agent—thank you; the onset at 1 month with apnea and pallor raises concern for anemia from hemolysis or possibly congenital anemia/hypoxia. 1) Any history of “blue lips”/cyanosis during the events (even briefly), and is there a strong family history of anemia or G6PD deficiency? Dr. Agent: 2) During an episode, does the infant improve immediately with stimulation and is there any fever, cough, or signs of infection? REQUEST TEST: CBC with reticulocyte count, peripheral smear, and bilirubin (total/direct) REQUEST TEST: Pulse oximetry during an event (or continuous overnight) and consider G6PD level / methemoglobin if available",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 98°F (36.7°C); Blood Pressure 91/55 mmHg; Heart Rate 207/min; Respiratory Rate 50/min; Oxygen Saturation 97% on room air. CBC: Leukocytes 10,000/mm^3 (normal differential); Hemoglobin 8.2 g/dL (low); Hematocrit 28% (low); MCV 100 fL (normal/high-normal, normocytic); Platelets 300,000/mm^3. Reticulocyte count 0.8% (low, normal range 2–6%). Peripheral smear: normocytic and normochromic RBCs. LDH 120 U/L (normal). No bilirubin (total/direct) results available in provided data. Pulse oximetry during an event/overnight and methemoglobin/G6PD results not provided in provided data."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: At 1 month, Hb 8.2 with low reticulocytes (0.8%) plus normocytic smear and no jaundice/dark urine makes hemolysis (e.g., G6PD) less likely; did the infant have any prenatal/perinatal issues (maternal diabetes, Rh/ABO incompatibility, birth trauma), or has there been any temperature instability or feeding-related sweating/paleness? Doctor: Also, please confirm: during apnea/pallor episodes, does oxygen saturation ever drop or is it normal (per pulse-ox), and do they become bradycardic—what’s the heart rate trend during an event? Doctor: Given hyporesponsiveness with apnea and profound anemia with *inappropriately low* reticulocytes, I’m most concerned for **congenital bone marrow suppression—classically transient neonatal erythroblastopenia (TEC) / early Diamond-Blackfan–spectrum**; I will decide next unless you can provide the missing bilirubin result and oxygen saturation trend during events. REQUEST TEST: Total/direct bilirubin STAT and repeat pulse oximetry/cardiac monitoring during a typical event DIAGNOSIS READY: Transient neonatal erythroblastopenia (TEC) causing anemia with episodic apnea/pallor (vs. early Diamond-Blackfan spectrum; TEC favored due to low reticulocyte count and no hemolysis markers)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: At 1 month, Hb 8.2 with low reticulocytes (0.8%) plus normocytic smear and no jaundice/dark urine makes hemolysis (e.g., G6PD) less likely; did the infant have any prenatal/perinatal issues (maternal diabetes, Rh/ABO incompatibility, birth trauma), or has there been any temperature instability or feeding-related sweating/paleness? Doctor: Also, please confirm: during apnea/pallor episodes, does oxygen saturation ever drop or is it normal (per pulse-ox), and do they become bradycardic—what’s the heart rate trend during an event? Doctor: Given hyporesponsiveness with apnea and profound anemia with *inappropriately low* reticulocytes, I’m most concerned for **congenital bone marrow suppression—classically transient neonatal erythroblastopenia (TEC) / early Diamond-Blackfan–spectrum**; I will decide next unless you can provide the missing bilirubin result and oxygen saturation trend during events. REQUEST TEST: Total/direct bilirubin STAT and repeat pulse oximetry/cardiac monitoring during a typical event DIAGNOSIS READY: Transient neonatal erythroblastopenia (TEC) causing anemia with episodic apnea/pallor (vs. early Diamond-Blackfan spectrum; TEC favored due to low reticulocyte count and no hemolysis markers)",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 3,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1232,
+      "completion_tokens": 530,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 427,
+      "completion_tokens": 76,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 548,
+      "completion_tokens": 189,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 357,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

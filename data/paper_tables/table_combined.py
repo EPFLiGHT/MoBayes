@@ -1,0 +1,212 @@
+#!/usr/bin/env python3
+"""End-to-end reproducer for the combined n=100 CI table (tab:ci_combined).
+
+The combined-table data layout has many benchmark- and method-specific
+path quirks (MediQ uses a custom evaluator over its own dump format;
+MEDDxAgent has different filename suffixes per benchmark; etc.) that
+already live in scripts/build_combined_n100.py. Rather than duplicate
+that fragile mapping, this script imports the records loader from
+build_combined_n100 and adds the bootstrap-CI layer on top.
+
+What it produces is byte-equivalent (modulo bootstrap RNG) to the
+ci_combined block of `scripts/ci_tables.py --appendix`, but isolated
+to a single entry point:
+
+  python3 scripts/table_combined.py            # → tables/tab_ci_combined_repro.tex
+  python3 scripts/table_combined.py --stdout
+  python3 scripts/table_combined.py --B 5000 --seed 1
+  python3 scripts/table_combined.py --show-paths
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import numpy as np
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).parent))
+
+import build_combined_n100 as bcn  # noqa: E402
+
+METHODS = bcn.METHODS               # [(label, mkey)]
+# build_combined uses "PatientSim n=100" labels; trim for the CI table.
+BENCHES = [(label.split(" n=")[0], bkey) for label, bkey in bcn.BENCHES]
+
+
+# ─── Bootstrap layer ──────────────────────────────────────────────────
+def metrics(records: List[dict], tau_can: Optional[float], tau_v1: Optional[float],
+             n_can: int) -> dict:
+    """Same metric definition as build_combined_n100, on a (resampled)
+    list of records. records[:n_can] are the canonical half, records[n_can:]
+    are the v1 half — preserving per-half τ assignment after resampling."""
+    n = len(records)
+    if n == 0:
+        return {k: 0.0 for k in ("t1", "t3", "sa", "cov", "dhs")}
+    t1 = sum(1 for r in records if r["t1"])
+    t3 = sum(1 for r in records if r["t3"])
+    if tau_can is None and tau_v1 is None:
+        com = sum(1 for r in records if not r["ab"])
+        cor = sum(1 for r in records if not r["ab"] and r["t1"])
+    else:
+        com = cor = 0
+        for i, r in enumerate(records):
+            tau = tau_can if i < n_can else tau_v1
+            committed = (r.get("conf") or 0) >= (tau or 0)
+            if committed:
+                com += 1
+                if r["t1"]: cor += 1
+    cov = com / n
+    sa  = cor / com if com else 0.
+    dhs = 2*sa*cov/(sa+cov) if (sa+cov) > 0 else 0.
+    return {"t1": 100*t1/n, "t3": 100*t3/n,
+            "sa": 100*sa, "cov": 100*cov, "dhs": 100*dhs}
+
+
+def bootstrap(can_recs: List[dict], v1_recs: List[dict],
+               tau_can: Optional[float], tau_v1: Optional[float],
+               B: int, seed: int) -> dict:
+    """Stratified bootstrap: resample within each half so τ_can/τ_v1
+    keep their domains in every replicate."""
+    rng = np.random.default_rng(seed)
+    n_can, n_v1 = len(can_recs), len(v1_recs)
+    all_recs = can_recs + v1_recs
+    point = metrics(all_recs, tau_can, tau_v1, n_can)
+    samples = {k: np.empty(B) for k in ("t1", "t3", "sa", "cov", "dhs")}
+    for b in range(B):
+        idx_can = rng.integers(0, n_can, size=n_can) if n_can else []
+        idx_v1  = rng.integers(0, n_v1,  size=n_v1)  if n_v1 else []
+        rep = [can_recs[i] for i in idx_can] + [v1_recs[i] for i in idx_v1]
+        m = metrics(rep, tau_can, tau_v1, n_can)
+        for k in samples: samples[k][b] = m[k]
+    return {k: (point[k],
+                float(np.percentile(samples[k], 2.5)),
+                float(np.percentile(samples[k], 97.5)))
+            for k in samples}
+
+
+def find_tau_full(records: List[dict]) -> float:
+    """Per-half τ = argmax DHS on the half itself (paper appendix §C.3)."""
+    cands = [round(0.01*i, 2) for i in range(0, 51)]
+    best_tau, best_dhs = 0.0, -1.0
+    for tau in cands:
+        m = metrics(records, tau, tau, len(records))
+        if m["dhs"] > best_dhs:
+            best_dhs, best_tau = m["dhs"], tau
+    return best_tau
+
+
+# ─── Load + render ────────────────────────────────────────────────────
+def load_cell(label: str, mkey: str, bkey: str
+               ) -> Tuple[List[dict], List[dict], Optional[float], Optional[float]]:
+    """Use build_combined's records dispatcher for the two halves."""
+    can, v1 = bcn.cell_records(mkey, bkey)
+    if mkey == "BMBE":
+        tau_can = bcn.find_tau_loocv(can) if can else None
+        tau_v1  = bcn.find_tau_loocv(v1)  if v1  else None
+    else:
+        tau_can = tau_v1 = None
+    return can, v1, tau_can, tau_v1
+
+
+def render(B: int, seed: int) -> str:
+    out: List[str] = []
+    out.append(r"%% =============================================================")
+    out.append(r"%% Combined n=100 CI table (tab:ci_combined).")
+    out.append(rf"%% Auto-generated by scripts/table_combined.py  B={B} seed={seed}.")
+    out.append(r"%% Records loader: scripts/build_combined_n100.records_for(...).")
+    out.append(r"%% =============================================================")
+    out.append("")
+    out.append(r"\begin{table}[t]")
+    out.append(r"\centering")
+    out.append(r"\caption{Bootstrap 95\% CIs for Table~\ref{tab:combined_n100} "
+               rf"(combined $n{{=}}100$). $B={B}$, seed={seed}; cells show point [2.5\%, 97.5\%]. "
+               r"DHS coloured per benchmark column. For \discuss{\ours}, $\tau^*$ is locked at "
+               r"the per-half DHS-maximising value once on the original data and held fixed across replicates.}")
+    out.append(r"\label{tab:ci_combined}")
+    out.append(r"\footnotesize")
+    out.append(r"\setlength{\tabcolsep}{4pt}")
+    out.append(r"\renewcommand{\arraystretch}{1.05}")
+    out.append(r"\resizebox{\textwidth}{!}{%")
+    out.append(r"\begin{tabular}{@{}l cc cc cc@{}}")
+    out.append(r"\toprule")
+    bench_hdr = " & " + " & ".join(rf"\multicolumn{{2}}{{c}}{{\textbf{{{b}}}}}" for b, _ in BENCHES) + r" \\"
+    out.append(bench_hdr)
+    out.append(r" \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}")
+    out.append(r"\textbf{Method} & " + " & ".join([r"T-1 & DHS$\,\uparrow$"] * 3) + r" \\")
+    out.append(r"\midrule")
+
+    cache: Dict[Tuple[str, str], dict] = {}
+    col_dhs: Dict[str, List[float]] = {b: [] for _, b in BENCHES}
+    for label, mkey in METHODS:
+        for _, bkey in BENCHES:
+            can, v1, tc, tv = load_cell(label, mkey, bkey)
+            if not (can or v1):
+                cache[(label, bkey)] = None; continue
+            ci = bootstrap(can, v1, tc, tv, B=B, seed=seed)
+            cache[(label, bkey)] = ci
+            col_dhs[bkey].append(ci["dhs"][0])
+    col_minmax = {b: (min(v), max(v)) for b, v in col_dhs.items() if v}
+
+    def color(p, lo, hi):
+        if hi <= lo: return ""
+        f = (p - lo) / (hi - lo)
+        if f >= 0.5:
+            i = int(round(8 + (f - 0.5) * 2 * (40 - 8)))
+            return f"\\cellcolor{{dhsgreen!{i}}}"
+        i = int(round(8 + (0.5 - f) * 2 * (25 - 8)))
+        return f"\\cellcolor{{dhsred!{i}}}"
+
+    for label, mkey in METHODS:
+        parts = []
+        for _, bkey in BENCHES:
+            ci = cache.get((label, bkey))
+            if ci is None:
+                parts.extend(["--", "--"]); continue
+            t1 = ci["t1"]; dhs = ci["dhs"]
+            parts.append(f"{t1[0]:.1f}\\,\\textsubscript{{[{t1[1]:.1f},{t1[2]:.1f}]}}")
+            lo, hi = col_minmax[bkey]
+            parts.append(color(dhs[0], lo, hi)
+                         + f"{dhs[0]:.1f}\\,\\textsubscript{{[{dhs[1]:.1f},{dhs[2]:.1f}]}}")
+        out.append(f"{label} & " + " & ".join(parts) + r" \\")
+
+    out.append(r"\bottomrule")
+    out.append(r"\end{tabular}%")
+    out.append(r"}")
+    out.append(r"\end{table}")
+    return "\n".join(out) + "\n"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--B", type=int, default=2000)
+    ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--out", default=str(REPO_ROOT / "tables" / "tab_ci_combined_repro.tex"))
+    ap.add_argument("--stdout", action="store_true")
+    ap.add_argument("--show-paths", action="store_true",
+                    help="List each (method, benchmark, half) cell and the n loaded.")
+    args = ap.parse_args()
+
+    if args.show_paths:
+        print(f"RESULTS root: {bcn.RESULTS}\n")
+        for label, mkey in METHODS:
+            for bench_label, bkey in BENCHES:
+                can, v1 = bcn.cell_records(mkey, bkey)
+                print(f"  {label[:30]:<32} × {bench_label:<11}  "
+                      f"can n={len(can):<3}  v1 n={len(v1):<3}  total={len(can)+len(v1)}")
+        return
+
+    tex = render(B=args.B, seed=args.seed)
+    if args.stdout:
+        print(tex)
+    else:
+        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.out).write_text(tex)
+        print(f"Wrote {args.out} ({len(tex)} bytes)", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,364 @@
+{
+  "case_idx": 24,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Factitious disorder",
+  "patient_actor_hidden": {
+    "Demographics": "26-year-old female nurse",
+    "History": "The patient reports a 2-month history of persistent fatigue and several episodes of lower abdominal pain. Despite being on sick leave for 2 weeks, symptoms have not improved. She expresses a concern that she might have cancer and requests a diagnostic laparoscopy. She was diagnosed with peptic ulcer disease 6 months ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower abdominal pain",
+        "High stress levels",
+        "Concerns of having cancer"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with peptic ulcer disease 6 months prior, currently taking omeprazole.",
+    "Social_History": "Works as a nurse, has been under a lot of stress at work.",
+    "Review_of_Systems": {
+      "General": "Appearance of fatigue and paleness",
+      "Skin": "Numerous crusts along the left arm veins",
+      "Cardiovascular": "Grade 2/6 systolic ejection murmur along the right-upper sternal border",
+      "Gastrointestinal": "No abdominal abnormalities on examination",
+      "Musculoskeletal": "Generalized weakness of the proximal muscles",
+      "Psychiatric": "Tiredness and depressed mood"
+    }
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with fatigue, episodes of lower abdominal pain, and a self-stated high cancer concern.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello—what brings you in today? Could you tell me about what’s been going on? Patient: I’ve had persistent fatigue for about two months, and I’ve also had a few episodes of lower abdominal pain. I’ve been on sick leave for the last two weeks but I’m not improving, and I’m very stressed and worried it could be something serious like cancer.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_lower_abdominal_pain_d711aaf0": "yes",
+        "f_psychological_stress_391732fb": "yes",
+        "f_belief_of_serious_illness_84d3ba93": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Somatization disorder",
+          0.2973839539697498
+        ],
+        [
+          "Factitious disorder",
+          0.11287430018541866
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.06440067433891991
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.039471381046434786
+        ],
+        [
+          "Chronic kidney failure",
+          0.03593134687186664
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you've been feeling.\n\nDo you ever notice stiffness in your joints, especially in the morning when you wake up? If so, how long does it usually last?",
+      "patient_answer": "“No, I haven’t really noticed morning stiffness in my joints. Mostly it’s just ongoing fatigue with a general weakness in my muscles and my mood feeling low, plus occasional lower abdominal pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.3025954964818043
+        ],
+        [
+          "Factitious disorder",
+          0.11485238005853296
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.065529272057936
+        ]
+      ],
+      "entropy": 3.9730789846898382
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help with your assessment today.\n\nAre you currently experiencing any pain or discomfort in your chest?",
+      "patient_answer": "“No, I’m not experiencing chest pain or discomfort. It’s mainly the ongoing fatigue and proximal muscle weakness, with occasional lower abdominal pain, and I’ve been feeling pretty low and stressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.20395169145462666
+        ],
+        [
+          "Factitious disorder",
+          0.10776879411715685
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.0857363939718883
+        ]
+      ],
+      "entropy": 4.29364974650107
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you currently experiencing any difficulty lifting objects, such as picking up items or lifting things you normally could handle easily?",
+      "patient_answer": "“Honestly, yes—I’ve been finding it harder to lift objects and climb stairs; it feels like the weakness is mostly in my upper thighs/shoulders rather than from pain.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3827198366844801
+        ],
+        [
+          "Syringomyelia",
+          0.0879244407609216
+        ],
+        [
+          "Somatization disorder",
+          0.0874164602142689
+        ]
+      ],
+      "entropy": 3.5657212425421174
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help with your assessment today.\n\nHave you noticed any unusual skin changes, such as redness, bumps, or sores, along the veins in your arms?",
+      "patient_answer": "“Yes—along the left arm veins there are numerous crusts, and I’ve noticed my skin looks quite pale overall. I also feel generally weak in the proximal muscles, more when I try to lift things or climb stairs, and I’ve been feeling low and stressed.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3827198366844801
+        ],
+        [
+          "Syringomyelia",
+          0.0879244407609216
+        ],
+        [
+          "Somatization disorder",
+          0.0874164602142689
+        ]
+      ],
+      "entropy": 3.5657212425421174
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you currently experiencing any pain in your flank area? That's the region on the side of your body, around your lower ribs and back, above your hip.",
+      "patient_answer": "“No, I don’t have pain in my flanks or around my lower ribs/back. It’s mainly persistent fatigue with proximal muscle weakness when I lift things or climb stairs, occasional lower abdominal pain, and I’ve been very stressed and worried.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.38551977601934245
+        ],
+        [
+          "Syringomyelia",
+          0.08856768701205654
+        ],
+        [
+          "Somatization disorder",
+          0.08805599013147603
+        ]
+      ],
+      "entropy": 3.540181808290584
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions to better understand your condition.\n\nHave you noticed any rough, scaly patches on your skin that have persisted for some time and haven't gone away?",
+      "patient_answer": "“I haven’t noticed any rough, scaly patches in general, just those numerous crusts along the left arm veins and overall paleness. My main issues are still the persistent fatigue, proximal muscle weakness when I lift or climb stairs, occasional lower abdominal pain, and feeling low and very stressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.38719705129366533
+        ],
+        [
+          "Syringomyelia",
+          0.08895301715792653
+        ],
+        [
+          "Somatization disorder",
+          0.08843909404518069
+        ]
+      ],
+      "entropy": 3.519917279783227
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your scalp.\n\nHave you noticed any unusual spots, sores, or lesions on your scalp? This could include anything like bumps, patches of rough skin, or areas that feel different to the touch.",
+      "patient_answer": "“I haven’t noticed any sores or unusual spots on my scalp—no bumps, patches, or areas that feel different. My main ongoing issues are the fatigue and the proximal muscle weakness with lifting or climbing stairs, with occasional lower abdominal pain and feeling low and very stressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3888710769738182
+        ],
+        [
+          "Syringomyelia",
+          0.08933760075574038
+        ],
+        [
+          "Somatization disorder",
+          0.08882145572398589
+        ]
+      ],
+      "entropy": 3.499323077331132
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your eating habits and appetite. Have you been experiencing any unusual food cravings lately?",
+      "patient_answer": "“No, I haven’t had any unusual food cravings. My appetite feels mostly unchanged, but the persistent fatigue and low mood make everything feel harder.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3963406192298452
+        ],
+        [
+          "Syringomyelia",
+          0.09105362188307663
+        ],
+        [
+          "Somatization disorder",
+          0.09052756259605037
+        ]
+      ],
+      "entropy": 3.4632557169467733
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nAre you currently feeling any pain in your knee or knees?",
+      "patient_answer": "“No, I don’t have knee pain or any specific pain in my knees—my problem is more the general fatigue and proximal weakness when I try to lift objects or climb stairs, along with occasional lower abdominal pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.40626646602575744
+        ],
+        [
+          "Syringomyelia",
+          0.09333394405338692
+        ],
+        [
+          "Somatization disorder",
+          0.09279471028048855
+        ]
+      ],
+      "entropy": 3.4151135682199936
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your symptoms.\n\nWhen you move your knee—bending or straightening it—do you feel any pain in your thigh area? Please let me know if this happens or if it's something you don't experience.",
+      "patient_answer": "“No, I don’t get pain in my thigh when I bend or straighten my knees. It feels more like weakness throughout the proximal muscles, especially when I lift things or climb stairs, rather than any specific pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.40626646602575744
+        ],
+        [
+          "Syringomyelia",
+          0.09333394405338688
+        ],
+        [
+          "Somatization disorder",
+          0.09279471028048851
+        ]
+      ],
+      "entropy": 3.4151135682199927
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand your symptoms.\n\nHave you experienced any vomiting recently? This means actually throwing up or having the urge to vomit?",
+      "patient_answer": "“No vomiting—I haven’t thrown up, and I haven’t had much nausea either. It’s mainly the persistent fatigue and the proximal muscle weakness with occasional lower abdominal pain, plus feeling low and very stressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4179609976820815
+        ],
+        [
+          "Syringomyelia",
+          0.09602059642226023
+        ],
+        [
+          "Somatization disorder",
+          0.09546584060421497
+        ]
+      ],
+      "entropy": 3.321093490763309
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Somatization disorder"
+    ],
+    "confidence": 0.4179609976820815,
+    "final_entropy": 3.321093490763309,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Somatization disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7379,
+      "completion_tokens": 2453
+    },
+    "patient": {
+      "prompt_tokens": 10783,
+      "completion_tokens": 599,
+      "calls": 12
+    }
+  }
+}

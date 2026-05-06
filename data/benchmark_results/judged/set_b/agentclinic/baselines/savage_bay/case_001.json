@@ -1,0 +1,224 @@
+{
+  "case_idx": 1,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Fulminant hepatic failure",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male",
+    "History": "The patient was previously healthy and has been brought to the emergency department due to agitation over the past 24 hours. Family members have noticed a yellowish coloring of his skin and eyes over the past week. The patient has a history of occasional cocaine and ecstasy use, and drinks alcohol socially on weekends. The patient also admits to high-risk sexual behaviors without using appropriate protection.",
+    "Symptoms": {
+      "Primary_Symptom": "Agitation",
+      "Secondary_Symptoms": [
+        "Psychomotor agitation",
+        "Not oriented to time and space",
+        "Jaundice on the skin and mucous membranes",
+        "Epistaxis"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Occasional use of cocaine and ecstasy. Social alcohol consumption (about 20 g on weekends).",
+    "Review_of_Systems": "The patient shows signs of psychomotor agitation and confusion. No other symptoms provided."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with agitation, yellowish coloring of the skin and eyes, and abnormal lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been extremely agitated for about 24 hours, and I’m not really oriented to time or where I am. My family also noticed my skin and eyes look yellow for about a week, and I’ve had some nosebleeds.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (initial, before more details):**\n- **Acute myelogenous leukemia:** 0.22  \n- **Acute lymphoblastic leukemia:** 0.15  \n- **Fulminant hepatic failure:** 0.20  \n- **Primary sclerosing cholangitis:** 0.10  \n- **Toxic exposure:** 0.08  \n(Other causes collectively: 0.25)\n\nGiven **agitation + confusion** and **jaundice for a week** with **nosebleeds**, I’m most concerned about a serious systemic process (e.g., liver failure with encephalopathy vs hematologic malignancy with coagulopathy).\n\n**Question 1 (one at a time):**  \nDo you know if the patient has had **fever** or **new infections** (e.g., sore throat, cough, urinary symptoms) in the last 1–2 weeks?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t recall any fever, sore throat, cough, or urinary symptoms in the last couple of weeks.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute myelogenous leukemia:** 0.24  \n- **Acute lymphoblastic leukemia:** 0.16  \n- **Fulminant hepatic failure:** 0.18  \n- **Primary sclerosing cholangitis:** 0.08  \n- **Toxic exposure:** 0.06  \n(Other collectively: 0.28)\n\nNo infectious symptoms shifts probability away from infection-triggered causes and keeps **malignancy/coagulopathy** and **liver failure/encephalopathy** high.\n\n**Question 2:**  \nHave you had **black/tarry stools** or **vomiting blood** (any GI bleeding), or is it mainly **nosebleeds**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had black/tarry stools or vomiting blood, or has the bleeding been mainly nosebleeds? Patient: It’s mainly been nosebleeds, and I haven’t noticed black or tarry stools or vomited blood.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute myelogenous leukemia:** 0.26  \n- **Acute lymphoblastic leukemia:** 0.18  \n- **Fulminant hepatic failure:** 0.16  \n- **Primary sclerosing cholangitis:** 0.07  \n- **Toxic exposure:** 0.05  \n(Other collectively: 0.28)\n\nPredominant **epistaxis** without GI bleeding increases likelihood of **thrombocytopenia/hematologic malignancy**. Jaundice still keeps liver pathology and toxic etiologies on the list.\n\n**Question 3:**  \nHave you noticed **easy bruising**, **tiny red/purple spots on the skin (petechiae)**, or bleeding from gums?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’ve noticed more bruising than usual and some tiny red-purple spots on my skin, and my gums have bled a little. I feel very restless and confused lately.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute myelogenous leukemia:** 0.30  \n- **Acute lymphoblastic leukemia:** 0.20  \n- **Fulminant hepatic failure:** 0.14  \n- **Primary sclerosing cholangitis:** 0.06  \n- **Toxic exposure:** 0.04  \n(Other collectively: 0.26)\n\nBleeding (epistaxis, gums), petechiae, and bruising strongly suggest **thrombocytopenia/coagulopathy**, which fits **acute leukemia** well. Jaundice and encephalopathy could be from liver involvement or severe systemic illness.\n\n**Question 4:**  \nDo you have **bone pain** (back, sternum, long bones) or **swollen lymph nodes** (neck/armpits/groin)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had some soreness in my back and long bones, and I don’t think I’ve noticed any swollen lumps in my neck, armpits, or groin.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute myelogenous leukemia:** 0.33  \n- **Acute lymphoblastic leukemia:** 0.22  \n- **Fulminant hepatic failure:** 0.13  \n- **Primary sclerosing cholangitis:** 0.05  \n- **Toxic exposure:** 0.04  \n(Other collectively: 0.23)\n\nBone pain plus mucocutaneous bleeding and petechiae continues to favor **acute leukemia** over isolated liver disease.\n\n**Question 5:**  \nHave you had **unintentional weight loss**, **night sweats**, or **severe fatigue/shortness of breath** recently?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I have felt very tired and weak, but I can’t say about weight loss or night sweats, and I haven’t really had shortness of breath.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute myelogenous leukemia:** 0.35  \n- **Acute lymphoblastic leukemia:** 0.23  \n- **Fulminant hepatic failure:** 0.14  \n- **Primary sclerosing cholangitis:** 0.05  \n- **Toxic exposure:** 0.04  \n(Other collectively: 0.19)\n\nAt this point, the combination of **jaundice + acute confusion/agitation + mucocutaneous bleeding/petechiae + bone pain** most strongly supports a hematologic malignancy causing **coagulopathy/thrombocytopenia**, with **acute leukemia** highest.\n\n**Question 6:**  \nHow old is the patient? (Age helps distinguish AML vs ALL and also changes baseline risk for liver failure/toxins.)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 20 years old.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated for age 20):**\n- **Acute lymphoblastic leukemia:** 0.34  \n- **Acute myelogenous leukemia:** 0.30  \n- **Fulminant hepatic failure:** 0.14  \n- **Primary sclerosing cholangitis:** 0.06  \n- **Toxic exposure:** 0.04  \n(Other collectively: 0.12)\n\nAge 20 shifts probability toward **ALL** (more common in younger patients) while AML remains plausible.\n\n**Question 7:**  \nHave you had **severe headaches**, **vision changes**, or **new neurologic symptoms** besides confusion/agitation (e.g., weakness, numbness, trouble speaking)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had severe headaches or vision changes, but I have been very confused and restless, and I feel generally weak. I haven’t noticed numbness or trouble speaking.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.36  \n- **Acute myelogenous leukemia:** 0.30  \n- **Fulminant hepatic failure:** 0.16  \n- **Primary sclerosing cholangitis:** 0.05  \n- **Toxic exposure:** 0.03  \n(Other collectively: 0.10)\n\nConfusion/restlessness could be **hepatic encephalopathy** from fulminant liver failure, but the bleeding/petechiae still keep **acute leukemia** most likely.\n\n**Question 8:**  \nHave you noticed **yellowing of the eyes/skin getting rapidly worse**, and do you know if the patient has had **vomiting, severe abdominal pain, or right-upper-quadrant pain**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’ve noticed my eyes and skin getting worse over the past week, but I haven’t had vomiting, severe abdominal pain, or right-upper-quadrant pain. I just feel increasingly restless and confused.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.38  \n- **Acute myelogenous leukemia:** 0.30  \n- **Fulminant hepatic failure:** 0.18  \n- **Primary sclerosing cholangitis:** 0.05  \n- **Toxic exposure:** 0.03  \n(Other collectively: 0.06)\n\nRapidly worsening jaundice with encephalopathy supports **fulminant hepatic failure**, but the **bleeding/petechiae + bone pain** still point strongly to **acute leukemia** (which can also cause liver dysfunction and coagulopathy).\n\n**Question 9:**  \nAny history of **new medications**, **herbal supplements**, **acetaminophen (Tylenol) overdose**, or **possible toxin exposure** in the last month?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t taken any new medications or herbal supplements, and I don’t think I’ve overdosed on Tylenol. I did use cocaine and ecstasy occasionally, and I drink alcohol on weekends, but nothing else unusual.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.40  \n- **Acute myelogenous leukemia:** 0.31  \n- **Fulminant hepatic failure:** 0.20  \n- **Primary sclerosing cholangitis:** 0.05  \n- **Toxic exposure:** 0.04  \n(Other collectively: 0.00)\n\nSubstance use lowers confidence in “toxic exposure” as the primary driver (no clear overdose/med changes), while **acute leukemia with systemic effects** remains most likely. Fulminant hepatic failure remains a key competing diagnosis because of jaundice + encephalopathy.\n\n**Question 10:**  \nHave you had **easy bruising/bleeding before the jaundice started**, or did the bleeding begin around the same time as the yellowing?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had easy bruising/bleeding before the jaundice started, or did the bleeding begin around the same time as the yellowing? Patient: The bruising and nosebleeds seemed to start around the same time as the yellowing, over the past week.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.42  \n- **Acute myelogenous leukemia:** 0.32  \n- **Fulminant hepatic failure:** 0.18  \n- **Primary sclerosing cholangitis:** 0.04  \n- **Toxic exposure:** 0.04  \n\nBleeding and jaundice starting together over ~1 week strongly supports a single unifying process causing **both coagulopathy/thrombocytopenia and liver dysfunction**, which is very consistent with **acute leukemia** (leukemia-associated coagulopathy, hepatic involvement, marrow failure).\n\n**Question 11:**  \nDo you have **shortness of breath, chest pain, or feeling your heart race** (could suggest severe anemia), or is it mainly confusion/agitation and bleeding?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had chest pain or shortness of breath, and I don’t remember my heart racing—mostly it’s confusion, agitation, and the bleeding issues. Doctor: That helps. Next, I’ll examine you and check your vitals—have you noticed your breathing has changed since you arrived, and are you able to follow basic commands right now?",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.44  \n- **Acute myelogenous leukemia:** 0.33  \n- **Fulminant hepatic failure:** 0.19  \n- **Primary sclerosing cholangitis:** 0.02  \n- **Toxic exposure:** 0.02  \n\nWe still don’t have a clear alternative unifying diagnosis. At this point, the key remaining uncertainty is whether the dominant process is **acute leukemia** vs **fulminant hepatic failure** (both can cause encephalopathy and coagulopathy), but the **petechiae/bruising + bone pain** keeps leukemia highest.\n\n**Question 12:**  \nWhen you look at your mouth, do you see **ulcers** or **white patches** (thrush), or is it mostly just gum bleeding?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you look at your mouth, do you see ulcers or white patches (thrush), or is it mostly just gum bleeding? Patient: Mostly it’s my gums bleeding, and I haven’t really noticed any ulcers or white patches in my mouth.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.45  \n- **Acute myelogenous leukemia:** 0.34  \n- **Fulminant hepatic failure:** 0.18  \n- **Primary sclerosing cholangitis:** 0.01  \n- **Toxic exposure:** 0.02  \n\nNo oral ulcers/thrush doesn’t rule out leukemia; it just makes severe neutropenic infection less prominent.\n\n**Question 13:**  \nHave you had **severe nausea/vomiting**, **diarrhea**, or **significant abdominal pain** at any point?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t had severe nausea or vomiting, and no diarrhea or significant abdominal pain that I can recall—I mostly just feel increasingly restless, confused, and the bleeding and jaundice have been getting worse.”",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior probabilities (updated):**\n- **Acute lymphoblastic leukemia:** 0.47  \n- **Acute myelogenous leukemia:** 0.35  \n- **Fulminant hepatic failure:** 0.17  \n- **Primary sclerosing cholangitis:** 0.01  \n- **Toxic exposure:** 0.00  \n\nWith no GI symptoms and a 1-week course of **progressive jaundice + encephalopathy + mucocutaneous bleeding/petechiae**, acute leukemia remains most likely.\n\n**Question 14:**  \nDo you have any history of **bleeding disorders** (e.g., hemophilia), or has anyone told you your **platelets or blood counts** were abnormal before?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have any known history of bleeding disorders, and I’ve never been told before that my blood counts or platelets were abnormal.”",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute lymphoblastic leukemia, Acute myelogenous leukemia, Fulminant hepatic failure, Toxic exposure, Primary sclerosing cholangitis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_set": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure",
+      "Toxic exposure",
+      "Primary sclerosing cholangitis"
+    ],
+    "predicted_raw": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure",
+      "Toxic exposure",
+      "Primary sclerosing cholangitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 35343,
+      "completion_tokens": 2370
+    },
+    "patient": {
+      "prompt_tokens": 26798,
+      "completion_tokens": 677,
+      "calls": 15
+    }
+  }
+}

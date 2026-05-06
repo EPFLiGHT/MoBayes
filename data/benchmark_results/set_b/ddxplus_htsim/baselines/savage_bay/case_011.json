@@ -1,0 +1,179 @@
+{
+  "case_idx": 11,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 63\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough with colored or more abundant sputum than usual, and I’m having shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need one key discriminator first.\n\n**Current posterior (pre-test, rough):**\n- Pneumonia: 0.30  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.15  \n- Bronchospasm / acute asthma exacerbation: 0.15  \n- Pulmonary embolism: 0.10  \n(others lower)\n\n**Question 1 (one at a time):**  \nDo you have a **fever** (measured or felt), and if so how high?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s target another high-yield discriminator.\n\n**Current posterior (updated with “fever unknown”):**\n- Pneumonia: 0.28  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.16  \n- Pulmonary embolism: 0.10  \n\n**Question 2:**  \nWhen you say “shortness of breath,” is it **worse with exertion** or is it **sudden and severe** (peaked quickly, like minutes to an hour)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s in a significant way, but I don’t know whether it’s worse with exertion or if it was sudden and severe.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—next question should help separate infection/COPD/asthma from PE.\n\n**Current posterior (still uncertain about exertional vs sudden):**\n- Pneumonia: 0.28  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.16  \n- Pulmonary embolism: 0.10  \n\n**Question 3:**  \nHave you had **chest pain**—especially **sharp pain that’s worse when you breathe in** (pleuritic), or chest tightness/pressure?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—next question targets wheeze/airway disease vs pneumonia/PE.\n\n**Current posterior (no chest pain info):**\n- Pneumonia: 0.28  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.16  \n- Pulmonary embolism: 0.10  \n\n**Question 4:**  \nDo you have **wheezing** or a **whistling sound when breathing**, or have you needed to use an **inhaler** more than usual?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Alright—next question: risk factors for PE vs infection.\n\n**Current posterior (unchanged):**\n- Pneumonia: 0.28  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.16  \n- Pulmonary embolism: 0.10  \n\n**Question 5:**  \nIn the past few weeks, have you had **leg swelling or pain** (especially one-sided calf/thigh), or have you had **recent travel/immobility** or **surgery**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "We need one more discriminator that’s often very telling.\n\n**Current posterior (still uncertain):**\n- Pneumonia: 0.28  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.16  \n- Pulmonary embolism: 0.10  \n\n**Question 6:**  \nDo you have **any history of COPD or asthma**, or are you a **current/ex-smoker**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have COPD. I don’t know about asthma or whether I’m a current or ex-smoker.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Good—COPD shifts probability toward COPD-related causes.\n\n**Current posterior (updated with COPD history):**\n- Acute COPD exacerbation / infection: 0.45  \n- Pneumonia: 0.25  \n- Bronchitis: 0.10  \n- Bronchospasm / acute asthma exacerbation: 0.05  \n- Pulmonary embolism: 0.15  \n\n(PE still possible given significant dyspnea, but less likely than COPD/infection.)\n\n**Question 7:**  \nHas your breathing gotten worse over **hours to a day**, or is it more **gradual over several days**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Gradual over several days.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern favors infection/COPD over sudden PE.\n\n**Current posterior (updated with “gradual over several days”):**\n- Acute COPD exacerbation / infection: 0.55  \n- Pneumonia: 0.30  \n- Bronchitis: 0.08  \n- Pulmonary embolism: 0.05  \n- Bronchospasm / acute asthma exacerbation: 0.02  \n\n**Question 8:**  \nIs your sputum **newly increased** compared with your baseline COPD sputum, and is it **thicker/darker** than usual?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my cough is producing colored or more abundant sputum than usual, and the shortness of breath is significant.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "That strongly supports infectious trigger of COPD exacerbation vs primary pneumonia.\n\n**Current posterior (updated with “increased colored/thicker sputum”):**\n- Acute COPD exacerbation / infection: 0.70  \n- Pneumonia: 0.22  \n- Bronchitis: 0.05  \n- Pulmonary embolism: 0.02  \n- Bronchospasm / acute asthma exacerbation: 0.01  \n\n**Question 9:**  \nDo you have **fever/chills** or feel “flu-like” (body aches, marked fatigue)? (Yes/No/Not sure)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question to separate pneumonia from “COPD exacerbation from infection” (pneumonia tends to have more focal findings).\n\n**Current posterior (still):**\n- Acute COPD exacerbation / infection: 0.70  \n- Pneumonia: 0.22  \n- Bronchitis: 0.05  \n- Pulmonary embolism: 0.02  \n- Bronchospasm / acute asthma exacerbation: 0.01  \n\n**Question 10:**  \nAny **chest pain** that’s **worse with breathing** or **a specific spot** that hurts, or is it mainly just breathing difficulty and cough?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- Acute COPD exacerbation / infection: 0.70  \n- Pneumonia: 0.22  \n- Bronchitis: 0.05  \n- Pulmonary embolism: 0.02  \n- Bronchospasm / acute asthma exacerbation: 0.01  \n\n**Question 11:**  \nHave you noticed **new/worsening swelling in your legs** or **sudden worsening after a period of being still** (like long travel, bed rest, or recent surgery)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- Acute COPD exacerbation / infection: 0.70  \n- Pneumonia: 0.22  \n- Bronchitis: 0.05  \n- Pulmonary embolism: 0.02  \n- Bronchospasm / acute asthma exacerbation: 0.01  \n\n**Question 12:**  \nDo you have **any history of heart failure** or have you noticed **swelling in your legs** or **worse shortness of breath when lying flat** (needing more pillows)?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Acute COPD exacerbation / infection: 0.70  \n- Pneumonia: 0.22  \n- Bronchitis: 0.05  \n- Pulmonary embolism: 0.02  \n- Bronchospasm / acute asthma exacerbation: 0.01  \n\nI’m not getting enough discriminating info to confidently exclude pneumonia vs COPD exacerbation, but the top possibilities are clear.\n\n**Question 13:**  \nHave you had a **recent change in your usual inhaler/neb use**—for example, needing your rescue inhaler or nebulizer **much more often** than usual?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I still can’t confidently distinguish **COPD exacerbation from infection** vs **pneumonia** (and I’m missing key discriminators like fever, pleuritic chest pain, wheeze, and vitals).  \n[POSSIBLE] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Pulmonary embolism, Bronchospasm / acute asthma exacerbation",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Pulmonary embolism",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 24371,
+      "completion_tokens": 1734
+    },
+    "patient": {}
+  }
+}

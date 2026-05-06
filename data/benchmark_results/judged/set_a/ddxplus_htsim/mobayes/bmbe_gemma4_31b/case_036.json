@@ -1,0 +1,155 @@
+{
+  "case_idx": 36,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: F\nChief Complaint: loss of consciousness",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve lost consciousness. I also have shortness of breath, I’ve been coughing up blood, and I have sharp pain rated about 4/10 that’s in the side of my chest (right and left), scapula (right and left), and posterior chest wall (right and left).",
+      "extracted_features": {
+        "f_e_159": "yes",
+        "f_e_66": "yes",
+        "f_e_45": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_55": "yes",
+        "f_e_55_v_56": "yes",
+        "f_e_57_v_127": "yes",
+        "f_e_57_v_128": "yes",
+        "f_e_55_v_170": "yes",
+        "f_e_57_v_171": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_56": "4"
+      },
+      "top5_posterior": [
+        [
+          "Pulmonary embolism",
+          0.9885435517612792
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.004915403636445657
+        ],
+        [
+          "Pneumonia",
+          0.0023920198719751392
+        ],
+        [
+          "Acute pulmonary edema",
+          0.001968736980405323
+        ],
+        [
+          "Panic attack",
+          0.0003474512496956471
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_196",
+      "doctor_question": "Have you had any surgical procedures within the last month?",
+      "patient_answer": "Yes. I’ve had surgery within the last month.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pulmonary embolism",
+          0.9985256584205001
+        ],
+        [
+          "Pneumonia",
+          0.001283592432118215
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00010343829911311615
+        ]
+      ],
+      "entropy": 0.01727551960773124
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_129",
+      "doctor_question": "Have you noticed any lesions, redness, or other skin changes that you feel might be related to the symptoms you're experiencing?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pulmonary embolism",
+          0.999786793361275
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00010356894137766475
+        ],
+        [
+          "Acute pulmonary edema",
+          4.1481843606862024e-05
+        ]
+      ],
+      "entropy": 0.0034555239590124886
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_216",
+      "doctor_question": "Does the pain get worse when you move around?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pulmonary embolism",
+          0.999786793361275
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00010356894137766475
+        ],
+        [
+          "Acute pulmonary edema",
+          4.1481843606862024e-05
+        ]
+      ],
+      "entropy": 0.0034555239590124886
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_top3": [
+      "Pulmonary embolism",
+      "Spontaneous rib fracture",
+      "Acute pulmonary edema"
+    ],
+    "confidence": 0.999786793361275,
+    "final_entropy": 0.0034555239590124886,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Spontaneous rib fracture",
+      "Acute pulmonary edema"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12142,
+      "completion_tokens": 315
+    },
+    "patient": {}
+  }
+}

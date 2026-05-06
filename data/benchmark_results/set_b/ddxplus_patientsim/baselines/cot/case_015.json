@@ -1,0 +1,101 @@
+{
+  "case_idx": 15,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 53\nSex: Female\nChief Complaint: I have lower chest pain, upper chest pain, and feeling nauseous or do you feel like vomiting",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have really bad lower and upper chest pain, like a heartbreaking, violent, sickening pain. It also goes to my thoracic spine and up to my left scapula, and I feel nauseous with repeated vomiting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe “heartbreaking/violent/sickening” chest pain radiating to thoracic spine and left scapula, with nausea and repeated vomiting. This raises concern for serious cardiopulmonary causes (ACS, pulmonary embolism, aortic catastrophe) and also esophageal causes (e.g., Boerhaave/GERD) and less commonly pericarditis. We need one discriminating feature to narrow quickly.\nTop candidates (provisional):\n1) Possible NSTEMI / STEMI — severe chest pain with nausea/vomiting and radiation to back/scapula can fit.\n2) Unstable angina — similar symptom pattern; may not have ECG/troponin yet.\n3) Pulmonary embolism — can cause severe chest pain and nausea/vomiting; radiation can be atypical.\n4) Pericarditis — chest pain can radiate to back/scapula and be associated with nausea.\n5) Boerhaave — severe pain after vomiting/retching with radiation to back/scapula; but we need timing with vomiting.\nMost informative next question: determine whether the pain started after forceful vomiting/retching (timing strongly discriminates Boerhaave vs cardiac/PE).\n[/REASONING]\nDid the vomiting start *before* the chest pain, or did the chest pain start *first* and then you began vomiting?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The vomiting started before the chest pain. I was feeling like I was going to vomit, and then the chest pain began.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: vomiting/retching began first, then severe chest pain started and radiates to thoracic spine and left scapula; nausea with repeated vomiting. This timing increases concern for an esophageal injury related to vomiting (Boerhaave) and makes pure ACS/PE somewhat less likely (though still possible). Next we should ask about precipitating factors and associated red flags for Boerhaave.\nTop candidates:\n1) Boerhaave — classic: forceful vomiting/retching → sudden severe chest pain, often radiating to back/scapula; can be accompanied by nausea/vomiting.\n2) Possible NSTEMI / STEMI — can cause nausea/vomiting and severe pain; vomiting can be secondary, but here vomiting preceded pain.\n3) Pulmonary embolism — severe chest pain with nausea; vomiting can occur, but vomiting preceding pain is less typical.\n4) Acute pulmonary edema / other cardiopulmonary causes — can cause severe dyspnea and chest discomfort; radiation pattern less specific.\n5) GERD — can cause chest pain and nausea, but “violent/sickening” and radiation to back/scapula after retching is less typical.\nMost informative next question: did you have any difficulty breathing, worsening pain with swallowing, or a “tearing” sudden onset right after vomiting?\n[/REASONING]\nDid the chest pain start suddenly right after the vomiting/retching, and do you have trouble",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it started suddenly right after the vomiting/retching. I don’t know about trouble swallowing, but the pain felt tearing and very sudden.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: vomiting/retching first → sudden onset tearing, very severe chest pain immediately after → radiates to thoracic spine and left scapula; repeated vomiting. This is highly characteristic of Boerhaave syndrome (esophageal rupture) after forceful emesis. Need to assess for associated features that support rupture and for immediate instability.\nTop candidates:\n1) Boerhaave — strong temporal relationship to vomiting, sudden tearing pain, radiation to back/scapula, severe illness.\n2) Possible NSTEMI / STEMI — can be sudden and severe with nausea, but the “after vomiting/tearing” pattern is much more specific for Boerhaave.\n3) Aortic dissection (not in provided list) — tearing sudden chest/back pain; vomiting can occur, but the direct link to retching favors Boerhaave.\n4) Pulmonary embolism — sudden severe chest pain possible, but tearing after vomiting is less typical.\n5) Pericarditis — can be severe and radiate, but sudden tearing right after emesis is less typical.\nMost informative next question: are you short of breath or do you have fever, and have you noticed any swelling in the neck/face (subcutaneous emphysema) or a change in voice?\n[/REASONING]\nAre you having trouble breathing, fever, or any swelling/crepitus in your neck (or a hoarse voice)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m having trouble breathing. I don’t have a fever that I know of, and I haven’t noticed swelling in my neck or a hoarse voice.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: forceful vomiting/retching → sudden tearing severe chest pain radiating to thoracic spine/left scapula; now with dyspnea. Fever/neck swelling/hoarseness absent, which doesn’t rule out Boerhaave. Dyspnea can occur from mediastinal air/pleural effusion or from other cardiopulmonary catastrophes. Next we need to assess hemodynamic/respiratory severity and any cough/hemoptysis, which can support rupture with pleural involvement.\nTop candidates:\n1) Boerhaave — still most likely given classic mechanism and pain quality; dyspnea supports complication (pneumomediastinum/pleural effusion).\n2) Possible NSTEMI / STEMI — dyspnea can occur; but tearing after vomiting is more specific for Boerhaave.\n3) Pulmonary embolism — can cause dyspnea and severe pain; mechanism link to vomiting still makes it less likely.\n4) Acute pulmonary edema — dyspnea prominent, but tearing after vomiting less typical.\n5) Spontaneous pneumothorax — can cause sudden chest pain and dyspnea; vomiting can precipitate cough/strain, but tearing after emesis still points more to Boerhaave.\nMost informative next question: have you had any coughing, especially coughing up blood, or a sudden worsening of pain when you take a deep breath?\n[/REASONING]",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed coughing up blood. But my pain feels like it gets worse when I take a deep breath.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: pleuritic component (worse with deep breath) + dyspnea + classic vomiting→sudden tearing chest pain radiating to back/scapula. This strongly supports Boerhaave with pleural involvement (hydro/pneumothorax) or pneumomediastinum. Need to check for unilateral decreased breath sounds/trauma signs and any fainting/low BP symptoms, but next question should be about whether pain is worse when swallowing (odynophagia) and whether they can tolerate liquids—this is discriminating for esophageal injury.\nTop candidates:\n1) Boerhaave — strongest fit: mechanism, sudden tearing pain, radiation to back/scapula, dyspnea, pleuritic pain.\n2) Pulmonary embolism — pleuritic pain and dyspnea, but vomiting→pain sequence less typical.\n3) Spontaneous pneumothorax — pleuritic pain and dyspnea; vomiting/retching can precipitate, but tearing after vomiting is more esophageal.\n4) Possible NSTEMI / STEMI — can have pleuritic features sometimes, but vomiting→tearing pattern favors Boerhaave.\n5) Acute pulmonary edema — dyspnea, chest discomfort; pleuritic worsening less typical.\nMost informative next question: do you have pain when swallowing or does swallowing make the chest pain worse?\n[/REASONING]\nDoes swallowing (even sips",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—swallowing makes the chest pain worse. Even sips of water make it hurt more.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: classic Boerhaave pattern is now very strong—forceful vomiting/retching → sudden tearing severe chest pain radiating to back/scapula, dyspnea, pleuritic worsening, and odynophagia (pain with swallowing even sips). This is highly suggestive of esophageal rupture. Need to ensure no alternative catastrophic cause dominates, but the mechanism + odynophagia is very discriminating.\nTop candidates:\n1) Boerhaave — best supported by vomiting preceding sudden tearing pain, radiation to back/scapula, dyspnea, pleuritic pain, and pain with swallowing.\n2) Possible NSTEMI / STEMI — nausea/vomiting and severe pain possible, but odynophagia strongly favors esophageal injury.\n3) Pulmonary embolism — pleuritic pain and dyspnea possible, but odynophagia after vomiting is not typical.\n4) Spontaneous pneumothorax — pleuritic pain/dyspnea possible, but swallowing-induced pain is not typical.\n5) Pericarditis — can radiate and cause pleuritic component, but odynophagia after emesis is not typical.\nMost informative next action would be immediate assessment/management, but per instructions we can now provide the differential.\n[/REASONING]\n[DDX] Boerhaave, Possible NSTEMI / STEMI, Pulmonary embolism, Spontaneous pneum",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Boerhaave",
+    "predicted_set": [
+      "Boerhaave",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Spontaneous pneum"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9634,
+      "completion_tokens": 1782
+    },
+    "patient": {
+      "prompt_tokens": 8545,
+      "completion_tokens": 195
+    }
+  }
+}

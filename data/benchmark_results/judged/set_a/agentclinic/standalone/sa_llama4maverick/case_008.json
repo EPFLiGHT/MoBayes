@@ -1,0 +1,117 @@
+{
+  "case_idx": 8,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with complaints of abdominal cramps, nausea, vomiting, and diarrhea which started 2 hours ago. Reports eating reheated food from the afternoon about an hour before symptoms started. Denies any recent travel, sick contacts, or similar symptoms in people around him.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant medical or surgical history.",
+    "Social_History": "College student, reports studying for exams late at night. No recent travel. No history of alcohol or drug abuse.",
+    "Review_of_Systems": "Denies fever, headache, rash, chest pain, dysuria, or cough."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms of food poisoning, taking into account the history of presentation and clinical findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I started about two hours ago with abdominal cramps, along with nausea, vomiting, and diarrhea. I ate reheated food about an hour before it began.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned that you ate reheated food about an hour before your symptoms started. Was the food a leftover, and do you know if anyone else who ate the same food is also experiencing similar symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, it was leftover reheated food. I don’t think anyone else who ate the same portion is sick. I’ve just had the cramps, nausea, vomiting, and diarrhea since it started about two hours ago.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "So, you're the only one who's gotten sick from the leftover food. Can you describe the food you ate in more detail - was it meat, vegetables, or something else, and how was it stored and reheated?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It was mostly reheated rice with some leftover chicken and vegetables; it had been sitting in the fridge overnight, and I warmed it up until it was hot. I don’t know exactly how long it sat out after reheating.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Reheated rice can be a risk factor for certain types of food poisoning. Did you notice any unusual smell or appearance to the rice or chicken when you reheated it or before you ate it?\nThe patient did not mention any unusual smell or appearance. Let's proceed with the next question.\n \nDid you experience any fever or bloody stools along with your symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No fever, and I haven’t noticed any blood in my stools—just watery diarrhea with the cramps, plus nausea and vomiting.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The absence of fever and bloody stools helps to guide the diagnosis. You mentioned that the symptoms started about 2 hours after eating the reheated food. Was the onset of symptoms sudden, or did they gradually worsen over time?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It was pretty sudden—my cramps started first and then the nausea, vomiting, and diarrhea followed pretty quickly, and they’ve been pretty constant since then.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The rapid onset of symptoms after eating the reheated rice with chicken and vegetables is suggestive of a foodborne illness. Given the short incubation period, the presence of abdominal cramps, nausea, vomiting, and diarrhea, and the absence of fever or bloody stools, I'm going to consider the likely causes.\n\n[DDX] Staphylococcus aureus food poisoning, Bacillus cereus (emetic type), Clostridium perfringens food poisoning, Norovirus infection, Salmonella infection\n\nHowever, since the patient specifically mentioned reheated rice and a short incubation period, I'll reorder the list to reflect the most likely causes.\n\n[DDX] Bacillus cereus (emetic type), Staphylococcus aureus food poisoning, Clostridium perfringens food poisoning, Norovirus infection, Salmonella infection",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Bacillus cereus (emetic type)",
+    "predicted_set": [
+      "Bacillus cereus (emetic type)",
+      "Staphylococcus aureus food poisoning",
+      "Clostridium perfringens food poisoning",
+      "Norovirus infection",
+      "Salmonella infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Bacillus cereus infection",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Bacillus cereus infection",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2246,
+      "completion_tokens": 362
+    },
+    "patient": {
+      "prompt_tokens": 2489,
+      "completion_tokens": 219,
+      "calls": 5
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "case_idx": 7,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Disseminated Gonococcal Infection",
+  "patient_actor_hidden": {
+    "Demographics": "17-year-old male",
+    "History": "The patient presents with a 3-day history of pain in his left wrist, which worsened this morning accompanied by chills and malaise. He recounts having a self-resolving left knee pain the previous week. Reports recent return from a camping trip in Minnesota. Sexually active with one female partner. No history of trauma to the wrist.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left wrist",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Malaise",
+        "Painless violaceous vesiculopustular lesions on both wrists and hands",
+        "Swelling and erythema of the left wrist",
+        "Severe tenderness to palpation and passive movement of the left wrist"
+      ]
+    },
+    "Past_Medical_History": "Otherwise healthy with no significant past medical history.",
+    "Social_History": "Admits to being sexually active with one female partner who uses a diaphragm for contraception. Recently went on a camping trip to Minnesota.",
+    "Review_of_Systems": "Denies trauma to the wrist, reports a history of knee pain that resolved on its own. No other systemic symptoms mentioned."
+  },
+  "objective_for_doctor": "Assess and diagnose the young patient presenting with wrist pain, fever, and skin lesions.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had 3 days of worsening pain in my left wrist, and this morning it got much worse with chills and feeling really run-down. My wrists also have painless purple, blister-like bumps on both hands, and my left wrist is swollen, red, and extremely tender even when you move it.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a widespread rash with skin/mucosal blistering or peeling (e.g., mouth/eye sores) after a new medication or infection?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t started any new medications, and I don’t recall any mouth or eye sores or peeling. The skin bumps are painless purple blister-like spots on both wrists/hands, and I’ve just felt chills and really run-down since the wrist pain started.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have skin ulcers/lesions that are painful and rapidly progressive, consistent with pyoderma gangrenosum?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No—the spots on my wrists and hands are painless, purple, and blister-like, not painful open ulcers that rapidly break down. My main pain is in the left wrist, which is swollen, red, and very tender when moved.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Has the patient had a persistent fever and frequent infections (e.g., recurrent skin/lung infections) that suggest an immune deficiency?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had a persistent fever, and I don’t usually get frequent infections. I’ve been otherwise healthy, and this is the first time I’ve had something like this.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have frequent, severe infections with catalase-positive bacteria or fungi (e.g., pneumonia, abscesses, persistent infections) despite treatment?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have a history of frequent severe infections, and I haven’t had pneumonia, abscesses, or persistent infections that keep coming back. This is the first time anything like this has happened to me.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute lymphoblastic leukemia, Acute myelogenous leukemia  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_set": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2826,
+      "completion_tokens": 280,
+      "calls": 5
+    }
+  }
+}

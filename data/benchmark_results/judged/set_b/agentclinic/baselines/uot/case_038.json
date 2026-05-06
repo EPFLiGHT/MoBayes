@@ -1,0 +1,95 @@
+{
+  "case_idx": 38,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Aromatase deficiency",
+  "patient_actor_hidden": {
+    "Demographics": "16-year-old female",
+    "History": "The patient has not experienced menarche. She was noted to have partial labial fusion and clitoromegaly at birth. The patient's mother reports that during pregnancy she had abnormal hair growth on her chin. The patient has a history of severe acne and has sustained fractures following minor trauma. She is currently on oral isotretinoin and an oral contraceptive.",
+    "Symptoms": {
+      "Primary_Symptom": "Delayed menarche",
+      "Secondary_Symptoms": [
+        "Severe acne",
+        "History of fractures following minor trauma",
+        "Partial labial fusion and clitoromegaly noted at birth"
+      ]
+    },
+    "Past_Medical_History": "Currently taking oral isotretinoin for acne and an oral contraceptive.",
+    "Social_History": "The patient is a high school student without significant tobacco, alcohol, or drug use.",
+    "Review_of_Systems": "Denies any recent illnesses, appetite change, or weight change."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the adolescent patient presenting with delayed menarche, unusual physical features, and a history suggestive of bone fragility.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I haven’t started my periods yet, and I’ve also had severe acne and have broken bones from minor trauma. I was told I had partial labial fusion and an enlarged clitoris at birth.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **congenital absence of nerve cells in the colon causing severe constipation/obstruction in a newborn** (i.e., Hirschsprung-type symptoms)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I wasn’t told I had trouble passing stool as a newborn, severe constipation, or any bowel obstruction.” “I mainly came in because I haven’t had my periods yet, along with a history of severe acne and frequent fractures from minor trauma.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Has the patient had abnormal bleeding or easy bruising (e.g., frequent nosebleeds, prolonged bleeding after minor cuts)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t recall abnormal bleeding, easy bruising, or frequent nosebleeds, and minor cuts usually stop bleeding normally. I mainly came in because I haven’t started my periods yet, and I’ve had severe acne and fractures from minor trauma.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hemophilia A  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Hemophilia A",
+    "predicted_set": [
+      "Hemophilia A"
+    ],
+    "predicted_raw": [
+      "Hemophilia A  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Hemophilia A",
+    "predicted_set_remapped": [
+      "Hemophilia A",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1300,
+      "completion_tokens": 170,
+      "calls": 3
+    }
+  }
+}

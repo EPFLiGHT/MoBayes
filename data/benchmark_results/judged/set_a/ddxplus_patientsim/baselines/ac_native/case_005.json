@@ -1,0 +1,74 @@
+{
+  "case_idx": 5,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Acute rhinosinusitis",
+  "objective_for_doctor": "A 74-year-old Female patient presents to the clinic. Chief complaint: I have a fever, a cough, and burning pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a fever and a cough, and I also feel burning pain around my face and head—my forehead, right cheek, and pain that radiates to my temples and back of my head, and it also goes toward my nose. I’d say the pain is about 3/10, and it started pretty fast, maybe within 5/10. I also have greenish or yellowish nasal discharge.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thanks. Do you also have any facial swelling, one-sided worsening, new tooth pain, or bad taste, and have you noticed rash or blisters near your nose/eyelid?  \nDoctor: How long has this been going on, and do you have measured fever (highest temperature) or shortness of breath/wheezing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I have facial swelling on my face, and I don’t have new tooth pain or a bad taste. I haven’t noticed any rash or blisters near my nose or eyelid.  \n\nIt’s been going on for a short time—my symptoms started pretty quickly. I do have a fever, but I haven’t measured the highest temperature today. I don’t have shortness of breath or wheezing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any severe one-sided facial pain that worsens when bending forward, and do you have reduced sense of smell or pain/pressure when you tap your cheek/sinuses? Also, have you had recent dental work or a cold lasting <10 days?  \nDoctor: REQUEST TEST: Rapid_influenza_and_COVID_19_swab  \nDoctor: REQUEST TEST: Sinus_evaluation_if_available (consider nasal endoscopy/CT_sinuses if severe or not improving)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels more on one side and it gets worse when I bend forward. I also feel pressure and pain when I tap around my cheek/sinuses, and I think my sense of smell is reduced.  \n\nI haven’t had dental work, and I’ve had a cold-like illness for less than 10 days.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your rapid onset (<10 days), one-sided facial pressure/pain that worsens when bending forward, cheek/sinus tenderness to tapping, reduced smell, and yellow/green discharge, I’m most concerned for **acute bacterial maxillary sinusitis** (often from bacterial superinfection after a viral URI).  \nDoctor: DIAGNOSIS READY: Acute bacterial rhinosinusitis (likely one-sided maxillary sinusitis)\n\n[ABSTAIN] free-text diagnosis 'Acute bacterial rhinosinusitis (likely one-sided maxillary sinusitis)' did not map to the closed disease set",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1394,
+      "completion_tokens": 269,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 2451,
+      "completion_tokens": 250
+    }
+  }
+}

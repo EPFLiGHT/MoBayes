@@ -1,0 +1,159 @@
+{
+  "case_idx": 28,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 67\nSex: M\nChief Complaint: jaw pain or weakness",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having pain or weakness in my jaw. I also have double vision, difficulty articulating words/speaking, weakness in both arms and/or both legs, and trouble opening/raising one or both eyelids.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. First, to narrow this down: **when did these symptoms start (exact time or how many hours/days ago)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question: **Are these symptoms happening suddenly (minutes to a few hours), or more gradually (over days)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next: **Is the weakness on one side of the body or both sides equally?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Both sides equally—my weakness is in both arms and/or both legs.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next: **Do you have any trouble breathing, swallowing, or a “muffled”/nasal voice?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Do you have any facial droop or numbness, or is it mainly weakness (and the double vision/eyelid trouble)?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have previously, or currently, any weakness/paralysis in one or more of my limbs or in my face.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Is the double vision and eyelid trouble worse at certain times—especially later in the day or after using your eyes/arms more (fatigability)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Do you have any new severe headache, neck stiffness, fever, or recent infection (like a bad cold/flu) in the last 1–2 weeks?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (important for safety): **Are you having any chest pain, shortness of breath, or fainting right now?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Are you currently able to speak normally and swallow liquids without choking?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Have you noticed any new numbness/tingling, or is it purely weakness and eye symptoms?**",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more targeted question to distinguish the most time-critical causes:\n\n**Do you have any symptoms of an allergic reaction right now—hives/itching, lip/tongue swelling, wheezing, or sudden severe itching?**",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I can’t determine the timing (sudden vs gradual), side pattern, or key associated features (breathing/swallowing, headache/fever, fatigability, numbness, allergic symptoms). Those details are essential to distinguish stroke/TIA, myasthenia gravis, Guillain-Barré, and other serious causes.\n\n[POSSIBLE] Myasthenia gravis, Guillain-Barré syndrome, Possible NSTEMI / STEMI, Pulmonary embolism, Anaphylaxis",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Myasthenia gravis",
+      "Guillain-Barré syndrome",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12430,
+      "completion_tokens": 478
+    },
+    "patient": {}
+  }
+}

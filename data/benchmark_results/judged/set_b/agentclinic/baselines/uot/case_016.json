@@ -1,0 +1,116 @@
+{
+  "case_idx": 16,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Acute lymphoblastic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "4-year-old girl",
+    "History": "The patient has been experiencing generalized fatigue and easy bruising for 3 weeks. Over the past week, she has developed a fever and severe leg pain that wakes her up at night.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue and easy bruising",
+      "Secondary_Symptoms": [
+        "Fever",
+        "Severe leg pain that disturbs sleep"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable past medical history.",
+    "Social_History": "Attends preschool. Lives with parents and one younger sibling.",
+    "Review_of_Systems": "Positive for fever, bruising, and bone pain. Denies cough, vomiting, diarrhea, rash, or urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a pediatric patient presenting with a 3-week history of generalized fatigue, easy bruising, fever, and severe leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve felt very tired for about three weeks, and I’ve been bruising easily. Over the last week I’ve had a fever, and my leg pain has been so bad it wakes me up at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever with painful skin lesions/ulcers** (e.g., pustules, necrotic or gangrenous skin findings)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have any painful skin lesions, ulcers, or rash that I’ve noticed. Just the fever and the very bad leg pain with bruising and feeling tired.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you developed a painful eye redness with a corneal ulcer (open sore on the cornea) that is worsening?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any painful or red eyes, and I haven’t noticed any sores in my eyes.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have painful, rapidly progressive skin ulcers with a purulent (pus-like) border that worsen after minor trauma (pathergy)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any skin ulcers or open sores, and nothing like that happened after minor bumps or trauma.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever with a widespread rash or skin lesions (e.g., painful spots/blisters) plus joint pain or swelling?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t noticed any rash, blisters, or skin spots—just the fever, my bruising, and the severe leg pain that wakes me up at night. I don’t think I have joint swelling or pain either.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Disseminated Gonococcal Infection, Steven-Johnson syndrome  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Disseminated Gonococcal Infection",
+    "predicted_set": [
+      "Disseminated Gonococcal Infection",
+      "Steven-Johnson syndrome"
+    ],
+    "predicted_raw": [
+      "Disseminated Gonococcal Infection",
+      "Steven-Johnson syndrome  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Disseminated Gonococcal Infection",
+    "predicted_set_remapped": [
+      "Disseminated Gonococcal Infection",
+      "Steven-Johnson syndrome",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2135,
+      "completion_tokens": 185,
+      "calls": 5
+    }
+  }
+}

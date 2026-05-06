@@ -1,0 +1,95 @@
+{
+  "case_idx": 37,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Chronic rhinosinusitis",
+  "objective_for_doctor": "A 71-year-old Female patient presents to the clinic. Chief complaint: I have a cough, burning pain, and sharp pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a cough, and also burning and sharp pains around my face and head—my forehead, both cheeks, and the back of my head that radiates to my left temple. I also lost my sense of smell.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have you had the cough and the facial/head burning/sharp pain, and is the pain one-sided or affecting both sides? Also, do you have any nasal congestion or visible nasal/face sores or blisters?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The symptoms started pretty gradually over a couple days (about speed 2/10), and I’d say it’s been going on since the cold I had in the last two weeks. The pain is on both sides of my face—forehead and both cheeks—and then it radiates toward my left temple. I don’t have nasal congestion or any visible sores or blisters that I can see.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—do you have any fever, worsening headache, or sensitivity to light, and have you noticed new rash/skin pain around the left temple/forehead even if you don’t see blisters? Also, is the cough dry or productive (any sputum, blood, or shortness of breath)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever—nothing that I’ve noticed. I also don’t have sensitivity to light, and I haven’t noticed any rash. The cough has been there, but it’s not bringing up sputum or blood, and I’m not short of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—any numbness/tingling, weakness, or trouble speaking/seeing; and do you have jaw pain when chewing or pain/tenderness over your temples? Also, have you had any recent dental problems or ear pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No numbness or tingling, no weakness, and no trouble speaking or seeing. I do have pain/tenderness around my temples, but I don’t have jaw pain when chewing, and I haven’t had any dental problems or ear pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—have you had pain that’s worse on one side or a “band” of skin tenderness, and did you recently have any itchy skin or scalp pain before the burning started? Also, have you had any runny nose or tearing, and are you currently on any steroids or have immune problems?\n\nDoctor: REQUEST TEST: CBC_with_diff; CRP/ESR. REQUEST TEST: CT_head_orbits_sinuses_if_available. REQUEST TEST: Nasal_swab_or_RSV_Influenza_COVID_PCR (or rapid panel)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s affecting both sides of my face, not really one side more, and I don’t have a band-like skin tenderness. I didn’t have itchy skin or scalp pain before the burning started. I also don’t have runny nose or tearing that I’ve noticed, and I’m not on any steroids or have immune problems.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you lost your sense of smell and have facial/head burning plus cough after a recent cold, can you tell me if you have any nasal symptoms at all (post-nasal drip, thick discharge), and whether the facial pain gets worse when you bend forward or when tapping over your sinuses? Also, do you have any tooth pain or fever/chills?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had nasal symptoms—thick discharge and post-nasal drip. The facial pain feels worse when I bend forward, and it’s tender when you tap over my sinuses. I don’t have tooth pain, and I haven’t noticed fever or chills.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—based on facial burning/sharp pain worse when bending forward with sinus tenderness, thick discharge/post-nasal drip, and cough after a recent cold, this most strongly suggests acute bacterial rhinosinusitis (with possible spread/complicated sinusitis). DIAGNOSIS READY: Acute bacterial rhinosinusitis (acute maxillary/frontal sinusitis)\n\n[ABSTAIN] free-text diagnosis 'Acute bacterial rhinosinusitis (acute maxillary/frontal sinusitis)' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3549,
+      "completion_tokens": 464,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6094,
+      "completion_tokens": 375
+    }
+  }
+}

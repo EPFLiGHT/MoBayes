@@ -1,0 +1,132 @@
+{
+  "case_idx": 19,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Toxic exposure",
+  "patient_actor_hidden": {
+    "Demographics": "52-year-old male",
+    "History": "The patient describes a continuous 'nagging' headache for the past month, initially thought to be related to a cold. Over-the-counter ibuprofen provided only mild and temporary relief. Recently, has experienced dizziness and nausea, notably improving when outside in cold air. The patient has been staying in a cabin for 5 weeks and reports no significant travel.",
+    "Symptoms": {
+      "Primary_Symptom": "Persistent headache",
+      "Secondary_Symptoms": [
+        "Dizziness",
+        "Nausea",
+        "Temporary relief upon exposure to cold air"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, type II diabetes mellitus, and asthma.",
+    "Current_Medications": [
+      "Amlodipine",
+      "Metformin",
+      "Glimepiride",
+      "Fluticasone/Salmeterol inhaler"
+    ],
+    "Social_History": "Denies tobacco or illicit drug use.",
+    "Review_of_Systems": "Currently asymptomatic in the office; no fever, cough, chest pain, or recent changes in vision or hearing."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with headache and dizziness.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, I need to understand your symptoms: when did the headache and dizziness start, and are they sudden (“thunderclap”) or gradual? Doctor: Also, is there fever, neck stiffness, fainting, weakness/numbness on one side, trouble speaking, or vision loss?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: The headache started about a month ago and has been continuous and nagging, not sudden. The dizziness and nausea have come on more recently, and I haven’t had fever, neck stiffness, fainting, one-sided weakness or numbness, trouble speaking, or any vision loss."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—since it’s been continuous for a month (not thunderclap) without neuro deficits or fever, I’m concerned about causes like migraine/chronic tension headache or less commonly medication/caffeine-related headache; do you have any pattern with stress, sleep changes, or specific triggers, and does light/sound make it worse? Doctor: Also, what medicines or supplements are you taking (including pain relievers), and how often per week?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I don’t notice a clear pattern with stress, but my sleep has been a bit irregular since I’ve been in the cabin, and light and sound do seem to make the headache feel worse. I take ibuprofen occasionally for it—maybe a few times a week—and I haven’t added any supplements."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Any chance you could describe the headache location and quality (e.g., one-sided/throbbing vs band-like/pressure), and rate severity 0–10; also, do you get any nausea/vomiting, or visual symptoms (aura, flashing lights, blind spots) with it? Doctor: REQUEST TEST: Basic_Vitals_BP, temp, orthostatics Doctor: REQUEST TEST: Neurologic_Exam (brief: cranial nerves, gait, finger-nose)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Vital Signs—Temperature 99°F (37.2°C), Blood Pressure 130/78 mmHg, Heart Rate 72 bpm, Respiratory Rate 16 breaths/min, Oxygen Saturation 98% on room air. Neurologic Exam—Mental status: Alert and oriented x3; Cranial nerves: Intact; Motor: Strength 5/5 in all extremities; Sensory: Intact to light touch; Coordination: No ataxia or dysmetria; Reflexes: 2+ and symmetric. CBC—Hemoglobin 20 g/dL (elevated), Hematocrit 60% (elevated), WBC 10,050 cells/mm³ with normal differential, Platelets 350,000/mm³."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Thank you—your exam and vitals are reassuring, but the **high hemoglobin/hematocrit** (Hgb 20, Hct 60) raises concern for **polycythemia** causing headache/dizziness via increased blood viscosity; next, do you **smoke or live at high altitude**, and is there any **itching after hot showers**, or known low oxygen (snoring/sleep apnea) or lung/heart disease? Doctor: Also, any **new or worsening headaches with exertion**, red/blue discoloration, or clots/stroke-like episodes?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "patient",
+      "content": "Patient: I don’t smoke, and I don’t know if the cabin is at high altitude. I haven’t noticed itching after hot showers, and I don’t think I have snoring or diagnosed sleep apnea. I don’t have any clots or stroke-like episodes, and the headache feels pretty constant rather than triggered by exertion."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Given your month-long constant headache with newer dizziness/nausea, plus markedly high hemoglobin/hematocrit, the leading concern is **polycythemia (true polycythemia vera vs secondary causes like chronic low oxygen)** causing hyperviscosity symptoms. Do you have **unintentional weight loss, night sweats, early fullness**, or **an enlarged spleen** ever mentioned, and have you had **recent CO exposure** or any **carbon-monoxide detectors/heaters issues** at home? Doctor: Also, any **leg swelling/pain**, **shortness of breath**, or **head redness/itching (aquagenic pruritus)**? Doctor: REQUEST TEST: Erythropoietin_(EPO) Doctor: REQUEST TEST: JAK2_V617F_and_exon12 Doctor: REQUEST TEST: Pulse_Oximetry_at_rest_and_with_walk_test + Carboxyhemoglobin_(COHb)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "measurement",
+      "content": "RESULTS: - Basic_Vitals_BP: 130/78 mmHg - Temperature: 99°F (37.2°C) - Heart Rate: 72 bpm - Respiratory Rate: 16 breaths/min - Oxygen Saturation: 98% on room air - Neurologic_Exam: Alert and oriented x3; cranial nerves intact; motor 5/5 in all extremities; sensory intact to light touch; coordination without ataxia/dysmetria; reflexes 2+ and symmetric. - CBC: Hemoglobin 20 g/dL (elevated), Hematocrit 60% (elevated), WBC 10,050 cells/mm³ (normal differential), Platelets 350,000/mm³. NORMAL READINGS (not provided/available): Erythropoietin_(EPO), JAK2_V617F_and_exon12, Pulse_Oxim"
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Your oxygenation is normal and we’re still missing the key results (EPO level, JAK2 mutation testing, and CO exposure/carboxyhemoglobin), but with **Hgb 20 and Hct 60** plus persistent headache/dizziness, I’m highly concerned for **polycythemia causing hyperviscosity**—could you confirm your **age**, any **smoking/vaping or testosterone/androgen use**, and whether you have **leg pain/swelling or shortness of breath**? Doctor: Also, do you have **unintentional weight loss, night sweats, itching after hot showers, or a history of high-altitude travel**? DIAGNOSIS READY: Polycythemia (likely true polycythemia vera vs secondary polycythemia)—causing hyperviscosity headache/dizziness; pending EPO/JAK2/CO-oximetry to subtype.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Your oxygenation is normal and we’re still missing the key results (EPO level, JAK2 mutation testing, and CO exposure/carboxyhemoglobin), but with **Hgb 20 and Hct 60** plus persistent headache/dizziness, I’m highly concerned for **polycythemia causing hyperviscosity**—could you confirm your **age**, any **smoking/vaping or testosterone/androgen use**, and whether you have **leg pain/swelling or shortness of breath**? Doctor: Also, do you have **unintentional weight loss, night sweats, itching after hot showers, or a history of high-altitude travel**? DIAGNOSIS READY: Polycythemia (likely true polycythemia vera vs secondary polycythemia)—causing hyperviscosity headache/dizziness; pending EPO/JAK2/CO-oximetry to subtype.",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3973,
+      "completion_tokens": 795,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 1879,
+      "completion_tokens": 198,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 1450,
+      "completion_tokens": 362,
+      "calls": 2
+    },
+    "moderator": {
+      "prompt_tokens": 251,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

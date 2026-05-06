@@ -1,0 +1,84 @@
+{
+  "case_idx": 41,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient is a retired professional athlete who has been experiencing bilateral wrist and knee pain for the last 10 years. He reports morning stiffness in his joints lasting about 50 minutes but denies any joint swelling, color changes in digits, or dryness of mucous membranes. He also denies any constitutional symptoms such as fever or chills.",
+    "Symptoms": {
+      "Primary_Symptom": "Bilateral wrist and knee pain",
+      "Secondary_Symptoms": [
+        "Morning stiffness lasting about 50 minutes",
+        "No joint swelling",
+        "No color changes in digits",
+        "No dryness of mucous membranes",
+        "No fever or chills"
+      ]
+    },
+    "Past_Medical_History": "History of being a professional athlete. No significant past medical history reported.",
+    "Social_History": "Retired, does not smoke or drink alcohol excessively.",
+    "Review_of_Systems": "Systemic review is otherwise unremarkable."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with long-term bilateral wrist and knee pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the past 10 years I’ve had pain in both wrists and knees, and I usually feel stiff in the morning for about 50 minutes before it eases. I don’t notice any swelling, color changes in my fingers, dryness of my mouth/eyes, or any fever or chills.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **psoriatic arthritis**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are you experiencing psoriatic arthritis? Patient: I’m not aware of having psoriasis or a history of skin or nail changes, and I haven’t noticed any swelling or color changes in my fingers. My main issue has been the long-term wrist and knee pain with morning stiffness that lasts about 50 minutes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteoarthritis, Psoriatic arthritis  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_set": [
+      "Osteoarthritis",
+      "Psoriatic arthritis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Osteoarthritis",
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Psoriatic arthritis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 753,
+      "completion_tokens": 149,
+      "calls": 2
+    }
+  }
+}

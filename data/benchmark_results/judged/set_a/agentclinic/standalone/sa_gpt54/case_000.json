@@ -1,0 +1,146 @@
+{
+  "case_idx": 0,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old woman",
+    "History": "The patient has been in home hospice care and has experienced a recent change in mental status, showing signs of confusion and an inability to communicate her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status with confusion",
+      "Secondary_Symptoms": [
+        "Elevated temperature",
+        "Discomfort in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is in home hospice, indicating a history of significant chronic illness, though specifics are not provided. No explicit history of gallbladder disease mentioned.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "Unable to complete due to patient's altered mental state."
+  },
+  "objective_for_doctor": "Evaluate and manage a senior patient presenting with altered mental status and abdominal pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve been feeling confused and I can’t really explain what’s wrong. I’ve also had a fever, and I feel discomfort in the right upper part of my abdomen.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "When did these symptoms start, and did the confusion and fever come on suddenly or gradually?\nWhen did these symptoms start, and did the confusion and fever come on suddenly or gradually?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They started a couple of days ago, and the confusion seemed to come on more suddenly. The fever came around the same time.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any yellowing of your eyes or skin, dark urine, or pale stools?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t think my eyes or skin have turned yellow, but I’m not sure. I haven’t noticed dark urine or pale stools either, though I may not be able to tell clearly.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Are you having any nausea or vomiting, and is the right upper abdominal discomfort more like pain or just pressure?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I'm not really sure about nausea or vomiting because I’ve been so confused, but I don’t recall vomiting. The discomfort in my right upper abdomen feels more like pain than pressure.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have shaking chills or rigors?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve felt very hot and unwell, but I don’t recall shaking chills or anything like rigors. If I was cold or shivering, I may not have noticed because I’ve been so confused.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent gallstones, prior gallbladder problems, liver disease, heavy alcohol use, or recent procedures like an ERCP or abdominal surgery?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t know of any gallstones or prior gallbladder problems, and I haven’t had any recent procedures or abdominal surgery—at least none I’m aware of. I don’t think I have liver disease or heavy alcohol use, but I may not be recalling everything correctly because I’m so confused.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Any cough, shortness of breath, painful urination, severe headache, neck stiffness, or recent falls/head injury?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have a cough or shortness of breath that I can tell, and I’m not having burning pain with urination. I don’t think I’ve had a severe headache or neck stiffness, and I haven’t had any falls or head injuries recently.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Do you know if your blood pressure has been low, or have you felt faint, very weak, or had a racing heartbeat?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t know my blood pressure, but I’ve felt very weak and out of sorts. I don’t think I’ve been faint, and I can’t tell if my heart has been racing because my confusion makes it hard to notice.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute cholangitis, acute cholecystitis with sepsis/delirium, pyogenic liver abscess, acute hepatitis, sepsis of another source causing delirium\n\nThe combination of fever, sudden confusion, and right upper quadrant pain is most concerning for a biliary infection, especially acute cholangitis, even without clear jaundice. Confusion can reflect sepsis or hypotension, and this pattern is serious enough to need urgent in-person evaluation.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Acute cholangitis",
+    "predicted_set": [
+      "Acute cholangitis",
+      "acute cholecystitis with sepsis/delirium",
+      "pyogenic liver abscess",
+      "acute hepatitis",
+      "sepsis of another source causing delirium\n\nThe combination of fever"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3935,
+      "completion_tokens": 297
+    },
+    "patient": {
+      "prompt_tokens": 4065,
+      "completion_tokens": 369,
+      "calls": 8
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "case_idx": 0,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Seborrheic keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "77-year-old male",
+    "History": "The patient reports the recent appearance of several brown, greasy, seemingly superficial lesions on his forehead. He mentions they appeared a few weeks ago and has not noticed any recent changes in size or color. He attempted to scrape them off, assuming they were dirt or a smear, but they persisted. No itching or pain is associated with the lesions.",
+    "Symptoms": {
+      "Primary_Symptom": "Brown, greasy-appearing lesions on forehead",
+      "Secondary_Symptoms": [
+        "Attempts to remove lesions unsuccessful",
+        "No associated pain or itching"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, controlled with medication. No history of skin cancer or chronic skin diseases.",
+    "Social_History": "Retired school teacher. Non-smoker. Enjoys gardening and spends time outdoors.",
+    "Review_of_Systems": "Denies weight loss, fever, night sweats, or any recent illnesses."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with skin lesions on the forehead.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve noticed several brown, greasy-looking spots on my forehead that came on a few weeks ago. I tried scraping them off like they were smudges, but they wouldn’t come away, and they don’t itch or hurt.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **seborrheic dermatitis**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are you experiencing seborrheic dermatitis? Patient: I don’t have scalp flaking or redness, and these spots are mainly on my forehead. They’re brown and look kind of greasy, and they don’t itch or hurt.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Seborrheic dermatitis, Seborrheic keratosis  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Seborrheic dermatitis",
+    "predicted_set": [
+      "Seborrheic dermatitis",
+      "Seborrheic keratosis"
+    ],
+    "predicted_raw": [
+      "Seborrheic dermatitis",
+      "Seborrheic keratosis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Seborrheic dermatitis",
+    "predicted_set_remapped": [
+      "Seborrheic dermatitis",
+      "Seborrheic keratosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 744,
+      "completion_tokens": 122,
+      "calls": 2
+    }
+  }
+}

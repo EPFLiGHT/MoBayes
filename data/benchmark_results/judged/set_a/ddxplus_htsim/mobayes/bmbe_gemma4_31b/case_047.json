@@ -1,0 +1,155 @@
+{
+  "case_idx": 47,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: F\nChief Complaint: nasal congestion",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I have nasal congestion or a clear runny nose, and I’ve been coughing up blood. I also have pain related to why I’m consulting—on a scale of 0–10 it’s 4—and it’s sensitive. The pain is in my right and left tonsils, my palate, my pharynx, and under my jaw. I smoke cigarettes, and I’ve been in contact with a person with similar symptoms in the past 2 weeks.",
+      "extracted_features": {
+        "f_e_181": "yes",
+        "f_e_45": "yes",
+        "f_e_53": "yes",
+        "f_e_56": "4",
+        "f_e_54_v_161": "yes",
+        "f_e_55_v_21": "yes",
+        "f_e_55_v_20": "yes",
+        "f_e_55_v_137": "yes",
+        "f_e_55_v_148": "yes",
+        "f_e_57_v_163": "yes",
+        "f_ant_e_79": "yes",
+        "f_ant_e_41": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Viral pharyngitis",
+          0.9813760959247932
+        ],
+        [
+          "Acute laryngitis",
+          0.012550751691810458
+        ],
+        [
+          "Epiglottitis",
+          0.0018733140024162474
+        ],
+        [
+          "URTI",
+          0.001072813289025146
+        ],
+        [
+          "Influenza",
+          0.0007447218309769651
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_181",
+      "doctor_question": "Does the pain feel like a burning sensation?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Viral pharyngitis",
+          0.9515123150072071
+        ],
+        [
+          "Acute laryngitis",
+          0.01717951883654799
+        ],
+        [
+          "Epiglottitis",
+          0.010684165240171312
+        ]
+      ],
+      "entropy": 0.4284827780172105
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_33",
+      "doctor_question": "Are you experiencing any pain or tenderness in the front of your neck, specifically around the area of your Adam's apple?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Viral pharyngitis",
+          0.8339481614118269
+        ],
+        [
+          "Epiglottitis",
+          0.04459086975209927
+        ],
+        [
+          "Acute laryngitis",
+          0.035849767839792615
+        ]
+      ],
+      "entropy": 1.200857790012671
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_49",
+      "doctor_question": "Do you currently work in or attend a daycare center?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Viral pharyngitis",
+          0.6511297653141274
+        ],
+        [
+          "Epiglottitis",
+          0.12005394588061008
+        ],
+        [
+          "Influenza",
+          0.04772653931850095
+        ]
+      ],
+      "entropy": 2.1450075219384797
+    }
+  ],
+  "final": {
+    "predicted": "Viral pharyngitis",
+    "predicted_top3": [
+      "Viral pharyngitis",
+      "Epiglottitis",
+      "Influenza"
+    ],
+    "confidence": 0.6511297653141274,
+    "final_entropy": 2.1450075219384797,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Viral pharyngitis",
+    "predicted_set_remapped": [
+      "Viral pharyngitis",
+      "Epiglottitis",
+      "Influenza"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11560,
+      "completion_tokens": 307
+    },
+    "patient": {}
+  }
+}

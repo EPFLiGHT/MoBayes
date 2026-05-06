@@ -1,0 +1,124 @@
+{
+  "case_idx": 48,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache three days after undergoing an open cholecystectomy. She mentions right-sided chest pain that increases on inspiration and has had a productive cough for the last 12 hours. She also had an episode of hypotension post-operation that was resolved with IV fluids. Additionally, she had an abdominal hysterectomy 16 years ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fever and productive cough",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Headache",
+        "Right-sided chest pain that increases on inspiration"
+      ]
+    },
+    "Past_Medical_History": "Underwent abdominal hysterectomy 16 years ago for multiple fibroids of the uterus. She has a 17-year history of smoking one pack of cigarettes daily.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 17 years.",
+    "Review_of_Systems": "Reports discomfort. No other abnormalities noted apart from the symptoms related to her recent surgery and current complaints."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fever, chills, headache, right-sided chest pain, and a productive cough following an abdominal surgery.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had fever and chills with a headache since three days after my open gallbladder surgery, and I also developed right-sided chest pain that gets worse when I take a deep breath. I’ve had a productive cough for about the last 12 hours too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe the color and consistency of the sputum you're coughing up?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m coughing up thick, yellow-green sputum, and it feels fairly heavy and sticky when it comes up. It’s been increasing over the last 12 hours.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any shortness of breath or difficulty breathing, even at rest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I do feel short of breath when I move around or take a deep breath, and the chest pain makes it harder to breathe comfortably, but I’m not struggling to breathe at rest.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swelling, tenderness, warmth, or redness in either of your legs, particularly in the calves?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any swelling, redness, or warmth in either of my legs, and my calves don’t feel tender. I only feel worse with movement because of the chest pain and the cough.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Were you intubated or placed on a mechanical ventilator during or immediately after your surgery?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Yes—I was on a ventilator for a short period right after the open surgery, but I was taken off the machine fairly soon and haven’t been intubated since then.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hospital-acquired pneumonia, Pulmonary embolism, Postoperative atelectasis with secondary infection, Subphrenic abscess, Surgical site infection",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Hospital-acquired pneumonia",
+    "predicted_set": [
+      "Hospital-acquired pneumonia",
+      "Pulmonary embolism",
+      "Postoperative atelectasis with secondary infection",
+      "Subphrenic abscess",
+      "Surgical site infection"
+    ],
+    "predicted_raw": [
+      "Hospital-acquired pneumonia",
+      "Pulmonary embolism",
+      "Postoperative atelectasis with secondary infection",
+      "Subphrenic abscess",
+      "Surgical site infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2030,
+      "completion_tokens": 10085
+    },
+    "patient": {
+      "prompt_tokens": 2465,
+      "completion_tokens": 234,
+      "calls": 5
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "case_idx": 18,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 4\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, a clear runny nose or nasal congestion, and I make a high-pitched sound when breathing in. My symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever + clear runny nose/nasal congestion (URI-type symptoms) + high-pitched sound when breathing in (could be stridor) worse at night (suggests upper-airway involvement, possibly croup/epiglottitis/other laryngeal process, or less likely allergic/GERD-related laryngeal irritation).\nTop candidates:\n1) Croup — classically causes inspiratory stridor, often worse at night; typically follows viral URI with fever/congestion.\n2) Epiglottitis — can cause inspiratory stridor and fever, but is usually more severe/toxic and often rapid progression; still important to consider.\n3) Acute laryngitis — can cause hoarseness/upper airway symptoms; stridor is less typical but possible with significant laryngeal inflammation.\n4) Acute rhinosinusitis / Allergic sinusitis — can cause nasal congestion and fever (more for infectious), but stridor is not typical.\n5) GERD — can worsen at night and cause laryngeal symptoms, but fever and inspiratory stridor are less consistent.\nMost informative next question: determine whether the patient has drooling/struggling to swallow and how toxic/ill they look, to separate epiglottitis from croup.\n[/REASONING]\nDo you have trouble swallowing or drooling (saliva), and does it feel like you’re very ill/toxic or",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’ve noticed that I produce more saliva than usual.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + URI symptoms (clear runny nose/nasal congestion) + inspiratory high-pitched sound (likely stridor) worse at night + increased saliva/drooling.\nTop candidates:\n1) Epiglottitis — drooling/hypersalivation + fever + inspiratory stridor strongly support; can follow URI symptoms and can be rapidly progressive.\n2) Croup — can cause inspiratory stridor and fever after viral URI; drooling can occur but is less classic than epiglottitis.\n3) Acute laryngitis — fever/URI with possible upper airway noise; drooling is less typical.\n4) Epiglottitis vs croup are the key discriminators; next question should assess severity/toxic appearance and ability to swallow/voice changes.\nMost informative next action: ask about how the voice sounds and whether swallowing is difficult (odynophagia/dysphagia) and whether the patient is in respiratory distress.\n[/REASONING]\nAre you having difficulty swallowing (pain or food/liquid “going down the wrong way”) or muffled “hot potato” voice, and are you struggling to breathe right now?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nMy vaccinations are up to date, and my symptoms are more prominent at night.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + clear rhinorrhea/nasal congestion + inspiratory high-pitched sound worse at night + increased saliva/drooling. Vaccinations up to date (reduces but does not eliminate epiglottitis risk). Patient unsure about swallowing/voice and breathing status.\nTop candidates:\n1) Croup — inspiratory stridor, worse at night, often after viral URI; drooling can happen but classic is hoarse voice/cough.\n2) Epiglottitis — drooling + fever + stridor are concerning; vaccination reduces likelihood but severity risk remains.\n3) Acute laryngitis — fever/URI with possible stridor; drooling less typical.\n4) GERD — worse at night, laryngeal symptoms possible, but fever and drooling/stridor make infection more likely.\n5) Acute pulmonary edema/other lower airway causes — unlikely given inspiratory stridor pattern.\nMost informative next question: assess for the classic croup features—cough/hoarseness—and whether there’s a “barking” cough.\n[/REASONING]\nDo you have a hoarse voice or a “barking” cough (especially when the breathing noise happens)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nMy symptoms are more prominent at night, and I’ve had a fever with nasal congestion or a clear runny nose.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever + clear runny nose/nasal congestion (viral URI pattern) + inspiratory high-pitched sound (stridor) worse at night + increased saliva/drooling. Vaccinations up to date. Patient unsure about swallowing/voice/cough specifics.\nTop candidates:\n1) Epiglottitis — drooling/hypersalivation + fever + inspiratory stridor are the most concerning combination; vaccination lowers risk but doesn’t eliminate it.\n2) Croup — viral URI prodrome with inspiratory stridor that can worsen at night; drooling is less classic but can occur.\n3) Acute laryngitis — fever/URI with possible upper-airway noise; drooling/stridor makes this less likely than the two above.\n4) GERD — can worsen at night and cause laryngeal symptoms, but fever and drooling/stridor point more toward infection.\n5) Acute rhinosinusitis — explains fever/congestion but not inspiratory stridor/drooling.\nMost informative next question: determine current severity/respiratory distress (stridor at rest vs only with agitation), which helps triage epiglottitis vs croup and urgency.\n[/REASONING]\nRight now, is the high-pitched breathing sound happening when you’re resting/lying still, or only when you’re crying/active?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating information about severity (stridor at rest vs only with agitation), voice/cough characteristics, or swallowing/ability to handle secretions to confidently distinguish epiglottitis from croup or other causes of inspiratory stridor.  \n[POSSIBLE] Epiglottitis, Croup, Acute laryngitis, GERD, Acute rhinosinusitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Epiglottitis",
+      "Croup",
+      "Acute laryngitis",
+      "GERD",
+      "Acute rhinosinusitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6813,
+      "completion_tokens": 1165
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "case_idx": 13,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 3\nSex: Female\nChief Complaint: I have a fever, a cough, and tedious pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have a fever and a cough, and I also have a lot of pain with my head—my forehead and both temples, and the top of my head. I’ve also had a sore throat and a runny nose or nasal congestion, and I’m sweating more than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever + cough + sore throat + runny nose/nasal congestion + sweating; prominent head pain in forehead/temples/top of head. This sounds like an acute upper respiratory infection, possibly viral (influenza/URTI) or sinus-related. Serious causes like pneumonia, meningitis, or epiglottitis are not yet supported, but we need to clarify severity and red flags.\nTop candidates (provisional):\n1) Influenza — fever, sweating, prominent headache, cough, sore throat, congestion.\n2) URTI (viral) — combination of fever, cough, sore throat, rhinorrhea/congestion.\n3) Acute rhinosinusitis — forehead/temple pain with nasal congestion; may have fever and cough from post-nasal drip.\n4) Pneumonia — cough + fever, but no chest symptoms (dyspnea, focal chest pain) yet.\n5) Acute laryngitis/viral pharyngitis — sore throat with cough, but headache/sinus-type pain suggests broader URI.\nMost informative next question: determine whether the headache is severe with neurologic/meningeal red flags (neck stiffness, confusion) to avoid missing dangerous diagnoses.\n[/REASONING]\nDo you have any neck stiffness (pain when you try to touch your chin to your chest), confusion, or sensitivity to light?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t think so. I’m not confused, and I don’t have sensitivity to light that I know of. My neck feels okay—no stiffness when I move it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough + sore throat + congestion/rhinorrhea; headache localized to forehead/temples/top of head; no confusion, no photophobia, and neck feels okay without stiffness. This lowers concern for meningitis/encephalitis.\nTop candidates:\n1) Influenza — still very plausible given systemic symptoms (fever, sweating) plus cough and headache.\n2) URTI (viral) — also fits well with sore throat, runny nose, cough, fever.\n3) Acute rhinosinusitis — forehead/temple pain with nasal congestion; could be viral sinusitis.\n4) Pneumonia — less likely without shortness of breath or chest pain yet, but still possible.\n5) Acute laryngitis/viral pharyngitis — sore throat + cough, but headache/sinus pain suggests more than isolated laryngeal illness.\nMost informative next question: ask about shortness of breath or chest pain to screen for pneumonia/bronchitis severity.\n[/REASONING]\nDo you have any shortness of breath, wheezing, or chest pain when you breathe or cough?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath, wheezing, or chest pain. My main problems are the fever, cough, sore throat, and the head pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no dyspnea/wheezing/chest pain; prominent fever, cough, sore throat, congestion/rhinorrhea, and headache. This strongly favors an uncomplicated viral respiratory illness.\nTop candidates:\n1) Influenza — systemic symptoms (fever, sweating) + cough + headache + sore throat/congestion.\n2) URTI (viral) — fits overall symptom cluster.\n3) Acute rhinosinusitis — forehead/temple pain with nasal congestion; could be viral sinusitis.\n4) Viral pharyngitis — sore throat prominent, but cough/congestion and headache suggest broader URI.\n5) Acute laryngitis — less likely if headache/sinus-type pain is prominent.\nMost informative next question: ask about how quickly symptoms started and whether there’s body aches (myalgias), which helps distinguish influenza from generic URTI.\n[/REASONING]\nDid this come on suddenly (within 24 hours) and do you have significant body aches or muscle pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about the exact timing, but it didn’t feel sudden within a day. I don’t know if I have body aches or muscle pain—I mainly feel the fever, cough, sore throat, and the head pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: onset not clearly sudden; no clear myalgias; fever/cough/sore throat/congestion with headache. This makes influenza possible but slightly less classic; generic viral URTI remains most likely.\nTop candidates:\n1) URTI (viral) — broad fit: fever, cough, sore throat, rhinorrhea/congestion, headache.\n2) Influenza — still possible given fever/sweats/headache/cough, but timing/myalgias not clear.\n3) Acute rhinosinusitis — forehead/temple pain with nasal congestion suggests sinus involvement.\n4) Pneumonia — less likely without dyspnea/chest pain, but fever + cough could still be early.\n5) Viral pharyngitis — sore throat prominent, though cough/congestion suggest URI rather than isolated pharyngitis.\nMost informative next question: ask about duration (how many days) and whether symptoms are worsening or improving, to separate viral URTI vs sinusitis/pneumonia.\n[/REASONING]\nHow many days has this been going on, and is it getting worse, better, or about the same?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s been a few days—about 3 days. It feels about the same, maybe a little worse with the fever and head pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: ~3 days duration, symptoms stable to slightly worse; fever + cough + sore throat + congestion/rhinorrhea + forehead/temple/top headache; no neck stiffness, photophobia, dyspnea, wheeze, or chest pain. This pattern most strongly supports an acute viral respiratory infection; sinusitis is possible but typically becomes more prominent after several days. Pneumonia is less likely without respiratory distress but still needs screening for red flags.\nTop candidates:\n1) URTI (viral) — classic cluster, 3-day course, no focal lung symptoms.\n2) Influenza — still plausible with fever/headache/sweats; timing not definitive.\n3) Acute rhinosinusitis — forehead/temple pain with nasal congestion; could be viral sinusitis at day 3.\n4) Pneumonia — less likely without dyspnea/chest pain, but early pneumonia can present with fever + cough; need to ask about high fever, productive cough, or pleuritic pain.\n5) Viral pharyngitis — sore throat prominent with URI symptoms.\nMost informative next question: ask about the cough character (dry vs productive) and any sputum color, plus whether fever is very high—this helps screen for pneumonia.\n[/REASONING]\nIs your cough dry or are you bringing up mucus/phlegm? If you have phlegm, what color (clear/white/yellow/green/blo",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "My cough is mostly dry, but sometimes there’s mucus. I don’t know the exact color. My fever feels high, but I don’t know the number.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: cough mostly dry with intermittent mucus; sore throat + congestion; fever high (unknown temp); ~3 days, stable to slightly worse; no dyspnea/wheeze/chest pain; no meningeal red flags. This continues to favor viral URTI or influenza. Pneumonia is less likely with no dyspnea/chest pain and mostly dry cough, but cannot be excluded without vitals and lung exam; also need to ask about severe sore throat features (difficulty swallowing, drooling) and any ear pain.\nTop candidates:\n1) URTI (viral) — most consistent overall.\n2) Influenza — still plausible with fever/headache/sweats.\n3) Acute rhinosinusitis — forehead/temple pain with congestion at day 3.\n4) Pneumonia — less likely but consider if fever is very high or cough becomes productive/pleuritic.\n5) Viral pharyngitis — sore throat with URI symptoms.\nMost informative next question: ask about ability to swallow and whether there’s drooling or muffled “hot potato” voice to rule out epiglottitis/serious throat infection.\n[/REASONING]\nAre you having any trouble swallowing, drooling, or a muffled/“hot potato” voice?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have trouble swallowing. I’m not drooling, and my voice doesn’t sound muffled.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no dysphagia, no drooling, no muffled voice—makes epiglottitis and severe obstructive laryngeal infection unlikely. Remaining picture: febrile URI with cough/sore throat/congestion and headache. Need to consider influenza vs generic URTI vs early sinusitis. Also screen for ear pain/pressure (otitis media) and for severe unilateral facial pain or dental pain (bacterial sinusitis), but less likely at day 3.\nTop candidates:\n1) URTI (viral) — best overall fit.\n2) Influenza — possible with high fever/sweats/headache.\n3) Acute rhinosinusitis — forehead/temple pain with congestion.\n4) Viral pharyngitis — sore throat prominent.\n5) Acute laryngitis — less likely given headache/sinus pain.\nMost informative next question: ask about ear symptoms (ear pain/pressure) to see if otitis media is developing.\n[/REASONING]\nDo you have any ear pain or pressure, or does your hearing feel muffled?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have ear pain or pressure, and my hearing feels normal.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no ear pain/pressure; no dysphagia/drooling/muffled voice; no dyspnea/wheeze/chest pain; no neck stiffness/photophobia. This further supports an uncomplicated viral respiratory illness. Remaining discriminators: influenza vs other viral URTI; sinusitis is possible but less classic without worsening facial pain/purulent discharge. Need one more key screen: do you have any rash or severe shortness of breath, and any known sick contacts? Rash would push toward other etiologies (e.g., SLE less likely; anaphylaxis unlikely). Sick contacts/seasonality can support influenza.\nTop candidates:\n1) URTI (viral)\n2) Influenza\n3) Acute rhinosinusitis\n4) Viral pharyngitis\n5) Pneumonia (still low probability but not zero)\nMost informative next question: ask about known exposure/sick contacts (e.g., anyone around you with flu/viral illness) or whether there’s been a local flu outbreak.\n[/REASONING]\nHave you been around anyone who was sick with the flu or a similar respiratory illness in the last week or so?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I think so—there are a lot of people at home, and some of them have been coughing and sick. I’m not sure if it was the flu exactly.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: febrile URI syndrome for ~3 days with cough (mostly dry), sore throat, congestion/rhinorrhea, prominent headache (forehead/temples/top), high fever by feel, sweating; no dyspnea/wheeze/chest pain; no meningeal red flags; no severe throat obstruction signs; no ear pain. Exposure to multiple sick people at home increases likelihood of influenza or other viral URTI. Sinusitis possible but less supported without worsening/purulent discharge. Pneumonia less likely without respiratory distress or focal chest symptoms.\nTop candidates:\n1) Influenza — systemic symptoms (fever/sweats/headache) + cough + exposure to sick contacts.\n2) URTI (viral) — fits overall symptom cluster and course.\n3) Acute rhinosinusitis — forehead/temple pain with nasal congestion could represent viral sinus involvement.\n4) Viral pharyngitis — sore throat with URI symptoms.\n5) Pneumonia — lower likelihood but fever + cough could be early; would need vitals/lung exam to exclude.\nMost informative next step would be vitals (temp, O2 sat, HR) and lung exam, but per instructions we can provide differential now.\n[/REASONING]\n[DDX] Influenza, URTI (viral), Acute rhinosinusitis, Viral pharyngitis, Pneumonia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "URTI (viral)",
+      "Acute rhinosinusitis",
+      "Viral pharyngitis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17704,
+      "completion_tokens": 2279
+    },
+    "patient": {
+      "prompt_tokens": 16253,
+      "completion_tokens": 344
+    }
+  }
+}

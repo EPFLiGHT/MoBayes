@@ -1,0 +1,129 @@
+{
+  "case_idx": 9,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {
+    "AGE": 55,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "dizziness",
+    "EVIDENCES_ENG": "['severe chronic obstructive pulmonary disease (copd)', 'diabetes', 'obesity', 'dizziness', 'history of heart attack or angina', 'known heart defect', 'palpitations', 'exertional symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 55\n- I have severe Chronic Obstructive Pulmonary Disease (COPD).\n- I have diabetes.\n- I am significantly overweight compared to people of the same height as I.\n- I feel slightly dizzy or lightheaded.\n- I have had a heart attack or I have angina (chest pain).\n- I have a known heart defect.\n- My heart is beating fast (racing), irregularly (missing a beat), or I feel palpitations.\n- I have symptoms that are increased with physical exertion but alleviated with rest.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Atrial fibrillation', 0.3643846324976754], ['PSVT', 0.35953486504142496], ['Anemia', 0.17995492678992575], ['Scombroid food poisoning', 0.09612557567097389]]",
+    "PATHOLOGY": "Atrial fibrillation",
+    "INITIAL_EVIDENCE": "etourdissement",
+    "EVIDENCES": "['bode', 'e10_e11', 'e66', 'etourdissement', 'i25.1', 'malf_cardiaque', 'palpit', 'trav1_@_N', 'ww_effort']",
+    "patient_id": "htsim_0324",
+    "_test_index": 324,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 55-year-old F patient presents to the clinic. Chief complaint: dizziness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m feeling slightly dizzy or lightheaded, and it gets worse with physical exertion but improves when I rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when you feel dizzy, do you also get spinning vertigo or is it more like faintness/lightheadedness? Also, does it come with nausea, ear fullness/hearing changes, or headache?  \nDoctor: Any chest pain, palpitations, shortness of breath, or recent fever/illness; and have you noticed black/tarry stools, heavy bleeding, or recent weight loss?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s more like faintness/lightheadedness rather than spinning vertigo. I also have palpitations—my heart is beating fast and irregularly, with a missing beat. I get shortness of breath with physical exertion, and it improves when I rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—when this happens, do you ever actually pass out (syncope), and how long do the episodes last? Also, do you have any history of anemia, thyroid disease, heart disease, or do you take caffeine, nicotine, alcohol, stimulants, or new medications?  \nDoctor: REQUEST TEST: 12-lead_EKG; REQUEST TEST: CBC_and_iron_studies; REQUEST TEST: TSH; REQUEST TEST: Basic_Metabolic_Panel; REQUEST TEST: Orthostatic_vital_signs.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have had dizziness/lightheadedness, and during it my heart is beating fast and irregularly with a missing beat. I also get shortness of breath with physical exertion that improves when I rest. I don’t know about passing out, how long the episodes last, or any history of anemia or thyroid disease, or what caffeine/nicotine/alcohol/stimulants/new medications I take.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: During these episodes, do you have chest pain, or do you notice triggers like standing up quickly, dehydration, or stress? Also—have you ever had a prior heart rhythm problem (e.g., atrial fibrillation) or a family history of sudden cardiac death?  \nDoctor: REQUEST TEST: Troponin; REQUEST TEST: Holter_monitoring_or_event_monitor; REQUEST TEST: Echocardiogram.  \nDoctor: With exertional lightheadedness, palpitations (fast/irregular with missing beat), and exertional dyspnea, I’m most concerned about an intermittent tachyarrhythmia such as atrial fibrillation/flutter—especially if exertion triggers it—so I’ll confirm with EKG/monitoring, labs (CBC/TSH/BMP), and cardiac testing.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’ve had a prior heart rhythm problem (like atrial fibrillation), or any family history of sudden cardiac death. I also don’t know about triggers like standing up quickly, dehydration, or stress during the episodes. I do have a heart defect and I’ve had a heart attack or angina (chest pain).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your history of a heart defect and prior heart attack/angina plus current palpitations with exertional lightheadedness and shortness of breath, we need to rule out a clinically significant intermittent arrhythmia/ischemia—are you having chest pain during episodes right now, and do the episodes start suddenly and stop suddenly (seconds to minutes)?  \nDoctor: Also, do you take any heart medications (beta-blocker, digoxin, antiarrhythmics), blood thinners, or thyroid meds, and have you noticed leg swelling or waking up short of breath at night?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t know if I’m having chest pain during the episodes right now. I don’t know whether the episodes start suddenly and stop suddenly (seconds to minutes). I don’t know what heart medications or blood thinners or thyroid meds I take. I also don’t know about leg swelling or waking up short of breath at night.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially significant—your exertional palpitations with irregular “missing beat,” exertional lightheadedness, and shortness of breath could reflect intermittent arrhythmia (and given your prior heart attack/angina, also possible ischemia). Before we decide: do you feel the episodes correlate with stress or dehydration, and do you have any known history of atrial fibrillation/flutter or heart failure?  \n\nDoctor: We also need to make sure there’s no immediate danger—right now, do you have any active shortness of breath, chest pressure, or fainting/syncope?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about whether the episodes correlate with stress or dehydration, and I don’t know if I have a known history of atrial fibrillation/flutter or heart failure.\n\nRight now, I don’t know if I have active shortness of breath, chest pressure, or fainting/syncope.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to classify this as possible serious intermittent arrhythmia or ischemia until proven otherwise—based on your palpitations with an irregular “missing beat,” exertional lightheadedness, and exertional shortness of breath with a history of heart defect and prior heart attack/angina. Are your symptoms happening right now (palpitations, shortness of breath, or chest pressure), and do you feel like you might pass out?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if my symptoms are happening right now (palpitations, shortness of breath, or chest pressure). I don’t know if I feel like I might pass out.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Please answer quickly—are you currently having palpitations/shortness of breath/chest pressure right now, and can you check your pulse (very fast, irregular, or normal)? If you’re feeling worse, have chest pain, severe shortness of breath, or near-fainting, call emergency services now.  \nDoctor: With your exertional irregular “missing beat” palpitations plus exertional lightheadedness and dyspnea—and a history of heart defect and prior MI/angina—the leading concern is intermittent tachyarrhythmia such as atrial fibrillation/flutter; I recommend you complete the ordered tests (EKG, Holter/event monitor, troponin, CBC/iron, TSH, BMP, orthostatics, and echocardiogram).  \nDIAGNOSIS READY: Intermittent tachyarrhythmia (likely atrial fibrillation/flutter) causing exertional palpitations with near-syncope/dyspnea; ischemia must be ruled out given prior MI/angina.\n\n[DDX]\n1. Atrial fibrillation",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Atrial fibrillation",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Atrial fibrillation",
+    "predicted_set_remapped": [
+      "Atrial fibrillation",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5404,
+      "completion_tokens": 934,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 8194,
+      "completion_tokens": 418,
+      "calls": 7
+    }
+  }
+}

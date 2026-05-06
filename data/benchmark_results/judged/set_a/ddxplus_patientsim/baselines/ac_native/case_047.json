@@ -1,0 +1,104 @@
+{
+  "case_idx": 47,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Anemia",
+  "objective_for_doctor": "A 10-year-old Male patient presents to the clinic. Chief complaint: I have dizziness, lightheadedness/near-fainting, and sensitive pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling dizzy and lightheaded like I might faint, and I’m very tired and exhausted. I also have sensitive pain and a cramp pain on top of my head, and I’ve noticed black stools. My skin looks much paler than usual, too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—black stools plus marked pallor and near-fainting can mean bleeding in the gut; I need to clarify a few things: 1) When did the black stools start and are they tarry/very dark (melena)? 2) Any vomiting of blood or coffee-ground material, or severe stomach pain?  \nPatient:",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The black stools started recently, and they’re very dark like tar—yes, they look melena. I haven’t vomited blood or coffee-ground stuff, and I don’t have severe stomach pain right now.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—melena with pallor and near-syncope strongly suggests a significant upper GI bleed. 1) How old are you and do you take any NSAIDs (ibuprofen/naproxen/aspirin) or steroids, or have you had a recent illness/possible stomach infection?  \nPatient:",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 10 years old. I’m taking oral anticoagulants. I don’t know of any NSAIDs or steroids, and I don’t think I’ve had a recent stomach infection.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Oral anticoagulants in a 10-year-old plus melena and pallor/near-fainting is highly concerning for an upper GI bleed—before I decide, I need 2 quick safety details: what anticoagulant (name/dose) and when was the last dose? Also, do you have trouble breathing, chest pain, or a very fast/irregular heartbeat right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t remember the exact name or dose, but I take oral anticoagulants daily. My last dose was today. Right now I do have trouble breathing, but I don’t have chest pain, and I’m not sure about my heart rate being fast or irregular.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this is an acute GI bleed causing anemia/shock, especially with melena and pallor plus being on anticoagulants; do you feel very weak/confused, and can you estimate your heart rate (fast or normal) right now?  \nREQUEST TEST: CBC_with_diff_and_hemoglobin  \nREQUEST TEST: Coagulation_panel_INR_PTT  \nREQUEST TEST: CMP_and_type_and_screen  \nDoctor: Also, are you currently actively passing black stool more than once since the symptoms started, and have you had any fainting or black/tarry stools that soaked the toilet?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I feel very weak and exhausted, but I’m not confused. I can’t really estimate my heart rate, but I feel like it might be fast because I’m short of breath. Yes, I’ve been passing black, tarry stools more than once since it started, and it’s been enough to soak the toilet. I haven’t fully fainted, but I feel like I’m close.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This sounds like an acute upper GI bleed causing major blood loss—melena soaking the toilet, marked pallor, near-syncope, and oral anticoagulant use make it an emergency; what’s the exact anticoagulant name (e.g., warfarin, rivaroxaban, apixaban) and do you have any bleeding elsewhere (nose/gums/urine/large bruises)?  \nREQUEST TEST: Vital_signs_and_orthostatic_bp_hr  \nREQUEST TEST: STAT_EKG  \nREQUEST TEST: CBC_with_diff_and_hemoglobin  \nREQUEST TEST: Coagulation_panel_INR_PTT  \nREQUEST TEST: Type_and_screen_for_RBC_transfusion",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the exact name of the anticoagulant. I’ve been taking it daily and I took my last dose today. I haven’t noticed bleeding from my nose or gums, and I don’t know about urine bleeding or large bruises.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This is an emergency—given melena that’s soaking the toilet, marked pallor, near-syncope, shortness of breath, and unknown daily oral anticoagulant taken today, I’m treating this as an acute upper GI bleed until proven otherwise. I need one last key question: are you able to answer me clearly and stay awake, and do you have any severe abdominal pain or vomiting?  \n\nDoctor: DIAGNOSIS READY: Acute upper gastrointestinal bleeding (melena) with acute blood-loss anemia and hemorrhage risk due to oral anticoagulant use (anticoagulant-associated GI bleed).\n\n[DDX]\n1. Anemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Anemia",
+    "predicted_set_remapped": [
+      "Anemia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3637,
+      "completion_tokens": 625,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6126,
+      "completion_tokens": 341
+    }
+  }
+}

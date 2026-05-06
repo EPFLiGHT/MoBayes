@@ -1,0 +1,357 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’ve been more confused lately and I can’t really get my thoughts into words. I also feel feverish—about 102°F—and it hurts when you press on the right upper part of my belly.",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_word_finding_difficulty_0b430b71": "yes",
+        "f_right_upper_quadrant_pain_5ae0b53e": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.29010456417737485
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1645538242330975
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10078917598013072
+        ],
+        [
+          "Pneumonia",
+          0.07600468114802261
+        ],
+        [
+          "Factitious disorder",
+          0.028288737826394076
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“I don’t think my vision has changed—no blurriness or blind spots that I’ve noticed. It’s mostly this confusion and the fever, and it really hurts in the right upper part of my belly when it’s pressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.29390425855791263
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.16670909622272473
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10210927953202303
+        ]
+      ],
+      "entropy": 3.7688824037212347
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“I don’t currently smoke, and I haven’t really had a smoking history to my knowledge.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.25690964343550704
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18800779791188546
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.11515472896294156
+        ]
+      ],
+      "entropy": 3.8219111497698646
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "Patient: Yes, I’ve felt pretty sick to my stomach and a bit nauseated, though I haven’t been able to tell you everything clearly because the confusion makes it hard.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6561176057900552
+        ],
+        [
+          "Bacillus cereus infection",
+          0.06669292140322723
+        ],
+        [
+          "Pneumonia",
+          0.04902658292140379
+        ]
+      ],
+      "entropy": 2.2148283239716307
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and I don’t have any breast pain. It’s mainly the confusion, the fever, and the right upper belly discomfort that I can tell you about.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6568081964200161
+        ],
+        [
+          "Bacillus cereus infection",
+          0.06676311843223444
+        ],
+        [
+          "Pneumonia",
+          0.04907818540621099
+        ]
+      ],
+      "entropy": 2.206414322261917
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of stress or emotional strain in your daily life?",
+      "patient_answer": "“No, I haven’t noticed any particular increase in stress or emotional strain—mostly it’s the confusion that’s gotten worse and the feverish feeling. My right upper belly is also tender when pressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6989450035017988
+        ],
+        [
+          "Bacillus cereus infection",
+          0.07104623282832565
+        ],
+        [
+          "Pneumonia",
+          0.0522267423847281
+        ]
+      ],
+      "entropy": 1.953823254986541
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“I don’t think my urine has changed much—I haven’t noticed it getting darker than usual. If you want, I can’t be 100% sure because the confusion has made it hard to keep track.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.70978558513523
+        ],
+        [
+          "Bacillus cereus infection",
+          0.0721481542711638
+        ],
+        [
+          "Pneumonia",
+          0.053036775021678445
+        ]
+      ],
+      "entropy": 1.8974118192639575
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast lump at all, so I can’t say it’s growing or changing quickly. It’s been mainly my confusion getting worse, the fever around 102°F, and the right upper belly area hurting when you press.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.7100470856531043
+        ],
+        [
+          "Bacillus cereus infection",
+          0.07217473522758318
+        ],
+        [
+          "Pneumonia",
+          0.05305631492841226
+        ]
+      ],
+      "entropy": 1.8935550113378694
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I don’t have any pain in my wrist. I’m mostly feeling confused, feverish around 102°F, and pain when you press my right upper belly.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.7107782968100269
+        ],
+        [
+          "Bacillus cereus infection",
+          0.07224906124442446
+        ],
+        [
+          "Pneumonia",
+          0.05311095267033774
+        ]
+      ],
+      "entropy": 1.885598011173265
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of the veins in your arms?",
+      "patient_answer": "“I haven’t noticed any rashes, bumps, or marks along the veins in my arms. I’m pretty confused, but when I look I don’t see anything like that.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.7107782968100267
+        ],
+        [
+          "Bacillus cereus infection",
+          0.07224906124442446
+        ],
+        [
+          "Pneumonia",
+          0.05311095267033774
+        ]
+      ],
+      "entropy": 1.885598011173265
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Have you noticed any shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“I haven’t really been able to notice if my breathing is worse when I move, but I don’t recall feeling short of breath or struggling to catch my breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.7405432588298808
+        ],
+        [
+          "Bacillus cereus infection",
+          0.07527460461506734
+        ],
+        [
+          "Pneumonia",
+          0.02733418506230953
+        ]
+      ],
+      "entropy": 1.7576783682148727
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“I haven’t used any recreational or non-prescribed drugs recently. Mostly it’s the worsening confusion, the fever around 102°F, and the tenderness in my right upper belly when you press.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.7546464690508901
+        ],
+        [
+          "Bacillus cereus infection",
+          0.07670816512693683
+        ],
+        [
+          "Pneumonia",
+          0.02785474851833619
+        ]
+      ],
+      "entropy": 1.6770109616431637
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis",
+    "predicted_top3": [
+      "Acalculous cholecystitis",
+      "Bacillus cereus infection",
+      "Pneumonia"
+    ],
+    "confidence": 0.7546464690508901,
+    "final_entropy": 1.6770109616431637,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Bacillus cereus infection",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10226,
+      "completion_tokens": 571
+    },
+    "patient": {
+      "prompt_tokens": 9409,
+      "completion_tokens": 527,
+      "calls": 12
+    }
+  }
+}

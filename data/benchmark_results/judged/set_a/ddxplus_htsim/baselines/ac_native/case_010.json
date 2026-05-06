@@ -1,0 +1,209 @@
+{
+  "case_idx": 10,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {
+    "AGE": 37,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "nausea",
+    "EVIDENCES_ENG": "['pain', 'excessive alcohol consumption', 'nausea', 'vomiting']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 37\n- I have pain somewhere related to my reason for consulting.\n- I drink alcohol excessively or I have an addiction to alcohol.\n- I am feeling nauseous or I feel like vomiting.\n- I have vomited several times or have made several efforts to vomit.\n- On a scale of 0-10, the pain intensity is 8\n- On a scale of 0-10, the pain's location precision is 2\n- On a scale of 0-10, the pace at which the pain appear is 10\n- The pain is:\n* heartbreaking\n* haunting\n* a knife stroke\n* violent\n* sickening\n- The pain locations are:\n* upper chest\n* belly\n* epigastric\n- The pain radiates to these locations:\n* thoracic spine\n* scapula(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Boerhaave', 0.3186301454738336], ['Possible NSTEMI / STEMI', 0.2793920489153572], ['Anaphylaxis', 0.1355088109215628], ['Pancreatic neoplasm', 0.11799620254428726], ['Chagas', 0.08259635058514625], ['Scombroid food poisoning', 0.065876441559813]]",
+    "PATHOLOGY": "Boerhaave",
+    "INITIAL_EVIDENCE": "nausee",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_déchirante', 'douleurxx_carac_@_lancinante_/_choc_électrique', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_violente', 'douleurxx_carac_@_écoeurante', 'douleurxx_endroitducorps_@_haut_du_thorax', 'douleurxx_endroitducorps_@_ventre', 'douleurxx_endroitducorps_@_épigastre', 'douleurxx_intens_@_8', 'douleurxx_irrad_@_colonne_dorsale', 'douleurxx_irrad_@_omoplate_G_', 'douleurxx_precis_@_2', 'douleurxx_soudain_@_10', 'f10.129', 'nausee', 'trav1_@_N', 'vo_violent']",
+    "patient_id": "htsim_0360",
+    "_test_index": 360,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 37-year-old F patient presents to the clinic. Chief complaint: nausea.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having nausea and I’ve vomited several times. I also have very severe pain—about 8 out of 10—starting very suddenly (10 out of 10). The pain is in my upper chest and belly/epigastric area, and it radiates to my thoracic spine and my left scapula.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the nausea/vomiting and sudden severe epigastric/upper chest pain start (exact timing), and do you have any shortness of breath, sweating, or feeling faint?  \nDoctor: Does the pain worsen with eating or lying down, and have you noticed fever or black/bloody stools?  \nDoctor: On a scale of 0–10, how bad is the pain now, and are you pregnant or could you be?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started very suddenly—about 10 out of 10 pace. I don’t know the exact timing.  \n\nI don’t know about shortness of breath, sweating, or feeling faint.  \n\nI don’t know if it worsens with eating or lying down.  \n\nI don’t know about fever or black/bloody stools.  \n\nThe pain is about 8 out of 10 now.  \n\nI don’t know if I’m pregnant or could be.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about potentially serious causes like pancreatitis, heart-related pain, or an ulcer/gallbladder issue—right now can you check if you have chest pain with exertion or any arm/jaw pain, and do you have tenderness/guarding in the upper abdomen?  \nDoctor: REQUEST TEST: ECG, REQUEST TEST: Troponin, REQUEST TEST: CBC, CMP (including AST/ALT, bilirubin), lipase, and pregnancy test (urine/serum hCG).  \nDoctor: REQUEST TEST: Right-upper-quadrant ultrasound and consider CT abdomen/pelvis only if the above don’t explain it—answer me: are you able to take deep breaths without worsening the pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a quick yes/no: can you take a deep breath without worsening the pain, and do you have any history of gallstones, heavy alcohol use, high triglycerides, or prior ulcers/GERD?  \nDoctor: REQUEST TEST: Vitals (BP/HR/RR/O2 sat/T temp) and repeat focused abdominal exam (epigastric/RUQ tenderness, guarding, Murphy sign).  \nDoctor: Based on your sudden 10/10-to-8/10 epigastric/upper chest pain radiating to the back/scapula with vomiting, I’m most concerned about pancreatitis or a biliary source—if your ECG/troponin are negative, we’ll prioritize lipase + RUQ ultrasound immediately.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially serious—right now, I need you to answer two quick yes/no questions: do you have measured fever (temp ≥38°C) and is the pain mainly in the right upper abdomen rather than the center/epigastrium?  \nDoctor: REQUEST TEST: Vitals (BP/HR/RR/O2 sat/T temp), ECG, Troponin, CBC, CMP (AST/ALT, bilirubin), lipase, pregnancy test (urine hCG), and RUQ ultrasound.  \nDoctor: While we wait, do you have any pain relief when you sit up and lean forward, or does it stay the same?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume we can’t rely on your answers, so we’ll treat this as an emergency—REQUEST TEST: Vitals (BP/HR/RR/O2 sat/T temp), ECG, Troponin, CBC, CMP (AST/ALT, bilirubin), lipase, pregnancy test (hCG), and RUQ ultrasound now; are you currently vomiting and can you keep any fluids down?  \nDoctor: Right now, do you have any chest tightness/shortness of breath or sweat/clamminess, yes or no?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re unsure and the pain started very suddenly at 10/10 with vomiting and radiation to the back/scapula, this is still an emergency—REQUEST TEST: Vitals (BP/HR/RR/O2 sat/T temp), ECG, Troponin, CBC, CMP (AST/ALT, bilirubin), lipase, pregnancy test (hCG), and RUQ ultrasound now.  \nDoctor: While those are pending, tell me yes/no: are you currently unable to keep fluids down because you’re actively vomiting?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’ve vomited several times.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you’re actively vomiting, are you unable to keep even sips of water down right now (yes/no), and do you have severe tenderness in the right upper belly when you press it (yes/no)?  \nDoctor: REQUEST TEST: Vitals (BP/HR/RR/O2 sat/T temp), repeat focused abdominal exam (RUQ/epigastric tenderness, guarding/Murphy), and IV access; I’m also ordering pain/nausea control while we rule out life-threatening causes.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given you’ve vomited multiple times and can’t provide key symptoms, I’ll proceed as a potentially life-threatening abdominal/chest cause; REQUEST TEST: Vitals (BP/HR/RR/O2 sat/T temp), ECG, Troponin, CBC, CMP (AST/ALT, bilirubin), lipase, pregnancy test (hCG), and RUQ ultrasound now.  \nDoctor: While those result, can you tell me yes/no: do you have black or bloody vomit/stools or does your abdomen feel rigid/hard to touch?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely exclude a life-threatening cause based on “I don’t know,” so please answer only yes/no: are you currently confused, very weak/faint, or having trouble breathing?  \nDoctor: If no, I’m proceeding as suspected pancreatitis/gallbladder/biliary disease vs a cardiac cause—REQUEST TEST: CT_Angiography_Chest_Abdomen? (only if ECG/troponin/vitals suggest), plus REQUEST TEST: Repeat vitals now and bedside RUQ/epigastric ultrasound interpretation.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely rule out a life-threatening cause given your sudden severe (10/10) epigastric/upper chest pain with repeated vomiting, so I’m escalating immediately—REQUEST TEST: Repeat vitals (BP/HR/RR/O2 sat/temp), bedside RUQ/epigastric ultrasound (STAT read), serum lipase and AST/ALT/bilirubin (CMP), CBC, ECG, and troponin, plus pregnancy test.  \nDoctor: While those are being done, are you currently able to sit up and do you feel lightheaded or are you having any trouble breathing—yes/no?  \nDoctor: If you’re getting worse or faint, call for the nurse/EMS immediately; otherwise, I’ll decide based on the STAT results.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t reliably answer symptoms and you have sudden severe (10/10) epigastric/upper chest pain with repeated vomiting, this is treated as a medical emergency while we confirm the cause; I’m requesting STAT results now.  \nDoctor: REQUEST TEST: STAT vitals + continuous pulse oximetry; REQUEST TEST: ECG + serial troponin; REQUEST TEST: CBC + CMP (AST/ALT, bilirubin) + serum lipase; REQUEST TEST: urine/serum hCG; REQUEST TEST: RUQ ultrasound STAT (and chest imaging/CTA only if ECG/troponins or instability suggest).",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’ve vomited several times. I don’t know anything else you asked about.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a quick status check—are you currently vomiting right now, and can you breathe comfortably (yes/no)?  \nDoctor: REQUEST TEST: STAT vitals + continuous pulse oximetry, REQUEST TEST: ECG, REQUEST TEST: Troponin (now), REQUEST TEST: CBC and CMP with AST/ALT/bilirubin, REQUEST TEST: Serum lipase, REQUEST TEST: Urine pregnancy test (hCG), REQUEST TEST: RUQ ultrasound (STAT).",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I’ve vomited several times.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—STAT vitals and pulse-ox are critical right now; are you able to speak in full sentences and not feel like you might faint (yes/no)?  \nDoctor: REQUEST TEST: STAT vitals + continuous pulse oximetry; REQUEST TEST: ECG; REQUEST TEST: Troponin (now); REQUEST TEST: CBC and CMP (AST/ALT, bilirubin); REQUEST TEST: Serum lipase; REQUEST TEST: Urine pregnancy test (hCG); REQUEST TEST: RUQ ultrasound (STAT).",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I’ve vomited several times.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you’ve vomited several times, we’re treating this as an emergency: REQUEST TEST: STAT vitals + continuous pulse oximetry.  REQUEST TEST: ECG and REQUEST TEST: Troponin (now).  \nDoctor: REQUEST TEST: CBC, CMP (AST/ALT, bilirubin), and REQUEST TEST: Serum lipase, plus REQUEST TEST: urine/serum hCG; while those run, I’ll interpret your STAT RUQ ultrasound for gallstones/biliary disease.",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I’ve vomited several times.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because your pain was sudden and severe (10/10) with repeated vomiting, we must also exclude a heart cause and pancreatitis: REQUEST TEST: ECG and REQUEST TEST: Troponin (now), plus REQUEST TEST: STAT vitals + continuous pulse oximetry.  \nDoctor: Also REQUEST TEST: Serum lipase and REQUEST TEST: CMP (AST/ALT, bilirubin) with REQUEST TEST: CBC, and REQUEST TEST: urine/serum pregnancy test (hCG) and REQUEST TEST: RUQ ultrasound STAT.  \nDoctor: If ECG/troponin are negative and lipase is elevated, this is most consistent with DIAGNOSIS READY: Acute pancreatitis (likely biliary if RUQ ultrasound shows gallstones/sludge).\n\n[ABSTAIN] free-text diagnosis 'Acute pancreatitis (likely biliary if RUQ ultrasound shows gallstones/sludge).' did not map to the closed disease set",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 19071,
+      "completion_tokens": 1916,
+      "calls": 15
+    },
+    "patient": {
+      "prompt_tokens": 26622,
+      "completion_tokens": 293,
+      "calls": 15
+    }
+  }
+}

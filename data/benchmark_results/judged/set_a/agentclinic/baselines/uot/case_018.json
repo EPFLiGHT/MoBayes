@@ -1,0 +1,134 @@
+{
+  "case_idx": 18,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for my annual blood pressure visit, and I really don’t have any new complaints—just occasional knee pain from my osteoarthritis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing 'Osteoarthritis  '?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No new symptoms from that—my osteoarthritis is just occasional knee pain, and I take acetaminophen only as needed. I’m not having any other issues and my blood pressure has felt stable.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a new or worsening skin lesion that is persistent and non-healing (e.g., scaly/rough or changing spot)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any new or worsening skin spots or lesions, and nothing has been persistent or non-healing. I feel well otherwise, aside from the occasional knee pain I mentioned.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **psoriatic arthritis**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are you experiencing **psoriatic arthritis**? Patient: No, I’m not having symptoms like that—just occasional knee pain related to my osteoarthritis, and I haven’t noticed any skin or joint changes beyond that.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic kidney failure**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I’m not aware of any chronic kidney problems—I feel well overall and I haven’t had any symptoms like swelling or fatigue.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic obstructive pulmonary disease**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have COPD and I’m not having any shortness of breath or chronic cough. I feel well otherwise and my main issue is just occasional knee pain.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pneumonia**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I’m not experiencing pneumonia—I don’t have fever, cough, or any breathing issues. I feel well overall aside from my occasional knee pain.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acalculous cholecystitis, Adhesive capsulitis, Autosomal dominant polycystic kidney disease  , Bacillus cereus infection, Brief Psychotic Disorder",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis",
+    "predicted_set": [
+      "Acalculous cholecystitis",
+      "Adhesive capsulitis",
+      "Autosomal dominant polycystic kidney disease  ",
+      "Bacillus cereus infection",
+      "Brief Psychotic Disorder"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Adhesive capsulitis",
+      "Autosomal dominant polycystic kidney disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3358,
+      "completion_tokens": 298,
+      "calls": 7
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "case_idx": 48,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Pyoderma gangrenosum",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old woman",
+    "History": "The patient reports a skin lesion on her right leg that has been present for 1 month. The lesion began as a small red spot and has increased in size. She recalls an ant bite at the site before the lesion developed. She has a history of anterior uveitis treated with corticosteroids 8 months ago, as well as Crohn's disease, type 2 diabetes mellitus, and hypertension.",
+    "Symptoms": {
+      "Primary_Symptom": "Painful ulcerative lesion on the right leg",
+      "Secondary_Symptoms": [
+        "Lesion has a central necrotic base and purplish irregular borders",
+        "History of ant bite at the site of the lesion",
+        "Pitting pedal edema of the lower extremities",
+        "Dilated tortuous veins in both lower legs"
+      ]
+    },
+    "Past_Medical_History": [
+      "Crohn's disease",
+      "Type 2 diabetes mellitus",
+      "Hypertension",
+      "Treated for anterior uveitis 8 months ago"
+    ],
+    "Current_Medications": [
+      "Insulin",
+      "Mesalamine",
+      "Enalapril",
+      "Aspirin"
+    ],
+    "Social_History": "Recently returned from a visit to Wisconsin 2 months ago.",
+    "Review_of_Systems": "No additional systemic symptoms mentioned."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a painful, ulcerative skin lesion on her leg.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I have a painful ulcerative lesion on my right leg that started as a small red spot about a month ago and has been getting larger. I remember an ant bite at the site before it developed, and now it has a central necrotic base with irregular purplish borders.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a recent exposure to a toxic chemical or substance (e.g., workplace/household chemicals, fumes, pesticides) before the skin symptoms started?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t recall any chemical or fume exposure or pesticide use before it started. The only thing I can think of is that ant bite right at the spot.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bed bug bite  , Pyoderma gangrenosum",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Bed bug bite",
+    "predicted_set": [
+      "Bed bug bite",
+      "Pyoderma gangrenosum"
+    ],
+    "predicted_raw": [
+      "Bed bug bite  ",
+      "Pyoderma gangrenosum"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Bed bug bite",
+    "predicted_set_remapped": [
+      "Bed bug bite",
+      "Pyoderma gangrenosum",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 905,
+      "completion_tokens": 98,
+      "calls": 2
+    }
+  }
+}

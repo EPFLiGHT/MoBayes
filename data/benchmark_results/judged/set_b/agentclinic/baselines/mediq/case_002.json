@@ -1,0 +1,88 @@
+{
+  "case_idx": 2,
+  "baseline": "mediq",
+  "column": "ac_set2",
+  "ground_truth": "Congenital Rubella Infection",
+  "patient_actor_hidden": {
+    "Demographics": "Newborn, female",
+    "History": "The patient is a 3000-g (6.6-lb) female newborn delivered at term to a 23-year-old primigravida mother. The mother reports having had no prenatal care, and immunization records for the newborn are not available.",
+    "Symptoms": {
+      "Primary_Symptom": "Continuous heart murmur",
+      "Secondary_Symptoms": [
+        "Bluish macules on the skin that do not blanch with pressure",
+        "Cloudy lenses in both eyes noticed upon examination",
+        "Failure to pass auditory screening tests"
+      ]
+    },
+    "Past_Medical_History": "Newborn, no past medical history available.",
+    "Social_History": "Mother is a primigravida, no prenatal care received.",
+    "Review_of_Systems": "No additional symptoms noted by the mother."
+  },
+  "mediq_letter_choice": "X",
+  "mediq_options_count": 50,
+  "questions": [
+    "Has an echocardiogram (heart ultrasound) been performed, and if so what did it show (e.g., patent ductus arteriosus, ventricular septal defect, or hypertrophic cardiomyopathy)?",
+    "On physical exam, does the murmur increase in intensity when the baby is crying or feeding (suggesting a patent ductus arteriosus)?",
+    "Has the murmur been described as **worsening when the baby is lying flat and improving when upright/after feeding** (a typical pattern for a patent ductus arteriosus)?",
+    "“Was the murmur described as occurring continuously throughout the entire heartbeat (systolic and diastolic), and did the examiner note a characteristic location such as the left upper sternal border?”",
+    "Has anyone noted whether the murmur is located at the **left upper sternal border** (and whether it is **systolic vs continuous**) on physical exam?",
+    "Has a clinician noted whether the murmur is heard best at the left upper sternal border and whether it is continuous (present throughout systole and diastole)?",
+    "Has a pediatrician described the murmur’s best auscultation location (e.g., left upper sternal border versus apex/left lower sternal border) and whether it is continuous or only during systole?",
+    "Has the newborn’s murmur been described as being heard best at the left upper sternal border (or “between the collarbones”) and specifically whether it is continuous (heard through both systole and diastole)?",
+    "What are the newborn’s current vital signs (especially oxygen saturation/SpO₂) and has any clinician noted signs of cyanosis or breathing difficulty?",
+    "What is the newborn’s pulse oximetry (SpO₂) reading at room air, and were there any signs of cyanosis?"
+  ],
+  "answers": [
+    "I haven’t had an echocardiogram done before, and I don’t have any heart-related symptoms like chest pain, shortness of breath, or palpitations. If you’d like, I can ask my records or schedule one as recommended.",
+    "Patient: I’m not a baby, and I don’t have any murmurs that have been mentioned at my visits. I also don’t notice symptoms like shortness of breath or palpitations with activity.",
+    "“I’m not a baby, and no one has told me I have a heart murmur or that it changes with position, feeding, or crying. I also don’t have symptoms like shortness of breath, chest pain, or palpitations with activity.”",
+    "“I’m not aware of any murmur being described as continuous throughout my heartbeat, and I don’t recall anyone mentioning a specific location like the left upper sternal border. I also haven’t had any heart-related symptoms such as chest pain, shortness of breath, or palpitations with activity.”",
+    "“I haven’t been told I have a murmur, so I don’t know if it’s been described at the left upper sternal border or whether it was systolic versus continuous. I also don’t have chest pain, shortness of breath, or palpitations with activity.”",
+    "“I’ve never been told I have a murmur, and I don’t know whether anything was heard best at the left upper sternal border or whether it sounded continuous versus systolic. I also haven’t had symptoms like chest pain, shortness of breath, or palpitations with activity.”",
+    "I haven’t been told I have any murmur, and I don’t know if anyone described its location or whether it was continuous or only during systole. I also haven’t had chest pain, shortness of breath, or palpitations with activity. If you think it’s important, I’m willing to ask about prior exam findings or get an evaluation.",
+    "I’ve never been told I have any murmur at all, so I don’t know whether it’s been described at the left upper sternal border or whether it’s continuous versus only systolic. I also haven’t had symptoms like chest pain, shortness of breath, or palpitations with activity. If you think it’s important, I’m willing to have a cardiac exam again or review any prior findings in my records.",
+    "I don’t have any breathing difficulty and I’m not aware of any cyanosis. I haven’t had newborn-type vitals or SpO₂ documented for me, but my routine checkups haven’t raised concerns about low oxygen.",
+    "I’m not a newborn, and I don’t have any known oxygen saturation (SpO₂) reading at room air or any documented cyanosis. During my routine visits, no breathing problems or color changes have been mentioned."
+  ],
+  "intermediate_choices": [
+    "X",
+    "X",
+    "X",
+    "O",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+  ],
+  "final": {
+    "predicted": "Hypertrophic cardiomyopathy",
+    "top1_hit": false,
+    "top3_hit": null,
+    "abstained": false,
+    "turns": 10,
+    "predicted_remapped": "Hypertrophic cardiomyopathy",
+    "predicted_set_remapped": [
+      "Hypertrophic cardiomyopathy",
+      "Takotsubo cardiomyopathy",
+      "Cardiac contusion"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "input_tokens": 73554,
+      "output_tokens": 3685,
+      "calls": 11
+    },
+    "patient": {
+      "input_tokens": 7463,
+      "output_tokens": 602,
+      "calls": 10
+    }
+  }
+}

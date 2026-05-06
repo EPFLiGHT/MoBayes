@@ -1,0 +1,240 @@
+{
+  "case_idx": 30,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {
+    "AGE": 26,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "palpitations",
+    "EVIDENCES_ENG": "['pain', 'regular use of stimulant drugs', 'dizziness', 'palpitations']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 26\n- I have pain somewhere related to my reason for consulting.\n- I regularly take stimulant drugs.\n- I feel slightly dizzy or lightheaded.\n- My heart is beating fast (racing), irregularly (missing a beat), or I feel palpitations.\n- On a scale of 0-10, the pain intensity is 5\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The pain is:\n* a cramp\n* heavy\n* a pulse\n* sharp\n- The pain locations are:\n* back of head\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Anemia', 0.5909501235688458], ['PSVT', 0.4090498764311542]]",
+    "PATHOLOGY": "PSVT",
+    "INITIAL_EVIDENCE": "palpit",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_une_crampe', 'douleurxx_carac_@_une_lourdeur_ou_serrement', 'douleurxx_carac_@_une_pulsation', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_arrière_de_tête', 'douleurxx_intens_@_5', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_5', 'drogues_stimul', 'etourdissement', 'palpit', 'trav1_@_N']",
+    "patient_id": "htsim_1081",
+    "_test_index": 1081,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 26-year-old M patient presents to the clinic. Chief complaint: palpitations.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having palpitations—my heart is beating fast and irregularly, and I also feel slightly dizzy or lightheaded. I’m also having pain at the back of my head; it’s sharp/heavy and feels like a pulse/pulse-like cramp, with intensity about 5/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When did the palpitations start, and are they constant or come in episodes? Any chest pain, shortness of breath, fainting, or known stimulant use (caffeine/energy drinks, nicotine, decongestants) or recent illness?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They come in episodes. I’ve been regularly taking stimulant drugs. I don’t know about any chest pain, shortness of breath, or fainting.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: What stimulant drug (name/dose), how often, and when was the last dose relative to the palpitations? Also, during an episode do you notice a very fast regular pulse, irregular “skipping,” or pounding in your neck, and how long do episodes last?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the exact name or dose of the stimulant drug, or how often I take it, or when my last dose was relative to the palpitations. The palpitations happen in episodes, and I feel my heart beating fast and irregularly—like missing a beat/palpitations. I don’t know how long the episodes last.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a few specifics to narrow this down—do the episodes start and stop abruptly, and have you ever checked your pulse during an episode (rate if you can)? Also, do you have any thyroid history, recent weight loss, fever/infection, or new anxiety/panic symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They start and stop in episodes, but I don’t know whether they start/stop abruptly. I haven’t checked my pulse during an episode. I don’t know about any thyroid history, recent weight loss, fever/infection, or new anxiety/panic symptoms.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be an arrhythmia triggered by stimulants; do you have any family history of heart rhythm problems or sudden cardiac death, and can you tell me your age and any other meds/supplements (including nicotine, caffeine/energy drinks, decongestants) you use?  \nDoctor: Also, do you feel the palpitations with exertion only or even at rest, and is the back-of-head pain new for you today or similar to past headaches?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I feel the palpitations in episodes, but I don’t know whether they happen only with exertion or also at rest. The back-of-head pain is part of what I’m having, but I don’t know if it’s new for today or similar to past headaches.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to assess safety—during an episode, do you ever have fainting/near-fainting, severe chest pain, or trouble breathing, and how long do the episodes typically last (minutes vs hours)? Also, can you measure your heart rate or feel how fast it is during an episode?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how long the episodes typically last (minutes vs hours), and I haven’t measured my heart rate during an episode.\n\nI don’t know about fainting/near-fainting, severe chest pain, or trouble breathing during an episode.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the stimulant use and episodic “fast and irregular” palpitations with lightheadedness, this could be a stimulant-triggered arrhythmia; for safety, I want to check your vitals and rhythm—REQUEST TEST: 12-lead ECG now, REQUEST TEST: Basic labs (CBC, BMP/electrolytes, TSH).  \nDoctor: While we arrange that, can you quickly tell me: during an episode, do the palpitations feel like a sudden “start/stop” burst (paroxysmal) or more gradual onset, and do you have any known stimulant name (or is it ADHD medication/amphetamine/cocaine/“pre-workout”)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "They start and stop in episodes, but I don’t know whether they feel like a sudden start/stop burst (paroxysmal) or a more gradual onset. I don’t know the exact stimulant name (or whether it’s ADHD medication/amphetamine/cocaine/pre-workout).",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since the episodes are paroxysmal (sudden start/stop) is unclear but “episodic fast and irregular” with stimulant exposure and lightheadedness still raises concern for paroxysmal supraventricular tachycardia or stimulant-related atrial fibrillation/flutter, I want immediate rhythm evaluation: **REQUEST TEST: Repeat/continuous ECG monitoring (telemetry or Holter if available today)**.  \nDoctor: While that’s arranged, can you tell me—during an episode do you ever notice a very rapid regular rhythm that you could count, and do you currently have symptoms (right now), or are you symptom-free between episodes?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I notice a very rapid regular rhythm that I could count. I’m not sure if I’m having symptoms right now or only between episodes.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask 2 quick safety questions: right now (or within the last few minutes) do you have chest pain, severe shortness of breath, or feel like you might pass out? And do you have a way to check your pulse or smartwatch heart rate during an episode (even an estimate), or did you have an ECG/monitoring done yet?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know whether I have chest pain, severe shortness of breath, or feel like I might pass out right now (or within the last few minutes). I don’t know whether I have a way to check my pulse or smartwatch heart rate during an episode, and I don’t know if an ECG/monitoring has been done yet.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m worried about an unsafe rhythm until proven otherwise—please go to ECG/monitoring **now** (or stay here on telemetry). **REQUEST TEST: Orthostatic vitals + continuous telemetry/Holter stat** and **REQUEST TEST: Fingerstick glucose + electrolytes (BMP) + magnesium + potassium + TSH**.  \n\nDoctor: Also, I need two quick answers: your stimulant—what is the closest name you can identify (e.g., ADHD amphetamine, methamphetamine, cocaine, pre-workout/energy drink), and are you currently having palpitations or are you symptom-free at this moment?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the exact stimulant name or whether it’s ADHD medication/amphetamine/cocaine or pre-workout.\n\nI’m not sure whether I’m currently having palpitations right now or only between episodes.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially serious until proven otherwise—can you place your fingers on your pulse (wrist/neck) and tell me your rate during an episode if you feel one now, and whether you’re having palpitations at this exact moment?  \nDoctor: If you can’t check, tell me whether you had palpitations in the last 30 minutes and confirm you’re able to safely stay seated/avoid exertion while we get the ECG and telemetry.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having palpitations at this exact moment. I also don’t know my pulse rate during an episode, and I haven’t checked it.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume symptoms could recur at any time—REQUEST TEST: STAT 12-lead ECG (and start continuous telemetry/rapid Holter if available).  \nDoctor: Also, I want one last key detail: are you able to identify the stimulant at least by class (ADHD amphetamine/methylphenidate, cocaine, meth, or pre-workout/energy drinks), and do you have any personal/family history of arrhythmias or sudden cardiac death?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can identify the stimulant at least by class (ADHD amphetamine/methylphenidate, cocaine, meth, or pre-workout/energy drinks).\n\nI don’t know about any personal or family history of arrhythmias or sudden cardiac death.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to do two immediate things for safety: are you currently having palpitations right now (yes/no), and if yes please go ahead and check your pulse rate for 30 seconds and multiply by 2.  \nDoctor: Meanwhile I’m requesting the results that matter most—REQUEST TEST: Stat 12-lead ECG + start continuous telemetry/Holter; REQUEST TEST: BMP/electrolytes (K, Mg), CBC, and TSH.",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently having palpitations right now. I don’t know my pulse rate, and I haven’t checked it.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since we can’t confirm your rhythm yet, I need you to check your pulse right now for 30 seconds (or use a smartwatch) and tell me the number; then I’ll know if we should treat this as SVT vs atrial fibrillation/flutter vs ventricular arrhythmia.  \nDoctor: While you do that, tell me: in the last 24 hours have you used any specific stimulant (even “pre-workout/energy drink,” ADHD med, cocaine/meth) and have you had any vomiting/diarrhea or missed meals (which can worsen electrolytes)?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I haven’t told you about any specific stimulant in the last 24 hours, and I don’t know about any vomiting/diarrhea or missed meals.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely diagnose yet because we still don’t have your rhythm captured—please get a STAT heart rhythm recording now (REQUEST TEST: continuous telemetry or Holter started immediately, plus repeat 12‑lead ECG during symptoms if possible).  \nDoctor: While that’s running, answer only these two: are you having palpitations right this moment (yes/no), and do you have any chest pain, severe shortness of breath, or near-fainting (yes/no)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having palpitations right this moment.\n\nI don’t know whether I have chest pain, severe shortness of breath, or near-fainting.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely finalize without knowing your current rhythm—please immediately place two fingers on your wrist/neck and tell me your pulse for 30 seconds (rate = count×2), and if you can, start a smartwatch ECG or note the time when an episode begins. REQUEST TEST: STAT 12-lead ECG now and start continuous telemetry/Holter; REQUEST TEST: BMP/electrolytes (K/Mg), CBC, and TSH.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having palpitations right now.\n\nI haven’t checked my pulse for 30 seconds, and I’m not sure about my pulse rate.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a safe diagnosis without your rhythm, so right now we’ll treat this as potentially serious—REQUEST TEST: STAT 12-lead ECG + start continuous telemetry/Holter immediately, and please check your pulse for 30 seconds (count×2) and tell me the number. Also answer: in the last 30 minutes have you had palpitations at any point (yes/no)?",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having palpitations right now.\n\nI haven’t checked my pulse for 30 seconds (count×2).",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as a potentially serious arrhythmia until proven otherwise—please check your pulse now for 30 seconds (count×2) and tell me the number, and also tell me whether you’re having palpitations during this same moment (yes/no).  \nDoctor: REQUEST TEST: STAT 12-lead ECG and start continuous telemetry/Holter immediately.",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having palpitations during this same moment. I haven’t checked my pulse for 30 seconds (count×2), and I don’t know the number.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m unable to diagnose safely without your heart rhythm or vitals, so I need immediate action—could you check your pulse for 30 seconds (count×2) and tell me if you feel palpitations right now (yes/no), or if you have a smartwatch ECG, start it during symptoms.  \nDoctor: If you can’t, we’ll proceed as urgent—REQUEST TEST: STAT 12-lead ECG now and continuous telemetry/Holter, plus BMP/electrolytes (K/Mg), CBC, and TSH; until results return, please avoid exertion and any stimulants.",
+      "turn": 18
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m feeling palpitations right now.\n\nI haven’t checked my pulse for 30 seconds (count×2), and I don’t know the number.",
+      "turn": 18
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t confirm your current symptoms or pulse, I’m treating this as an urgent possible arrhythmia from stimulant use—REQUEST TEST: STAT 12-lead ECG now and start continuous telemetry/Holter immediately; also REQUEST TEST: BMP/electrolytes (K, Mg), CBC, and TSH.  \nDoctor: Until we capture your rhythm, DIAGNOSIS READY: Suspected stimulant-triggered paroxysmal arrhythmia (e.g., SVT or atrial fibrillation/flutter) pending ECG/telemetry confirmation.\n\n[DDX]\n1. Atrial fibrillation",
+      "turn": 19
+    }
+  ],
+  "final": {
+    "predicted": "Atrial fibrillation",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 19
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 28821,
+      "completion_tokens": 1890,
+      "calls": 19
+    },
+    "patient": {
+      "prompt_tokens": 37815,
+      "completion_tokens": 925,
+      "calls": 19
+    }
+  }
+}

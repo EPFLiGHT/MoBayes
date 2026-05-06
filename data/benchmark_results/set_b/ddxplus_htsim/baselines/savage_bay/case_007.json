@@ -1,0 +1,99 @@
+{
+  "case_idx": 7,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 55\nSex: M\nChief Complaint: stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Shortness of breath with a high pitched sound when breathing in (stridor), and a severe allergic reaction with pink skin lesions/rash, swelling in my face (forehead and cheeks), wheezing when I exhale, nausea/feeling like vomiting, and I lost consciousness. I also have pain rated 7/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down quickly. First, I need to know the timing and trigger.\n\n**Question 1 (one at a time):**  \nDid the symptoms start **immediately (within minutes)** after a specific exposure (food, medication like an antibiotic/NSAID, insect sting, latex, or new product), or did they build more gradually?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Immediately—within minutes—after I have been in contact with or ate something that I have an allergy to.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test → updated with “immediate onset after known allergen”):\n- **Anaphylaxis:** 0.70  \n- **Acute laryngitis / Epiglottitis / Croup:** 0.05  \n- **Acute dystonic reactions (e.g., laryngeal spasm):** 0.05  \n- **Bronchospasm / acute asthma exacerbation:** 0.10  \n- **Pulmonary embolism / NSTEMI/PE:** 0.05  \n- **Other:** 0.05  \n\nKey evidence: immediate onset after allergen strongly favors anaphylaxis.\n\nLikelihood ratio (LR) for anaphylaxis given immediate post-exposure: **~10** (vs other causes).\n\n**Question 2:**  \nDo you have **any throat/tongue swelling** or **trouble swallowing/voice change** (hoarse or muffled voice) along with the stridor?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there is swelling in my mouth, and I have swelling in the forehead and cheeks, along with stridor and difficulty breathing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “mouth/throat swelling + facial swelling + stridor”):\n- **Anaphylaxis:** 0.90  \n- **Acute laryngitis / Epiglottitis:** 0.03  \n- **Acute dystonic reactions:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.03  \n- **Pulmonary embolism / NSTEMI/PE:** 0.01  \n\nEvidence update: airway edema + stridor in the setting of immediate allergen exposure strongly supports anaphylaxis.\n\nLikelihood ratio for anaphylaxis with **upper-airway edema/stridor**: **~5–8**.\n\n**Question 3:**  \nHave you taken or been given **epinephrine** (EpiPen or in the ER) yet, and if so did it help?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (unchanged; “epinephrine unknown” doesn’t add much):\n- **Anaphylaxis:** 0.88  \n- **Acute laryngitis / Epiglottitis:** 0.05  \n- **Acute dystonic reactions:** 0.03  \n- **Bronchospasm / acute asthma exacerbation:** 0.03  \n- **Pulmonary embolism / NSTEMI/PE:** 0.01  \n\n**Question 4:**  \nDo you have **hives/raised itchy welts** (urticaria) or is the rash more like **flat pink patches**? (If you can, describe whether it’s itchy.)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have lesions and a pink rash, and the severity of the rash itching is 9/10.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “itchy rash/urticaria-like”):\n- **Anaphylaxis:** 0.93  \n- **Bronchospasm / acute asthma exacerbation:** 0.03  \n- **Acute laryngitis / Epiglottitis:** 0.02  \n- **Acute dystonic reactions:** 0.01  \n- **Pulmonary embolism / NSTEMI/PE:** 0.01  \n\nEvidence update: severe itchy rash after allergen + multi-system symptoms (GI nausea, syncope, airway symptoms) is classic for anaphylaxis.\n\nLikelihood ratio for anaphylaxis with itchy urticarial rash: **~3–5**.\n\n**Question 5:**  \nWhen you lost consciousness, did you feel **lightheaded/dizzy first** (near-fainting), and how long ago did this happen?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still strongly favors anaphylaxis):\n- **Anaphylaxis:** 0.93  \n- **Bronchospasm / acute asthma exacerbation:** 0.03  \n- **Acute laryngitis / Epiglottitis:** 0.02  \n- **Acute dystonic reactions:** 0.01  \n- **Pulmonary embolism / NSTEMI/PE:** 0.01  \n\nGiven the immediate allergen exposure + facial/oral swelling + stridor + wheeze + itchy rash + syncope, this is sufficiently diagnostic.\n\n[DDX] Anaphylaxis, Bronchospasm / acute asthma exacerbation, Acute laryngitis, Acute dystonic reactions, Epiglottitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute laryngitis",
+      "Acute dystonic reactions",
+      "Epiglottitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7548,
+      "completion_tokens": 933
+    },
+    "patient": {}
+  }
+}

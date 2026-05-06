@@ -1,0 +1,333 @@
+{
+  "case_idx": 40,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello—what brings you in today? Could you tell me about yourself and what’s been going on? Patient: I’m a 69-year-old man, and for the past several years I’ve had worsening pain in my left great toe, hips, and knees. It gets worse when I’m active and improves when I rest.",
+      "extracted_features": {
+        "f_joint_pain_0f53c5a9": "yes",
+        "f_joint_pain_worse_with_activity_86a397e3": "yes",
+        "f_knee_pain_86af6967": "yes",
+        "f_hip_pain_b43bcb14": "yes",
+        "f_great_toe_pain_b60e5b94": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Osteoarthritis",
+          0.5804317825191023
+        ],
+        [
+          "Psoriatic arthritis",
+          0.28049861620241906
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03760286662804099
+        ],
+        [
+          "Somatization disorder",
+          0.008071217529012109
+        ],
+        [
+          "Vitiligo",
+          0.003459093226719476
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any degree of vision loss?",
+      "patient_answer": "I haven’t noticed any changes in my eyesight—no blurriness, dark spots, or vision loss. It’s mainly the pain in my left great toe, hips, and knees that bothers me, worse with activity and better with rest.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.5825895050398008
+        ],
+        [
+          "Psoriatic arthritis",
+          0.28154135403903086
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03774265317076614
+        ]
+      ],
+      "entropy": 1.9403351405565166
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Yes, I have a history of smoking, though I’m not currently smoking. I smoked for many years before.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4192159924820655
+        ],
+        [
+          "Psoriatic arthritis",
+          0.20258970876956278
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.07744807324099905
+        ]
+      ],
+      "entropy": 2.868693646688085
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t had nausea or any feeling sick to my stomach. It’s been mainly the ongoing pain in my left great toe, hips, and knees, especially with activity.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.45152890640625215
+        ],
+        [
+          "Psoriatic arthritis",
+          0.21820520039868277
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08341772365775306
+        ]
+      ],
+      "entropy": 2.659806376528028
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area. I’m mainly concerned about the worsening pain in my left great toe, hips, and knees, especially when I’m active.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.45242660892897985
+        ],
+        [
+          "Psoriatic arthritis",
+          0.21863902280980865
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08358356974181393
+        ]
+      ],
+      "entropy": 2.646620749099909
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of stress or emotional strain in your daily life?",
+      "patient_answer": "“No, I wouldn’t say I’m under significant emotional strain or experiencing unusually high stress—my main issue is the gradual worsening pain in my left great toe, hips, and knees with activity, which improves when I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4560520730776837
+        ],
+        [
+          "Psoriatic arthritis",
+          0.220391059323711
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08425335624318038
+        ]
+      ],
+      "entropy": 2.592483818000167
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "I haven’t noticed any change in the color of my urine—it looks about the same as usual. It’s really just the progressive pain in my left great toe, hips, and knees that’s been getting worse.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4625698792871109
+        ],
+        [
+          "Psoriatic arthritis",
+          0.22354084484111533
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.0854574885800448
+        ]
+      ],
+      "entropy": 2.5476213285799534
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "No, I haven’t noticed any breast mass at all, so there’s nothing that’s growing or changing rapidly. My concern is really the gradual worsening pain in my left great toe, hips, and knees with activity that improves when I rest.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.46287452648003047
+        ],
+        [
+          "Psoriatic arthritis",
+          0.22368806819899728
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.0855137706363905
+        ]
+      ],
+      "entropy": 2.541706850989948
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I haven’t had any pain in my wrist. The pain is mainly in my left great toe, hips, and knees, and it flares up with activity and eases with rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4238375007784271
+        ],
+        [
+          "Psoriatic arthritis",
+          0.17597476929027459
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.10918148621667753
+        ]
+      ],
+      "entropy": 2.7963063326606754
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes, bumps, or marks running along the veins in my arms—my skin looks about the same as usual. The main problem remains the worsening pain in my left great toe, hips, and knees with activity, and it improves when I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4238375007784271
+        ],
+        [
+          "Psoriatic arthritis",
+          0.17597476929027459
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.10918148621667753
+        ]
+      ],
+      "entropy": 2.7963063326606754
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I haven’t had any shortness of breath or trouble catching my breath when I’m active—I’m mainly limited by the pain in my left great toe, hips, and knees. When I rest, the pain eases, but my breathing itself feels normal.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4845033988792902
+        ],
+        [
+          "Psoriatic arthritis",
+          0.20116288360880372
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.11541491935350129
+        ]
+      ],
+      "entropy": 2.561685185345182
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_top3": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Femoropopliteal artery stenosis"
+    ],
+    "confidence": 0.4845033988792902,
+    "final_entropy": 2.561685185345182,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Osteoarthritis",
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Femoropopliteal artery stenosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7482,
+      "completion_tokens": 558
+    },
+    "patient": {
+      "prompt_tokens": 7747,
+      "completion_tokens": 541,
+      "calls": 11
+    }
+  }
+}

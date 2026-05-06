@@ -1,0 +1,109 @@
+{
+  "case_idx": 37,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Pulmonary neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 43\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood, and I’m also having significant shortness of breath. I also have pain in my posterior chest wall on both the right and left.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down quickly. First, a safety check:\n\n**Question 1 (one at a time):** How old is the patient, and do they have any known history of lung disease (e.g., COPD/asthma/bronchiectasis) or heart disease?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 43. I don’t know about any known history of lung disease (like COPD/asthma/bronchiectasis) or heart disease.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next:\n\n**Question 2:** When did the symptoms start (hours/days), and did they start suddenly or gradually?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question:\n\n**Question 3:** Is the shortness of breath happening at rest, or only with exertion?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "At rest.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Question 4:** Is the chest wall pain worse when you take a deep breath or cough (pleuritic), or is it more constant/pressure-like?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Question 5:** Approximately how much blood are you coughing up—just streaks in mucus, or more like teaspoons/tablespoons, or larger amounts?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to pause and ask one more high-yield question, because the amount of blood and the pattern strongly change the differential.\n\n**Question 6:** Have you had any fever, chills, or feeling sick/ill recently?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I don’t have enough discriminating information yet (timing, amount of hemoptysis, fever/infectious symptoms, and whether the pain is pleuritic). With hemoptysis + significant dyspnea, serious causes like **pulmonary embolism, pneumonia, acute pulmonary edema, and possible NSTEMI/STEMI** can’t be ruled out, but I can’t confidently rank them without key details.\n\n**[ABSTAIN]** Reason: Insufficient history (unknown onset, unknown hemoptysis volume, unknown fever/infectious symptoms, unknown pleuritic vs pressure pain).  \n**[POSSIBLE]** Pulmonary embolism, Pneumonia, Acute pulmonary edema, Possible NSTEMI / STEMI, Acute COPD exacerbation / infection",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6879,
+      "completion_tokens": 412
+    },
+    "patient": {}
+  }
+}

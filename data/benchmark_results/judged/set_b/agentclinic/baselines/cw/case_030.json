@@ -1,0 +1,153 @@
+{
+  "case_idx": 30,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Minimal Change Disease",
+  "patient_actor_hidden": {
+    "Demographics": "25-year-old female",
+    "History": "The patient reports developing swelling around her eyes and ankles over several days. She mentions a recent diagnosis of Hodgkin's lymphoma but has not started treatment yet. No history of kidney disease or similar symptoms in the past.",
+    "Symptoms": {
+      "Primary_Symptom": "Edema, particularly around the eyes and ankles",
+      "Secondary_Symptoms": [
+        "Fatigue",
+        "No recent infections",
+        "No changes in urine color or frequency"
+      ]
+    },
+    "Past_Medical_History": "Recently diagnosed with Hodgkin's lymphoma. No other significant medical history.",
+    "Social_History": "Non-smoker, does not consume alcohol. Currently a graduate student.",
+    "Review_of_Systems": "Denies recent respiratory infections, no history of drug use, no significant weight changes."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with recent onset of edema and significant proteinuria.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello—what brings you in today? Patient: Over the past several days I’ve noticed swelling around my eyes and in my ankles, and I’ve felt more fatigued than usual. I was recently diagnosed with Hodgkin’s lymphoma but haven’t started treatment yet, and I haven’t noticed any change in my urine.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. **One question at a time:**  \n\n**1) Have you noticed any shortness of breath, chest pain, or trouble lying flat (worse when lying down)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have shortness of breath or chest pain, and I haven’t noticed any trouble lying flat or needing extra pillows.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **2) Have you had any fever, night sweats, or unintentional weight loss recently?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had a fever, and I haven’t noticed night sweats or any unintentional weight loss recently.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **3) Is the swelling pitting when you press your finger into the ankle/shin for ~5 seconds (does it leave a dent)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, it does leave a dent when I press on my ankle for a few seconds, and it seems to improve slowly after I release.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **4) Do you have any new or worsening abdominal pain, nausea/vomiting, or diarrhea?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any new abdominal pain, and no nausea, vomiting, or diarrhea.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **5) Have you noticed decreased urine output, foamy urine, or high blood pressure readings recently?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed decreased urine output, and my urine doesn’t look foamy. I’m not aware of any recent high blood pressure readings.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **6) Any history of heart disease, recent abnormal heart rhythm, or new exercise intolerance?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any known heart disease or abnormal heart rhythms, and I haven’t noticed any new exercise intolerance beyond the fatigue.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more focused question. **7) Are you taking any medications or supplements right now (including steroids like prednisone), or have you started any new drugs recently?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not taking any medications or supplements right now, and I haven’t started any chemo or steroids yet.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The presentation (periorbital + ankle swelling with pitting edema and fatigue) suggests fluid retention, but with the limited history so far I can’t confidently narrow to a specific diagnosis from the provided list (and several key discriminators—urinalysis/proteinuria, blood pressure, renal function, cardiac exam/echo, and liver tests—are missing).  \n\n[POSSIBLE] Minimal Change Disease, Membranous nephropathy, Takotsubo cardiomyopathy, Fulminant hepatic failure, Acute Mesenteric Ischemia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Minimal Change Disease",
+      "Membranous nephropathy",
+      "Takotsubo cardiomyopathy",
+      "Fulminant hepatic failure",
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Minimal Change Disease",
+      "Membranous nephropathy",
+      "Takotsubo cardiomyopathy",
+      "Fulminant hepatic failure",
+      "Acute Mesenteric Ischemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Minimal Change Disease",
+      "Membranous nephropathy",
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7687,
+      "completion_tokens": 348
+    },
+    "patient": {
+      "prompt_tokens": 4347,
+      "completion_tokens": 278,
+      "calls": 8
+    }
+  }
+}

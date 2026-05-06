@@ -1,0 +1,89 @@
+{
+  "case_idx": 20,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 4\nSex: Male\nChief Complaint: I have significant dyspnea, nasal congestion or a clear runny nose, and noticed that you produce more saliva than usual",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m having a lot of trouble breathing and my nose is very congested, like a clear runny nose. I’ve also been drooling more than usual, and I make a rough sound when I breathe (stridor), and it seems worse at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden onset shortness of breath with pleuritic chest pain (worse when breathing in) or low oxygen symptoms?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have chest pain that’s worse when breathing in. It’s mainly trouble breathing, and I’m not sure about my oxygen level.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden onset shortness of breath (especially within minutes to hours)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly, within a few hours.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a new fever or chills along with cough and/or shortness of breath?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or chills. I’m having congestion/runny nose and trouble breathing, but I’m not sure about a fever.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a new fever and cough with increased sputum (or chest mucus) over the last few days?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have a clear runny nose and congestion, but I don’t have a cough with more mucus that I’ve noticed.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bronchiolitis  , Pneumonia",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Bronchiolitis  ",
+    "predicted_set": [
+      "Bronchiolitis  ",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2887,
+      "completion_tokens": 164
+    }
+  }
+}

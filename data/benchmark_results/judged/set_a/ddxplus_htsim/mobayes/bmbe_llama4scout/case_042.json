@@ -1,0 +1,132 @@
+{
+  "case_idx": 42,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Spontaneous rib fracture",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 49\nSex: M\nChief Complaint: pain with movement",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I have metastatic cancer, and I’ve been having intense pain—especially pain that’s increased with movement and when I breathe in deeply. The pain intensity is 9/10 and it feels sharp, violent, like a knife stroke. It’s in my right and left breast areas and in the posterior chest wall on both sides, and it radiates to the posterior chest wall on the left. I’m also having significant shortness of breath and a cough with intense coughing fits.",
+      "extracted_features": {
+        "f_e_57_v_170": "yes",
+        "f_e_55_v_159": "yes",
+        "f_e_55_v_160": "yes",
+        "f_e_57_v_171": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_54_v_191": "yes",
+        "f_e_220": "yes",
+        "f_e_216": "yes",
+        "f_e_66": "yes",
+        "f_e_201": "yes",
+        "f_e_203": "yes",
+        "f_e_162": "no"
+      },
+      "top5_posterior": [
+        [
+          "Spontaneous rib fracture",
+          0.9901954431240504
+        ],
+        [
+          "Pericarditis",
+          0.0067099632895489415
+        ],
+        [
+          "Pulmonary embolism",
+          0.0018908057760875863
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.0006472717035654416
+        ],
+        [
+          "Pneumonia",
+          0.00034022137818650136
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_3",
+      "doctor_question": "Have you ever experienced inflammation of the sac that surrounds your heart, which caused chest pain or other symptoms?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous rib fracture",
+          0.9957429380939881
+        ],
+        [
+          "Pulmonary embolism",
+          0.0019013988722332137
+        ],
+        [
+          "Pericarditis",
+          0.0011470844096100415
+        ]
+      ],
+      "entropy": 0.04891657511383685
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_196",
+      "doctor_question": "Have you had any surgical procedures or operations in the past month?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous rib fracture",
+          0.9976933861490181
+        ],
+        [
+          "Pericarditis",
+          0.0011493313033313882
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.0006521729646131552
+        ]
+      ],
+      "entropy": 0.028702450988963096
+    }
+  ],
+  "final": {
+    "predicted": "Spontaneous rib fracture",
+    "predicted_top3": [
+      "Spontaneous rib fracture",
+      "Pericarditis",
+      "Spontaneous pneumothorax"
+    ],
+    "confidence": 0.9976933861490181,
+    "final_entropy": 0.028702450988963096,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Spontaneous rib fracture",
+    "predicted_set_remapped": [
+      "Spontaneous rib fracture",
+      "Pericarditis",
+      "Spontaneous pneumothorax"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9998,
+      "completion_tokens": 404
+    },
+    "patient": {}
+  }
+}

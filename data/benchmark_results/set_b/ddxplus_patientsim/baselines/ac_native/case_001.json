@@ -1,0 +1,115 @@
+{
+  "case_idx": 1,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Myocarditis",
+  "objective_for_doctor": "A 16-year-old Male patient presents to the clinic. Chief complaint: I have lower chest pain, left side of the chest pain, and upper chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain in my lower chest and the left side of my chest, and also upper chest pain. It feels like a knife-stroke type pain, and I’ve been getting out of breath with minimal effort—also kind of hard to breathe when I lie flat.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick questions to narrow this down: when did the pain start, and is it constant or coming in sharp episodes?  \nDoctor: Also, do you have fever, cough, sweating, fainting, or does taking a deep breath/moving make it worse?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The pain started gradually, not suddenly. It’s not constant—more like sharp episodes/knife-stroke pain (about 2 out of 10). I don’t have fever or cough that I know of, and I haven’t fainted. Taking a deep breath and moving makes it worse, and lying flat also makes my breathing worse.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given sharp pain worsened by deep breaths and lying flat, I’m concerned about pleuritic pain such as pericarditis or a small pleural issue; do you have recent viral illness, sore throat, or new chest injury/strenuous exercise?  \nDoctor: Also, any palpitations, dizziness, leg swelling, or recent long travel/surgery?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I recently had a viral infection. No sore throat that I’m aware of, and no new chest injury. I haven’t had long travel or surgery, and I don’t have leg swelling.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any recent shortness of breath that’s getting worse, and do you feel the pain improves when you sit up and leans forward versus when you lie back?  \nDoctor: Also, have you noticed palpitations or chest pounding, and can you point to whether the pain is worse with pressing on a specific spot on your chest?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My shortness of breath feels worse with minimal effort, and it’s worse when I lie back—sitting up helps a bit. I don’t feel like I’ve had palpitations or chest pounding. The pain is on the upper and left side of my chest, and I can point to it, but pressing on a specific spot makes it hurt more.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given sharp pleuritic pain worse lying flat and somewhat better sitting up, plus recent viral illness and worse with deep breaths, I’m concerned about pericarditis (and less likely pneumonia/PE); can you confirm if the pain improves when you sit forward and do you have any recent fever measured, nausea, or recent strenuous exercise?  \nDoctor: I’d like to check your vitals and heart/lung exam—REQUEST TEST: ECG and REQUEST TEST: Troponin, plus REQUEST TEST: Chest_X-Ray.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It does feel a little better when I sit forward, yes. I don’t know of any measured fever, and I haven’t had nausea or recent strenuous exercise. Please go ahead with the ECG, troponin, and chest X-ray.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to review your ECG, troponin, and chest X-ray results next—REQUEST TEST: ECG, REQUEST TEST: Troponin, REQUEST TEST: Chest_X-Ray.  \nDoctor: While those are pending, can you tell me if you’ve had any recent worsening with coughing, and whether you’ve noticed relief with NSAIDs like ibuprofen?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had a worsening cough. I haven’t tried ibuprofen or other NSAIDs yet, so I can’t say if it helped.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your symptoms—sharp pleuritic chest pain after a viral illness, worse lying flat and better sitting forward, and worse with deep breaths—I suspect pericarditis; we still need the test results. Have you received/seen the ECG, troponin, and chest X‑ray results yet?  \nDoctor: Also, I’ll ask one more: on a 0–10 scale, how severe is the pain now, and does it get better with ibuprofen when you take it (or would you be able to try it if no contraindications)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t seen the results yet for the ECG, troponin, or chest X-ray. Right now the pain is about 2 out of 10, and I haven’t taken ibuprofen yet—but I’d be able to try it if you think it’s safe.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll request one more set of key tests to rule out heart strain and other causes—REQUEST TEST: Repeat_Vitals_with_O2_sat and REQUEST TEST: CRP/ESR.  \nDoctor: If your ECG/troponin are negative and inflammatory markers are elevated, I’m comfortable treating presumptive acute pericarditis—can you take ibuprofen now (if no kidney disease/ulcer/bleeding history) and confirm whether you can?  \nDoctor: I’m going to wait for the ECG, troponin, chest X‑ray, and CRP/ESR—then I’ll finalize the diagnosis.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I can take ibuprofen. I don’t have any known kidney disease, stomach ulcers, or bleeding problems, so it should be safe for me. I’m waiting on the ECG, troponin, chest X-ray, and CRP/ESR results too.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: While we wait for the ECG, troponin, chest X‑ray, and CRP/ESR, I recommend you start ibuprofen now (with food) and avoid strenuous activity; do you also have any new fever, worsening shortness of breath, or faintness right now?  \nDoctor: If any of those occur, or if breathing trouble rapidly worsens, you should go to the ER immediately.  \nDoctor: DIAGNOSIS READY: Acute pericarditis (likely post-viral) — pleuritic, positional chest pain worse lying flat and with deep breaths, improved sitting forward.\n\n[DDX]\n1. Pericarditis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5988,
+      "completion_tokens": 787,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 8607,
+      "completion_tokens": 451
+    }
+  }
+}

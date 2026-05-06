@@ -1,0 +1,86 @@
+{
+  "case_idx": 10,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 13\nSex: F\nChief Complaint: nausea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having nausea and I’ve vomited several times. I also have significant difficulty breathing. And I have severe pain—7 out of 10—mostly in my lower chest and belly, and it can radiate to my thoracic spine and my right scapula.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure** (especially worse with exertion or breathing)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My pain is in the lower chest, and I’m also having significant difficulty breathing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have severe chest pain that worsens with swallowing or after vomiting (esophageal rupture pattern)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have nausea and I’ve vomited several times, and I have severe pain (7/10) in my lower chest and belly.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain or discomfort that is worse with exertion and improves with rest (or nitroglycerin)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My pain is in my lower chest, and I’m also having significant difficulty breathing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden shortness of breath that started abruptly (within minutes to hours) and is worse with breathing in?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my shortness of breath/difficulty breathing is significant, and it’s happening along with my severe pain and vomiting.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute pulmonary edema, Pulmonary embolism  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute pulmonary edema",
+    "predicted_set": [
+      "Acute pulmonary edema",
+      "Pulmonary embolism  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

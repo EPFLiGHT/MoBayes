@@ -1,0 +1,90 @@
+{
+  "case_idx": 23,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "HIV (initial infection)",
+  "patient_actor_hidden": {
+    "AGE": 62,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "diarrhea",
+    "EVIDENCES_ENG": "['swollen lymph nodes', 'history of sexually transmitted infection', 'increased sweating', 'diarrhea', 'pain', 'extreme fatigue', 'fever', 'sore throat', 'skin lesions', 'diffuse muscle pain', 'nausea', 'involuntary weight loss', 'sexual intercourse with an hiv-positive partner']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 62\n- I have swollen or painful lymph nodes.\n- I have had a sexually transmitted infection.\n- I have had significantly increased sweating.\n- I have had diarrhea or an increase in stool frequency.\n- I have pain somewhere related to my reason for consulting.\n- I am so tired that I am unable to do my usual activities or I am stuck in my bed all day long.\n- I have a fever (either felt or measured with a thermometer).\n- I have a sore throat.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I have diffuse (widespread) muscle pain.\n- I am feeling nauseous or I feel like vomiting.\n- I have had an involuntary weight loss over the last 3 months.\n- I have had sexual intercourse with an HIV-positive partner in the past 12 months.\n- On a scale of 0-10, the pain intensity is 7\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The color of the rash is pale.\n- On a scale of 0-10, the rash swelling is 2\n- On a scale of 0-10, the pain intensity caused by the rash is 6\n- The lesion (or lesions) are larger than 1cm.\n- On a scale of 0-10, the severity of the rash itching is 0\n- I have traveled out of the country to West Africa in the last 4 weeks.\n- The pain is:\n* tedious\n* sensitive\n* a pulse\n- The pain locations are:\n* back of head\n* cervical spine\n* top of the head\n* forehead\n* temple(R)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* lower gum\n* upper gum\n* labia majora(R)\n* labia majora(L)\n* internal cheek(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['HIV (initial infection)', 0.31379375843753526], ['Influenza', 0.2567493994794049], ['Chagas', 0.21779102583694146], ['Scombroid food poisoning', 0.07839826650275475], ['Pancreatic neoplasm', 0.06534867769695804], ['Anemia', 0.03953791579600035], ['Ebola', 0.02838095625040529]]",
+    "PATHOLOGY": "HIV (initial infection)",
+    "INITIAL_EVIDENCE": "diarrhee",
+    "EVIDENCES": "['adp_dlr', 'atcd_its', 'diaph', 'diarrhee', 'douleurxx', 'douleurxx_carac_@_pénible', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_une_pulsation', 'douleurxx_endroitducorps_@_arrière_de_tête', 'douleurxx_endroitducorps_@_colonne_cervicale', 'douleurxx_endroitducorps_@_dessus_de_tête', 'douleurxx_endroitducorps_@_front', 'douleurxx_endroitducorps_@_tempe_D_', 'douleurxx_intens_@_7', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_5', 'fatig_ext', 'fievre', 'gorge_dlr', 'lesions_peau', 'lesions_peau_couleur_@_pale', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_2', 'lesions_peau_endroitducorps_@_gencive_inférieure', 'lesions_peau_endroitducorps_@_gencive_supérieure', 'lesions_peau_endroitducorps_@_grande_lèvre_D_', 'lesions_peau_endroitducorps_@_grande_lèvre_G_', 'lesions_peau_endroitducorps_@_joue_interne_G_', 'lesions_peau_intens_@_6', 'lesions_peau_plusqu1cm_@_O', 'lesions_peau_prurit_@_0', 'msk_dlr', 'nausee', 'perte_poids', 'sex_vih', 'trav1_@_AfriqO']",
+    "patient_id": "htsim_0829",
+    "_test_index": 829,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 62-year-old M patient presents to the clinic. Chief complaint: diarrhea.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency. I also feel nauseous or like vomiting, and I’m very tired—I’m unable to do my usual activities or I’m stuck in my bed all day long.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long has the diarrhea been going on, and is there any blood or black/tarry stool?  \nDoctor: Do you have fever, severe belly pain, or recent travel/food poisoning, and are you on any new medications (especially antibiotics, metformin, or laxatives)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency. I also have a fever (felt or measured). I’ve also traveled out of the country to West Africa in the last 4 weeks.\n\nI don’t know about blood or black/tarry stool, severe belly pain, or new medications (including antibiotics, metformin, or laxatives).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your fever and travel to West Africa within 4 weeks, I’m concerned about an infectious cause—are you having severe watery diarrhea (how many times/day), any vomiting, and are you able to keep fluids down or are you getting dizzy/very thirsty?  \nDoctor: REQUEST TEST: Stool_Culture_and_ova_parasite (including Giardia/Cryptosporidium), plus Rapid_PCR_panel if available  \nDoctor: REQUEST TEST: CBC, CMP (electrolytes/creatinine), and stool test for C_difficile if any recent antibiotics occurred",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had fever and diarrhea/increased stool frequency, and I’ve traveled to West Africa in the last 4 weeks. I also feel nauseous or like vomiting, but I don’t know how many times/day, whether the diarrhea is severe watery diarrhea, or whether I can keep fluids down or if I’m getting dizzy/very thirsty.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since I need to gauge severity and the likely pathogen: do you have **cholera-like very watery “rice-water” stools** or **blood/mucus**, and are you **dehydrated** (dizziness on standing, dry mouth, minimal urination)?  \nDoctor: While you answer, I’m going to assess for complications and guide treatment—REQUEST TEST: Stool_Culture_and_ova_parasite_results_pending plus stool_wbc/lactoferrin (if available) and Urinalysis/BUN_Cr for dehydration.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if it’s very watery “rice-water” stools or if there is blood or mucus. I also don’t know whether I’m dehydrated (like dizziness on standing, dry mouth, or minimal urination).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With recent West Africa travel plus fever and diarrhea, the most urgent likely cause is **acute infectious bacterial or protozoal gastroenteritis**; the key concern is dehydration and ability to maintain intake—are you currently able to drink fluids, and have you had **any** vomiting so you can’t keep liquids down?  \nDoctor: REQUEST TEST: Vital_signs_orthostatics (BP/HR lying vs standing) and Serum_electrolytes (Na/K/CO2) with lactate if ill-appearing.  \nDoctor: Given the travel window and systemic symptoms, DIAGNOSIS READY: **Acute infectious traveler's gastroenteritis (rule out cholera/enterotoxigenic E. coli and other invasive bacterial causes; awaiting stool PCR/culture and ova/parasite)**\n\n[ABSTAIN] free-text diagnosis \"**Acute infectious traveler's gastroenteritis (rule out cholera/enterotoxigenic E. coli and other invasive bacterial causes; awaiting stool PCR/culture and ova/parasite)**\" did not map to the closed disease set",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1930,
+      "completion_tokens": 476,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 4752,
+      "completion_tokens": 240,
+      "calls": 4
+    }
+  }
+}

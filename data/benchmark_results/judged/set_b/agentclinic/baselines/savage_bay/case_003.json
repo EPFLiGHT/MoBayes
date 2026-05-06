@@ -1,0 +1,222 @@
+{
+  "case_idx": 3,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Hemophilia A",
+  "patient_actor_hidden": {
+    "Demographics": "18-month-old boy",
+    "History": "The patient is brought in by his parents due to swelling in his right knee noticed after playing in the park. The parents report that there was no obvious injury or incident at the park that could have led to the swelling. Upon further questioning, the mother recalls that an uncle on her side of the family had similar problems, suggesting a possible genetic component.",
+    "Symptoms": {
+      "Primary_Symptom": "Swelling of the right knee",
+      "Secondary_Symptoms": [
+        "No recent trauma or injury",
+        "Familial history of similar symptoms"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "The parents report no known allergies, normal birth and developmental history for the child.",
+    "Review_of_Systems": "Denies fever, rash, or recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with swelling in the right knee and a familial history of similar problems.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My mom and dad noticed my right knee is swollen after I was playing in the park. They didn’t see any injury, and there hasn’t been any fever or other illness.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, very rough):\n- Acute Mesenteric Ischemia: 0.1%\n- Acute lymphoblastic leukemia: 1%\n- Acute myelogenous leukemia: 1%\n- Asthma: 0.5%\n- COPD: 0.5%\n- Essential thrombocythemia: 0.5%\n- Hemophilia A: 5%\n- Cardiac contusion: 0.5%\n- Takotsubo cardiomyopathy: 0.5%\n- Perforated gastric peptic ulcer: 0.5%\n- Others (not yet considered): remainder\n\nThis presentation sounds like **acute monoarticular knee swelling** without fever—most concerning possibilities include **traumatic/hemarthrosis causes** (e.g., Hemophilia A) and **inflammatory/infectious causes** (though fever is absent). To narrow quickly:\n\n**Question 1 (one at a time):**  \nDo you have a history of **bleeding problems**—for example, easy bruising, frequent nosebleeds, bleeding after minor cuts, or known **hemophilia** in the family?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I bruise easily, and we haven’t noticed nosebleeds or bleeding after small cuts. We only know that my relative on my mom’s side had similar knee problems.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 12%\n- Acute Mesenteric Ischemia: 0.05%\n- Acute lymphoblastic leukemia: 2%\n- Acute myelogenous leukemia: 2%\n- Essential thrombocythemia: 1%\n- Cardiac contusion: 0.2%\n- Takotsubo cardiomyopathy: 0.2%\n- Asthma: 0.2%\n- COPD: 0.2%\n- Others: remainder\n\nA family history of similar knee issues raises the probability of a **hereditary bleeding disorder** (like Hemophilia A) or less commonly other inherited conditions.\n\n**Question 2:**  \nHow old are you (roughly), and is this swelling **painful** or mostly just swollen?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 18 months old, and my right knee is swollen—it seems sore when they touch or move it, but I don’t have fever or feel sick.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 25%\n- Acute lymphoblastic leukemia: 6%\n- Acute myelogenous leukemia: 4%\n- Essential thrombocythemia: 1%\n- Acute Mesenteric Ischemia: 0.01%\n- Cardiac contusion/Takotsubo: ~0.1% each\n- Others: remainder\n\nAge 18 months makes leukemia still possible (bone marrow/infiltration can cause joint pain/swelling), but the **acute, single-joint swelling without systemic symptoms** keeps **hemarthrosis/bleeding** high.\n\n**Question 3:**  \nDid the swelling start **suddenly within hours** (same day), or did it build up **over days**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Did the swelling start suddenly within hours (same day), or did it build up over days? Patient: It seemed to show up pretty quickly after we were playing, and it was there by the same day—it didn’t seem to build slowly over several days.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 38%\n- Acute lymphoblastic leukemia: 5%\n- Acute myelogenous leukemia: 3%\n- Essential thrombocythemia: 0.5%\n- Others: remainder\n\nSudden onset after play strongly supports **bleeding into a joint (hemarthrosis)** or an acute injury—even if no clear injury was seen.\n\n**Question 4:**  \nIs the knee **warm/red** to the touch, or is it mainly swollen with normal skin color/temperature?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "My knee looks a bit puffy, and the skin doesn’t seem red, but it feels a little warm when my parents touch it. It still looks mostly the same color as the other knee.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 45%\n- Acute lymphoblastic leukemia: 6%\n- Acute myelogenous leukemia: 3%\n- Acute Mesenteric Ischemia: 0.01%\n- Essential thrombocythemia: 0.5%\n- Others: remainder\n\nWarmth without redness/fever still fits **hemarthrosis** (blood in joint can cause warmth and pain). Infection/septic arthritis is less likely without fever, but we still must be cautious.\n\n**Question 5:**  \nCan you tell if the child can **bear weight or walk/use the leg**, or is it refusing to use the leg because of pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "My parents said I don’t really want to put weight on my right leg, and I seem to avoid using it because it hurts when they try to move my knee. I can move my arms and other parts like normal, but my right knee doesn’t feel right.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 55%\n- Acute lymphoblastic leukemia: 7%\n- Acute myelogenous leukemia: 4%\n- Acute Mesenteric Ischemia: 0.01%\n- Essential thrombocythemia: 0.5%\n- Others: remainder\n\nRefusal to bear weight with acute painful knee swelling strongly supports **acute hemarthrosis** (bleeding into the joint) in a toddler, especially with possible family history.\n\n**Question 6:**  \nHas anyone checked your **bleeding history** with labs before—do you know if you’ve ever had a **CBC** or **clotting tests** (PT/INR, aPTT) done?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about any past blood tests, and no one has told my parents that I have bleeding or clotting problems before—just that my knee swelling started that day after playing.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 58%\n- Acute lymphoblastic leukemia: 8%\n- Acute myelogenous leukemia: 5%\n- Essential thrombocythemia: 0.5%\n- Others: remainder\n\nWe still need to discriminate between **hemarthrosis from a bleeding disorder** vs **joint involvement from leukemia** vs **septic arthritis** (less likely but dangerous). Next most informative question:\n\n**Question 7:**  \nAny **bruises** anywhere else on the body, tiny red/purple spots (petechiae), or unusual bleeding from gums/skin since this started?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "My parents haven’t noticed any new bruises, tiny red or purple spots, or unusual bleeding from my gums or skin since my knee started swelling.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 52%\n- Acute lymphoblastic leukemia: 10%\n- Acute myelogenous leukemia: 6%\n- Essential thrombocythemia: 0.3%\n- Others: remainder\n\nNo other bleeding signs lowers (but doesn’t eliminate) hemophilia—single-joint hemarthrosis can be the first clue. Leukemia remains on the table because joint pain/swelling can precede other symptoms.\n\n**Question 8:**  \nHas your knee swelling happened **before** (recurrent episodes), or is this the **first time**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has your knee swelling happened before (recurrent episodes), or is this the first time? Patient: My parents say this is the first time I’ve had my right knee swell like this.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 50%\n- Acute lymphoblastic leukemia: 11%\n- Acute myelogenous leukemia: 7%\n- Essential thrombocythemia: 0.3%\n- Others: remainder\n\nFirst episode still fits hemophilia (can present early), but leukemia becomes relatively more plausible without prior recurrence.\n\n**Question 9:**  \nDo you have any **recent infections**, like a cold, sore throat, or skin infection in the last 1–2 weeks?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had any recent cold, sore throat, or skin infection. My parents say I’ve been acting mostly normal except for the swollen, sore right knee.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 48%\n- Acute lymphoblastic leukemia: 12%\n- Acute myelogenous leukemia: 7%\n- Essential thrombocythemia: 0.3%\n- Others: remainder\n\nNo recent infection makes septic arthritis less likely, but we still can’t fully exclude it without exam/labs/possible aspiration. Next discriminating question:\n\n**Question 10:**  \nWhen you press on the knee, is the pain mostly in the **front of the joint** (around kneecap/inside the joint), or is it more in the **bone/leg** (like shin/femur) or in the **soft tissue** around it?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It feels like the pain is right in the knee joint area—around the front of my knee near the kneecap—when they press or move it. My leg and shin feel mostly okay, and it’s mostly my right knee that hurts.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 46%\n- Acute lymphoblastic leukemia: 13%\n- Acute myelogenous leukemia: 8%\n- Acute Mesenteric Ischemia: 0.01%\n- Essential thrombocythemia: 0.3%\n- Others: remainder\n\nPain localized to the joint supports hemarthrosis or inflammatory/infectious arthritis. With no fever and no other symptoms, hemophilia remains top, but leukemia still significant in this age group.\n\n**Question 11:**  \nHas anyone noticed the knee is **very tense/firm** or does it look like there’s a **large amount of fluid** compared with the other knee?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "My parents say the knee looks a bit tense and puffy, like there’s more fluid than on my other knee. It doesn’t look bruised, but it feels firm when they try to move it.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 44%\n- Acute lymphoblastic leukemia: 15%\n- Acute myelogenous leukemia: 9%\n- Essential thrombocythemia: 0.3%\n- Acute Mesenteric Ischemia: 0.01%\n- Others: remainder\n\nTense, firm effusion is consistent with **hemarthrosis**. Leukemia can also cause joint effusions (less commonly as isolated knee) but is still plausible.\n\n**Question 12:**  \nDo you have any **swollen lymph nodes** (neck/groin/armpits) or **bone pain** (like refusing to be touched on legs/arms) besides this knee?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have swelling anywhere else that my parents can see, and they haven’t noticed me refusing to be touched on other parts of my body—this seems mainly limited to my right knee.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 41%\n- Acute lymphoblastic leukemia: 16%\n- Acute myelogenous leukemia: 10%\n- Essential thrombocythemia: 0.3%\n- Others: remainder\n\nIsolated knee hemarthrosis still points most toward a bleeding disorder, but leukemia remains a key “can’t miss” alternative in toddlers.\n\n**Question 13:**  \nHave you had any **vaccinations** or **new medications** recently (especially blood thinners/antibiotics), or any **known insect bite** or skin lesion near the knee?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had my usual vaccines, and I haven’t started any new medications. We didn’t notice any insect bite or skin sore near my right knee.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Hemophilia A: 39%\n- Acute lymphoblastic leukemia: 17%\n- Acute myelogenous leukemia: 11%\n- Essential thrombocythemia: 0.3%\n- Others: remainder\n\nAt this point, evidence is still most consistent with **acute hemarthrosis** (bleeding into joint) but we haven’t confirmed bleeding disorder with labs, and we must consider **leukemia-related joint involvement**. We can’t safely “close” without at least one more discriminating clinical feature.\n\n**Question 14:**  \nWhen you were playing, did you fall or twist your knee, or did anyone notice a sudden limp right after play?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you were playing, did you fall or twist your knee, or did anyone notice a sudden limp right after play? Patient: I don’t think I fell or twisted it, and my parents didn’t notice a limp until after they saw my right knee swell later that same day.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hemophilia A, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Acute Mesenteric Ischemia, Essential thrombocythemia",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Hemophilia A",
+    "predicted_set": [
+      "Hemophilia A",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Acute Mesenteric Ischemia",
+      "Essential thrombocythemia"
+    ],
+    "predicted_raw": [
+      "Hemophilia A",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Acute Mesenteric Ischemia",
+      "Essential thrombocythemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Hemophilia A",
+    "predicted_set_remapped": [
+      "Hemophilia A",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 33856,
+      "completion_tokens": 2091
+    },
+    "patient": {
+      "prompt_tokens": 24884,
+      "completion_tokens": 669,
+      "calls": 15
+    }
+  }
+}

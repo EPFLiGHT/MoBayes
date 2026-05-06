@@ -1,0 +1,229 @@
+{
+  "case_idx": 0,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {
+    "AGE": 49,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "shortness of breath",
+    "EVIDENCES_ENG": "['shortness of breath', 'productive cough', 'cigarette smoking', 'chronic obstructive pulmonary disease (copd)', 'gastroesophageal reflux disease (gerd) diagnosis', 'occupation in agriculture', 'occupation in construction', 'occupation in the mining sector', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 49\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have a cough that produces colored or more abundant sputum than usual.\n- I smoke cigarettes.\n- I have a chronic obstructive pulmonary disease (COPD).\n- I have been diagnosed with gastroesophageal reflux.\n- I work in agriculture.\n- I work in construction.\n- I work in the mining sector.\n- I have a cough.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.11403953766958734], ['Bronchiectasis', 0.10647908192852255], ['Pneumonia', 0.10367395752980214], ['Pulmonary neoplasm', 0.0949140373385399], ['Acute COPD exacerbation / infection', 0.0855520536669618], ['Guillain-Barré syndrome', 0.06123124585500607], ['Bronchospasm / acute asthma exacerbation', 0.059420437905477026], ['Atrial fibrillation', 0.05848691236998595], ['Myocarditis', 0.057759893079048316], ['Pulmonary embolism', 0.051881933162426654], ['Acute dystonic reactions', 0.04311967893389692], ['Myasthenia gravis', 0.04311967893389692], ['Anemia', 0.04311967893389692], ['Tuberculosis', 0.041190904603341495], ['PSVT', 0.023033011844721816], ['Chagas', 0.012977956244888417]]",
+    "PATHOLOGY": "Acute COPD exacerbation / infection",
+    "INITIAL_EVIDENCE": "dyspn",
+    "EVIDENCES": "['dyspn', 'expecto', 'f17.210', 'j44_j42', 'k21', 'tagri', 'tconst', 'tmine', 'toux', 'trav1_@_N']",
+    "patient_id": "htsim_0000",
+    "_test_index": 0,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 49-year-old F patient presents to the clinic. Chief complaint: shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having shortness of breath in a significant way, and I also have a cough that produces colored or more abundant sputum than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long has the shortness of breath and productive (colored) cough been going on, and do you have fever or chills?  \nDoctor: Also, do you feel chest pain (worse with breathing), wheeze, or have you had recent leg swelling/pain or travel/surgery that could raise a clot risk?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having shortness of breath in a significant way, and my cough produces colored (or more abundant) sputum than usual. I don’t know how long it’s been going on. I don’t know about fever or chills. I don’t know about chest pain, wheezing, or any recent leg swelling/pain or travel/surgery.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On a scale of 0–10 how severe is the shortness of breath, and do you get it at rest or mainly with exertion? Also, any new oxygen requirement, lips turning blue, or confusion?  \nDoctor: I need to check basics—REQUEST TEST: Pulse_Oximetry and REQUEST TEST: Chest_X-Ray.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how severe it is on a 0–10 scale. I don’t know whether it’s at rest or mainly with exertion. I don’t know about any new oxygen requirement, lips turning blue, or confusion.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any history of COPD/asthma/smoking, recent sick contacts, or that you’re immunocompromised—and is the sputum ever blood-streaked?  \nDoctor: Also, when you lie flat does it get worse, and do you have ankle swelling or feel like you’re choking at night?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have COPD and I smoke cigarettes. I don’t know about recent sick contacts or whether I’m immunocompromised. I don’t know if the sputum is ever blood-streaked. I don’t know if it gets worse when I lie flat, and I don’t know about ankle swelling or feeling like I’m choking at night.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your COPD and smoking with colored, more abundant sputum, I need severity and vitals—REQUEST TEST: Spirometry/Peak_Flow and REQUEST TEST: CBC.  \nDoctor: Do you have fever (measured or felt), worsening wheeze, and did your inhalers help at all—or has this been rapidly getting worse over days?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have fever (measured or felt), worsening wheeze, or whether my inhalers helped. I also don’t know if it has been rapidly getting worse over days.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to clarify urgency—REQUEST TEST: Vital_Signs (temp, HR, BP, RR) and REQUEST TEST: Arterial_Blood_Gas_or_VBG. Also, has your shortness of breath been worsening over hours vs days, and can you speak full sentences without stopping?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether my shortness of breath has been worsening over hours versus days, and I don’t know if I can speak full sentences without stopping.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess how sick you are right now—can you tell me if you’re able to speak full sentences, and I need the results of the vitals and oxygenation: REQUEST TEST: Vital_Signs (temp, HR, BP, RR) and REQUEST TEST: Pulse_Oximetry.  \nDoctor: Also, I need to know whether your sputum is mostly yellow/green and whether you have fever or chills—REQUEST TEST: Chest_X-Ray and REQUEST TEST: CBC.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to speak full sentences.\n\nI don’t know whether my sputum is mostly yellow or green, or whether I have fever or chills.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned you may be having a potentially serious COPD exacerbation or another lung problem—please try to take a breath and tell me: are you currently in distress, and can you speak 5–10 words at a time without stopping for breath?  \nDoctor: I’m also going to order urgent checks now—REQUEST TEST: Vital_Signs (temp, HR, BP, RR) and REQUEST TEST: Pulse_Oximetry (if O2 sat is <90% or you’re too breathless to speak, that’s an emergency).",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently in distress, and I don’t know if I can speak 5–10 words at a time without stopping for breath.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as urgent until proven otherwise—are you able to sit up and talk to me at all right now, and do you know your current oxygen saturation (or have you been given oxygen)?  \nDoctor: Also, do you have a history of COPD exacerbations requiring steroids/ER visits, and have you noticed fever, increased sputum volume, or sputum color change within the last 48–72 hours?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’m able to sit up and talk to you right now. I don’t know my current oxygen saturation or whether I’ve been given oxygen.\n\nI have COPD, but I don’t know about COPD exacerbations requiring steroids/ER visits. I don’t know whether I’ve had fever or increased sputum volume or sputum color change within the last 48–72 hours.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially serious—are you able to speak at all without gasping, and do you have any home oxygen or a pulse oximeter we can check now?  \nDoctor: REQUEST TEST: Immediate_Vital_Signs (temp, HR, BP, RR) + REQUEST TEST: Pulse_Oximetry Now.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to speak at all without gasping. I don’t have home oxygen or a pulse oximeter that I know of.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t confirm your oxygen level or ability to speak, this is urgent; can you tell me if you’re able to say more than a few words without stopping, and have you noticed bluish lips or severe drowsiness/confusion?  \nDoctor: REQUEST TEST: Immediate_Vital_Signs (temp, HR, BP, RR) + REQUEST TEST: Pulse_Oximetry Now, and if you’re too breathless to cooperate, I need you to let staff start oxygen and continuous pulse-ox immediately.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to say more than a few words without stopping. I don’t know about bluish lips or severe drowsiness/confusion.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this is a COPD exacerbation until proven otherwise—can you confirm your current vital signs/oxygen saturation from the monitor right now, and are you wheezing or having increased work of breathing (retractions, can’t lie flat)?  \nDoctor: REQUEST TEST: Repeat_Pulse_Oximetry + REQUEST TEST: Chest_X-Ray + REQUEST TEST: CBC_and_BMP_and_VBG_or_ABG.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m wheezing or having increased work of breathing, and I don’t know my current vital signs or oxygen saturation from the monitor right now.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because your ability to confirm oxygen level/work of breathing is unclear, this is urgent: can you step away from the exam area and let the staff place a pulse oximeter immediately, and tell me whether you’re currently wheezing or using accessory muscles to breathe?  \nDoctor: Also, do you have a thermometer reading for fever right now (or measured temp within the last few hours), and have your symptoms worsened over hours vs over days?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m wheezing or using accessory muscles to breathe.\n\nI don’t know whether I have a thermometer reading for fever right now, or whether my symptoms have worsened over hours versus over days.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—while staff checks your oxygen saturation and vital signs, I need one key timeline question: did this get significantly worse over the past **hours** or **more than 2–3 days**?  \nDoctor: Also, do you have **chest pain**, **new one-sided leg swelling/pain**, or **recent long travel/surgery**—if yes, we must consider a blood clot as well.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether it got significantly worse over the past hours or more than 2–3 days.\n\nI don’t know about chest pain, new one-sided leg swelling/pain, or any recent long travel/surgery.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your COPD + smoking and the colored/increased sputum, I’m treating this as a likely **COPD exacerbation**, but we must rule out pneumonia or other causes—REQUEST TEST: Chest_X-Ray, REQUEST TEST: CBC_and_BMP, and REQUEST TEST: Pulse_Oximetry (now).  \nDoctor: While we get results, I need one answer: do you have a measured fever (≥38°C / 100.4°F) or are you feeling feverish/chills right now?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I have a measured fever (≥38°C / 100.4°F) or whether I’m feeling feverish/chills right now.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you don’t know your fever/oxygen level and you have COPD plus a major shortness of breath with colored/increased sputum, I’m going to treat this as a COPD exacerbation with possible pneumonia until proven otherwise. REQUEST TEST: Chest_X-Ray results + REQUEST TEST: CBC and BMP results + REQUEST TEST: Pulse_Oximetry reading—also, can you (now) check and tell me your oxygen saturation and how many breaths you can take before needing to stop to breathe?",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my oxygen saturation or how many breaths I can take before needing to stop to breathe.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you can’t confirm oxygenation or ability to speak, this is an emergency risk in COPD—REQUEST TEST: Continuous_Pulse_Oximetry and REQUEST TEST: ECG plus Chest_X-Ray report ASAP; are you currently wheezing or needing to use accessory muscles to breathe?  \nDoctor: Also, for safety, do you have fever/chills right now and has your sputum volume/color clearly worsened over the last 48–72 hours?",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently wheezing or needing to use accessory muscles to breathe.\n\nI don’t know whether I have fever/chills right now, or whether my sputum volume/color has clearly worsened over the last 48–72 hours.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to make a decision based on what we have: COPD + active cigarette smoking + significant dyspnea + new/worsening colored, more abundant sputum strongly suggests an acute COPD exacerbation, though pneumonia must be considered.  \nDoctor: DIAGNOSIS READY: Acute COPD exacerbation (infectious likely; rule out community-acquired pneumonia)\n\n[DDX]\n1. Pneumonia",
+      "turn": 17
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 17,
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Influenza",
+      "URTI"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 21744,
+      "completion_tokens": 1532,
+      "calls": 17
+    },
+    "patient": {
+      "prompt_tokens": 28618,
+      "completion_tokens": 789,
+      "calls": 17
+    }
+  }
+}

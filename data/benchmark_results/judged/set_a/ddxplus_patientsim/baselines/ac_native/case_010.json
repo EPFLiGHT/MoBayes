@@ -1,0 +1,104 @@
+{
+  "case_idx": 10,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Boerhaave",
+  "objective_for_doctor": "A 43-year-old Female patient presents to the clinic. Chief complaint: I have lower chest pain, upper chest pain, and feeling nauseous or do you feel like vomiting.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have very bad chest pain—both lower and upper—like a knife-stroke, violent, sickening pain, and it goes to my thoracic spine and left scapula. I also feel nauseous and I’ve been vomiting repeatedly. The pain is 10 out of 10 and started really fast.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did this start exactly, and does the pain worsen with breathing or movement, or is it steady?  \nDoctor: Any shortness of breath, sweating, fainting, cough/fever, or have you noticed blood in vomit?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started very suddenly—like 7 out of 10 speed for how fast it began—and it’s been extremely severe, 10 out of 10. I don’t know about worsening with breathing or movement because I haven’t checked closely, but it feels constant and intense. I don’t have cough or fever, and I haven’t seen blood in my vomit.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a potentially life-threatening cause—do you have shortness of breath, sweating, or dizziness, and can you tell me your age and any cardiac risk factors (high BP, diabetes, smoking, high cholesterol, family history of early heart disease)?  \nDoctor: Also, is the pain started after exertion or stress, and does it get better or worse when you press on your chest or take a deep breath?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 43. I don’t have shortness of breath, sweating, or dizziness that I can tell. I don’t know my BP/diabetes/cholesterol, and I’m not sure about family history.  \n\nThe pain didn’t start after exertion or stress that I noticed—it came on suddenly and stayed very intense. I haven’t really tested if it changes when I press on my chest or with a deep breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to rule out an emergency like heart attack, blood clot in the lung, or a tear in the aorta—right now, can you tell me: do you have severe pain that feels like it’s “tearing” or “ripping,” and did it start to the back all at once (thoracic spine), and are you pregnant/postpartum or on estrogen/birth control or have recent long travel/immobility?  \nDoctor: Also, are you able to swallow liquids normally and do you have any new rash, leg swelling, or neurologic symptoms (weakness/numbness)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the pain feels like a knife-stroke and it’s very violent, and it started going to my back at the same time (my thoracic spine) and also to my left scapula.  \n\nI’m not pregnant/postpartum, I’m not on estrogen/birth control that I know of, and I haven’t had recent long travel or immobility. I can swallow liquids normally, and I don’t have a new rash, leg swelling, or weakness/numbness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on the sudden, “knife-like” chest-to-back pain with repeated vomiting, I’m very concerned for an aortic emergency (like aortic dissection) until proven otherwise—are you currently having any fainting, new shortness of breath, or unequal arm blood pressures if you can check?  \nDoctor: REQUEST TEST: ECG; REQUEST TEST: Troponin; REQUEST TEST: CT_Angiography_Chest_Abdomen (for suspected aortic dissection)  \nDoctor: While those are arranged, are you able to tell me your current blood pressure/heart rate (if available) and whether you’re on any blood thinners (e.g., warfarin/apixaban)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m not fainting, and I don’t have new shortness of breath. I can’t check unequal arm blood pressures, and I don’t know my current blood pressure or heart rate.  \n\nI’m not on any blood thinners that I know of.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m recommending immediate ED-level evaluation now because your symptoms are still most concerning for an aortic dissection or other major chest emergency despite no shortness of breath or fainting.  \nDoctor: Do you have any current neurologic symptoms (new weakness/numbness, trouble speaking), and do you have any history of hypertension, prior aortic disease, or recent cocaine/amphetamine use?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No—no new weakness or numbness, and no trouble speaking. I don’t know if I have a history of hypertension or prior aortic disease, and I haven’t used cocaine or amphetamines that I’m aware of.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With sudden, “knife-stroke” chest pain radiating to the thoracic spine/scapula and repeated vomiting, you still meet criteria for suspected aortic dissection even without neurologic deficits—are you willing to go to the ED/call emergency services now for imaging and labs (ECG, troponin, CTA)?  \nDoctor: DIAGNOSIS READY: Suspected acute aortic dissection (life-threatening chest pain emergency)\n\n[ABSTAIN] free-text diagnosis 'Suspected acute aortic dissection (life-threatening chest pain emergency)' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4271,
+      "completion_tokens": 605,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6160,
+      "completion_tokens": 442
+    }
+  }
+}

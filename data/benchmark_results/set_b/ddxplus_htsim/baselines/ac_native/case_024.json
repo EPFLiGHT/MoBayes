@@ -1,0 +1,230 @@
+{
+  "case_idx": 24,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {
+    "AGE": 57,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "loss of appetite",
+    "EVIDENCES_ENG": "['increased sweating', 'pain', 'cigarette smoking', 'fever', 'chills', 'loss of appetite', 'nasal congestion', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 57\n- I have had significantly increased sweating.\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I have a fever (either felt or measured with a thermometer).\n- I have had chills or shivers.\n- I have recently had a loss of appetite or I get full more quickly than usually.\n- I have nasal congestion or a clear runny nose.\n- I have a cough.\n- On a scale of 0-10, the pain intensity is 6\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 3\n- On a scale of 0-10, the rash swelling is 0\n- On a scale of 0-10, the pain intensity caused by the rash is 0\n- On a scale of 0-10, the severity of the rash itching is 0\n- The pain is:\n* heavy\n* exhausting\n- The pain locations are:\n* back of the neck\n* side of the neck(L)\n* top of the head\n* forehead\n* occiput\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Influenza', 0.23071814288585946], ['URTI', 0.22189183783854877], ['Bronchitis', 0.18882332399375443], ['Tuberculosis', 0.14032708290381418], ['Chronic rhinosinusitis', 0.08404035886141531], ['Chagas', 0.07986147279393062], ['Acute rhinosinusitis', 0.054337780722677156]]",
+    "PATHOLOGY": "Influenza",
+    "INITIAL_EVIDENCE": "perte_appet",
+    "EVIDENCES": "['diaph', 'douleurxx', 'douleurxx_carac_@_une_lourdeur_ou_serrement', 'douleurxx_carac_@_épuisante', 'douleurxx_endroitducorps_@_arrière_du_cou', 'douleurxx_endroitducorps_@_côté_du_cou_G_', 'douleurxx_endroitducorps_@_dessus_de_tête', 'douleurxx_endroitducorps_@_front', 'douleurxx_endroitducorps_@_occiput', 'douleurxx_intens_@_6', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_3', 'f17.210', 'fievre', 'friss', 'lesions_peau_couleur_@_NA', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_0', 'lesions_peau_endroitducorps_@_nulle_part', 'lesions_peau_intens_@_0', 'lesions_peau_plusqu1cm_@_N', 'lesions_peau_prurit_@_0', 'perte_appet', 'rhino_clair', 'toux', 'trav1_@_N']",
+    "patient_id": "htsim_0865",
+    "_test_index": 865,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 57-year-old F patient presents to the clinic. Chief complaint: loss of appetite.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a loss of appetite, and I’ve also had a cough with nasal congestion or a clear runny nose, along with fever, chills or shivers.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you mentioned loss of appetite plus cough, runny nose/congestion, fever and chills, how many days has this been going on and how high has your fever been?  \nDoctor: Do you have shortness of breath, chest pain, sore throat, or any known COVID/flu exposure?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick questions—do you have any shortness of breath or chest pain right now, and is your cough dry or producing mucus/phlegm (what color)?  \nDoctor: Also, have you noticed weight loss beyond this illness, night sweats, or any blood in your sputum?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.\n\nI have had significantly increased sweating, and I’ve had chills or shivers, but I don’t know about weight loss, night sweats, or blood in my sputum.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when you cough, do you produce any phlegm (even a little), and if so what color (clear/white/yellow-green/bloody) and about how many days has this whole illness lasted?  \nDoctor: Also, any known medical conditions (diabetes, COPD/asthma), smoking history, or are you able to check your temperature now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about whether I produce any phlegm or what color it would be. I also don’t know about how many days this whole illness has lasted.\n\nI do smoke cigarettes. I don’t know about any other medical conditions.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re not sure about the phlegm color/duration, can you tell me: roughly how old are you (confirm 57), and are you currently having fever (do you have a thermometer reading), or is it “feels feverish” only?  \nDoctor: Also, on a scale of 0–10, how severe is the cough, and have you noticed any unintentional weight loss or night sweats even if the illness has changed?  \nREQUEST TEST: Chest_X-Ray  \nREQUEST TEST: COVID_Influenza_Test",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 57. I don’t know about whether I currently have a thermometer reading, but I have had a fever (either felt or measured with a thermometer). I also have significantly increased sweating and chills or shivers.\n\nI don’t know the cough severity on a 0–10 scale. I don’t know about any unintentional weight loss or night sweats beyond this illness.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given fever/chills with cough symptoms and smoking history, I’m concerned about a respiratory infection (including pneumonia) versus viral COVID/flu—please answer: how long has this been going on (days), and do you have shortness of breath or wheezing right now?  \nDoctor: Also, do you feel any chest pain when you breathe in or cough?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you’re not sure about duration, do you at least remember whether it started suddenly (within 1 day) or gradually (over several days)?  \nDoctor: And right now, can you check your oxygen if you have a pulse oximeter (SpO₂ %) or tell me if you’re short of breath when walking to the exam room?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s narrow this down: did the symptoms start suddenly (same day) or more gradually over 2–3+ days, and do you have any shortness of breath when resting or only with exertion?  \nDoctor: Also, can you check your temperature and oxygen saturation (SpO₂) right now if available, and tell me the numbers?  \nREQUEST TEST: CBC_with_Differential  \nREQUEST TEST: Chest_X-Ray",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have had fever (felt or measured with a thermometer), significantly increased sweating, and chills or shivers. I have a cough and nasal congestion or a clear runny nose.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you don’t know the timing, oxygen, or severity, I’m going to check for pneumonia and test for COVID/flu first; **do you have any red-flag symptoms right now** like trouble breathing, confusion, blue lips, or coughing up blood?  \nDoctor: While we wait, please **describe the cough** as best you can—**dry vs mucus**, and if mucus, **is it clear/white/yellow-green/bloody**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have a cough, but I don’t know whether it’s dry or producing mucus/phlegm or what color it would be.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your age (57), smoking, fever/chills, sweating, and cough with congestion/runny nose but uncertain severity, I need one more detail: has your fever been present for **≥3 days**, and do you have **any sore throat** or **headache/body aches**?  \nDoctor: Also, do you feel **more short of breath than usual** even while resting, or is it only with activity?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t confirm the timing, cough type, or oxygen level, I’m going to treat this as a possible pneumonia or COVID/flu until proven otherwise; do you currently have **shortness of breath at rest** or **chest pain**, yes or no?  \nDoctor: Next, can you tell me your **temperature reading** (number) and **any SpO₂ %** from a pulse oximeter if you have one?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you don’t know your temperature, oxygen level, cough type, or duration, I need to rule out pneumonia and serious infection: can you quickly check your temperature and SpO₂ right now and tell me the exact numbers?  \nDoctor: Also, is your cough producing any phlegm at all (yes/no), and if yes what color?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have had a fever (felt or measured with a thermometer), significantly increased sweating, and chills or shivers. I have a cough and nasal congestion or a clear runny nose.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given you don’t know the exact temperature/SpO₂ or cough phlegm details, I’m going to assume we must rule out pneumonia and COVID/flu; do you have any trouble breathing or chest pain right now—yes or no?  \nDoctor: Also, can you confirm the number of days since symptoms began (even approximate), and are you able to check your temperature and SpO₂ immediately and tell me the numbers?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given the uncertainty, I need you to tell me just two things: what is your temperature in °F/°C right now, and do you have any shortness of breath at rest (yes/no)?  \nDoctor: If you can’t measure, do you have SpO₂ from a pulse oximeter (yes/no), and have you had symptoms for 1–2 days, 3–5 days, or 6+ days?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have fever (either felt or measured with a thermometer), significantly increased sweating, and chills or shivers, and I have a cough with nasal congestion or a clear runny nose.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t provide temperature/SpO₂ or symptom duration, I need to decide safely: do you have shortness of breath at rest or chest pain right now (yes/no), and are you able to produce any phlegm (yes/no, and color if yes)?  \nDoctor: Also, REQUEST TEST: Repeat Vital_Signs (temperature and SpO₂) + REQUEST TEST: Procalcitonin; meanwhile I’m concerned about infection such as pneumonia or COVID/flu—any known COPD/asthma or recent antibiotic use in the past 30 days?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about any known COPD/asthma or any recent antibiotic use in the past 30 days. I do smoke cigarettes.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—at this point, I need results to distinguish pneumonia vs viral illness, so I’m ordering key tests now. REQUEST TEST: Repeat_Vital_Signs_(Temp_and_SpO2) + REQUEST TEST: Procalcitonin + REQUEST TEST: CBC_with_Differential + REQUEST TEST: Chest_X-Ray.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have had fever (either felt or measured with a thermometer), significantly increased sweating, and chills or shivers, and I have a cough with nasal congestion or a clear runny nose.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you still can’t provide vital signs (temp/SpO₂) or cough details, I need you to answer: do you have **shortness of breath at rest** or **chest pain** right now (yes/no)?  \nDoctor: Also, when you cough, is there **any phlegm** at all (yes/no), and if yes what color?",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have a cough, and I have nasal congestion or a clear runny nose, along with fever, chills or shivers, and significantly increased sweating.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you’re 57 and a smoker with fever/chills, sweating, and cough despite not knowing vitals or phlegm, I need your immediate **temperature and SpO₂** (numbers) and whether you have **shortness of breath at rest**.  \nDoctor: Meanwhile, are you having any **chest pain**, **coughing up blood**, or **confusion** right now (yes/no)?",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have a cough, along with nasal congestion or a clear runny nose, and I’ve had a fever (felt or measured with a thermometer), significantly increased sweating, and chills or shivers.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you’re 57 and a smoker with fever/chills, cough, and nasal congestion, but you can’t confirm temperature, SpO₂, duration, or whether you have shortness of breath at rest, I’m going to treat this as a potentially serious lower-respiratory infection until proven otherwise—viral (COVID/flu) vs community-acquired pneumonia.  \nDoctor: **DIAGNOSIS READY: Acute febrile respiratory illness—rule out community-acquired pneumonia; differential includes COVID-19 or influenza.**\n\n[DDX]\n1. Influenza\n2. Pneumonia",
+      "turn": 18
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 18
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 22098,
+      "completion_tokens": 1685,
+      "calls": 18
+    },
+    "patient": {
+      "prompt_tokens": 32784,
+      "completion_tokens": 603,
+      "calls": 18
+    }
+  }
+}

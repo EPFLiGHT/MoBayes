@@ -1,0 +1,189 @@
+{
+  "case_idx": 35,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: F\nChief Complaint: increased sweating",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve had significantly increased sweating.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.\n\n**Current posterior (very early; based only on “significantly increased sweating”):**\n- Anaphylaxis: 0.20  \n- Panic attack: 0.20  \n- Possible NSTEMI / STEMI: 0.15  \n- Pulmonary embolism: 0.15  \n- Acute COPD exacerbation / infection: 0.10  \n(others lower)\n\n**Question 1 (most discriminating):**  \nAre you having **chest pain or pressure**, or **shortness of breath** right now?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had pain in my lower chest and on both sides of my chest, and it radiates to my biceps (right and left), under the jaw, and my shoulder (left).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with chest pain radiating to jaw/arms):**\n- Possible NSTEMI / STEMI: 0.55  \n- Pulmonary embolism: 0.15  \n- Panic attack: 0.10  \n- Anaphylaxis: 0.10  \n- Pericarditis: 0.05  \n\n**Likelihood ratios (approx):**\n- NSTEMI/STEMI: strong increase (typical radiation + diaphoresis)  \n- PE: moderate increase (can present with chest pain + diaphoresis)  \n- Panic/anaphylaxis: less likely given radiation pattern\n\n**Question 2:**  \nWhen did this pain start (how many minutes/hours ago), and is it **constant** or **comes and goes**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started very fast—on a scale of 0–10, the pace at which the pain appears is 9. It’s been there as a tedious, heavy, sickening, scary pain with intensity 5/10, but I don’t know whether it’s constant or comes and goes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (fast onset + “sickening/scary” diaphoresis):**\n- Possible NSTEMI / STEMI: 0.60  \n- Pulmonary embolism: 0.20  \n- Pericarditis: 0.05  \n- Panic attack: 0.05  \n- Anaphylaxis: 0.05  \n\n**Likelihood ratios (approx):**\n- Very rapid onset with ongoing heavy pain: favors ACS/PE over panic/anaphylaxis (LR ~2–3 for ACS; ~1.5–2 for PE)\n\n**Question 3 (high yield):**  \nDo you feel **short of breath**, or worse when you take a deep breath (pleuritic pain)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (no info on dyspnea/pleuritic component):**\n- Possible NSTEMI / STEMI: 0.60  \n- Pulmonary embolism: 0.20  \n- Pericarditis: 0.05  \n- Panic attack: 0.05  \n- Anaphylaxis: 0.05  \n\n**Question 4 (one-at-a-time, helps a lot):**  \nHave you had **any fainting/near-fainting**, or do you feel **lightheaded** right now?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Possible NSTEMI / STEMI: 0.60  \n- Pulmonary embolism: 0.20  \n- Pericarditis: 0.05  \n- Panic attack: 0.05  \n- Anaphylaxis: 0.05  \n\n**Question 5:**  \nDo you have **nausea or vomiting** with the chest pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’m feeling nauseous or I feel like vomiting.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (nausea with diaphoresis + radiating chest pain):**\n- Possible NSTEMI / STEMI: 0.70  \n- Pulmonary embolism: 0.15  \n- Pericarditis: 0.05  \n- Panic attack: 0.05  \n- Anaphylaxis: 0.05  \n\n**Likelihood ratios (approx):**\n- ACS: nausea/vomiting increases likelihood (LR ~1.3–1.6)  \n- PE: modest (LR ~1.0–1.2)\n\n**Question 6 (very discriminating):**  \nDoes the pain **worsen when you lie flat** or **improve when you sit up/lean forward**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- Possible NSTEMI / STEMI: 0.70  \n- Pulmonary embolism: 0.15  \n- Pericarditis: 0.05  \n- Panic attack: 0.05  \n- Anaphylaxis: 0.05  \n\n**Question 7:**  \nHave you had **any recent leg swelling/pain** (especially one-sided calf/thigh), or have you had **recent surgery, long travel, or being bedridden**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- Possible NSTEMI / STEMI: 0.70  \n- Pulmonary embolism: 0.15  \n- Pericarditis: 0.05  \n- Panic attack: 0.05  \n- Anaphylaxis: 0.05  \n\n**Question 8 (discriminating for ACS vs other):**  \nDo you have a **history of heart disease**, high blood pressure, diabetes, high cholesterol, or do you **smoke**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have diabetes, high blood pressure or I take medications to treat high blood pressure, and I have high cholesterol (or I take medications to treat high cholesterol), and I smoke cigarettes.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with major ACS risk factors):**\n- Possible NSTEMI / STEMI: 0.85  \n- Pulmonary embolism: 0.05  \n- Pericarditis: 0.05  \n- Panic attack: 0.03  \n- Anaphylaxis: 0.02  \n\n**Likelihood ratios (approx):**\n- ACS risk factors (DM/HTN/HLD/smoking): strong increase (LR ~3–5)\n\n**Question 9 (to check PE vs ACS):**  \nAny **coughing blood**, or **new/worsening shortness of breath** since this started?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still strongly ACS):**\n- Possible NSTEMI / STEMI: 0.85  \n- Pulmonary embolism: 0.05  \n- Pericarditis: 0.05  \n- Panic attack: 0.03  \n- Anaphylaxis: 0.02  \n\n**Question 10 (helps rule in/out PE/ACS):**  \nIs the pain **worse with movement or pressing on the chest**, or does it feel **deep/pressure-like** that isn’t reproducible?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still strongly ACS):**\n- Possible NSTEMI / STEMI: 0.85  \n- Pulmonary embolism: 0.05  \n- Pericarditis: 0.05  \n- Panic attack: 0.03  \n- Anaphylaxis: 0.02  \n\n**Question 11 (very important for immediate safety):**  \nDo you have **sweating plus a feeling of impending doom**, or are you also having **hives/itching/swelling of lips or tongue**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still strongly ACS):**\n- Possible NSTEMI / STEMI: 0.85  \n- Pulmonary embolism: 0.05  \n- Pericarditis: 0.05  \n- Panic attack: 0.03  \n- Anaphylaxis: 0.02  \n\n**Question 12 (to refine PE vs ACS):**  \nHave you had **recent immobilization/long flight**, **cancer**, or **prior blood clots**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still strongly ACS):**\n- Possible NSTEMI / STEMI: 0.85  \n- Pulmonary embolism: 0.05  \n- Pericarditis: 0.05  \n- Panic attack: 0.03  \n- Anaphylaxis: 0.02  \n\n**Question 13 (rule in/out pericarditis):**  \nDid this start after a **viral illness/fever**, and is the pain **sharp and worse when you breathe in**?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still strongly ACS):**\n- Possible NSTEMI / STEMI: 0.85  \n- Pulmonary embolism: 0.05  \n- Pericarditis: 0.05  \n- Panic attack: 0.03  \n- Anaphylaxis: 0.02  \n\n**Question 14 (ACS vs others):**  \nHave you ever had similar chest pain before, and did it **improve with rest** or **worsen with exertion**?\n\n(If you don’t know, that’s okay.)",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI, Pulmonary embolism, Pericarditis, Panic attack, Anaphylaxis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Pericarditis",
+      "Panic attack",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27883,
+      "completion_tokens": 1734
+    },
+    "patient": {}
+  }
+}

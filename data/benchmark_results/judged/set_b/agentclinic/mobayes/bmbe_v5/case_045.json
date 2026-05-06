@@ -1,0 +1,288 @@
+{
+  "case_idx": 45,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Erythema Toxicum",
+  "patient_actor_hidden": {
+    "Demographics": "4-day-old newborn",
+    "History": "The newborn was born at term with no complications. The mother had no prenatal care and has a history of gonorrhea treated 4 years ago. The newborn presents with a generalized rash that has been present for 1 day.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized erythematous maculopapular rash and pustules",
+      "Secondary_Symptoms": [
+        "Rash with an erythematous base",
+        "Rash over the trunk and extremities",
+        "Sparing of the palms and soles"
+      ]
+    },
+    "Past_Medical_History": "Born at term, no prenatal care for the mother, mother's history of gonorrhea treated 4 years ago.",
+    "Social_History": "N/A for the newborn.",
+    "Review_of_Systems": "No other abnormalities noted in the systems review; the rest of the examination shows no abnormalities."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn presenting with a generalized rash.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 4-day-old baby, and for the past day I’ve developed a widespread red rash with small bumps and some pustules. It’s mainly on my trunk and arms/legs, with the palms and soles spared.",
+      "extracted_features": {
+        "f_rash_d84642aa": "yes",
+        "f_generalized_rash_e9b8356f": "yes",
+        "f_maculopapular_rash_84d84243": "yes",
+        "f_erythematous_patches_cf6b423a": "yes",
+        "f_pustular_rash_92a13bc9": "yes",
+        "f_rash_on_the_trunk_f4572efa": "yes",
+        "f_rash_on_the_extremities_2c8695df": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.4034064700947964
+        ],
+        [
+          "Erythema Toxicum",
+          0.24909798426618585
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.12565119560329727
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.06817553447202897
+        ],
+        [
+          "Bed bug bite",
+          0.05035186532901485
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden movements that you can’t control? (Yes or no)",
+      "patient_answer": "No, I haven’t noticed any twitching, jerking, or sudden uncontrolled movements.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.38915597195573515
+        ],
+        [
+          "Erythema Toxicum",
+          0.26142363888001025
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.12121251585506505
+        ]
+      ],
+      "entropy": 2.5776173802766675
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves a bit under the skin**? (Yes or no)",
+      "patient_answer": "No, I haven’t noticed any lump in my right breast. I don’t think I’ve felt anything that moves under the skin.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.3926534366071455
+        ],
+        [
+          "Erythema Toxicum",
+          0.26377313368907335
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.12230189009075025
+        ]
+      ],
+      "entropy": 2.5589011142723685
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No, when you press around my belly button area it doesn’t seem tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.38969628000340023
+        ],
+        [
+          "Erythema Toxicum",
+          0.2848008088536375
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.12138080852564924
+        ]
+      ],
+      "entropy": 2.506412618794308
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "No, I haven’t been vomiting recently.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.33809118195872234
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.3317737637049851
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.1324490504377556
+        ]
+      ],
+      "entropy": 2.4851113087311587
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "No, I haven’t noticed any lump or mass in my right breast, and I don’t feel anything that seems to move under the skin. I’m mostly just dealing with the widespread red rash with small bumps and a few pustules on my trunk and arms/legs, while my palms and soles are spared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.33815153267868153
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.33183298673880446
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.13247269315894547
+        ]
+      ],
+      "entropy": 2.4831526169844422
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, like you’re seeing through a film or mist? (Yes/No)",
+      "patient_answer": "No, I haven’t noticed my eyes looking cloudy or hazy, and my vision seems normal to me.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.37161547058850464
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.3646716327052865
+        ],
+        [
+          "Bed bug bite",
+          0.07511715594316376
+        ]
+      ],
+      "entropy": 2.3590655560325455
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 6 to 12 months, have you lost weight without trying (for example, your clothes fit looser or you didn’t change your diet or exercise)?",
+      "patient_answer": "No, I haven’t lost weight—I'm only 4 days old, and I don’t think anything like that has changed. The main issue is still the widespread red rash with small bumps and a few pustules on my trunk and extremities, with my palms and soles spared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.3911799507045636
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.3528506982300936
+        ],
+        [
+          "Bed bug bite",
+          0.07907185702570363
+        ]
+      ],
+      "entropy": 2.305280485708234
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small?",
+      "patient_answer": "No, I haven’t noticed any painless lump or mass in my right breast. I’m mainly just dealing with the widespread red rash with small bumps and a few pustules on my trunk and arms/legs, and my palms and soles are spared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.3929195845178397
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.3544198763144345
+        ],
+        [
+          "Bed bug bite",
+          0.07942350100927868
+        ]
+      ],
+      "entropy": 2.2895989565919392
+    }
+  ],
+  "final": {
+    "predicted": "Erythema Toxicum",
+    "predicted_top3": [
+      "Erythema Toxicum",
+      "Steven-Johnson syndrome",
+      "Bed bug bite"
+    ],
+    "confidence": 0.3929195845178397,
+    "final_entropy": 2.2895989565919392,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Erythema Toxicum",
+    "predicted_set_remapped": [
+      "Erythema Toxicum",
+      "Steven-Johnson syndrome",
+      "Bed bug bite"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10760,
+      "completion_tokens": 445
+    },
+    "patient": {
+      "prompt_tokens": 5098,
+      "completion_tokens": 338,
+      "calls": 9
+    }
+  }
+}

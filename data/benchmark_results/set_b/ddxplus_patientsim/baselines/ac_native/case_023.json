@@ -1,0 +1,115 @@
+{
+  "case_idx": 23,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "objective_for_doctor": "A 12-year-old Male patient presents to the clinic. Chief complaint: I have a fever, burning pain, and right tonsil pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had a fever and bad throat pain—burning pain in my throat with pain in both tonsils, and it feels like my palate/pharynx is hurting too. I also have nasal congestion or a clear runny nose, and my pain is really strong, about 9 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s pinpoint this: do you have a cough, and do you notice any white patches/pus on your tonsils or swollen/tender neck glands? Also, have you measured your temperature, and how long has this been going on?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a cough. I haven’t noticed any white patches or pus on my tonsils, and I’m not sure about swollen/tender neck glands. I measured a fever at home, and this has been going on since it started suddenly today.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Alright—next: do you have any difficulty swallowing, drooling, muffled “hot potato” voice, or trouble opening your mouth (trismus)? Also, is the runny nose clear, and are you having any abdominal pain or vomiting?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have difficulty swallowing because it hurts, but I’m not drooling and I don’t think my voice is muffled. I can open my mouth okay. My runny nose is clear, and I don’t have abdominal pain or vomiting.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any one-sided throat pain with ear pain, and do you have a rash or history of recent strep exposure? Also, what is your exact temperature and any headache/body aches?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s mostly right tonsil pain, but both tonsils hurt. I don’t have ear pain. I don’t know about a rash, and I’ve had contact with someone with similar symptoms in the past two weeks. I don’t know my exact temperature, and I don’t have headache or body aches.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since it’s sudden onset today with high throat pain (9/10), fever, no cough, no white tonsil exudate that you noticed, and known close contact, I need one more check: do you have swollen, tender lumps under the jaw/neck, and does your throat pain get worse when you swallow? Also, any skin rash like sandpaper on the body?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I think it hurts when I swallow, yes. I’m not sure about swollen tender lumps under my jaw or neck. I don’t have a skin rash like sandpaper.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—this pattern (sudden high fever + severe throat pain worsened by swallowing + clear runny nose + close exposure + no cough/exudate noted) still fits best with **streptococcal pharyngitis**; I need to confirm. **REQUEST TEST: Rapid_Strep_Test (or Throat_Culture)**.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor. You can do the rapid strep test or a throat swab culture—I’m okay with that.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine your throat and then collect a swab for rapid strep (and send a backup culture if needed). While we wait: any hoarseness, significant cough, or mouth ulcers?  \nPatient:  \nDoctor:",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have hoarseness, and I don’t have a significant cough. I don’t have mouth ulcers.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Good—no hoarseness, no significant cough, and no mouth ulcers keeps strep higher on the list. REQUEST TEST: Rapid_Strep_Test (with Throat_Culture backup if rapid is negative).",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes, doctor. Please go ahead with the rapid strep test, and if it’s negative then the throat culture backup is fine.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—while we run the rapid strep, I’m going to do a quick exam for tender anterior cervical nodes and any tonsillar swelling/exudate. If rapid strep comes back negative, we’ll treat based on the throat culture and your clinical picture.  \nDoctor: DIAGNOSIS READY: Acute streptococcal pharyngitis (pending Rapid Strep result, likely).\n\n[ABSTAIN] free-text diagnosis 'Acute streptococcal pharyngitis (pending Rapid Strep result, likely).' did not map to the closed disease set",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5097,
+      "completion_tokens": 500,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 8051,
+      "completion_tokens": 365
+    }
+  }
+}

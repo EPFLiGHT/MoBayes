@@ -1,0 +1,128 @@
+{
+  "case_idx": 5,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.",
+    "Symptoms": {
+      "Primary_Symptom": "Stiffness in the arm",
+      "Secondary_Symptoms": [
+        "Difficulty combing hair",
+        "Trouble reaching high objects",
+        "Decreased range of motion in shoulder",
+        "Arm strength 4/5"
+      ]
+    },
+    "Past_Medical_History": "Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.",
+    "Social_History": "Sedentary lifestyle, predominately staying indoors and watching television.",
+    "Review_of_Systems": "Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the past few months I’ve had stiffness in my arm, and it’s been hard to comb my hair or reach things on high shelves. My shoulder range of motion feels reduced, and my arm strength is about 4 out of 5.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To better understand your condition, can you tell me if the stiffness is accompanied by pain in your shoulder or arm?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, there’s some mild discomfort in the shoulder when I try to lift my arm, but it’s mostly stiffness and reduced motion rather than severe pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned stiffness and reduced range of motion in your shoulder. Is the stiffness constant or does it vary throughout the day, such as being worse in the morning or after periods of rest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It seems worse after I’ve been resting or sitting for a while, and in the morning it feels a bit more stiff, then it gradually loosens as I move around. The discomfort is mild and mostly shows up when I try to lift my arm or reach overhead.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "The symptoms improving with movement and being worse after rest or in the morning are characteristic of certain inflammatory conditions. Have you noticed any swelling, redness, or warmth around your shoulder or arm?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swelling, redness, or warmth around my shoulder or arm—it's mainly the stiffness and reduced range of motion. The discomfort is mild and mostly when I lift my arm or reach overhead.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The absence of swelling, redness, or warmth helps to rule out some acute inflammatory or infectious causes. You mentioned that your arm strength is about 4 out of 5. Have you experienced any numbness, tingling, or weakness in specific muscle groups that might suggest nerve involvement?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t really have numbness or tingling, and I mostly notice weakness when I try to do overhead tasks like reaching up or combing my hair. It feels more like my shoulder doesn’t move as well rather than shooting pain or nerve symptoms.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The lack of numbness or tingling makes a radiculopathy or neuropathy less likely. Given your age and symptoms, I'm considering various causes of shoulder stiffness and reduced range of motion. Have you had any recent trauma or injury to your shoulder, or has this come on gradually without any specific incident?\n \nIf this is the 6th question, it will be the last one before potentially providing a differential diagnosis or abstaining due to insufficient evidence.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s come on gradually over the past few months, and I haven’t had any recent injury or trauma to my shoulder or arm. It feels like it’s been slowly getting harder to comb my hair and reach higher shelves.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Adhesive capsulitis (frozen shoulder), osteoarthritis of the shoulder, rotator cuff tendinopathy, shoulder impingement syndrome, glenohumeral joint capsular tightness due to other causes.\n\nThis differential diagnosis is based on the patient's gradual onset of shoulder stiffness, reduced range of motion, mild pain with movement, and absence of numbness, tingling, or significant trauma. The gradual progression and characteristics of the symptoms are most consistent with adhesive capsulitis (frozen shoulder), which is further supported by the improvement with movement and worsening after rest. Other listed diagnoses could also be considered based on the clinical presentation.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Adhesive capsulitis (frozen shoulder)",
+    "predicted_set": [
+      "Adhesive capsulitis (frozen shoulder)",
+      "osteoarthritis of the shoulder",
+      "rotator cuff tendinopathy",
+      "shoulder impingement syndrome",
+      "glenohumeral joint capsular tightness due to other causes.\n\nThis differential diagnosis is based on the patient's gradual onset of shoulder stiffness"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Adhesive capsulitis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Adhesive capsulitis",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3001,
+      "completion_tokens": 385
+    },
+    "patient": {
+      "prompt_tokens": 3263,
+      "completion_tokens": 319,
+      "calls": 6
+    }
+  }
+}

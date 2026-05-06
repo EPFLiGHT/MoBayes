@@ -1,0 +1,192 @@
+{
+  "case_idx": 11,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Pulmonary neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 49\nSex: Female\nChief Complaint: I have right posterior chest wall pain, been coughing up blood, and a cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having right back chest wall pain—kind of a knife-stab feeling—and I’ve also been coughing and bringing up blood. I feel very short of breath, and lately I’ve had no appetite/early satiety and lost weight without trying.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step. First, a quick safety check.\n\n**Question 1 (one-at-a-time):** How old is the patient, and do you have any major risk factors for blood clots (recent surgery/immobility, long travel, pregnancy/postpartum, prior DVT/PE, known cancer, or estrogen use)?  \n\n**Current posterior (rough priors given the combination of pleuritic chest wall pain + hemoptysis + weight loss + dyspnea):**  \n- Pulmonary embolism: 0.18  \n- Pneumonia: 0.20  \n- Pulmonary neoplasm: 0.22  \n- Spontaneous pneumothorax: 0.10  \n- Possible NSTEMI / STEMI: 0.05  \n(Other causes like bronchitis/bronchiectasis/TB are possible but not yet prioritized.)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 49 years old. For clot risk, I haven’t had recent surgery or been very immobile, and I didn’t travel internationally recently. I don’t know of any prior DVT/PE or known cancer, and I’m not on estrogen (to my knowledge).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. That lowers PE a bit, but hemoptysis + dyspnea + weight loss still keeps it on the list.\n\n**Question 2:** When did the symptoms start (hours/days vs weeks/months), and is the pain constant or does it worsen with deep breaths/coughing?\n\n**Posterior update (based on no major VTE risk factors):**  \n- Pulmonary embolism: 0.18 → **0.10** (likelihood ratio ~0.6)  \n- Pneumonia: 0.20 → **0.22** (no change; still plausible)  \n- Pulmonary neoplasm: 0.22 → **0.26** (weight loss supports)  \n- Spontaneous pneumothorax: 0.10 → **0.10** (timing/pleuritic nature still possible)  \n- Possible NSTEMI / STEMI: 0.05 → **0.04** (hemoptysis/knife-stab pleuritic pain less typical)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started about 1 day ago—pretty sudden. The pain feels worse when I cough and with deep breaths, and it’s more of a sharp “knife-stab” feeling in the right back chest area.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Sudden onset (1 day) with pleuritic sharp pain strongly shifts toward acute cardiopulmonary causes.\n\n**Question 3:** Is the blood you’re coughing up **bright red vs dark/rusty**, and about how much (streaks vs teaspoons vs more)?  \n\n**Posterior probabilities (updated):**  \n- Pulmonary embolism: 0.10 → **0.18** (pleuritic pain + hemoptysis; LR ~1.8)  \n- Pneumonia: 0.22 → **0.16** (sudden onset possible but weight loss/early satiety argues more chronic; LR ~0.7)  \n- Pulmonary neoplasm: 0.26 → **0.18** (hemoptysis can occur, but sudden pleuritic pain is less typical; LR ~0.7)  \n- Spontaneous pneumothorax: 0.10 → **0.14** (sharp pleuritic pain + sudden dyspnea; hemoptysis can occur but is less classic; LR ~1.4)  \n- Possible NSTEMI / STEMI: 0.04 → **0.03** (pleuritic “knife-stab” less typical; LR ~0.7)  \n\n(Weight loss still keeps malignancy/TB in the background, but the acute presentation is driving the top probabilities.)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s bright red, and it’s not like a whole cup—more like streaks mixed with the cough, maybe a few teaspoons total over the day.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Bright red hemoptysis (small volume) with sudden pleuritic pain keeps both **PE** and **pneumothorax** in play, while pneumonia/neoplasm are less “acute.”\n\n**Question 4:** Do you have **one-sided leg swelling/pain** (especially calf), or have you noticed any new **leg swelling** recently?\n\n**Posterior update (leg symptoms for DVT):**  \n- Pulmonary embolism: 0.18 → **0.18** (no info yet; will change with your answer)  \n- Spontaneous pneumothorax: 0.14 → **0.14**  \n- Pneumonia: 0.16 → **0.16**  \n- Pulmonary neoplasm: 0.18 → **0.18**  \n- Possible NSTEMI / STEMI: 0.03 → **0.03**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed any one-sided leg swelling or calf pain. My legs seem normal.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No unilateral leg symptoms lowers PE somewhat, but doesn’t eliminate it.\n\n**Question 5:** Any **fever/chills**, or have you had **recent cold/flu-like symptoms** in the last week?\n\n**Posterior update:**  \n- Pulmonary embolism: 0.18 → **0.22** (LR ~1.2 for PE when no infection symptoms)  \n- Pneumothorax: 0.14 → **0.13** (no fever doesn’t help much; slight down)  \n- Pneumonia: 0.16 → **0.10** (LR ~0.6 without fever/URI)  \n- Pulmonary neoplasm: 0.18 → **0.20** (weight loss still supports; acute pleuritic pain less so but possible)  \n- Possible NSTEMI / STEMI: 0.03 → **0.03** (still low)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No fever or chills. I haven’t had a cold or flu-like illness recently.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—no fever/URI makes pneumonia less likely.\n\n**Question 6:** Do you have **any history of lung disease** (asthma/COPD), **smoking**, or **recent vaping**, or have you ever had a **collapsed lung** before?\n\n**Posterior update (smoking/lung disease for pneumothorax/neoplasm):**  \n- Pulmonary embolism: 0.22 → **0.24**  \n- Pneumothorax: 0.13 → **0.15** (depends on risk factors)  \n- Pneumonia: 0.10 → **0.07**  \n- Pulmonary neoplasm: 0.20 → **0.23** (weight loss keeps it up; smoking would raise it further)  \n- Possible NSTEMI / STEMI: 0.03 → **0.03**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I do smoke cigarettes. I don’t have any known lung disease like asthma or COPD that I’m aware of. I don’t vape, and I’ve never been told I had a collapsed lung before.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Smoking increases risk for **lung cancer** and can also predispose to pneumothorax (especially if there’s underlying lung pathology), but the sudden pleuritic pain + dyspnea + hemoptysis still keeps **PE** and **pneumothorax** high.\n\n**Question 7:** When you say short of breath—did it start **at the same time** as the chest pain (within minutes/hours), or did breathing trouble come later?\n\n**Posterior update (timing):**  \n- Pulmonary embolism: 0.24 → **0.26** if simultaneous (LR ~1.1)  \n- Pneumothorax: 0.15 → **0.18** if simultaneous (LR ~1.2)  \n- Pulmonary neoplasm: 0.23 → **0.18** if sudden (LR ~0.8)  \n- Pneumonia: 0.07 → **0.05** (still low)  \n- Possible NSTEMI / STEMI: 0.03 → **0.02**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "The breathing trouble started at about the same time as the chest pain—within minutes to a few hours.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "That “simultaneous” onset makes acute pleural/circulatory causes more likely than infection or chronic malignancy.\n\n**Question 8:** Do you feel **worse when lying flat** or do you have **palpitations** or a history of **heart rhythm problems**?\n\n**Posterior update (cardiac causes):**  \n- Pulmonary embolism: 0.26 → **0.28** (if no orthopnea/palpitations, PE remains)  \n- Spontaneous pneumothorax: 0.18 → **0.18**  \n- Pulmonary neoplasm: 0.18 → **0.15**  \n- Possible NSTEMI / STEMI: 0.02 → **0.02**  \n- Pneumonia: 0.05 → **0.04**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed it getting worse when I lie flat. I don’t have palpitations, and I don’t know of any rhythm problems.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—no orthopnea/palpitations.\n\n**Question 9:** Have you had **any recent trauma** to the chest (falls, heavy lifting strain), or did the pain start after an injury/coughing fit?\n\n**Posterior update (trauma/musculoskeletal vs cardiopulmonary):**  \n- Pulmonary embolism: 0.28 → **0.30** (no trauma info yet; will drop if trauma present)  \n- Spontaneous pneumothorax: 0.18 → **0.18**  \n- Pulmonary neoplasm: 0.15 → **0.14**  \n- Possible NSTEMI / STEMI: 0.02 → **0.02**  \n- Pneumonia: 0.04 → **0.03**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No recent trauma or falls. It didn’t start after an injury—more like it came on with the coughing and then the sharp pain.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Cough-triggered pleuritic pain without trauma keeps pneumothorax/PE high.\n\n**Question 10:** Any **wheezing**, history of asthma/COPD, or does breathing feel like it’s “tight” rather than purely breathless?\n\n**Posterior update (bronchospasm/asthma):**  \n- Pulmonary embolism: 0.30 → **0.31**  \n- Spontaneous pneumothorax: 0.18 → **0.20**  \n- Pulmonary neoplasm: 0.14 → **0.13**  \n- Bronchospasm / acute asthma exacerbation: 0.00 → **0.02** (only if wheeze/tightness)  \n- Possible NSTEMI / STEMI: 0.02 → **0.02**  \n\n(If you have wheeze, that would shift toward bronchospasm/asthma; if not, pneumothorax/PE remain higher.)\n\n**Question 10 (one at a time):** Do you have **wheezing** right now?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t think I’m wheezing. It feels mainly like I can’t catch my breath, not tight like asthma.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "No wheeze—so bronchospasm/asthma is less likely.\n\n**Question 11:** Have you had **any recent swelling of the face/neck**, **hives/itching**, or **lip/tongue swelling** (allergic/anaphylaxis-type symptoms)?\n\n**Posterior update (anaphylaxis):**  \n- Pulmonary embolism: 0.31 → **0.33**  \n- Spontaneous pneumothorax: 0.20 → **0.21**  \n- Pulmonary neoplasm: 0.13 → **0.12**  \n- Anaphylaxis: 0.00 → **0.00**  \n- Possible NSTEMI / STEMI: 0.02 → **0.02**  \n\n(Answering “no” keeps anaphylaxis very low.)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No. I haven’t had any facial/neck swelling, hives, itching, or lip/tongue swelling.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—anaphylaxis is unlikely.\n\n**Question 12:** When you cough up blood, is it coming from the **lungs** (true hemoptysis) or could it be **from the nose/throat** (post-nasal bleeding, nosebleeds, sore throat)?\n\n**Posterior update (source of blood):**  \n- Pulmonary embolism: 0.33 → **0.34** if true hemoptysis  \n- Spontaneous pneumothorax: 0.21 → **0.20** (hemoptysis less typical but still possible)  \n- Pulmonary neoplasm: 0.12 → **0.12**  \n- Pneumonia: 0.03 → **0.02**  \n\n(Your earlier description sounded like hemoptysis, but I want to confirm.)\n\n**Question 12 (one at a time):** Is there any **nosebleed** or blood from the **throat/nasal passages**, or is it clearly from coughing up from the chest?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s from my coughing up from the chest—there hasn’t been any nosebleed or blood coming from my throat/nasal passages.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "That supports **true hemoptysis**.\n\n**Question 13:** Do you have **any chest pain when you press on the area** (tender to touch), or is it only with breathing/coughing?\n\n**Posterior update (musculoskeletal vs pleural):**  \n- Pulmonary embolism: 0.34 → **0.36** if not tender to touch  \n- Spontaneous pneumothorax: 0.20 → **0.22** if pleuritic  \n- Pulmonary neoplasm: 0.12 → **0.10** (sudden pleuritic pain less typical)  \n- Pneumonia: 0.02 → **0.02**  \n- Possible NSTEMI / STEMI: 0.02 → **0.01**\n\n**Question 13 (one at a time):** Is the pain **tender to touch** on the right back chest wall?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "No—it doesn’t really hurt more when I press on it. It’s mostly sharp with deep breaths and coughing.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Non-tender pleuritic pain keeps pneumothorax/PE higher.\n\n**Question 14:** Any **recent long-distance travel**, **dehydration**, or **known clotting disorder** in you or family? (Even if you said no travel—just checking for anything like that.)\n\n**Posterior update (PE):**  \n- Pulmonary embolism: 0.36 → **0.34** if none of these  \n- Spontaneous pneumothorax: 0.22 → **0.23**  \n- Pulmonary neoplasm: 0.10 → **0.12** (weight loss still relevant)  \n- Pneumonia: 0.02 → **0.02**  \n- Possible NSTEMI / STEMI: 0.01 → **0.01**\n\n**Question 14 (one at a time):** Have you had **any prior episodes of similar sudden chest pain/shortness of breath**?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had any prior episodes like this sudden chest pain or shortness of breath.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pulmonary embolism, Spontaneous pneumothorax, Pulmonary neoplasm, Pneumonia, Possible NSTEMI / STEMI",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Spontaneous pneumothorax",
+      "Pulmonary neoplasm",
+      "Pneumonia",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 38449,
+      "completion_tokens": 2901
+    },
+    "patient": {
+      "prompt_tokens": 34687,
+      "completion_tokens": 510
+    }
+  }
+}

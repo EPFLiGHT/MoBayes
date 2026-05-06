@@ -1,0 +1,102 @@
+{
+  "case_idx": 37,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Chronic rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 71\nSex: Female\nChief Complaint: I have a cough, burning pain, and sharp pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a cough along with burning and sharp pain around my face and head—my forehead, both cheeks, and the back of my head that goes toward my left temple. I also lost my sense of smell, and this started pretty quickly, with the pain about 2 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down. First, a quick Bayesian snapshot based on what you’ve said (rapid onset facial/head pain + cough + loss of smell):\n\n**Current posterior (pre-test → updated with your initial symptoms):**\n- **Acute rhinosinusitis**: 0.35  \n- **Allergic sinusitis**: 0.20  \n- **Influenza**: 0.15  \n- **URTI (viral upper respiratory infection)**: 0.15  \n- **Pneumonia**: 0.05  \n- (others lower)\n\n**Question 1 (most discriminating):**  \nDo you have **nasal congestion or a runny nose**, and if yes is the discharge **clear** or **thick/yellow-green**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had a cold in the last two weeks, so my nose has been congested. The discharge has been more on the thick side, not just clear/runny.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with new evidence (thick nasal discharge + congestion after a cold):**\n\nLikelihood ratios (approx):\n- **Acute rhinosinusitis**: LR ~2.0 (thick discharge supports bacterial/sinus involvement)\n- **Allergic sinusitis**: LR ~0.5 (allergic is usually clear/itchy)\n- **URTI**: LR ~1.2\n- **Influenza**: LR ~0.7\n\n**Posterior (now):**\n- **Acute rhinosinusitis**: 0.55  \n- **URTI (viral)**: 0.20  \n- **Allergic sinusitis**: 0.08  \n- **Influenza**: 0.10  \n- **Pneumonia**: 0.03  \n\n**Question 2:**  \nDo you have **fever** (≥38°C / 100.4°F) or feel significantly ill/achy?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had a fever like that, and I don’t feel very sick or very achy. Mostly it’s the cough and the burning/sharp pain in my face and head.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no high fever / not very systemically ill):**\n\nLikelihood ratios:\n- **Acute rhinosinusitis**: LR ~1.2 (can be present without high fever)\n- **Influenza**: LR ~0.5 (often more systemic)\n- **Pneumonia**: LR ~0.3\n- **URTI**: LR ~1.0\n\n**Posterior (now):**\n- **Acute rhinosinusitis**: 0.62  \n- **URTI (viral)**: 0.22  \n- **Allergic sinusitis**: 0.06  \n- **Influenza**: 0.06  \n- **Pneumonia**: 0.02  \n\n**Question 3 (key discriminator):**  \nHow long has this *current* episode been going on—**less than 10 days, 10–14 days, or more than 14 days**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s been more than 14 days now—this current episode has dragged on for a while.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (duration >14 days):**\n\nLikelihood ratios:\n- **Acute rhinosinusitis** (persistent symptoms): LR ~2.5\n- **URTI/viral**: LR ~0.6\n- **Influenza**: LR ~0.3\n- **Allergic sinusitis**: LR ~1.0 (can be longer, but usually less “acute” pain)\n- **Pneumonia**: LR ~0.7\n\n**Posterior (now):**\n- **Acute rhinosinusitis**: 0.80  \n- **URTI (viral)**: 0.13  \n- **Allergic sinusitis**: 0.04  \n- **Influenza**: 0.02  \n- **Pneumonia**: 0.01  \n\n**Question 4 (to check for complications/red flags):**  \nDo you have **severe headache**, **swelling/redness around the eyes**, **vision changes**, or **pain with eye movement**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have pain in my face and head, but I don’t think I have swelling or redness around my eyes. I haven’t noticed vision changes or pain when moving my eyes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no orbital/vision red flags):**\n\nLikelihood ratios:\n- **Acute rhinosinusitis**: LR ~1.1 (still fits)\n- **Orbital complications / severe alternative causes**: LR ~0.7 (less likely)\n- **Meningitis/other dangerous causes** (not in list, but would be considered): LR ~0.3\n\n**Posterior (now, among our list):**\n- **Acute rhinosinusitis**: 0.86  \n- **URTI (viral)**: 0.08  \n- **Allergic sinusitis**: 0.03  \n- **Influenza**: 0.02  \n- **Pneumonia**: 0.01  \n\n**Question 5 (final discriminator):**  \nIs the cough mostly from **post-nasal drip** (throat clearing, mucus in the back of your throat), or do you have **shortness of breath/wheezing**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It feels like post-nasal drip—like mucus going down the back of my throat and I’m clearing my throat. I don’t have shortness of breath or wheezing.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute rhinosinusitis, URTI (viral upper respiratory infection), Allergic sinusitis, Influenza, Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "URTI (viral upper respiratory infection)",
+      "Allergic sinusitis",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8452,
+      "completion_tokens": 1023
+    },
+    "patient": {
+      "prompt_tokens": 7672,
+      "completion_tokens": 252
+    }
+  }
+}

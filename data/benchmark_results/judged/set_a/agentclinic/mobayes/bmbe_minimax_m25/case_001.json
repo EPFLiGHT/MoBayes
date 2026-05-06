@@ -1,0 +1,357 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’ve been more confused lately and I can’t quite get the words out like I used to. I also had a fever around 102°F and it hurts when you press on my right upper belly area.",
+      "extracted_features": {
+        "f_confusion_c52e29d9": "yes",
+        "f_word_finding_difficulty_0b430b71": "yes",
+        "f_fever_6c156205": "yes",
+        "f_right_upper_quadrant_pain_5ae0b53e": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.29010456417737496
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1645538242330975
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10078917598013064
+        ],
+        [
+          "Pneumonia",
+          0.07600468114802261
+        ],
+        [
+          "Factitious disorder",
+          0.028288737826394048
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you feel in the mornings.\n\nDo you ever experience stiffness or difficulty moving your joints when you wake up in the morning? If so, how long does it usually last?",
+      "patient_answer": "Patient: In the mornings I feel more disoriented than stiff, and I can’t really say how long it lasts because my confusion comes and goes. I’m not noticing joint stiffness as much as trouble getting my thoughts together.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.29010456417737496
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1645538242330975
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10078917598013064
+        ]
+      ],
+      "entropy": 3.8144056810328237
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're feeling.\n\nAre you currently experiencing any pain or discomfort in your chest?",
+      "patient_answer": "Patient: No, I don’t have chest pain, but my right upper belly area feels sore when it’s pressed. I’ve mostly been dealing with the confusion and the fever.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3082696309780941
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17485745809002784
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10710014912755449
+        ]
+      ],
+      "entropy": 3.7234650744128746
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your symptoms. \n\nAre you currently experiencing any difficulty lifting objects, such as when you try to lift things like groceries or everyday items?",
+      "patient_answer": "I’m not really able to lift or do much right now, so I haven’t been trying to lift groceries or other items. Mostly I notice my confusion and that my right upper belly feels sore when it’s pressed, especially since I had the fever.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3146379567564892
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1784697154971757
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09952346281743672
+        ]
+      ],
+      "entropy": 3.6954962887590437
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your arms.\n\nHave you noticed any unusual skin changes, such as redness, sores, or rashes along the veins in your arms?",
+      "patient_answer": "Patient: I haven’t noticed any new redness, sores, or rashes along the veins in my arms. My main problems have been the fever and the soreness in my right upper belly, along with the confusion.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3146379567564891
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17846971549717563
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09952346281743672
+        ]
+      ],
+      "entropy": 3.6954962887590437
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello! I'd like to ask you a few questions to better understand how you're feeling.\n\nHave you been experiencing any pain on the side of your back or abdomen, around your ribs and hips? This is sometimes called flank pain.",
+      "patient_answer": "Doctor: Have you been experiencing any pain on the side of your back or abdomen, around your ribs and hips—what you might call flank pain? Patient: It’s mainly in my right upper belly when you press it; I don’t really notice side or back pain around my ribs or hips. My confusion has been the biggest issue, along with the fever.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3146379567564891
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17846971549717563
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09952346281743672
+        ]
+      ],
+      "entropy": 3.6954962887590437
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any rough, scaly patches on your skin that have been there for a while and haven't gone away? These might feel slightly raised or rough to the touch.",
+      "patient_answer": "“No, I haven’t noticed any rough, scaly patches or anything like that on my skin. I’m mostly focused on my confusion and the fever, and the soreness in my right upper belly when you press.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.31812250647972046
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1804462303593738
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10062566440300039
+        ]
+      ],
+      "entropy": 3.6522978645171102
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your scalp and head area.\n\nHave you noticed any unusual spots, sores, bumps, or patches on your scalp? This could be anything that feels different or looks different from the rest of your scalp skin.",
+      "patient_answer": "Doctor: Have you noticed any unusual spots, sores, bumps, or patches on your scalp—anything that looks or feels different? Patient: No, I haven’t noticed anything unusual on my scalp. My main concern is the confusion and the fever, and my right upper belly is still sore when you press it.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.31812250647972046
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1804462303593738
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.10062566440300039
+        ]
+      ],
+      "entropy": 3.6522978645171102
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your eating habits lately.\n\nHave you been experiencing any strong food cravings — like urges to eat specific foods that are hard to control?",
+      "patient_answer": "Patient: No, I haven’t had any strong food cravings—mostly I’m just confused and have had that fever, and my right upper belly is sore when it’s pressed. I don’t really feel like eating much right now.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.329176376367436
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1867162336175319
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.07467344361635292
+        ]
+      ],
+      "entropy": 3.6399071103974574
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello, I'm here to help with your assessment today.\n\nI'd like to ask you a few questions about how you're feeling.\n\n**Are you currently experiencing any pain or discomfort in your knee or knees?**",
+      "patient_answer": "No, I’m not having knee pain—my discomfort is mainly in my right upper belly when it’s pressed. My biggest problems are the fever and my confusion.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3328301046479638
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1887887103569942
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.07550228946415129
+        ]
+      ],
+      "entropy": 3.6025156594908574
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello! I'd like to ask you a few questions to help understand what you're experiencing.\n\nWhen you move your knee — like bending or straightening it — do you feel any pain in your thigh? This could be in the front, back, or sides of your thigh area.",
+      "patient_answer": "Doctor: When you move your knee—bending or straightening it—do you feel any pain in your thigh? Patient: No, I don’t really feel knee or thigh pain. It’s mainly my confusion and the soreness in my right upper belly when it’s pressed.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3328301046479638
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1887887103569942
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.07550228946415129
+        ]
+      ],
+      "entropy": 3.6025156594908574
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you've been feeling. Have you been experiencing any vomiting recently?",
+      "patient_answer": "I haven’t vomited recently. I’ve mainly just been more confused, with that fever and soreness in my right upper belly when it’s pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.2343830151735109
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.21286668659926614
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09373682474787542
+        ]
+      ],
+      "entropy": 3.8367233578433915
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Acalculous cholecystitis",
+      "Frontotemporal Dementia"
+    ],
+    "confidence": 0.2343830151735109,
+    "final_entropy": 3.8367233578433915,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Acalculous cholecystitis",
+      "Frontotemporal Dementia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8382,
+      "completion_tokens": 2810
+    },
+    "patient": {
+      "prompt_tokens": 10340,
+      "completion_tokens": 627,
+      "calls": 12
+    }
+  }
+}

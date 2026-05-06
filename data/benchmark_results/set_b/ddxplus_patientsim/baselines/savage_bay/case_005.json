@@ -1,0 +1,192 @@
+{
+  "case_idx": 5,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Sarcoidosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 53\nSex: Male\nChief Complaint: I have swollen or painful lymph nodes, sensitive pain, and burning pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having swollen and painful lymph nodes, with sensitive and burning pain. I also had episodes with seizures or loss of consciousness, and I’m pretty short of breath, plus my eyes look red.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’m going to ask a few focused questions to narrow this down.\n\n**Current posterior (very preliminary, based only on your description):**\n- **Anaphylaxis:** 0.20  \n- **Pulmonary embolism:** 0.15  \n- **Pneumonia:** 0.15  \n- **Acute pulmonary edema:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.10  \n(Other causes remain possible; we need key details.)\n\n**Question 1 (most important):**  \nWhen you say “seizures or loss of consciousness,” did this happen **suddenly** (seconds to minutes) and were there **any warning signs** like flushing, itching, hives, lip/tongue swelling, or trouble breathing right before it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It felt sudden—like it happened within a short time. Right before it, I don’t remember hives or itching, and I didn’t notice lip or tongue swelling. My breathing felt worse though, and it wasn’t normal for me.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated):**\n- **Anaphylaxis:** 0.08  \n- **Pulmonary embolism:** 0.22  \n- **Pneumonia:** 0.18  \n- **Acute pulmonary edema:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.10  \n\n(“Sudden” loss of consciousness without hives/itching/lip/tongue swelling makes anaphylaxis less likely, and raises concern for cardiopulmonary causes like PE, MI, severe infection, or pulmonary edema.)\n\n**Question 2:**  \nDo you have **chest pain** (pressure/tightness or sharp pain), and if yes is it **worse when you breathe in**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have pain with this problem, but I wouldn’t call it pressure in my chest. It feels more like burning and pain related to the lymph node area, and I’m not sure it changes specifically when I breathe in.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Pulmonary embolism:** 0.26  \n- **Pneumonia:** 0.20  \n- **Acute pulmonary edema:** 0.14  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Anaphylaxis:** 0.06  \n\n(Chest pain that’s “burning” and localized to lymph node area is less classic for MI/PE, but PE still fits sudden decompensation + shortness of breath; pneumonia remains possible given systemic symptoms.)\n\n**Question 3 (high yield):**  \nHow long has this been going on—**hours, days, or weeks**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It started fairly fast—within a few hours. I’d say it’s been going on for about hours, not days or weeks.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Pulmonary embolism:** 0.30  \n- **Pneumonia:** 0.22  \n- **Acute pulmonary edema:** 0.16  \n- **Possible NSTEMI / STEMI:** 0.14  \n- **Anaphylaxis:** 0.04  \n\n(Short onset over hours keeps PE/acute cardiopulmonary causes high; pneumonia can also present quickly, but “hours” is still compatible with PE.)\n\n**Question 4:**  \nDo you have **fever** or chills, or have you had a **cough** (dry or producing sputum)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had fever or chills. I also haven’t mentioned a cough—so no, I don’t have a cough.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Pulmonary embolism:** 0.38  \n- **Acute pulmonary edema:** 0.18  \n- **Possible NSTEMI / STEMI:** 0.16  \n- **Pneumonia:** 0.12  \n- **Anaphylaxis:** 0.04  \n\n(No fever/chills/cough makes pneumonia less likely; sudden SOB + syncope/seizure-like episode keeps PE high.)\n\n**Question 5:**  \nAny **leg swelling or pain** (especially one-sided calf/thigh), or have you had **recent travel/immobility, surgery, or been bedridden** in the past month?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling and no leg pain. And I haven’t had recent travel or surgery, and I haven’t been bedridden.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Pulmonary embolism:** 0.34  \n- **Acute pulmonary edema:** 0.22  \n- **Possible NSTEMI / STEMI:** 0.18  \n- **Acute COPD exacerbation / infection:** 0.10  \n- **Pneumonia:** 0.06  \n\n(Absence of leg symptoms and recent risk factors lowers PE somewhat but doesn’t rule it out; acute pulmonary edema/heart causes and acute coronary syndromes remain important with sudden SOB and syncope.)\n\n**Question 6:**  \nWhen you say your eyes look **red**—is it **both eyes**? Any **eye pain**, **light sensitivity**, or **blurred vision**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s both eyes. I don’t have eye pain, and I didn’t mention light sensitivity or blurred vision.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.26  \n- **Possible NSTEMI / STEMI:** 0.20  \n- **Pulmonary embolism:** 0.18  \n- **Acute COPD exacerbation / infection:** 0.12  \n- **Pneumonia:** 0.08  \n\n(Bilateral red eyes without pain/light sensitivity is less specific; it doesn’t strongly point to PE or pneumonia. We still need to clarify the “seizure/loss of consciousness” and the swollen lymph nodes.)\n\n**Question 7:**  \nAbout the “seizures”/loss of consciousness: did anyone witness **jerking movements**, or was it more like **fainting** (going limp) or **confusion afterward**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if there were jerking movements. It was more like I blacked out and then I was confused afterward.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.28  \n- **Possible NSTEMI / STEMI:** 0.22  \n- **Pulmonary embolism:** 0.20  \n- **Acute COPD exacerbation / infection:** 0.12  \n- **Pneumonia:** 0.08  \n\n(Blackout with confusion afterward could be syncope with hypoxia, or seizure—either way, sudden SOB makes cardiopulmonary causes more likely than infection.)\n\n**Question 8:**  \nDo you have **known heart disease**, history of **blood clots**, or **atrial fibrillation**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have known heart disease, and I don’t have a history of blood clots or atrial fibrillation.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.30  \n- **Possible NSTEMI / STEMI:** 0.24  \n- **Pulmonary embolism:** 0.22  \n- **Acute COPD exacerbation / infection:** 0.14  \n- **Pneumonia:** 0.10  \n\n(Still no clear risk factors for PE or known cardiac disease, but acute pulmonary edema/ACS remain plausible with sudden SOB and syncope.)\n\n**Question 9 (to target the “lymph nodes”):**  \nWhere are the swollen lymph nodes—**neck**, **armpits**, **groin**, or **elsewhere**? And are they **mobile** or **fixed/hard**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "They’re in my neck. They feel kind of tender, and I think they’re not very mobile—more stuck in place. I don’t think they’re bigger than about 1 centimeter.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.26  \n- **Possible NSTEMI / STEMI:** 0.24  \n- **Pulmonary embolism:** 0.20  \n- **Acute COPD exacerbation / infection:** 0.16  \n- **Pneumonia:** 0.14  \n\n(Tender, small, relatively fixed cervical nodes could be reactive/infectious, but the sudden SOB + syncope keeps cardiopulmonary causes high. We still need one key discriminating question: airway/upper respiratory involvement.)\n\n**Question 10:**  \nAny **throat symptoms**—trouble swallowing, drooling, muffled “hot potato” voice, or feeling like your airway is closing?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No trouble swallowing, no drooling, and my voice hasn’t changed like that. I don’t feel like my airway is closing.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.28  \n- **Possible NSTEMI / STEMI:** 0.26  \n- **Pulmonary embolism:** 0.22  \n- **Acute COPD exacerbation / infection:** 0.14  \n- **Pneumonia:** 0.10  \n\n(Upper airway causes like epiglottitis/croup/laryngitis become less likely.)\n\n**Question 11:**  \nDo you have **any rash** (hives, spots), **mouth sores**, or **genital ulcers**? Any recent new medications or exposures (new antibiotic, NSAID, etc.)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No rash, no mouth sores, and no genital ulcers. I haven’t started any new medications recently.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.30  \n- **Possible NSTEMI / STEMI:** 0.26  \n- **Pulmonary embolism:** 0.22  \n- **Acute COPD exacerbation / infection:** 0.12  \n- **Pneumonia:** 0.10  \n\n(Still no allergic/anaphylactic features; cervical tender nodes could be incidental or from a systemic process, but we need more to decide between cardiogenic vs PE vs infection.)\n\n**Question 12 (very discriminating):**  \nWhen you lie flat, does your breathing get **worse** (needing extra pillows), or do you wake up at night short of breath?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels worse when I lie flat. I’ve needed extra pillows, and I’ve also woken up at night feeling short of breath.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.55  \n- **Possible NSTEMI / STEMI:** 0.20  \n- **Pulmonary embolism:** 0.12  \n- **Acute COPD exacerbation / infection:** 0.08  \n- **Pneumonia:** 0.05  \n\n(Worsening when lying flat and waking at night with shortness of breath strongly supports **cardiogenic pulmonary edema/heart failure physiology**.)\n\n**Question 13:**  \nDo you have **swelling in your legs/ankles**, or have you noticed **rapid weight gain** over the last few days?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed leg or ankle swelling, and I don’t think I’ve had rapid weight gain.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior:**\n- **Acute pulmonary edema:** 0.50  \n- **Possible NSTEMI / STEMI:** 0.22  \n- **Pulmonary embolism:** 0.14  \n- **Acute COPD exacerbation / infection:** 0.08  \n- **Pneumonia:** 0.06  \n\n(No leg swelling/weight gain doesn’t rule out acute pulmonary edema; it can be early or present without obvious peripheral edema. Next we should clarify oxygenation/heart failure signs.)\n\n**Question 14:**  \nHave you had **frothy sputum** or a **cough with pink/frothy mucus**, or are you hearing **wheezing**?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had frothy sputum, and I haven’t mentioned a cough. I’m not sure about wheezing—I don’t really know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute pulmonary edema, Possible NSTEMI / STEMI, Pulmonary embolism, Acute COPD exacerbation / infection, Pneumonia",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Acute pulmonary edema",
+    "predicted_set": [
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 32293,
+      "completion_tokens": 2120
+    },
+    "patient": {
+      "prompt_tokens": 29412,
+      "completion_tokens": 514
+    }
+  }
+}

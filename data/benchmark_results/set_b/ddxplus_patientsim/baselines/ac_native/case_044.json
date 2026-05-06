@@ -1,0 +1,75 @@
+{
+  "case_idx": 44,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute rhinosinusitis",
+  "objective_for_doctor": "A 18-year-old Female patient presents to the clinic. Chief complaint: I have a cough, burning pain, and forehead pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough plus burning pain and pain in my forehead. The pain also goes to the back of my head and my right temple, and I can’t smell well—I also have greenish/yellow nasal discharge since a cold about the last 2 weeks.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m Dr. Agent—let’s clarify a few things: do you also have fever, facial/tooth pain that worsens when bending forward, and any bad breath?  \nDr. Agent: And is the cough mostly dry or do you bring up phlegm; any shortness of breath or wheezing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about fever—I don’t think I have one, and I don’t have tooth pain that gets worse when bending forward, and no bad breath.  \n\nMy cough brings up some phlegm, and I don’t feel short of breath right now, but I do have a history of asthma and I’ve had wheezing/bronchodilator use in the past.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any thick green/yellow drainage mainly from one side, and do you have nasal blockage/pressure over the cheeks/forehead that’s worse in the morning? Also, have you had sore throat, ear pain, or a persistent headache that’s progressively worsening?  \nDoctor: REQUEST TEST: Nasal_and_sinus_exam (including transillumination)  \nDoctor: REQUEST TEST: Rapid_influenza_or_COVID_test",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, the drainage is green/yellow and it feels like it’s more from one side. I also have nasal blockage and pressure in my cheeks/forehead that feels worse in the morning.  \n\nI’ve had a sore throat and some ear pain, and my headache has been persistent and not really getting better.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your one-sided thick green/yellow discharge, morning facial/forehead pressure, sore throat, ear pain, and persistent headache, I’m concerned for acute bacterial sinusitis—before I diagnose, do you have any eye symptoms (swelling around the eye, redness, double vision, trouble moving the eye) or very severe “worst headache,” and how high has your temperature been if you’ve checked?  \nDoctor: REQUEST TEST: Complete_vitals_and_oral_exam (including eye/orbital screen)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have swelling around my eye, redness, double vision, or trouble moving my eye. I also don’t think I have a “worst headache”—it’s painful, around 5/10, but not like the worst ever.  \n\nI haven’t checked my temperature, so I can’t say how high it’s been.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—based on your symptoms and lack of red-flag eye findings, this still sounds most consistent with **acute bacterial rhinosinusitis** rather than a viral cold. Do you have any **severe facial pain** or **symptoms lasting >10 days** without improvement, and have you had any recent **antibiotic use in the last 30 days**?  \n\nDoctor: DIAGNOSIS READY: Acute bacterial rhinosinusitis (likely maxillary/ethmoid sinusitis)\n\n[ABSTAIN] free-text diagnosis 'Acute bacterial rhinosinusitis (likely maxillary/ethmoid sinusitis)' did not map to the closed disease set",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1992,
+      "completion_tokens": 376,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3675,
+      "completion_tokens": 278
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "case_idx": 12,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiolitis",
+  "patient_actor_hidden": {
+    "AGE": 1,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "expiratory wheezing",
+    "EVIDENCES_ENG": "['shortness of breath', 'fever', 'maternal asthma', 'nasal congestion', 'residence in a rural area', 'residence in the suburbs', 'expiratory wheezing']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 1\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have a fever (either felt or measured with a thermometer).\n- My mother suffers from asthma.\n- I have nasal congestion or a clear runny nose.\n- I live in a rural area.\n- I live in the suburbs.\n- I have noticed a wheezing sound when I exhale.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchiolitis', 0.1164122040085496], ['Bronchospasm / acute asthma exacerbation', 0.11609321686737478], ['Croup', 0.09182851927338578], ['HIV (initial infection)', 0.08507344208687807], ['Acute otitis media', 0.0838479205572301], ['Atrial fibrillation', 0.06857316626841875], ['Pneumonia', 0.05647989971070616], ['Guillain-Barré syndrome', 0.050555804592145495], ['Acute dystonic reactions', 0.050555804592145495], ['Myasthenia gravis', 0.050555804592145495], ['Scombroid food poisoning', 0.04670927181156867], ['Myocarditis', 0.041503309188783276], ['Chagas', 0.03815103018923493], ['URTI', 0.03473944112118014], ['PSVT', 0.027005127931853366], ['SLE', 0.02340492423476586], ['Anaphylaxis', 0.01851111297363414]]",
+    "PATHOLOGY": "Bronchiolitis",
+    "INITIAL_EVIDENCE": "wheez",
+    "EVIDENCES": "['dyspn', 'fievre', 'momasthma', 'rhino_clair', 'rural', 'suburb', 'trav1_@_N', 'wheez']",
+    "patient_id": "htsim_0433",
+    "_test_index": 433,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 1-year-old F patient presents to the clinic. Chief complaint: expiratory wheezing.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having significant shortness of breath and expiratory wheezing. I also have a fever and a clear runny nose/nasal congestion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how old is the child exactly, and when did the wheezing and fever start?  \nDoctor: Any history of prior wheezing/asthma, and is there a cough that started around the same time?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "She’s 1 year old. The wheezing and shortness of breath started recently (same time as the fever and the clear runny nose/nasal congestion). I don’t know exactly when it started. There’s no mention of any prior wheezing or asthma. I don’t know about a cough.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On exam, can I hear wheeze only with exhalation or also at rest, and is there any fast breathing, chest retractions, or low oxygen saturation?  \nDoctor: REQUEST TEST: Pulse_Oximetry; Respiratory_Vitals (RR, retractions); consider REQUEST TEST: Chest_X-Ray if respiratory distress is significant.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "At rest and when she exhales, I’ve noticed a wheezing sound when she exhales. I don’t know about fast breathing, chest retractions, or low oxygen saturation.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check her work of breathing—REQUEST TEST: Pulse_Oximetry and Respiratory_Vitals (RR, retractions), and I want to know if she has any fever measured and how high it is.  \nDoctor: Also, does she have difficulty feeding, bluish lips, or any vomiting with coughing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if she has difficulty feeding, bluish lips, or vomiting with coughing. \n\nI have a fever (felt or measured with a thermometer), but I don’t know how high it is.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll re-check her respiratory status now—REQUEST TEST: Pulse_Oximetry and count RR plus look for retractions/stridor; also check and record her measured temperature.  \nDoctor: Meanwhile, does she have any signs of dehydration or lethargy, and did this start after a sick contact (family/childcare), or after choking on food?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about signs of dehydration or lethargy. I also don’t know if it started after a sick contact (family/childcare) or after choking on food.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to listen to her lungs and evaluate severity—REQUEST TEST: Lung_Auscultation (wheeze pattern), and I need vital signs again: Pulse_Oximetry, RR, and any retractions; also measure temperature.  \nDoctor: Has she had poor feeding/less wet diapers, and how is her cough (dry vs productive) or is it mostly wheeze with no cough?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about poor feeding or less wet diapers. I also don’t know about her cough (dry vs productive), or whether it’s mostly wheeze with no cough.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess severity right now—REQUEST TEST: Pulse_Oximetry; Respiratory_Vitals (RR, retractions, ability to feed); Temperature_measurement; and REQUEST TEST: Lung_Auscultation (wheeze vs crackles, focal vs diffuse).  \nDoctor: Quick clarifiers for my decision: did she have a new rash, any choking episode/foreign-body concern, and has she improved or worsened since starting—are symptoms steadily worsening?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a new rash. I don’t know about any choking episode/foreign-body concern. I don’t know whether she has improved or worsened since starting.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t tell yet how severe this is—please tell me her measured temperature and current SpO₂, and whether she has retractions or faster-than-normal breathing right now.  \nDoctor: Also, has the wheeze been continuous since onset, and is there any crackling (not just wheeze) on listening, or does it sound like diffuse expiratory wheeze only?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know her measured temperature, her current SpO₂, or whether she has retractions or faster-than-normal breathing right now.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a safe call without severity—REQUEST TEST: Pulse_Oximetry (SpO₂), Respiratory_Vitals (RR, retractions/effort), and Temperature_measurement; also perform REQUEST TEST: Lung_Auscultation (note wheeze vs crackles, diffuse vs focal).  \nDoctor: One last question: is she drinking/feeding and making wet diapers normally?  \nDoctor: If you get results showing diffuse expiratory wheeze after a viral runny nose with no focal crackles, do that pattern fit what you’re seeing—or are there focal signs/marked distress?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if she’s drinking/feeding and making wet diapers normally.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—based on what we know (1-year-old with sudden onset fever and clear runny nose/congestion plus expiratory wheeze), I’m most suspicious for **viral bronchiolitis** causing diffuse lower-airway inflammation; I still need severity to guide management.  \nDoctor: REQUEST TEST: Pulse_Oximetry; Respiratory_Vitals (RR, retractions); Temperature_measurement; Lung_Auscultation (diffuse expiratory wheeze vs focal crackles/asymmetry).",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know her measured temperature, her current SpO₂, or whether there are retractions or fast breathing. I also don’t know whether I hear crackles or if the wheeze is diffuse versus focal/asymmetric.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—on exam right now, what are her measured SpO₂ and respiratory rate, and do you see any retractions (or nasal flaring) or is she struggling to feed?  \nDoctor: Also, when I listen, is it diffuse expiratory wheeze only, or are there any focal findings/asymmetry or crackles?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know her measured SpO₂, her respiratory rate, or whether there are retractions (or nasal flaring) or whether she’s struggling to feed. I also don’t know whether the wheeze is diffuse only versus focal/asymmetric, or whether there are crackles.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given we still don’t have severity (SpO₂/RR/retractions) and she’s a 1-year-old with acute expiratory wheeze plus fever and clear runny nose, I’m ordering: REQUEST TEST: Pulse_Oximetry; Respiratory_Vitals (RR, retractions/nasal flaring); Temperature_measurement; Lung_Auscultation (diffuse vs focal/asymmetric, crackles vs wheeze); and I need to know if she’s taking fluids and making wet diapers.  \nDoctor: If her exam shows diffuse expiratory wheeze with viral URI symptoms and no focal crackles/asymmetry, the most likely diagnosis is DIAGNOSIS READY: Viral bronchiolitis (with wheezing)\n\n[DDX]\n1. Bronchiolitis",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Bronchiolitis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9047,
+      "completion_tokens": 1021,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 13314,
+      "completion_tokens": 463,
+      "calls": 11
+    }
+  }
+}

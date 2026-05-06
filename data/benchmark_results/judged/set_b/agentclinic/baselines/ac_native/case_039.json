@@ -1,0 +1,114 @@
+{
+  "case_idx": 39,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Histoplasmosis",
+  "patient_actor_hidden": {
+    "Demographics": "79-year-old female",
+    "History": "Patient presents complaining of a persistent non-productive cough and breathlessness that started after a cold about a month ago. Describes previous health as generally good.",
+    "Symptoms": {
+      "Primary_Symptom": "Persistent non-productive cough",
+      "Secondary_Symptoms": [
+        "Dyspnea",
+        "History of a recent cold"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Hyperlipidemia on Hydrochlorothiazide, Lisinopril, and Atorvastatin.",
+    "Social_History": "Non-smoker, drinks alcohol occasionally. Recently returned from a month-long trip to St. Louis, Missouri.",
+    "Review_of_Systems": "No other symptoms apart from those mentioned."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a persistent non-productive cough and dyspnea following a recent cold.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, how old are you and how long have you had the non-productive cough and shortness of breath since the cold? Patient: Now please continue your dialogue Doctor: Do you have any fever, chest pain, wheezing, or coughing fits (especially at night or with exercise), and do you have any history of asthma/allergies or smoking?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 79, and the cough and breathlessness have been going on for about a month since a cold. I don’t have fever, chest pain, or wheezing, and I don’t have asthma or allergies to my knowledge—I’ve never smoked."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—on a scale of 1–10, how short of breath are you with simple activities, and do you have any weight loss, leg swelling/pain, or a cough that’s worse when lying flat? Doctor: Also, can you do an in-person exam now—what’s your oxygen saturation (SpO₂) at rest and after walking 1–2 minutes (or tell me the numbers if you have them)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: With simple activities I’m about a 6 out of 10 for breathlessness; I haven’t noticed weight loss, leg swelling or pain, and my cough isn’t worse when lying flat. I can’t measure my oxygen saturation right now, but I can feel winded after a short walk."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Given your age and 1-month post-cold cough with moderate exertional dyspnea but no fever or wheeze, we need to rule out pneumonia/atelectasis, heart failure, and post-viral airway disease; can you tell me whether the cough is gradually improving, staying the same, or worsening, and whether you notice any sputum (even small amounts), chills, or recent exposure to tuberculosis? Doctor: Also, please listen closely—do you have any history of heart disease, high blood pressure, recent travel/immobility, or are you taking ACE inhibitors (like lisinopril) that can cause cough? Doctor: REQUEST TEST: Chest_X-Ray Doctor: REQUEST TEST: Spirometry_with_Bronchodilator (if available)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.0°C (98.6°F); Blood Pressure 130/82 mmHg; Heart Rate 82 bpm; Respiratory Rate 20 breaths/min. Chest exam: No visible deformities; normal breath sounds without wheezes or rhonchi; mild dullness on the right; mild crepitus on the right. Chest X-ray: Cavitary lesion in the right lung. Chest CT: Confirmation of the cavitary lesion seen on X-ray. Lung biopsy (histopathology): Necrotic granulomatous inflammation with oval yeast bodies within macrophages."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Given the CT-confirmed **right lung cavitary lesion** and biopsy showing **necrotic granulomatous inflammation with yeast forms in macrophages**, I’m highly concerned for **pulmonary histoplasmosis**. Doctor: Do you have any exposures to bat/bird droppings (e.g., caves, old barns), living/traveling in the Ohio/Mississippi river valleys, or immune suppression (steroids, chemotherapy), and are you having any new fevers, night sweats, weight loss, or enlarged lymph nodes?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "patient",
+      "content": "Patient: I don’t recall any cave or old-barn exposure, but I did recently travel to St. Louis for about a month and live on a farm some years back, though I don’t remember bird or bat droppings directly. I haven’t had fevers, night sweats, weight loss, or swollen glands."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Based on your travel to St. Louis (a histoplasmosis-endemic area) and the CT cavitary lesion plus biopsy with necrotic granulomas and yeast forms in macrophages, this is most consistent with **pulmonary histoplasmosis**—even without fever or weight loss. Doctor: Are you currently immunosuppressed (long-term steroids/chemo/organ transplant/advanced HIV) and do you have any eye or skin symptoms (painful red eye, rash/nodules)? Doctor: DIAGNOSIS READY: Pulmonary histoplasmosis (cavitary pulmonary disease)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Based on your travel to St. Louis (a histoplasmosis-endemic area) and the CT cavitary lesion plus biopsy with necrotic granulomas and yeast forms in macrophages, this is most consistent with **pulmonary histoplasmosis**—even without fever or weight loss. Doctor: Are you currently immunosuppressed (long-term steroids/chemo/organ transplant/advanced HIV) and do you have any eye or skin symptoms (painful red eye, rash/nodules)? Doctor: DIAGNOSIS READY: Pulmonary histoplasmosis (cavitary pulmonary disease)",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 5,
+    "predicted_remapped": "Histoplasmosis",
+    "predicted_set_remapped": [
+      "Histoplasmosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2772,
+      "completion_tokens": 585,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 1666,
+      "completion_tokens": 192,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 543,
+      "completion_tokens": 124,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 185,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

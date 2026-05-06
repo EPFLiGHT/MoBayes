@@ -1,0 +1,140 @@
+{
+  "case_idx": 38,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’m not answering questions—people are watching me. I can’t stand this heat and I feel my body won’t listen, but I’m not safe here.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What makes you think people are watching you?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I feel like there are eyes on me and cameras everywhere, and when it gets really hot I start to feel out of control. I’m trying to stay away from people, but I can’t calm down and my body feels stiff and won’t cooperate. Please don’t let anyone get close to me.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any unusual thoughts or hearing voices that aren't there when you feel like people are watching you?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t hear voices—I just know people are watching. When the heat hits, I get very tense, my muscles feel stiff, and I feel like I might hurt someone if they come close. I’ve been too out of it to answer much, but I’m scared.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you been taking any medications or substances that could be contributing to your feelings of being watched or your physical symptoms, such as muscle stiffness and tension?\n \n\n(I will be mindful of the 15-question limit)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve used substances recently, and in the heat it gets worse—my body feels rigid and I can’t seem to calm down. I don’t want anyone close to me, because I’m afraid I’ll react or hurt someone. I’m not sure what I took this time, but it’s been a problem before.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned substance use. Can you tell me what kind of substances you've been using recently, such as stimulants (e.g., cocaine, amphetamines), or something else?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can’t say exactly what it was this time, but it’s been drugs and substances that make me feel amped up and panicky. In the heat, I get non-responsive and really somnolent, then my muscles turn rigid and I can’t calm down. I’m afraid I’ll react if anyone gets close, because I feel out of control and unsafe.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "It sounds like you may be experiencing some severe symptoms related to substance use. Have you ever experienced a condition called \"excited delirium\" or been told that you've had a similar episode in the past, characterized by extreme agitation, aggression, and sometimes a high pain tolerance?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you ever been told you had excited delirium, or anything similar—extreme agitation, aggression, and feeling out of control during drug use? Patient: I don’t know what they called it, but I’ve had episodes where I was extremely agitated, didn’t seem to be able to calm down, got very tense and rigid, and I couldn’t cooperate or respond normally. I’m worried the heat and whatever I took this time make it worse.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned episodes of extreme agitation and rigidity. Did these episodes ever involve overheating or high body temperature, and were you ever taken to the hospital or treated for such episodes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—this time was in extremely hot weather and I was overheating; I’ve been taken to the hospital before for intoxication and times when my muscles got stiff and I couldn’t respond normally. I don’t remember everything, but they said my body was in trouble and I needed urgent care.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "It seems like you're describing a pattern of severe reactions to substances, especially in hot weather. Given your history of substance use, episodes of agitation, rigidity, and concerns about overheating, I'm starting to piece together a potential diagnosis.\n\n[DDX] Cocaine or amphetamine toxicity, neuroleptic malignant syndrome, serotonin syndrome, excited delirium syndrome, heatstroke.\n\n(I'm providing a differential diagnosis as I've gathered sufficient information to narrow down the possible causes.)",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Cocaine or amphetamine toxicity",
+    "predicted_set": [
+      "Cocaine or amphetamine toxicity",
+      "neuroleptic malignant syndrome",
+      "serotonin syndrome",
+      "excited delirium syndrome",
+      "heatstroke.\n\n(I'm providing a differential diagnosis as I've gathered sufficient information to narrow down the possible causes.)"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Neuroleptic Malignant Syndrome",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3933,
+      "completion_tokens": 300
+    },
+    "patient": {
+      "prompt_tokens": 4115,
+      "completion_tokens": 489,
+      "calls": 7
+    }
+  }
+}

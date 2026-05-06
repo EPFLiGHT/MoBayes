@@ -1,0 +1,259 @@
+{
+  "case_idx": 47,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {
+    "AGE": 9,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "nasal congestion",
+    "EVIDENCES_ENG": "['recent contact with a symptomatic person', 'coughing up blood', 'pain', 'cigarette smoking', 'nasal congestion']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 9\n- I have been in contact with a person with similar symptoms in the past 2 weeks.\n- I have been coughing up blood.\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I have nasal congestion or a clear runny nose.\n- On a scale of 0-10, the pain intensity is 4\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 1\n- The pain is:\n* sensitive\n- The pain locations are:\n* tonsil(R)\n* tonsil(L)\n* palace\n* pharynx\n* under the jaw\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Viral pharyngitis', 1.0]]",
+    "PATHOLOGY": "Viral pharyngitis",
+    "INITIAL_EVIDENCE": "rhino_clair",
+    "EVIDENCES": "['contact', 'crach_sg', 'douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_endroitducorps_@_amygdale_D_', 'douleurxx_endroitducorps_@_amygdale_G_', 'douleurxx_endroitducorps_@_palais', 'douleurxx_endroitducorps_@_pharynx', 'douleurxx_endroitducorps_@_sous_la_machoire', 'douleurxx_intens_@_4', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_1', 'f17.210', 'rhino_clair', 'trav1_@_N']",
+    "patient_id": "htsim_1692",
+    "_test_index": 1692,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 9-year-old F patient presents to the clinic. Chief complaint: nasal congestion.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had nasal congestion with a clear runny nose, and I’ve been coughing up blood. I also have pain that’s about 4/10, and it feels sensitive. The pain is in my right and left tonsils, the palate, the pharynx, and under the jaw, but it doesn’t radiate anywhere.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thank you. To understand what’s causing this, do you have any fever, and is the “coughing up blood” actually from coughing/spitting from the throat or from your nose?  \nDoctor: Also, when did the congestion and throat pain start, and have you noticed white patches on your tonsils or swollen/tender glands under your jaw?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever.\n\nThe coughing up blood feels like it’s from coughing/spitting from my throat or nose.  \n\nI don’t know when the congestion and throat pain started, and I don’t know about any white patches or swollen/tender glands under my jaw.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick questions—any shortness of breath or swallowing trouble, and is the blood mixed with phlegm (like streaks) or more like larger amounts? Also, have you had known allergies/asthma or exposure to smoke, and is your cough mostly dry or with mucus?  \nDoctor: REQUEST TEST: CBC with differential and coagulation studies (PT/INR, aPTT), plus a rapid strep test or throat swab.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about shortness of breath or swallowing trouble.\n\nThe blood feels like it’s from coughing/spitting from my throat or nose.\n\nI smoke cigarettes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Do you know how many days this has been going on, and is the cough producing mucus or is it mostly dry? Also, can you check if you have trouble breathing through your nose/any frequent nosebleeds?  \nDoctor: REQUEST TEST: Throat exam with rapid strep result (if not already), plus ENT/neck exam and a CBC; also request a Chest_X-Ray because you reported “coughing up blood” and you smoke.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how many days this has been going on.  \n\nI smoke cigarettes.  \n\nI don’t know if my cough is producing mucus or is mostly dry.  \n\nI don’t know if I have frequent nosebleeds.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given nasal congestion plus throat pain and you smoke (and possibly blood from nose/throat), I’m concerned about an upper-airway infection with possible bleeding, and I need safety checks first. Do you have any rash, easy bruising, or heavy gum/nose bleeding, and when you spit, is the blood bright red or dark/dried?  \nDoctor: REQUEST TEST: Rapid strep throat swab and throat culture; REQUEST TEST: CBC with platelets and PT/INR/aPTT; REQUEST TEST: Nasal exam/ENT visualization; REQUEST TEST: Chest_X-Ray.  \nDoctor: If there’s no bleeding disorder on labs and the throat/nose exam shows inflammation with exudate, I’ll diagnose acute pharyngotonsillitis; if nasal mucosa is ulcerated/bleeding, I’ll diagnose epistaxis from infectious rhinitis—do you have any visible white patches on your tonsils or bleeding from the nose when you blow it?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about visible white patches on my tonsils or bleeding from the nose when I blow it.\n\nI have nasal congestion or a clear runny nose, and I’ve been coughing up blood.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I can decide, I need to know: is the blood bright red or dark, and does it happen with coughing, blowing your nose, or both? Also, do you have fever and is swallowing painful or difficult?  \nDoctor: REQUEST TEST: Vitals (including oxygen saturation), urinalysis if available; REQUEST TEST: Repeat/confirm coagulation labs (PT/INR, aPTT) and CBC results as soon as possible, plus a focused ENT exam of the nose/tonsils.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if the blood is bright red or dark.  \n\nI smoke cigarettes.  \n\nI have nasal congestion or a clear runny nose, and I’ve been coughing up blood.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because we still don’t know color/amount/source of the blood, I’m going to keep this safety-focused: do you have dizziness, weakness, or a large amount of blood (more than streaks), and did you recently have vomiting/straining or any trauma to your nose?  \nDoctor: REQUEST TEST: Repeat vital signs with pulse oximetry now, plus results review of CBC (platelets/hemoglobin) and PT/INR/aPTT, and an urgent ENT/nasal speculum exam to directly look for bleeding or ulceration.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now I need you to tell me just 2 things: are you coughing up blood in any *amount* or is it only occasional streaks, and are you having any nosebleeds (even small) when you wipe/blow your nose?  \nDoctor: Also, if you can, do you know if your lips/skin look pale or if you feel lightheaded.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now I can’t safely pinpoint the cause without knowing the bleeding source; please answer: is the blood bright red or dark, and is it coming mainly when you cough or mainly from your nose?  \nDoctor: Also, can you tell me whether you’re having any fever or severe throat pain with trouble swallowing (yes/no)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a reliable diagnosis yet because we still don’t know the bleeding source (nose vs throat), severity, or whether there’s a clotting problem. Do you currently have **any nosebleed** (even a small one) when you wipe/blow, and do you have **fever** or **trouble swallowing** right now (yes/no)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you still don’t know about fever or the bleeding source, I need one clear answer: right now, do you have a nosebleed at this moment (yes/no), and are you having trouble breathing (yes/no)?  \nDoctor: REQUEST TEST: Urgent vital signs with pulse-ox; REQUEST TEST: CBC with platelets and hemoglobin STAT plus PT/INR and aPTT STAT; REQUEST TEST: Focused ENT exam of the nose/tonsils to identify the exact bleeding site.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t confirm whether the blood is from your nose vs throat and we haven’t gotten bleeding-source or clotting results, I need to treat this as potentially urgent; can you please answer **yes/no**: are you having any active nosebleed right now, and can you breathe comfortably (no shortness of breath)?  \nDoctor: REQUEST TEST: STAT ENT evaluation with nasal speculum exam for active bleeding/ulceration and vitals with pulse oximetry now.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given you don’t know the bleeding source, and you’ve possibly coughed up blood while smoking, I’m treating this as potentially urgent: are you able to see/notice blood actively coming from your nose right now (yes/no), and can you breathe comfortably (yes/no)?  \nDoctor: If you can’t answer or either is “yes,” we’ll proceed with emergency evaluation (ENT now), repeat vitals with pulse-ox, and STAT CBC/platelets plus PT/INR and aPTT.",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t diagnose because the bleeding source and severity are unknown—right now I need emergency triage: do you have an adult who can take you to the ER/urgent ENT **now**, and can you confirm your breathing is comfortable (yes/no)?  \nDoctor: REQUEST TEST: Vital signs with pulse oximetry immediately, STAT CBC (hemoglobin/platelets), PT/INR and aPTT, and urgent ENT nasal speculum exam to locate the bleeding source.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because the blood source and your stability are still unknown, I’m treating this as urgent: do you have **any** blood actively coming from your nose or throat right now (yes/no), and can you breathe comfortably (yes/no)?  \nDoctor: If you can’t answer clearly, we’ll proceed as if it’s urgent—right now I’m ordering **REQUEST TEST: Emergency vitals with pulse-ox NOW + STAT CBC (Hb/platelets) + PT/INR/aPTT**.",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t confirm bleeding source or whether you’re stable, you need emergency evaluation now; can you call an adult/ride to the ER immediately, and can you put a phone on speaker so someone can relay your oxygen level/heart rate if measured?  \nDoctor: Also, right now: are you able to breathe comfortably, and are you actively bleeding (nose or mouth) at this moment—yes/no?",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t confirm whether you’re actively bleeding or how severe it is, you need emergency evaluation now.  \nDoctor: Go to the ER/urgent ENT **immediately** and I’m requesting **REQUEST TEST: STAT vital signs with pulse oximetry NOW + STAT CBC (hemoglobin/platelets) + PT/INR and aPTT + ENT/nasal speculum exam**.",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you answered “I don’t know” about breathing comfort and active bleeding, you must be seen urgently: go to the ER/urgent ENT **now**.  \nDoctor: While you go, tell an adult to watch for red flags—trouble breathing, ongoing bleeding, dizziness/fainting—and I’m requesting **REQUEST TEST: STAT vital signs with pulse oximetry + STAT CBC (Hb/platelets) + PT/INR/aPTT + ENT/nasal speculum exam**.",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely diagnose from “I don’t know,” and coughing/spitting blood with smoking in a 9-year-old requires urgent in-person evaluation—please go to the ER/urgent ENT **now**.  \nDoctor: On arrival, ask for **REQUEST TEST: STAT vital signs with pulse oximetry + STAT CBC (Hb/platelets) + PT/INR/aPTT + ENT nasal speculum exam**; if they see throat bleeding too, they should also do **REQUEST TEST: Throat exam/rapid strep**.",
+      "turn": 18
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 18
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a diagnosis because we still don’t know whether the blood is from the nose vs throat, whether you’re actively bleeding, or whether there’s a clotting problem—so you need emergency evaluation now.  \nDoctor: Please go to the ER/urgent ENT immediately and ask them to do **REQUEST TEST: STAT vital signs with pulse oximetry + STAT CBC (Hb/platelets) + PT/INR and aPTT + ENT nasal speculum exam**.",
+      "turn": 19
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 19
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: DIAGNOSIS READY: Urgent undifferentiated upper-airway bleeding with nasal congestion—rule out epistaxis/infectious rhinitis vs pharyngotonsillitis with exudate and local mucosal bleeding; also evaluate urgently for a bleeding/clotting disorder and lower-source hemoptysis (especially given smoking).\n\n[ABSTAIN] free-text diagnosis 'Urgent undifferentiated upper-airway bleeding with nasal congestion—rule out epistaxis/infectious rhinitis vs pharyngotonsillitis with exudate and local mucosal bleeding; also evaluate urgently for a bleeding/clotting disorder and lower-source hemoptysis (especially given smoking).' did not map to the closed disease set",
+      "turn": 20
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 20,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 29875,
+      "completion_tokens": 2123,
+      "calls": 20
+    },
+    "patient": {
+      "prompt_tokens": 39938,
+      "completion_tokens": 414,
+      "calls": 20
+    }
+  }
+}

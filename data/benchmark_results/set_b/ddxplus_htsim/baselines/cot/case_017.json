@@ -1,0 +1,109 @@
+{
+  "case_idx": 17,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Cluster headache",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion and a clear runny nose. I also have sharp, knife-stroke pain rated 7/10 in my forehead and both cheeks and eyes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: nasal congestion + clear rhinorrhea, sharp “knife-stroke” pain in forehead/cheeks/around eyes (7/10). This pattern suggests a sinus/upper airway inflammatory process, but we need to discriminate among viral URTI vs acute rhinosinusitis vs allergic sinusitis vs (less likely) primary headache syndromes.\nTop candidates:\n1) Acute rhinosinusitis — facial pain/pressure with nasal symptoms; could be viral early on.\n2) Allergic sinusitis — clear rhinorrhea and congestion fit; facial discomfort can occur, often with itching/sneezing.\n3) URTI (viral) — clear runny nose and congestion commonly precede or accompany viral illness; facial pain can occur but “knife-stroke” may be less typical.\n4) Cluster headache — severe periorbital/forehead pain can be “sharp,” but nasal congestion/clear rhinorrhea would be less primary unless there’s autonomic symptoms; need timing and associated features.\n5) Acute laryngitis/bronchitis/pneumonia are less likely given no cough/resp symptoms yet.\nMost informative next question: determine whether symptoms are allergic (itching, sneezing, watery eyes) vs infectious (fever, purulent discharge, duration).\n[/REASONING]\nHow long have these symptoms been going on (hours/days), and do you have fever or thick/yellow-green nasal",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack duration and systemic/infectious features, which are key to separate acute rhinosinusitis/URTI from allergic sinusitis and primary headache disorders.\nTop candidates remain:\n1) Acute rhinosinusitis (infectious/inflammatory) — facial pain with nasal congestion.\n2) Allergic sinusitis — clear rhinorrhea can fit, but we need allergy clues.\n3) URTI (viral) — clear runny nose and congestion; facial pain can occur.\n4) Cluster headache — sharp periorbital/forehead pain, but nasal symptoms need correlation with autonomic signs.\n5) Acute laryngitis/other respiratory causes — less likely without cough/sore throat.\nMost informative next question: ask about allergy-type symptoms (itching/sneezing/watery eyes) to discriminate allergic vs infectious.\n[/REASONING]\nDo you have itching (especially itchy nose/eyes) or frequent sneezing, and are your eyes watery/itchy?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still don’t have discriminating allergy vs infection features, and we also need to assess for red flags of more serious causes of facial/periorbital pain.\nTop candidates:\n1) Acute rhinosinusitis — facial pain + nasal congestion.\n2) Allergic sinusitis — clear rhinorrhea can fit, but we need allergy clues.\n3) URTI (viral) — congestion + clear runny nose; facial pain possible.\n4) Cluster headache — severe sharp periorbital/forehead pain; nasal symptoms could be secondary, but need autonomic features.\n5) Epiglottitis/other airway causes — unlikely without throat symptoms.\nMost informative next question: ask about eye/face autonomic symptoms typical of cluster headache (tearing, red eye, droopy eyelid) and whether pain is one-sided.\n[/REASONING]\nIs the pain on one side of your face/head or both, and do you have any red/watery eye or a droopy eyelid on the painful side?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s both sides (forehead, cheek right and cheek left, eye right and eye left), and I have excessive tearing from my eyes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: bilateral facial pain (forehead/cheeks/periorbital) rated 7/10 + nasal congestion + clear rhinorrhea + excessive tearing. Bilateral tearing can occur with sinus inflammation, but classic cluster headache is typically unilateral with prominent autonomic features (tearing, red eye, ptosis) and attacks in a pattern. Bilateral pattern pushes more toward rhinosinusitis/URTI or allergic sinusitis. Need to assess for fever and nasal discharge quality/duration to decide acute rhinosinusitis vs viral URTI vs allergic sinusitis.\nTop candidates:\n1) Acute rhinosinusitis — facial pain + nasal symptoms; tearing can accompany periorbital irritation.\n2) Allergic sinusitis — congestion + clear rhinorrhea; tearing can occur; facial pain less prominent but possible.\n3) URTI (viral) — clear rhinorrhea + congestion; facial discomfort possible; tearing can occur with viral conjunctival irritation.\n4) Cluster headache — less likely due to bilateral pain (usually unilateral).\n5) Epiglottitis/croup/laryngitis etc — unlikely.\nMost informative next question: Do you have fever, and is the nasal discharge still clear or has it become thick/yellow-green? Also, how many days has this been going on? (duration is key). I’ll ask fever first.\n[/REASONING]\nHave you had a fever (measured or felt), and if",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack two key discriminators: duration and whether discharge is purulent (thick/yellow-green) or remains clear. These help separate viral URTI from acute rhinosinusitis and allergic sinusitis. Also, tearing could be from conjunctival irritation, but we need to know if there’s eye redness or pain.\nTop candidates:\n1) Acute rhinosinusitis — facial pain + nasal congestion; tearing can occur.\n2) URTI (viral) — clear rhinorrhea + congestion; facial discomfort possible.\n3) Allergic sinusitis — clear rhinorrhea + congestion; tearing can occur.\n4) Cluster headache — less likely due to bilateral pain.\n5) Epiglottitis/other airway — unlikely.\nMost informative next question: How many days has this been going on (even approximate: <2 days, 2–7 days, >7–10 days)? Duration is the best next discriminator.\n[/REASONING]\nAbout how long has this been happening (less than 2 days, 2–7 days, or more than a week)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still cannot discriminate by duration or fever/purulence. Without those, we can’t confidently choose between acute rhinosinusitis vs viral URTI vs allergic sinusitis. We can, however, ask about eye redness/pain and whether there’s significant photophobia or vision changes—this would raise concern for ocular causes or more serious periorbital pathology, but those aren’t in our provided list; still important for safety.\nTop candidates remain the same, but we need at least one more discriminating feature.\nMost informative next question: Do you have eye redness, light sensitivity (photophobia), or any vision changes (blurred/double vision)? \n[/REASONING]\nDo you have any eye redness, light sensitivity, or vision changes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] We don’t yet have key discriminators (duration, fever, discharge quality, and eye redness/photophobia/vision changes) to distinguish acute rhinosinusitis from viral URTI vs allergic sinusitis, and bilateral tearing also leaves some uncertainty.  \n[POSSIBLE] Acute rhinosinusitis, Allergic sinusitis, URTI (viral), Cluster headache, Acute laryngitis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Allergic sinusitis",
+      "URTI (viral)",
+      "Cluster headache",
+      "Acute laryngitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10960,
+      "completion_tokens": 1495
+    },
+    "patient": {}
+  }
+}

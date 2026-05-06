@@ -1,0 +1,182 @@
+{
+  "case_idx": 28,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Inguinal hernia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 54\nSex: Female\nChief Complaint: I have intense coughing fits, heavy pain, and skin lesions/redness",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having intense coughing fits and heavy pain, and I also have skin lesions/redness. The pain feels like it’s around both my right and left lower belly area (right and left iliac fossa).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down with a few focused questions.\n\n**Current posterior (pre-test, rough):**\n- **Anaphylaxis:** 0.10  \n- **Pneumonia:** 0.20  \n- **Influenza:** 0.10  \n- **Pulmonary embolism:** 0.10  \n- **Panic attack:** 0.05  \n(Other causes remain possible; we’ll update as you answer.)\n\n**Question 1 (most discriminating):**  \nWhen you say “skin lesions/redness,” are they **hives/raised itchy welts** (often moving around), or are they **painful blisters/ulcers** or **a spreading rash**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They’re more like pale, swollen skin lesions/redness, and the swelling feels pretty intense. I don’t have itching, and they’re not like raised itchy welts that move around.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (based on “pale swollen, intense swelling; not itchy hives”):**\n- **Anaphylaxis:** 0.05 (down—less consistent without itching/urticaria pattern)\n- **Pneumonia:** 0.18 (slightly up—infectious/inflammatory processes can coexist with rash)\n- **Influenza:** 0.10 (similar)\n- **Pulmonary embolism:** 0.12 (still possible with cough/pleuritic pain; rash less typical)\n- **Panic attack:** 0.04 (down—rash/swelling argues against primary panic)\n\n**Question 2:**  \nDo you have **any trouble breathing** (shortness of breath, wheezing, or feeling like your throat is tight), or is breathing mainly okay between coughing fits?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Breathing is mostly okay between the coughing fits. I don’t feel throat tightness, and I don’t have wheezing that I notice.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (breathing mostly okay between fits; no throat tightness/wheezing):**\n- **Anaphylaxis:** 0.02 (down—less likely without airway symptoms/urticaria)\n- **Pneumonia:** 0.22 (up—cough fits with systemic symptoms/rash can occur)\n- **Influenza:** 0.12 (up slightly)\n- **Pulmonary embolism:** 0.10 (down a bit—less typical if breathing is okay between fits)\n- **Panic attack:** 0.02 (down)\n\n**Question 3:**  \nDo you have **fever** (measured or felt), **chills**, or **sputum**? If sputum: what color (clear/white/yellow/green/bloody)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a measured fever, and I don’t really have chills. I’m not sure about sputum—I haven’t paid close attention to the color or whether I’m bringing anything up.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no known fever/chills; sputum unclear):**\n- **Pneumonia:** 0.20 (slightly down—fever/chills not clear)\n- **Influenza:** 0.13 (similar)\n- **Pulmonary embolism:** 0.11 (similar)\n- **Acute COPD exacerbation / infection:** 0.08 (new consideration if cough fits with illness; still uncertain)\n- **Anaphylaxis:** 0.01 (still low)\n\n**Question 4:**  \nAre you **bringing up any mucus/phlegm** during the coughing fits? If yes, is it **dry cough only**, or **wet**? And any **blood**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly a dry cough for me—like I’m coughing a lot but not really bringing up mucus. I haven’t noticed any blood.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (dry cough, no blood):**\n- **Pneumonia:** 0.14 (down—pneumonia often has productive cough, though not always)\n- **Influenza:** 0.18 (up—viral illness can cause dry cough)\n- **Pulmonary embolism:** 0.13 (still possible; cough can be dry)\n- **Acute COPD exacerbation / infection:** 0.06 (down—less likely without COPD history, but still possible)\n- **Anaphylaxis:** 0.005 (very low)\n\n**Question 5:**  \nHow long has this been going on—**hours, days, or weeks**? And did it start **suddenly** or **gradually**?\n\n(Also, because you mentioned intense pain in both right/left lower belly areas: any **vomiting**, **diarrhea**, or **pain when you press on your abdomen**?)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It started kind of suddenly—within hours—and the coughing fits and the heavy pain came on fast. I haven’t had vomiting or diarrhea, and I don’t know about pain when pressing on my abdomen.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (sudden onset within hours; dry cough; intense pain; no GI symptoms):**\n- **Pulmonary embolism:** 0.22 (up—sudden onset pleuritic/respiratory-related pain can occur even if breathing is “mostly okay” between fits)\n- **Influenza:** 0.10 (down—usually more gradual over days)\n- **Pneumonia:** 0.10 (down—often not within hours)\n- **Bronchospasm / acute asthma exacerbation:** 0.12 (up—can be sudden with cough fits; may have minimal wheeze)\n- **Anaphylaxis:** 0.01 (still very low)\n\n**Question 6 (high-yield):**  \nIs the pain **worse when you take a deep breath** or when you cough (pleuritic pain), or is it more like cramping/pressure in the belly?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "The pain feels more like heavy pain in my lower belly area, not like it gets worse specifically with deep breaths or coughing.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (pain not clearly pleuritic; more lower-belly heavy pain):**\n- **Pulmonary embolism:** 0.15 (down—less pleuritic)\n- **Bronchospasm / acute asthma exacerbation:** 0.10 (down—pain pattern not typical)\n- **Influenza:** 0.12 (still possible but sudden onset less typical)\n- **Pneumonia:** 0.08 (down)\n- **Anaphylaxis:** 0.01 (still low)\n\nNow the belly pain + sudden cough fits + facial/skin swelling/redness raises concern for a systemic process, but we need one key discriminator.\n\n**Question 7:**  \nDo you have **any swelling of lips/face/eyelids**, or **tongue/throat swelling**, or **feeling faint/lightheaded**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed swelling of my lips, face, eyelids, or tongue/throat, and I don’t feel faint or lightheaded.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no facial/tongue/throat swelling, no lightheadedness):**\n- **Pulmonary embolism:** 0.18 (still plausible with sudden onset cough + pain)\n- **Influenza:** 0.14\n- **Pneumonia:** 0.10\n- **Bronchospasm / acute asthma exacerbation:** 0.12\n- **Anaphylaxis:** 0.005 (very low without airway symptoms/urticaria)\n\n**Question 8:**  \nAny **chest pain** (pressure/tightness) or **rapid heartbeat** you can feel?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain or a rapid heartbeat that I can feel.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no chest pain/rapid heartbeat):**\n- **Pulmonary embolism:** 0.14 (down)\n- **Bronchospasm / acute asthma exacerbation:** 0.14 (up slightly—cough fits can be prominent)\n- **Influenza:** 0.16\n- **Pneumonia:** 0.10\n- **Acute COPD exacerbation / infection:** 0.08\n\n**Question 9:**  \nDo you have a history of **asthma/COPD**, smoking, or recent exposure to smoke/strong fumes?\n\n(Also, for the skin lesions: are they on the **legs/arms**, or more on the **face/torso**?)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a history of asthma or COPD, and I’m not a smoker.  \nThe skin lesions/redness seem to be on my legs/arms rather than mainly on my face or torso.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no asthma/COPD; rash on extremities):**\n- **Influenza:** 0.18\n- **Pneumonia:** 0.12\n- **Pulmonary embolism:** 0.10\n- **Bronchospasm / acute asthma exacerbation:** 0.06 (down—no history)\n- **Acute COPD exacerbation / infection:** 0.03 (down)\n\nAt this point, the combination of **sudden severe cough fits** + **intense extremity skin swelling/redness** is still concerning, but the evidence doesn’t cleanly point to a single diagnosis from the provided list. I need one more discriminator.\n\n**Question 10:**  \nHave you had **recent travel**, **sick contacts**, or **a new medication/food** in the last few days (including antibiotics, NSAIDs, or supplements)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No recent travel, and I don’t think I’ve had sick contacts. I haven’t started any new medications, antibiotics, NSAIDs, or supplements recently.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no travel/sick contacts/new meds):**\n- **Influenza:** 0.20\n- **Pneumonia:** 0.14\n- **Pulmonary embolism:** 0.12\n- **Acute laryngitis / URTI:** 0.10 (new—viral respiratory illness can cause cough + rash, though less specific)\n- **Anaphylaxis:** 0.01 (still low)\n\nI’m not confident enough to finalize because the **skin lesions/swelling** pattern (pale swollen, intense swelling without itching) could represent several entities (e.g., non-urticarial drug reaction/angioedema-like process, viral exanthem, or other inflammatory conditions), and we haven’t established key discriminators like fever, sputum, oxygen level, or objective exam findings.\n\n**Question 11:**  \nDo you have **any measured temperature** or do you feel **hot/sweaty**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a measured temperature. I don’t feel hot or sweaty either.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no fever/hotness):**\n- **Influenza:** 0.18\n- **Acute laryngitis / URTI:** 0.14\n- **Pneumonia:** 0.10\n- **Pulmonary embolism:** 0.12\n- **Acute dystonic reactions:** 0.01 (not fitting well, but keeping low)\n\nI still can’t confidently choose from the provided list because we lack objective respiratory findings (O2 sat, wheeze, lung exam), and the **skin lesions described as pale swollen redness on legs/arms** are not specific enough between viral exanthem vs other inflammatory/allergic processes.\n\n**Question 12:**  \nAre the skin areas **tender/painful to touch**, or is the swelling mainly noticeable without significant pain?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "They’re more noticeable and swollen/red, but they aren’t really tender or painful to touch.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (non-tender swollen/red lesions):**\n- **Acute laryngitis / URTI:** 0.18\n- **Influenza:** 0.17\n- **Pneumonia:** 0.10\n- **Pulmonary embolism:** 0.12\n- **Acute rhinosinusitis / allergic sinusitis:** 0.03 (less likely without nasal symptoms)\n\nI’m still not confident enough to give a definitive top-5 from the provided list because the rash/swelling description is nonspecific and we haven’t checked vitals (oxygen saturation, heart rate), lung exam, or any red-flag features (hemoptysis, unilateral leg swelling, etc.). I need one last high-yield discriminator.\n\n**Question 13:**  \nDo you have **one leg** that’s more swollen/painful than the other (especially calf), or any recent **immobility/surgery**?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t think one leg is more swollen or more painful than the other, and I haven’t had any recent immobility or surgery.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no unilateral leg findings/immobility):**\n- **Influenza:** 0.19\n- **Acute laryngitis / URTI:** 0.17\n- **Pneumonia:** 0.10\n- **Pulmonary embolism:** 0.10\n- **Acute dystonic reactions / other:** 0.01 (very low)\n\nI still can’t be confident because we haven’t established objective respiratory status (O2 sat, lung sounds) and the skin findings aren’t specific to a single listed diagnosis. However, the sudden onset within hours and prominent cough fits best with an acute viral respiratory illness, while serious cardiopulmonary causes (PE, pneumonia) remain possible but less supported by your history.\n\n**[ABSTAIN]** — Insufficient objective data (vitals/O2 sat, lung exam, and characterization of the rash) to confidently distinguish among acute viral respiratory illness vs early pneumonia vs other systemic causes.  \n**[POSSIBLE]** Influenza, URTI, Pneumonia, Pulmonary embolism, Bronchospasm / acute asthma exacerbation",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Influenza",
+      "URTI",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30439,
+      "completion_tokens": 2500
+    },
+    "patient": {
+      "prompt_tokens": 27682,
+      "completion_tokens": 475
+    }
+  }
+}

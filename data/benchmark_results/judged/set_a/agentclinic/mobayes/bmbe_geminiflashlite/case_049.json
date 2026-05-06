@@ -1,0 +1,334 @@
+{
+  "case_idx": 49,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient presents requesting prenatal care, reporting 2 months of increasing breast tenderness, nausea, a 6.6 lb weight gain, increased urinary frequency, and uncertainty about the date of her last menstrual period. She stopped taking oral contraceptives 6 months ago and has been trying to conceive with her husband since then. She believes she is pregnant and was happy to share this news with her husband last week.",
+    "Symptoms": {
+      "Primary_Symptom": "Increasing breast tenderness",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Weight gain of 6.6 lbs",
+        "Increased urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Stopped oral contraceptives 6 months prior in an attempt to conceive.",
+    "Social_History": "Reports being in a stable relationship and actively trying to conceive with her husband.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms suggestive of early pregnancy.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor—I've been trying to conceive with my husband for about 6 months since stopping my birth control, and I think I may be pregnant. Over the last two months I’ve had increasing breast tenderness, nausea, some weight gain (about 6.6 pounds), and more frequent urination. My last menstrual period is a bit uncertain, so I’m here to get prenatal care and confirm what’s going on.”",
+      "extracted_features": {
+        "f_weight_gain_87d866e7": "yes",
+        "f_nausea_072ff6bd": "yes",
+        "f_urinary_frequency_e94ed4de": "yes",
+        "f_belief_of_pregnancy_0dfc95df": "yes",
+        "f_trying_to_conceive_68840c03": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pseudocyesis",
+          0.7268154926538144
+        ],
+        [
+          "Chronic kidney failure",
+          0.028300990218021637
+        ],
+        [
+          "Bacillus cereus infection",
+          0.022262137920742175
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01826892932509335
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.016272325027268934
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any degree of vision loss?",
+      "patient_answer": "“No, doctor—I haven’t noticed any blurry vision, dark spots, or any vision loss. I feel mostly these changes in my breasts, the nausea, and the increased need to urinate, but no eye symptoms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.731544013429208
+        ],
+        [
+          "Chronic kidney failure",
+          0.028485110977090073
+        ],
+        [
+          "Bacillus cereus infection",
+          0.022406971076786415
+        ]
+      ],
+      "entropy": 2.084304951716977
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, doctor—I don’t smoke, and I don’t have a history of smoking.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7570586618648644
+        ],
+        [
+          "Chronic kidney failure",
+          0.029478609083682723
+        ],
+        [
+          "Bacillus cereus infection",
+          0.02318847701359557
+        ]
+      ],
+      "entropy": 1.9114166122241447
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, doctor—I haven’t felt any lumps or masses in my breasts; they’re just increasingly tender. I don’t have any pain beyond the tenderness, and there haven’t been any new noticeable changes like a specific lump.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7603819014713573
+        ],
+        [
+          "Chronic kidney failure",
+          0.029608010524001624
+        ],
+        [
+          "Bacillus cereus infection",
+          0.023290266833998666
+        ]
+      ],
+      "entropy": 1.8840269533664145
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of stress or emotional strain in your daily life?",
+      "patient_answer": "“No, doctor—I wouldn’t say I’m under significant stress; I’ve been feeling generally well emotionally. It’s mostly excitement about trying to conceive and then noticing these pregnancy-like changes.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6263014842053356
+        ],
+        [
+          "Chronic kidney failure",
+          0.052485369496194687
+        ],
+        [
+          "Bacillus cereus infection",
+          0.041286065453687126
+        ]
+      ],
+      "entropy": 2.6222448798191462
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "To help me better understand your current symptoms, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“No, doctor—my urine hasn’t seemed darker than usual, and I haven’t noticed any color changes. I’m mainly just needing to urinate more frequently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6439277495364998
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04244799650848868
+        ],
+        [
+          "Chronic kidney failure",
+          0.04142574779669153
+        ]
+      ],
+      "entropy": 2.543774526720988
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, doctor—I haven’t noticed any specific breast mass or anything growing or changing in size rapidly. It’s mainly generalized increasing tenderness in my breasts rather than a distinct lump.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6456001345610606
+        ],
+        [
+          "Bacillus cereus infection",
+          0.042558240854588855
+        ],
+        [
+          "Chronic kidney failure",
+          0.041533337196738795
+        ]
+      ],
+      "entropy": 2.525578303083582
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, doctor—I haven’t had any pain in my wrist. My main discomfort has been in my breasts with increasing tenderness, along with nausea, a bit of weight gain, and more frequent urination.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6503162782311215
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04286913109061979
+        ],
+        [
+          "Chronic kidney failure",
+          0.041836740456482654
+        ]
+      ],
+      "entropy": 2.4943662688255595
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what you're experiencing, could you please tell me if you have noticed any skin lesions, rashes, or unusual marks running along the veins of your arms?",
+      "patient_answer": "“No, doctor—I haven’t noticed any rashes, skin lesions, or unusual marks along the veins of my arms. My symptoms have been limited to the breast tenderness, nausea, some weight gain, and needing to urinate more often.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6503162782311215
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04286913109061979
+        ],
+        [
+          "Chronic kidney failure",
+          0.041836740456482654
+        ]
+      ],
+      "entropy": 2.4943662688255595
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, doctor—I don’t get shortness of breath when walking or climbing stairs, and I haven’t had any trouble catching my breath. My main issues are the increasing breast tenderness, nausea, the slight weight gain, and needing to urinate more often.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6686899469275045
+        ],
+        [
+          "Bacillus cereus infection",
+          0.044080331299391
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.02594264368224793
+        ]
+      ],
+      "entropy": 2.3989372693210047
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“No, doctor—I haven’t used any recreational or non-prescribed drugs recently. I’ve only been trying to conceive and otherwise feel okay aside from the breast tenderness, nausea, weight gain, and increased urination.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6761459810455244
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04457183630198902
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.026231909637710903
+        ]
+      ],
+      "entropy": 2.343853976898401
+    }
+  ],
+  "final": {
+    "predicted": "Pseudocyesis",
+    "predicted_top3": [
+      "Pseudocyesis",
+      "Bacillus cereus infection",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.6761459810455244,
+    "final_entropy": 2.343853976898401,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pseudocyesis",
+    "predicted_set_remapped": [
+      "Pseudocyesis",
+      "Bacillus cereus infection",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6846,
+      "completion_tokens": 535
+    },
+    "patient": {
+      "prompt_tokens": 8328,
+      "completion_tokens": 515,
+      "calls": 11
+    }
+  }
+}

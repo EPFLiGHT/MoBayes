@@ -1,0 +1,102 @@
+{
+  "case_idx": 18,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 33\nSex: Male\nChief Complaint: I have a fever, a knife stroke pain, and sharp pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a sudden, very severe throat pain—like a knife-stab, sharp pain on the left tonsil and in my pharynx. I also have a fever, I’m having trouble swallowing, I’m very short of breath, and I’ve noticed I’m making more saliva than usual, with hoarseness and a noisy breathing sound.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "This is concerning for a potentially life-threatening upper-airway process. I’ll ask one focused question at a time.\n\n**Current posterior (pre-test priors, rough):**\n- **Epiglottitis:** 0.30  \n- **Acute laryngitis:** 0.15  \n- **Acute dystonic reactions:** 0.10  \n- **Anaphylaxis:** 0.10  \n- **Boerhaave:** 0.05  \n(others collectively 0.30)\n\n**Question 1:**  \nWhen you look at your throat/mouth (or if anyone has), do you see **any swelling of the throat/uvula/tonsil**, and is there **difficulty breathing that’s worse when lying flat**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there seems to be swelling around the left tonsil/throat area, and breathing is definitely worse when I lie flat. I also feel like my airway is tight, and the noisy breathing is getting worse.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with new evidence:** throat/tonsil swelling + worse breathing when lying flat + rapidly worsening noisy breathing strongly increases likelihood of epiglottitis/upper airway obstruction.\n\n**Current posterior:**\n- **Epiglottitis:** 0.70  \n- **Acute laryngitis:** 0.10  \n- **Acute dystonic reactions:** 0.05  \n- **Anaphylaxis:** 0.05  \n- **Boerhaave:** 0.02  \n(others 0.08)\n\n**Question 2 (high-yield):**  \nDo you have **any rash, hives, lip/tongue swelling, or wheezing**—or did this start right after a new food/medication/insect sting?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No rash or hives, and I don’t have lip or tongue swelling. I don’t remember it starting right after any new food, medication, or an insect sting.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** absence of rash/hives/lip-tongue swelling makes anaphylaxis less likely.\n\n**Current posterior:**\n- **Epiglottitis:** 0.78  \n- **Acute laryngitis:** 0.12  \n- **Acute dystonic reactions:** 0.05  \n- **Anaphylaxis:** 0.01  \n- **Boerhaave:** 0.01  \n(others 0.03)\n\n**Question 3:**  \nHave you had **recent sore throat/URI symptoms** (cough, runny nose) or is this **sudden and isolated**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It feels sudden and isolated—no cough or runny nose before this.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** sudden isolated severe throat pain with fever and progressive noisy breathing keeps epiglottitis highest; less supportive of typical viral laryngitis.\n\n**Current posterior:**\n- **Epiglottitis:** 0.83  \n- **Acute laryngitis:** 0.08  \n- **Acute dystonic reactions:** 0.04  \n- **Anaphylaxis:** 0.01  \n- **Acute pulmonary edema:** 0.00  \n(others 0.04)\n\n**Question 4 (to discriminate from dystonia/other):**  \nHave you taken **any new medications**, especially **antipsychotics (e.g., haloperidol), metoclopramide, prochlorperazine**, or had **muscle spasms/neck twisting**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No—no new medications like those, and I haven’t had any muscle spasms or neck twisting.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** no medication exposure or dystonic features makes acute dystonic reactions less likely.\n\n**Current posterior:**\n- **Epiglottitis:** 0.88  \n- **Acute laryngitis:** 0.07  \n- **Acute dystonic reactions:** 0.02  \n- **Anaphylaxis:** 0.01  \n- **Acute laryngitis/other upper airway infection:** 0.02\n\n**Question 5 (confirm infectious/airway severity):**  \nCan you tell me your **age** and whether you’re able to **speak in full sentences** or if your voice is barely audible?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m 33 years old. My voice is very hoarse and the breathing is so bad that I can’t really speak in full sentences—my voice is barely audible.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** inability to speak full sentences + rapidly worsening hoarseness/noisy breathing strongly supports imminent upper-airway obstruction from epiglottitis.\n\n**Current posterior:**\n- **Epiglottitis:** 0.95  \n- **Acute laryngitis:** 0.03  \n- **Acute dystonic reactions:** 0.01  \n- **Anaphylaxis:** 0.005  \n- **Boerhaave:** 0.002  \n(others 0.003)\n\nI’m confident enough to provide the differential.\n\n[DDX] Epiglottitis, Acute laryngitis, Acute dystonic reactions, Anaphylaxis, Boerhaave",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [
+      "Epiglottitis",
+      "Acute laryngitis",
+      "Acute dystonic reactions",
+      "Anaphylaxis",
+      "Boerhaave"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7880,
+      "completion_tokens": 892
+    },
+    "patient": {
+      "prompt_tokens": 6777,
+      "completion_tokens": 239
+    }
+  }
+}

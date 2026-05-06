@@ -1,0 +1,119 @@
+{
+  "case_idx": 36,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 83\nSex: F\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been short of breath or having difficulty breathing in a significant way, and I’ve also been coughing up blood.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’ll ask a few focused questions to narrow this down.\n\n**First question:** How old are you, and do you have any major risk factors for blood clots—especially **recent surgery/immobility, long travel, leg swelling/pain, or a history of DVT/PE**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 83. Yes—I have had deep vein thrombosis (DVT). I’ve also had surgery within the last month, and I traveled out of the country to North America in the last 4 weeks. I have swelling in one or more areas of my body, including posterior aspect of the ankle (right and left).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Given your age, recent surgery, travel, prior DVT, and current leg swelling, a clot is a major concern.\n\n**Next question (most discriminating):** When did the shortness of breath and the coughing up blood start—**suddenly (minutes to hours)** or **more gradually (days)**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s pin down the timing another way.\n\n**Next question:** Over the last 24 hours, has the shortness of breath been **getting rapidly worse**, or has it been **fairly steady**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll use another discriminating feature.\n\n**Next question:** Do you have **pleuritic chest pain**—pain that’s worse when you take a deep breath or cough? (Yes/No)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have pain increased when I breathe in deeply.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "That pleuritic pain plus hemoptysis and high clot risk strongly points toward a pulmonary embolism.\n\n**Next question:** Have you had any **fever** or chills recently? (Yes/No)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Next question:** Are you having **wheezing** or a history of asthma/COPD, or is it mainly tightness/shortness of breath without wheeze?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Next question:** When you cough up blood, is it **small streaks** or **more than a teaspoon / larger amounts**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to proceed with the most likely diagnosis given what we know: hemoptysis + pleuritic pain + significant VTE risk (recent surgery, travel, prior DVT, leg swelling).\n\n[DDX] Pulmonary embolism, Acute pulmonary edema, Pneumonia, Possible NSTEMI / STEMI, Acute COPD exacerbation / infection",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Pneumonia",
+      "Possible NSTEMI / STEMI",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8407,
+      "completion_tokens": 433
+    },
+    "patient": {}
+  }
+}

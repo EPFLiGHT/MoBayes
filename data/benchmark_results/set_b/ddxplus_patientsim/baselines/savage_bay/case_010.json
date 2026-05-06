@@ -1,0 +1,112 @@
+{
+  "case_idx": 10,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Localized edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: Female\nChief Complaint: I have swelling in one or more areas of your body, swelling (right ankle), and swelling (left ankle)",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I came in because I’ve had swelling in both ankles, and also some swelling in my right lateral foot and both thighs. It’s painful—like a tugging pain—with about 4/10 intensity, and it started fairly quickly (around 3/10).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, rough):**\n- **Circulatory Diseases** 0.35  \n- **Localized edema** 0.25  \n- **Anemia** 0.10  \n- **Acute pulmonary edema** 0.10  \n- **Pulmonary embolism** 0.10  \n(others combined 0.10)\n\n**Question 1 (most discriminating):**  \nDo you have **shortness of breath, chest pain, or coughing up blood**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath, chest pain, or coughing up blood.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no SOB/chest pain/hemoptysis”:**\n\nLikelihood ratios (LR) roughly:\n- **Pulmonary embolism**: LR ~0.3 (less likely without these)\n- **Acute pulmonary edema**: LR ~0.4\n- **Circulatory Diseases / localized edema**: LR ~1.0 (not much change)\n\n**Posterior:**\n- **Circulatory Diseases** 0.40  \n- **Localized edema** 0.30  \n- **Anemia** 0.10  \n- **Acute pulmonary edema** 0.06  \n- **Pulmonary embolism** 0.06  \n(others 0.08)\n\n**Question 2:**  \nIs the swelling **pitting** when you press a finger into it for ~5 seconds (leaves a dent), or is it **non-pitting**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure it’s pitting. When I press, I think it may not leave a clear dent—so I’d say non-pitting, but I’m not 100% sure.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “likely non-pitting”:**\n\nLikelihood ratios:\n- **Localized edema** (often pitting) : LR ~0.7 (slightly less likely)\n- **Circulatory Diseases** (can be pitting but not always): LR ~0.9\n- **Acute pulmonary edema**: LR ~0.5 (less likely without typical systemic features)\n- **Anemia/other systemic**: LR ~0.8\n\n**Posterior (approx):**\n- **Circulatory Diseases** 0.42  \n- **Localized edema** 0.27  \n- **Anemia** 0.11  \n- **Acute pulmonary edema** 0.04  \n- **Pulmonary embolism** 0.05  \n(others 0.11)\n\n**Question 3:**  \nDo you have **fever**, **recent infection**, or **new redness/warmth** over the swollen areas?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No fever, no recent infection, and no new redness or warmth over the swollen areas.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no fever/infection/redness/warmth”:**\n\nLikelihood ratios:\n- **Pneumonia/Influenza/URTI** etc: LR ~0.1 (not relevant)\n- **Acute COPD exacerbation/infection**: LR ~0.05\n- **Acute pulmonary edema**: LR ~0.6 (still possible but less supported)\n- **Circulatory Diseases**: LR ~1.1 (still plausible)\n- **Localized edema**: LR ~1.0\n- **Anemia**: LR ~1.0 (can be without fever)\n\n**Posterior (approx):**\n- **Circulatory Diseases** 0.45  \n- **Localized edema** 0.30  \n- **Anemia** 0.12  \n- **Acute pulmonary edema** 0.03  \n- **Pulmonary embolism** 0.04  \n(others 0.06)\n\n**Question 4:**  \nAny **history of heart disease** (heart failure, valve problems), **kidney disease**, or **liver disease**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have heart failure, and I also have liver disease (liver cirrhosis). I don’t know about kidney disease—I'm not sure.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “heart failure + cirrhosis”:**\n\nLikelihood ratios:\n- **Circulatory Diseases** (fluid overload/CHF-related edema): LR ~1.8\n- **Localized edema**: LR ~1.2\n- **Acute pulmonary edema**: LR ~1.0 (less specific without SOB)\n- **Anemia**: LR ~0.9 (not directly supported)\n- **Pulmonary embolism**: LR ~0.7 (still less likely)\n\n**Posterior (approx):**\n- **Circulatory Diseases** 0.55  \n- **Localized edema** 0.28  \n- **Acute pulmonary edema** 0.05  \n- **Anemia** 0.08  \n- **Pulmonary embolism** 0.03  \n(others 0.01)\n\n**Question 5 (to discriminate CHF vs cirrhosis vs other):**  \nHave you noticed **abdominal swelling/ascites** or **increased belly size**, or **weight gain over days**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’ve noticed some abdominal swelling and my belly size seems bigger than before. I’m not sure about the exact weight gain over days.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “ascites/increased abdominal swelling”:**\n\nLikelihood ratios:\n- **Circulatory Diseases / CHF-related edema**: LR ~1.5 (still plausible)\n- **Localized edema**: LR ~1.2\n- **Acute pulmonary edema**: LR ~0.6 (less supported since no SOB)\n- **Anemia**: LR ~0.8\n- **Pulmonary embolism**: LR ~0.5\n\n**Posterior (approx):**\n- **Circulatory Diseases** 0.60  \n- **Localized edema** 0.30  \n- **Anemia** 0.06  \n- **Acute pulmonary edema** 0.02  \n- **Pulmonary embolism** 0.02  \n(others 0.00)\n\nAt this point, the most likely unifying diagnosis is **fluid overload/edema from underlying circulatory disease and/or liver disease**. I still want one key safety check.\n\n**Question 6 (safety):**  \nDo you have **any one-sided leg swelling**, or is it **truly symmetric in both legs**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It feels mostly symmetric in both ankles and both thighs, but the right side feels a bit more—especially the right lateral foot and right thigh.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “mostly symmetric but right slightly more”:**\n\nLikelihood ratios:\n- **Circulatory Diseases / generalized edema**: LR ~1.2 (still fits)\n- **Localized edema**: LR ~1.0\n- **Pulmonary embolism**: LR ~0.7 (still not strongly suggested, but asymmetry keeps it on the list)\n- **Acute pulmonary edema**: LR ~0.6\n\n**Posterior (approx):**\n- **Circulatory Diseases** 0.62  \n- **Localized edema** 0.28  \n- **Pulmonary embolism** 0.03  \n- **Anemia** 0.05  \n- **Acute pulmonary edema** 0.02\n\nGiven the strong history of **heart failure + cirrhosis with new abdominal swelling**, the leading diagnosis is generalized edema from circulatory/liver causes. However, because you report some asymmetry and pain, I can’t fully exclude a thromboembolic process without vitals/exam.\n\n**[DDX]** Circulatory Diseases, Localized edema, Anemia, Acute pulmonary edema, Pulmonary embolism",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "** Circulatory Diseases",
+    "predicted_set": [
+      "** Circulatory Diseases",
+      "Localized edema",
+      "Anemia",
+      "Acute pulmonary edema",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10246,
+      "completion_tokens": 1424
+    },
+    "patient": {
+      "prompt_tokens": 9393,
+      "completion_tokens": 244
+    }
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "case_idx": 40,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m a 69-year-old man, and I’ve had progressively worsening pain in my left great toe, hips, and knees for several years. It tends to get worse when I’m active and feels better when I rest.",
+      "extracted_features": {},
+      "top5_posterior": [
+        [
+          "Vitiligo",
+          0.03225806451612903
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.03225806451612903
+        ],
+        [
+          "Actinic Keratosis",
+          0.03225806451612903
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03225806451612903
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.03225806451612903
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Morning stiffness is a common symptom we check for, as it can be associated with inflammatory conditions. Let me ask you about this:\n\n**Do you often feel stiffness in your joints when you wake up in the morning, especially when you first get out of bed?**\n\nIf yes, I'd also like to know how long this stiffness usually lasts—does it go away within a few minutes, or does it persist for longer?",
+      "patient_answer": "Patient: Yes, I do feel stiffness when I first wake up, especially in the morning with my joints. It usually takes maybe 20–30 minutes before I feel loose enough to move comfortably, then it eases up.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Psoriatic arthritis",
+          0.2900763358778627
+        ],
+        [
+          "Osteoarthritis",
+          0.21374045801526723
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1755725190839696
+        ]
+      ],
+      "entropy": 3.5018387775063875
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\nAre you currently feeling any pain or discomfort in your chest?",
+      "patient_answer": "“No, I’m not currently feeling any chest pain or discomfort. My main issue is the joint pain in my left great toe, hips, and knees, which flares when I’m active and improves when I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Psoriatic arthritis",
+          0.29846483398786156
+        ],
+        [
+          "Osteoarthritis",
+          0.21992145662263482
+        ],
+        [
+          "Adhesive capsulitis",
+          0.18064976794002155
+        ]
+      ],
+      "entropy": 3.4022806364793885
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your symptoms.\n\nAre you currently experiencing any difficulty lifting objects, such as when you try to lift things like groceries or everyday items?",
+      "patient_answer": "Doctor: Are you currently experiencing any difficulty lifting objects, such as when you try to lift things like groceries or everyday items? Patient: Yes—on bad days my hip and knee pain makes it harder to lift and carry things, and getting back up or walking afterward is more difficult.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Psoriatic arthritis",
+          0.29846483398786156
+        ],
+        [
+          "Osteoarthritis",
+          0.21992145662263482
+        ],
+        [
+          "Adhesive capsulitis",
+          0.18064976794002155
+        ]
+      ],
+      "entropy": 3.4022806364793885
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I'd like to ask you a few questions about your arms. Have you noticed any skin changes, such as rashes, sores, or unusual spots along the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes, sores, or unusual spots along the veins in my arms. My problems are mainly the pain in my left great toe and my hips and knees, worse with activity and better when I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Psoriatic arthritis",
+          0.2984648339878614
+        ],
+        [
+          "Osteoarthritis",
+          0.2199214566226347
+        ],
+        [
+          "Adhesive capsulitis",
+          0.18064976794002147
+        ]
+      ],
+      "entropy": 3.4022806364793885
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nAre you currently feeling any pain in your side, around your lower ribs or toward your back/hip area? This is sometimes called flank pain.",
+      "patient_answer": "“No, I don’t have side or flank pain around my lower ribs or toward my back—my main pain is in my left great toe and my hips and knees, especially when I’m active.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Psoriatic arthritis",
+          0.30071942446043154
+        ],
+        [
+          "Osteoarthritis",
+          0.22158273381294954
+        ],
+        [
+          "Adhesive capsulitis",
+          0.18201438848920867
+        ]
+      ],
+      "entropy": 3.3750232114354204
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any rough, scaly patches on your skin that have been there for a while and haven't gone away? These might feel slightly raised or rough to the touch.",
+      "patient_answer": "“No, I haven’t noticed any rough, scaly patches or persistent skin areas that don’t go away.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Psoriatic arthritis",
+          0.30411058566751525
+        ],
+        [
+          "Osteoarthritis",
+          0.22408148417606388
+        ],
+        [
+          "Adhesive capsulitis",
+          0.18406693343033828
+        ]
+      ],
+      "entropy": 3.3277152903747496
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Have you noticed any unusual spots, sores, or bumps on your scalp?",
+      "patient_answer": "“No, I haven’t noticed any unusual spots, sores, or bumps on my scalp. My main concern is still the worsening pain in my left great toe and the hips and knees when I’m active, which improves with rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2601329158739772
+        ],
+        [
+          "Adhesive capsulitis",
+          0.21368060946790995
+        ],
+        [
+          "Psoriatic arthritis",
+          0.19969799602446736
+        ]
+      ],
+      "entropy": 3.508187565931636
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your recent eating habits. \n\nHave you been experiencing any unusual food cravings lately—strong urges to eat specific foods that are hard to control?",
+      "patient_answer": "“No— I haven’t had any unusual food cravings or strong urges to eat specific foods that I can’t control.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.26275900401135743
+        ],
+        [
+          "Adhesive capsulitis",
+          0.21583775329504373
+        ],
+        [
+          "Psoriatic arthritis",
+          0.20171398287740575
+        ]
+      ],
+      "entropy": 3.4782614533294813
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your knees.\n\nAre you currently experiencing any pain or discomfort in your knee or knees?",
+      "patient_answer": "Patient: Yes, I have pain in my knees that flares when I’m active, especially with walking or standing, and it improves after I rest. On bad days it also makes it harder to get back up and move afterward.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6371331427342145
+        ],
+        [
+          "Psoriatic arthritis",
+          0.30384249659623697
+        ],
+        [
+          "Adhesive capsulitis",
+          0.023789062147543723
+        ]
+      ],
+      "entropy": 1.4004994060305882
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nWhen you move your knee — such as bending or straightening it — do you feel any pain in your thigh? For example, does it hurt when you walk, climb stairs, or try to stand up from a seated position?",
+      "patient_answer": "Doctor: When you move your knee—bending or straightening it—do you feel pain in your thigh, especially with walking, stairs, or standing up from a seated position? Patient: Yes, the pain is mainly around the knee and sometimes seems to spread into my thigh, especially when I walk, climb stairs, or try to stand up after sitting. It’s worse on those bad days and then eases when I rest.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6371331427342145
+        ],
+        [
+          "Psoriatic arthritis",
+          0.30384249659623697
+        ],
+        [
+          "Adhesive capsulitis",
+          0.023789062147543723
+        ]
+      ],
+      "entropy": 1.4004994060305882
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help with your assessment.\n\nHave you been experiencing any vomiting?",
+      "patient_answer": "“No, I haven’t been vomiting. My symptoms have mostly been the joint pain in my left great toe and my hips and knees that get worse with activity and improve with rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6394791818429235
+        ],
+        [
+          "Psoriatic arthritis",
+          0.30496129945248696
+        ],
+        [
+          "Adhesive capsulitis",
+          0.023876657763615645
+        ]
+      ],
+      "entropy": 1.3689474876878276
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_vulvar_itching_2bb4c1ea",
+      "doctor_question": "Hello, thank you for sharing some information with me today.\n\nI'd like to ask you a quick question: Have you been experiencing any itching or discomfort in the vulvar area? This can sometimes happen with various conditions, and it's helpful to know if you're noticing this symptom.",
+      "patient_answer": "“No, I haven’t had any itching or discomfort in the vulvar area—my symptoms are mainly the left great toe and the hip and knee pain that gets worse with activity and improves with rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6403857196293443
+        ],
+        [
+          "Psoriatic arthritis",
+          0.305393618360122
+        ],
+        [
+          "Adhesive capsulitis",
+          0.023910505765381347
+        ]
+      ],
+      "entropy": 1.3561128798793398
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello! I'd like to ask you a few questions about how you're feeling today.\n\nAre you currently experiencing any pain or discomfort in your wrist or wrists?",
+      "patient_answer": "“No, I’m not having any pain in my wrists. My main problems are the pain in my left great toe and my hips and knees, which get worse with activity and improve when I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6545437559489955
+        ],
+        [
+          "Psoriatic arthritis",
+          0.2681812985936215
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03407710198225402
+        ]
+      ],
+      "entropy": 1.4709841439046483
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your legs.\n\nAre your legs feeling warm to the touch, or are you experiencing any unusual warmth or heat in your legs?",
+      "patient_answer": "Patient: No, I haven’t noticed my legs feeling warm or hotter than usual to the touch. It’s mainly the pain in my left great toe and my hips and knees when I’m active that bothers me, and it improves when I rest.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6548083484889594
+        ],
+        [
+          "Psoriatic arthritis",
+          0.26828970810837244
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03409087729809218
+        ]
+      ],
+      "entropy": 1.467959504551188
+    },
+    {
+      "turn": 15,
+      "kind": "qa",
+      "feature_id": "f_hip_pain_b43bcb14",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions to better understand what you're experiencing.\n\nAre you currently feeling any pain in your hip or hip area?",
+      "patient_answer": "Doctor: Are you currently feeling any pain in your hip or hip area? Patient: Yes, I have pain in my hips that gets worse when I’m active, like walking or standing, and it improves when I rest. On bad days it also makes it harder to get around and get back up after sitting.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.6548083484889594
+        ],
+        [
+          "Psoriatic arthritis",
+          0.26828970810837244
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03409087729809218
+        ]
+      ],
+      "entropy": 1.467959504551188
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_top3": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.6548083484889594,
+    "final_entropy": 1.467959504551188,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Osteoarthritis",
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7313,
+      "completion_tokens": 2867
+    },
+    "patient": {
+      "prompt_tokens": 15721,
+      "completion_tokens": 812,
+      "calls": 16
+    }
+  }
+}

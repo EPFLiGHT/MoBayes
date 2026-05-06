@@ -1,0 +1,169 @@
+{
+  "case_idx": 38,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {
+    "AGE": 54,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "shortness of breath",
+    "EVIDENCES_ENG": "['pain', 'shortness of breath', 'cigarette smoking', 'skin lesions', 'mouth ulcers']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 54\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I smoke cigarettes.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I have painful mouth ulcers or sores.\n- On a scale of 0-10, the pain intensity is 6\n- On a scale of 0-10, the pain's location precision is 8\n- On a scale of 0-10, the pace at which the pain appear is 0\n- The color of the rash is red.\n- On a scale of 0-10, the rash swelling is 4\n- The lesion (or lesions) are larger than 1cm.\n- On a scale of 0-10, the severity of the rash itching is 3\n- The pain is:\n* sharp\n- The pain locations are:\n* back of the neck\n* ankle(R)\n* ankle(L)\n* shoulder(R)\n* shoulder(L)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* cheek(L)\n* nose\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['SLE', 0.09709851157725909], ['Possible NSTEMI / STEMI', 0.08780513828694435], ['Unstable angina', 0.0696956836592224], ['Stable angina', 0.06646244151598905], ['Acute pulmonary edema', 0.06562233694166496], ['Scombroid food poisoning', 0.06521820929580019], ['Bronchiectasis', 0.06351349534134877], ['Pneumonia', 0.06193162591972391], ['Guillain-Barré syndrome', 0.059982638437622075], ['Atrial fibrillation', 0.0572942664980078], ['Pulmonary neoplasm', 0.04865011563947752], ['Anaphylaxis', 0.0423145767687103], ['Acute dystonic reactions', 0.04224039662957192], ['Myocarditis', 0.04224039662957192], ['Bronchitis', 0.03320613918920058], ['Tuberculosis', 0.03042224257657201], ['Pulmonary embolism', 0.027110066505785506], ['PSVT', 0.022563330246177928], ['Pancreatic neoplasm', 0.016628388341349738]]",
+    "PATHOLOGY": "SLE",
+    "INITIAL_EVIDENCE": "dyspn",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_arrière_du_cou', 'douleurxx_endroitducorps_@_cheville_D_', 'douleurxx_endroitducorps_@_cheville_G_', 'douleurxx_endroitducorps_@_épaule_D_', 'douleurxx_endroitducorps_@_épaule_G_', 'douleurxx_intens_@_6', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_8', 'douleurxx_soudain_@_0', 'dyspn', 'f17.210', 'lesions_peau', 'lesions_peau_couleur_@_rouge', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_4', 'lesions_peau_endroitducorps_@_joue_G_', 'lesions_peau_endroitducorps_@_nez', 'lesions_peau_plusqu1cm_@_O', 'lesions_peau_prurit_@_3', 'trav1_@_N', 'ulcères_bouche']",
+    "patient_id": "htsim_1368",
+    "_test_index": 1368,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 54-year-old M patient presents to the clinic. Chief complaint: shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having significant shortness of breath or difficulty breathing. I also have red skin lesions/redness on my cheek (left) and nose, and I have painful mouth ulcers or sores.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have you had the shortness of breath, and is it worse with exertion or when lying flat?  \nDoctor: Do you have fever, chest pain, cough, or wheezing?  \nDoctor: For the face rash and painful mouth ulcers: when did they start, and do they look like small sores inside the mouth or larger ulcers with bleeding?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms include painful mouth ulcers or sores, and red skin lesions/redness on my cheek (left) and nose.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you—right now, can you check your breathing: are you having any wheezing/stridor, and do you notice swelling of your lips/tongue or a skin rash elsewhere (besides the left cheek and nose)?  \nDoctor: Also, have you had any new medications, recent infections, or do you smoke—while your mouth sores and breathing trouble have been going on (even approximately)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I smoke cigarettes. I don’t know about any new medications or recent infections. I don’t know about wheezing/stridor or swelling of my lips/tongue.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On exam, do you have oxygen saturation readings, and I’m going to order tests—REQUEST TEST: Chest_X-Ray, REQUEST TEST: Pulse_Oximetry, REQUEST TEST: CBC_with_Diff.  \nDoctor: Also, do the mouth ulcers make it painful to swallow, and have you noticed any similar skin lesions on your eyes (red or painful eyes) or on other body areas?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a few key details—are your mouth ulcers painful to swallow, and have you had any eye redness/pain or vision changes?  \nDoctor: Also, when did the rash and mouth ulcers start relative to the shortness of breath (same day, before, or after)?  \nDoctor: REQUEST TEST: Dermatology_Skin_Exam_and_Possible_Skin_Biopsy (perioral/cheek/nose lesions); REQUEST TEST: HIV_Test and REQUEST TEST: ESR_CRP.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask directly—can you describe the face rash: is it a butterfly-shaped rash with sparing of the nasolabial folds, or more like acne/follicular bumps or a scaly plaque? Also, are the mouth ulcers recurrent and do you get joint pains or new swelling anywhere?  \nDoctor: Given your smoking plus shortness of breath, I also want to know: did the breathing start suddenly over hours–days, or gradually over weeks?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I smoke cigarettes. I also have red skin lesions/redness on my left cheek and nose, and painful mouth ulcers or sores.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check for urgency—right now, are you able to speak full sentences, and do you have any chest pain, hemoptysis (coughing blood), or severe sudden worsening of breathing?  \nDoctor: Also, have you lost weight, had persistent fevers/night sweats, or noticed swollen lymph nodes (neck/armpits)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I smoke cigarettes. I also have significant shortness of breath or difficulty breathing, red skin lesions/redness on my left cheek and nose, and painful mouth ulcers or sores.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this combination—shortness of breath plus a malar/periorificial facial rash and painful mouth ulcers—could represent an autoimmune mucocutaneous disease or an infection like HIV–related disease, so I’d like urgent objective data: REQUEST TEST: Pulse_Oximetry and REQUEST TEST: Arterial_Blood_Gas.  \nDoctor: Next, I need to clarify whether the rash distribution is classic “malar” (over cheeks/bridge with possible nose involvement) and whether the mouth ulcers are painless or very painful—are they tender and do you see them on the tongue, gums, or palate?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t decide without a few more specifics—are the mouth ulcers **painless or very painful**, and are they **small round/white (“aphthous”)** versus **large/deep**? Also, does your facial redness **spare the nasolabial folds** (the lines from nose to mouth), and is it **worse after sunlight**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I smoke cigarettes. I also have significant shortness of breath or difficulty breathing, red skin lesions/redness on my left cheek and nose, and painful mouth ulcers or sores.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask just two quick, high-yield questions—are the mouth ulcers *painless small white/yellow sores* (like aphthae) or *large deep ulcers*, and is the facial rash *photosensitive* (worse after sun)?  \nDoctor: Also, do you have any history of autoimmune disease or can you think of any new medication in the past 1–3 months (including antibiotics or seizure meds)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I smoke cigarettes. I also have significant shortness of breath or difficulty breathing, red skin lesions/redness on my left cheek and nose, and painful mouth ulcers or sores.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still missing the key differentiators, so I’ll focus on safety—are you in distress right now (can you speak full sentences), and do you have fever or chest pain?  \nDoctor: REQUEST TEST: Urgent_CBC_with_Diff_and_BMP; REQUEST TEST: HIV_p24_Antigen_plus_HIV_Ab; REQUEST TEST: ANA_with_Reflex_to_dsDNA_Smith; REQUEST TEST: Serum_Complement_C3_C4; REQUEST TEST: Chest_CTA_or_CTPA_if_hypoxic_or_dyspneic_unexplained.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I smoke cigarettes. I’m having significant shortness of breath or difficulty breathing, red skin lesions/redness on my left cheek and nose, and painful mouth ulcers or sores.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this is potentially serious: your facial redness (cheek/nose) plus painful mouth ulcers with significant shortness of breath raises concern for autoimmune mucocutaneous disease (e.g., lupus) or HIV-related disease. I’m going to proceed assuming immediate evaluation—REQUEST TEST: Pulse_Oximetry, REQUEST TEST: Arterial_Blood_Gas, REQUEST TEST: Chest_CTA_or_CTPA_if_hypoxic_or_dyspneic_unexplained.  \nDoctor: While those results come, do you have any chest pain, coughing blood, or are you unable to speak full sentences due to breathlessness?  \nDoctor: DIAGNOSIS READY: Suspected systemic lupus erythematosus (SLE) with mucocutaneous involvement (malar/periorificial dermatitis and oral ulcers) causing/associated with dyspnea—must urgently rule out pulmonary embolism, infection (including HIV), and severe cardiopulmonary involvement.\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8993,
+      "completion_tokens": 1180,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 15224,
+      "completion_tokens": 340,
+      "calls": 11
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "case_idx": 36,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: F\nChief Complaint: loss of consciousness",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 17-year-old female, and I’ve had a loss of consciousness. I’ve also been coughing up blood, having significant shortness of breath, and I have sharp pain (pain intensity 4/10) in my side of the chest (right and left), scapula (left and right), and the posterior chest wall (right and left).",
+      "extracted_features": {
+        "f_e_159": "yes",
+        "f_e_45": "yes",
+        "f_e_66": "yes",
+        "f_e_55_v_55": "yes",
+        "f_e_55_v_56": "yes",
+        "f_e_57_v_127": "yes",
+        "f_e_57_v_128": "yes",
+        "f_e_57_v_170": "yes",
+        "f_e_57_v_171": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_56": "4",
+        "f_e_53": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pulmonary embolism",
+          0.9912065261838237
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.004878094724388494
+        ],
+        [
+          "Pneumonia",
+          0.0008402260955139468
+        ],
+        [
+          "Acute pulmonary edema",
+          0.0006915428276831103
+        ],
+        [
+          "Pericarditis",
+          0.0005936294083871065
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_196",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your recent medical history.\n\n**Have you had any surgery within the last month?**\n\nThis helps me understand if there have been any recent medical procedures that might be relevant to your current visit.",
+      "patient_answer": "Yes. I’ve had surgery within the last month.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pulmonary embolism",
+          0.9993828883821063
+        ],
+        [
+          "Pneumonia",
+          0.00045005217507647024
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00010246528403096195
+        ]
+      ],
+      "entropy": 0.008389844902439332
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_129",
+      "doctor_question": "Hello, thank you for sharing that information with me.\n\nI'd like to ask you a quick question about your skin. Have you noticed any skin changes that you think might be related to the condition you're seeing me about today? This could include things like redness, rashes, lesions, or any other skin problems you've observed.\n\nTake your time to think about it, and feel free to describe what you've noticed if you'd like to share more details.",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pulmonary embolism",
+          0.9998273490512499
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00010251085394138743
+        ],
+        [
+          "Acute pulmonary edema",
+          1.4532445515748785e-05
+        ]
+      ],
+      "entropy": 0.0028297299972534144
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_216",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\n**Do you notice that your pain gets worse when you move or try to move around?**\n\nTake your time to think about it - I'm here to help you describe what you're feeling as accurately as possible.",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pulmonary embolism",
+          0.9998273490512499
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00010251085394138743
+        ],
+        [
+          "Acute pulmonary edema",
+          1.4532445515748785e-05
+        ]
+      ],
+      "entropy": 0.0028297299972534144
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_top3": [
+      "Pulmonary embolism",
+      "Spontaneous rib fracture",
+      "Acute pulmonary edema"
+    ],
+    "confidence": 0.9998273490512499,
+    "final_entropy": 0.0028297299972534144,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Spontaneous rib fracture",
+      "Acute pulmonary edema"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10859,
+      "completion_tokens": 1999
+    },
+    "patient": {}
+  }
+}

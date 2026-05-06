@@ -1,0 +1,112 @@
+{
+  "case_idx": 0,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Seborrheic keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "77-year-old male",
+    "History": "The patient reports the recent appearance of several brown, greasy, seemingly superficial lesions on his forehead. He mentions they appeared a few weeks ago and has not noticed any recent changes in size or color. He attempted to scrape them off, assuming they were dirt or a smear, but they persisted. No itching or pain is associated with the lesions.",
+    "Symptoms": {
+      "Primary_Symptom": "Brown, greasy-appearing lesions on forehead",
+      "Secondary_Symptoms": [
+        "Attempts to remove lesions unsuccessful",
+        "No associated pain or itching"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, controlled with medication. No history of skin cancer or chronic skin diseases.",
+    "Social_History": "Retired school teacher. Non-smoker. Enjoys gardening and spends time outdoors.",
+    "Review_of_Systems": "Denies weight loss, fever, night sweats, or any recent illnesses."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with skin lesions on the forehead.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve noticed several brown, greasy-looking spots on my forehead that showed up a few weeks ago and haven’t changed much since. I tried scraping them off, thinking it was dirt, but they wouldn’t come off.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: new, several brown, greasy-looking spots on the forehead for a few weeks; persistent; non-scrapable (suggests not simple debris). This pattern most strongly suggests a benign superficial skin condition.\nTop candidates:\n1) Seborrheic keratosis — classic “brown, greasy/waxy” stuck-on appearance; often on face/forehead; tends to persist without changing much.\n2) Seborrheic dermatitis — can cause greasy scale and erythema, but usually more diffuse/flaky rather than discrete “spots.”\n3) Vitiligo — usually depigmented patches, not brown greasy spots.\n4) Bed bug bite — typically itchy papules/lesions, not greasy stuck-on spots.\n5) Steven-Johnson syndrome — would be acute and severe with mucosal involvement, not a few stable spots.\nMost informative next question: ask about itch/inflammation and whether there’s redness or scaling.\n[/REASONING]\nAre these spots itchy or tender, and do you see any redness or flaky scale around them?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, they’re not itchy or tender, and I don’t notice any significant redness. They just look brown and greasy, and they don’t seem to have much flaky scale around them.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings updated: non-itchy, non-tender; minimal/no redness; brown greasy appearance; discrete spots; minimal flaky scale. This pushes further toward a “stuck-on” benign lesion.\nTop candidates:\n1) Seborrheic keratosis — best match: asymptomatic, brown “greasy/waxy,” stuck-on, stable over weeks, often on face.\n2) Seborrheic dermatitis — less likely because it’s usually itchy and has more diffuse scaling/erythema.\n3) Vitiligo — unlikely (would be lighter/white).\n4) Bed bug bite — unlikely (usually itchy and inflammatory).\n5) Keratoacanthoma / other lesions — less likely without rapid growth, pain, or ulceration.\nMost informative next question: ask about whether they look “stuck-on” and whether any have a rough surface or have grown quickly.\n[/REASONING]\nDo the spots look like they’re “stuck on” to the skin (waxy/raised), and have any of them grown noticeably in size since they appeared?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do the spots look like they’re “stuck on” or waxy/raised, and have any grown noticeably since they appeared? Patient: Yes—they seem stuck on and a bit waxy/raised, and I haven’t noticed any real growth or change in size over these weeks.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: discrete brown, greasy/waxy, stuck-on, slightly raised lesions on forehead; stable for weeks; asymptomatic; non-scrapable. This is highly characteristic of seborrheic keratosis.\nTop candidates:\n1) Seborrheic keratosis — strongest fit: “stuck-on,” waxy/greasy, brown, facial distribution, benign and stable.\n2) Seborrheic dermatitis — would be more diffuse and scaly/erythematous, not typically discrete stuck-on waxy plaques.\n3) Bed bug bite — would be itchy/inflammatory and evolve.\n4) Vitiligo — would be depigmented, not brown.\n5) Keratoacanthoma — usually rapidly enlarging and can ulcerate.\nMost informative next question: ask about any bleeding, ulceration, or rapid change (to rule out concerning lesions).\n[/REASONING]\nHave any of the spots ever bled, ulcerated, formed a sore, or changed rapidly (over days to a couple weeks)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have any of the spots ever bled, ulcerated, formed a sore, or changed rapidly over days to a couple weeks? Patient: No, none have bled or ulcerated, and they haven’t changed quickly—just stayed about the same since they appeared.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: stable over weeks; asymptomatic; brown, greasy/waxy, stuck-on, slightly raised; no bleeding/ulceration/rapid change. This strongly supports a benign diagnosis.\nTop candidates:\n1) Seborrheic keratosis — classic “stuck-on” waxy brown lesions; stable; asymptomatic; facial involvement possible.\n2) Seborrheic dermatitis — less likely due to discrete waxy lesions and minimal scale/erythema.\n3) Bed bug bite — unlikely without itch and inflammatory evolution.\n4) Seborrheic keratosis vs other benign lesions (e.g., fibroadenoma is not typical for forehead).\n5) Vitiligo — wrong color/texture.\nMost informative next action: none needed—pattern is sufficiently specific.\n[/REASONING]\n[DDX] Seborrheic keratosis, Seborrheic dermatitis, Vitiligo, Bed bug bite, Keratoacanthoma",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Seborrheic keratosis",
+    "predicted_set": [
+      "Seborrheic keratosis",
+      "Seborrheic dermatitis",
+      "Vitiligo",
+      "Bed bug bite",
+      "Keratoacanthoma"
+    ],
+    "predicted_raw": [
+      "Seborrheic keratosis",
+      "Seborrheic dermatitis",
+      "Vitiligo",
+      "Bed bug bite",
+      "Keratoacanthoma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Seborrheic keratosis",
+    "predicted_set_remapped": [
+      "Seborrheic keratosis",
+      "Seborrheic dermatitis",
+      "Vitiligo"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4979,
+      "completion_tokens": 875
+    },
+    "patient": {
+      "prompt_tokens": 2983,
+      "completion_tokens": 232,
+      "calls": 4
+    }
+  }
+}

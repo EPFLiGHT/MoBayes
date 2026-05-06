@@ -1,0 +1,109 @@
+{
+  "case_idx": 8,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 83\nSex: F\nChief Complaint: fatigue",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m very tired—I feel fatigued all the time and it’s affecting my usual activities, and I’m often stuck in bed all day. I also feel lightheaded and dizzy, like I might faint.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. I’ll ask a few focused questions to narrow down the cause.\n\n**Current posterior (pre-test)**\n- **Anemia:** 0.30  \n- **Circulatory Diseases (e.g., hypotension/arrhythmia):** 0.25  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Atrial fibrillation / PSVT:** 0.10  \n- **Panic attack:** 0.05  \n(Other causes remain possible but less likely at this stage.)\n\n**Question 1 (most discriminating):**  \nHave you had **any chest pain, pressure, or shortness of breath**—even mild—especially when you feel lightheaded?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—no chest pain/pressure and no shortness of breath.\n\n**Update (likelihood ratios)**\n- **Possible NSTEMI / STEMI:** LR ~0.5 (less likely without chest symptoms)  \n- **Circulatory Diseases:** LR ~0.8 (still possible)  \n- **Atrial fibrillation / PSVT:** LR ~0.8  \n- **Anemia:** LR ~1.0 (doesn’t strongly change)  \n- **Panic attack:** LR ~0.7 (less supportive)\n\n**Posterior now**\n- **Anemia:** 0.33  \n- **Circulatory Diseases:** 0.23  \n- **Possible NSTEMI / STEMI:** 0.06  \n- **Atrial fibrillation / PSVT:** 0.08  \n- **Panic attack:** 0.03  \n\n**Question 2:**  \nHave you noticed **black/tarry stools, blood in stool, vomiting blood, or heavy/prolonged menstrual bleeding**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’ve recently had stools that were black, like coal.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That’s an important finding.\n\n**Update (likelihood ratios)**\n- **Anemia (from GI bleeding):** LR ~6  \n- **Circulatory Diseases:** LR ~0.8  \n- **Possible NSTEMI / STEMI:** LR ~0.5  \n- **Atrial fibrillation / PSVT:** LR ~0.7  \n- **Panic attack:** LR ~0.6  \n\n**Posterior now**\n- **Anemia:** 0.74  \n- **Circulatory Diseases:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.03  \n- **Atrial fibrillation / PSVT:** 0.05  \n- **Panic attack:** 0.02  \n\n**Question 3 (to confirm severity/source):**  \nDo you have **any abdominal pain** or **heartburn/indigestion**, or have you been taking **NSAIDs** (ibuprofen/naproxen) or **aspirin**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I do have pain, but I’ve been feeling it in the back of my head and forehead. I’m not sure about abdominal pain, heartburn/indigestion, or taking NSAIDs or aspirin.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. The black stools strongly point to **GI bleeding**, and the “pain in the back of head and forehead” could be from **lightheadedness/anemia** or another cause.\n\n**Update (likelihood ratios)**\n- **Anemia:** LR ~1.2 (headache/dizziness can fit symptomatic anemia; lack of clear abdominal/NSAID history doesn’t rule it out)\n- **Circulatory Diseases:** LR ~1.0\n- **Possible NSTEMI / STEMI:** LR ~0.6 (still no chest symptoms)\n- **Atrial fibrillation / PSVT:** LR ~0.9\n- **Panic attack:** LR ~0.8\n\n**Posterior now**\n- **Anemia:** 0.78  \n- **Circulatory Diseases:** 0.09  \n- **Possible NSTEMI / STEMI:** 0.02  \n- **Atrial fibrillation / PSVT:** 0.05  \n- **Panic attack:** 0.02  \n\n**Question 4 (critical for safety):**  \nWhen you feel like you might faint, have you had **actual fainting** or **near-fainting when standing up**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We need to clarify “near-fainting” vs true syncope.\n\n**Update (likelihood ratios)**\n- **Anemia:** LR ~1.0 (unknown)  \n- **Circulatory Diseases:** LR ~1.2 (syncope/near-syncope would support, but unknown doesn’t change much)  \n- **Possible NSTEMI / STEMI:** LR ~0.8  \n- **Atrial fibrillation / PSVT:** LR ~1.1  \n- **Panic attack:** LR ~1.0  \n\n**Posterior now**\n- **Anemia:** 0.76  \n- **Circulatory Diseases:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.02  \n- **Atrial fibrillation / PSVT:** 0.05  \n- **Panic attack:** 0.02  \n\n**Question 5 (one-at-a-time, high yield):**  \nHave you had **any vomiting** (especially **vomiting blood** or “coffee-ground” material)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—unknown.\n\n**Update (likelihood ratios)**\n- **Anemia:** LR ~1.0 (no new info)\n- **Circulatory Diseases:** LR ~1.0\n- **Possible NSTEMI / STEMI:** LR ~1.0\n- **Atrial fibrillation / PSVT:** LR ~1.0\n- **Panic attack:** LR ~1.0\n\n**Posterior remains**\n- **Anemia:** 0.76  \n- **Circulatory Diseases:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.02  \n- **Atrial fibrillation / PSVT:** 0.05  \n- **Panic attack:** 0.02  \n\nI’m going to ask one more question that helps distinguish anemia/bleeding from other causes.\n\n**Question 6:**  \nDo you have **shortness of breath with exertion**, **palpitations**, or do you look/feel **very weak** when standing?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m so tired that I’m unable to do my usual activities, and I’m often stuck in my bed all day long. I also feel lightheaded and dizzy or like I’m about to faint.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Given the **black, tarry stools** plus **marked fatigue and near-faint/lightheadedness**, the leading unifying diagnosis is **significant GI bleeding causing anemia** (until proven otherwise).\n\n**[DDX]**\nAnemia, Circulatory Diseases, Possible NSTEMI / STEMI, Atrial fibrillation, Panic attack",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "**\nAnemia",
+    "predicted_set": [
+      "**\nAnemia",
+      "Circulatory Diseases",
+      "Possible NSTEMI / STEMI",
+      "Atrial fibrillation",
+      "Panic attack"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10372,
+      "completion_tokens": 1334
+    },
+    "patient": {}
+  }
+}

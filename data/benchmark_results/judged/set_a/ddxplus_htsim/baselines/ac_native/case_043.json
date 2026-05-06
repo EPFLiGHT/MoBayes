@@ -1,0 +1,219 @@
+{
+  "case_idx": 43,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Stable angina",
+  "patient_actor_hidden": {
+    "AGE": 76,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['pain', 'diabetes', 'obesity', 'high cholesterol', 'excessive alcohol consumption', 'fatigue', 'high blood pressure', 'history of heart attack or angina', 'exertional symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 76\n- I have pain somewhere related to my reason for consulting.\n- I have diabetes.\n- I am significantly overweight compared to people of the same height as I.\n- I have high cholesterol or do I take medications to treat high cholesterol.\n- I drink alcohol excessively or I have an addiction to alcohol.\n- I constantly feel fatigued or I have non-restful sleep.\n- I have high blood pressure or do I take medications to treat high blood pressure.\n- I have had a heart attack or I have angina (chest pain).\n- I have symptoms that are increased with physical exertion but alleviated with rest.\n- On a scale of 0-10, the pain intensity is 5\n- On a scale of 0-10, the pain's location precision is 4\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The pain is:\n* tedious\n* heavy\n* exhausting\n- The pain locations are:\n* side of the chest(R)\n* side of the chest(L)\n* upper chest\n* breast(R)\n* epigastric\n- The pain radiates to these locations:\n* under the jaw\n* trachea\n* triceps(R)\n* shoulder(R)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Unstable angina', 0.23112057253032306], ['Stable angina', 0.20590902151842033], ['Possible NSTEMI / STEMI', 0.1698523225672009], ['Anemia', 0.1119738466377902], ['Pericarditis', 0.08964288007184913], ['Atrial fibrillation', 0.08064544361455842], ['Myocarditis', 0.057854624727221776], ['Spontaneous pneumothorax', 0.05300128833263619]]",
+    "PATHOLOGY": "Stable angina",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_pénible', 'douleurxx_carac_@_une_lourdeur_ou_serrement', 'douleurxx_carac_@_épuisante', 'douleurxx_endroitducorps_@_côté_du_thorax_D_', 'douleurxx_endroitducorps_@_côté_du_thorax_G_', 'douleurxx_endroitducorps_@_haut_du_thorax', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_endroitducorps_@_épigastre', 'douleurxx_intens_@_5', 'douleurxx_irrad_@_sous_la_machoire', 'douleurxx_irrad_@_trachée', 'douleurxx_irrad_@_triceps_D_', 'douleurxx_irrad_@_épaule_D_', 'douleurxx_precis_@_4', 'douleurxx_soudain_@_5', 'e10_e11', 'e66', 'e78.5', 'f10.129', 'fatig_mod', 'i10', 'i25.1', 'trav1_@_N', 'ww_effort']",
+    "patient_id": "htsim_1548",
+    "_test_index": 1548,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 76-year-old F patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain that’s tedious, heavy, and exhausting. It’s about 5 out of 10, and it’s in the right and left side of my chest, upper chest, the right breast, and the epigastric area, with radiation to under the jaw, trachea, triceps on the right, and the right shoulder. It gets worse with physical exertion and improves with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, does this chest/epigastric pain feel like pressure/tightness and do you get shortness of breath, sweating, nausea/vomiting, or lightheadedness with it?  \nDoctor: Also, when did it start and has it been recurring or getting worse over days/weeks?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. It’s a tedious, heavy, exhausting pain, about 5 out of 10, in my right and left chest/upper chest and right breast and epigastric area, worse with physical exertion and better with rest. I don’t know about pressure/tightness or whether I get shortness of breath, sweating, nausea/vomiting, or lightheadedness with it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be cardiac (especially since it’s exertional and radiates to the jaw/shoulder), so I need to quickly rule out danger—do you have any history of heart disease, high blood pressure, diabetes, high cholesterol, smoking, or a recent infection?  \nDoctor: Also, can you tell me your age and whether you’ve had this pain before in the past and does it ever occur at rest or wake you from sleep?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I'm 76. I have diabetes, high blood pressure (I take medications to treat it), high cholesterol (I take medications to treat high cholesterol), and I have had a heart attack or angina (chest pain). I also have symptoms increased with physical exertion but alleviated with rest. I don’t know whether this pain has happened before, whether it occurs at rest, or whether it wakes me from sleep.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your age and prior heart attack/angina with exertional, jaw/shoulder-radiating chest/epigastric pressure, this is high-risk for unstable angina/acute coronary syndrome—right now I need urgent evaluation; can you confirm if you’re having the pain at this moment, and whether it started within the last 6 hours or is ongoing?  \nDoctor: Also, do you have any shortness of breath, sweating, nausea/vomiting, fainting, or new weakness right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having the pain at this moment. I also don’t know whether it started within the last 6 hours or whether it’s ongoing. I don’t know whether I have shortness of breath, sweating, nausea/vomiting, fainting, or new weakness right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t confirm the timing or current symptoms—given your exertional, heavy chest/epigastric pain radiating to the jaw/shoulder with diabetes, HTN, high cholesterol, and prior MI/angina, this could be acute coronary syndrome, so we treat it as an emergency. REQUEST TEST: STAT_ECG; REQUEST TEST: High-sensitivity_troponin_serial (0 and 1–3 hours); REQUEST TEST: Chest_X-Ray; REQUEST TEST: Basic_metabolic_panel/CBC; REQUEST TEST: Lipid/HbA1c if needed.  \nDoctor: While we wait, are you currently taking aspirin or nitroglycerin (and did you take any today), and do you have any bleeding history or aspirin allergy?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know whether I’m taking aspirin or nitroglycerin, or whether I took any today. I also don’t know if I have any bleeding history or an aspirin allergy.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this could be acute coronary syndrome until proven otherwise—please activate emergency services now and tell the team “76F with diabetes, HTN, high cholesterol, prior MI/angina; exertional heavy chest/epigastric pain radiating to jaw/shoulder.”  \nDoctor: While waiting, do a quick check: is the pain still happening right now (yes/no), and do you have any current shortness of breath, sweating, nausea/vomiting, or lightheadedness (yes/no)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether the pain is still happening right now, and I don’t know whether I have any current shortness of breath, sweating, nausea/vomiting, or lightheadedness right now.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m ordering you—no more waiting: press the emergency button/call 911 now, and I need you to immediately try to take 1 chewable aspirin (unless you’re allergic or have active bleeding) and sit upright; can you tell me if you have aspirin allergy or current bleeding (yes/no)?  \nDoctor: Next, do you have access to nitroglycerin at home, and if so have you taken it today (yes/no, and what time)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know whether I have an aspirin allergy or active bleeding.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as acute coronary syndrome—call emergency services/activate the emergency response now, and go to the ER; since you don’t know about aspirin allergy/bleeding, DON’T take any more meds at home.  \nDoctor: Right now, is this pain happening at this moment (yes/no), and can you rate it 0–10 and tell me if it started with exertion and stops within a few minutes of rest (yes/no)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether this pain is happening at this moment. It’s about 5 out of 10, and it’s increased with physical exertion but alleviated with rest.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—because this is exertional heavy chest/epigastric pain radiating to your jaw/shoulder with diabetes, HTN, high cholesterol, and prior MI/angina, we must assume acute coronary syndrome even though you’re unsure about timing. REQUEST TEST: STAT_ECG_now; REQUEST TEST: High-sensitivity_troponin_serial (0 and 1–3 hours); please keep calling emergency services/ER—are you having the pain right now, and do you have any shortness of breath, sweating, nausea/vomiting, or lightheadedness right now?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having the pain right now, and I don’t know whether I have any shortness of breath, sweating, nausea/vomiting, or lightheadedness right now.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned for acute coronary syndrome/unstable angina given your exertional heavy chest/epigastric pain radiating to jaw/shoulder with diabetes/HTN/high cholesterol and prior MI/angina—please call emergency services/911 and go to the ER immediately if you haven’t already.  \nDoctor: While you wait, we’ll do: REQUEST TEST: STAT_ECG_now and REQUEST TEST: High-sensitivity_troponin_serial (0 and 1–3 hours), plus continuous monitoring and IV access; can you confirm you’re on your way to the ER now (yes/no)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m on my way to the ER now.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to say “yes” or “no” right now—are you currently calling emergency services (911) or going to the ER? If you are not, please stop what you’re doing and call 911 immediately.  \nDoctor: Also, please tell me your current pain level 0–10 and whether it’s happening right now (yes/no), and do you feel short of breath or sweaty right now (yes/no).",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently calling emergency services (911) or going to the ER right now. I don’t know my current pain level 0–10 or whether it’s happening right now. I also don’t know whether I feel short of breath or sweaty right now.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely diagnose you from “I don’t know”—please immediately call 911/activate emergency services now and go to the ER; do you understand and can you answer “yes” that you’re doing this now?  \nDoctor: While that’s happening, do you have any current severe symptoms: chest pain/pressure right now, shortness of breath, sweating, nausea/vomiting, fainting/lightheadedness? Answer “yes” or “no” to any of these.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because your risk is extremely high (76, diabetes, HTN, high cholesterol, prior MI/angina) and your symptoms are exertional heavy chest/epigastric pain radiating to the jaw/shoulder, we must treat this as acute coronary syndrome even though you can’t confirm current status. Please call emergency services/911 and go to the ER right now; can you answer **yes/no**: are you initiating the call right now?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. You’ve said “I don’t know,” so I can’t confirm safety—please **call 911 right now** and **go to the ER**, and tell them: “76F, diabetes, HTN, high cholesterol, prior MI/angina; exertional heavy chest/epigastric pain radiating to jaw/shoulder.”  \nDoctor: While waiting, do you have someone with you who can help call 911 and drive you—**yes or no**?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a definite answer—**yes or no**: is someone with you right now who can call 911 and stay with you?  \nDoctor: If the answer is “no,” then **are you alone**—**yes or no**?  \nDoctor: While you answer, if you can, **move to the nearest phone now** and call 911; I’m treating this as **acute coronary syndrome** until proven otherwise.",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know whether someone is with me right now who can call 911 and stay with me.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this is an emergency consistent with acute coronary syndrome/unstable angina; since you cannot confirm calling 911, you must call 911 **immediately** or have someone else do it now (if anyone is nearby, yell/call for help) and go to the ER.  \nDoctor: REQUEST TEST: STAT_ECG_now; REQUEST TEST: High-sensitivity_troponin_serial (0 and 1–3 hours); REQUEST TEST: Chest_X-Ray; REQUEST TEST: Basic_metabolic_panel/CBC.  \nDoctor: Once help is in motion, answer this one: are you **currently** having the chest/epigastric pain right now (yes/no)?",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently having the chest/epigastric pain right now.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t determine safety from “I don’t know”—with your high-risk history and exertional chest/epigastric pain radiating to the jaw/shoulder, this must be treated as **acute coronary syndrome**; have someone call 911 and go to the ER **now**.  \nDoctor: DIAGNOSIS READY: Acute Coronary Syndrome (Unstable Angina/NSTEMI—rule out)\n\n[DDX]\n1. Unstable angina\n2. Stable angina",
+      "turn": 16
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 16,
+    "predicted_remapped": "Unstable angina",
+    "predicted_set_remapped": [
+      "Unstable angina",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23022,
+      "completion_tokens": 1759,
+      "calls": 16
+    },
+    "patient": {
+      "prompt_tokens": 32270,
+      "completion_tokens": 683,
+      "calls": 16
+    }
+  }
+}

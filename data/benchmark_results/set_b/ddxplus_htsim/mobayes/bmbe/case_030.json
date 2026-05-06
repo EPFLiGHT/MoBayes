@@ -1,0 +1,100 @@
+{
+  "case_idx": 30,
+  "baseline": "bmbe",
+  "column": "htsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: palpitations",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 26-year-old man. I’ve been having palpitations—my heart feels like it’s beating fast and irregularly (like missing a beat). I also feel slightly dizzy or lightheaded. I have pain in the back of my head, about 5/10 intensity; it feels cramp/heavy/sharp, with a “pulse” quality, and it doesn’t radiate anywhere. I regularly take stimulant drugs.",
+      "extracted_features": {
+        "f_e_155": "yes",
+        "f_e_164": "yes",
+        "f_e_76": "yes",
+        "f_e_82": "yes",
+        "f_e_53": "no",
+        "f_e_55_v_25": "yes",
+        "f_e_133_v_26": "yes",
+        "f_e_57_v_25": "no",
+        "f_e_54_v_192": "yes",
+        "f_e_54_v_182": "yes",
+        "f_e_54_v_183": "yes",
+        "f_e_54_v_184": "yes",
+        "f_e_56": "5",
+        "f_ant_e_62": "yes"
+      },
+      "top5_posterior": [
+        [
+          "PSVT",
+          0.7003256401286156
+        ],
+        [
+          "Panic attack",
+          0.06364412476079234
+        ],
+        [
+          "Anaphylaxis",
+          0.04059191852798332
+        ],
+        [
+          "Anemia",
+          0.03975107554707851
+        ],
+        [
+          "Atrial fibrillation",
+          0.03457323236444985
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_60",
+      "doctor_question": "Do you consume energy drinks regularly (for example, most days or several times a week)?",
+      "patient_answer": "I don’t know. I can say I regularly take stimulant drugs.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "PSVT",
+          0.7003256401286156
+        ],
+        [
+          "Panic attack",
+          0.06364412476079234
+        ],
+        [
+          "Anaphylaxis",
+          0.04059191852798332
+        ]
+      ],
+      "entropy": 2.0143966463927967
+    }
+  ],
+  "final": {
+    "predicted": "PSVT",
+    "predicted_top3": [
+      "PSVT",
+      "Panic attack",
+      "Anaphylaxis"
+    ],
+    "confidence": 0.7003256401286156,
+    "final_entropy": 2.0143966463927967,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10377,
+      "completion_tokens": 464
+    },
+    "patient": {}
+  }
+}

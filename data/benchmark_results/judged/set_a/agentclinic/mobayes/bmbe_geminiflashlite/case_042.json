@@ -1,0 +1,313 @@
+{
+  "case_idx": 42,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient has experienced gradual yellow discoloration of the skin and generalized pruritus over the past 2 weeks. He also reports a decreased appetite and a weight loss of 6.3 kg (14 lb). The patient’s stool has been pale, and his urine is very dark. Three years ago, he had an episode of acute upper abdominal pain, which was managed with IV fluids, NSAIDs, and dietary modification. The patient has abstained from alcohol for these three years, after having consumed 1–2 beers daily for 40 years. He has a 50-year history of smoking a pack of cigarettes daily.",
+    "Symptoms": {
+      "Primary_Symptom": "Yellow discoloration of the skin",
+      "Secondary_Symptoms": [
+        "Generalized pruritus",
+        "Decreased appetite",
+        "Weight loss",
+        "Pale stool",
+        "Dark urine"
+      ]
+    },
+    "Past_Medical_History": "Episode of acute upper abdominal pain treated three years ago. History of long-term alcohol consumption and smoking.",
+    "Social_History": "Stopped alcohol consumption three years ago; 50-year history of smoking a pack of cigarettes daily.",
+    "Review_of_Systems": "No additional symptoms were reported."
+  },
+  "objective_for_doctor": "Assess the patient and determine the cause of jaundice, pruritus, weight loss, pale stool, and dark urine.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Over the past two weeks my skin has gradually turned yellow, and I’ve had generalized itching. I’ve also lost my appetite and dropped about 6.3 kg, with pale stools and very dark urine.”",
+      "extracted_features": {
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_decreased_appetite_87a4f212": "yes",
+        "f_dark_urine_784225c0": "yes",
+        "f_jaundice_7519dd8b": "yes",
+        "f_pale_stools_8d2148d9": "yes",
+        "f_pruritus_e1e3ae83": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.8971318253533792
+        ],
+        [
+          "Chronic kidney failure",
+          0.0386088959027708
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006628544189595765
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.005179682071651341
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.005179682071651341
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you experienced any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“I haven’t noticed any changes in my vision—no blurriness, blind spots, or loss of sight.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.8981333227268463
+        ],
+        [
+          "Chronic kidney failure",
+          0.03865199626633648
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006635943848607059
+        ]
+      ],
+      "entropy": 0.8599764619287427
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Yes—I’ve been a long-time smoker, about a pack a day for roughly 50 years. I haven’t smoked any differently in this recent time.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9790587401817321
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.0044041543015374725
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0040044632107238895
+        ]
+      ],
+      "entropy": 0.21598308595695212
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t really had nausea or felt sick to my stomach. Mainly it’s been the yellowing of my skin, the itching, and the decreased appetite with the weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9738273243661085
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.007744313067718874
+        ],
+        [
+          "Pneumonia",
+          0.0034234942053380257
+        ]
+      ],
+      "entropy": 0.2632651429917031
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and nothing there has been painful. My main issues have been the yellow skin, generalized itching, pale stools, dark urine, and the appetite/weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9739042105544383
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.007744924501284263
+        ],
+        [
+          "Pneumonia",
+          0.003423764499068374
+        ]
+      ],
+      "entropy": 0.2621849454742379
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of psychological stress or emotional strain?",
+      "patient_answer": "“I don’t think I’ve had any significant psychological stress or emotional strain recently. My main concerns have been the yellow discoloration, generalized itching, pale stools, very dark urine, and the appetite and weight loss over the past two weeks.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9741513115569064
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.007746889559641714
+        ],
+        [
+          "Pneumonia",
+          0.0034246331837200737
+        ]
+      ],
+      "entropy": 0.2587306671455455
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, have you noticed if the mass has been growing or changing in size rapidly?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses at all, so nothing is changing in size. My concerns are mainly the gradual yellowing of my skin, widespread itching, pale stools, very dark urine, and the weight loss with decreased appetite.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9741762214508495
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.007747087654326834
+        ],
+        [
+          "Pneumonia",
+          0.0034247207545608557
+        ]
+      ],
+      "entropy": 0.2583226666839234
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what you're experiencing, could you please tell me if you are currently having any pain in your wrist?",
+      "patient_answer": "“No, I’m not having any pain in my wrist. My discomfort is mainly the gradual yellowing of my skin with generalized itching, along with decreased appetite and the pale stools and very dark urine.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9743202767169072
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.007748233246621784
+        ],
+        [
+          "Pneumonia",
+          0.0034252271814768577
+        ]
+      ],
+      "entropy": 0.25654421031899705
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of your veins?",
+      "patient_answer": "“I haven’t noticed any rashes, bumps, or any marks running along the veins on my arms. It’s mostly the gradual yellowing of my skin and the generalized itching, without any specific skin lesions.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9743202767169072
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.007748233246621784
+        ],
+        [
+          "Pneumonia",
+          0.0034252271814768577
+        ]
+      ],
+      "entropy": 0.25654421031899705
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I haven’t noticed any shortness of breath or trouble catching my breath when I’m active. My main problem has been the gradual yellow discoloration of my skin, generalized itching, pale stools, very dark urine, and the decreased appetite with weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9843718015528827
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.003102407394296948
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.0028167302823419284
+        ]
+      ],
+      "entropy": 0.17295985995488922
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic adenocarcinoma",
+    "predicted_top3": [
+      "Pancreatic adenocarcinoma",
+      "Femoropopliteal artery stenosis",
+      "Gastric peptic ulcer"
+    ],
+    "confidence": 0.9843718015528827,
+    "final_entropy": 0.17295985995488922,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Femoropopliteal artery stenosis",
+      "Gastric peptic ulcer"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7325,
+      "completion_tokens": 533
+    },
+    "patient": {
+      "prompt_tokens": 7264,
+      "completion_tokens": 446,
+      "calls": 10
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "case_idx": 7,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: Female\nChief Complaint: I have a fever, a cough, and sensitive pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and a cough, and I also have sensitive, sharp pain that’s related to these symptoms. The pain is about 6/10 and it feels very localized around 8/10, and it started pretty quickly—like within a short time.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need to figure out whether this is primarily a **lower respiratory infection** (pneumonia/bronchitis/influenza) vs a **dangerous cardiopulmonary cause** (pulmonary embolism, pneumothorax, ACS) vs **upper airway**.\n\n**Current posterior (pre-test, based only on fever + cough + localized sharp pain):**\n- Pneumonia: 0.30  \n- Influenza: 0.20  \n- Bronchitis: 0.15  \n- Pulmonary embolism: 0.15  \n- Spontaneous pneumothorax: 0.10  \n(others combined: 0.10)\n\n**Question 1 (one at a time):**  \nWhere exactly is the sharp pain located—**chest (and which side), throat, or upper abdomen**—and does it **worsen with deep breathing or coughing**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The sharp, sensitive pain feels like it’s related to my cough and fever, and it’s more in my upper chest area on one side (not really my throat or upper abdomen). Yes, it gets worse when I cough and when I take a deep breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** unilateral upper-chest pain that worsens with cough and deep breathing (pleuritic-type pain).  \n**Likelihood ratios (approx):**\n- Pneumonia/bronchitis (pleuritic pain can occur): LR ~2  \n- Influenza/viral URTI (can cause pleuritic discomfort but less focal): LR ~1.2  \n- Pulmonary embolism (often pleuritic): LR ~2.5  \n- Spontaneous pneumothorax (can be pleuritic, often sudden): LR ~2  \n- Bronchospasm/asthma: LR ~0.5 (less likely with fever)\n\n**Updated posterior:**\n- Pneumonia: 0.36  \n- Pulmonary embolism: 0.22  \n- Spontaneous pneumothorax: 0.16  \n- Influenza: 0.16  \n- Bronchitis: 0.06  \n(others: 0.04)\n\n**Question 2:**  \nDid the pain start **suddenly** (seconds to minutes) and did you also develop **shortness of breath** at the same time?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it started pretty suddenly—within a short time (not gradual). And I do feel short of breath when it started, around the same time as the pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** sudden onset pleuritic pain + simultaneous shortness of breath.  \n**Likelihood ratios (approx):**\n- Pulmonary embolism: LR ~3  \n- Spontaneous pneumothorax: LR ~3  \n- Pneumonia/bronchitis: LR ~1.2  \n- Influenza/viral: LR ~0.8  \n\n**Updated posterior:**\n- Pulmonary embolism: 0.44  \n- Spontaneous pneumothorax: 0.30  \n- Pneumonia: 0.23  \n- Influenza: 0.10  \n- Bronchitis: 0.03  \n(others: ~0)\n\n**Question 3:**  \nDo you have **any risk factors for blood clots** in the last 4–6 weeks—e.g., **recent surgery/immobility/long travel**, **leg swelling or pain (one-sided)**, **prior DVT/PE**, **active cancer**, **estrogen-containing birth control**, or **pregnancy/postpartum**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any of those risk factors. I haven’t had recent surgery or long travel, and I don’t have leg swelling or one-sided leg pain, and I’m not pregnant or postpartum. I also don’t take estrogen-containing birth control.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** no classic VTE risk factors.  \n**Likelihood ratios (approx):**\n- Pulmonary embolism: LR ~0.6 (PE can still occur without risks)\n- Pneumothorax: LR ~1.2 (risk-factor absence doesn’t argue against it)\n- Pneumonia: LR ~1.0\n- Influenza: LR ~0.9\n\n**Updated posterior:**\n- Pulmonary embolism: 0.36  \n- Spontaneous pneumothorax: 0.36  \n- Pneumonia: 0.24  \n- Influenza: 0.04  \n- Bronchitis: 0.00\n\n**Question 4:**  \nDo you have **any history of lung disease or smoking**, and have you ever had a **collapsed lung** before?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any history of lung disease, and I don’t smoke. I’ve never had a collapsed lung before.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** no lung disease/smoking; no prior pneumothorax.  \n**Likelihood ratios (approx):**\n- Spontaneous pneumothorax: LR ~0.8 (still possible)\n- Pneumonia: LR ~1.0\n- PE: LR ~0.9\n- Influenza: LR ~0.9\n\n**Updated posterior:**\n- Pulmonary embolism: 0.34  \n- Spontaneous pneumothorax: 0.29  \n- Pneumonia: 0.27  \n- Influenza: 0.04  \n(others ~0.06)\n\n**Question 5:**  \nWhen you breathe, do you notice **one-sided decreased breath sounds** or have you had **a sudden worsening** of shortness of breath? (Also: any **coughing up blood**?)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed one-sided decreased breath sounds, but my shortness of breath did feel like it got worse pretty suddenly. And no, I’m not coughing up blood.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** sudden worsening dyspnea without hemoptysis.  \n**Likelihood ratios (approx):**\n- Spontaneous pneumothorax: LR ~2.0 (often sudden worsening)\n- Pulmonary embolism: LR ~1.5 (can be sudden)\n- Pneumonia: LR ~0.9\n- Influenza: LR ~0.8\n\n**Updated posterior:**\n- Spontaneous pneumothorax: 0.46  \n- Pulmonary embolism: 0.36  \n- Pneumonia: 0.16  \n- Influenza: 0.03  \n(others ~0)\n\n**Question 6:**  \nDo you have **any recent chest trauma** (even minor), **vigorous exercise**, or **coughing fits** right before this started?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No recent chest trauma, no vigorous exercise right before this, and no coughing fits right before it started.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** no trauma/exertion/cough fits preceding onset.  \n**Likelihood ratios (approx):**\n- Spontaneous pneumothorax: LR ~0.9 (can still occur spontaneously)\n- Pulmonary embolism: LR ~1.0\n- Pneumonia: LR ~1.1 (infection-related pleurisy can start with cough/fever)\n- Influenza: LR ~0.9\n\n**Updated posterior:**\n- Spontaneous pneumothorax: 0.42  \n- Pulmonary embolism: 0.37  \n- Pneumonia: 0.18  \n- Influenza: 0.03\n\nAt this point, the combination of **pleuritic unilateral upper-chest pain + sudden dyspnea** keeps **pneumothorax and pulmonary embolism** highest, while fever/cough keeps **pneumonia** in the mix. I need one more discriminating question.\n\n**Question 7:**  \nDo you have **any wheezing** or a history of asthma, and does the pain improve when you sit up or lean forward (vs worse lying flat)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have wheezing and I don’t have asthma. I haven’t noticed that it improves when I sit up or leans forward, and I think it stays pretty much the same.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** no wheeze/asthma; pain not clearly positional.  \n**Likelihood ratios (approx):**\n- Spontaneous pneumothorax: LR ~1.0\n- Pulmonary embolism: LR ~1.0\n- Pneumonia: LR ~0.9\n- Influenza: LR ~0.8\n\n**Updated posterior (approx):**\n- Spontaneous pneumothorax: 0.42  \n- Pulmonary embolism: 0.37  \n- Pneumonia: 0.16  \n- Influenza: 0.03  \n(others ~0.02)\n\nI’m now confident enough to give a focused differential.\n\n[DDX] Spontaneous pneumothorax, Pulmonary embolism, Pneumonia, Influenza, Bronchitis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Spontaneous pneumothorax",
+    "predicted_set": [
+      "Spontaneous pneumothorax",
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Influenza",
+      "Bronchitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13656,
+      "completion_tokens": 1594
+    },
+    "patient": {
+      "prompt_tokens": 11102,
+      "completion_tokens": 346
+    }
+  }
+}

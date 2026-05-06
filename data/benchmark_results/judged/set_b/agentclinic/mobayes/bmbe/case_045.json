@@ -1,0 +1,311 @@
+{
+  "case_idx": 45,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Erythema Toxicum",
+  "patient_actor_hidden": {
+    "Demographics": "4-day-old newborn",
+    "History": "The newborn was born at term with no complications. The mother had no prenatal care and has a history of gonorrhea treated 4 years ago. The newborn presents with a generalized rash that has been present for 1 day.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized erythematous maculopapular rash and pustules",
+      "Secondary_Symptoms": [
+        "Rash with an erythematous base",
+        "Rash over the trunk and extremities",
+        "Sparing of the palms and soles"
+      ]
+    },
+    "Past_Medical_History": "Born at term, no prenatal care for the mother, mother's history of gonorrhea treated 4 years ago.",
+    "Social_History": "N/A for the newborn.",
+    "Review_of_Systems": "No other abnormalities noted in the systems review; the rest of the examination shows no abnormalities."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn presenting with a generalized rash.",
+  "kb_dir": "data/cases/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m a 4-day-old newborn, and I developed a generalized red rash with small bumps and some pustules over about the last day. It’s on my trunk and arms/legs, and the palms and soles seem spared.",
+      "extracted_features": {
+        "f_generalized_rash_e9b8356f": "yes",
+        "f_rash_d84642aa": "yes",
+        "f_maculopapular_rash_84d84243": "yes",
+        "f_pustular_rash_92a13bc9": "yes",
+        "f_rash_on_the_trunk_f4572efa": "yes",
+        "f_rash_on_the_extremities_2c8695df": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6531680980644107
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1662868656413558
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.07703185839825796
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.04066779855532271
+        ],
+        [
+          "Bed bug bite",
+          0.03537135610690907
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_skin_excoriations_65bc0a02",
+      "doctor_question": "Have you noticed any skin excoriations—like areas where the skin is scratched, rubbed raw, or has small open spots—anywhere on your body? (Yes/No)",
+      "patient_answer": "Doctor: Have you noticed any skin excoriations—like areas where the skin is scratched, rubbed raw, or has small open spots—anywhere on your body? (Yes/No) Patient: No, I haven’t had any areas that are rubbed raw or scratched open; the rash looks intact aside from the bumps and pustules.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6531680980644107
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1662868656413558
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.07703185839825796
+        ]
+      ],
+      "entropy": 1.7305013417948514
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_apnea_episodes_a1c0e66c",
+      "doctor_question": "Have you ever been told that you stop breathing during sleep, or have you noticed episodes where you briefly stop breathing and then gasp or wake up? (yes/no)",
+      "patient_answer": "Patient: No, I haven’t had any episodes like that, and I haven’t noticed any breathing pauses or gasping during sleep.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6588710656025298
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1677387562030328
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06907061515997667
+        ]
+      ],
+      "entropy": 1.7118365397788842
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_fractures_after_minor_trauma_9dcefc97",
+      "doctor_question": "After your minor injury or fall, have you noticed any signs that a bone might be broken—such as severe pain, swelling, deformity, or trouble using the injured area? (Yes/No)",
+      "patient_answer": "“No, I haven’t had any fall or injury, and I don’t have any swelling, deformity, or trouble using any part of my body. The only issue has been the rash with small bumps and some pustules on my trunk and limbs, with my palms and soles spared.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6589721269777695
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1677644849233666
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06908120960207792
+        ]
+      ],
+      "entropy": 1.7101961739723737
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_left_wrist_erythema_5984b3bb",
+      "doctor_question": "Have you noticed any redness or warmth on your **left wrist**? (Yes or no)",
+      "patient_answer": "No, I haven’t noticed any specific redness or warmth on my left wrist—my rash seems spread over my trunk and arms/legs with palms and soles spared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6660090864670793
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.16955598995949764
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06981890646897244
+        ]
+      ],
+      "entropy": 1.6758130700753486
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_chest_wall_bruising_70fb0c33",
+      "doctor_question": "Have you noticed any bruising on your chest wall (for example, from a bump or injury), or any new discoloration there?",
+      "patient_answer": "No, I haven’t noticed any bruising or new discoloration on my chest wall. My main issue is the widespread red maculopapular rash with some pustules on my trunk and arms/legs, and my palms and soles seem spared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6662594746672282
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1696197350645016
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06984515510533844
+        ]
+      ],
+      "entropy": 1.6718280265775096
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_polyuria_44686a96",
+      "doctor_question": "Have you been urinating much more than usual lately—like needing to go to the bathroom more often or producing a larger amount of urine?",
+      "patient_answer": "Patient: I haven’t noticed any change in how often I urinate or the amount—everything seems about the same as far as I can tell. My main concern is still the widespread red rash with bumps and a few pustules on my trunk and limbs, with my palms and soles spared.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6662594746672282
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1696197350645016
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06984515510533844
+        ]
+      ],
+      "entropy": 1.6718280265775096
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_substance_use_history_c8c2090d",
+      "doctor_question": "Have you used any substances such as alcohol, tobacco, cannabis, opioids, stimulants, or other drugs in the past or currently?",
+      "patient_answer": "No, I haven’t used any alcohol, tobacco, cannabis, opioids, stimulants, or other drugs—I'm only a few days old. The only problem I can tell you about is the widespread red rash with bumps and some pustules on my trunk and arms/legs, sparing my palms and soles.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6667341394909693
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.16974057765617748
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06989491505547468
+        ]
+      ],
+      "entropy": 1.6642417755201853
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_urinary_incontinence_d51fa8e3",
+      "doctor_question": "Have you had any trouble controlling your urine—such as leaking urine or not making it to the bathroom in time?",
+      "patient_answer": "No, I haven’t had any trouble with urine—no leaking or missing urination. My main issue remains the widespread red maculopapular rash with small bumps and some pustules on my trunk and arms/legs, with palms and soles spared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.6669659353790506
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.1697995894355522
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.06991921462699505
+        ]
+      ],
+      "entropy": 1.6604045029839307
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesion_0967b116",
+      "doctor_question": "Have you noticed any new or changing skin lesion (such as a new spot, sore, mole, or patch) anywhere on your body?",
+      "patient_answer": "Patient: Yes, the rash keeps looking more widespread over the last day, with more red maculopapular bumps and a few pustules. I haven’t noticed any sores or open patches—just the intact bumps and pustules on my trunk and limbs, with palms and soles spared.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Erythema Toxicum",
+          0.7269813951515999
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.18704755287979577
+        ],
+        [
+          "Bed bug bite",
+          0.038530976544430065
+        ]
+      ],
+      "entropy": 1.273460731203828
+    }
+  ],
+  "final": {
+    "predicted": "Erythema Toxicum",
+    "predicted_top3": [
+      "Erythema Toxicum",
+      "Steven-Johnson syndrome",
+      "Bed bug bite"
+    ],
+    "confidence": 0.7269813951515999,
+    "final_entropy": 1.273460731203828,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Erythema Toxicum",
+    "predicted_set_remapped": [
+      "Erythema Toxicum",
+      "Steven-Johnson syndrome",
+      "Bed bug bite"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4535,
+      "completion_tokens": 466
+    },
+    "patient": {
+      "prompt_tokens": 7219,
+      "completion_tokens": 575,
+      "calls": 10
+    }
+  }
+}

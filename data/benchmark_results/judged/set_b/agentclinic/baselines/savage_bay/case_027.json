@@ -1,0 +1,222 @@
+{
+  "case_idx": 27,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Asthma",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old female",
+    "History": "The patient reports a 1-month history of episodic cough and shortness of breath. The cough is nonproductive and worsens when climbing stairs and at night. She experienced fever, sore throat, and nasal congestion 8 weeks ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodic cough and shortness of breath",
+      "Secondary_Symptoms": [
+        "Cough worsens with exertion and at night",
+        "History of recent upper respiratory tract infection symptoms such as fever, sore throat, and nasal congestion"
+      ]
+    },
+    "Past_Medical_History": "10-year history of hypertension, currently managed with enalapril. History of smoking half a pack of cigarettes daily for 16 years.",
+    "Social_History": "Smoker, half a pack of cigarettes daily for 16 years.",
+    "Review_of_Systems": "Denies chest pain or palpitations."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with episodic cough and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, for about a month I’ve had episodic cough and shortness of breath. The cough is nonproductive, feels worse when I climb stairs and at night, and it seemed to start after a recent episode of fever, sore throat, and nasal congestion about 8 weeks ago.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To start, I’ll set priors based on your symptoms (subacute cough + episodic SOB, nonproductive, worse with exertion and at night, post-viral onset).\n\n**Current posterior probabilities (pre-test → updated none yet):**\n- **Asthma:** 0.45  \n- **COPD (including exacerbation):** 0.15  \n- **Acute lymphoblastic leukemia:** 0.05  \n- **Acute myelogenous leukemia:** 0.05  \n- **Histoplasmosis:** 0.05  \n- **Toxic exposure:** 0.05  \n- **Takotsubo cardiomyopathy:** 0.05  \n- **Other/insufficient:** 0.10  \n\n**Question 1 (most discriminating):**  \nDo you have **wheezing** (a whistling sound when breathing out), or has anyone heard wheezes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed any wheezing myself, and no one has told me they heard wheezing when I breathe.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence: no reported wheeze.**  \nWheeze would increase asthma/COPD likelihood; absence lowers it somewhat.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.30  \n- **COPD:** 0.10  \n- **Acute lymphoblastic leukemia:** 0.06  \n- **Acute myelogenous leukemia:** 0.06  \n- **Histoplasmosis:** 0.08  \n- **Toxic exposure:** 0.08  \n- **Takotsubo cardiomyopathy:** 0.04  \n- **Other/insufficient:** 0.18  \n\n**Question 2:**  \nDo you have **fever now** or **unintentional weight loss** (over the last month or two)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t have a fever right now, and I haven’t noticed any unintentional weight loss over the past month or two.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: no current fever and no weight loss.**  \nThis lowers infection/malignancy probabilities somewhat.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.33  \n- **COPD:** 0.09  \n- **Acute lymphoblastic leukemia:** 0.04  \n- **Acute myelogenous leukemia:** 0.04  \n- **Histoplasmosis:** 0.05  \n- **Toxic exposure:** 0.10  \n- **Takotsubo cardiomyopathy:** 0.03  \n- **Other/insufficient:** 0.32  \n\n**Question 3:**  \nWhen you get short of breath, does it improve with a **rescue inhaler** (like albuterol), if you’ve tried one?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t tried a rescue inhaler yet, so I can’t say whether it helps my shortness of breath.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: unknown response to bronchodilator** (so we can’t strongly shift probabilities). I’ll keep asthma relatively higher because of night/exertional worsening after a viral illness.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.35  \n- **COPD:** 0.08  \n- **Acute lymphoblastic leukemia:** 0.04  \n- **Acute myelogenous leukemia:** 0.04  \n- **Histoplasmosis:** 0.05  \n- **Toxic exposure:** 0.10  \n- **Takotsubo cardiomyopathy:** 0.03  \n- **Other/insufficient:** 0.31  \n\n**Question 4:**  \nDo you have **heartburn, sour taste, or symptoms worse when lying down** (suggesting reflux/GERD)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed heartburn or a sour taste, and my cough and shortness of breath seem worse at night, including when I’m lying down.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: worse at night/when lying down without heartburn** → still supports asthma (nocturnal symptoms) and also raises reflux-related cough possibility, but lack of typical GERD symptoms makes it less certain. It also keeps infection/malignancy lower given no weight loss/fever.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.45  \n- **COPD:** 0.08  \n- **Acute lymphoblastic leukemia:** 0.03  \n- **Acute myelogenous leukemia:** 0.03  \n- **Histoplasmosis:** 0.04  \n- **Toxic exposure:** 0.10  \n- **Takotsubo cardiomyopathy:** 0.02  \n- **Other/insufficient:** 0.25  \n\n**Question 5:**  \nHave you had **any sputum production** (even small amounts), or is it truly **dry**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it’s truly dry—no sputum production, it’s nonproductive.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: truly dry cough** → slightly favors asthma/post-viral airway hyperreactivity; lowers bacterial pneumonia and some infections.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.50  \n- **COPD:** 0.07  \n- **Acute lymphoblastic leukemia:** 0.03  \n- **Acute myelogenous leukemia:** 0.03  \n- **Histoplasmosis:** 0.03  \n- **Toxic exposure:** 0.12  \n- **Takotsubo cardiomyopathy:** 0.02  \n- **Other/insufficient:** 0.20  \n\n**Question 6 (high-yield):**  \nAny **chest pain**, **palpitations**, or **leg swelling**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t have chest pain or palpitations, and I haven’t noticed any leg swelling.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: no chest pain/palpitations/leg swelling** → lowers cardiogenic causes (including Takotsubo) and pulmonary edema/PE likelihood.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.52  \n- **COPD:** 0.06  \n- **Acute lymphoblastic leukemia:** 0.03  \n- **Acute myelogenous leukemia:** 0.03  \n- **Histoplasmosis:** 0.03  \n- **Toxic exposure:** 0.13  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.19  \n\n**Question 7:**  \nDo you have **any known exposures** in the last 1–2 months—new job/hobby with dust/chemicals, mold/water damage at home, or vaping/smoking?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any new job or hobbies with dust or chemicals, and I don’t know of any mold or water damage at home; I do continue to smoke about half a pack a day, and I haven’t been vaping.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: current smoking** → increases COPD likelihood and also supports chronic airway irritation; asthma still possible given post-viral nocturnal/exertional pattern.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.42  \n- **COPD:** 0.18  \n- **Toxic exposure:** 0.10  \n- **Histoplasmosis:** 0.03  \n- **Acute lymphoblastic leukemia:** 0.03  \n- **Acute myelogenous leukemia:** 0.03  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.20  \n\n**Question 8:**  \nHow old are you? (Age strongly shifts asthma vs COPD vs malignancy/infection.)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m 59 years old.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with age 59:** shifts toward COPD and away from asthma (though asthma can still occur). Also makes malignancy/infection slightly more plausible.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.25  \n- **COPD:** 0.30  \n- **Toxic exposure:** 0.10  \n- **Histoplasmosis:** 0.05  \n- **Acute lymphoblastic leukemia:** 0.02  \n- **Acute myelogenous leukemia:** 0.02  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.25  \n\n**Question 9:**  \nHave you had **any wheezing** at all (even mild), or **a history of asthma** earlier in life?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t have wheezing that I can recall, and I’ve never been told I had asthma earlier in life.”",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: no wheezing history and no prior asthma** → decreases asthma further; increases COPD/other chronic airway causes.\n\n**Posterior probabilities now:**\n- **Asthma:** 0.15  \n- **COPD:** 0.38  \n- **Toxic exposure:** 0.10  \n- **Histoplasmosis:** 0.06  \n- **Acute lymphoblastic leukemia:** 0.02  \n- **Acute myelogenous leukemia:** 0.02  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.26  \n\n**Question 10:**  \nDo you have **shortness of breath at rest**, or only with exertion (like stairs)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it’s mostly with exertion like climbing stairs—I don’t get short of breath at rest.”",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: exertional SOB only** → favors COPD/chronic airway disease over acute cardiogenic causes; keeps asthma lower given no wheeze/prior history.\n\n**Posterior probabilities now:**\n- **COPD:** 0.45  \n- **Toxic exposure:** 0.12  \n- **Asthma:** 0.12  \n- **Histoplasmosis:** 0.06  \n- **Acute lymphoblastic leukemia:** 0.02  \n- **Acute myelogenous leukemia:** 0.02  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.20  \n\n**Question 11:**  \nAny **night sweats**, **new swollen lymph nodes**, or **easy bruising/bleeding**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had night sweats, I don’t have any swollen lymph nodes that I’ve noticed, and I haven’t had any unusual bruising or bleeding.”",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: no night sweats/lymphadenopathy/bruising** → lowers leukemia likelihood further.\n\n**Posterior probabilities now:**\n- **COPD:** 0.48  \n- **Toxic exposure:** 0.12  \n- **Asthma:** 0.10  \n- **Histoplasmosis:** 0.06  \n- **Acute lymphoblastic leukemia:** 0.01  \n- **Acute myelogenous leukemia:** 0.01  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.21  \n\n**Question 12:**  \nHave you had **any recent travel**, or time in places with **bird/bat droppings** (e.g., caves, old barns), or known **exposure to construction/demolition dust**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any recent travel, and I don’t recall being in places with bird or bat droppings like caves or old barns. I also haven’t had construction or demolition dust exposure recently.”",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: no classic histoplasmosis exposures** → lowers Histoplasmosis a bit.\n\n**Posterior probabilities now:**\n- **COPD:** 0.50  \n- **Toxic exposure:** 0.12  \n- **Asthma:** 0.10  \n- **Histoplasmosis:** 0.03  \n- **Acute lymphoblastic leukemia:** 0.01  \n- **Acute myelogenous leukemia:** 0.01  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.22  \n\n**Question 13:**  \nDo you have **any cough triggers** like **cold air**, **strong odors**, or **lying flat** (not just at night)?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I think cold air and strong odors can make the cough and breathing feel worse, and lying flat makes it worse too, especially at night.”",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: triggers with cold air/odors + worse lying flat** → supports airway hyperreactivity (asthma/COPD overlap) and also reflux/posture component. Given no wheeze/prior asthma, COPD with chronic bronchitis or asthma-like features remains most likely.\n\n**Posterior probabilities now:**\n- **COPD:** 0.48  \n- **Asthma:** 0.18  \n- **Toxic exposure:** 0.10  \n- **Histoplasmosis:** 0.03  \n- **Acute lymphoblastic leukemia:** 0.01  \n- **Acute myelogenous leukemia:** 0.01  \n- **Takotsubo cardiomyopathy:** 0.01  \n- **Other/insufficient:** 0.18  \n\n**Question 14:**  \nHave you had **any hemoptysis** (coughing up blood) or **unintentional weight loss** at all since symptoms started?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t coughed up any blood, and I haven’t had any unintentional weight loss since these symptoms started.”",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] COPD (including chronic bronchitis), Asthma, Toxic exposure, Histoplasmosis, Acute myelogenous leukemia",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Toxic exposure",
+      "Histoplasmosis",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "COPD (including chronic bronchitis)",
+      "Asthma",
+      "Toxic exposure",
+      "Histoplasmosis",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Toxic exposure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 34758,
+      "completion_tokens": 2450
+    },
+    "patient": {
+      "prompt_tokens": 26225,
+      "completion_tokens": 511,
+      "calls": 15
+    }
+  }
+}

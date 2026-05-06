@@ -1,0 +1,129 @@
+{
+  "case_idx": 41,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have severe pain—intensity 9/10—on the right breast area. It’s violent and heartbreaking, gets worse when I breathe in deeply, and the symptoms increase with physical exertion but ease with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’ll ask a few focused questions to narrow this down.\n\n**First question:** When did this pain start (how many hours/days ago), and is it constant or comes in episodes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question:\n\n**Does the pain get worse when you press on the right breast/chest wall (tender to touch), or is it deep/internal without tenderness?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Next question:** Do you have any shortness of breath, cough, fever, or do you feel like you can’t get enough air?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Next question:** Any recent leg swelling or pain (especially one-sided), or have you had recent long travel/immobility or surgery?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s focus on the most discriminating symptom.\n\n**Next question:** Does the pain feel like pressure/heaviness in the chest, or is it clearly localized to the breast/chest wall area?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s clearly localized to the breast area on the right.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—localized right breast/chest wall pain that worsens with deep breathing and exertion.\n\n**Next question:** Is the pain worse with specific movements of your arm/shoulder or with twisting your torso (i.e., does it change with posture/motion)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Next question:** Have you noticed any rash, skin changes, or blisters on the right breast/chest area (like shingles)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more key question to separate lung/heart causes from chest-wall causes.\n\n**Next question:** When you take a deep breath, does it reproduce the exact same pain (pleuritic pain), and do you feel worse lying flat or better sitting up?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "I don’t have enough discriminating details yet (timing, tenderness, respiratory/fever symptoms, cardiac symptoms, rash, and positional effects are all unknown), so I can’t confidently narrow to a specific diagnosis.\n\n[ABSTAIN] Insufficient information to distinguish among serious causes of pleuritic/exertional chest pain vs chest-wall pain.  \n[POSSIBLE] Pulmonary embolism, Pneumonia, Acute pulmonary edema, Possible NSTEMI / STEMI, Acute COPD exacerbation / infection",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8940,
+      "completion_tokens": 458
+    },
+    "patient": {}
+  }
+}

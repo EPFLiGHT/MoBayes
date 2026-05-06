@@ -1,0 +1,333 @@
+{
+  "case_idx": 39,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Histoplasmosis",
+  "patient_actor_hidden": {
+    "Demographics": "79-year-old female",
+    "History": "Patient presents complaining of a persistent non-productive cough and breathlessness that started after a cold about a month ago. Describes previous health as generally good.",
+    "Symptoms": {
+      "Primary_Symptom": "Persistent non-productive cough",
+      "Secondary_Symptoms": [
+        "Dyspnea",
+        "History of a recent cold"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Hyperlipidemia on Hydrochlorothiazide, Lisinopril, and Atorvastatin.",
+    "Social_History": "Non-smoker, drinks alcohol occasionally. Recently returned from a month-long trip to St. Louis, Missouri.",
+    "Review_of_Systems": "No other symptoms apart from those mentioned."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a persistent non-productive cough and dyspnea following a recent cold.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hello doctor. I’m a 79-year-old woman, generally healthy before this, and for about a month now I’ve had a persistent dry, non-productive cough and some breathlessness that started after a cold.” “I’ve also recently returned from a month-long trip to St. Louis.”",
+      "extracted_features": {
+        "f_cough_1213c62f": "yes",
+        "f_dry_cough_05068b1c": "yes",
+        "f_chronic_cough_4933172c": "yes",
+        "f_shortness_of_breath_02802ea3": "yes",
+        "f_recent_travel_to_st_louis_b2579c72": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Histoplasmosis",
+          0.18837225325762139
+        ],
+        [
+          "Asthma",
+          0.1792349510560391
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1792349510560391
+        ],
+        [
+          "Multiple system atrophy",
+          0.05608201842815464
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.05608201842815464
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden movements that you can’t control? (Yes or no)",
+      "patient_answer": "No, I haven’t noticed any twitching, jerking, shaking, or any sudden involuntary movements.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.1864048617444713
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1864048617444713
+        ],
+        [
+          "Histoplasmosis",
+          0.18007675835694653
+        ]
+      ],
+      "entropy": 4.04894789019916
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves a bit under the skin**? (Yes or no)",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump in my right breast, and I don’t feel anything under the skin that moves.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.18876352689537262
+        ],
+        [
+          "Asthma",
+          0.18876352689537262
+        ],
+        [
+          "Histoplasmosis",
+          0.1823553511492636
+        ]
+      ],
+      "entropy": 4.0254129142805075
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“Doctor, when you press or gently tap around my belly button area, it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.21296034671763306
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.19575142981115767
+        ],
+        [
+          "Histoplasmosis",
+          0.14754426326847664
+        ]
+      ],
+      "entropy": 4.045096665629414
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, doctor—I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.23488149806848876
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.21590117499224729
+        ],
+        [
+          "Histoplasmosis",
+          0.12696655837866386
+        ]
+      ],
+      "entropy": 3.908641032895913
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump or mass in my right breast, and nothing feels new or growing.” “My main issues have been the persistent dry cough and breathlessness since that cold.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.2375218948564748
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.2183282063832243
+        ],
+        [
+          "Histoplasmosis",
+          0.1283938402023982
+        ]
+      ],
+      "entropy": 3.8749107618639043
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, making your vision seem less clear? (Yes/No)",
+      "patient_answer": "“No, doctor—I haven’t noticed any cloudiness or haze in either of my eyes, and my vision hasn’t felt less clear.” “My main problem is still the persistent dry cough and breathlessness since that cold.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.25949492378064404
+        ],
+        [
+          "Histoplasmosis",
+          0.15260304808598255
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1336792031597257
+        ]
+      ],
+      "entropy": 3.9671562888930127
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 6 to 12 months, have you lost weight without trying (for example, your clothes fit looser or you’ve dropped more than about 5% of your usual weight)?",
+      "patient_answer": "“No, doctor—I haven’t lost weight without trying, and my clothes haven’t been fitting differently.” “My weight and appetite have been about the same.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.30186413182642613
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.121328673697801
+        ],
+        [
+          "Multiple system atrophy",
+          0.08681977263272993
+        ]
+      ],
+      "entropy": 4.039757405108815
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small or you just found it recently?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump or mass in my right breast, painless or otherwise, and I wouldn’t say anything feels new or small.” “My main concern is still the persistent dry cough and breathlessness that began after the cold about a month ago.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.3048909615453521
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1225452516101365
+        ],
+        [
+          "Multiple system atrophy",
+          0.08769032544205224
+        ]
+      ],
+      "entropy": 4.025528934009433
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant recently, or is there any chance you could be pregnant right now?",
+      "patient_answer": "“No, doctor—I’m not pregnant, and there’s no chance of me being pregnant.” “I’ve had my main symptoms continue to be the persistent dry cough and breathlessness since the cold.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.2989624587115923
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.13072612764094615
+        ],
+        [
+          "Multiple system atrophy",
+          0.09354435627651538
+        ]
+      ],
+      "entropy": 3.999989447977275
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to move or shift when you gently press it (rather than feeling fixed in one spot)?",
+      "patient_answer": "“No, doctor—I haven’t noticed any breast lump or swelling at all, and I don’t feel anything that would move or shift under the skin. My symptoms are still the persistent dry cough and breathlessness since I had that cold about a month ago.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Asthma",
+          0.30161981799433774
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1318881005865833
+        ],
+        [
+          "Multiple system atrophy",
+          0.09437583513366396
+        ]
+      ],
+      "entropy": 3.9878591704500232
+    }
+  ],
+  "final": {
+    "predicted": "Asthma",
+    "predicted_top3": [
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Multiple system atrophy"
+    ],
+    "confidence": 0.30161981799433774,
+    "final_entropy": 3.9878591704500232,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Asthma",
+    "predicted_set_remapped": [
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Multiple system atrophy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11640,
+      "completion_tokens": 450
+    },
+    "patient": {
+      "prompt_tokens": 6701,
+      "completion_tokens": 434,
+      "calls": 11
+    }
+  }
+}

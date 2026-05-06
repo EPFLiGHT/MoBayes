@@ -1,0 +1,129 @@
+{
+  "case_idx": 2,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 63\nSex: M\nChief Complaint: changes in voice",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My voice has become deeper and softer, and it’s hoarse. I’ve also had a cold in the last 2 weeks with a cough and a fever.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 2-week history of “cold” with cough and fever, now with hoarseness plus voice becoming deeper/softer.\nTop candidates:\n1) Acute laryngitis — hoarseness after a recent viral “cold” is classic; fever/cough can accompany viral illness.\n2) URTI / Viral pharyngitis — can cause hoarseness as part of upper respiratory infection.\n3) Acute rhinosinusitis — post-nasal drip can contribute to voice changes/hoarseness, though fever/cough suggests broader URTI.\n4) Epiglottitis — serious cause of hoarseness, but typically more severe sore throat, drooling, and toxic appearance; less likely without those features.\n5) Croup — usually in children and with barking cough/stridor; less likely in an adult.\nMost informative next question: determine if there are red flags for airway/epiglottic involvement (stridor, drooling, severe dysphagia).\n[/REASONING]\nDo you have any trouble swallowing, drooling, or noisy breathing/stridor (a high-pitched sound when breathing)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 2-week viral “cold” with cough and fever; now hoarse/deeper/softer voice; no trouble swallowing, no drooling, no noisy breathing/stridor.\nTop candidates:\n1) Acute laryngitis — most consistent with isolated hoarseness after viral URI; absence of airway red flags supports.\n2) Viral pharyngitis / URTI — hoarseness can occur with viral throat infection.\n3) Acute rhinosinusitis — post-nasal drip can worsen hoarseness; fever/cough could still fit.\n4) Allergic sinusitis — usually less fever; less likely given fever.\n5) GERD — can cause hoarseness but less likely to explain recent fever/cough.\nMost informative next question: ask about sore throat severity and presence of painful swallowing.\n[/REASONING]\nDo you have a sore throat or pain when swallowing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there is pain in the pharynx and under the jaw, and it feels burning.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: hoarseness after 2-week URI with cough/fever; now painful burning pharynx/under jaw; no drooling/stridor/dysphagia.\nTop candidates:\n1) Acute laryngitis — hoarseness with throat pain after viral illness; “burning” can occur from inflamed mucosa.\n2) Viral pharyngitis / URTI — painful burning throat fits; fever supports infection.\n3) GERD — burning throat sensation/hoarseness, but would not typically cause fever and cough over 2 weeks.\n4) Acute rhinosinusitis — can cause throat discomfort via post-nasal drip; fever/cough could fit.\n5) Acute otitis media — unlikely because symptoms are throat/voice-focused.\nMost informative next question: ask about severity of fever and whether there is a productive cough or shortness of breath to see if lower respiratory infection (pneumonia/bronchitis) is present.\n[/REASONING]\nHow high has your fever been (and is it still present), and do you have shortness of breath or chest pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how high my fever has been, but I’ve had a fever (felt or measured with a thermometer). I also have a cough. I don’t know about shortness of breath or chest pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 2-week URI with cough and intermittent fever; now hoarseness with burning/painful pharynx/under jaw; no drooling/stridor/dysphagia reported.\nTop candidates:\n1) Acute laryngitis — hoarseness after viral URI; throat burning/pain fits.\n2) Bronchitis (acute) / Acute COPD exacerbation / infection — cough + fever over 2 weeks could be lower airway; hoarseness could be from concurrent upper infection.\n3) Pneumonia — fever + cough could fit, but we lack key features (shortness of breath, pleuritic pain, focal findings).\n4) Viral pharyngitis / URTI — burning throat + fever + cough.\n5) GERD — can cause hoarseness/burning but fever makes infection more likely.\nMost informative next question: ask about smoking history or chronic lung disease and whether the cough is producing sputum (and what color), to discriminate bronchitis/COPD vs primarily laryngitis/viral URI.\n[/REASONING]\nDo you have any history of COPD/asthma or do you smoke, and is your cough producing mucus/sputum (if so, what color)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I smoke cigarettes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: smoker; 2-week URI with cough + fever; now hoarseness with burning pharynx/under jaw; no airway red flags.\nTop candidates:\n1) Acute laryngitis — still likely for hoarseness after URI.\n2) Bronchitis (acute) — smoker + cough + fever over 2 weeks.\n3) Acute COPD exacerbation / infection — smoker increases risk; we still need wheeze/known COPD and dyspnea.\n4) Pneumonia — possible with fever/cough, but we lack dyspnea/pleuritic pain.\n5) GERD — less likely but can contribute to hoarseness; doesn’t explain fever.\nMost informative next question: ask whether you have wheezing or increased work of breathing (and any known COPD/asthma).\n[/REASONING]\nDo you have wheezing, or have you been more short of breath than usual (and do you have any known COPD or asthma)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about shortness of breath, and I don’t know about wheezing. I don’t have any known COPD or asthma.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: smoker; cough + fever for 2 weeks; hoarseness with burning throat; no known COPD/asthma; no reported wheeze/dyspnea.\nTop candidates:\n1) Acute laryngitis — hoarseness after URI remains most specific.\n2) Bronchitis (acute) — fever + cough in smoker.\n3) Viral pharyngitis / URTI — burning throat + fever.\n4) Pneumonia — still possible but less supported without dyspnea/pleuritic pain.\n5) Influenza — can cause fever and cough; hoarseness can occur but less specific.\nMost informative next question: ask about nasal symptoms/post-nasal drip (congestion, runny nose) and whether the cough is worse at night or when lying down (to distinguish rhinosinusitis/post-nasal drip vs primary bronchitis).\n[/REASONING]\nDo you have nasal congestion or a runny nose, and is your cough worse when lying down or at night?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: hoarseness + burning throat after 2-week febrile cough illness; smoker; limited info on respiratory severity and nasal symptoms.\nTop candidates:\n1) Acute laryngitis — best match for hoarseness.\n2) Viral pharyngitis / URTI — burning throat + fever.\n3) Bronchitis (acute) — smoker + cough + fever.\n4) Influenza — fever + cough over ~2 weeks.\n5) Pneumonia — still possible but insufficient supporting details.\nMost informative next question: ask about sputum production and color (and whether there’s blood), which helps separate bronchitis vs pneumonia.\n[/REASONING]\nIs your cough producing phlegm/sputum? If yes, what color (clear/white/yellow/green/bloody)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: smoker; 2-week URI with cough + fever; now hoarse/deeper/softer voice with burning pharyngeal/under-jaw pain; no dysphagia/drooling/stridor reported; limited data on dyspnea, sputum, nasal symptoms.\nTop candidates:\n1) Acute laryngitis — hoarseness after recent viral illness is most specific.\n2) Viral pharyngitis / URTI — burning throat + fever.\n3) Bronchitis — smoker + cough + fever.\n4) Pneumonia — still possible with fever/cough, but lacks supportive features.\n5) Influenza — fever + cough; hoarseness can occur.\nMost informative next question: ask about duration of hoarseness specifically and whether it’s improving or worsening, and any history of reflux/heartburn (to consider GERD-related hoarseness).\n[/REASONING]\nHas the hoarseness been getting better, worse, or the same since it started—and do you have heartburn or sour taste in your mouth?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how the hoarseness has been changing since it started. I don’t know about heartburn or a sour taste.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is still insufficient to confidently narrow to a single diagnosis: we have hoarseness after a 2-week febrile cough illness (most consistent with laryngitis/viral pharyngitis), but key discriminators for lower-airway disease (sputum, dyspnea, wheeze) and for pneumonia (pleuritic pain, focal symptoms) are unknown, and reflux history is also unclear.  \n[POSSIBLE] Acute laryngitis, Viral pharyngitis, Bronchitis, Influenza, Pneumonia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute laryngitis",
+      "Viral pharyngitis",
+      "Bronchitis",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15765,
+      "completion_tokens": 1847
+    },
+    "patient": {}
+  }
+}

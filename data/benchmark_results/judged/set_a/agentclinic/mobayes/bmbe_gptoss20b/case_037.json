@@ -1,0 +1,378 @@
+{
+  "case_idx": 37,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old woman",
+    "History": "The patient reports feeling extremely fatigued and weak, especially towards the end of the day, to the point of difficulty in self-care. She mentions experiencing these symptoms currently. The patient has been traveling, hiking, and camping recently and notes having had multiple illnesses in the recent past.",
+    "Symptoms": {
+      "Primary_Symptom": "Weakness and fatigue",
+      "Secondary_Symptoms": [
+        "Mild diplopia"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Enjoys outdoor activities such as hiking and camping. No mention of smoking, alcohol, or drug use.",
+    "Review_of_Systems": "Denies fever, weight loss, headache, or any respiratory, gastrointestinal, or urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with weakness and fatigue.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m a 33-year-old woman, and I’ve been feeling extremely fatigued and weak, especially toward the end of the day—so much that it’s hard to take care of myself. I’ve also noticed some mild double vision.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_generalized_weakness_46c7373c": "yes",
+        "f_diplopia_a9378b9d": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Myasthenia gravis",
+          0.27997949073426737
+        ],
+        [
+          "Chronic kidney failure",
+          0.08559647316302185
+        ],
+        [
+          "Somatization disorder",
+          0.08149971337719039
+        ],
+        [
+          "Pneumonia",
+          0.06451359799971604
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.061218678711898816
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Have you noticed any swelling in your joints?",
+      "patient_answer": "No, I haven’t noticed any swelling in my joints. I don’t really have joint pain either—mostly it’s just the heavy fatigue and weakness by the end of the day, with the mild double vision.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28202680674625724
+        ],
+        [
+          "Chronic kidney failure",
+          0.0862223869741261
+        ],
+        [
+          "Somatization disorder",
+          0.08209567013006579
+        ]
+      ],
+      "entropy": 3.88228542331803
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Have you noticed any bumps, sores, or unusual spots on your scalp?",
+      "patient_answer": "Patient: No, I haven’t noticed any bumps, sores, or unusual spots on my scalp. I’ve mostly just felt progressively drained and weak, with the mild double vision at times.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2843544319256092
+        ],
+        [
+          "Chronic kidney failure",
+          0.08693399804847822
+        ],
+        [
+          "Somatization disorder",
+          0.08277322256245721
+        ]
+      ],
+      "entropy": 3.851950926674294
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching or a persistent urge to scratch anywhere on your body?",
+      "patient_answer": "“No, I haven’t had any itching or a persistent urge to scratch anywhere on my body. I’m mainly dealing with the end-of-day fatigue and weakness, plus the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3096477653432119
+        ],
+        [
+          "Somatization disorder",
+          0.09013590265906765
+        ],
+        [
+          "Pneumonia",
+          0.07134983852735964
+        ]
+      ],
+      "entropy": 3.780150502240585
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_raising_arms_overhead_d93533c5",
+      "doctor_question": "Do you have any trouble raising your arms above your head?",
+      "patient_answer": "Patient: “Yes—by the end of the day I struggle to keep my arms up over my head for long, and my strength feels like it drops off quickly.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8564133367769089
+        ],
+        [
+          "Adhesive capsulitis",
+          0.035166251791898785
+        ],
+        [
+          "Somatization disorder",
+          0.01335508054855429
+        ]
+      ],
+      "entropy": 1.1608293369885205
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_painless_vision_loss_97e17a49",
+      "doctor_question": "Have you noticed any loss of vision that isn’t accompanied by pain?",
+      "patient_answer": "“No, I haven’t had any loss of vision that feels sudden or painful—I mainly just get mild double vision at times, especially as the day goes on. I haven’t noticed any vision problems that come with pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8576791496137672
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03521822890508795
+        ],
+        [
+          "Somatization disorder",
+          0.013374819886639874
+        ]
+      ],
+      "entropy": 1.1470334567685212
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_severe_hyperthermia_b928b55e",
+      "doctor_question": "Have you been feeling an extremely high fever—so hot that it feels like you’re burning or that your body temperature is above 104°F (40°C)?",
+      "patient_answer": "“No, I haven’t had any extremely high fever like that, and I don’t feel burning or overheated. It’s mainly the heavy end-of-day weakness and the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8646644277257715
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03550506008621793
+        ],
+        [
+          "Somatization disorder",
+          0.013483749708063441
+        ]
+      ],
+      "entropy": 1.0909155521073213
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "Have you been feeling unusually stressed or overwhelmed lately?",
+      "patient_answer": "Patient: I don’t think it’s from feeling stressed—more like I’m physically run down after being active, and it keeps getting worse toward the end of the day. I’ve had multiple illnesses recently and I was traveling and hiking/camping a lot, so I’m mostly worried it’s something physical that hasn’t fully cleared.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8751517642769625
+        ],
+        [
+          "Adhesive capsulitis",
+          0.035935693638905856
+        ],
+        [
+          "Pneumonia",
+          0.01080293205990815
+        ]
+      ],
+      "entropy": 1.0091352384422747
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_burning_with_urination_ca21e5cd",
+      "doctor_question": "Have you experienced any burning or discomfort when you urinate?",
+      "patient_answer": "No, I haven’t had any burning or discomfort when I urinate. It’s mainly the persistent fatigue and weakness that worsens toward the end of the day, along with the mild double vision.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8760271827378222
+        ],
+        [
+          "Adhesive capsulitis",
+          0.035971640283704406
+        ],
+        [
+          "Pneumonia",
+          0.01081373828408856
+        ]
+      ],
+      "entropy": 1.0017639333665067
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_chills_4b723a54",
+      "doctor_question": "Have you been feeling chills lately?",
+      "patient_answer": "“No, I haven’t had noticeable chills. It’s mainly the progressively worsening fatigue and weakness by the end of the day, along with the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8904208319307249
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03656267579189352
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.008510406584771632
+        ]
+      ],
+      "entropy": 0.9017076867823973
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_fixed_breast_mass_c5d3cf9f",
+      "doctor_question": "Have you noticed any lumps or masses in your breasts that feel fixed or don’t move?",
+      "patient_answer": "“No, I haven’t noticed any lumps or fixed masses in my breasts. My main issue is the heavy fatigue and weakness that worsens toward the end of the day, along with mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8907421503453841
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03657586984643476
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.008513477661114259
+        ]
+      ],
+      "entropy": 0.8984818173088026
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Are you feeling any pain or discomfort on the sides of your abdomen, between your ribs and hips?",
+      "patient_answer": "Patient: No, I don’t have any pain or discomfort on the sides of my abdomen between my ribs and hips. It’s mainly the progressive end-of-day fatigue and weakness, with mild double vision.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8925416069197076
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03664975956797903
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.008530676390669956
+        ]
+      ],
+      "entropy": 0.8822983134775506
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you feel pain in your calf when you walk, and does it go away when you stop and rest?",
+      "patient_answer": "“No, I haven’t noticed any calf pain when I walk, and nothing improves when I stop and rest—my main problem is the end-of-day fatigue and weakness, plus the mild double vision. I don’t have any leg pain or cramping that would come with walking.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8936148350744725
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03669382872232294
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.008540934021250623
+        ]
+      ],
+      "entropy": 0.8703821811445939
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Adhesive capsulitis",
+      "Chronic obstructive pulmonary disease"
+    ],
+    "confidence": 0.8936148350744725,
+    "final_entropy": 0.8703821811445939,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Adhesive capsulitis",
+      "Chronic obstructive pulmonary disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7860,
+      "completion_tokens": 1581
+    },
+    "patient": {
+      "prompt_tokens": 8792,
+      "completion_tokens": 624,
+      "calls": 13
+    }
+  }
+}

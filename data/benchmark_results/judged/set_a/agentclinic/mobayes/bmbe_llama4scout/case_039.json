@@ -1,0 +1,336 @@
+{
+  "case_idx": 39,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by the police after he was found undressing himself outdoors in extremely hot weather. He is uncooperative, refuses to answer questions, and exhibits paranoid behavior. He has a recent history of presenting to the emergency department for polysubstance intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Somnolence and non-responsiveness",
+      "Secondary_Symptoms": [
+        "High fever (104°F or 40°C)",
+        "Hypertension",
+        "Tachycardia",
+        "Muscle rigidity",
+        "Dry mucous membranes"
+      ]
+    },
+    "Past_Medical_History": "History of substance use. No other significant medical history reported.",
+    "Social_History": "Recently started college. History of polysubstance abuse.",
+    "Review_of_Systems": "Unable to complete due to patient's non-responsiveness and lack of cooperation."
+  },
+  "objective_for_doctor": "Assess and manage a young adult patient presenting with altered mental status, suspected of having a serious drug reaction.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Yesterday in the heat I became very sleepy and unresponsive, and I’ve been told I was acting oddly outdoors. Since then I’ve had a very high fever, a fast heartbeat and high blood pressure, with dry mouth and stiff muscles.”",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_heart_racing_47710d89": "yes",
+        "f_muscle_rigidity_710ca10d": "yes",
+        "f_recent_extreme_heat_exposure_ae446f12": "yes",
+        "f_altered_mental_status_f460088f": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8760197737513827
+        ],
+        [
+          "Pneumonia",
+          0.01812756882304519
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016501777897211536
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.007509571449016585
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.005863637980738973
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_urinary_urgency_ff7b0094",
+      "doctor_question": "Do you often find yourself needing to urinate suddenly, or feeling like you have to go right away?",
+      "patient_answer": "“No—I haven’t noticed any sudden urges to urinate or feeling like I have to go right away.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8760197737513827
+        ],
+        [
+          "Pneumonia",
+          0.01812756882304519
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016501777897211536
+        ]
+      ],
+      "entropy": 1.1002914317538097
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_firm_breast_mass_dcdc31ba",
+      "doctor_question": "Have you noticed any firm or hard areas in your breast tissue, perhaps a lump that feels distinct from the rest of your breast?",
+      "patient_answer": "“No, I haven’t noticed any breast lumps or firm areas on my chest. I’ve mainly been very sleepy and hard to respond to, with a very high fever and stiff muscles since that episode.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8777397189775984
+        ],
+        [
+          "Pneumonia",
+          0.018163159829543345
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016534176885189676
+        ]
+      ],
+      "entropy": 1.0834554037621884
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_smooth_firm_skin_papules_39ca29ed",
+      "doctor_question": "Have you noticed any small, firm bumps on your skin that are smooth to the touch?",
+      "patient_answer": "“No, I haven’t noticed any small, firm bumps on my skin. I’ve mainly been very sleepy and hard to respond to, with a very high fever, dry mouth, and stiff muscles.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8794664312452448
+        ],
+        [
+          "Pneumonia",
+          0.01819889086713776
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016566703345421367
+        ]
+      ],
+      "entropy": 1.0665587074706682
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_inability_to_cool_down_554ca5c6",
+      "doctor_question": "I've been reviewing your symptoms, and I want to ask: Have you been having trouble cooling down or feeling like your body temperature is staying too high, even when you're in a cool environment or not exerting yourself?",
+      "patient_answer": "“Yes—my temperature has stayed very high despite not doing anything, and I can’t seem to cool down. I’ve also had a very fast heartbeat, high blood pressure, dry mouth, and stiff muscles, and I’ve been hard to stay awake or respond.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9949495966529394
+        ],
+        [
+          "Pneumonia",
+          0.0007625405959329789
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006941513048179133
+        ]
+      ],
+      "entropy": 0.06824385250988702
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "How have you been feeling lately? Have you been experiencing a lot of stress or anxiety in your daily life?",
+      "patient_answer": "“I don’t really feel anxiety or stress—I just can’t stay awake or respond. Even in a cooler environment my body feels like it won’t cool down, with a very high fever, fast heartbeat, dry mouth, and stiff muscles.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9949495966529394
+        ],
+        [
+          "Pneumonia",
+          0.0007625405959329789
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006941513048179133
+        ]
+      ],
+      "entropy": 0.06824385250988702
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching sensations on your skin lately, either all over or in specific areas?",
+      "patient_answer": "“No, I haven’t noticed any itching sensations—my main issues are that I can’t stay awake or respond, and I’ve had a very high fever that won’t go down, with a fast heartbeat, high blood pressure, dry mouth, and stiff muscles.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9952783385118988
+        ],
+        [
+          "Pneumonia",
+          0.0007627925474025633
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006943806597431404
+        ]
+      ],
+      "entropy": 0.06378382275127689
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any skin lesions or unusual marks along the veins on your arms?",
+      "patient_answer": "“I haven’t noticed any unusual skin marks or lesions along the veins on my arms. I’ve mostly just been extremely sleepy and unresponsive, with a very high fever that won’t go down, fast heartbeat, high blood pressure, dry mouth, and stiff muscles.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9952783385118988
+        ],
+        [
+          "Pneumonia",
+          0.0007627925474025633
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006943806597431404
+        ]
+      ],
+      "entropy": 0.06378382275127689
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_word_finding_difficulty_0b430b71",
+      "doctor_question": "you noticed that it's been harder to find the right words when you're trying to say something lately? For example, do you sometimes struggle to think of a specific word that's on the tip of your tongue?",
+      "patient_answer": "“No, I haven’t had trouble finding words—I’m not really able to stay awake or respond, and my main problem has been the very high fever that won’t come down, along with a fast heartbeat, high blood pressure, dry mouth, and stiff muscles.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9954312524642716
+        ],
+        [
+          "Pneumonia",
+          0.0007629097423808428
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006944873439610361
+        ]
+      ],
+      "entropy": 0.06177100051521026
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_drowsiness_420d2bd9",
+      "doctor_question": "How are you feeling today in terms of your level of alertness? Are you feeling unusually sleepy or drowsy?",
+      "patient_answer": "“I’m still very sleepy and hard to respond to—I can’t stay awake. My fever feels extremely high and I don’t seem to cool down, and my muscles feel stiff.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9954312524642716
+        ],
+        [
+          "Pneumonia",
+          0.0007629097423808428
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006944873439610361
+        ]
+      ],
+      "entropy": 0.06177100051521026
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "Do you feel that one or both of your legs are unusually warm to the touch right now?",
+      "patient_answer": "“No—my legs don’t feel unusually warm to the touch. I’m mostly just extremely sleepy and hard to respond to, with a very high fever that won’t come down, dry mouth, stiff muscles, fast heartbeat, and high blood pressure.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9954665469724112
+        ],
+        [
+          "Pneumonia",
+          0.000762936792490075
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0006945119680515031
+        ]
+      ],
+      "entropy": 0.061331257353187875
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.9954665469724112,
+    "final_entropy": 0.061331257353187875,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7991,
+      "completion_tokens": 1136
+    },
+    "patient": {
+      "prompt_tokens": 7418,
+      "completion_tokens": 529,
+      "calls": 11
+    }
+  }
+}

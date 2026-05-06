@@ -1,0 +1,129 @@
+{
+  "case_idx": 12,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiolitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: F\nChief Complaint: expiratory wheezing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have expiratory wheezing, shortness of breath, a fever, and nasal congestion/clear runny nose.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down. **One question at a time:**\n\n**Do you have a history of asthma or COPD (or have you ever been told you have either)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question:\n\n**Have you had a cough (and if yes, is it dry or producing phlegm/sputum)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Is the shortness of breath worse when you’re lying flat, or is it mainly worse with activity?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question:\n\n**Have you measured your temperature—about how high is the fever (e.g., 38°C/100.4°F or higher)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Do you have any chest pain or tightness (especially pain that’s sharp, worse with deep breaths, or pressure-like)?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Are you having any swelling of the face/lips or hives/itching, or did the symptoms start suddenly within minutes to an hour?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Are you able to speak full sentences, or are you too short of breath to speak more than a few words at a time?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t narrow it further without a few key discriminators.\n\n**One question:**  \n**When did these symptoms start (hours vs days), and are they getting worse quickly or gradually?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating history (can’t determine timing/severity, cough characteristics, asthma/COPD history, chest pain/orthopnea, or allergic/anaphylactic features).  \n[POSSIBLE] Bronchospasm / acute asthma exacerbation, Acute COPD exacerbation / infection, Pneumonia, Influenza, Acute laryngitis",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Influenza",
+      "Acute laryngitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8471,
+      "completion_tokens": 361
+    },
+    "patient": {}
+  }
+}

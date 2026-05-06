@@ -1,0 +1,124 @@
+{
+  "case_idx": 37,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Scombroid food poisoning",
+  "objective_for_doctor": "A 109-year-old Male patient presents to the clinic. Chief complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and diarrhea or an increase in stool frequency.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having lightheadedness like I might faint, and I feel nauseous—like I could vomit. I also have diarrhea with more frequent stools, and I got a pink itchy rash with swelling on my skin, including around my mouth and on my arms and neck.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the symptoms start (hour/day), and have you had any new food, medicines (especially antibiotics/NSAIDs), or insect/seasonal exposures in the past 1–2 days?  \nDoctor: Also, does the rash itch like hives and do you have any trouble breathing, wheezing, or lip/tongue swelling beyond the skin swelling?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started about 1 day ago. In the 1–2 days before this, I ate dark-fleshed fish or Swiss cheese. The rash is very itchy—like hives—and it’s pink with swelling (about a 4/10). I don’t have trouble breathing or wheezing, and I don’t have lip or tongue swelling beyond what’s on my skin.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the timing (1 day after possible food trigger), itchy hive-like rash with swelling, plus nausea/near-fainting and diarrhea, do you feel your heart racing or have you had low blood pressure symptoms (dizziness when standing)?  \nDoctor: REQUEST TEST: Vitals_Orthostatics_and_O2Sat, REQUEST TEST: CBC_CMP, REQUEST TEST: Serum_tryptase (if available within 4–6 hours of onset).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel dizzy/lightheaded when I stand, like my blood pressure might be low. I’m not sure about my heart racing—I haven’t really checked my pulse.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—do you currently have any fever, severe abdominal pain, or black/bloody stools, and have you taken any new medications today (including aspirin/ibuprofen) since the symptoms began?  \nDoctor: I’m going to treat this as likely anaphylaxis with GI involvement—can you tell me if you have ever had a similar reaction before, and do you have access to an epinephrine auto-injector or have you taken any antihistamines already?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a fever, and I don’t have severe belly pain. I haven’t noticed black or bloody stools. I didn’t take any new medicines today, and I don’t have an epinephrine auto-injector. I haven’t taken antihistamines yet. I don’t think I’ve had anything like this before.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your symptoms (hive-like itchy rash with swelling, GI symptoms, and lightheadedness on standing after a possible food trigger) this is most consistent with **anaphylaxis**—do you have a thermometer and can I ask your current pulse/blood pressure if you can check, and are you able to sit up safely right now?  \nDoctor: **REQUEST TEST: Blood_glucose** (before treatment) and **REQUEST TEST: ECG** (to check heart rhythm/ischemia as part of near-fainting).  \nDoctor: While we check, I’m preparing to treat immediately—have you received any medications yet today, and can you tell me if you can take an injection (no severe bleeding disorder), so I can proceed with **IM epinephrine** promptly.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a thermometer with me right now. I haven’t checked my pulse or blood pressure yet. I can sit up safely right now.  \n\nI haven’t received any medications yet today, and I can take an injection if needed.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your rapid-onset hives with swelling plus nausea/diarrhea and near-fainting with standing after a likely food trigger, this is high-risk for anaphylaxis, so I’m going to treat now; I’ll give **IM epinephrine 0.3–0.5 mg** (adult dose) and then observe closely.  \nDoctor: Can you confirm: are you feeling worse or improving right now, and do you have any worsening throat tightness/hoarseness, shortness of breath, or cough?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I think I’m still about the same or a little worse—my dizziness is still there. I don’t have throat tightness, hoarseness, shortness of breath, or cough.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re still worsening and you have hives with swelling plus near-fainting after a likely food trigger, this remains **high-risk anaphylaxis** even without breathing symptoms—are you able to receive IM epinephrine now (and repeat if symptoms persist), and do you have any history of heart disease or are you on beta-blockers?  \nDoctor: REQUEST TEST: Repeat_Vitals_in_5min_after_epinephrine, REQUEST TEST: Repeat_Pulse_Oximetry.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I can receive the injection now. I don’t have a history of heart disease that I know of, and I’m not on beta-blockers.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m giving **IM epinephrine now** for high-risk anaphylaxis—then we’ll recheck your vitals/oxygen shortly; after that I’ll also give antihistamine (and consider steroids) while we monitor.  \nDoctor: Do you have someone with you who can call emergency services/transport you to the ER now, and can you confirm you can safely lie down with legs raised if you feel faint?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m here with someone who can call for transport to the ER. If I feel faint, I can lie down and raise my legs.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as ongoing high-risk anaphylaxis—please lie down with legs elevated, and we’ll give epinephrine and then supportive meds while your companion calls emergency services/transport to the ER now.  \nDoctor: DIAGNOSIS READY: Anaphylaxis (food-triggered) with GI involvement and urticaria/angioedema causing near-syncope (hypotension/vasovagal concern).\n\n[DDX]\n1. Anaphylaxis\n2. URTI",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Anaphylaxis",
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6725,
+      "completion_tokens": 857,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 10377,
+      "completion_tokens": 411
+    }
+  }
+}

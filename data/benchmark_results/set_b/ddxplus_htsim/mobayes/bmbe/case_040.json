@@ -1,0 +1,146 @@
+{
+  "case_idx": 40,
+  "baseline": "bmbe",
+  "column": "htsim_v1",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: M\nChief Complaint: facial flushing",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve had facial flushing (my cheeks suddenly turned red), and I also have a pink rash with a lot of itching (severity 10/10) on my mouth and back of my neck, down my cervical spine, and on my left biceps and my right ankle. The rash swelling is about 4/10 and the pain is about 2/10.",
+      "extracted_features": {
+        "f_e_92": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_136": "10",
+        "f_e_132": "4",
+        "f_e_53": "yes",
+        "f_e_56": "2",
+        "f_e_133_v_32": "yes",
+        "f_e_133_v_38": "yes",
+        "f_e_133_v_26": "yes",
+        "f_e_133_v_30": "yes",
+        "f_e_133_v_35": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.5107827210318232
+        ],
+        [
+          "Anaphylaxis",
+          0.4686263544510667
+        ],
+        [
+          "Pneumonia",
+          0.009311845659019451
+        ],
+        [
+          "Influenza",
+          0.005077308714425567
+        ],
+        [
+          "HIV (initial infection)",
+          0.0006081711344609535
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_201",
+      "doctor_question": "Do you currently have a cough? (Yes or no)",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.5175205195768071
+        ],
+        [
+          "Anaphylaxis",
+          0.4748080631094628
+        ],
+        [
+          "Pneumonia",
+          0.0016982422876583904
+        ]
+      ],
+      "entropy": 1.0889586641408588
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "To help assess this, could you tell me whether the lesion(s) are larger than 1 centimeter (about the width of a pencil eraser)?  \n- No  \n- Yes  \n- Not present / I don’t see any lesions",
+      "patient_answer": "Yes.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.5200173135037106
+        ],
+        [
+          "Anaphylaxis",
+          0.47709878945474077
+        ],
+        [
+          "Influenza",
+          0.0008630835425133057
+        ]
+      ],
+      "entropy": 1.0313663822170198
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_91",
+      "doctor_question": "Do you currently have a fever—either that you feel (hot/flushed) or that you’ve measured with a thermometer?",
+      "patient_answer": "I don't know. I also had diarrhea or an increase in stool frequency, and I feel lightheaded and dizzy or like I am about to faint, and my heart is beating fast with palpitations.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.5206559982254105
+        ],
+        [
+          "Anaphylaxis",
+          0.47768476168999796
+        ],
+        [
+          "SLE",
+          0.0005977233937107893
+        ]
+      ],
+      "entropy": 1.0186405757818562
+    }
+  ],
+  "final": {
+    "predicted": "Scombroid food poisoning",
+    "predicted_top3": [
+      "Scombroid food poisoning",
+      "Anaphylaxis",
+      "SLE"
+    ],
+    "confidence": 0.5206559982254105,
+    "final_entropy": 1.0186405757818562,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10104,
+      "completion_tokens": 451
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "case_idx": 7,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: Female\nChief Complaint: I have a fever, a cough, and sensitive pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and a cough, and I’m having some sensitive, sharp pain that feels related to all of this—my pain is about 6 out of 10 and it’s mostly at 8 out of 10 where it hurts. It started kind of fast, and I’ve also felt moody/unstable since then.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever + cough with sharp “sensitive” pain (6/10, spikes to 8/10) that started fairly fast; also moody/unstable feeling.\n\nTop candidates (tentative):\n1) Pneumonia — fever + cough with pleuritic/sharp pain can fit; rapid onset possible.\n2) Influenza — fever + cough with systemic symptoms; can cause chest discomfort.\n3) Bronchitis/Acute COPD exacerbation / infection — cough + fever; pain can occur but sharp pleuritic pain is less specific.\n4) Pulmonary embolism — can cause sharp pain and sometimes fever-like symptoms, but cough/fever are less typical; still important to consider if risk factors.\n5) Acute laryngitis/URTI — fever + cough possible, but sharp pain “related to all of this” could be more lower respiratory than upper.\n\nMost informative next question: to localize the pain and determine pleuritic vs cardiac vs airway.\n[/REASONING]\nWhere exactly is the pain located (chest, throat, side/flank), and does it get worse when you take a deep breath or cough (pleuritic)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The pain feels like it’s related to the cough and the fever, and it’s mostly in my head/ear area rather than my chest. It gets worse when I cough, and it also feels more sensitive overall, but I don’t think it’s mainly worse with a deep breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough; pain is “head/ear area,” worsens with coughing, and overall hypersensitive; not clearly worse with deep breaths; rapid onset; moody/unstable.\n\nTop candidates:\n1) URTI / Viral pharyngitis or Influenza — fever + cough with head/ear discomfort is common; cough can worsen referred head/ear pain.\n2) Acute otitis media — ear-area pain with fever can occur; cough can coexist from a viral URI.\n3) Acute rhinosinusitis / Acute rhinosinusitis — head/face/ear pressure with fever and cough from post-nasal drip; cough can worsen pain.\n4) Acute laryngitis — cough + throat symptoms, but ear/head pain is less typical.\n5) Pneumonia — would more often cause chest/pleuritic pain; ear/head pain is less characteristic, though systemic symptoms can occur.\n\nMost informative next question: determine whether the ear pain is primary (and unilateral) and whether there are ear symptoms.\n[/REASONING]\nDo you have ear pain or fullness specifically in one ear, and any ear discharge or hearing loss?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s mainly in my ear area—kind of like fullness and sharp pain on one side. I don’t have any discharge that I’ve noticed, and my hearing feels mostly normal.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough; sharp ear pain/fullness on one side; no discharge; hearing mostly normal; pain worsens with cough; hypersensitive overall.\n\nTop candidates:\n1) Acute otitis media — unilateral ear fullness/sharp pain with fever fits; discharge and hearing loss may be absent early.\n2) Acute rhinosinusitis / URTI with Eustachian tube dysfunction — viral URI can cause unilateral ear pressure/pain from congestion; cough can worsen it; fever can occur.\n3) Influenza — can cause fever + cough and secondary ear discomfort via congestion, but ear pain alone is less specific.\n4) Acute laryngitis — less likely because symptoms are ear-focused.\n5) Pneumonia — less likely given ear localization rather than chest symptoms.\n\nMost informative next question: ask about sore throat/nasal congestion/post-nasal drip, which would support URI/sinus/Eustachian tube dysfunction over primary otitis media.\n[/REASONING]\nDo you have nasal congestion or a sore throat, or any post-nasal drip (feeling mucus going down the back of your throat)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my throat feels kind of sore and irritated, and I’ve had some nasal congestion. I also feel like there’s mucus/post-nasal drip going down the back of my throat.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough; unilateral ear fullness/sharp pain; sore/irritated throat; nasal congestion; post-nasal drip; pain worsens with cough; no discharge/hearing loss.\n\nTop candidates:\n1) URTI / Viral pharyngitis — sore throat + fever + cough + post-nasal drip; ear pain can be referred or from Eustachian tube dysfunction.\n2) Acute rhinosinusitis — nasal congestion + post-nasal drip + fever; can cause ear pressure via Eustachian tube dysfunction.\n3) Acute otitis media — unilateral ear pain/fullness with fever; could be early even without discharge/hearing loss (but URI features may point more to congestion/Eustachian tube dysfunction).\n4) Influenza — fever + cough + systemic symptoms; can also cause ear discomfort, sore throat, congestion.\n5) Acute laryngitis — cough with throat irritation, but nasal congestion/post-nasal drip and ear symptoms make URI/sinus more likely.\n\nMost informative next question: how high is the fever (and how long has it been going on), and are there any severe red flags like shortness of breath? (But one-at-a-time: fever magnitude/duration helps separate influenza vs other URTI and assess severity.)\n[/REASONING]\nWhat’s your highest measured temperature (or best estimate), and how many days has this been going on?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t measured exactly with a thermometer, but it feels like a pretty high fever—around 39°C if I had to guess. It’s been going on for about 2 days.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever ~39°C for ~2 days + cough; sore/irritated throat; nasal congestion + post-nasal drip; unilateral ear fullness/sharp pain; no discharge/hearing loss; pain worse with cough; hypersensitive/moody.\n\nTop candidates:\n1) Influenza — high fever (~39°C) with abrupt onset over 2 days + cough and sore throat; can cause ear discomfort via congestion.\n2) Acute rhinosinusitis — fever + nasal congestion + post-nasal drip; ear pressure can occur via Eustachian tube dysfunction (though “2 days” can be early).\n3) URTI / Viral pharyngitis — fever + cough + sore throat + post-nasal drip; ear pain can be referred/congestion-related.\n4) Acute otitis media — unilateral ear pain/fullness with fever; could be early even without discharge/hearing loss, but URI features (post-nasal drip) lean more toward viral URI/Eustachian tube dysfunction.\n5) Pneumonia — fever + cough can fit, but ear/head localization and lack of chest symptoms make it less likely so far.\n\nMost informative next question: check for shortness of breath or chest tightness, which would push toward pneumonia/PE/other lower respiratory causes.\n[/REASONING]\nAre you having any shortness of breath, chest pain/tightness, or wheezing?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not short of breath. I don’t have chest tightness or wheezing—mostly it’s the cough, the sore throat, and the one-sided ear pain/fullness.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: high fever ~39°C for ~2 days; cough; sore/irritated throat; nasal congestion + post-nasal drip; unilateral ear fullness/sharp pain; no shortness of breath, wheeze, or chest tightness.\n\nTop candidates:\n1) Influenza — abrupt high fever + cough + sore throat; can cause ear discomfort via congestion/Eustachian tube dysfunction.\n2) URTI / Viral pharyngitis — fever + cough + sore throat + post-nasal drip; ear pain can be referred or from Eustachian tube dysfunction.\n3) Acute rhinosinusitis — nasal congestion + post-nasal drip + fever; ear pressure can occur; 2 days is early but possible.\n4) Acute otitis media — unilateral ear pain/fullness with fever; may be early without discharge/hearing loss; URI symptoms could coexist.\n5) Acute laryngitis — cough with throat irritation, but nasal congestion/post-nasal drip and ear symptoms make it less likely than broader URI/sinus/flu.\n\nMost informative next question: determine if there are prominent body aches/headache and whether onset was sudden (helps influenza vs generic viral URI).\n[/REASONING]\nDo you have significant body aches (muscle/joint pains) or a severe headache, and did the illness start very suddenly?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have body aches and I feel pretty miserable overall. And it did start pretty suddenly—like within a day it went from “okay” to feeling really sick.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX]\nInfluenza, URTI (viral pharyngitis), Acute rhinosinusitis, Acute otitis media, Acute laryngitis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "URTI (viral pharyngitis)",
+      "Acute rhinosinusitis",
+      "Acute otitis media",
+      "Acute laryngitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12125,
+      "completion_tokens": 1618
+    },
+    "patient": {
+      "prompt_tokens": 10040,
+      "completion_tokens": 342
+    }
+  }
+}

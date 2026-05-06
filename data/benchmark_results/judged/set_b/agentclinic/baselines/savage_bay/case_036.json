@@ -1,0 +1,154 @@
+{
+  "case_idx": 36,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Chronic Granulomatous Disease",
+  "patient_actor_hidden": {
+    "Demographics": "3-year-old boy",
+    "History": "The patient's caregiver reports that he has been experiencing recurrent skin lesions since he was 2 months old, despite multiple treatments. He has also suffered from several respiratory tract infections, enlarged lymph nodes, and recurrent fevers. The patient attends daycare, and his older brother has a history of asthma. His immunizations are current.",
+    "Symptoms": {
+      "Primary_Symptom": "Recurrent skin lesions of different sizes, some secreting pus",
+      "Secondary_Symptoms": [
+        "Frequent respiratory tract infections",
+        "Enlarged lymph nodes",
+        "Recurrent fevers",
+        "Failure to thrive (5th percentile for length and 10th percentile for weight)"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Attends daycare. Family history of asthma in an older sibling.",
+    "Review_of_Systems": "The patient appears ill. No other abnormalities noted beyond those related to the primary and secondary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with recurrent skin lesions, recurrent infections, and failure to thrive.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had lots of skin bumps and sores since I was little, and they sometimes leak pus. I keep getting sick with colds and fevers, and my neck feels swollen too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (pre-test priors; limited info so far):\n- Chronic Granulomatous Disease: 0.30  \n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.10  \n- Histoplasmosis: 0.10  \n- Toxic exposure: 0.10  \n- Others (including inflammatory/skin conditions): 0.30  \n\nTo narrow this down: **Do the skin sores/abscesses tend to occur in specific locations (e.g., armpits/groin, around the anus, or anywhere), and are they usually “deep” (like painful lumps) or more superficial?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do the skin sores/abscesses tend to occur in specific locations, and are they deep or more superficial? Patient: They show up in different places on my body, and some feel like painful lumps that can leak pus. Doctor: Any pattern with armpits, groin, or around the anus? Patient: I’ve had them in the groin area sometimes, and other times not there at all.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (updated with evidence: recurrent painful, pus-leaking lesions in variable locations, sometimes groin):\n- Chronic Granulomatous Disease: 0.42  \n- Acute myelogenous leukemia: 0.08  \n- Acute lymphoblastic leukemia: 0.08  \n- Histoplasmosis: 0.08  \n- Toxic exposure: 0.06  \n- Others: 0.28  \n\nNext most discriminating question: **When you get fevers/“colds,” do you also have frequent infections of specific types—especially lung infections (pneumonia/bronchitis) or deep organ infections—or is it mostly skin/lymph nodes?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I get sick a lot with bad colds that go into his chest sometimes, and his neck glands get bigger too. The fevers don’t seem to be only for the skin sores—they come along with the sickness in his breathing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (updated with evidence: recurrent severe respiratory infections + lymph node swelling + chronic draining skin lesions):\n- Chronic Granulomatous Disease: 0.60  \n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.10  \n- Histoplasmosis: 0.07  \n- Toxic exposure: 0.03  \n- Others: 0.10  \n\nNext question (high-yield): **Have you ever had infections that required hospitalization or IV antibiotics, and do you know if any cultures grew bacteria/fungi—or have doctors mentioned “catalase-positive” organisms?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have any of his infections required hospitalization or IV antibiotics, and have cultures come back positive for bacteria or fungi—or has anyone mentioned “catalase” or anything like that? Patient: He’s been to the hospital a couple times for his bad chest infections, and they gave him antibiotics through a needle. I don’t know what grew on the tests, and nobody told us anything about “catalase.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (updated with evidence: recurrent severe chest infections needing IV antibiotics; no organism info):\n- Chronic Granulomatous Disease: 0.68  \n- Acute myelogenous leukemia: 0.08  \n- Acute lymphoblastic leukemia: 0.08  \n- Histoplasmosis: 0.06  \n- Toxic exposure: 0.02  \n- Others: 0.08  \n\nNext question to discriminate CGD vs malignancy vs specific fungal: **Does he have any history of mouth sores, unusual bruising/bleeding, or very pale skin (anemia), or has anyone mentioned low blood counts?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does he have any mouth sores, unusual bruising or bleeding, or very pale skin (anemia), or has anyone told you his blood counts are low? Patient: He hasn’t had mouth sores or bleeding that we’ve noticed, but I think he looks a bit pale sometimes. I don’t know about any blood count results.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (updated with evidence: no bleeding/mouth sores; possible pallor):\n- Chronic Granulomatous Disease: 0.62  \n- Acute myelogenous leukemia: 0.12  \n- Acute lymphoblastic leukemia: 0.12  \n- Histoplasmosis: 0.08  \n- Others: 0.06  \n\nNext question (helps distinguish CGD from leukemia): **Has he ever had enlarged liver or spleen (abdomen swelling), or persistent swollen lymph nodes that don’t go away between infections?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has he ever had enlarged liver or spleen, or lymph nodes that stay swollen even when he’s not sick? Patient: His belly seems bigger sometimes, and his neck glands can stay swollen for a while even after the fevers start to calm down.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (updated with evidence: possible hepatosplenomegaly + persistent lymphadenopathy):\n- Chronic Granulomatous Disease: 0.45  \n- Acute myelogenous leukemia: 0.20  \n- Acute lymphoblastic leukemia: 0.20  \n- Histoplasmosis: 0.10  \n- Others: 0.05  \n\nNext question (most discriminating): **How old is he, and when did these problems start (infancy/childhood vs later)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How old is he, and when did these problems start? Patient: He’s 3 years old now, and the skin sores started when he was very young—around a couple months old—then the fevers and chest infections came along afterward.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (updated with evidence: onset at a few months of age, recurrent infections + draining skin lesions + lymphadenopathy/hepatosplenomegaly):\n- Chronic Granulomatous Disease: 0.70  \n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.10  \n- Histoplasmosis: 0.07  \n- Toxic exposure: 0.03  \n\nNext question (to further confirm CGD): **Does he get infections with catalase-positive organisms specifically—like “staph,” “aspergillus,” or “serratia”—or have doctors ever mentioned those names?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does he get infections with catalase-positive organisms specifically—like “staph,” “aspergillus,” or “serratia”—or has anyone mentioned those names? Patient: I don’t know the names they found, but the doctors said it was something like a stubborn germ and sometimes fungi were mentioned.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic Granulomatous Disease, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Histoplasmosis, Toxic exposure",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Chronic Granulomatous Disease",
+    "predicted_set": [
+      "Chronic Granulomatous Disease",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Histoplasmosis",
+      "Toxic exposure"
+    ],
+    "predicted_raw": [
+      "Chronic Granulomatous Disease",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Histoplasmosis",
+      "Toxic exposure"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Chronic Granulomatous Disease",
+    "predicted_set_remapped": [
+      "Chronic Granulomatous Disease",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12662,
+      "completion_tokens": 947
+    },
+    "patient": {
+      "prompt_tokens": 8296,
+      "completion_tokens": 545,
+      "calls": 8
+    }
+  }
+}

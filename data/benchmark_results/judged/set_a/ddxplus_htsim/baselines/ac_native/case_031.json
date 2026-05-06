@@ -1,0 +1,159 @@
+{
+  "case_idx": 31,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Pancreatic neoplasm",
+  "patient_actor_hidden": {
+    "AGE": 47,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pale stools",
+    "EVIDENCES_ENG": "['chronic pancreatitis', 'diarrhea', 'pain', 'diabetes', 'cigarette smoking', 'fatigue', 'nausea', 'pale stools', 'cough', 'family history of pancreatic cancer']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 47\n- I have chronic pancreatitis.\n- I have had diarrhea or an increase in stool frequency.\n- I have pain somewhere related to my reason for consulting.\n- I have diabetes.\n- I smoke cigarettes.\n- I constantly feel fatigued or I have non-restful sleep.\n- I am feeling nauseous or I feel like vomiting.\n- I have pale stools and dark urine.\n- I have a cough.\n- Some members of my family have been diagnosed with pancreatic cancer.\n- On a scale of 0-10, the pain intensity is 1\n- On a scale of 0-10, the pain's location precision is 3\n- On a scale of 0-10, the pace at which the pain appear is 0\n- On a scale of 0-10, the rash swelling is 0\n- On a scale of 0-10, the pain intensity caused by the rash is 0\n- On a scale of 0-10, the severity of the rash itching is 0\n- The pain is:\n* sensitive\n* a cramp\n- The pain locations are:\n* flank(L)\n* belly\n* epigastric\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Pancreatic neoplasm', 0.6283468543179167], ['Bronchitis', 0.37165314568208335]]",
+    "PATHOLOGY": "Pancreatic neoplasm",
+    "INITIAL_EVIDENCE": "selles_pale",
+    "EVIDENCES": "['K86.1', 'diarrhee', 'douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_une_crampe', 'douleurxx_endroitducorps_@_flanc_G_', 'douleurxx_endroitducorps_@_ventre', 'douleurxx_endroitducorps_@_épigastre', 'douleurxx_intens_@_1', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_3', 'douleurxx_soudain_@_0', 'e10_e11', 'f17.210', 'fatig_mod', 'lesions_peau_couleur_@_NA', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_0', 'lesions_peau_endroitducorps_@_nulle_part', 'lesions_peau_intens_@_0', 'lesions_peau_plusqu1cm_@_N', 'lesions_peau_prurit_@_0', 'nausee', 'selles_pale', 'toux', 'trav1_@_N', 'z80.0']",
+    "patient_id": "htsim_1116",
+    "_test_index": 1116,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 47-year-old F patient presents to the clinic. Chief complaint: pale stools.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Pale stools and dark urine. I also have chronic pancreatitis, diarrhea/increased stool frequency, and I feel nauseous.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the pale (clay-colored) stools and dark urine start, and have you noticed any yellowing of the eyes/skin (jaundice) or itching?  \nDoctor: Also, with your chronic pancreatitis, do you have weight loss, fever, severe upper abdominal pain, or have you been told you have gallstones or bile-duct problems?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know when the pale (clay-colored) stools and dark urine started. No, I haven’t noticed any yellowing of my eyes/skin (jaundice) or itching.\n\nI don’t know about weight loss or fever. I have pain in the belly/epigastric/flank (left), but the pain is low intensity (1/10). I don’t know about gallstones or bile-duct problems.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how often are your stools per day, and do you notice they float/oily-greasy (fatty stools) or have a bad-smelling, sticky quality? Also, have you had recent alcohol use or new medications, and any history of viral hepatitis or liver disease?  \nDoctor: REQUEST TEST: Liver_Function_Tests (AST/ALT, Alk Phos, GGT, total/direct bilirubin)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about recent alcohol use or new medications, and I don’t know about any history of viral hepatitis or liver disease.\n\nI don’t know how often my stools are per day, and I don’t know if they float or are oily/greasy or have a bad-smelling, sticky quality.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—on a 0–10 scale, how severe is your nausea and abdominal pain, and do you have any vomiting, fever, or unintentional weight loss?  \nDoctor: Also, have you noticed your stools are *consistently* pale/gray since starting, and are they occurring with worsening diarrhea or greasy appearance?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My nausea severity is something I don’t know on a 0–10 scale. I have chronic pancreatitis with belly/epigastric and left flank pain that is low intensity (1/10). I don’t know about fever or unintentional weight loss. I’m feeling nauseous or like vomiting, and I’ve had diarrhea or an increase in stool frequency. I don’t know if my stools are consistently pale/gray since starting, or if they’re occurring with worsening diarrhea or a greasy appearance.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you tell me if the diarrhea/frequent stools are oily-greasy, and whether you’ve lost weight without trying; also, have you had dark urine persist along with pale stools and any right-upper-abdominal pain or fever?  \nDoctor: REQUEST TEST: Abdominal_Ultrasound (evaluate gallstones/biliary dilation)  \nDoctor: REQUEST TEST: Fecal_Elastase (exocrine pancreatic insufficiency)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if my diarrhea/frequent stools are oily-greasy, and I don’t know if I’ve lost weight without trying.\n\nI’ve had dark urine along with pale stools, and I also have chronic pancreatitis with belly/epigastric and left flank pain, but I don’t know about right-upper-abdominal pain or fever.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—do you have symptoms of malabsorption like oily/greasy stool, gas/bloating, or easy bruising/bleeding (vitamin K deficiency), and has anyone checked your nutritional labs (albumin, INR)?  \nDoctor: Also, to clarify risk factors, do you drink alcohol heavily, smoke, and have you had any recent abdominal CT/MRCP or endoscopy showing bile-duct obstruction or pancreatic duct blockage?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have symptoms of malabsorption like oily/greasy stool, gas/bloating, or easy bruising/bleeding, and I don’t know if anyone has checked nutritional labs like albumin or INR.\n\nI smoke cigarettes. I don’t know about heavy alcohol use, and I don’t know about any recent abdominal CT/MRCP or endoscopy showing bile-duct obstruction or pancreatic duct blockage.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on pale stools + dark urine with chronic pancreatitis, I’d like to request results for **REQUEST TEST: INR (and PT), Albumin, and Serum Vitamins A/E/K**, plus **REQUEST TEST: Hepatitis Panel (A, B, C)**.  \nDoctor: Meanwhile, do you have **itching, swollen legs/abdomen, or confusion**, and have you had **unintentional weight loss**?  \nDoctor: If you can’t answer, it’s okay—also tell me whether your stool color is **steadily pale/gray** rather than just occasional.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any yellowing of my eyes/skin (jaundice) or itching.\n\nI don’t know about unintentional weight loss.\n\nI don’t know whether my stool color is steadily pale/gray rather than just occasional.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you answer two quick things: (1) have you had **vomiting** or **severe worsening abdominal pain** (especially after meals), and (2) have you had **unintended weight loss** or **leg swelling/abdominal swelling**?  \nDoctor: REQUEST TEST: CT_Abdomen_with_Contrast_or_MRCP (evaluate pancreatic/biliary obstruction)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t know about unintended weight loss or leg swelling/abdominal swelling.\n\nI haven’t told vomiting— I’m feeling nauseous or like vomiting, but I don’t know if I’ve had actual vomiting.\n\nI also have belly/epigastric and left flank pain, but it’s low intensity (1/10), and I don’t know about severe worsening after meals.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your pale stools plus dark urine and known chronic pancreatitis with diarrhea, have you had **any jaundice at any time** and do you take **pancreatic enzyme replacement** (like Creon/Pancrelipase) or **proton-pump inhibitors**?  \nDoctor: REQUEST TEST: Serum_Bile_Acids_or_Urinalysis (and repeat Urinalysis)  \nDoctor: REQUEST TEST: Stool_Fat_Qualitative_or_72h_Fecal_Fat or (if available) Stool_pH_and_Reducing_Substances",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any yellowing of my eyes/skin (jaundice) or itching.\n\nI don’t know if I take pancreatic enzyme replacement (like Creon/Pancrelipase) or proton-pump inhibitors.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—do you have any recent **fever**, **dark (tea/cola) urine that stains**, or **unintentional weight loss**; and have you had **any new meds** (including antibiotics, herbals, or acetaminophen) in the last 1–2 months?  \nDoctor: Also, when you say pale stools—are they **very light/gray most days** and do you ever see them become **greasy/oily or float**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about recent fever.\n\nI don’t know about unintentional weight loss.\n\nI don’t know about any new medications (including antibiotics, herbals, or acetaminophen) in the last 1–2 months.\n\nI don’t know whether my pale stools are very light/gray most days, or if they ever become greasy/oily or float.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t confirm stool frequency/greasy quality or weight loss, I need to rule out bile-duct obstruction vs pancreatic exocrine insufficiency: do you have **urine that is persistently very dark** (tea/cola-like) and are your symptoms **steadily worsening over weeks**? Also, do you have **itching** now or ever and any **upper-right abdominal pain**?  \nDoctor: Next, I’m making a decision based on what we have—pale stools + dark urine strongly suggests conjugated hyperbilirubinemia (cholestasis/obstruction), while chronic pancreatitis raises the risk of pancreatic/biliary obstruction—so I will proceed with: **DIAGNOSIS READY: Cholestasis likely due to biliary obstruction (pancreatic or biliary duct obstruction) in the setting of chronic pancreatitis**\n\n[ABSTAIN] free-text diagnosis 'Cholestasis likely due to biliary obstruction (pancreatic or biliary duct obstruction) in the setting of chronic pancreatitis**' did not map to the closed disease set",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9963,
+      "completion_tokens": 1094,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 15384,
+      "completion_tokens": 722,
+      "calls": 10
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "case_idx": 0,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: Male\nChief Complaint: I have stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I’ve been having stridor—like a harsh, noisy breathing sound. I also had a cold about the last two weeks, and I’ve been having gastroesophageal reflux.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. Stridor can come from problems in the upper airway, so I want to narrow down the cause.\n\n**One question:** Do you have **fever** or feel **very ill** (chills, worsening overall condition) since the cold started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have fever, and I don’t feel very ill—just the breathing noise/stridor.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question:\n\n**One question:** Is the stridor **more when you inhale** (inspiratory) or **more when you exhale** (expiratory)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It seems more when I inhale.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—**inspiratory** stridor suggests an upper airway obstruction.\n\n**One question:** Have you noticed **trouble swallowing** or **drooling**, or does your voice sound **muffled/“hot potato”**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had trouble swallowing or drooling, and my voice isn’t really muffled like that.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**One question:** Did the stridor start **suddenly** (minutes to hours) or has it been **gradually worsening** over days?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It started suddenly—within minutes to hours.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Sudden onset within minutes to hours is concerning for an acute upper-airway event.\n\n**One question:** Any **choking episode**, **food stuck**, or **possible aspiration** right before the stridor started?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I didn’t have a choking episode or feel like food got stuck, and I don’t think I aspirated.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—no choking/aspiration.\n\n**One question:** Are you having **hives/itching** or **swelling of lips/tongue/face**, or any **wheezing** along with the stridor?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No hives or facial/lip/tongue swelling, and no wheezing.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**One question:** Do you have **painful swallowing** or a **sore throat** that’s severe, or trouble opening your mouth?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have severe sore throat, painful swallowing, or trouble opening my mouth.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**One question:** Is the stridor **worse when lying flat** or after **reflux/heartburn**, and do you have **coughing or throat clearing** with it?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It does seem worse when I lie flat, and I’ve had reflux/heartburn. I do some throat clearing, but mostly it’s the stridor.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern (worse supine + reflux) raises concern for laryngeal irritation/spasm, but sudden onset still matters.\n\n**One question:** Have you had **similar episodes before**, and do they resolve on their own within minutes to hours?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t really had the same kind of episode before, and this one hasn’t resolved yet.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one last key question to separate laryngeal causes:\n\n**One question:** Any **new exposure** or trigger—like **smoke/chemical fumes**, **new medication** (especially ACE inhibitor), or **recent vomiting** right before the stridor started?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No new meds, and no recent vomiting. I’ve been around secondhand smoke daily, but I didn’t notice any specific new chemical exposure right before it started.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence points to **upper-airway obstruction/irritation** (inspiratory stridor, worse lying flat, reflux history), but the **sudden onset within minutes to hours** without classic features (drooling/muffled voice, severe sore throat, choking, allergy signs) is not specific enough to confidently rank a single diagnosis from the provided list.\n\n[POSSIBLE] Acute laryngitis, GERD, Larygospasm, Bronchospasm / acute asthma exacerbation, Anaphylaxis",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute laryngitis",
+      "GERD",
+      "Larygospasm",
+      "Bronchospasm / acute asthma exacerbation",
+      "Anaphylaxis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12536,
+      "completion_tokens": 591
+    },
+    "patient": {
+      "prompt_tokens": 8643,
+      "completion_tokens": 285
+    }
+  }
+}

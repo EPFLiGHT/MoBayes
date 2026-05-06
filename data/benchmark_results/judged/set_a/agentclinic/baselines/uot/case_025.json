@@ -1,0 +1,137 @@
+{
+  "case_idx": 25,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Factitious disorder",
+  "patient_actor_hidden": {
+    "Demographics": "26-year-old female nurse",
+    "History": "The patient reports a 2-month history of fatigue and several episodes of lower abdominal pain. She expresses a strong belief that she has cancer and desires a diagnostic laparoscopy. The patient has been off work for 2 weeks on sick leave due to stress at work and wishes to return. She was diagnosed with peptic ulcer disease 6 months ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower abdominal pain",
+        "Stress at work",
+        "Desire for diagnostic laparoscopy due to cancer concern"
+      ]
+    },
+    "Medications": "Omeprazole",
+    "Past_Medical_History": "Peptic ulcer disease",
+    "Social_History": "Works as a nurse. No mention of smoking, alcohol use, or recreational drug use.",
+    "Review_of_Systems": "Reports tiredness and depressed mood. No mention of changes in bowel or urinary habits."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with fatigue, stress, and concern for cancer.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had about two months of fatigue and a few episodes of lower abdominal pain. I’m very worried it could be cancer and I’d like to discuss whether a diagnostic laparoscopy is appropriate, and I’ve been off work due to stress and want to return soon.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a sustained decline in thinking/behavior (personality or language changes) over months to years?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t think I’ve had a sustained decline in my thinking or any long-term personality or language changes—mostly it’s just feeling very fatigued, anxious, and stressed at work, plus those occasional lower abdominal pain episodes.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had symptoms that are primarily psychological or involve false/produced symptoms without a clear medical cause (e.g., believing you are pregnant without being pregnant, or intentionally producing symptoms)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have any symptoms that feel intentionally produced or without a medical cause—I’m just genuinely worried because of the fatigue and the lower abdominal pain episodes. I’ve been under a lot of stress at work, and it’s been affecting my mood and energy, but I’m not making the symptoms up.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pneumonia**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I’m not experiencing pneumonia—I don’t have any cough, shortness of breath, or fevers. It’s mainly been fatigue and those intermittent lower abdominal pain episodes, along with significant stress and anxiety about what might be causing it.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **gastric peptic ulcer**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do have a history of peptic ulcer disease, and I’ve been taking omeprazole, but the main issue right now is the fatigue and the intermittent lower abdominal pain episodes rather than anything that feels like my usual ulcer pain. I’m worried something more serious could be going on, which is why I’m asking about further evaluation like laparoscopy.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic kidney failure**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have chronic kidney failure to my knowledge—I’m not aware of any kidney problems, and I haven’t noticed things like swelling or changes in urination.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic lymphocytic leukemia**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not aware of any diagnosis of chronic lymphocytic leukemia, and I haven’t had symptoms like frequent infections, unusual bruising, or swollen lymph nodes that I can tell you about.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic kidney failure, Chronic lymphocytic leukemia  , Chronic obstructive pulmonary disease, Gastric peptic ulcer, Pancreatic adenocarcinoma",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Chronic kidney failure",
+    "predicted_set": [
+      "Chronic kidney failure",
+      "Chronic lymphocytic leukemia  ",
+      "Chronic obstructive pulmonary disease",
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Chronic kidney failure",
+    "predicted_set_remapped": [
+      "Chronic kidney failure",
+      "Chronic lymphocytic leukemia",
+      "Chronic obstructive pulmonary disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4142,
+      "completion_tokens": 412,
+      "calls": 7
+    }
+  }
+}

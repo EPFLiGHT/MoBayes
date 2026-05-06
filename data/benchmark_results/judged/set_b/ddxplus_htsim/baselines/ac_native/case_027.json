@@ -1,0 +1,119 @@
+{
+  "case_idx": 27,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Localized edema",
+  "patient_actor_hidden": {
+    "AGE": 38,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "edema",
+    "EVIDENCES_ENG": "['corticosteroid use', 'pain', 'weight gain', 'history of deep vein thrombosis (dvt)', 'liver cirrhosis', 'history of lymph node surgery resulting in lymphedema', 'edema']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 38\n- I take corticosteroids.\n- I have pain somewhere related to my reason for consulting.\n- I have gained weight recently.\n- I have had deep vein thrombosis (DVT).\n- I have liver cirrhosis.\n- I have had surgery to remove lymph nodes.\n- I have swelling in one or more areas of my body.\n- On a scale of 0-10, the pain intensity is 3\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 7\n- I have traveled out of the country to North America in the last 4 weeks.\n- The pain is:\n* tedious\n* tugging\n* heavy\n- The pain locations are:\n* ankle(R)\n* ankle(L)\n* thigh(R)\n* calf(R)\n* sole(R)\n- The pain radiates to these locations:\n* nowhere\n- The swelling locations are:\n* ankle(R)\n* ankle(L)\n* thigh(R)\n* dorsal aspect of the foot(R)\n* sole(R)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Localized edema', 0.37005721935579977], ['Anaphylaxis', 0.2681108876993369], ['Pulmonary embolism', 0.25734063426617004], ['Chagas', 0.10225696241035204], ['SLE', 0.002234296268341174]]",
+    "PATHOLOGY": "Localized edema",
+    "INITIAL_EVIDENCE": "oedeme",
+    "EVIDENCES": "['cortico', 'douleurxx', 'douleurxx_carac_@_pénible', 'douleurxx_carac_@_un_tiraillement', 'douleurxx_carac_@_une_lourdeur_ou_serrement', 'douleurxx_endroitducorps_@_cheville_D_', 'douleurxx_endroitducorps_@_cheville_G_', 'douleurxx_endroitducorps_@_cuisse_D_', 'douleurxx_endroitducorps_@_mollet_D_', 'douleurxx_endroitducorps_@_plante_du_pied_D_', 'douleurxx_intens_@_3', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_7', 'gain_poids', 'i80', 'k74', 'lymphoedème', 'oedeme', 'oedeme_endroitducorps_@_cheville_D_', 'oedeme_endroitducorps_@_cheville_G_', 'oedeme_endroitducorps_@_cuisse_D_', 'oedeme_endroitducorps_@_face_dorsale_du_pied_D_', 'oedeme_endroitducorps_@_plante_du_pied_D_', 'trav1_@_AmerN']",
+    "patient_id": "htsim_0973",
+    "_test_index": 973,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 38-year-old F patient presents to the clinic. Chief complaint: edema.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Edema—swelling in my ankles (right and left), my right thigh, and the dorsal aspect of my right foot and sole. I also have pain in my right and left ankles and in my right thigh and calf and right sole.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the swelling and pain start, and is it getting worse, improving, or staying the same? Also, is the swelling pitting (does it leave a dent when pressed) and are you short of breath or having chest pain?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started about 7 on the scale of how fast the pain appeared. I’d say it’s staying the same. I don’t know whether the swelling is pitting. I don’t know about shortness of breath or chest pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any redness or warmth over the swollen areas, and do you have one-sided calf swelling more than the other, or is it clearly symmetrical? Also, have you noticed fevers, recent travel/immobility, recent surgery, or are you on estrogen/hormonal therapy?  \nDoctor: REQUEST TEST: Bilateral lower-extremity venous Doppler ultrasound",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about redness or warmth over the swollen areas. I don’t know whether it’s one-sided calf swelling more than the other or clearly symmetrical.\n\nI have traveled out of the country to North America in the last 4 weeks, and I have had surgery to remove lymph nodes. I take corticosteroids, and I have had deep vein thrombosis (DVT).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your recent travel, prior DVT, and recent lymph node surgery with corticosteroid use, I’m concerned about recurrent venous thrombosis or impaired venous/lymphatic drainage—do you currently have shortness of breath, chest pain, or any new one-leg-dominant swelling?  \nDoctor: REQUEST TEST: D-dimer and CBC/CMP; also REQUEST TEST: CT_Pulmonary_Angiography *if* D-dimer is elevated or if you have any chest symptoms.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I have shortness of breath or chest pain, and I don’t know about any new one-leg-dominant swelling.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine your legs now—tell me: does pressing on the swelling make an indentation, and do you have skin discoloration or warmth on the right thigh/calf compared with the left?  \nDoctor: Also, any history of cancer recurrence, ongoing active infection, or worsening pain when you walk or stand?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether pressing on the swelling makes an indentation. I don’t know about skin discoloration or warmth on my right thigh/calf compared with the left.\n\nI have had pain with a intensity of 3/10, with high location precision (7/10) and a rapid pace of appearance (7/10). The pain is tedious, tugging, and heavy, located in my right and left ankles, right thigh, right calf, and right sole, and it doesn’t radiate anywhere.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—given the inability to assess pitting/warmth and your history (recent travel, prior DVT, lymph-node surgery, corticosteroid use), I still need to confirm circulation and rule out clot; are you currently having any fever, cough, or shortness of breath at all? Also, do you have one leg that is clearly more swollen than the other when you compare thigh circumference?  \nDoctor: I’m going to proceed—REQUEST TEST: Bilateral lower-extremity venous Doppler ultrasound and REQUEST TEST: D-dimer.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I have fever, cough, or shortness of breath at all. I also don’t know whether one leg is clearly more swollen than the other when I compare thigh circumference.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll ask one more thing—have you had any new redness or tenderness along the veins, and any history of malignancy/active cancer since the lymph-node surgery?  \nDoctor: If those are negative or unknown, my decision is still to treat this as possible recurrent DVT given your recent travel, prior DVT, lymph-node surgery, and corticosteroid use.  \nDIAGNOSIS READY: Recurrent venous thromboembolism (suspected recurrent DVT/possible PE) pending D-dimer and venous Doppler results\n\n[ABSTAIN] free-text diagnosis 'Recurrent venous thromboembolism (suspected recurrent DVT/possible PE) pending D-dimer and venous Doppler results' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3533,
+      "completion_tokens": 542,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6612,
+      "completion_tokens": 365,
+      "calls": 6
+    }
+  }
+}

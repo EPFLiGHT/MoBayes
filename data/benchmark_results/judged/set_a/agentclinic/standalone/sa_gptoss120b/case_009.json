@@ -1,0 +1,147 @@
+{
+  "case_idx": 9,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with abdominal cramps, nausea, vomiting, and diarrhea that began suddenly 2 hours ago. He reports eating reheated food from the afternoon, approximately 1 hour before symptom onset.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known food allergies.",
+    "Social_History": "College student living in dormitories. No recent travel history. Reports being in the middle of exam period and experiencing high stress levels.",
+    "Review_of_Systems": "Denies fever, blood in stool, headache, or any urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with symptoms of acute gastrointestinal illness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I started having sudden abdominal cramps about two hours ago, and since then I’ve had nausea, vomiting, and diarrhea. I ate reheated food about an hour before it started, and I’ve been under a lot of exam stress. I don’t have a fever or any blood in my stool.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me where the abdominal cramps are located and what they feel like (e.g., sharp, cramping, constant, intermittent)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The cramps are mostly centered around my mid-abdomen, like around the belly button area, and they come in waves—more cramping and intermittent than sharp or constant. They started suddenly and have been fairly persistent since they began, along with the nausea and diarrhea.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "How many times have you vomited, and what does the vomit look like (e.g., clear, yellow‑green, contains food particles, or blood)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve vomited about 3 times. It looks like recently eaten food mixed with clear/yellowish fluid—no blood and no black/coffee-ground material.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any fever, chills, or feeling unusually warm or cold since the symptoms began?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have a fever or chills, and I haven’t felt unusually warm or cold since this started.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any recent travel, exposure to someone with gastrointestinal illness, or consumption of other questionable foods or drinks besides the reheated meal?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t traveled recently, and I don’t know of any specific person around me who’s been sick. Besides the reheated food, I mostly had normal dorm food and drinks—nothing that seemed unusual.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any abdominal tenderness, guarding, or pain that worsens with movement when you press on your belly?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, my belly feels tender mostly around the mid-abdomen, but I don’t have any guarding—I’m not staying stiff to avoid pain. When I press, it’s crampy and uncomfortable, and moving a lot makes it feel a bit worse.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Do you notice any blood or mucus in your diarrhea, and how many loose stools have you had since the symptoms began?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t noticed any blood or mucus in my diarrhea. Since it started about two hours ago, I’ve had roughly 4 to 6 loose stools.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Are you aware of any possibility of pregnancy (if you’re female), or have you missed a period recently?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“No—I’m male, so pregnancy isn’t a concern. I haven’t had any urinary symptoms either.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Staphylococcus aureus food poisoning, Bacillus cereus food poisoning, Norovirus gastroenteritis, Acute bacterial gastroenteritis (e.g., Salmonella, Campylobacter), Early appendicitis (atypical presentation)",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Staphylococcus aureus food poisoning",
+    "predicted_set": [
+      "Staphylococcus aureus food poisoning",
+      "Bacillus cereus food poisoning",
+      "Norovirus gastroenteritis",
+      "Acute bacterial gastroenteritis (e.g",
+      "Salmonella"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Bacillus cereus infection",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4552,
+      "completion_tokens": 1666
+    },
+    "patient": {
+      "prompt_tokens": 4425,
+      "completion_tokens": 345,
+      "calls": 8
+    }
+  }
+}

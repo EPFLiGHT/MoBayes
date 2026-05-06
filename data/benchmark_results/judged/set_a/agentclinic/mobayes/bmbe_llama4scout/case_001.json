@@ -1,0 +1,380 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello—what brings you in today? Could you tell me what’s been going on? Patient: I’ve been feeling increasingly confused lately, and I can’t seem to get my thoughts out clearly. I also had a fever around 102°F and feel discomfort when my right upper abdomen is touched.",
+      "extracted_features": {
+        "f_confusion_c52e29d9": "yes",
+        "f_fever_6c156205": "yes",
+        "f_right_upper_quadrant_pain_5ae0b53e": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3132261088709741
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17766888366795006
+        ],
+        [
+          "Pneumonia",
+          0.08206230949685578
+        ],
+        [
+          "Factitious disorder",
+          0.030543370799278168
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.029121419509289554
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_urinary_urgency_ff7b0094",
+      "doctor_question": "Do you often find yourself needing to rush to the bathroom to urinate, or feeling like you can't hold your urine for very long?",
+      "patient_answer": "Patient: No, I don’t recall needing to rush to urinate or having trouble holding my urine. I’m mostly just more confused than usual, and I feel the discomfort when my right upper abdomen is touched.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.313226108870974
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17766888366795
+        ],
+        [
+          "Pneumonia",
+          0.08206230949685574
+        ]
+      ],
+      "entropy": 3.7993125726929438
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_firm_breast_mass_dcdc31ba",
+      "doctor_question": "Have you noticed any firm lumps or masses in your breast that feel distinct from the rest of the tissue?",
+      "patient_answer": "“I haven’t noticed any firm lumps or distinct breast masses that feel different from the rest of the tissue. Mostly I’ve been more confused than usual, with a fever around 102°F and discomfort when my right upper abdomen is touched.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.313226108870974
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17766888366795
+        ],
+        [
+          "Pneumonia",
+          0.08206230949685574
+        ]
+      ],
+      "entropy": 3.7993125726929438
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_smooth_firm_skin_papules_39ca29ed",
+      "doctor_question": "Have you noticed any small, smooth bumps on your skin that feel firm to the touch?",
+      "patient_answer": "Patient: No, I haven’t noticed any small, smooth bumps on my skin that feel firm to the touch. I’ve mostly been more confused lately, had a fever around 102°F, and I get discomfort when my right upper abdomen is pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3163043269860517
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17941491811623925
+        ],
+        [
+          "Pneumonia",
+          0.08286877383844223
+        ]
+      ],
+      "entropy": 3.7643441734714203
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_inability_to_cool_down_554ca5c6",
+      "doctor_question": "Have you noticed that you've been having trouble cooling down or regulating your body temperature lately, even when you're not in a hot environment or engaging in physical activity?",
+      "patient_answer": "I’ve been having trouble keeping my temperature down—I've had a fever around 102°F and I don’t feel like I’m regulating it well. I’m mostly still very confused, and it hurts in my right upper abdomen when you press there.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3163043269860517
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17941491811623925
+        ],
+        [
+          "Pneumonia",
+          0.08286877383844223
+        ]
+      ],
+      "entropy": 3.7643441734714203
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "How have you been feeling lately? Have you been experiencing a lot of stress or feeling overwhelmed?",
+      "patient_answer": "I’ve been feeling more confused than usual, and I can’t really tell you about stress—I mostly just feel unwell. I’ve had a fever around 102°F and it hurts when my right upper abdomen is pressed.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3163043269860517
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.17941491811623925
+        ],
+        [
+          "Pneumonia",
+          0.08286877383844223
+        ]
+      ],
+      "entropy": 3.7643441734714203
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching sensations on your skin lately, either all over or in specific areas?",
+      "patient_answer": "Patient: No, I don’t recall any itching sensations on my skin. I’ve mainly just been very confused, had a fever around 102°F, and it’s painful when my right upper abdomen is pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.3288942038170607
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967186
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783037
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I've got a question for you to help with your diagnosis. Have you noticed any unusual spots, rashes, or lesions on your skin that seem to be following the path of your arm veins?",
+      "patient_answer": "Patient: No, I haven’t noticed any unusual spots, rashes, or skin lesions following the path of my arm veins. I’m mostly just very confused, I’ve had a fever around 102°F, and I feel pain when my right upper abdomen is pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.32889420381706064
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967184
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783032
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_word_finding_difficulty_0b430b71",
+      "doctor_question": "Have you noticed that you're having trouble finding the right words when you want to say something, like a name or a word that's on the tip of your tongue?",
+      "patient_answer": "Yes—my confusion has made it hard to find the right words, and I can’t verbalize what I’m feeling clearly. I’ve also still had a fever around 102°F and pain when my right upper abdomen is pressed.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.32889420381706064
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967184
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783032
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_muscle_rigidity_710ca10d",
+      "doctor_question": "I'm here to help you. Can you tell me if you've noticed any stiffness or resistance in your muscles when moving or trying to relax? For example, do your muscles feel tight or hard to move, even when you're not trying to use them?",
+      "patient_answer": "Doctor: Do you notice any stiffness or resistance in your muscles when you move or try to relax—do they feel tight or hard to move? Patient: I’m not sure—I’ve mostly just been very confused and unable to verbalize clearly, and I’ve had a fever around 102°F. When my right upper abdomen is pressed, it feels very uncomfortable, but I can’t say much about muscle stiffness.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.32889420381706064
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967184
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783032
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_drowsiness_420d2bd9",
+      "doctor_question": "How are you feeling today? Have you been feeling unusually sleepy or drowsy, even when you've had a good night's rest?",
+      "patient_answer": "Doctor: How are you feeling today? Have you been feeling unusually sleepy or drowsy, even when you've had a good night's rest? Patient: I feel more sleepy than usual and seem hard to wake fully, and my confusion is still worse. I still have the fever around 102°F and discomfort when my right upper abdomen is pressed.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.32889420381706064
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967184
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783032
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "How are your legs feeling in terms of temperature? Do they feel warm or cold to you?",
+      "patient_answer": "“My legs feel warmer than usual, and I think they feel warm overall. I’m still very confused, hard to wake, and I’ve had a fever around 102°F, with discomfort when my right upper abdomen is pressed.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.32889420381706064
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967184
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783032
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_productive_cough_f91866cd",
+      "doctor_question": "Do you find yourself coughing up mucus or phlegm, or is your cough mostly dry?",
+      "patient_answer": "Patient: I don’t recall coughing up mucus or having a productive cough—I’m mostly just very confused, hard to wake, and still have a fever around 102°F with discomfort when my right upper abdomen is pressed.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.32889420381706064
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18655617900967184
+        ],
+        [
+          "Pneumonia",
+          0.08616720375783032
+        ]
+      ],
+      "entropy": 3.6473830570706545
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis",
+    "predicted_top3": [
+      "Acalculous cholecystitis",
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia"
+    ],
+    "confidence": 0.32889420381706064,
+    "final_entropy": 3.6473830570706545,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9503,
+      "completion_tokens": 1770
+    },
+    "patient": {
+      "prompt_tokens": 10612,
+      "completion_tokens": 727,
+      "calls": 13
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "case_idx": 40,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: expiratory wheezing",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been having difficulty breathing with expiratory wheezing, and I also developed a very itchy pink rash with lesions—on my back of the neck, both biceps, my mouth, and my right ankle. My cheeks suddenly turned red, and I’ve had fast, irregular heartbeats/palpitations.",
+      "extracted_features": {
+        "f_e_66": "yes",
+        "f_e_214": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_136": "10",
+        "f_e_133_v_26": "yes",
+        "f_e_133_v_30": "yes",
+        "f_e_133_v_31": "yes",
+        "f_e_133_v_32": "yes",
+        "f_e_133_v_34": "yes",
+        "f_e_92": "yes",
+        "f_e_155": "yes",
+        "f_e_164": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.8937156313205645
+        ],
+        [
+          "Anaphylaxis",
+          0.10586530261941086
+        ],
+        [
+          "Pneumonia",
+          0.00012589165068497434
+        ],
+        [
+          "Atrial fibrillation",
+          4.7461622749292934e-05
+        ],
+        [
+          "Influenza",
+          3.7434866346930875e-05
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your condition.\n\nCould you please tell me whether the lesion or lesions on your body are larger than 1 centimeter? If there are no lesions present, please let me know that as well.",
+      "patient_answer": "Yes, the lesion (or lesions) are larger than 1 cm.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.8940310370347467
+        ],
+        [
+          "Anaphylaxis",
+          0.10590266408004737
+        ],
+        [
+          "Influenza",
+          3.29089167450407e-05
+        ]
+      ],
+      "entropy": 0.48859862378297386
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_187",
+      "doctor_question": "Hello, I'd like to ask you a few questions about what you ate before your reaction started. This will help me understand what might have caused it.\n\nDid you happen to eat any dark-fleshed fish, like tuna, swordfish, or mackerel, or any Swiss cheese in the hours before your symptoms began?",
+      "patient_answer": "Yes—I ate dark-fleshed fish (such as tuna) or Swiss cheese before the reaction occurred.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.997611186746911
+        ],
+        [
+          "Anaphylaxis",
+          0.002387318705523278
+        ],
+        [
+          "Influenza",
+          7.418517107800093e-07
+        ]
+      ],
+      "entropy": 0.024269252845056117
+    }
+  ],
+  "final": {
+    "predicted": "Scombroid food poisoning",
+    "predicted_top3": [
+      "Scombroid food poisoning",
+      "Anaphylaxis",
+      "Influenza"
+    ],
+    "confidence": 0.997611186746911,
+    "final_entropy": 0.024269252845056117,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Scombroid food poisoning",
+    "predicted_set_remapped": [
+      "Scombroid food poisoning",
+      "Anaphylaxis",
+      "Influenza"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10902,
+      "completion_tokens": 1255
+    },
+    "patient": {}
+  }
+}

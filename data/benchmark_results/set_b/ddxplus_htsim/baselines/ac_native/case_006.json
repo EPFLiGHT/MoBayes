@@ -1,0 +1,110 @@
+{
+  "case_idx": 6,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "patient_actor_hidden": {
+    "AGE": 49,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "nasal or throat itching",
+    "EVIDENCES_ENG": "['family history of allergies, hay fever, or eczema', 'family history of asthma', 'asthma or bronchodilator use', 'nasal or throat itching', 'eye itching', 'nasal congestion', 'cough', 'residence in a big city']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 49\n- I have close family members who suffer from allergies (any type), hay fever, or eczema.\n- I have family members who have asthma.\n- I have asthma or have used a bronchodilator in the past.\n- My nose or the back of my throat is itchy.\n- I have severe itching in one or both eyes.\n- I have nasal congestion or a clear runny nose.\n- I have a cough.\n- I live in a big city.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Allergic sinusitis', 0.34773403514099593], ['Bronchitis', 0.25111465870017935], ['URTI', 0.20109384771167343], ['Influenza', 0.2000574584471513]]",
+    "PATHOLOGY": "Allergic sinusitis",
+    "INITIAL_EVIDENCE": "prurit_nasal",
+    "EVIDENCES": "['fam_atopie', 'fam_j45', 'j45', 'prurit_nasal', 'prurit_occ', 'rhino_clair', 'toux', 'trav1_@_N', 'urban1']",
+    "patient_id": "htsim_0217",
+    "_test_index": 217,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 49-year-old F patient presents to the clinic. Chief complaint: nasal or throat itching.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Itching in my nose or the back of my throat, and severe itching in one or both eyes. I also have nasal congestion or a clear runny nose, and a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the itching and congestion start, and does anything trigger it (seasonal exposure, dust/pets, smoke, new foods/meds)?  \nDoctor: Do you also have sneezing, watery eyes, or do you have fever or thick/yellow-green nasal discharge?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have severe itching in one or both eyes, and nasal congestion or a clear runny nose, along with a cough. I also have itchy nose or itching in the back of my throat. I don’t have fever or thick/yellow-green nasal discharge.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—do you have frequent sneezing and watery “teary” eyes (more than mucus), and does it tend to worsen outdoors/at night or after exposure to dust/pets?  \nDoctor: Also, any wheezing or shortness of breath, and have you ever had seasonal allergies or asthma?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have asthma or have used a bronchodilator in the past. Also, I have close family members who suffer from allergies (any type), hay fever, or eczema, and family members who have asthma. I don’t know about sneezing/watery teary eyes, and I don’t know about whether it worsens outdoors/at night or after dust/pets. I don’t know about wheezing or shortness of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the itchy nose/throat and severe eye itching with nasal congestion/clear runny nose and a history of asthma, I’m concerned for allergic rhinitis/conjunctivitis—can you tell me if the symptoms are worse with outdoor exposure, dust/pets, or in specific seasons, and whether the nasal discharge is watery rather than thick?  \nDoctor: Also, do you have any lip/tongue swelling, hives, or vomiting (to rule out anaphylaxis/medication or food allergy)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t have fever or thick/yellow-green nasal discharge. I also don’t know about wheezing or shortness of breath. I don’t know if it’s worse outdoors/at night or after dust/pets, and I don’t know if the nasal discharge is watery rather than thick. I don’t know about lip or tongue swelling, hives, or vomiting.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you—please confirm: do you currently have watery discharge from your nose/eyes and frequent sneezing, and on exam I’ll check for nasal mucosal swelling, conjunctival redness, and any wheeze.  \nREQUEST TEST: Allergy_evaluation_(if_available)_—consider serum IgE or skin-prick testing referral.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have nasal congestion or a clear runny nose, itching in my nose or the back of my throat, severe itching in one or both eyes, and a cough. I have asthma or have used a bronchodilator in the past, and close family members who suffer from allergies (any type), hay fever, or eczema, and family members who have asthma.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—on exam today I’ll look for pale/swollen nasal turbinates, conjunctival redness/watering, and any wheeze; can you tell me if your symptoms are seasonal or triggered by outdoor air, dust, pets, or specific rooms?  \nDoctor: Also, do you have trouble breathing right now, or is it mainly cough from throat/nasal drip (and does antihistamine help at all)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether my symptoms are seasonal or triggered by outdoor air, dust, pets, or specific rooms.\n\nI don’t know if I have trouble breathing right now, or whether it’s mainly cough from throat/nasal drip, and I don’t know if antihistamine helps.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re unsure about triggers but the pattern is itching of the nose/throat plus severe eye itching with clear watery-type congestion and no fever or purulent discharge, I’m most concerned for **allergic rhinitis with allergic conjunctivitis**; can you tell me whether you’re having **frequent sneezing and watery eye discharge**?  \nDoctor: If you can, also tell me whether any **antihistamine** (cetirizine/loratadine) taken in the past **reduced the itching/runny nose**, and whether you’ve had **wheezing at rest** or only during colds.  \nDoctor: I’ll proceed assuming this is allergic—**REQUEST TEST: Referral/skin-prick or serum specific IgE testing for aeroallergens** (and **REQUEST TEST: Peak flow/spirometry** given your asthma history and cough).  \n\nDoctor: DIAGNOSIS READY: Allergic rhinitis with allergic conjunctivitis (likely with asthma-related cough)\n\n[ABSTAIN] free-text diagnosis 'Allergic rhinitis with allergic conjunctivitis (likely with asthma-related cough)' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3694,
+      "completion_tokens": 616,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 5907,
+      "completion_tokens": 421,
+      "calls": 6
+    }
+  }
+}

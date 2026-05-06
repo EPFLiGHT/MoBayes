@@ -1,0 +1,171 @@
+{
+  "case_idx": 12,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Hemorrhoids",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old female",
+    "History": "The patient reports a 2-week history of rectal bleeding occurring daily with bowel movements. She denies any pain with defecation and does not present with any other complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Rectal bleeding daily with bowel movements",
+      "Secondary_Symptoms": [
+        "No pain with defecation"
+      ]
+    },
+    "Past_Medical_History": "The patient's past medical history is unremarkable except for 5 normal vaginal deliveries.",
+    "Social_History": "Information not specified.",
+    "Review_of_Systems": "The patient denies any changes in bowel habits, abdominal pain, weight loss, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with rectal bleeding and a palpable rectal mass.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m a 45-year-old woman, and over the past two weeks I’ve had rectal bleeding every day when I have bowel movements. It happens without any pain during defecation, and I haven’t noticed any other symptoms like abdominal pain or weight loss.”",
+      "extracted_features": {
+        "f_bright_red_rectal_bleeding_320fd82f": "yes",
+        "f_daily_rectal_bleeding_with_bowel_movemen_a67cb73f": "yes",
+        "f_bleeding_for_about_two_weeks_e960754a": "yes",
+        "f_bright_red_rectal_bleeding_on_toilet_pap_e61ba24f": "no",
+        "f_rectal_bleeding_on_stool_surface_f644885f": "no",
+        "f_rectal_bleeding_coating_stool_and_toilet_4dcd9f33": "no",
+        "f_blood_mixed_with_loose_stool_d3819ff1": "no",
+        "f_bloody_loose_stools_3098ff4b": "no",
+        "f_bloody_diarrhea_7b81bd02": "no",
+        "f_tenesmus_a160ff97": "no",
+        "f_abdominal_pain_f8a79ef3": "no",
+        "f_weight_loss_e4a22a46": "no"
+      },
+      "top5_posterior": [
+        [
+          "Hemorrhoids",
+          0.19486271964322535
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.07410972264366643
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.060174440297571796
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.060174440297571796
+        ],
+        [
+          "Hemophilia A",
+          0.02581363326985253
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden movements that you can’t control? (Yes or no)",
+      "patient_answer": "“No—no twitching, jerking, shaking, or sudden uncontrollable movements that I can’t control.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hemorrhoids",
+          0.19994159103014197
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.0760413068405635
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.06174281747926469
+        ]
+      ],
+      "entropy": 4.947557085373141
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any lump in my right breast, and I don’t feel anything that moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hemorrhoids",
+          0.20634560171124244
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.0721353000033332
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.05857127983421173
+        ]
+      ],
+      "entropy": 4.9408191044067875
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No, pressing or gently tapping around my belly button area doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hemorrhoids",
+          0.22272864669898443
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.07786256462810896
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.04534075316512701
+        ]
+      ],
+      "entropy": 4.898056282967289
+    }
+  ],
+  "final": {
+    "predicted": "Hemorrhoids",
+    "predicted_top3": [
+      "Hemorrhoids",
+      "Impaired erythropoietin production",
+      "Pyoderma gangrenosum"
+    ],
+    "confidence": 0.22272864669898443,
+    "final_entropy": 4.898056282967289,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Hemorrhoids",
+    "predicted_set_remapped": [
+      "Hemorrhoids",
+      "Impaired erythropoietin production",
+      "Pyoderma gangrenosum"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10083,
+      "completion_tokens": 398
+    },
+    "patient": {
+      "prompt_tokens": 1583,
+      "completion_tokens": 134,
+      "calls": 4
+    }
+  }
+}

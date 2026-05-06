@@ -1,0 +1,104 @@
+{
+  "case_idx": 45,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Erythema Toxicum",
+  "patient_actor_hidden": {
+    "Demographics": "4-day-old newborn",
+    "History": "The newborn was born at term with no complications. The mother had no prenatal care and has a history of gonorrhea treated 4 years ago. The newborn presents with a generalized rash that has been present for 1 day.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized erythematous maculopapular rash and pustules",
+      "Secondary_Symptoms": [
+        "Rash with an erythematous base",
+        "Rash over the trunk and extremities",
+        "Sparing of the palms and soles"
+      ]
+    },
+    "Past_Medical_History": "Born at term, no prenatal care for the mother, mother's history of gonorrhea treated 4 years ago.",
+    "Social_History": "N/A for the newborn.",
+    "Review_of_Systems": "No other abnormalities noted in the systems review; the rest of the examination shows no abnormalities."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn presenting with a generalized rash.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: Hello—newborn with generalized rash: I’ll ask a few targeted questions to narrow this down; first, when did the rash start (at birth vs days later) and is it spreading? Doctor: Any fever, poor feeding, lethargy, or breathing difficulty? Doctor: What does it look like—pink macules/patches, tiny “sandpaper” bumps, vesicles (fluid-filled blisters), pustules, petechiae/purple spots, or peeling around the mouth/skin?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Doctor: When did the rash start, and is it spreading? Patient: It started about one day ago and it’s spread over my trunk and extremities. Doctor: Any fever, poor feeding, lethargy, or breathing difficulty? Patient: No—nothing like fever, breathing trouble, or trouble feeding has been noticed. Doctor: What does it look like? Patient: It’s a generalized erythematous maculopapular rash with some pustules, and my palms and soles are spared."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you—since it’s diffuse maculopapular with some pustules and **palms/soles are spared** and there’s **no fever**, I need to know: any eye redness/discharge, mouth sores, or skin tenderness/peeling? Doctor: Also, was the mother tested/treated for sexually transmitted infections (especially **herpes** or **syphilis**), and did you have any maternal genital lesions near delivery?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I haven’t had any eye redness or discharge, and I don’t have mouth sores that have been noticed. Patient: I also haven’t had skin peeling or significant tenderness, and I’m not aware of any maternal genital lesions near delivery or specific STI testing beyond the gonorrhea history."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Thanks—since this is a diffuse maculopapular rash with pustules and **palms/soles spared**, with **no fever**, **no eye/mouth involvement**, and no known maternal herpes/syphilis, I’m considering **neonatal pustular (staphylococcal) folliculitis**—but I need one key check: is it widespread at birth/early days with pustules mainly around hair follicles and otherwise the baby is well? Doctor: REQUEST TEST: Skin exam/diaphanoscopy or Wood’s lamp; plus **bacterial culture** of a pustule drainage (if available) and vitals trend.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98.2°F), Pulse 152/min, Respiratory Rate 51/min. Dermatologic exam: erythematous maculopapular rash with pustules over trunk and extremities; palms and soles spared. No fever, no eye redness/discharge, no mouth sores reported, and no skin peeling or significant tenderness reported."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Thank you—since vitals are stable and the rash is a diffuse erythematous **maculopapular eruption with pustules** on trunk/extremities with **palms/soles spared** and no mucosal/ocular involvement, this most strongly fits **benign neonatal pustular (staphylococcal folliculitis)** rather than HSV, congenital syphilis, or candidal/vesicular etiologies. Doctor: DIAGNOSIS READY: Neonatal pustular (staphylococcal) folliculitis (benign neonatal pustulosis)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thank you—since vitals are stable and the rash is a diffuse erythematous **maculopapular eruption with pustules** on trunk/extremities with **palms/soles spared** and no mucosal/ocular involvement, this most strongly fits **benign neonatal pustular (staphylococcal folliculitis)** rather than HSV, congenital syphilis, or candidal/vesicular etiologies. Doctor: DIAGNOSIS READY: Neonatal pustular (staphylococcal) folliculitis (benign neonatal pustulosis)",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1938,
+      "completion_tokens": 473,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 1040,
+      "completion_tokens": 175,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 504,
+      "completion_tokens": 81,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 186,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

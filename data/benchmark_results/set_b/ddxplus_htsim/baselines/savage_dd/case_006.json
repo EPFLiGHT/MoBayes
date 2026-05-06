@@ -1,0 +1,109 @@
+{
+  "case_idx": 6,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 49\nSex: F\nChief Complaint: nasal or throat itching",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal or throat itching, and severe itching in one or both eyes. I also have nasal congestion or a clear runny nose and a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down. **One question at a time:**\n\n**Do you have any wheezing, shortness of breath, or swelling of your lips/tongue/throat (or hives)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had asthma or have used a bronchodilator in the past.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question:**\n\n**When you say asthma/bronchodilator—are you having any *current* wheezing or trouble breathing right now, or is it mainly nasal/eye itching with cough?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s make it concrete. **Next question:**\n\n**Right now, can you speak in full sentences without getting short of breath?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **Next question:**\n\n**Have you noticed any facial swelling, hives, or a feeling that your throat is tightening?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **Next question (very specific):**\n\n**Do you have fever or chills right now (measured temperature if you know it)?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question:**\n\n**Is the nasal discharge clear/watery, or is it thick/purulent (yellow/green) or bloody?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It’s clear/watery.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is still insufficient because we haven’t determined key discriminators (fever, breathing status/wheezing, and whether there’s any anaphylaxis-type swelling/hives).  \n[POSSIBLE] Allergic sinusitis, Acute rhinosinusitis, Acute laryngitis, Bronchospasm / acute asthma exacerbation, URTI",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Allergic sinusitis",
+      "Acute rhinosinusitis",
+      "Acute laryngitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "URTI"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6465,
+      "completion_tokens": 304
+    },
+    "patient": {}
+  }
+}

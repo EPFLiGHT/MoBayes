@@ -1,0 +1,149 @@
+{
+  "case_idx": 45,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 27\nSex: F\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had nasal congestion with a cough producing colored or more abundant sputum than usual, plus a sore throat and fever. I also have diffuse muscle pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on your symptoms of fever + cough with increased/colored sputum + sore throat + myalgias):\n- Influenza: 0.30  \n- Pneumonia: 0.20  \n- URTI (viral): 0.20  \n- Bronchitis: 0.15  \n- Acute rhinosinusitis: 0.15  \n\nTo update this, one key discriminator is whether you have **shortness of breath or chest pain**.\n\n**Question 1 (one at a time):**  \nDo you have any shortness of breath, wheezing, or chest pain (especially worse with breathing)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “no shortness of breath/wheezing/chest pain” (slightly lowers pneumonia/bronchospasm):\n- Influenza: 0.33  \n- URTI (viral): 0.25  \n- Bronchitis: 0.18  \n- Pneumonia: 0.14  \n- Acute rhinosinusitis: 0.10  \n\nNext discriminator: **how high the fever is / how abrupt the onset was**.\n\n**Question 2:**  \nHow high has your fever been (highest temperature), and did it start suddenly (within hours) or more gradually over 1–2 days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (can’t use fever height/onset timing):\n- Influenza: 0.33  \n- URTI (viral): 0.25  \n- Bronchitis: 0.18  \n- Pneumonia: 0.14  \n- Acute rhinosinusitis: 0.10  \n\nNext discriminator: **any known exposure or sick contacts**, and whether symptoms are strongly “flu-like” (systemic myalgias).\n\n**Question 3:**  \nHave you had close contact with someone sick recently (flu/COVID/“bad cold”), or are you aware of an outbreak where you live/work?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've been in contact with a person with similar symptoms in the past 2 weeks.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “sick contact within 2 weeks” (raises contagious viral causes):\n- Influenza: 0.38  \n- URTI (viral): 0.30  \n- Bronchitis: 0.14  \n- Pneumonia: 0.12  \n- Acute rhinosinusitis: 0.06  \n\nNext discriminator: **any shortness of breath develops, or is it mainly upper-airway symptoms** (nasal congestion/sore throat dominate).\n\n**Question 4:**  \nIs your cough mainly from the chest (deep cough) or does it feel like post-nasal drip from your nose/throat?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It feels mainly like post-nasal drip from my nose/throat.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “post-nasal drip predominant” (favors upper airway):\n- Influenza: 0.34  \n- URTI (viral): 0.34  \n- Acute rhinosinusitis: 0.14  \n- Bronchitis: 0.10  \n- Pneumonia: 0.08  \n\nNext discriminator: **nasal/sinus pain or pressure and whether symptoms are localized to sinuses**.\n\n**Question 5:**  \nDo you have facial pain/pressure (cheeks/forehead) or worsening when bending forward?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have pain on the cheek (right).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “right cheek pain/pressure” (supports acute rhinosinusitis):\n- Acute rhinosinusitis: 0.40  \n- Influenza: 0.25  \n- URTI (viral): 0.20  \n- Bronchitis: 0.10  \n- Pneumonia: 0.05  \n\nNext discriminator: **any ear symptoms** (can co-occur with sinus/URI) vs more systemic viral.\n\n**Question 6:**  \nAny ear pain or fullness on that side (right), or hearing changes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (unchanged meaningfully):\n- Acute rhinosinusitis: 0.40  \n- Influenza: 0.25  \n- URTI (viral): 0.20  \n- Bronchitis: 0.10  \n- Pneumonia: 0.05  \n\nNext discriminator: **duration**—sinusitis vs simple viral URI.  \n\n**Question 7:**  \nHow many days have your symptoms been going on?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):\n- Acute rhinosinusitis: 0.40  \n- Influenza: 0.25  \n- URTI (viral): 0.20  \n- Bronchitis: 0.10  \n- Pneumonia: 0.05  \n\nNext discriminator: **severity of sore throat** and presence of **tonsillar exudate** or **swollen neck glands** (helps distinguish viral URI vs other causes, but within our list it mainly supports viral URI).\n\n**Question 8:**  \nDo you have swollen/tender glands in your neck or white patches on your tonsils?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (unchanged):\n- Acute rhinosinusitis: 0.40  \n- Influenza: 0.25  \n- URTI (viral): 0.20  \n- Bronchitis: 0.10  \n- Pneumonia: 0.05  \n\nNext discriminator: **any wheezing/known asthma/COPD** (would shift toward bronchospasm/asthma/COPD exacerbation).\n\n**Question 9:**  \nDo you have a history of asthma, COPD, or do you hear wheezing when you breathe?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (unchanged):\n- Acute rhinosinusitis: 0.40  \n- Influenza: 0.25  \n- URTI (viral): 0.20  \n- Bronchitis: 0.10  \n- Pneumonia: 0.05  \n\nNext discriminator: **red flags for serious lower respiratory infection**—specifically, do you have shortness of breath, rapid breathing, or coughing fits that bring up lots of sputum?\n\n**Question 10:**  \nAre you able to speak full sentences without getting winded?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):\n- Acute rhinosinusitis: 0.40  \n- Influenza: 0.25  \n- URTI (viral): 0.20  \n- Bronchitis: 0.10  \n- Pneumonia: 0.05  \n\nAt this point, the history most strongly supports an upper-airway process (sinus pain/pressure + post-nasal drip) with systemic symptoms that could be viral (influenza) but we lack key discriminators (duration, fever magnitude, respiratory status). I’ll provide a best-fit differential.\n\n[DDX] Acute rhinosinusitis, Influenza, URTI (viral), Bronchitis, Pneumonia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Influenza",
+      "URTI (viral)",
+      "Bronchitis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 16570,
+      "completion_tokens": 1373
+    },
+    "patient": {}
+  }
+}

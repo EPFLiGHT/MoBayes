@@ -1,0 +1,109 @@
+{
+  "case_idx": 29,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 78\nSex: F\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significant shortness of breath or difficulty breathing, and it’s worse when I lie down but better when I’m sitting up. I also have pain in my breasts on both the right and left, with an intensity of 6 out of 10, like a knife stroke.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down with a few focused questions.\n\n**Current posterior (pre-test, rough):**\n- **Acute pulmonary edema:** 0.30  \n- **Pulmonary embolism:** 0.20  \n- **Acute COPD exacerbation / infection:** 0.15  \n- **Pneumonia:** 0.15  \n- **Possible NSTEMI / STEMI:** 0.20  \n\nYour “worse lying down, better sitting up” raises concern for **orthopnea**, which strongly fits **acute pulmonary edema** (and sometimes heart-related causes). The “knife-like” bilateral chest/breast pain could be pleuritic, cardiac, or other causes.\n\n**Question 1 (most discriminating):**  \nDo you have **fever** or **cough** (and if yes, is the sputum **clear/white** or **yellow/green** or **bloody**)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s clarify that.\n\n**Current posterior (unchanged, since fever/cough unknown):**\n- Acute pulmonary edema: 0.30  \n- Pulmonary embolism: 0.20  \n- Possible NSTEMI / STEMI: 0.20  \n- Acute COPD exacerbation / infection: 0.15  \n- Pneumonia: 0.15  \n\n**Question 2:**  \nWhen you’re short of breath, do you notice **wheezing** or a **tight, whistling chest**—yes or no?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Current posterior (still):**\n- Acute pulmonary edema: 0.30  \n- Pulmonary embolism: 0.20  \n- Possible NSTEMI / STEMI: 0.20  \n- Acute COPD exacerbation / infection: 0.15  \n- Pneumonia: 0.15  \n\n**Question 3:**  \nDo you have **leg swelling** (one leg more than the other) or **calf pain**, yes or no?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Current posterior (still):**\n- Acute pulmonary edema: 0.30  \n- Pulmonary embolism: 0.20  \n- Possible NSTEMI / STEMI: 0.20  \n- Acute COPD exacerbation / infection: 0.15  \n- Pneumonia: 0.15  \n\n**Question 4:**  \nDo you have **chest pain that gets worse with deep breaths** (pleuritic) or with **movement/pressing on the chest**—yes or no?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Current posterior (still):**\n- Acute pulmonary edema: 0.30  \n- Pulmonary embolism: 0.20  \n- Possible NSTEMI / STEMI: 0.20  \n- Acute COPD exacerbation / infection: 0.15  \n- Pneumonia: 0.15  \n\n**Question 5 (very important):**  \nDo you have **any history of heart disease** (heart failure, prior heart attack, valve problems) or have you ever been told your heart “doesn’t pump well”?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Current posterior (still):**\n- Acute pulmonary edema: 0.30  \n- Pulmonary embolism: 0.20  \n- Possible NSTEMI / STEMI: 0.20  \n- Acute COPD exacerbation / infection: 0.15  \n- Pneumonia: 0.15  \n\nAt this point, I can’t safely narrow further because key discriminators (fever/cough, wheeze, leg symptoms, pleuritic vs exertional pain, heart history) are unknown.\n\n**Question 6:**  \nAre you able to speak in **full sentences**, or do you have to stop to breathe after a few words?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not able to narrow this safely with “I don’t know” responses—those details are crucial to distinguish life-threatening causes.\n\n**[ABSTAIN]** — Insufficient discriminating history (orthopnea/pleuritic vs cardiac features, infection/PE/heart risk factors, and symptom specifics are unknown).  \n**[POSSIBLE]** Acute pulmonary edema, Possible NSTEMI / STEMI, Pulmonary embolism, Pneumonia, Acute COPD exacerbation / infection",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Acute pulmonary edema",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8908,
+      "completion_tokens": 891
+    },
+    "patient": {}
+  }
+}

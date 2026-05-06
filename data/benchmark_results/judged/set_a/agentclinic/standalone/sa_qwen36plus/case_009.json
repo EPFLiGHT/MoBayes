@@ -1,0 +1,127 @@
+{
+  "case_idx": 9,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with abdominal cramps, nausea, vomiting, and diarrhea that began suddenly 2 hours ago. He reports eating reheated food from the afternoon, approximately 1 hour before symptom onset.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known food allergies.",
+    "Social_History": "College student living in dormitories. No recent travel history. Reports being in the middle of exam period and experiencing high stress levels.",
+    "Review_of_Systems": "Denies fever, blood in stool, headache, or any urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with symptoms of acute gastrointestinal illness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I started having sudden abdominal cramps about two hours ago, and since then I’ve had nausea, vomiting, and diarrhea. I ate reheated food from the afternoon about an hour before it began, and I’ve been very stressed with exams.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had a fever or felt chills since the symptoms started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had a fever or chills since this started. I’ve just had the abdominal cramps with nausea, vomiting, and diarrhea.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Is the pain localized to one specific area, or is it diffuse and crampy throughout your abdomen?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the pain feels mostly diffuse and crampy all over my abdomen rather than localized to one specific spot.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any blood in your stool or vomit?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I've had no blood in my stool or in my vomit. It’s just the cramps, nausea, vomiting, and diarrhea.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Did anyone else who ate the same reheated food develop similar symptoms?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m not sure—only I ate that specific reheated portion. A few others in the dorm might have eaten the same meal earlier, but I haven’t heard from them about any similar symptoms.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "What specific type of food did you reheat and eat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it was reheated leftovers—mostly a prepared rice and chicken dish from the dining hall.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bacillus cereus food poisoning, Staphylococcal food poisoning, Acute viral gastroenteritis, Stress-induced gastrointestinal dysfunction, Clostridium perfringens food poisoning",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Bacillus cereus food poisoning",
+    "predicted_set": [
+      "Bacillus cereus food poisoning",
+      "Staphylococcal food poisoning",
+      "Acute viral gastroenteritis",
+      "Stress-induced gastrointestinal dysfunction",
+      "Clostridium perfringens food poisoning"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Bacillus cereus infection",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Bacillus cereus infection",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2351,
+      "completion_tokens": 9546
+    },
+    "patient": {
+      "prompt_tokens": 2583,
+      "completion_tokens": 216,
+      "calls": 6
+    }
+  }
+}

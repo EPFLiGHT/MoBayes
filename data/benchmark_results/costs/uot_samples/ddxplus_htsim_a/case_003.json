@@ -1,0 +1,137 @@
+{
+  "case_idx": 3,
+  "baseline": "uot",
+  "column": "htsim",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 66\nSex: M\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having very severe, sharp ear pain—both my right and left ears. The pain intensity is 9 out of 10, and it started fairly quickly (pace 6 out of 10). I’m also more irritable or my mood has been very unstable recently, and I have nasal congestion or a clear runny nose and a cough. I’m currently being treated with an oral antibiotic for an ear infection.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have fever plus a sore throat or cough (upper respiratory symptoms)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have a cough, and I also have nasal congestion or a clear runny nose.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (temperature ≥ 38°C)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have a fever (≥38°C) and sore throat or upper-respiratory symptoms (runny nose/cough)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes— I have nasal congestion or a clear runny nose and a cough. I don’t know about fever.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Influenza**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Influenza**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acute otitis media**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’m currently being treated with an oral antibiotic for an ear infection.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acute rhinosinusitis**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have nasal congestion or a clear runny nose and a cough.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acute rhinosinusitis**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have nasal congestion or a clear runny nose and a cough.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute otitis media, Acute rhinosinusitis, Bronchiolitis, Bronchitis  , Pneumonia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Acute otitis media",
+    "predicted_set": [
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Bronchiolitis",
+      "Bronchitis",
+      "Pneumonia"
+    ],
+    "predicted_raw": [
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Bronchiolitis",
+      "Bronchitis  ",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17712,
+      "completion_tokens": 21236,
+      "total_tokens": 38948
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "case_idx": 2,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hello, doctor. I’m here for my annual check-up, but I’ve also noticed a rough, scaly, sandpaper-like plaque on the back of my left hand. It doesn’t hurt and I don’t feel any tenderness.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long has this rough, scaly patch been present on your hand?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Since about a few months ago, doctor—though I can’t recall the exact first day it appeared.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Is the patch raised above the skin like a bump, or is it relatively flat, and what color would you say it appears—skin-colored, pink, red, or brown?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“It feels a bit raised, like a rough patch above the skin rather than completely flat. The color looks mostly pinkish to skin-toned, not bright red or very dark.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and do you have a history of significant sun exposure to your hands through work or outdoor activities?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 65 years old, and I do spend time outdoors walking and sunbathing, so I’ve had regular sun exposure on my hands.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Does the lesion feel hard or firm when you press on it, or is it just rough on the surface?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mostly just rough on the surface rather than clearly hard or firm when I press it, doctor.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "What is the approximate size of this patch, and do you have any other similar spots on your hands, forearms, face, or scalp?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“About the size of a small coin, doctor—roughly 1 to 2 centimeters. I haven’t noticed similar spots elsewhere on my hands, face, forearms, or scalp.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Has the patch ever bled, ulcerated, or shown any rapid growth, and does the scale ever flake off and then return?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—it hasn’t bled or ulcerated, and it hasn’t grown rapidly. The surface does seem to get a little scaly at times, but I don’t see it forming an open sore or completely clearing and then coming right back.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic Keratosis, Squamous Cell Carcinoma, Seborrheic Keratosis, Bowen Disease (Squamous Cell Carcinoma in situ), Verruca Vulgaris",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Actinic Keratosis",
+    "predicted_set": [
+      "Actinic Keratosis",
+      "Squamous Cell Carcinoma",
+      "Seborrheic Keratosis",
+      "Bowen Disease (Squamous Cell Carcinoma in situ)",
+      "Verruca Vulgaris"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Actinic Keratosis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Unknown",
+      "Seborrheic keratosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3074,
+      "completion_tokens": 5421
+    },
+    "patient": {
+      "prompt_tokens": 3400,
+      "completion_tokens": 269,
+      "calls": 7
+    }
+  }
+}

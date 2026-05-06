@@ -1,0 +1,79 @@
+{
+  "case_idx": 49,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 62\nSex: Male\nChief Complaint: I have sharp pain, painful mouth ulcers or sores, and chronic fatigue",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve been having sharp pain and painful mouth ulcers or sores, plus chronic fatigue. I also have skin redness/lesions, and I feel pretty short of breath. I’m also being seen for high blood pressure.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure that is worse with exertion or does not go away** (possible heart-related pain)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have chest pain/pressure like that. My pain is more from the mouth sores and the sharp pain I feel there, not chest discomfort.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain/pressure that is new, worsening, or occurs at rest (not just with exertion)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain/pressure that’s new or worsening, and it doesn’t really happen at rest. My main pain is from the mouth sores/sharp pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain that is triggered by physical exertion or stress and relieved by rest or nitroglycerin (i.e., predictable with activity)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No. I don’t get chest pain that’s triggered by exertion or stress. It’s not something that improves with rest or nitroglycerin.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myocarditis, Pericarditis  ",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Myocarditis",
+    "predicted_set": [
+      "Myocarditis",
+      "Pericarditis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2788,
+      "completion_tokens": 159
+    }
+  }
+}

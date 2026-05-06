@@ -1,0 +1,357 @@
+{
+  "case_idx": 30,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Minimal Change Disease",
+  "patient_actor_hidden": {
+    "Demographics": "25-year-old female",
+    "History": "The patient reports developing swelling around her eyes and ankles over several days. She mentions a recent diagnosis of Hodgkin's lymphoma but has not started treatment yet. No history of kidney disease or similar symptoms in the past.",
+    "Symptoms": {
+      "Primary_Symptom": "Edema, particularly around the eyes and ankles",
+      "Secondary_Symptoms": [
+        "Fatigue",
+        "No recent infections",
+        "No changes in urine color or frequency"
+      ]
+    },
+    "Past_Medical_History": "Recently diagnosed with Hodgkin's lymphoma. No other significant medical history.",
+    "Social_History": "Non-smoker, does not consume alcohol. Currently a graduate student.",
+    "Review_of_Systems": "Denies recent respiratory infections, no history of drug use, no significant weight changes."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with recent onset of edema and significant proteinuria.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor—I'm a 25-year-old woman, and over the past several days I’ve noticed swelling around my eyes and in my ankles. I was recently diagnosed with Hodgkin’s lymphoma but haven’t started treatment yet, and I also feel more fatigued than usual.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_periorbital_swelling_bf5c31f1": "yes",
+        "f_ankle_swelling_7e596046": "yes",
+        "f_lower_extremity_edema_e6691da4": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Minimal Change Disease",
+          0.2167843538548819
+        ],
+        [
+          "Membranous nephropathy",
+          0.21278147736587055
+        ],
+        [
+          "Meigs syndrome",
+          0.04301096343431756
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.04301096343431756
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.03358390295556304
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any involuntary movements, twitching, jerking, or shaking.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Minimal Change Disease",
+          0.2232063072737426
+        ],
+        [
+          "Membranous nephropathy",
+          0.21908485079546186
+        ],
+        [
+          "Meigs syndrome",
+          0.04428510706490636
+        ]
+      ],
+      "entropy": 4.30302854707436
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any lump in my right breast.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Minimal Change Disease",
+          0.22678994940205582
+        ],
+        [
+          "Membranous nephropathy",
+          0.22260232174229738
+        ],
+        [
+          "Meigs syndrome",
+          0.041360067443221245
+        ]
+      ],
+      "entropy": 4.278685979593396
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No, when you press or gently tap around my belly button area it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Minimal Change Disease",
+          0.24295776808069344
+        ],
+        [
+          "Membranous nephropathy",
+          0.23847160512483775
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.03180141298120373
+        ]
+      ],
+      "entropy": 4.173923154126837
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Minimal Change Disease",
+          0.2659940234928845
+        ],
+        [
+          "Membranous nephropathy",
+          0.2610825010332426
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.03197854242039037
+        ]
+      ],
+      "entropy": 3.9740785260245457
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in my right breast—there’s nothing new or growing that I can feel.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Minimal Change Disease",
+          0.271038884203063
+        ],
+        [
+          "Membranous nephropathy",
+          0.2660342094749662
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.032585049627232625
+        ]
+      ],
+      "entropy": 3.934449443495742
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Do you notice that the lenses in **both** of your eyes look **cloudy or hazy**, like you’re seeing through a fog or film? (Yes/No)",
+      "patient_answer": "“No, doctor—I haven’t noticed any cloudiness or haziness in the lenses in either of my eyes.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.28697825459501014
+        ],
+        [
+          "Minimal Change Disease",
+          0.2687505130543306
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.03515036914376589
+        ]
+      ],
+      "entropy": 3.819336795633617
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 6 to 12 months, have you lost weight without trying (for example, your clothes fit looser or the scale went down even though you didn’t change your diet or exercise)?",
+      "patient_answer": "“I haven’t lost weight without trying—my weight seems about the same.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.29604062082847443
+        ],
+        [
+          "Minimal Change Disease",
+          0.27723727306395857
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.03626036794444786
+        ]
+      ],
+      "entropy": 3.7373532355466548
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small or you just found it recently?",
+      "patient_answer": "“No, I haven’t noticed any lump or painless mass in my right breast, even if it’s small or just recently appeared.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.29873037992404294
+        ],
+        [
+          "Minimal Change Disease",
+          0.27975618913286676
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.03363306830760971
+        ]
+      ],
+      "entropy": 3.716340444071144
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant recently, or is there any chance you could be pregnant right now?",
+      "patient_answer": "“No, doctor—I’m not pregnant and there’s no chance I could be pregnant right now.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.2989435137987528
+        ],
+        [
+          "Minimal Change Disease",
+          0.2799557855735739
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.033657064347679705
+        ]
+      ],
+      "entropy": 3.697847658511636
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to **move around** under the skin when you touch it (rather than staying fixed in one spot)?",
+      "patient_answer": "“No, doctor—I haven’t noticed any breast lump or swelling that moves around under the skin, and I don’t feel anything fixed or changing there.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.30139898271717797
+        ],
+        [
+          "Minimal Change Disease",
+          0.2822552926653116
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.03119141507156291
+        ]
+      ],
+      "entropy": 3.6798491624500707
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_avoids_using_right_knee_due_to_pain_e1c64467",
+      "doctor_question": "Do you find yourself avoiding using your right knee because it hurts? (yes/no)",
+      "patient_answer": "“No, doctor—I haven’t been avoiding using my right knee, and I don’t have knee pain or trouble moving it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.3667491806531004
+        ],
+        [
+          "Minimal Change Disease",
+          0.1769312093140804
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.031595360190310146
+        ]
+      ],
+      "entropy": 3.8201677441602317
+    }
+  ],
+  "final": {
+    "predicted": "Membranous nephropathy",
+    "predicted_top3": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Impaired erythropoietin production"
+    ],
+    "confidence": 0.3667491806531004,
+    "final_entropy": 3.8201677441602317,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Membranous nephropathy",
+    "predicted_set_remapped": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Impaired erythropoietin production"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11182,
+      "completion_tokens": 473
+    },
+    "patient": {
+      "prompt_tokens": 7287,
+      "completion_tokens": 318,
+      "calls": 12
+    }
+  }
+}

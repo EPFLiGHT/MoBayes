@@ -1,0 +1,117 @@
+{
+  "case_idx": 49,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient presents requesting prenatal care, reporting 2 months of increasing breast tenderness, nausea, a 6.6 lb weight gain, increased urinary frequency, and uncertainty about the date of her last menstrual period. She stopped taking oral contraceptives 6 months ago and has been trying to conceive with her husband since then. She believes she is pregnant and was happy to share this news with her husband last week.",
+    "Symptoms": {
+      "Primary_Symptom": "Increasing breast tenderness",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Weight gain of 6.6 lbs",
+        "Increased urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Stopped oral contraceptives 6 months prior in an attempt to conceive.",
+    "Social_History": "Reports being in a stable relationship and actively trying to conceive with her husband.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms suggestive of early pregnancy.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hello, doctor. I’m here because I think I may be pregnant—I've had about two months of increasing breast tenderness, nausea, a 6.6 lb weight gain, and I’ve also noticed I’m urinating more often. I stopped oral contraceptives six months ago, have been trying to conceive with my husband, and I’m unsure of my last menstrual period.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you taken a home pregnancy test or had any pregnancy testing done yet?\nHave you taken a home pregnancy test or had any pregnancy testing done yet?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t taken a home pregnancy test yet, and I haven’t had any pregnancy testing done. I wanted to come in first since I’m trying to conceive and my symptoms have been gradually increasing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any vaginal bleeding or lower abdominal/pelvic pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any vaginal bleeding, and I haven’t noticed any lower abdominal or pelvic pain.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Are your periods usually regular, and about how long has it been since your last normal menstrual period?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My periods are usually regular, and I’m not sure of the date of my last normal period—it's hard to pin down exactly since I can’t remember when it started. It’s been at least a few weeks, but I can’t give an exact number of days.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Any vomiting, severe dizziness/fainting, painful urination, fever, or unusual vaginal discharge?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had vomiting, severe dizziness or fainting, painful urination, fever, or any unusual vaginal discharge. I’ve mainly just noticed the breast tenderness, nausea, the 6.6 lb weight gain, and increased urinary frequency.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Intrauterine pregnancy, pseudopregnancy, premenstrual/hormonal symptoms after stopping oral contraceptives, urinary tract issue causing frequency, endocrine cause such as hypothyroidism\n\nYour symptoms are most consistent with pregnancy, especially with trying to conceive, stopping oral contraceptives 6 months ago, nausea, breast tenderness, weight gain, and urinary frequency.\n\nMost important next step:\n- Take a urine pregnancy test today\n\nIf positive:\n- Arrange prenatal care\n- Start/continue prenatal vitamins with folic acid\n- Seek urgent care if you develop vaginal bleeding, pelvic pain, fainting, or severe vomiting\n\nIf negative but symptoms continue:\n- Repeat a home test in about 1 week or get a blood hCG test\n- Consider evaluation for other causes of missed/uncertain menses and urinary frequency\n\nBecause you have no bleeding or pelvic pain, an ectopic pregnancy is less likely right now, but any new pain or bleeding would need urgent evaluation.",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Intrauterine pregnancy",
+    "predicted_set": [
+      "Intrauterine pregnancy",
+      "pseudopregnancy",
+      "premenstrual/hormonal symptoms after stopping oral contraceptives",
+      "urinary tract issue causing frequency",
+      "endocrine cause such as hypothyroidism\n\nYour symptoms are most consistent with pregnancy"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2052,
+      "completion_tokens": 308
+    },
+    "patient": {
+      "prompt_tokens": 2466,
+      "completion_tokens": 260,
+      "calls": 5
+    }
+  }
+}

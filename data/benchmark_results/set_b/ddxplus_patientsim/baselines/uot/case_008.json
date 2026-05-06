@@ -1,0 +1,78 @@
+{
+  "case_idx": 8,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: Female\nChief Complaint: I have lower chest pain, upper chest pain, and right posterior chest wall radiating pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have pain in my lower chest and upper chest, and also a sharp, knife-stroke pain that radiates to my right posterior chest wall and even toward my thoracic spine. It’s very intense—like 10 out of 10—and it gets worse with breathing (pleuritic). I’ve also had palpitations and I feel short of breath when I lie flat (orthopnea).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure that is worse with exertion or can radiate to the arm/jaw**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly sharp and worse with breathing, not really with walking or exertion. I don’t have pain radiating to my arm or jaw.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain/pressure that is brought on by exertion or stress and/or relieved by rest?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No—it's not brought on by exertion or stress, and it’s not relieved by rest. It’s more related to breathing and the sharp pain in my chest/back.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain that is worse when you take a deep breath or lie flat (and better when you sit up)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. It’s worse when I take a deep breath, and it’s also worse when I lie flat. I feel a bit better when I sit up.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pericarditis  ",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis  ",
+    "predicted_set": [
+      "Pericarditis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3032,
+      "completion_tokens": 198
+    }
+  }
+}

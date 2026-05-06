@@ -1,0 +1,312 @@
+{
+  "case_idx": 20,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic obstructive pulmonary disease",
+  "patient_actor_hidden": {
+    "Demographics": "60-year-old male",
+    "History": "The patient reports progressively worsening shortness of breath for the past 2 months, which does not occur at rest. He occasionally experiences a dry cough but denies having fever, chills, or night sweats.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressively worsening shortness of breath",
+      "Secondary_Symptoms": [
+        "Dry cough",
+        "No fever",
+        "No chills",
+        "No night sweats"
+      ]
+    },
+    "Past_Medical_History": "The patient is previously healthy with no significant past medical history.",
+    "Social_History": "Smoked a pack of cigarettes daily for the past 40 years. Drinks a beer daily with occasional increase on weekends. No illicit drug use.",
+    "Review_of_Systems": "Denies any other systemic complaints."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressively worsening shortness of breath over the past 2 months.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’m a 60-year-old man, and over the last two months I’ve had progressively worse shortness of breath with activity, but it doesn’t really happen when I’m at rest. I also have an occasional dry cough, and I haven’t had any fever, chills, or night sweats.”",
+      "extracted_features": {
+        "f_fever_6c156205": "no",
+        "f_chills_4b723a54": "no",
+        "f_night_sweats_0316b006": "no",
+        "f_shortness_of_breath_02802ea3": "yes",
+        "f_exertional_dyspnea_209a7fe6": "yes",
+        "f_dry_cough_05068b1c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.4943257337948194
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.09179995601156789
+        ],
+        [
+          "Chronic kidney failure",
+          0.06671800081715046
+        ],
+        [
+          "Pneumonia",
+          0.043887905565334374
+        ],
+        [
+          "Somatization disorder",
+          0.02859342892163589
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any degree of vision loss?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any changes in my eyesight like blurriness, dark spots, or any vision loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.5007588080272617
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.0929946256214702
+        ],
+        [
+          "Chronic kidney failure",
+          0.06758625796533084
+        ]
+      ],
+      "entropy": 3.144416309793286
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Doctor, yes—I’ve smoked about a pack of cigarettes a day for the past 40 years. I still smoke currently.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.8969457806418779
+        ],
+        [
+          "Pneumonia",
+          0.03510740549555013
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019123770863848477
+        ]
+      ],
+      "entropy": 0.8116046411829169
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“Doctor, no—I haven’t had any nausea or felt sick to my stomach.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.9180385310708487
+        ],
+        [
+          "Pneumonia",
+          0.029399725662753597
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019573489157638
+        ]
+      ],
+      "entropy": 0.6682204399025012
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any lumps or masses in my chest or breast area, and nothing there is painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.918500974209248
+        ],
+        [
+          "Pneumonia",
+          0.029414535173404196
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.01958334890257149
+        ]
+      ],
+      "entropy": 0.6628792154497101
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of psychological stress or emotional strain?",
+      "patient_answer": "“Doctor, I wouldn’t say I’ve had significant psychological stress or emotional strain beyond being concerned about my breathing over the past couple of months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.9223472460983426
+        ],
+        [
+          "Pneumonia",
+          0.029537710110551823
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019665355222100053
+        ]
+      ],
+      "entropy": 0.6266331692472203
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, could you tell me if you have noticed any changes in the color of your urine, specifically if it has appeared darker than usual?",
+      "patient_answer": "“Doctor, I haven’t noticed any changes in the color of my urine—it hasn’t seemed darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.9259626244093132
+        ],
+        [
+          "Pneumonia",
+          0.029653490796124605
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019742438662255883
+        ]
+      ],
+      "entropy": 0.5985744138735295
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, have you noticed if the mass has been growing or changing in size rapidly?",
+      "patient_answer": "“Doctor, I haven’t noticed any lumps or masses in my chest or breast area at all, so nothing has been growing or changing in size. The main issue has been the progressively worsening shortness of breath with activity and an occasional dry cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.9260837079623366
+        ],
+        [
+          "Pneumonia",
+          0.029657368436463962
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019745020283323044
+        ]
+      ],
+      "entropy": 0.5969310804878208
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello. I'm here to help you understand what might be going on with your health today. To get started, could you please tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“Doctor, I haven’t had any pain in my wrist.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.9265091484723197
+        ],
+        [
+          "Pneumonia",
+          0.02967099295641165
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019754091095633784
+        ]
+      ],
+      "entropy": 0.5922509848049808
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of your veins?",
+      "patient_answer": "“Doctor, I haven’t noticed any skin rashes, bumps, or marks along the path of my veins on my arms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.9265091484723196
+        ],
+        [
+          "Pneumonia",
+          0.02967099295641165
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.019754091095633784
+        ]
+      ],
+      "entropy": 0.592250984804981
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease",
+    "predicted_top3": [
+      "Chronic obstructive pulmonary disease",
+      "Pneumonia",
+      "Femoropopliteal artery stenosis"
+    ],
+    "confidence": 0.9265091484723196,
+    "final_entropy": 0.592250984804981,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Chronic obstructive pulmonary disease",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease",
+      "Pneumonia",
+      "Femoropopliteal artery stenosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9898,
+      "completion_tokens": 537
+    },
+    "patient": {
+      "prompt_tokens": 6167,
+      "completion_tokens": 330,
+      "calls": 10
+    }
+  }
+}

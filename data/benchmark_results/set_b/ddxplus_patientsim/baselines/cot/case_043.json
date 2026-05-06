@@ -1,0 +1,121 @@
+{
+  "case_idx": 43,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 65\nSex: Male\nChief Complaint: I have a cough, significant dyspnea, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m having a bad cough and I feel really short of breath, and when I breathe out I can hear a wheezing sound. This feels like my COPD has flared up again—I’ve had a few flare-ups in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSo far: cough + shortness of breath + expiratory wheeze, history of COPD with prior flare-ups. This most strongly suggests an acute COPD exacerbation, often triggered by infection or bronchospasm. Key discriminators next: whether there are infectious symptoms (fever, sputum change) vs primary cardiac/PE causes; and whether wheeze is prominent enough for asthma-like bronchospasm.\nTop candidates:\n1) Acute COPD exacerbation / infection — classic symptoms (SOB, cough, wheeze) with known COPD; often triggered by infection.\n2) Bronchitis — cough with wheeze/SOB can occur; would expect more prominent productive cough and viral/bacterial features.\n3) Pneumonia — can cause cough, SOB, wheeze; would expect fever, pleuritic pain, focal findings, purulent sputum.\n4) Bronchospasm / acute asthma exacerbation — wheeze and SOB, but less likely without asthma history; still possible overlap.\n5) Pulmonary embolism — can cause sudden SOB and cough, but wheeze is less typical; would be considered if symptoms are abrupt or with risk factors.\nMost informative next question: look for infection trigger (fever and sputum changes).\n[/REASONING]\nDo you have a fever or have you noticed your sputum has changed (more amount, thicker, or different color) compared with your usual?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had a fever. But my cough has been more than usual, and the mucus feels thicker/different for me compared to my normal baseline.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: known COPD; cough worse than usual; thicker/different sputum; no fever reported; expiratory wheeze and SOB. This pattern strongly supports an acute COPD exacerbation, likely infection-related even without fever. Pneumonia is still possible but less supported without fever/other systemic symptoms. Bronchitis remains possible but COPD exacerbation is more specific given history.\nTop candidates:\n1) Acute COPD exacerbation / infection — worse cough, increased/thicker sputum, wheeze, SOB; fever absent doesn’t rule out infection.\n2) Pneumonia — can present without fever in some patients; would look for pleuritic pain, high respiratory rate, focal chest symptoms.\n3) Bronchitis — viral/bacterial bronchitis can cause similar symptoms; but COPD history makes “COPD exacerbation” more likely.\n4) Bronchospasm / acute asthma exacerbation — wheeze and SOB, but sputum change and COPD history point more to COPD exacerbation.\n5) Pulmonary embolism — less likely with wheeze/sputum change, but still consider if symptoms are sudden or disproportionate.\nMost informative next question: ask about onset pattern and severity—sudden vs gradual and whether symptoms are rapidly worsening.\n[/REASONING]\nDid this come on suddenly (within hours) or more gradually over days—and is it getting worse quickly?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started more gradually over a couple of days, and it’s been getting worse. The shortness of breath is definitely getting worse faster than before, and the wheezing is more noticeable now.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: gradual onset over 2 days, worsening SOB faster than baseline, increasing wheeze. This fits an acute COPD exacerbation trajectory. Pneumonia/bronchitis could also worsen over days. PE usually is more sudden (though not always), and asthma exacerbation could be similar but COPD history + sputum change favors COPD exacerbation.\nTop candidates:\n1) Acute COPD exacerbation / infection — gradual worsening over days with increased sputum and wheeze.\n2) Pneumonia — can evolve over days; would look for pleuritic pain, focal symptoms, marked fever, or hypoxia.\n3) Bronchitis — can cause similar course; less specific than COPD exacerbation.\n4) Pulmonary embolism — less likely due to gradual onset and wheeze/sputum change, but consider if risk factors or pleuritic pain.\n5) Acute pulmonary edema — would expect orthopnea/leg swelling; wheeze can occur but sputum change is less typical.\nMost informative next question: ask about chest pain/pleuritic symptoms and orthopnea/leg swelling to help separate pneumonia/PE/cardiac causes.\nDo you have any chest pain—especially sharp pain when you breathe in—or any new swelling in your legs or trouble lying flat (orthopnea)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain. And I haven’t noticed any new swelling in my legs, and I don’t think I have trouble lying flat—it's mainly the breathing and the wheeze.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no pleuritic chest pain, no leg swelling, no orthopnea; symptoms mainly breathing + wheeze. This further supports COPD exacerbation/bronchospasm rather than PE or acute pulmonary edema. Pneumonia still possible but less supported without chest pain/other systemic features. Next discriminator: sputum characteristics and any hemoptysis, plus smoking status and oxygen baseline (to gauge severity and consider alternative diagnoses like pneumonia/PE).\nTop candidates:\n1) Acute COPD exacerbation / infection — best fit.\n2) Bronchitis — could mimic, but COPD history makes exacerbation more likely.\n3) Pneumonia — still possible; would look for purulent sputum, focal findings, marked fatigue.\n4) Pulmonary embolism — less likely without pleuritic pain/sudden onset/leg swelling, but not excluded.\n5) Acute pulmonary edema — unlikely without orthopnea/edema.\nMost informative next question: ask about sputum color/pus and whether there’s blood.\n[/REASONING]\nWhat color is the mucus/sputum (clear/white/yellow/green/brown), and have you noticed any blood in it?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s more yellow to green, and I haven’t noticed any blood in it.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: yellow/green sputum + COPD + worsening wheeze/SOB over days. This strongly supports an acute COPD exacerbation due to infectious trigger. Pneumonia is still a consideration with purulent sputum, but absence of chest pain/fever and the wheeze-predominant picture keeps COPD exacerbation highest. PE and pulmonary edema are less likely given gradual course and lack of orthopnea/leg swelling/pleuritic pain.\nTop candidates:\n1) Acute COPD exacerbation / infection — purulent sputum and classic symptom pattern.\n2) Pneumonia — purulent sputum can occur; would need signs like high fever, focal chest findings, or significant hypoxia.\n3) Bronchitis — purulent sputum possible; but COPD exacerbation is more specific.\n4) Bronchospasm / acute asthma exacerbation — less likely without asthma history, but overlap possible.\n5) Pulmonary embolism — less likely; would consider if sudden worsening, risk factors, or hypoxia out of proportion.\nMost informative next question: ask about current vitals/oxygenation and severity—specifically whether they have home oxygen, measured oxygen saturation, ability to speak in full sentences, and any confusion. This helps both diagnosis and urgency.\nDo you have a pulse oximeter or have you been told your oxygen level is low, and can you speak full sentences without having to stop for breath?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a pulse oximeter at home. I can speak, but I have to pause to catch my breath, and I feel pretty winded just doing small things. I don’t think I’m confused.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: can speak but needs pauses; winded with small activities; no confusion. This suggests a moderate-to-severe exacerbation, but still not enough to distinguish from pneumonia purely by history. Next discriminators: risk factors for severe disease and alternative diagnoses—especially smoking status and any recent immobilization/long travel (PE), and whether they’ve had similar episodes with response to bronchodilators (COPD).\nTop candidates:\n1) Acute COPD exacerbation / infection — best fit overall; severity consistent.\n2) Pneumonia — purulent sputum; could cause similar functional limitation.\n3) Bronchitis — possible but less specific.\n4) Pulmonary embolism — less likely with wheeze/purulent sputum and gradual onset, but risk factors could change likelihood.\n5) Bronchospasm / acute asthma exacerbation — unlikely without asthma history.\nMost informative next question: Do you have any risk factors for blood clots in the last 4–6 weeks (recent long travel/car ride, surgery, being bedridden/immobile, prior DVT/PE, or known cancer)? \n[/REASONING]\nDo you have any risk factors for blood clots in the last 4–6 weeks (long travel, surgery, being bedridden/immobile, prior DVT/PE, or known cancer)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No—I haven’t had long travel, surgery, or been bedridden/immobile. I don’t have a history of DVT or PE, and I’m not aware of having cancer.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no clot risk factors, gradual worsening over days, purulent yellow/green sputum, wheeze, COPD history. This makes PE less likely. Remaining main considerations: acute COPD exacerbation (infectious trigger) vs pneumonia vs bronchitis. Next discriminator: smoking status and any fever/chills/systemic symptoms, plus whether they’ve had increased use of rescue inhaler or prior response—also helps gauge severity and rule out pneumonia.\nTop candidates:\n1) Acute COPD exacerbation / infection — strongest overall.\n2) Pneumonia — still possible with purulent sputum; would look for fever/chills, chest pain, marked fatigue.\n3) Bronchitis — possible but less specific.\n4) Bronchospasm / acute asthma exacerbation — less likely without asthma history.\n5) Acute pulmonary edema — unlikely without orthopnea/edema.\nMost informative next question: Have you had chills, marked fatigue, or felt generally “sick,” and have you been using your rescue inhaler more than usual (and did it help)? \n[/REASONING]\nHave you had chills or felt generally very unwell, and how much have you needed your rescue inhaler (and does it relieve the wheeze/SOB)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’ve felt pretty sick in general, but I don’t think I’ve had chills. I’ve needed my rescue inhaler much more than usual, and it helps a little, but the breathing doesn’t fully get back to normal.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: COPD with worsening SOB and wheeze over 2 days, increased purulent yellow/green sputum, feels generally sick, no chills, rescue inhaler helps partially. This strongly supports acute COPD exacerbation, likely infectious. Pneumonia remains a key alternative due to purulent sputum and “feels sick,” but lack of pleuritic pain/fever doesn’t exclude it. PE and pulmonary edema are less likely given gradual course, no orthopnea/leg swelling, and no clot risk factors.\nTop candidates:\n1) Acute COPD exacerbation / infection — best overall fit.\n2) Pneumonia — purulent sputum + systemic illness; needs evaluation (exam/CXR).\n3) Bronchitis — can produce purulent sputum and wheeze; but COPD exacerbation is more specific.\n4) Bronchospasm / acute asthma exacerbation — less likely without asthma history, but overlap possible.\n5) Pulmonary embolism — less likely without sudden onset or risk factors, but still consider if hypoxia is severe/unexplained.\nMost informative next action would be to assess objective severity (RR, SpO2, ability to complete sentences) and perform chest exam/CXR, but I’ll proceed to differential based on history alone.\n[/REASONING]\n[DDX] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Bronchospasm / acute asthma exacerb",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerb"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15446,
+      "completion_tokens": 2258
+    },
+    "patient": {
+      "prompt_tokens": 13368,
+      "completion_tokens": 334
+    }
+  }
+}

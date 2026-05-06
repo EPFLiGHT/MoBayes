@@ -1,0 +1,332 @@
+{
+  "case_idx": 37,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old woman",
+    "History": "The patient reports feeling extremely fatigued and weak, especially towards the end of the day, to the point of difficulty in self-care. She mentions experiencing these symptoms currently. The patient has been traveling, hiking, and camping recently and notes having had multiple illnesses in the recent past.",
+    "Symptoms": {
+      "Primary_Symptom": "Weakness and fatigue",
+      "Secondary_Symptoms": [
+        "Mild diplopia"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Enjoys outdoor activities such as hiking and camping. No mention of smoking, alcohol, or drug use.",
+    "Review_of_Systems": "Denies fever, weight loss, headache, or any respiratory, gastrointestinal, or urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with weakness and fatigue.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’ve been feeling extremely fatigued and weak, especially toward the end of the day, and it’s gotten to the point where it’s hard to take care of myself. I’ve also noticed some mild double vision. I’ve been traveling and hiking/camping recently and have had multiple illnesses lately.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_generalized_weakness_46c7373c": "yes",
+        "f_diplopia_a9378b9d": "yes",
+        "f_recent_travel_3ef3faf4": "yes",
+        "f_recent_camping_or_hiking_d8a0b10c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2771517861419486
+        ],
+        [
+          "Chronic kidney failure",
+          0.08473197576853553
+        ],
+        [
+          "Somatization disorder",
+          0.08067659196502922
+        ],
+        [
+          "Pneumonia",
+          0.06386203099796034
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.06060038935622014
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_urinary_urgency_ff7b0094",
+      "doctor_question": "Do you often find yourself needing to rush to the bathroom to urinate, or feeling like you can't hold your urine for a short period of time?",
+      "patient_answer": "“Doctor, no—I don’t feel like I need to rush to the bathroom or have any trouble holding my urine. It’s mainly the fatigue and weakness toward the end of the day, along with the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2771517861419486
+        ],
+        [
+          "Chronic kidney failure",
+          0.08473197576853553
+        ],
+        [
+          "Somatization disorder",
+          0.08067659196502922
+        ]
+      ],
+      "entropy": 3.926145482303208
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_firm_breast_mass_dcdc31ba",
+      "doctor_question": "Have you noticed a firm lump or mass in your breast that you can feel when you press on it?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any firm lump or mass in my breast when I check.” “I’m mainly focused on the worsening fatigue and weakness later in the day, plus the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.278884461232626
+        ],
+        [
+          "Chronic kidney failure",
+          0.08526169627238545
+        ],
+        [
+          "Somatization disorder",
+          0.08118095934885315
+        ]
+      ],
+      "entropy": 3.9006297157990466
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_smooth_firm_skin_papules_39ca29ed",
+      "doctor_question": "you noticed any small, smooth, and firm bumps on your skin, like little raised spots that don't seem to be painful or it",
+      "patient_answer": "“Doctor, I haven’t noticed any small, smooth, firm bumps or raised spots on my skin, and they haven’t been painful. My main concerns are still the extreme fatigue and weakness later in the day and the mild double vision.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.278884461232626
+        ],
+        [
+          "Chronic kidney failure",
+          0.08526169627238545
+        ],
+        [
+          "Somatization disorder",
+          0.08118095934885315
+        ]
+      ],
+      "entropy": 3.9006297157990466
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_inability_to_cool_down_554ca5c6",
+      "doctor_question": "been reviewing your symptoms, and I want to ask: Have you been feeling like you just can't seem to cool down or catch your breath, even when you're in a cool environment or not exerting yourself much",
+      "patient_answer": "“Doctor, no—I don’t feel like I can’t cool down, and I haven’t had trouble catching my breath in cool environments or when I’m not exerting myself. It’s mainly the fatigue and weakness toward the end of the day, plus the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28053262108103505
+        ],
+        [
+          "Chronic kidney failure",
+          0.08576557843126334
+        ],
+        [
+          "Somatization disorder",
+          0.08166072504487915
+        ]
+      ],
+      "entropy": 3.8769741224545813
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "How have you been feeling lately, emotionally speaking? Have you been experiencing a lot of stress or anxiety?",
+      "patient_answer": "“Doctor, emotionally I’ve been pretty stressed from feeling so run-down and unable to care for myself, but I haven’t had significant anxiety or panic otherwise.” “My main issue is still the heavy fatigue and weakness later in the day, along with the mild double vision.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28053262108103505
+        ],
+        [
+          "Chronic kidney failure",
+          0.08576557843126334
+        ],
+        [
+          "Somatization disorder",
+          0.08166072504487915
+        ]
+      ],
+      "entropy": 3.8769741224545813
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching sensations on your skin lately, either all over or in specific areas?",
+      "patient_answer": "“Doctor, I haven’t noticed any itching sensations on my skin, either all over or in specific areas. My symptoms have stayed focused on the extreme fatigue and weakness toward the end of the day and the mild double vision.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28053262108103505
+        ],
+        [
+          "Chronic kidney failure",
+          0.08576557843126334
+        ],
+        [
+          "Somatization disorder",
+          0.08166072504487915
+        ]
+      ],
+      "entropy": 3.8769741224545813
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any unusual spots, rashes, or lesions along the veins on your arms?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any unusual spots, rashes, or lesions along the veins on my arms.” “My symptoms have been pretty consistent as extreme fatigue and weakness later in the day, with the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28053262108103505
+        ],
+        [
+          "Chronic kidney failure",
+          0.08576557843126334
+        ],
+        [
+          "Somatization disorder",
+          0.08166072504487915
+        ]
+      ],
+      "entropy": 3.8769741224545813
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_word_finding_difficulty_0b430b71",
+      "doctor_question": "Have you noticed it's been harder to find the right words when you're trying to say something lately?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any trouble finding the right words or any difficulty speaking; it’s mainly the extreme fatigue and weakness toward the end of the day, along with the mild double vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28220037743157855
+        ],
+        [
+          "Chronic kidney failure",
+          0.08627545171279322
+        ],
+        [
+          "Somatization disorder",
+          0.08214619512054722
+        ]
+      ],
+      "entropy": 3.85308795335709
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_muscle_rigidity_710ca10d",
+      "doctor_question": "Have you noticed that your muscles feel stiff or tense, even when you're at rest or not using them?",
+      "patient_answer": "“Doctor, no—I haven’t noticed muscle stiffness or tense feelings at rest. It’s mainly that I feel weak and exhausted toward the end of the day, and I’ve had the mild double vision along with it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28263447511812734
+        ],
+        [
+          "Chronic kidney failure",
+          0.0864081658301
+        ],
+        [
+          "Somatization disorder",
+          0.08227255736564826
+        ]
+      ],
+      "entropy": 3.8428111745934954
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_drowsiness_420d2bd9",
+      "doctor_question": "How are you feeling today in terms of your energy and alertness? Do you feel unusually drowsy or tired?",
+      "patient_answer": "“Doctor, today I still feel unusually tired and run-down, and my energy is noticeably worse as the day goes on. I wouldn’t say I’m drowsy or falling asleep unexpectedly—it's more weakness and exhaustion. I also still have the mild double vision.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28263447511812734
+        ],
+        [
+          "Chronic kidney failure",
+          0.0864081658301
+        ],
+        [
+          "Somatization disorder",
+          0.08227255736564826
+        ]
+      ],
+      "entropy": 3.8428111745934954
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Chronic kidney failure",
+      "Somatization disorder"
+    ],
+    "confidence": 0.28263447511812734,
+    "final_entropy": 3.8428111745934954,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Chronic kidney failure",
+      "Somatization disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8657,
+      "completion_tokens": 1306
+    },
+    "patient": {
+      "prompt_tokens": 7619,
+      "completion_tokens": 573,
+      "calls": 11
+    }
+  }
+}

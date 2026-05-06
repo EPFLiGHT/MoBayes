@@ -1,0 +1,109 @@
+{
+  "case_idx": 10,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 13\nSex: F\nChief Complaint: nausea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having nausea and I’ve vomited several times. I also have significant difficulty breathing, and I have a lot of pain—about 7 out of 10—in my lower chest and belly, with pain that goes to my thoracic spine and the right scapula.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down quickly. **First question (one at a time):**\n\n**Posterior (initial, rough priors given severe dyspnea + epigastric/lower chest/abdominal pain radiating to back/scapula):**\n- **Pulmonary embolism:** 20%\n- **Possible NSTEMI / STEMI:** 20%\n- **Acute pulmonary edema:** 15%\n- **Pneumonia:** 10%\n- **Anaphylaxis:** 5%\n- **Other (GI causes, etc.):** 30%\n\n**Question 1:**  \nWhen did the symptoms start (how many hours/days ago), and did the breathing difficulty begin suddenly or gradually?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s use a more discriminating timing question.\n\n**Posterior (still rough, since onset is unknown):**\n- Pulmonary embolism: 20%\n- Possible NSTEMI / STEMI: 20%\n- Acute pulmonary edema: 15%\n- Pneumonia: 10%\n- Anaphylaxis: 5%\n- Other: 30%\n\n**Question 2:**  \nDo you have **fever** or **cough** (yes/no)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll focus on features that don’t require you to know timing or fever.\n\n**Posterior (unchanged, still rough):**\n- Pulmonary embolism: 20%\n- Possible NSTEMI / STEMI: 20%\n- Acute pulmonary edema: 15%\n- Pneumonia: 10%\n- Anaphylaxis: 5%\n- Other: 30%\n\n**Question 3:**  \nIs the pain **worse when you take a deep breath** or when you **cough** (yes/no)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question targets a very high-yield discriminator.\n\n**Posterior (unchanged):**\n- Pulmonary embolism: 20%\n- Possible NSTEMI / STEMI: 20%\n- Acute pulmonary edema: 15%\n- Pneumonia: 10%\n- Anaphylaxis: 5%\n- Other: 30%\n\n**Question 4:**  \nHave you noticed **swelling or pain in one leg** (especially calf) or any recent **long travel/immobility/surgery** (yes/no)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s ask about the breathing pattern.\n\n**Posterior (unchanged):**\n- Pulmonary embolism: 20%\n- Possible NSTEMI / STEMI: 20%\n- Acute pulmonary edema: 15%\n- Pneumonia: 10%\n- Anaphylaxis: 5%\n- Other: 30%\n\n**Question 5:**  \nAre you **short of breath when lying flat**, and does it improve when you sit up (yes/no)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t reliably narrow this without a few key symptom details. I’ll ask one more high-yield question that helps separate cardiac/PE vs GI causes.\n\n**Posterior (still rough, because onset/fever/pleuritic features are unknown):**\n- Pulmonary embolism: 20%\n- Possible NSTEMI / STEMI: 20%\n- Acute pulmonary edema: 15%\n- Pneumonia: 10%\n- Anaphylaxis: 5%\n- Other: 30%\n\n**Question 6:**  \nHave you had **chest pressure/tightness** (like “an elephant on the chest”) rather than mainly burning/upper abdominal pain (yes/no)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not able to get the discriminating history needed—timing, fever/cough, pleuritic features, leg swelling/immobility, and positional dyspnea are all unknown, which prevents a confident Bayesian update.\n\n[ABSTAIN] Key high-yield discriminators (onset, fever/cough, pleuritic vs pressure quality, DVT/immobility, orthopnea/positional dyspnea) are unknown, so posterior probabilities can’t be meaningfully updated.\n\n[POSSIBLE] Pulmonary embolism, Possible NSTEMI / STEMI, Acute pulmonary edema, Pneumonia, Anaphylaxis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Pneumonia",
+      "Anaphylaxis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8531,
+      "completion_tokens": 859
+    },
+    "patient": {}
+  }
+}

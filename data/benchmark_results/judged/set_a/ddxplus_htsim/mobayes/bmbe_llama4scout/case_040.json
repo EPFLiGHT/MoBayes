@@ -1,0 +1,155 @@
+{
+  "case_idx": 40,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: expiratory wheezing",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been having expiratory wheezing and significant shortness of breath or difficulty breathing. I also have a very itchy pink rash with skin lesions/redness, including around the back of my neck, both biceps, my mouth, and my right ankle.",
+      "extracted_features": {
+        "f_e_66": "yes",
+        "f_e_214": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_136": "10",
+        "f_e_133_v_26": "yes",
+        "f_e_133_v_30": "yes",
+        "f_e_133_v_34": "yes",
+        "f_e_148": "yes",
+        "f_e_89": "yes",
+        "f_e_82": "yes",
+        "f_e_64": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Anaphylaxis",
+          0.6049189688467583
+        ],
+        [
+          "Scombroid food poisoning",
+          0.3902675581486418
+        ],
+        [
+          "Pneumonia",
+          0.0010159958367828934
+        ],
+        [
+          "SLE",
+          0.00039254739052086704
+        ],
+        [
+          "Influenza",
+          0.0003021143034670322
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "Can you tell me about the size of the lesion or lesions you're concerned about? Are they larger than a centimeter, which is about the size of a small coin?",
+      "patient_answer": "Yes. The lesion (or lesions) are larger than 1 cm.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.6072005719176672
+        ],
+        [
+          "Scombroid food poisoning",
+          0.391739549778935
+        ],
+        [
+          "SLE",
+          0.00038606781987420247
+        ]
+      ],
+      "entropy": 0.9798434400231214
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_79",
+      "doctor_question": "I'm here to help you and want to get a better understanding of your health. Can you tell me if you smoke cigarettes?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.6075617674653302
+        ],
+        [
+          "Scombroid food poisoning",
+          0.3919725775258898
+        ],
+        [
+          "SLE",
+          0.00013520411581993994
+        ]
+      ],
+      "entropy": 0.9728881841348167
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_161",
+      "doctor_question": "Does your pain feel sensitive or tender to the touch?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.6077076111857552
+        ],
+        [
+          "Scombroid food poisoning",
+          0.3920666695870962
+        ],
+        [
+          "SLE",
+          5.4094628495270876e-05
+        ]
+      ],
+      "entropy": 0.9697618496990026
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_top3": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "SLE"
+    ],
+    "confidence": 0.6077076111857552,
+    "final_entropy": 0.9697618496990026,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Anaphylaxis",
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "SLE"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10111,
+      "completion_tokens": 548
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "case_idx": 35,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: F\nChief Complaint: increased sweating",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significantly increased sweating. I also have pain related to why I’m consulting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: increased sweating (diaphoresis) plus “pain related to why I’m consulting,” but we don’t yet know the location/character of the pain or any associated symptoms (chest pain, shortness of breath, fever, rash, wheeze, etc.). Diaphoresis is nonspecific and can occur with serious cardiopulmonary causes (ACS/PE), infections, endocrine issues, or panic/anaphylaxis.\nTop candidates (tentative):\n1) Possible NSTEMI / STEMI — diaphoresis commonly accompanies ischemic chest pain; pain location/quality not yet known.\n2) Pulmonary embolism — can present with diaphoresis and pain (often pleuritic) ± shortness of breath.\n3) Anaphylaxis — sweating can occur with systemic reactions, usually with itching/hives, swelling, wheeze, hypotension (not yet known).\n4) Panic attack — can cause profuse sweating with distress and chest discomfort (needs symptom pattern).\n5) Pneumonia / Influenza — infections can cause sweating/fever and pain (needs fever/cough).\nMost informative next question: determine the pain location and nature to discriminate cardiac/PE vs other causes.\n[/REASONING]\nWhat is the pain location (e.g., chest, throat, abdomen, back/side, leg) and how would you describe it (pressure, sharp, burning, cramping)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s in the lower chest, the side of my chest on the right and left, my breast (left), and the epigastric area. The pain feels tedious, heavy, sickening, and scary, with intensity 5 out of 10. It appears quickly—pace 9 out of 10. It also radiates to both biceps, the thyroid cartilage, under the jaw, and the shoulder (left).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: diaphoresis + rapidly appearing (pace 9/10) “heavy/sickening/scary” pain starting in lower chest/epigastrium with radiation to both biceps, thyroid cartilage/under jaw, and left shoulder. This radiation pattern (jaw/shoulder/upper extremity) plus autonomic symptoms (sweating) is concerning for acute coronary syndrome. Epigastric pain can also be ACS. PE is possible with chest pain but radiation to jaw/biceps is less typical; pneumonia/influenza less likely without infectious symptoms; panic can mimic but the described radiation and “scary” heavy pain with diaphoresis still warrants ruling out ACS first.\nTop candidates:\n1) Possible NSTEMI / STEMI — diaphoresis + heavy pressure-like chest/epigastric pain with rapid onset and radiation to jaw/arms/shoulder.\n2) Unstable angina — similar presentation but without confirmed infarction (still needs ACS workup).\n3) Pulmonary embolism — chest pain with diaphoresis; would expect pleuritic pain and/or dyspnea, tachycardia, hypoxia (not yet assessed).\n4) GERD — epigastric/breast discomfort can occur, but diaphoresis and jaw/arm radiation are less typical.\n5) Pericarditis — can cause chest pain, but usually positional/pleuritic and not classically",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the pain is in my lower chest, the right and left sides of my chest, my breast (left), and my epigastric area. It feels tedious, heavy, sickening, and scary, with intensity 5 out of 10. It appears quickly, with a pace of 9 out of 10, and it radiates to both biceps, the thyroid cartilage, under the jaw, and the shoulder (left).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: diaphoresis + acute onset heavy/sickening/scary “lower chest/epigastric” pain (pace 9/10) radiating to both biceps, under jaw/thyroid cartilage, and left shoulder. This is highly concerning for acute coronary syndrome (ACS), including STEMI/NSTEMI or unstable angina. PE remains possible but the jaw/arm radiation pattern strongly favors ACS. GERD is less likely given the autonomic diaphoresis and extensive radiation.\nTop candidates:\n1) Possible NSTEMI / STEMI — classic radiation to jaw/arms/shoulder with diaphoresis and heavy chest/epigastric pain.\n2) Unstable angina — similar symptom pattern without infarction.\n3) Pulmonary embolism — can cause chest pain + diaphoresis, but radiation to jaw/arms is less typical.\n4) Pericarditis — chest pain can occur, but usually positional/pleuritic and not typically jaw/arm radiation.\n5) GERD — epigastric/breast discomfort possible, but diaphoresis + rapid heavy radiation makes ACS more likely.\nMost informative next question: any shortness of breath or trouble breathing? (helps separate ACS vs PE/other cardiopulmonary causes)\n[/REASONING]\nDo you have shortness of breath, trouble breathing, or do you feel like you can’t get enough air?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: patient has severe, rapidly onset heavy “scary” chest/epigastric pain with diaphoresis and radiation to jaw/arms/shoulder—still most consistent with ACS. We still lack key discriminators: dyspnea/pleuritic features (PE), positional/relief (pericarditis), and GI symptoms (GERD). “I don’t know” means we should clarify with a very specific, yes/no style question.\nTop candidates remain:\n1) Possible NSTEMI / STEMI\n2) Unstable angina\n3) Pulmonary embolism\n4) GERD\n5) Pericarditis\nMost informative next question: ask directly about dyspnea in a concrete way.\n[/REASONING]\nWhen the pain started, did you feel short of breath—yes or no?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: still only have diaphoresis + acute heavy chest/epigastric pain radiating to jaw/arms/left shoulder. Dyspnea status unknown. Need another discriminating feature that can be answered more reliably.\nNext most useful: ask about pleuritic nature (worse with deep breath/cough) to assess PE/pleurisy vs ACS/GERD.\nTop candidates:\n1) Possible NSTEMI / STEMI\n2) Pulmonary embolism\n3) Unstable angina\n4) Pericarditis\n5) GERD\nMost informative next question: pleuritic component.\n[/REASONING]\nDoes the pain get worse when you take a deep breath or cough? (yes or no)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: persistent uncertainty about dyspnea/pleuritic features. However, the symptom pattern (heavy/sickening/scary chest/epigastric pain with diaphoresis and radiation to jaw/arms/shoulder) is still strongly concerning for ACS. We need at least one more discriminating question that can be answered: exertional trigger or relief with rest/nitro (ACS/angina) vs positional relief (pericarditis) vs burning/regurgitation (GERD).\nNext most informative: ask whether it started with exertion/stress and whether rest helps.\nTop candidates:\n1) Possible NSTEMI / STEMI\n2) Unstable angina\n3) Pulmonary embolism\n4) Pericarditis\n5) GERD\n[/REASONING]\nDid this pain start during physical activity or stress, and does it improve with rest? (yes/no)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators (dyspnea, pleuritic component, exertional trigger/relief, and associated features) are still unknown, so I can’t confidently rank beyond “must rule out ACS.” The symptom description is concerning, but evidence is insufficient to narrow to a specific top diagnosis.  \n[POSSIBLE] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, GERD, Pericarditis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "GERD",
+      "Pericarditis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12018,
+      "completion_tokens": 1530
+    },
+    "patient": {}
+  }
+}

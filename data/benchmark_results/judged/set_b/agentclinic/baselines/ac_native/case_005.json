@@ -1,0 +1,92 @@
+{
+  "case_idx": 5,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Membranous nephropathy",
+  "patient_actor_hidden": {
+    "Demographics": "66-year-old white male",
+    "History": "The patient reports a 10-day history of fatigue and bilateral lower leg swelling. He mentions a weight loss of 3.6 kg (8 lbs) over the past 6 months without trying. He has a history of chronic bronchitis and uses an albuterol inhaler as needed.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower leg swelling",
+        "Unintentional weight loss"
+      ]
+    },
+    "Past_Medical_History": "Chronic bronchitis.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 44 years and drinks one alcoholic beverage daily.",
+    "Review_of_Systems": "The patient denies any recent cough, change in urinary habits, chest pain, dyspnea, or fevers."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, lower leg swelling, and weight loss.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I decide what’s going on, I need to ask a few quick questions: How long have you had the fatigue, lower-leg swelling, and weight loss, and are you noticing shortness of breath or chest pain? Doctor: Also, do you have any history of heart, kidney, or liver disease, and is your swelling pitting (press your shin—does it leave a dent)? Doctor: Lastly, have you noticed decreased urination, abdominal bloating, or night sweats/fever?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: My fatigue has been going on about 10 days, and the swelling in both legs started around then too; I’ve lost about 3.6 kg over the last 6 months. I don’t have chest pain or shortness of breath beyond my usual chronic bronchitis, and I don’t think my swelling is leaving a dent when you press. I haven’t noticed decreased urination, abdominal bloating, fevers, or night sweats, and I don’t have any known heart, kidney, or liver disease."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—10 days of rapidly worsening **bilateral leg swelling** with **unintentional weight loss** and **non-pitting** edema, without SOB/chest pain and without known heart/kidney/liver disease; I need to clarify risk and severity: do you have **any history of cancer, blood clots, new medications (including hormones), or recent travel/immobility**, and have you had **any new cough, wheezing, or coughing up blood**? Doctor: REQUEST TEST: CBC_with_diff, CMP (including AST/ALT/albumin, creatinine), TSH, Urinalysis (protein/hematuria), and BNP.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37°C (98.6°F); Blood pressure 120/75 mm Hg; Heart rate 88/min; Respiratory rate “Normal.” CBC: Hemoglobin 11.2 g/dL; WBC 8500/mm3; Platelets 130,000/mm3. CMP/chemistry: BUN 23 mg/dL; Creatinine 1.6 mg/dL; Albumin 1.8 g/dL; Glucose 77 mg/dL. (AST/ALT not provided.) Thyroid: TSH not provided. Urinalysis: Blood negative; Glucose negative; Protein 4+; WBC 0–1/hpf; Fatty casts “Numerous.” BNP: not provided."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this fits **severe hypoalbuminemia (albumin 1.8 g/dL) plus heavy proteinuria (urine protein 4+) with fatty casts**, which most strongly suggests **nephrotic syndrome** as the cause of your leg swelling and weight loss—can you confirm if you’ve noticed **foamy urine**, **worsening leg swelling at the same time**, or **any frothy bubbles**? Doctor: Also, do you have **new flank/back pain**, **visible blood in urine**, a **recent viral illness**, or **skin/joint symptoms** (rashes, swollen joints)? Doctor: DIAGNOSIS READY: Nephrotic syndrome (likely glomerular disease causing edema and hypoalbuminemia; requires kidney-focused evaluation such as urine protein quantification and nephrology workup).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: I’m concerned this fits **severe hypoalbuminemia (albumin 1.8 g/dL) plus heavy proteinuria (urine protein 4+) with fatty casts**, which most strongly suggests **nephrotic syndrome** as the cause of your leg swelling and weight loss—can you confirm if you’ve noticed **foamy urine**, **worsening leg swelling at the same time**, or **any frothy bubbles**? Doctor: Also, do you have **new flank/back pain**, **visible blood in urine**, a **recent viral illness**, or **skin/joint symptoms** (rashes, swollen joints)? Doctor: DIAGNOSIS READY: Nephrotic syndrome (likely glomerular disease causing edema and hypoalbuminemia; requires kidney-focused evaluation such as urine protein quantification and nephrology workup).",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 3,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1344,
+      "completion_tokens": 438,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 410,
+      "completion_tokens": 111,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 648,
+      "completion_tokens": 166,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 240,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

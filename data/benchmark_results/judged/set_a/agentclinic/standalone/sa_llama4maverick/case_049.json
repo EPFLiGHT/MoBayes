@@ -1,0 +1,127 @@
+{
+  "case_idx": 49,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient presents requesting prenatal care, reporting 2 months of increasing breast tenderness, nausea, a 6.6 lb weight gain, increased urinary frequency, and uncertainty about the date of her last menstrual period. She stopped taking oral contraceptives 6 months ago and has been trying to conceive with her husband since then. She believes she is pregnant and was happy to share this news with her husband last week.",
+    "Symptoms": {
+      "Primary_Symptom": "Increasing breast tenderness",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Weight gain of 6.6 lbs",
+        "Increased urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Stopped oral contraceptives 6 months prior in an attempt to conceive.",
+    "Social_History": "Reports being in a stable relationship and actively trying to conceive with her husband.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms suggestive of early pregnancy.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’m hoping to start prenatal care—over the past two months I’ve had increasing breast tenderness, nausea, a 6.6 lb weight gain, and more frequent urination, and I’m not sure of my last menstrual period. I stopped oral contraceptives six months ago and have been trying to conceive with my husband, and I think I may be pregnant.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To assess the likelihood of pregnancy and determine the appropriate next steps, can you tell me when you first noticed these symptoms and if you've taken any pregnancy tests?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I first noticed the breast tenderness, nausea, and the weight gain starting about two months ago, and the urinary frequency has been increasing over that same time. I’ve taken a home pregnancy test twice—both were positive.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned having stopped oral contraceptives six months ago. Have you experienced any irregularities with your menstrual cycle since stopping the pill?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Since stopping the oral contraceptives six months ago, my periods have been irregular and my last one is hard to pin down, which is why I’m unsure of the exact date. I haven’t had any bleeding patterns that felt consistent.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Irregular menstrual cycles can make it challenging to determine the gestational age. Have you experienced any abdominal pain or vaginal bleeding since you started noticing these symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any abdominal pain or vaginal bleeding since these symptoms started. I’m mainly just feeling the breast tenderness, nausea, weight gain, and more frequent urination.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The absence of abdominal pain or vaginal bleeding is a good sign. To further assess your condition, can you tell me if you've experienced any other symptoms such as fatigue, mood changes, or food cravings?\n \nHowever, to stay focused on the main issue at hand, I'll rephrase: Are you experiencing any severe or unusual symptoms that concern you?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve been feeling a bit more tired than usual and more emotional than normal, but I don’t have any severe or unusual symptoms that really concern me. I haven’t had any abdominal pain, fever, or unusual discharge—just the breast tenderness, nausea, weight gain, and frequent urination.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "It sounds like you're experiencing a cluster of symptoms commonly associated with pregnancy. To further confirm the pregnancy and assess your overall health, I'd like to know: Have you had any previous medical conditions or surgeries that I should be aware of?\n\n(I'll try to limit my questions to stay within the 15-question limit)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any past medical conditions or surgeries I’m aware of. I stopped my oral contraceptives about six months ago to try to conceive, and otherwise my history has been pretty straightforward.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given your symptoms and history, it's likely that you are pregnant. To confirm the pregnancy and assess your health, a physical examination and some laboratory tests would be necessary. However, based on the information gathered so far, I'm going to proceed with providing a differential diagnosis.\n\n[DDX] Normal pregnancy, Hyperemesis gravidarum is less likely given the absence of severe vomiting, Molar pregnancy, Ectopic pregnancy is less likely given the absence of abdominal pain or vaginal bleeding, Thyroid dysfunction is a possibility but less likely given the overall clinical picture.\n\nLet me reformat to fit the exact format required: \n[DDX] Normal pregnancy, Molar pregnancy, Ectopic pregnancy, Hyperemesis gravidarum, Thyroid dysfunction",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Normal pregnancy",
+    "predicted_set": [
+      "Normal pregnancy",
+      "Molar pregnancy",
+      "Ectopic pregnancy",
+      "Hyperemesis gravidarum",
+      "Thyroid dysfunction"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3171,
+      "completion_tokens": 374
+    },
+    "patient": {
+      "prompt_tokens": 3542,
+      "completion_tokens": 347,
+      "calls": 6
+    }
+  }
+}

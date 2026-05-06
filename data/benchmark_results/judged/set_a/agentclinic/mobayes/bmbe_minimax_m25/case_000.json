@@ -1,0 +1,333 @@
+{
+  "case_idx": 0,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old woman",
+    "History": "The patient has been in home hospice care and has experienced a recent change in mental status, showing signs of confusion and an inability to communicate her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status with confusion",
+      "Secondary_Symptoms": [
+        "Elevated temperature",
+        "Discomfort in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is in home hospice, indicating a history of significant chronic illness, though specifics are not provided. No explicit history of gallbladder disease mentioned.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "Unable to complete due to patient's altered mental state."
+  },
+  "objective_for_doctor": "Evaluate and manage a senior patient presenting with altered mental status and abdominal pain.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor, I’ve been in home hospice, and lately my thinking has changed—I’m confused and having trouble explaining what I feel. I’ve also had a fever and some discomfort in the right upper part of my abdomen.",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_altered_mental_status_f460088f": "yes",
+        "f_word_finding_difficulty_0b430b71": "yes",
+        "f_right_upper_quadrant_pain_5ae0b53e": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.33981524117622824
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2785874867055529
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09678787130787968
+        ],
+        [
+          "Pneumonia",
+          0.07298731462197336
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.03048522383086275
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Good morning. I'd like to ask you a few questions about how you're feeling.\n\nDo you notice any stiffness in your joints, particularly in the morning when you wake up? If so, how long does it usually last?",
+      "patient_answer": "Patient: I don’t think I’ve noticed any particular stiffness in my joints in the mornings, but my memory and ability to describe things clearly have been worse since the confusion started. When I wake up, I mostly just feel generally uncomfortable, and I haven’t been able to tell how long anything lasts.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.33981524117622824
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2785874867055529
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09678787130787968
+        ]
+      ],
+      "entropy": 3.070025751662199
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, thank you for being here today. I'd like to ask you a few questions to help understand what you're experiencing.\n\nAre you currently having any chest pain or discomfort? If so, can you describe what it feels like—for example, is it sharp, dull, pressure-like, or burning?",
+      "patient_answer": "I don’t think I have chest pain right now, but I’ve been feeling generally unwell, and I’m struggling to describe details clearly. The main thing I can tell you is I’ve had a fever and discomfort in the right upper part of my abdomen.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.3475325390926376
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.28491428541902053
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.09898595057881686
+        ]
+      ],
+      "entropy": 3.024626646575171
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your symptoms.\n\nAre you currently experiencing any difficulty lifting objects, such as when you try to lift things like groceries or everyday items?",
+      "patient_answer": "“Doctor, I haven’t been trying to lift objects much since I’ve been more confused and feeling generally unwell, but I don’t recall any specific trouble lifting things because my main issue has been the fever and the discomfort in my right upper abdomen.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.355545002079362
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2914830664956622
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.08662692911820244
+        ]
+      ],
+      "entropy": 2.977581132378932
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your arms to help with the assessment.\n\nHave you noticed any skin changes, such as rashes, sores, or unusual spots along the veins in your arms?",
+      "patient_answer": "“Doctor, I haven’t noticed any rashes, sores, or unusual spots on my arms or along any veins, but with the confusion I may not have been paying close attention.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.3555450020793619
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.29148306649566214
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.08662692911820244
+        ]
+      ],
+      "entropy": 2.977581132378932
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\nAre you currently feeling any pain on either side of your back, around your waist or lower ribs area? This is sometimes described as flank pain.",
+      "patient_answer": "“Doctor, I don’t recall any specific pain on either side of my back or around my waist or lower ribs. I’ve mostly just had the fever and the discomfort in the right upper part of my abdomen.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.35652803492493373
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2922889769334898
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.08686644061783315
+        ]
+      ],
+      "entropy": 2.963785301305441
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any rough, scaly patches on your skin that have been there for a while and haven't gone away? These might feel slightly raised or rough to the touch.",
+      "patient_answer": "“Doctor, I haven’t noticed any rough, scaly patches on my skin that have been there a while, but I’m not sure—I’ve been quite confused since the fever and the discomfort in my right upper abdomen started.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.35743164725120596
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.29302977680479925
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.08708660166771579
+        ]
+      ],
+      "entropy": 2.951233978562966
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your scalp.\n\nHave you noticed any unusual spots, sores, bumps, or patches on your scalp?",
+      "patient_answer": "“Doctor, I haven’t noticed any sores, bumps, or unusual patches on my scalp, but my confusion has made it hard to check carefully. I can tell you the main things bothering me are the fever and the discomfort in the right upper part of my abdomen.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.3592827995286858
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2945473893130179
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.08753762653430203
+        ]
+      ],
+      "entropy": 2.9254905435136958
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your eating habits lately.\n\nHave you been experiencing any unusual food cravings — like strong urges for specific foods that are hard to control?",
+      "patient_answer": "“Doctor, I haven’t noticed any unusual food cravings or strong urges for specific foods. With the confusion and the fever and right upper abdominal discomfort, my appetite and ability to pay attention to cravings have been pretty off.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.3672104644604291
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.3010466512093751
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.06934758663918635
+        ]
+      ],
+      "entropy": 2.9010021174434915
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello, I'm here to help with your assessment today.\n\nI'd like to ask you a few questions about how you're feeling.\n\n**Are you currently experiencing any pain or discomfort in your knee or knees?**",
+      "patient_answer": "Doctor: Are you currently experiencing any pain or discomfort in your knee or knees? Patient: No, I don’t think so—I’ve mainly been dealing with a fever and discomfort in the right upper part of my abdomen, and my confusion makes it hard to notice other aches.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.3672104644604291
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.3010466512093751
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.06934758663918635
+        ]
+      ],
+      "entropy": 2.9010021174434915
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello! I'd like to ask you a few questions to help understand what you're experiencing.\n\nWhen you move your knee—bending or straightening it—do you feel any pain in your thigh area? This could be in the front, back, or sides of your thigh.",
+      "patient_answer": "Doctor, I don’t think I’ve noticed any pain in my thigh area when I move my legs, but since I’m confused and mostly focused on the fever and right upper abdominal discomfort, I may not be paying close attention. I haven’t been able to clearly track where any aches might be.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.3672104644604291
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.3010466512093751
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.06934758663918637
+        ]
+      ],
+      "entropy": 2.9010021174434915
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Acalculous cholecystitis",
+      "Frontotemporal Dementia"
+    ],
+    "confidence": 0.3672104644604291,
+    "final_entropy": 2.9010021174434915,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Acalculous cholecystitis",
+      "Frontotemporal Dementia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11769,
+      "completion_tokens": 5120
+    },
+    "patient": {
+      "prompt_tokens": 8451,
+      "completion_tokens": 582,
+      "calls": 11
+    }
+  }
+}

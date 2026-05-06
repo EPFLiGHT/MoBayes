@@ -1,0 +1,109 @@
+{
+  "case_idx": 20,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: M\nChief Complaint: changes in voice",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My voice has become deeper, softer, or hoarse. I also have difficulty swallowing, or a feeling of discomfort/blockage when swallowing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: hoarse/deep voice change plus dysphagia or “blockage/discomfort” with swallowing. This points toward an upper aerodigestive process (laryngeal/pharyngeal inflammation, infection, edema, or reflux) and less toward purely lower respiratory causes.\nTop candidates (tentative):\n1) Acute laryngitis — hoarseness is classic; dysphagia can occur with throat/laryngeal irritation.\n2) Epiglottitis — can cause muffled/hoarse voice and painful swallowing; potentially life-threatening.\n3) GERD — can cause hoarseness and throat discomfort/dysphagia sensation.\n4) Acute rhinosinusitis / Allergic sinusitis — post-nasal drip can irritate the larynx causing hoarseness and throat symptoms.\n5) Anaphylaxis — can cause voice change and swallowing difficulty if there is laryngeal edema, but we need allergy/rapid onset/other systemic symptoms.\nMost informative next question: determine whether this is acute, severe, and associated with airway red flags (drooling, stridor, fever, rapid progression).\n[/REASONING]\nDo you have any trouble breathing or noisy breathing (stridor), drooling, or a high fever—especially if symptoms started suddenly?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have shortness of breath or difficulty breathing in a significant way. I’ve also noticed a high pitched sound when breathing in.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: hoarse/deep voice + dysphagia sensation + now significant dyspnea with high-pitched inspiratory sound (stridor). This strongly suggests upper airway obstruction/edema rather than simple laryngitis or GERD.\nTop candidates:\n1) Epiglottitis — classic triad can include muffled/hoarse voice, painful swallowing/dysphagia, drooling, and respiratory distress/stridor; potentially rapidly progressive.\n2) Acute laryngitis — can cause hoarseness and sometimes mild breathing difficulty, but significant stridor is less typical.\n3) Anaphylaxis — can cause laryngeal edema with stridor and voice change, usually with rapid onset and other allergic features (hives, itching, swelling).\n4) Croup — stridor is typical, but usually in children; still possible depending on age.\n5) Acute dystonic reactions / laryngeal spasm — can cause acute airway symptoms, but hoarseness/dysphagia pattern needs more context.\nMost informative next question: ask about drooling and fever (epiglottitis) and rapid onset/allergic symptoms (anaphylaxis).\n[/REASONING]\nDo you have drooling or are you unable to swallow your saliva, and do you have a high fever?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: hoarse voice + dysphagia sensation + significant dyspnea with inspiratory stridor. Drooling/fever unknown. This keeps epiglottitis and anaphylaxis high on the list; acute laryngitis less likely.\nTop candidates:\n1) Epiglottitis — stridor + voice change + dysphagia are concerning; fever/drooling may be present but we haven’t confirmed.\n2) Anaphylaxis — laryngeal edema can cause stridor and voice change; need timing and allergic exposures.\n3) Acute laryngitis — could explain hoarseness, but significant stridor suggests more than simple infection.\n4) Acute dystonic reactions — can cause laryngeal symptoms/stridor, but hoarseness + dysphagia needs medication/exposure history.\n5) Croup — less likely in adults, but stridor fits.\nMost informative next question: determine rapid onset and any allergic trigger (food/medication/sting) and associated skin/GI symptoms.\n[/REASONING]\nDid this start suddenly (minutes to a few hours), and is there any recent trigger like a new food, medication (especially antibiotics/NSAIDs), insect sting, or known allergy—and any hives/itching or swelling of lips/tongue?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: hoarse/deep voice + dysphagia sensation + significant dyspnea with inspiratory stridor. We still lack crucial discriminators: fever/drooling (epiglottitis) and rapid onset/allergic symptoms (anaphylaxis).\nTop candidates remain:\n1) Epiglottitis — still most concerning given stridor + dysphagia/voice change.\n2) Anaphylaxis — still possible; need timing and allergic features.\n3) Acute laryngitis — less likely with stridor.\n4) Croup — less likely in adults but stridor fits.\n5) Acute dystonic reactions — possible if recent exposure to dopamine-blocking meds.\nMost informative next question: ask about recent medication exposure, especially dopamine antagonists (metoclopramide, prochlorperazine, haloperidol) or new antibiotics/NSAIDs, and whether symptoms began after taking them.\n[/REASONING]\nHave you taken any new medications in the last 1–2 days—especially metoclopramide/prochlorperazine/haloperidol (or other anti-nausea/antipsychotic meds), antibiotics, or NSAIDs?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: hoarse/deep voice + dysphagia sensation + significant dyspnea with inspiratory stridor. We still don’t have discriminators (fever/drooling, allergic trigger/rapid onset, medication exposure).\nGiven the presence of stridor with swallowing/voice changes, the safest approach is to treat as a potentially life-threatening upper airway process.\nTop candidates (most to least likely):\n1) Epiglottitis — stridor + dysphagia/voice change; fever/drooling unknown.\n2) Anaphylaxis — laryngeal edema can cause stridor; timing/allergy unknown.\n3) Acute laryngitis — hoarseness; stridor would be atypical but possible if severe edema.\n4) Acute dystonic reactions — can cause acute laryngeal symptoms/stridor, usually after dopamine-blocking meds (unknown).\n5) Croup — stridor; less likely in adults but not impossible.\nMost informative next question: ask about age and whether there’s a recent sore throat/URI symptoms or known sick contacts (to support infectious laryngitis/epiglottitis/croup) versus sudden allergic/medication-related onset.\n[/REASONING]\nHow old is the patient, and did this start with a recent sore throat/cold symptoms over days, or did it begin abruptly within minutes to hours?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m 1 year old. I don’t know whether it started with a recent sore throat/cold symptoms over days or began abruptly within minutes to hours.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 1-year-old with hoarse/deep voice, dysphagia sensation, and significant inspiratory stridor. Onset timing and fever/drooling/allergy/med exposure are unknown.\nTop candidates:\n1) Epiglottitis — can present with hoarse voice, painful swallowing/dysphagia, and stridor; life-threatening. Age can fit (though less common with vaccination).\n2) Croup — classic for inspiratory stridor and hoarseness; usually develops over hours to days with URI prodrome, but timing is unknown.\n3) Acute laryngitis — hoarseness possible, but significant stridor is less typical.\n4) Anaphylaxis — can cause laryngeal edema/stridor, but usually abrupt onset and other allergic signs (unknown).\n5) Acute dystonic reactions — unlikely at age 1 unless medication exposure (unknown).\nMost discriminating next question: look for URI prodrome and “barking” cough typical of croup vs high fever/toxic appearance typical of epiglottitis.\n[/REASONING]\nDoes the child have a barking cough or runny nose/congestion, and do they look very ill/toxic with high fever?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are still unknown (onset timing, fever/toxic appearance, drooling, barking cough/runny nose, and any allergic/medication trigger). With hoarseness + dysphagia sensation + inspiratory stridor in a 1-year-old, the differential is high-risk but I can’t confidently rank without those features.\n\n[POSSIBLE] Epiglottitis, Croup, Anaphylaxis, Acute laryngitis, Acute dystonic reactions",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Epiglottitis",
+      "Croup",
+      "Anaphylaxis",
+      "Acute laryngitis",
+      "Acute dystonic reactions"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11447,
+      "completion_tokens": 1708
+    },
+    "patient": {}
+  }
+}

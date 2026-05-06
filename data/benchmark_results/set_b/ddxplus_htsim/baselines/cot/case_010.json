@@ -1,0 +1,109 @@
+{
+  "case_idx": 10,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 13\nSex: F\nChief Complaint: nausea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have nausea, and I’ve vomited several times. I also have significant difficulty breathing and pain—my pain is about 7/10, in my lower chest and belly, and it radiates to my thoracic spine and the right scapula.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: nausea with multiple episodes of vomiting; significant dyspnea; severe (7/10) pain in lower chest/upper abdomen radiating to thoracic spine and right scapula. This combination raises concern for cardiopulmonary or serious intra-abdominal pathology (e.g., ACS, pulmonary embolism, pneumonia/pleural process, or other causes of referred pain). We need a discriminating feature next: whether the pain is pleuritic/positional and whether there are cardiopulmonary symptoms like cough/fever, or classic ACS features.\nTop candidates (tentative):\n1) Possible NSTEMI / STEMI — chest/upper abdominal pain with radiation to back/scapula plus dyspnea and vomiting can be atypical ACS.\n2) Pulmonary embolism — dyspnea with chest pain; vomiting can occur; radiation to back can happen.\n3) Pneumonia — can cause pleuritic chest pain and dyspnea; vomiting may occur, but radiation pattern is less specific.\n4) Acute pulmonary edema — dyspnea prominent; pain less typical, but can have chest discomfort.\n5) GERD — can cause epigastric/lower chest pain with nausea/vomiting, but dyspnea and severe radiating pain make this less likely than above.\nMost informative next question: determine whether the pain is pleuritic (worse with breathing/cough) or pressure-like",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Is the pain worse when I breathe in deeply, cough, or move?",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: nausea/vomiting + significant dyspnea + severe pain (7/10) lower chest/upper abdomen radiating to thoracic spine and right scapula. Now we need to know if pain is pleuritic/musculoskeletal vs pressure-like/visceral.\nIf pain is worse with deep breaths/cough/movement → favors pleuritic causes (pulmonary embolism, pneumonia/pleuritis, pneumothorax, pericarditis less commonly) or musculoskeletal pain.\nIf not worse with breathing/movement and feels like pressure/tightness → favors ACS/PE less pleuritic, GERD, etc.\nTop candidates to keep in mind:\n- Pulmonary embolism (dyspnea + chest pain; can be pleuritic)\n- Pneumonia/pleuritis (pleuritic pain + dyspnea)\n- Possible NSTEMI / STEMI (can present atypically with vomiting and dyspnea; not necessarily pleuritic)\n- Acute pulmonary edema (dyspnea; pain not typically pleuritic)\n- GERD (pain related to meals/position; usually not pleuritic)\nSingle most informative next action: ask about the pain quality/character (pressure vs sharp/pleuritic) and whether it’s associated with exertion or relief with rest/position.\nNext question (one at a time): Does the pain feel like pressure/tightness or more like",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It feels like a knife stroke—violent, heartbreaking, haunting, and sickening.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: severe “knife-like” pain (7/10) with dyspnea and vomiting; pain radiates to thoracic spine and right scapula; pleuritic quality was asked but not answered—however “knife stroke” suggests sharp/pleuritic or tearing-type pain.\nThis increases concern for serious cardiopulmonary causes (PE, pneumothorax, pneumonia/pleuritis) and also for less common catastrophic causes (e.g., Boerhaave—esophageal rupture—can cause severe pain after vomiting, often with dyspnea; not in list but Boerhaave is included). Vomiting preceding severe chest/upper abdominal pain is a key discriminator for Boerhaave.\nTop candidates:\n1) Boerhaave — severe chest/upper abdominal pain after forceful vomiting; dyspnea; can radiate to back/scapula; “knife-like” fits.\n2) Pulmonary embolism — sharp pleuritic pain + dyspnea; vomiting can occur.\n3) Pneumonia — pleuritic sharp pain + dyspnea; vomiting possible.\n4) Spontaneous pneumothorax — sudden sharp chest pain + dyspnea (vomiting less typical).\n5) Possible NSTEMI / STEMI — can be severe and atypical, but “knife-like” after vomiting is less classic.\nMost informative next question: Did the vomiting start before the chest/upper abdominal pain (and",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Did the vomiting start before the chest/upper abdominal pain, or did the pain start before you started vomiting?",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: We’re clarifying sequence. For Boerhaave, vomiting typically precedes the severe chest/upper abdominal pain. For ACS/PE/pneumonia, pain often precedes vomiting (or vomiting is secondary to pain/nausea).\nMost discriminating next question is exactly this sequence; we need the patient’s answer.\nTop candidates (conditional):\n- If vomiting started first → Boerhaave becomes high; also consider aspiration-related pneumonia/pleuritis.\n- If pain started first → PE/ACS/pneumonia more likely.\nNext action: ask the patient to answer directly which came first.\nSingle question: Which came first for you—vomiting or the pain? (You can answer “vomiting first” or “pain first.”) [/REASONING]\nWhich came first for you—vomiting first or the pain first?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Vomiting first.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: vomiting first, then sudden severe “knife-like” pain in lower chest/upper abdomen radiating to thoracic spine/right scapula, with significant dyspnea. This pattern is strongly concerning for esophageal rupture (Boerhaave) after forceful emesis. Dyspnea can reflect mediastinal air/pleural effusion; pain can be severe and radiate to back/scapula. Other causes (PE, pneumonia) can have sharp pain and dyspnea, but the classic vomiting-first sequence makes Boerhaave most likely.\nTop candidates:\n1) Boerhaave — vomiting first → then abrupt severe chest/upper abdominal pain; dyspnea; radiating to back/scapula fits.\n2) Anaphylaxis — can cause vomiting and dyspnea, but pain described as knife-like and radiating is less typical.\n3) Pulmonary embolism — dyspnea + sharp pain possible, but vomiting-first sequence is less characteristic.\n4) Pneumonia — vomiting can occur, but “vomiting first then knife-like chest pain” is less typical.\n5) Acute pulmonary edema — dyspnea prominent, but vomiting-first with severe radiating pain is less typical.\nNeed one more discriminating question to support Boerhaave vs alternatives: ask about subcutaneous emphysema/neck swelling or difficulty swallowing/odynophagia, or whether there’s fever/crepitus. Most direct:",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: vomiting first, then abrupt severe “knife-like” pain in lower chest/upper abdomen radiating to thoracic spine and right scapula, with significant dyspnea. This strongly supports Boerhaave (esophageal rupture after forceful emesis). However, we still lack confirmatory features (e.g., dysphagia/odynophagia, subcutaneous emphysema, fever) and we haven’t assessed cardiopulmonary alternatives (pleuritic nature, risk factors for PE/ACS, cough/fever). Because the vomiting-first sequence is a major discriminator, I’m reasonably confident to provide a top differential, but not enough to fully exclude PE/ACS/pneumonia.\nTop candidates:\n1) Boerhaave — vomiting first → then sudden severe chest/upper abdominal pain; dyspnea; radiation to back/scapula fits.\n2) Pulmonary embolism — dyspnea + sharp chest pain possible; vomiting can occur.\n3) Possible NSTEMI / STEMI — atypical presentations with epigastric pain, vomiting, and dyspnea.\n4) Pneumonia — pleuritic sharp pain and dyspnea; vomiting possible.\n5) Acute pulmonary edema — prominent dyspnea with chest discomfort; vomiting can occur, though pain pattern less typical.\nNext most informative question would be: Do you have trouble swallowing or pain when swallowing (odynophagia), or",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Vomiting first followed by abrupt, severe “knife-like” chest/upper abdominal pain with dyspnea strongly suggests Boerhaave, but the history is incomplete (we still don’t know key discriminators like dysphagia/odynophagia, pleuritic features, cough/fever, or cardiac/PE risk factors), so I can’t confidently rank the top 5 without risking a misdiagnosis.\n\n[POSSIBLE] Boerhaave, Pulmonary embolism, Possible NSTEMI / STEMI, Pneumonia, Acute pulmonary edema",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Boerhaave",
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Pneumonia",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11938,
+      "completion_tokens": 1802
+    },
+    "patient": {}
+  }
+}

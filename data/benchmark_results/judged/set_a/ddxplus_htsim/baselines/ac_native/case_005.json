@@ -1,0 +1,129 @@
+{
+  "case_idx": 5,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Acute rhinosinusitis",
+  "patient_actor_hidden": {
+    "AGE": 42,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "fever",
+    "EVIDENCES_ENG": "['pain', 'fever', 'hyposmia (reduced sense of smell)', 'history of pneumonia', 'nasal polyps', 'deviated nasal septum', 'gastroesophageal reflux disease (gerd) diagnosis', 'purulent nasal discharge', 'cough', 'vaccination status']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 42\n- I have pain somewhere related to my reason for consulting.\n- I have a fever (either felt or measured with a thermometer).\n- I have lost my sense of smell.\n- I have had pneumonia.\n- I have polyps in my nose.\n- I have a deviated nasal septum.\n- I have been diagnosed with gastroesophageal reflux.\n- I have greenish or yellowish nasal discharge.\n- I have a cough.\n- My vaccinations are up to date.\n- On a scale of 0-10, the pain intensity is 6\n- On a scale of 0-10, the pain's location precision is 2\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The pain is:\n* burning\n* sharp\n- The pain locations are:\n* eye(R)\n* eye(L)\n- The pain radiates to these locations:\n* back of head\n* temple(R)\n* temple(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute rhinosinusitis', 0.20703442919039372], ['Chronic rhinosinusitis', 0.18185003900564575], ['Bronchitis', 0.17632777677760622], ['HIV (initial infection)', 0.14206136050748686], ['Tuberculosis', 0.1297110479533878], ['Influenza', 0.10774343016675389], ['Chagas', 0.045094980531762884], ['Pneumonia', 0.01017693586696282]]",
+    "PATHOLOGY": "Acute rhinosinusitis",
+    "INITIAL_EVIDENCE": "fievre",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_oeil_D_', 'douleurxx_endroitducorps_@_oeil_G_', 'douleurxx_intens_@_6', 'douleurxx_irrad_@_arrière_de_tête', 'douleurxx_irrad_@_tempe_D_', 'douleurxx_irrad_@_tempe_G_', 'douleurxx_precis_@_2', 'douleurxx_soudain_@_5', 'fievre', 'hyponos', 'j17_j18', 'j33', 'j34.2', 'k21', 'rhino_pur', 'toux', 'trav1_@_N', 'vaccination']",
+    "patient_id": "htsim_0180",
+    "_test_index": 180,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 42-year-old F patient presents to the clinic. Chief complaint: fever.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever and a cough. I also have greenish or yellowish nasal discharge and pain around both eyes (right and left) that radiates to the back of my head and the temples on both sides.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When did your symptoms start, and have you had any facial/forehead pressure that worsens when you bend forward?  \nDoctor: Do you have any shortness of breath, chest pain, or severe sore throat, and have you measured your highest temperature?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nAlso, I have had pneumonia, polyps in my nose, and a deviated nasal septum. I have a cough and fever, and I have greenish or yellowish nasal discharge.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your nasal polyps and green/yellow discharge, do you have worsening facial pressure or pain when leaning forward, and is there any reduced sense of smell?  \nDoctor: Also, have you noticed any ear pain or tooth pain, and do you have any severe headache/neck stiffness or vision changes?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have reduced sense of smell.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—reduced smell plus green/yellow discharge and bilateral eye-area pain suggests acute bacterial sinusitis. Do you have worsening facial pressure/pain when you bend forward, and are you having any severe headache or vision changes?  \nDoctor: To confirm and rule out complications, REQUEST TEST: Sinus CT (or CT sinuses without contrast) and REQUEST TEST: CBC (with differential) .",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to narrow this down—on a 0–10 scale, how bad is your facial/eye-area pain or pressure, and does it get noticeably worse when you bend forward?  \nDoctor: Also, do you have any vision changes (double vision, decreased vision, pain with eye movement) or severe headache/neck stiffness?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s 6 out of 10 for the pain intensity, and the pain appears at a pace of 5 out of 10. I don’t know about whether it gets worse when I bend forward. I don’t know about any vision changes or severe headache/neck stiffness.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—sinusitis seems likely, but we need to assess danger signs: do you have any eye swelling around the eyelids, double vision, or pain with moving your eyes? Also, do you have severe headache that’s unlike your usual or neck stiffness?  \nDoctor: If you can, do you have your CT/CBC results yet (REQUEST TEST: CT sinuses without contrast, REQUEST TEST: CBC with differential) so I can decide if this is uncomplicated acute bacterial rhinosinusitis versus a complication?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about eye swelling around the eyelids, double vision, or pain with moving my eyes. I also don’t know about any severe headache that’s unlike my usual or any neck stiffness. I don’t have my CT/CBC results yet.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given fever + green/yellow nasal discharge + reduced smell and bilateral eye-area/facial pain, I’m leaning to **acute bacterial rhinosinusitis**; to ensure we’re not missing an orbital/intracranial complication, can you check one more thing: any eyelid/around-eye swelling or redness, trouble moving the eyes, or decreased vision?  \nDoctor: Also, what’s your maximum measured temperature (or “no thermometer”), and how long has the illness been going on in days?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about any eyelid/around-eye swelling or redness, trouble moving my eyes, or decreased vision.\n\nI also don’t know my maximum measured temperature, or how long the illness has been going on in days.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you have fever, green/yellow nasal discharge, bilateral eye/facial pain, and reduced sense of smell—with no known vision/eye-movement red flags—I suspect **acute bacterial rhinosinusitis** rather than a complication.  \nDoctor: I need treatment today, but first: how many days has this been going on (roughly), and do you have tooth pain in the upper teeth or worsening facial pain with bending forward?  \nDoctor: DIAGNOSIS READY: Acute bacterial rhinosinusitis (likely acute bacterial rhinosinusitis with fever; evaluate for complications if vision changes/eye swelling or severe worsening headache develop).\n\n[ABSTAIN] free-text diagnosis 'Acute bacterial rhinosinusitis (likely acute bacterial rhinosinusitis with fever; evaluate for complications if vision changes/eye swelling or severe worsening headache develop).' did not map to the closed disease set",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3879,
+      "completion_tokens": 631,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 7430,
+      "completion_tokens": 279,
+      "calls": 7
+    }
+  }
+}

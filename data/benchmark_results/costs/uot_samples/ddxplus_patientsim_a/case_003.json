@@ -1,0 +1,130 @@
+{
+  "case_idx": 3,
+  "baseline": "uot",
+  "column": "patientsim",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Male\nChief Complaint: I have a fever, sensitive pain, and mood instability",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and I feel really sensitive pain, and my mood has been unstable. I also have nasal congestion or a clear runny nose, and the pain is about 3/10 but it feels like it’s all pinpointed where it hurts (pain localization 10/10) and started pretty quickly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have fever plus cough and/or sore throat (an acute infectious-type illness), rather than primarily chest pain, palpitations, or neurologic weakness?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had a fever, but I don’t think it’s chest pain or palpitations or any neurologic weakness. I also have nasal congestion or a clear runny nose. I don’t have cough or sore throat that I can tell you about.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have shortness of breath (difficulty breathing) at rest or worsening with activity?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath at rest or when I move around.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **acute rhinosinusitis**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion / a clear runny nose, and this started pretty quickly. I’m not sure if that counts as acute rhinosinusitis, but my nose symptoms are definitely there.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Influenza**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know for sure, but I have a fever and nasal congestion/clear runny nose. I don’t have cough or sore throat that I’ve noticed.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **URTI (upper respiratory tract infection)**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I think yes—because I have fever and nasal congestion with a clear runny nose, which feels like an upper respiratory thing. I don’t have cough or sore throat that I can report.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **URTI**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I think so. Fever plus nasal congestion/clear runny nose feels like an upper respiratory infection.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Influenza**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure it’s influenza. I have fever and a clear runny nose/nasal congestion, but I don’t have cough or sore throat that I can tell you about.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute laryngitis, Acute otitis media, Acute rhinosinusitis, Allergic sinusitis  , Chronic rhinosinusitis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Acute laryngitis",
+    "predicted_set": [
+      "Acute laryngitis",
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Allergic sinusitis",
+      "Chronic rhinosinusitis"
+    ],
+    "predicted_raw": [
+      "Acute laryngitis",
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Allergic sinusitis  ",
+      "Chronic rhinosinusitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 16014,
+      "completion_tokens": 21431,
+      "total_tokens": 37445
+    },
+    "patient": {
+      "prompt_tokens": 6004,
+      "completion_tokens": 335
+    }
+  }
+}

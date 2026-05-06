@@ -1,0 +1,109 @@
+{
+  "case_idx": 28,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Lambert-Eaton Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient reports a 3-month history of chronic cough and progressively worsening difficulty in walking up stairs in his apartment. Interestingly, he notes that his ability to climb stairs improves after he has exercised. Over the last 6 months, he has also experienced a weight loss of 4.6 kg (10.1 lb). The patient has been smoking one pack of cigarettes daily for 35 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Difficulty walking up stairs",
+      "Secondary_Symptoms": [
+        "Chronic cough",
+        "Weight loss of 4.6 kg over 6 months",
+        "Improvement in muscle strength post-exercise"
+      ]
+    },
+    "Past_Medical_History": "No significant previous medical or surgical history reported.",
+    "Social_History": "Smokes one pack of cigarettes daily for 35 years, occasional alcohol consumption.",
+    "Review_of_Systems": {
+      "General": "Weight loss",
+      "Respiratory": "Chronic cough",
+      "Musculoskeletal": "Progressive muscle weakness, improving with exertion",
+      "Neurological": "Sluggish pupil reaction to light"
+    }
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a chronic cough, difficulty walking up stairs which improves after exercise, and significant weight loss.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, how long has your chronic cough lasted, and is it dry or producing phlegm/blood? Patient: Doctor: Do you get shortness of breath or chest pain, and have you noticed fevers or night sweats? Patient: Doctor: About the walking issue: when you climb stairs, do your legs feel weak/painful/short of breath, and does it improve after you keep going?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: My cough has been going on for about three months, and it’s mostly dry—no blood and no fevers or night sweats. When I climb stairs my legs feel weak and slow, but if I keep moving and warm up, it actually improves somewhat."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—any wheezing/itchy throat, reflux/heartburn, or smoking/exposure to TB/chemicals? Also, have you lost weight without trying, and do you get numbness/tingling or any swelling/pain in your legs?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I do smoke about a pack a day for 35 years, but I don’t recall wheezing or itchy throat, and I don’t really have heartburn or reflux. I haven’t had fevers or night sweats, and I do have the weight loss of about 4.6 kg without trying, but no numbness/tingling—just progressive weakness and some leg discomfort."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Given the 3-month dry cough with significant unintentional weight loss and long smoking history, plus leg weakness that improves with warming, I’m concerned about either lung malignancy with systemic effects or a paraneoplastic syndrome—can you tell me if you have new shortness of breath at rest, hoarseness, or swollen lymph nodes, and whether the weakness is symmetric or one-sided? Doctor: Also, on exam we need to check for muscle strength/reflex changes and signs of myopathy—are you able to rise from a chair or climb without hand support, and do you have any back pain? Doctor: REQUEST TEST: Chest_X-Ray, REQUEST TEST: CBC_with_differential, REQUEST TEST: CMP, REQUEST TEST: Sputum_cytology_if_producing (even if dry), REQUEST TEST: CT_Chest_with_contrast",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.0°C (98.6°F); Blood Pressure 130/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 18 breaths/min. Pupillary response: equal, sluggishly reactive to light. Muscle strength: proximal lower extremity initially 3/5, improving to 5/5 upon repeated muscle tapping. Deep tendon reflexes: Achilles reflex 1+. Mucous membranes: dry. Serum electrolytes: Na 140 mEq/L, K 4.3 mEq/L, Cl 104 mEq/L, Ca 9.2 mg/dL. CBC: WBC 7,800 /μL, Hemoglobin 14.2 g/dL, Platelets 230,000 /μL. PFTs: normal spirometry. Voltage-gated calcium channel antibody: elevated."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: The elevated voltage-gated calcium channel antibody plus the proximal “stiff/weak” leg pattern that improves with repeated use (and largely normal CBC/PFTs) makes me think of Lambert–Eaton myasthenic syndrome (often paraneoplastic), likely from a small-cell lung cancer—do you have any new shortness of breath, chest discomfort, hoarseness, or a history of smoking-related malignancy, and have you had any abnormal imaging yet? Doctor: On exam I’d expect fatigability with improving strength after brief exercise and reduced reflexes (your Achilles 1+ fits); if CT chest hasn’t been done, I need it immediately to look for small-cell lung cancer. Doctor: REQUEST TEST: CT_Chest_with_contrast; REQUEST TEST: Serum_creatine_kinase_and_Magnesium; REQUEST TEST: MRI_Brain_or_Cervical_spine_if_neuro_symptoms; DIAGNOSIS READY: Lambert–Eaton myasthenic syndrome (paraneoplastic), likely secondary to small-cell lung carcinoma",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: The elevated voltage-gated calcium channel antibody plus the proximal “stiff/weak” leg pattern that improves with repeated use (and largely normal CBC/PFTs) makes me think of Lambert–Eaton myasthenic syndrome (often paraneoplastic), likely from a small-cell lung cancer—do you have any new shortness of breath, chest discomfort, hoarseness, or a history of smoking-related malignancy, and have you had any abnormal imaging yet? Doctor: On exam I’d expect fatigability with improving strength after brief exercise and reduced reflexes (your Achilles 1+ fits); if CT chest hasn’t been done, I need it immediately to look for small-cell lung cancer. Doctor: REQUEST TEST: CT_Chest_with_contrast; REQUEST TEST: Serum_creatine_kinase_and_Magnesium; REQUEST TEST: MRI_Brain_or_Cervical_spine_if_neuro_symptoms; DIAGNOSIS READY: Lambert–Eaton myasthenic syndrome (paraneoplastic), likely secondary to small-cell lung carcinoma",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Lambert-Eaton Syndrome",
+    "predicted_set_remapped": [
+      "Lambert-Eaton Syndrome",
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1911,
+      "completion_tokens": 556,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 1012,
+      "completion_tokens": 142,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 658,
+      "completion_tokens": 179,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 279,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

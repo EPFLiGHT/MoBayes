@@ -1,0 +1,117 @@
+{
+  "case_idx": 10,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Borderline personality disorder",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old woman",
+    "History": "The patient presents to the emergency department with abdominal pain and reports being 10 weeks pregnant. She has a history of constipation, anxiety, and substance abuse. The patient is not currently on any medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal pain and contractions",
+      "Secondary_Symptoms": [
+        "Bloody vaginal discharge",
+        "Recent positive pregnancy test",
+        "Emotional distress upon learning of a spontaneous abortion",
+        "Anger and aggression post-news",
+        "New lacerations over her wrists"
+      ]
+    },
+    "Past_Medical_History": "Constipation, anxiety, substance abuse",
+    "Social_History": "Details on social history not provided, but the doctor should inquire about current life stressors, support systems, and substance use.",
+    "Review_of_Systems": "Negative except for symptoms presented."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with symptoms indicative of a spontaneous abortion and assess for any psychiatric conditions based on patient behavior.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: Hello—I’m Dr. Agent. Can you tell me how many weeks pregnant you were and whether you’re having vaginal bleeding or cramping right now? Patient: Doctor: Also, have you passed any tissue or clots, and how heavy is the bleeding (pads per hour/day)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Doctor: How many weeks pregnant are you, and are you having vaginal bleeding or cramping right now? Patient: I’m about 10 weeks pregnant, and I’ve been having abdominal pain with contractions and some bloody vaginal discharge. Doctor: Have you passed any tissue or clots, and how heavy is the bleeding? Patient: I have passed some clots, and the bleeding has been heavier than spotting—enough that I’m worried."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick safety questions—are you soaking **≥2 pads per hour for 2 hours**, do you have **fever/chills**, and is your pain **getting worse** or localized to one side? Doctor: Also, have you had any **previous miscarriages/known uterine problems**, and do you feel **unsafe, unusually agitated, or out of character** in a way that could reflect a psychiatric emergency?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I’m not soaking 2 pads per hour, no fever or chills, and the pain feels like it comes in waves rather than only one side getting worse. I’ve never had a miscarriage or known uterine problems, and I’m not feeling unsafe or out of character right now—just very distressed."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Thank you—next: when did the bleeding and cramping start, and have you had any recent ultrasound confirming an intrauterine pregnancy? Also, any dizziness/fainting or shortness of breath? Doctor: Finally for psychiatric assessment: do you have any thoughts of harming yourself or that you’d “better not be here,” or are you hearing/seeing things others don’t?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Patient: The bleeding and cramping started today, and I haven’t had an ultrasound yet—just the recent positive pregnancy test. I’m not dizzy or faint and I don’t have shortness of breath. I don’t have thoughts of harming myself, and I’m not hearing or seeing things others don’t."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m sorry you’re going through this—based on 10 weeks gestation with cramping, heavier bleeding, and passage of clots, this is highly concerning for an **inevitable/incomplete spontaneous abortion** until proven otherwise; I want to confirm pregnancy location and rule out ectopic. REQUEST TEST: Transvaginal_Ultrasound (with quantitative_beta-hCG). REQUEST TEST: CBC (to assess anemia) and type/screen (Rh). Doctor: Before we decide next steps: do you have your Rh status (Rh-positive or Rh-negative), and are you currently able to manage pain at home (no severe uncontrolled pain)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 99.5°F (37.5°C); Blood Pressure 107/58 mmHg; Heart Rate 90/min; Respiratory Rate 17/min; Oxygen Saturation 98% on room air. Pelvic exam: bloody vaginal discharge; cervix open. Ultrasound pelvis: absence of intrauterine pregnancy consistent with completed spontaneous abortion. Beta-hCG: declining levels consistent with spontaneous abortion. CBC: WBC within normal limits; Hemoglobin slightly decreased (possible blood loss); Platelets within normal limits."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Thank you—your exam (open cervix) plus ultrasound showing no intrauterine pregnancy and declining β-hCG, with clots and heavy bleeding, makes this most consistent with a **completed spontaneous abortion** (not ongoing viable pregnancy, and ectopic is less likely given the findings). Doctor: Next step is management: do you prefer **expectant**, **medication (misoprostol)**, or **procedure (uterine aspiration)** for ensuring the uterus is fully emptied, and do you have ongoing heavy bleeding or severe uncontrolled pain right now? Doctor: For psychiatric safety, you’ve reported no self-harm thoughts or hallucinations; I’ll document distress but this does not suggest an acute psychiatric emergency—are you having any panic/overwhelming anxiety symptoms that you need immediate support for? Doctor: DIAGNOSIS READY: Completed spontaneous abortion (~10 weeks) with open cervix and declining β-hCG; mild anemia from blood loss; no current acute psychiatric emergency symptoms reported.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thank you—your exam (open cervix) plus ultrasound showing no intrauterine pregnancy and declining β-hCG, with clots and heavy bleeding, makes this most consistent with a **completed spontaneous abortion** (not ongoing viable pregnancy, and ectopic is less likely given the findings). Doctor: Next step is management: do you prefer **expectant**, **medication (misoprostol)**, or **procedure (uterine aspiration)** for ensuring the uterus is fully emptied, and do you have ongoing heavy bleeding or severe uncontrolled pain right now? Doctor: For psychiatric safety, you’ve reported no self-harm thoughts or hallucinations; I’ll document distress but this does not suggest an acute psychiatric emergency—are you having any panic/overwhelming anxiety symptoms that you need immediate support for? Doctor: DIAGNOSIS READY: Completed spontaneous abortion (~10 weeks) with open cervix and declining β-hCG; mild anemia from blood loss; no current acute psychiatric emergency symptoms reported.",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2646,
+      "completion_tokens": 591,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 1592,
+      "completion_tokens": 227,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 667,
+      "completion_tokens": 112,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 266,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "case_idx": 20,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {
+    "AGE": 43,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pain improves when leaning forward",
+    "EVIDENCES_ENG": "['pain improves when leaning forward', 'pain', 'regular use of stimulant drugs', 'difficulty swallowing', 'excessive alcohol consumption', 'high blood pressure', 'excessive salivation', 'changes in voice']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 43\n- I have pain that improves when I lean forward.\n- I have pain somewhere related to my reason for consulting.\n- I regularly take stimulant drugs.\n- I have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing.\n- I drink alcohol excessively or I have an addiction to alcohol.\n- I have high blood pressure or do I take medications to treat high blood pressure.\n- I have noticed that I produce more saliva than usual.\n- I have noticed that the tone of my voice has become deeper, softer or hoarse.\n- On a scale of 0-10, the pain intensity is 7\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 9\n- The pain is:\n* a knife stroke\n* sharp\n- The pain locations are:\n* tonsil(R)\n* tonsil(L)\n* back of the neck\n* palace\n* pharynx\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Epiglottitis', 0.38282997409428743], ['Myasthenia gravis', 0.23310876854604334], ['Acute laryngitis', 0.21315201023017105], ['Chagas', 0.12190565826892463], ['Viral pharyngitis', 0.04900358886057351]]",
+    "PATHOLOGY": "Epiglottitis",
+    "INITIAL_EVIDENCE": "bw_bending",
+    "EVIDENCES": "['bw_bending', 'douleurxx', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_amygdale_D_', 'douleurxx_endroitducorps_@_amygdale_G_', 'douleurxx_endroitducorps_@_arrière_du_cou', 'douleurxx_endroitducorps_@_palais', 'douleurxx_endroitducorps_@_pharynx', 'douleurxx_intens_@_7', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_9', 'drogues_stimul', 'dysphagie', 'f10.129', 'i10', 'sialorhee', 'trav1_@_N', 'volume_parole']",
+    "patient_id": "htsim_0720",
+    "_test_index": 720,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 43-year-old F patient presents to the clinic. Chief complaint: pain improves when leaning forward.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have sharp, knife-stroke pain rated 7/10 that improves when I lean forward. It’s in my right and left tonsils, the back of my neck, my palate, and my pharynx.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did this sharp throat/neck pain start, and do you also have fever, trouble swallowing, swollen neck glands, or cough?  \nDoctor: Any recent dental issues, new mouth sores, or recent viral exposure, and is the pain worse at night or with swallowing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know exactly when it started. Yes— I have difficulty swallowing, or a feeling of discomfort/blockage when swallowing. I don’t know about fever or swollen neck glands or cough. I don’t know about dental issues, new mouth sores, or recent viral exposure. I don’t know if the pain is worse at night or with swallowing, but I do know it’s sharp and rated 7/10 and it improves when I lean forward.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—next: do you have a muffled “hot potato” voice, drooling, or can you open your mouth normally (no jaw locking)? Also, are you short of breath or having neck swelling.  \nDoctor: REQUEST TEST: Rapid_strep_test + Throat_culture; REQUEST TEST: CBC; REQUEST TEST: CT_neck_with_contrast (evaluate deep neck space infection).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a muffled “hot potato” voice or drooling. I don’t know if I can open my mouth normally (no jaw locking). I don’t know about shortness of breath or neck swelling. I have noticed that I produce more saliva than usual.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a possible serious throat infection—any trouble breathing, do you have a visible swelling to the neck, and can you swallow liquids without them coming back through your nose?  \nDoctor: Also, have you had ear pain on either side or worsening pain on one side more than the other?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know about trouble breathing, visible swelling to the neck, or whether I can swallow liquids without them coming back through my nose.\n\nI don’t know about ear pain on either side.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your oropharynx and neck for swelling, asymmetry, and lymph nodes—can you sit up and open your mouth while I look? Also, do you have a high fever (≥38°C), chills, or severe one-sided throat pain?  \nDoctor: If you can, please also tell me whether the pain is worse with turning your neck or if you feel your neck is stiff; and do you have any rash, shortness of breath, or voice changes right now?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a high fever (≥38°C), chills, or severe one-sided throat pain.\n\nI don’t know if the pain is worse with turning my neck or if my neck is stiff.\n\nI have noticed that the tone of my voice has become deeper, softer or hoarse.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—deep/hoarse voice plus severe odynophagia (pain with swallowing) and saliva increase raises concern for epiglottitis or a deep neck space infection; I need to know if you have any drooling, noisy breathing/stridor, or need to lean forward to breathe comfortably, and whether symptoms are rapidly worsening over hours to a day.  \nDoctor: Have you had a recent sore throat or flu-like illness, and do you feel any one-sided neck tenderness or a “lump” under the jaw?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about drooling, noisy breathing/stridor, or needing to lean forward to breathe comfortably.\n\nI don’t know if symptoms are rapidly worsening over hours to a day.\n\nI don’t know about a recent sore throat or flu-like illness.\n\nI don’t know about one-sided neck tenderness or a “lump” under the jaw.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your sharp 7/10 throat/neck pain that improves by leaning forward, plus hoarse/deeper voice and increased saliva with difficulty swallowing, I’m most concerned about **epiglottitis or a deep neck space infection**. I need one immediate exam question: **are you currently able to speak full sentences and are you breathing comfortably at rest** (yes/no)?  \nDoctor: REQUEST TEST: ENT_fiberoptic_laryngoscopy_or_airway_assessment; REQUEST TEST: MRI_neck_soft_tissue_OR_CT_neck_with_contrast_result_check.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Can you answer yes/no right now: are you breathing comfortably and able to speak full sentences without choking, and do you have any drooling?  \nDoctor: If not sure, tell me whether you feel you must sit leaning forward to breathe and whether your symptoms are worsening quickly (within hours).",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially life-threatening—while we wait for the results you can’t confirm, I need an immediate yes/no: **are you currently in any breathing distress (stridor/noisy breathing, can’t speak full sentences, or drooling)?**  \nDoctor: If the answer is **no**, I’ll proceed with the airway/ENT assessment results; if **yes/unsure**, we assume **epiglottitis/deep neck infection** and activate emergency airway evaluation.  \nDoctor: DIAGNOSIS READY: Suspected epiglottitis or deep neck space infection (needs urgent airway/ENT assessment)\n\n[DDX]\n1. Epiglottitis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Epiglottitis",
+    "predicted_set_remapped": [
+      "Epiglottitis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5988,
+      "completion_tokens": 756,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 10140,
+      "completion_tokens": 403,
+      "calls": 8
+    }
+  }
+}

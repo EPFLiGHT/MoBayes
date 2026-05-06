@@ -1,0 +1,155 @@
+{
+  "case_idx": 30,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 38\nSex: M\nChief Complaint: pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been having burning pain in my forehead—about 8 out of 10. I’m also feeling anxious, short of breath in a significant way, slightly dizzy/lightheaded, and my heart feels like it’s beating fast with palpitations/irregular beats. I’ve also been consuming energy drinks regularly and I recently took decongestants or other stimulant-type substances.",
+      "extracted_features": {
+        "f_e_55_v_89": "yes",
+        "f_e_53": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_56": "8",
+        "f_ant_e_16": "yes",
+        "f_e_66": "yes",
+        "f_e_76": "yes",
+        "f_e_82": "yes",
+        "f_e_155": "yes",
+        "f_e_164": "yes",
+        "f_ant_e_60": "yes",
+        "f_ant_e_213": "yes"
+      },
+      "top5_posterior": [
+        [
+          "PSVT",
+          0.9629598618195778
+        ],
+        [
+          "Panic attack",
+          0.011966061653823695
+        ],
+        [
+          "Anemia",
+          0.008356634336092426
+        ],
+        [
+          "Atrial fibrillation",
+          0.002902999640075138
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.001161945256841996
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_62",
+      "doctor_question": "Do you regularly take any stimulant medications or drugs?",
+      "patient_answer": "I don't know. I do regularly consume energy drinks, and I recently took decongestants or other substances that may have stimulant effects.",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "PSVT",
+          0.9772858033486802
+        ],
+        [
+          "Panic attack",
+          0.007300487759397179
+        ],
+        [
+          "Anemia",
+          0.0050983781001083415
+        ]
+      ],
+      "entropy": 0.23968840778987774
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_157",
+      "doctor_question": "Have you recently experienced any numbness, tingling, or a loss of sensation in both your arms and legs, as well as around your mouth?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "PSVT",
+          0.9829787591600719
+        ],
+        [
+          "Anemia",
+          0.005128077540266204
+        ],
+        [
+          "Atrial fibrillation",
+          0.0017814357616886326
+        ]
+      ],
+      "entropy": 0.1946624877727051
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_161",
+      "doctor_question": "Does the area feel sensitive to the touch?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "PSVT",
+          0.9881393400805306
+        ],
+        [
+          "Anemia",
+          0.002165099851757848
+        ],
+        [
+          "Atrial fibrillation",
+          0.001790788195113185
+        ]
+      ],
+      "entropy": 0.14343306702182826
+    }
+  ],
+  "final": {
+    "predicted": "PSVT",
+    "predicted_top3": [
+      "PSVT",
+      "Anemia",
+      "Atrial fibrillation"
+    ],
+    "confidence": 0.9881393400805306,
+    "final_entropy": 0.14343306702182826,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "PSVT",
+    "predicted_set_remapped": [
+      "PSVT",
+      "Anemia",
+      "Atrial fibrillation"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12165,
+      "completion_tokens": 294
+    },
+    "patient": {}
+  }
+}

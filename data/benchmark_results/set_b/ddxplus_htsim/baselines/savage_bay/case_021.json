@@ -1,0 +1,119 @@
+{
+  "case_idx": 21,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 78\nSex: M\nChief Complaint: symptoms worse when lying down and alleviated while sitting up",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms get worse when lying down and improve while sitting up. I also have a cough, and I have pain in my upper chest and epigastric area (pain intensity 6/10).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors, rough):\n- GERD: 0.30\n- Acute pulmonary edema: 0.15\n- Pneumonia: 0.15\n- Pulmonary embolism: 0.10\n- Acute COPD exacerbation / infection: 0.10\n(others combined: 0.20)\n\nKey evidence so far:\n- Worse when lying down + improves sitting up → strongly favors reflux/GERD over many lung causes.\n  - Likelihood ratio (LR) for GERD vs others: ~3.0\n  - Updated posteriors (approx):\n    - GERD: 0.55\n    - Acute pulmonary edema: 0.08\n    - Pneumonia: 0.10\n    - Pulmonary embolism: 0.07\n    - Acute COPD exacerbation / infection: 0.06\n    - others: 0.14\n\nNext question (one-at-a-time, high-yield):\nDo you have any shortness of breath or trouble breathing, especially when lying flat (orthopnea)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (unchanged from last estimate):\n- GERD: 0.55\n- Acute pulmonary edema: 0.08\n- Pneumonia: 0.10\n- Pulmonary embolism: 0.07\n- Acute COPD exacerbation / infection: 0.06\n- others: 0.14\n\nTo narrow this quickly: when you lie flat, do you feel you need to prop yourself up with pillows to breathe comfortably? (Yes/No)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- GERD: 0.55\n- Pneumonia: 0.10\n- Acute pulmonary edema: 0.08\n- Pulmonary embolism: 0.07\n- Acute COPD exacerbation / infection: 0.06\n- others: 0.14\n\nNext question (very discriminating for GERD vs cardiac/pulmonary):  \nDo you have heartburn or a sour/bitter taste in your mouth, or symptoms that worsen after eating? (Yes/No)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. My symptoms get worse after eating.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (update with evidence “worse after eating + heartburn/sour taste”):\n- GERD: 0.78\n- Pneumonia: 0.06\n- Acute pulmonary edema: 0.05\n- Pulmonary embolism: 0.03\n- Acute COPD exacerbation / infection: 0.03\n- others: 0.05\n\nLikelihood ratio: for GERD given post-prandial worsening/heartburn vs non-GERD is roughly 4–6 (using ~5 here).\n\nNext question (to check for serious mimics like PE/cardiac):  \nDo you have any leg swelling or pain (especially one-sided), or have you had recent long travel/immobility/surgery? (Yes/No)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- GERD: 0.78\n- Pneumonia: 0.06\n- Acute pulmonary edema: 0.05\n- Pulmonary embolism: 0.03\n- Acute COPD exacerbation / infection: 0.03\n- others: 0.05\n\nNext question (one-at-a-time, helps separate pneumonia/PE from GERD):  \nDo you have a fever or chills, or are you coughing up phlegm/sputum (Yes/No)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- GERD: 0.78\n- Pneumonia: 0.06\n- Acute pulmonary edema: 0.05\n- Pulmonary embolism: 0.03\n- Acute COPD exacerbation / infection: 0.03\n- others: 0.05\n\nNext question (to further confirm GERD vs cardiac causes):  \nDoes the chest/epigastric pain improve with antacids (e.g., Tums) or acid-suppressing meds (e.g., famotidine/omeprazole)? (Yes/No)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- GERD: 0.78\n- Pneumonia: 0.06\n- Acute pulmonary edema: 0.05\n- Pulmonary embolism: 0.03\n- Acute COPD exacerbation / infection: 0.03\n- others: 0.05\n\nI’m not confident enough to fully exclude serious cardiopulmonary causes because you’re unsure about key symptoms (dyspnea/orthopnea, fever, leg swelling/travel). I’ll ask one last high-yield question to decide whether we should prioritize cardiac/PE workup over GERD alone:\n\nDo you have any exertional component—does the pain get worse with physical activity or improve with rest? (Yes/No)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminating features are missing/unknown (shortness of breath/orthopnea, fever/sputum, leg swelling/travel, exertional component, response to antacids). Without these, I can’t confidently rule out serious cardiopulmonary causes versus GERD.\n\n[POSSIBLE] GERD, Pulmonary embolism, Pneumonia, Acute pulmonary edema, Acute COPD exacerbation / infection",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "GERD",
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10936,
+      "completion_tokens": 1085
+    },
+    "patient": {}
+  }
+}

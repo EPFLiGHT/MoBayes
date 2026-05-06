@@ -1,0 +1,110 @@
+{
+  "case_idx": 38,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {
+    "AGE": 23,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "shortness of breath",
+    "EVIDENCES_ENG": "['history of pericarditis', 'pain', 'shortness of breath', 'high blood pressure', 'skin lesions', 'early menarche (first menstrual period before age 12)']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 23\n- I have had a pericarditis.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I am consulting because I have high blood pressure.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I had my first menstrual period before the age of 12.\n- On a scale of 0-10, the pain intensity is 5\n- On a scale of 0-10, the pain's location precision is 10\n- On a scale of 0-10, the pace at which the pain appear is 6\n- The color of the rash is red.\n- On a scale of 0-10, the rash swelling is 0\n- The lesion (or lesions) are larger than 1cm.\n- On a scale of 0-10, the severity of the rash itching is 3\n- The pain is:\n* sensitive\n* sharp\n- The pain locations are:\n* back of the neck\n* ankle(R)\n* ankle(L)\n* knee(R)\n* shoulder(L)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* cheek(R)\n* cheek(L)\n* nose\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Possible NSTEMI / STEMI', 0.11030955363819513], ['SLE', 0.1043064156773288], ['Bronchiectasis', 0.08507640064621014], ['Pneumonia', 0.08295748472195096], ['Guillain-Barré syndrome', 0.08034681373005238], ['Atrial fibrillation', 0.07674573640008606], ['Acute dystonic reactions', 0.056581060258113804], ['Myasthenia gravis', 0.056581060258113804], ['Anemia', 0.056581060258113804], ['Anaphylaxis', 0.049365688856824054], ['Bronchitis', 0.04447966194257095], ['Tuberculosis', 0.04075062920235228], ['Myocarditis', 0.040131946813009654], ['Pulmonary embolism', 0.0353960852576057], ['Stable angina', 0.03526409896012786], ['PSVT', 0.030223607024299222], ['HIV (initial infection)', 0.008632141077076445], ['Pancreatic neoplasm', 0.006270555277968871]]",
+    "PATHOLOGY": "SLE",
+    "INITIAL_EVIDENCE": "dyspn",
+    "EVIDENCES": "['I30', 'douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_arrière_du_cou', 'douleurxx_endroitducorps_@_cheville_D_', 'douleurxx_endroitducorps_@_cheville_G_', 'douleurxx_endroitducorps_@_genou_D_', 'douleurxx_endroitducorps_@_épaule_G_', 'douleurxx_intens_@_5', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_10', 'douleurxx_soudain_@_6', 'dyspn', 'hta', 'lesions_peau', 'lesions_peau_couleur_@_rouge', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_0', 'lesions_peau_endroitducorps_@_joue_D_', 'lesions_peau_endroitducorps_@_joue_G_', 'lesions_peau_endroitducorps_@_nez', 'lesions_peau_plusqu1cm_@_O', 'lesions_peau_prurit_@_3', 'menarche_hat', 'trav1_@_N']",
+    "patient_id": "htsim_1369",
+    "_test_index": 1369,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 23-year-old F patient presents to the clinic. Chief complaint: shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having shortness of breath or difficulty breathing in a significant way, and I’m also consulting because I have high blood pressure.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the shortness of breath start, and is it worse with exertion, lying flat, or at night? Any chest pain, fever, cough, or wheezing?  \nDoctor: Also, do you have leg swelling or pain, do you smoke or use vaping, and what’s your blood pressure reading and any medications you take?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say that I have had pericarditis, and I have shortness of breath or difficulty breathing in a significant way. I also have pain somewhere related to the reason for consulting (pain intensity 5/10, sharp and sensitive), and my pain locations include the back of the neck, ankles (right and left), knee (right), and shoulder (left). The pain doesn’t radiate anywhere. I also have red lesions/redness on my skin that I believe are related to the condition I’m consulting for.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—do the red skin lesions look like a rash or blotches (any itching), and is there chest pain that’s worse when you breathe in or lie down? Also, since you have prior pericarditis, have you had any recent ECG/echocardiogram results, and do you have a current temperature or cough?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there are red lesions/redness on my skin that I believe are related to the condition I’m consulting for. The rash itching severity is 3/10. I don’t know about a temperature, a cough, or any recent ECG/echocardiogram results. I also don’t know about chest pain that’s worse when you breathe in or lie down.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—are the red lesions flat or raised, do they appear suddenly and spread, and have you noticed any mouth ulcers, joint swelling, or numbness/tingling? Also, is your shortness of breath constant or episodic, and do you have a measured pulse-ox or oxygen saturation?  \nDoctor: REQUEST TEST: ECG and transthoracic echocardiogram  \nDoctor: REQUEST TEST: CBC with differential, ESR/CRP, BMP, and urinalysis (protein/hematuria)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—you don’t know the specifics yet; I need a few key details: is the rash worse with sun exposure and do you have mouth sores, and is the shortness of breath sudden or gradual? Also, any recent weight loss, fatigue, or new medications?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have red lesions/redness on my skin that I believe are related to the condition I’m consulting for, and the rash itching severity is 3/10. I also have shortness of breath or difficulty breathing in a significant way.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you don’t know timing details, please tell me: do the red lesions blanch when you press them, and are they on areas exposed to sunlight or more on the palms/soles? Also, is your shortness of breath sudden (minutes-hours) or gradual (days-weeks), and do you have any wheeze or cough.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about whether the red lesions blanch when you press them, and I don’t know whether they’re on sun-exposed areas versus more on the palms or soles. I also don’t know whether my shortness of breath is sudden or gradual, and I don’t know if I have wheeze or cough.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your history of pericarditis plus new rash and significant shortness of breath, I’m concerned about an inflammatory autoimmune process (e.g., lupus/vasculitis with possible serositis), so I’m going to decide based on the pattern we already have. DIAGNOSIS READY: Autoimmune connective-tissue disease with serositis/possible recurrent pericarditis (e.g., Systemic Lupus Erythematosus vs vasculitis)—needs urgent ECG/echo and inflammatory/urine testing to confirm.\n\n[DDX]\n1. Pericarditis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3641,
+      "completion_tokens": 523,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 7006,
+      "completion_tokens": 358,
+      "calls": 6
+    }
+  }
+}

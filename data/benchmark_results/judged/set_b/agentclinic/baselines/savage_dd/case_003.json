@@ -1,0 +1,162 @@
+{
+  "case_idx": 3,
+  "baseline": "savage_dd",
+  "column": "ac_set2",
+  "ground_truth": "Hemophilia A",
+  "patient_actor_hidden": {
+    "Demographics": "18-month-old boy",
+    "History": "The patient is brought in by his parents due to swelling in his right knee noticed after playing in the park. The parents report that there was no obvious injury or incident at the park that could have led to the swelling. Upon further questioning, the mother recalls that an uncle on her side of the family had similar problems, suggesting a possible genetic component.",
+    "Symptoms": {
+      "Primary_Symptom": "Swelling of the right knee",
+      "Secondary_Symptoms": [
+        "No recent trauma or injury",
+        "Familial history of similar symptoms"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "The parents report no known allergies, normal birth and developmental history for the child.",
+    "Review_of_Systems": "Denies fever, rash, or recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with swelling in the right knee and a familial history of similar problems.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: My right knee is swollen since today, and it started after I was playing in the park.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. First question: **Did you have any specific injury to the knee in the park** (twist, fall, direct blow), or did it swell without a clear injury?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It swelled without any clear injury—I didn’t fall or twist it, and there wasn’t any direct hit that I know of.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—next question: **Do you have fever or feel sick (chills, body aches) along with the knee swelling?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a fever and I don’t feel sick—just my right knee looks swollen.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question: **Is the knee painful when you move or press it, or is it mostly just swelling?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It hurts a bit when we touch it or when he tries to move it, but it’s mostly the swelling in his right knee.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next question: **Is the swelling mostly in the front of the knee (around the kneecap) or more in the calf/behind the knee?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It seems mostly in the front around the kneecap, not behind the knee.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Have you noticed any redness or warmth over the swollen area on the front of the knee?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It looks a bit red and feels warm where his kneecap area is swollen.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Can he bear weight and walk, or is it too painful to put weight on that leg?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Patient: He doesn’t want to put much weight on it, and when we try to walk him it seems uncomfortable.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **How old is the patient?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“My name is [child], and I’m 18 months old.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Any recent skin break, insect bite, or rash on/near the knee (even small), or has he been scratching the area?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“No, we haven’t seen any skin break, bite, rash, or scratching near his knee—his skin just looks a bit red and warm where it’s swollen.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Age 18 months with acute, warm/red anterior knee swelling and mild pain after no clear trauma is suggestive of an inflammatory/infectious process, but the key discriminators (range of motion limitation, true joint vs periarticular swelling, and systemic signs/labs) aren’t established yet.\n\n[POSSIBLE] Asthma, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Histoplasmosis, Acute Mesenteric Ischemia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Asthma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Histoplasmosis",
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Asthma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Histoplasmosis",
+      "Acute Mesenteric Ischemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Asthma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9446,
+      "completion_tokens": 343
+    },
+    "patient": {
+      "prompt_tokens": 4877,
+      "completion_tokens": 254,
+      "calls": 9
+    }
+  }
+}

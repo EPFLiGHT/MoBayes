@@ -1,0 +1,178 @@
+{
+  "case_idx": 32,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Panic attack",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: M\nChief Complaint: increased sweating",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve had significantly increased sweating, along with chronic anxiety. I also feel shortness of breath, lightheaded and dizzy like I might faint, and my heart feels like it’s beating fast or irregularly with palpitations. I’m also experiencing numbness or tingling in both arms and legs and around my mouth.",
+      "extracted_features": {
+        "f_e_50": "yes",
+        "f_e_82": "yes",
+        "f_e_155": "yes",
+        "f_e_157": "yes",
+        "f_e_164": "yes",
+        "f_e_210": "no",
+        "f_e_66": "yes",
+        "f_ant_e_81": "yes",
+        "f_e_75": "yes",
+        "f_e_89": "yes",
+        "f_ant_e_16": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Panic attack",
+          0.9762281460093784
+        ],
+        [
+          "PSVT",
+          0.0076229839548461135
+        ],
+        [
+          "Atrial fibrillation",
+          0.002253761841974398
+        ],
+        [
+          "Anemia",
+          0.0015695265652890512
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.001566170298785713
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_111",
+      "doctor_question": "During this really tough time, did you ever feel like your life was in danger or that you might pass away?",
+      "patient_answer": "Yes—I've felt like I’m dying or I was afraid that I was about to die.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Panic attack",
+          0.9993760122794869
+        ],
+        [
+          "PSVT",
+          0.0002000958100857138
+        ],
+        [
+          "Atrial fibrillation",
+          5.9159025413328696e-05
+        ]
+      ],
+      "entropy": 0.010075618221364602
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_80",
+      "doctor_question": "Have you ever been diagnosed with depression by a doctor or healthcare professional in the past?",
+      "patient_answer": "Yes, I have been diagnosed with depression.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Panic attack",
+          0.9999831252219439
+        ],
+        [
+          "PSVT",
+          5.411280180853447e-06
+        ],
+        [
+          "Atrial fibrillation",
+          1.599863893205063e-06
+        ]
+      ],
+      "entropy": 0.00036038041061419313
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_171",
+      "doctor_question": "Sometimes, people experience a feeling of being disconnected from themselves or the world around them. Have you ever felt like you're observing your life from outside your body, or like you're in a dream and everything seems unreal?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Panic attack",
+          0.9999418135140751
+        ],
+        [
+          "PSVT",
+          1.8658815958120728e-05
+        ],
+        [
+          "Atrial fibrillation",
+          5.516544134413625e-06
+        ]
+      ],
+      "entropy": 0.0011387276646982844
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_ant_e_185",
+      "doctor_question": "Have you ever hit your head badly enough to lose consciousness, or experience a significant impact that left you feeling dizzy or disoriented?",
+      "patient_answer": "Yes, I have had a head trauma.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Panic attack",
+          0.9999983836172849
+        ],
+        [
+          "PSVT",
+          5.183297652968459e-07
+        ],
+        [
+          "Atrial fibrillation",
+          1.532460062234462e-07
+        ]
+      ],
+      "entropy": 3.998962495841977e-05
+    }
+  ],
+  "final": {
+    "predicted": "Panic attack",
+    "predicted_top3": [
+      "Panic attack",
+      "PSVT",
+      "Atrial fibrillation"
+    ],
+    "confidence": 0.9999983836172849,
+    "final_entropy": 3.998962495841977e-05,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Panic attack",
+    "predicted_set_remapped": [
+      "Panic attack",
+      "PSVT",
+      "Atrial fibrillation"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10294,
+      "completion_tokens": 486
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "case_idx": 40,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m having pain in my left great toe, hips, and knees that gets worse when I’m active and feels better when I rest; it’s been gradually worsening over the past few years.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **osteoarthritis**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure if it’s osteoarthritis, but my pain is worse with activity and improves with rest, and it’s been gradually getting worse over the past several years in my left great toe, hips, and knees. I don’t have other major symptoms I can think of.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteoarthritis, Psoriatic arthritis  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_set": [
+      "Osteoarthritis",
+      "Psoriatic arthritis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Osteoarthritis",
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 657,
+      "completion_tokens": 122,
+      "calls": 2
+    }
+  }
+}

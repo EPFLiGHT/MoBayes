@@ -1,0 +1,88 @@
+{
+  "case_idx": 29,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 77\nSex: Male\nChief Complaint: I have significant dyspnea and your heart is beating very irregularly or in a disorganized pattern",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having significant trouble breathing—very dyspnea. Also, I feel like my heart is beating very irregularly or in a disorganized way. I have severe COPD, diabetes, high blood pressure, obesity, and I’ve been told I have a heart defect.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain/pressure that is worse with exertion or does not go away with rest (or is it associated with sweating/nausea)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain or pressure. It’s mainly the breathing problem and that irregular heartbeat feeling. I’m not having sweating or nausea with it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you having **chest pain or pressure that is worse with breathing** (pleuritic pain) or **sudden shortness of breath**?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain or pressure with breathing. The main issue is my shortness of breath, but it’s not sudden in the sense of coming out of nowhere—I’ve been struggling with it.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] During the episode, do you have wheezing or shortness of breath that is worse with breathing out (expiratory wheeze)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have shortness of breath and I have COPD, so I do get wheezing sometimes, and it feels worse when I’m breathing out.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have wheezing (a whistling sound when breathing) that is worse with breathing out or at night?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have wheezing, and it’s often worse when I breathe out. Sometimes it’s also worse at night.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bronchitis  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Bronchitis  ",
+    "predicted_set": [
+      "Bronchitis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3275,
+      "completion_tokens": 197
+    }
+  }
+}

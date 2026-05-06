@@ -1,0 +1,147 @@
+{
+  "case_idx": 5,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.",
+    "Symptoms": {
+      "Primary_Symptom": "Stiffness in the arm",
+      "Secondary_Symptoms": [
+        "Difficulty combing hair",
+        "Trouble reaching high objects",
+        "Decreased range of motion in shoulder",
+        "Arm strength 4/5"
+      ]
+    },
+    "Past_Medical_History": "Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.",
+    "Social_History": "Sedentary lifestyle, predominately staying indoors and watching television.",
+    "Review_of_Systems": "Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve been having stiffness in my arm for the past few months, and it’s made it hard to comb my hair and reach high shelves. I also notice my shoulder range of motion is decreased, and my arm feels a bit weaker.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me if the stiffness and weakness are limited to one shoulder/arm, or do you have similar symptoms in the other arm or elsewhere?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mainly in my left arm and shoulder—the other arm feels mostly normal. I don’t have stiffness or weakness anywhere else, and I haven’t noticed symptoms in other joints.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you experience any pain in the left shoulder or arm? If so, can you describe where the pain is located, when it started, and what makes it better or worse.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“It’s not really sharp pain, more stiffness and a dull ache around the left shoulder and upper arm. It started gradually a few months ago and feels worse when I try to lift my arm overhead or reach up, and it’s a bit better when I rest.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you notice any worsening of the stiffness or dull ache at night, especially when you lie on that side, and does it interfere with your sleep?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It does seem a bit worse at night when I lie on my left side, and I’ve had some trouble sleeping because of the discomfort. When I change positions and rest my arm, it improves somewhat.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent injuries, falls, or over‑use activities (e.g., heavy lifting, sports, repetitive motions) involving your left shoulder or arm?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t had any injuries or falls, and I don’t do heavy lifting or sports. I’ve been mostly sedentary indoors and watching TV, with no specific repetitive shoulder use that started around the same time.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you experience any numbness, tingling, or weakness that radiates down your left arm into the hand or fingers?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have numbness or tingling, and the weakness feels more like a general loss of strength in the left arm rather than anything traveling down into my hand or fingers.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "May I ask how old you are and whether you have any medical conditions such as diabetes, thyroid disease, rheumatoid arthritis, or recent infections?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 65 years old. I have type 2 diabetes, hypertension, and I’m also obese, and I take metformin, insulin, lisinopril, and hydrochlorothiazide.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "When a clinician moves your shoulder for you (passive motion), is the range of motion as limited as when you move it yourself (active motion), or is it noticeably better?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“It’s better when you move it for me—my active range of motion is more limited, especially lifting my arm overhead, but passive movement seems less restricted. I still feel that dull ache with overhead reaching, but it isn’t as tight when I’m not doing the lifting myself.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Rotator cuff tendinopathy/tear, Adhesive capsulitis (frozen shoulder), Subacromial bursitis, Glenohumer",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Rotator cuff tendinopathy/tear",
+    "predicted_set": [
+      "Rotator cuff tendinopathy/tear",
+      "Adhesive capsulitis (frozen shoulder)",
+      "Subacromial bursitis",
+      "Glenohumer"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Adhesive capsulitis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4826,
+      "completion_tokens": 1590
+    },
+    "patient": {
+      "prompt_tokens": 4653,
+      "completion_tokens": 381,
+      "calls": 8
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "case_idx": 44,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 18\nSex: Female\nChief Complaint: I have a cough, burning pain, and forehead pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve been having a cough and a burning pain with forehead pain. It also feels like the pain radiates to the back of my head and my right temple, and I’ve had greenish/yellow nasal discharge and I lost my sense of smell.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down. **Current posterior (pre-test)**:  \n- Acute rhinosinusitis: 0.35  \n- Allergic sinusitis: 0.10  \n- Influenza: 0.10  \n- URTI / Viral pharyngitis: 0.15  \n- Pneumonia: 0.05  \n(Other causes less likely for this symptom pattern.)\n\n**Question 1 (most discriminating):**  \nDo you have **fever** (≥38°C / 100.4°F) or chills?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have fever or chills that I know of.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no fever/chills”:**  \n- Acute rhinosinusitis: 0.45 (likelihood ratio ~1.3 vs fever-negative)  \n- Allergic sinusitis: 0.18 (LR ~1.5)  \n- Influenza: 0.05 (LR ~0.3)  \n- URTI / Viral pharyngitis: 0.22 (LR ~1.2)  \n- Pneumonia: 0.02 (LR ~0.4)\n\n**Question 2:**  \nHow long has this been going on—**days** (e.g., <10) or **more than 10 days** / worsening after initial improvement?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started a few days ago—less than 10 days. I haven’t had better and then gotten worse again; it’s just been going on.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “<10 days, no improvement”:**  \n- Acute rhinosinusitis: 0.50  \n- Allergic sinusitis: 0.15  \n- Influenza: 0.08  \n- URTI / Viral pharyngitis: 0.25  \n- Pneumonia: 0.02  \n\n**Question 3:**  \nIs the forehead/face pain **worse when you bend forward** or when you press over your sinuses (forehead/cheeks)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels worse when I bend forward, and it also hurts more when I press over my forehead/sinus area.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “worse bending forward / tender over sinuses”:**  \n- Acute rhinosinusitis: 0.72  \n- Allergic sinusitis: 0.10  \n- URTI / Viral pharyngitis: 0.15  \n- Influenza: 0.03  \n- Pneumonia: 0.00–0.01  \n\n(That tenderness and positional worsening strongly favors sinus inflammation/infection.)\n\n**Question 4:**  \nDo you have **tooth pain** (upper teeth) or **ear pressure/fullness** on the same side?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my upper teeth feel sore, and I also feel some ear pressure/fullness on the same side.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “upper teeth sore + ear pressure/fullness (same side)”:**  \n- Acute rhinosinusitis: 0.82  \n- Allergic sinusitis: 0.06  \n- URTI / Viral pharyngitis: 0.10  \n- Influenza: 0.02  \n- Pneumonia: ~0  \n\n**Question 5:**  \nIs the nasal discharge **mostly one-sided** or **both sides**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s mostly on one side.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “mostly one-sided discharge”:**  \n- Acute rhinosinusitis: 0.88  \n- Allergic sinusitis: 0.05  \n- URTI / Viral pharyngitis: 0.06  \n- Influenza: 0.01  \n- Pneumonia: ~0  \n\n**Question 6:**  \nAny **severe headache**, **swelling/redness around the eye**, **vision changes**, or **pain with eye movement**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No—none of those. I don’t have swelling or redness around my eye, no vision changes, and no pain when I move my eyes.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no orbital/vision red flags”:**  \n- Acute rhinosinusitis: 0.92  \n- Allergic sinusitis: 0.04  \n- URTI / Viral pharyngitis: 0.04  \n- Influenza: 0.01  \n\n**Question 7:**  \nDo you have **shortness of breath or wheezing**, or is it mainly cough from post-nasal drip?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t feel short of breath or wheezy. It’s mainly cough, and it feels like post-nasal drip.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no SOB/wheeze; cough/post-nasal drip”:**  \n- Acute rhinosinusitis: 0.95  \n- Allergic sinusitis: 0.03  \n- URTI / Viral pharyngitis: 0.02  \n- Influenza: ~0  \n\nAt this point the history is very consistent with **acute bacterial rhinosinusitis** (facial pain/pressure worse bending forward, unilateral purulent discharge, anosmia, no fever, no orbital red flags).\n\n**Question 8 (to confirm bacterial vs viral):**  \nHave you had **symptoms that are clearly worsening** after an initial improvement, or is it just been steadily bad since it started?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It’s been steadily bad since it started. I didn’t really get better first, then worse again.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “steadily bad since onset (no double-worsening)”:**  \n- Acute rhinosinusitis: 0.85  \n- Allergic sinusitis: 0.08  \n- URTI / Viral pharyngitis: 0.05  \n- Influenza: 0.02  \n\nEven without “double-worsening,” the combination of **unilateral purulent discharge + facial pressure/tenderness + anosmia** still makes acute bacterial rhinosinusitis most likely, though viral rhinosinusitis remains possible.\n\n**Question 9 (key discriminator):**  \nDo you have **significant nasal congestion** and/or **bad breath** (foul odor) on that side?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m pretty congested, and it smells kind of bad on that side.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “significant congestion + foul odor (unilateral)”:**  \n- Acute rhinosinusitis: 0.93  \n- Allergic sinusitis: 0.04  \n- URTI / Viral pharyngitis: 0.03  \n- Influenza: 0.01  \n\n**Question 10 (safety check):**  \nAny **neck stiffness**, severe photophobia, confusion, or rash?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No—no neck stiffness, no severe light sensitivity, no confusion, and no rash.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no meningitis/encephalopathy signs”:**  \n- Acute rhinosinusitis: 0.95  \n- Allergic sinusitis: 0.03  \n- URTI / Viral pharyngitis: 0.02  \n- Influenza: ~0  \n\nI’m confident enough to give a differential.\n\n[DDX] Acute rhinosinusitis, Allergic sinusitis, URTI / Viral pharyngitis, Influenza, Pneumonia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Allergic sinusitis",
+      "URTI / Viral pharyngitis",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17059,
+      "completion_tokens": 1269
+    },
+    "patient": {
+      "prompt_tokens": 15894,
+      "completion_tokens": 296
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "case_idx": 28,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "AGE": 67,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "jaw pain or weakness",
+    "EVIDENCES_ENG": "['jaw pain or weakness', 'double vision', 'speech difficulties', 'bilateral weakness', 'eyelid drooping (ptosis)', 'limb weakness/paralysis']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 67\n- I have pain or weakness in my jaw.\n- I have the perception of seeing two images of a single object seen overlapping or adjacent to each other (double vision).\n- I have difficulty articulating words/speaking.\n- I feel weakness in both arms and/or both legs.\n- I have a hard time opening/raising one or both eyelids.\n- I previously, or I currently, have any weakness/paralysis in one or more of my limbs or in my face.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Myasthenia gravis', 0.4794252070676783], ['Guillain-Barré syndrome', 0.3357364849459872], ['Acute dystonic reactions', 0.18483830798633438]]",
+    "PATHOLOGY": "Myasthenia gravis",
+    "INITIAL_EVIDENCE": "claud_mâchoire",
+    "EVIDENCES": "['claud_mâchoire', 'diplopie', 'dysarthrie', 'faiblesse_msmi', 'ptose', 'rds_paralys_gen', 'trav1_@_N']",
+    "patient_id": "htsim_1009",
+    "_test_index": 1009,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 67-year-old M patient presents to the clinic. Chief complaint: jaw pain or weakness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have jaw pain or weakness. I also have double vision, difficulty articulating words/speaking, weakness in both arms and/or both legs, trouble opening/raising my eyelids, and I previously or currently have weakness/paralysis in one or more of my limbs or in my face.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Let me ask a few key questions: When did these symptoms start (sudden vs gradual) and how long has it been?  \nDoctor: Do you have any headache, facial droop, trouble swallowing, or breathing difficulty, and have you had any recent infection or new medication?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say my symptoms include jaw pain or weakness, double vision, difficulty articulating words/speaking, weakness in both arms and/or both legs, and trouble opening/raising one or both eyelids, and I previously or currently have weakness/paralysis in one or more of my limbs or in my face.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to clarify the timing—did this begin **suddenly over minutes to hours**, or did it **build up gradually over days to weeks**?  \nDoctor: Also, is your weakness **worse with use and better with rest**, and do you have **any shortness of breath or trouble swallowing** right now?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be a neurologic emergency—can you look at your throat and tell me if you’re having trouble swallowing saliva or any new shortness of breath?  \nDoctor: Also, please tell me whether your eyelid droop is on one side or both, and whether your double vision is constant or comes and goes.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Sir, I need you to answer yes/no if possible—are you currently able to swallow normally (no choking on saliva) and can you breathe comfortably right now?  \nDoctor: Also, is the double vision and eyelid droop happening on one side or both sides?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Sir, I’m going to treat this as a possible stroke/neuromuscular emergency—right now, can you state clearly if you are having trouble breathing or swallowing (yes/no), even if the timing is unclear?  \nDoctor: Next, are you able to lift both arms and hold them out for 10 seconds (symmetrically vs weaker on one side)?  \nDoctor: REQUEST TEST: CT_Head_Without_Contrast; REQUEST TEST: MRI_Brain_With_Diffusion; REQUEST TEST: Neurology_Bedside_Exam_and_NIHSS; REQUEST TEST: Blood_Glucose; REQUEST TEST: CBC_CMP; REQUEST TEST: Coagulation_Studies; REQUEST TEST: CK_and_TSH; REQUEST TEST: AChR/MuSK_Antibodies_and_EMG_if_applicable",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a safe diagnosis without key timing and breathing/swallowing status—right now, can you try a fast check: **say a full sentence**, **smile**, **stick out your tongue**, and **show me you can lift both arms** (yes/no if weak), and tell me if you’re **choking on saliva** (yes/no).  \nDoctor: While you answer, we’ll treat as an emergency: **REQUEST TEST: CT_Head_Without_Contrast** and **REQUEST TEST: MRI_Brain_With_Diffusion** immediately, and I need you to confirm: **did this start suddenly (minutes–hours) or gradually (days–weeks)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms include jaw pain or weakness, double vision, difficulty articulating words/speaking, weakness in both arms and/or both legs, trouble opening/raising one or both eyelids, and I previously or currently have weakness/paralysis in one or more of my limbs or in my face.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t proceed safely without timing and airway/breathing risk—are you able to swallow saliva without choking (yes/no) and are you short of breath right now (yes/no)?  \nDoctor: REQUEST TEST: CT_Head_Without_Contrast; REQUEST TEST: MRI_Brain_With_Diffusion; REQUEST TEST: Bedside_Swallow_Assessment; REQUEST TEST: ECG_and_Troponin.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given “double vision + dysarthria + limb weakness ± facial/eyelid involvement” with no reliable timing and unknown airway status, I’m treating this as a high-risk neurologic emergency (stroke vs neuromuscular junction disorder like myasthenic crisis).  \nDoctor: I need one immediate yes/no check: are you currently having trouble swallowing saliva or choking, and are you short of breath?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely wait—if you truly can’t answer whether you’re choking or short of breath, we must assume possible airway risk and treat immediately while tests are urgently obtained; can you try once more to swallow a small sip of water—are you able without coughing/choking (yes/no)?  \nDoctor: REQUEST TEST: CT_Head_Without_Contrast; REQUEST TEST: MRI_Brain_With_Diffusion; REQUEST TEST: Bedside_Swallow_Assessment; REQUEST TEST: ECG_and_Troponin; REQUEST TEST: Serum_Electrolytes_and_Magnesium.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms include jaw pain or weakness, double vision, difficulty articulating words/speaking, weakness in both arms and/or both legs, trouble opening/raising one or both eyelids, and I previously, or currently, have weakness/paralysis in one or more of my limbs or in my face.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Sir, because you can’t confirm swallowing/breathing and you have double vision plus speech difficulty plus limb weakness and eyelid droop, I’m treating this as a life-threatening neurologic emergency now; we’ll manage airway first and assume aspiration risk.  \nDoctor: DIAGNOSIS READY: Suspected Myasthenic crisis (myasthenia gravis) vs brainstem stroke—requires immediate emergency treatment and evaluation.\n\n[DDX]\n1. Myasthenia gravis",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7642,
+      "completion_tokens": 979,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 11821,
+      "completion_tokens": 319,
+      "calls": 10
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "case_idx": 21,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient reports a 2-month history of symptoms that she believes are indicative of pregnancy, including breast tenderness, nausea, weight gain, and urinary frequency. She has been attempting to conceive for 6 months after discontinuing oral contraceptives. She announces that she believes she is pregnant due to these symptoms.",
+    "Symptoms": {
+      "Primary_Symptom": "Reports of pregnancy symptoms",
+      "Secondary_Symptoms": [
+        "Breast tenderness",
+        "Nausea",
+        "6.6-lb weight gain",
+        "Urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Has been off oral contraceptives for 6 months. No other significant medical history.",
+    "Social_History": "Married, trying to conceive. Non-smoker. Drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain. Reports increased fatigue."
+  },
+  "objective_for_doctor": "Evaluate a 34-year-old woman requesting prenatal care, with subjective feelings of pregnancy but negative urine β-hCG.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s clarify what’s going on. What makes you feel pregnant (e.g., missed/irregular periods, nausea, breast tenderness, abdominal bloating), and when did those symptoms start?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I haven’t had my period like usual and my breasts have been tender since about two months ago. I also feel nauseated, have gained around 6.6 pounds, and I’ve been urinating more often, along with increased fatigue."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you—since your urine β-hCG is negative despite these pregnancy-like symptoms, I need to check timing and bleeding: have you had any vaginal bleeding or spotting, and what was the date of your last normal period?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I’ve had no vaginal bleeding or spotting, and my last normal period was about two months ago. Since then my period has been late and the breast tenderness, nausea, fatigue, and urinary frequency have continued."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Understood—negative urine β-hCG with ~2 months of amenorrhea and no bleeding: are you on any hormonal contraception or have you recently stopped/changed birth control, and are you having headaches/vision changes or new galactorrhea? Patient: Doctor: REQUEST TEST: Serum_β-hCG_and_urine_repeat; REQUEST TEST: TSH; REQUEST TEST: Prolactin; REQUEST TEST: Pelvic_ultrasound",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.2°C (99°F); Blood Pressure 110/60 mmHg; Heart Rate 100 bpm; Respiratory Rate 18 breaths/min. Abdominal exam: mild nontender enlargement, normal bowel sounds, tympanic percussion, soft non-tender abdomen. Pelvic exam: cervical os closed; adnexa without masses or tenderness. Urine β-hCG: Negative. Transvaginal ultrasound: No abnormalities detected."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: With ~2 months of amenorrhea, negative urine β-hCG twice, and a normal transvaginal ultrasound, we should look for non-pregnancy causes of hyperprolactinemia/thyroid or anovulation—any new galactorrhea, severe headaches/vision changes, major stress, rapid weight change, or excessive exercise? Patient: Doctor: If those are negative, the most likely diagnosis is functional hypothalamic amenorrhea/anovulatory cycle dysfunction; I’m going to proceed with a working diagnosis. DIAGNOSIS READY: Secondary amenorrhea due to anovulatory dysfunction (most consistent with functional hypothalamic/physiologic causes) given negative pregnancy testing and normal pelvic imaging; awaiting TSH/prolactin to exclude thyroid disease or hyperprolactinemia.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: With ~2 months of amenorrhea, negative urine β-hCG twice, and a normal transvaginal ultrasound, we should look for non-pregnancy causes of hyperprolactinemia/thyroid or anovulation—any new galactorrhea, severe headaches/vision changes, major stress, rapid weight change, or excessive exercise? Patient: Doctor: If those are negative, the most likely diagnosis is functional hypothalamic amenorrhea/anovulatory cycle dysfunction; I’m going to proceed with a working diagnosis. DIAGNOSIS READY: Secondary amenorrhea due to anovulatory dysfunction (most consistent with functional hypothalamic/physiologic causes) given negative pregnancy testing and normal pelvic imaging; awaiting TSH/prolactin to exclude thyroid disease or hyperprolactinemia.",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1503,
+      "completion_tokens": 374,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 833,
+      "completion_tokens": 101,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 440,
+      "completion_tokens": 96,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 234,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

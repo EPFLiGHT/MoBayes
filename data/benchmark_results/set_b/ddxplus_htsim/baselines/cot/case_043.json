@@ -1,0 +1,89 @@
+{
+  "case_idx": 43,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Stable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 46\nSex: F\nChief Complaint: exertional symptoms",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain with physical exertion that gets worse when I’m active and is relieved with rest. It’s been at an intensity of 7/10 and feels tedious, heavy, and exhausting, in my lower and upper chest and both breasts and epigastric area. It also radiates to my biceps (right and left), under the jaw, and both shoulders.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: exertional chest/epigastric pain (heavy/exhausting, 7/10) relieved by rest, radiating to both biceps, under the jaw, and both shoulders. This pattern is concerning for cardiac ischemia (angina/NSTEMI/unstable angina), though GI causes (GERD) can mimic it. We need to discriminate by associated symptoms and triggers.\nTop candidates:\n1) Possible NSTEMI / STEMI — exertional, radiating pain with diaphoresis/nausea would support; relieved by rest can still occur early.\n2) Unstable angina — exertional pain at rest-relieved pattern; radiation to jaw/arms is classic.\n3) Stable angina — exertional, relieved by rest; radiation pattern fits.\n4) GERD — epigastric pain can radiate to chest/arms/jaw, but “relieved by rest” and exertional trigger favors cardiac.\n5) Pericarditis — chest pain can radiate but is usually worse with inspiration/lying flat and not classically exertional-relieved.\nMost informative next question: whether there are associated autonomic symptoms (especially shortness of breath, diaphoresis, nausea) during episodes.\n[/REASONING]\nDo you get shortness of breath, sweating (diaphoresis), nausea/vomiting, or lightheadedness when the pain happens?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have exertional, heavy chest/epigastric pain radiating to both arms and jaw—highly concerning for cardiac ischemia. We still lack key discriminators: associated symptoms (diaphoresis, nausea, dyspnea), and whether pain occurs with minimal exertion or at rest, plus duration of episodes.\nTop candidates remain:\n1) Possible NSTEMI / STEMI (can present with exertional pain; radiation to jaw/arms)\n2) Unstable angina (exertional pain that may be worsening/frequent; relieved by rest)\n3) Stable angina (exertional, relieved by rest)\n4) GERD (epigastric/chest pain, can radiate, but exertional trigger is less typical)\n5) Pulmonary embolism (can cause chest pain radiating/with exertion, but radiation to jaw/arms is less typical)\nMost informative next question: how long each episode lasts and whether it reliably starts with exertion and stops quickly with rest.\n[/REASONING]\nWhen the pain starts, how long does it last (minutes), and does it stop within about 5–10 minutes after you stop/slow down?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient specifics on duration/tempo. Exertional, radiating pain remains most concerning for acute coronary syndrome, but we need at least one more discriminating feature: whether it occurs at rest or with minimal activity, and whether it’s new/worsening (unstable angina). Duration is ideal, but if unknown, next best is change in pattern.\nTop candidates:\n1) Possible NSTEMI / STEMI — if this is new or worsening exertional pain, especially if recent onset.\n2) Unstable angina — new/worsening exertional angina, may occur with less exertion over time.\n3) Stable angina — long-standing predictable exertional pattern.\n4) GERD — typically not reliably triggered by exertion and often related to meals/lying down.\n5) Pulmonary embolism — less likely without pleuritic symptoms, but still possible.\nMost informative next question: has this been new or getting worse recently (e.g., started within the last few weeks, or occurring with less activity than before)?\n[/REASONING]\nHas this chest/epigastric pain been new or getting worse over the past days to weeks, or is it something you’ve had for a long time with the same pattern?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still don’t have discriminators (timing/duration, associated symptoms, change in pattern). Given the exertional nature and radiation to jaw/arms, ACS remains the leading concern, but without more history we can’t confidently rank beyond that. We should ask one high-yield question that can quickly shift likelihood: does it occur at rest (without exertion) or wake you from sleep? That would strongly suggest unstable angina/MI rather than stable angina or GERD.\nTop candidates (tentative):\n1) Possible NSTEMI / STEMI\n2) Unstable angina\n3) Stable angina\n4) GERD\n5) Pulmonary embolism\nMost informative next question: does it ever happen at rest or wake you from sleep?\n[/REASONING]\nDoes the pain ever occur when you’re resting (not exerting yourself), or wake you up from sleep?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I can’t confidently narrow the diagnosis because the key discriminating history (episode duration, whether it occurs at rest, associated symptoms like diaphoresis/nausea/dyspnea, and whether it’s new/worsening) is unknown. The exertional, radiating pattern is concerning for ACS, but without these details I can’t reliably rank alternatives.\n\n[POSSIBLE] Possible NSTEMI / STEMI, Unstable angina, Stable angina, GERD, Pulmonary embolism",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Stable angina",
+      "GERD",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6843,
+      "completion_tokens": 1109
+    },
+    "patient": {}
+  }
+}

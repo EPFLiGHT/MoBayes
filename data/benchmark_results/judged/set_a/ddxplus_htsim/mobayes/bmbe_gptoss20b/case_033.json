@@ -1,0 +1,132 @@
+{
+  "case_idx": 33,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 59\nSex: F\nChief Complaint: pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been having severe, sharp pain in my chest—upper and lower chest, in both breasts (right and left), and in the epigastric area. It radiates to the posterior chest wall on the left. The pain is very intense (9/10) and it started very quickly (pace 9/10), and it’s been significantly worse when I’m lying down, and better when I sit up. I’ve also been having significant shortness of breath, and my heart has been beating fast and irregularly with palpitations, including feeling like I’m missing beats.",
+      "extracted_features": {
+        "f_e_55_v_101": "yes",
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_159": "yes",
+        "f_e_55_v_160": "yes",
+        "f_e_55_v_197": "yes",
+        "f_e_57_v_171": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_56": "9",
+        "f_e_59": "9",
+        "f_e_66": "yes",
+        "f_e_155": "yes",
+        "f_e_217": "yes",
+        "f_e_53": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pericarditis",
+          0.9297197828980976
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.030574854975548665
+        ],
+        [
+          "Myocarditis",
+          0.013195860188338711
+        ],
+        [
+          "Unstable angina",
+          0.007141844894626691
+        ],
+        [
+          "Stable angina",
+          0.005691468143574526
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_3",
+      "doctor_question": "Have you ever been diagnosed with pericarditis?",
+      "patient_answer": "Yes, I have had pericarditis.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.9981792416493627
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.000772381632412215
+        ],
+        [
+          "Myocarditis",
+          0.00033335366730286535
+        ]
+      ],
+      "entropy": 0.02422154621522543
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_0",
+      "doctor_question": "Have you had any recent viral illnesses, like a cold or flu?",
+      "patient_answer": "Yes, I’ve recently had a viral infection.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.9996444539205273
+        ],
+        [
+          "Myocarditis",
+          0.0003162723083328305
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          2.035566841511683e-05
+        ]
+      ],
+      "entropy": 0.004865085906207935
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_top3": [
+      "Pericarditis",
+      "Myocarditis",
+      "Possible NSTEMI / STEMI"
+    ],
+    "confidence": 0.9996444539205273,
+    "final_entropy": 0.004865085906207935,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pericarditis",
+    "predicted_set_remapped": [
+      "Pericarditis",
+      "Myocarditis",
+      "Possible NSTEMI / STEMI"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10178,
+      "completion_tokens": 1508
+    },
+    "patient": {}
+  }
+}

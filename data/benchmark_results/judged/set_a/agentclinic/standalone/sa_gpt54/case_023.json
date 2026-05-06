@@ -1,0 +1,127 @@
+{
+  "case_idx": 23,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Ewing sarcoma",
+  "patient_actor_hidden": {
+    "Demographics": "13-year-old boy",
+    "History": "The patient has been experiencing left leg pain progressively getting worse over 2 months, now interfering with sleep. Symptoms did not improve with ibuprofen. Noted trauma to the leg with a baseball hit one week before the onset of symptoms, which caused redness and swelling.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive left leg pain",
+      "Secondary_Symptoms": [
+        "Interference with sleep",
+        "History of trauma to the leg",
+        "Redness and swelling following trauma"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. First episode of such symptoms.",
+    "Social_History": "The patient is a middle school student. No relevant social history.",
+    "Review_of_Systems": "Denies fever, weight loss, or any recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive left leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had progressively worse pain in my left leg for about two months, and it’s now strong enough to keep me from sleeping. It started after I got hit on the leg with a baseball and I had redness and swelling afterward.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Where exactly is the pain in your left leg—thigh, knee, shin, calf, or ankle—and is there still any swelling, redness, or a lump there now?\nWhere exactly is the pain in your left leg—thigh, knee, shin, calf, or ankle—and is there still any swelling, redness, or a lump there now?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The pain is mostly in my shin and sometimes into the calf, and it’s still a bit swollen with redness around the area where I got hit. I don’t really feel a clear lump, but it’s tender to touch and hurts more when I move.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any fever, chills, night sweats, or unintentional weight loss?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any fever, chills, or night sweats, and I haven’t lost any weight. I feel otherwise okay, but the leg pain has been getting worse over the last two months.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Are you able to walk on it, and does the pain feel deep in the bone versus more in the muscle/skin? Also, is it worse at night or at rest?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I can walk, but it hurts a lot—mostly deep aching pain in the shin rather than just in the muscles or skin. It’s worse at night and when I’m resting, and moving makes it sharper.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Any numbness, weakness, coldness of the foot, or shortness of breath/chest pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No numbness or weakness in my leg or foot, and I haven’t noticed any coldness or color change. I also don’t have any shortness of breath or chest pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and have you had any prior cancer, bone problems, infections, or recent skin wounds/open sores on that leg?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 13 years old, and I don’t have any prior cancer, bone problems, or serious infections. I haven’t had any open sores or skin wounds on that leg either—just the baseball hit that caused the redness and swelling.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteosarcoma, Ewing sarcoma, subacute osteomyelitis, chronic expanding hematoma/periosteal injury, stress fracture\n\nThe pattern is concerning for a bone lesion rather than a simple bruise:\n- age 13\n- progressive deep shin pain for 2 months\n- worse at night/rest\n- persistent tenderness, swelling, and redness\n- pain out of proportion to expected healing after minor trauma\n\nTop concerns:\n1. Osteosarcoma\n2. Ewing sarcoma\n3. Subacute osteomyelitis\n4. Chronic hematoma/periosteal reaction from trauma\n5. Stress fracture\n\nThis needs urgent in-person evaluation with:\n- X-ray of the tibia/fibula first\n- likely MRI if abnormal or if suspicion remains high\n- CBC, ESR/CRP\n- prompt orthopedic/oncology evaluation if imaging is concerning\n\nPlease seek urgent medical assessment within 24 hours; if pain becomes severe, fever develops, or he cannot bear weight, go to the emergency department immediately.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Osteosarcoma",
+    "predicted_set": [
+      "Osteosarcoma",
+      "Ewing sarcoma",
+      "subacute osteomyelitis",
+      "chronic expanding hematoma/periosteal injury",
+      "stress fracture\n\nThe pattern is concerning for a bone lesion rather than a simple bruise:\n- age 13\n- progressive deep shin pain for 2 months\n- worse at night/rest\n- persistent tenderness"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Ewing sarcoma",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3014,
+      "completion_tokens": 418
+    },
+    "patient": {
+      "prompt_tokens": 3264,
+      "completion_tokens": 316,
+      "calls": 6
+    }
+  }
+}

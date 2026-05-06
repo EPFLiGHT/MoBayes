@@ -1,0 +1,336 @@
+{
+  "case_idx": 39,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by the police after he was found undressing himself outdoors in extremely hot weather. He is uncooperative, refuses to answer questions, and exhibits paranoid behavior. He has a recent history of presenting to the emergency department for polysubstance intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Somnolence and non-responsiveness",
+      "Secondary_Symptoms": [
+        "High fever (104°F or 40°C)",
+        "Hypertension",
+        "Tachycardia",
+        "Muscle rigidity",
+        "Dry mucous membranes"
+      ]
+    },
+    "Past_Medical_History": "History of substance use. No other significant medical history reported.",
+    "Social_History": "Recently started college. History of polysubstance abuse.",
+    "Review_of_Systems": "Unable to complete due to patient's non-responsiveness and lack of cooperation."
+  },
+  "objective_for_doctor": "Assess and manage a young adult patient presenting with altered mental status, suspected of having a serious drug reaction.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Something’s wrong—I can’t really explain, but I’ve been very sleepy and not really responsive. I’m running a very high fever and I feel rigid, with a fast heartbeat and dry mouth.”",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_drowsiness_420d2bd9": "yes",
+        "f_altered_mental_status_f460088f": "yes",
+        "f_muscle_rigidity_710ca10d": "yes",
+        "f_heart_racing_47710d89": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9240906704197213
+        ],
+        [
+          "Pneumonia",
+          0.011098960196429457
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0101035377572878
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.004597882673539712
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.003590127567010458
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "Doctor: Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center? Patient: “I can’t really tell—my skin feels strange, but I’m not able to cooperate much right now.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9240906704197213
+        ],
+        [
+          "Pneumonia",
+          0.011098960196429457
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0101035377572878
+        ]
+      ],
+      "entropy": 0.7302229282440056
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "Doctor: Have you noticed that you need to urinate more often than usual? Patient: “I’m not able to answer clearly—I feel very drowsy and unresponsive, but my mouth feels very dry, and everything feels… wrong.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9240906704197213
+        ],
+        [
+          "Pneumonia",
+          0.011098960196429457
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0101035377572878
+        ]
+      ],
+      "entropy": 0.7302229282440056
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling a general sense of weakness or a lack of energy throughout your body lately?",
+      "patient_answer": "“Yeah… I’ve been very weak and low-energy, mostly just extremely sleepy and hard to stay aware. My heart feels like it’s racing and I’m running a very high fever, and I feel stiff.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5714596970005208
+        ],
+        [
+          "Pneumonia",
+          0.11668156250929075
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.11663026489102409
+        ]
+      ],
+      "entropy": 2.3768919906542165
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“I can’t really manage things like that right now—I’m so drowsy I’m struggling to do simple movements, and I feel stiff and uncooperative. My heart’s racing and my fever feels very high, with a very dry mouth.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5519418590804692
+        ],
+        [
+          "Pneumonia",
+          0.11269637888694929
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.11264683330579787
+        ]
+      ],
+      "entropy": 2.498160840703757
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "“Sorry—I’m not able to cooperate enough to check my skin or answer about rashes on my arms. I’m very drowsy and not responsive, with a very high fever, dry mouth, a racing heart, and stiffness.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5519418590804692
+        ],
+        [
+          "Pneumonia",
+          0.11269637888694929
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.11264683330579787
+        ]
+      ],
+      "entropy": 2.498160840703757
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "“Not really—can’t say about itchiness because I’m too drowsy and not really able to focus. My main thing right now is that I’m extremely sleepy, my fever is very high, my heart’s racing, and I feel very rigid with a very dry mouth.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5595051221223486
+        ],
+        [
+          "Pneumonia",
+          0.11424065813188518
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.1141904336272989
+        ]
+      ],
+      "entropy": 2.4555704445562174
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calf muscles when you walk that feels better once you stop and rest?",
+      "patient_answer": "“Doctor, I can’t walk or really cooperate right now—everything feels stiff and I’m too drowsy to assess calf pain, but I have a very high fever, dry mouth, and a racing heart.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5595051221223486
+        ],
+        [
+          "Pneumonia",
+          0.11424065813188518
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.1141904336272989
+        ]
+      ],
+      "entropy": 2.4555704445562174
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, clay-colored, or light in color recently?",
+      "patient_answer": "“Doctor, I can’t really tell you about my stool color right now—I’m too drowsy and not responding well. I’m still very rigid with a very high fever, a racing heart, and a very dry mouth.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5595051221223486
+        ],
+        [
+          "Pneumonia",
+          0.11424065813188518
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.1141904336272989
+        ]
+      ],
+      "entropy": 2.4555704445562174
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, or have you found it more difficult than usual to grip or hold onto objects?",
+      "patient_answer": "“I can’t really grip or answer properly right now—I’m extremely drowsy and not very responsive, with a very high fever, a racing heart, and stiffness.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5148177356378942
+        ],
+        [
+          "Pneumonia",
+          0.10511631549349623
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.10507010239427282
+        ]
+      ],
+      "entropy": 2.6165073391295013
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_staying_conscious_during_shaking_episode_38ad282a",
+      "doctor_question": "During these shaking episodes, are you able to remain conscious and aware of your surroundings, or do you lose consciousness?",
+      "patient_answer": "“Mostly I lose awareness—I’m very sleepy and not really in control of what’s happening around me. I feel rigid and overheated, and I’m not able to stay conscious or answer clearly.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5148177356378942
+        ],
+        [
+          "Pneumonia",
+          0.10511631549349623
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.10507010239427282
+        ]
+      ],
+      "entropy": 2.6165073391295013
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.5148177356378942,
+    "final_entropy": 2.6165073391295013,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10323,
+      "completion_tokens": 354
+    },
+    "patient": {
+      "prompt_tokens": 7327,
+      "completion_tokens": 542,
+      "calls": 11
+    }
+  }
+}

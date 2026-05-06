@@ -1,0 +1,132 @@
+{
+  "case_idx": 13,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 3\nSex: Female\nChief Complaint: I have a fever, a cough, and tedious pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have a fever and I’ve had a cough and a sore throat. I also have a headache—pain on the top of my head and my forehead, and both my temples feel bad, like heavy and tiring pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. To narrow down the cause of your fever + cough + sore throat, I have one question:\n\n**Do you have any trouble breathing or wheezing, or is it mainly cough/sore throat with fever?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly cough and sore throat with the fever. I don’t have trouble breathing or wheezing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question (one key discriminator):\n\n**How long have your symptoms been going on (days), and did they start suddenly or gradually?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I think it started gradually. I’m not sure exactly how many days, but it has been building up.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next question:\n\n**Have you noticed any nasal congestion or runny nose, or is it mostly throat/cough?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have nasal congestion and a clear runny nose too.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this points more toward an upper respiratory viral process. Next question:\n\n**Have you had any measured fever (temperature), and if so how high?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever, but I don’t know the exact temperature.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question:\n\n**Do you have any body aches or chills, and are you feeling unusually fatigued?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel tired, and I have body aches and chills.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question:\n\n**Is your cough dry or productive (any phlegm/sputum)? If productive, what color?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "My cough is there, but I don’t know about phlegm or sputum. I can’t say the color.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you had any known exposure to someone with influenza or COVID, or have you been around people who are sick recently?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about influenza or COVID. But I live with 4 or more people, and we’ve been around others who might be sick recently.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Do you have any shortness of breath with activity, chest pain, or do you feel like you can’t take a full breath?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath with activity, and no chest pain. I can take a full breath.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Influenza, URTI, Viral pharyngitis, Acute rhinosinusitis, Pneumonia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "URTI",
+      "Viral pharyngitis",
+      "Acute rhinosinusitis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9271,
+      "completion_tokens": 305
+    },
+    "patient": {
+      "prompt_tokens": 8020,
+      "completion_tokens": 243
+    }
+  }
+}

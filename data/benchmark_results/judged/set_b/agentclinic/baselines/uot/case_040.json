@@ -1,0 +1,87 @@
+{
+  "case_idx": 40,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Steven-Johnson syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "47-year-old male",
+    "History": "The patient presents with a rash that started last night, finding it very concerning. He does not recall being exposed to any new environmental stimuli such as detergents or plants like poison ivy. He mentions he recently started seeing a primary care provider for arthritis management and a new onset cough.",
+    "Symptoms": {
+      "Primary_Symptom": "Rash on the upper half of the back",
+      "Secondary_Symptoms": [
+        "Concern over sudden onset",
+        "Recent cough",
+        "Unaware of exposure to new environmental stimuli",
+        "Mucositis"
+      ]
+    },
+    "Past_Medical_History": "Has been diagnosed with arthritis. No other significant past medical history has been mentioned.",
+    "Social_History": "The patient didn't provide any specific social history details during the initial consultation.",
+    "Review_of_Systems": "Reports a new onset cough along with skin and mucosal changes but denies fever, shortness of breath, joint pains, gastrointestinal symptoms, or recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a concerning rash and recent health changes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m concerned—I developed a sudden rash on the upper half of my back that started last night, and I’ve also had a new cough. I’m not sure what could have triggered it, and I’ve noticed mucosal changes as well.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Steven-Johnson syndrome**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not sure if it’s Stevens-Johnson—I don’t know what would point specifically to that, just that the rash started suddenly last night on my upper back, and I’ve also had a new cough and mucosal changes. I haven’t noticed any new detergents or plant exposures.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Steven-Johnson syndrome, Toxic exposure  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Steven-Johnson syndrome",
+    "predicted_set": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure"
+    ],
+    "predicted_raw": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Steven-Johnson syndrome",
+    "predicted_set_remapped": [
+      "Steven-Johnson syndrome",
+      "Toxic exposure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 765,
+      "completion_tokens": 135,
+      "calls": 2
+    }
+  }
+}

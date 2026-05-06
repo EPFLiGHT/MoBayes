@@ -1,0 +1,169 @@
+{
+  "case_idx": 9,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: M\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having shortness of breath/difficulty breathing in a significant way, and I also feel slightly dizzy or lightheaded.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. I’ll ask a few focused questions to narrow down the cause.\n\n**Question 1 (one at a time):**  \nWhen did the shortness of breath start—**suddenly (minutes to hours)** or **gradually (over days)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Question 2:** Do you feel like it’s **getting worse quickly** (over hours) or **staying about the same / slowly worsening** (over days)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Question 3:** Are you currently able to speak in **full sentences**, or are you **too short of breath to speak full sentences**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Question 4:** Have you had **chest pain or pressure** along with the shortness of breath? (Yes/No)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Question 5:** Do you have **any fever or chills** recently? (Yes/No)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s narrow by breathing pattern.\n\n**Question 6:** Do you have **wheezing** (a whistling sound) when you breathe? (Yes/No)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "No worries.\n\n**Question 7:** Do you have a **cough**? If yes, is it **dry** or **with phlegm/sputum**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Question 8:** Have you noticed **swelling of your lips/tongue**, **hives/itching**, or **throat tightness**? (Yes/No)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 9:** Have you had **recent leg swelling or pain** (especially one-sided), or have you been **immobile/long travel/surgery** recently? (Yes/No)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "I understand—let’s focus on a couple of high-yield details.\n\n**Question 10:** Do you have a history of **asthma or COPD**, or have you ever been told you have **lung disease**? (Yes/No)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. One more key discriminator.\n\n**Question 11:** When you feel short of breath, is it worse when you **lie flat**, and do you wake up at night **gasping**? (Yes/No)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not able to narrow this down yet because the key symptom details are unknown. I need a few more discriminating facts.\n\n**Question 12:** Do you have a **new or worsening cough with fever**, or have you been around someone sick recently? (Yes/No)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to pause because you’re unable to answer most of the discriminating questions, so I can’t confidently narrow to a specific diagnosis.\n\n**[ABSTAIN]** Insufficient information (most key discriminators—timing, chest pain, wheeze/cough, fever, allergic symptoms, leg swelling/PE risks, orthopnea—are unknown).  \n**[POSSIBLE]** Pulmonary embolism, Pneumonia, Bronchospasm / acute asthma exacerbation, Acute COPD exacerbation / infection, Acute pulmonary edema",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Pulmonary embolism",
+      "Pneumonia",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute COPD exacerbation / infection",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14097,
+      "completion_tokens": 645
+    },
+    "patient": {}
+  }
+}

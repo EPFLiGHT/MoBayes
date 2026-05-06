@@ -1,0 +1,169 @@
+{
+  "case_idx": 14,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "patient_actor_hidden": {
+    "AGE": 69,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "expiratory wheezing",
+    "EVIDENCES_ENG": "['multiple asthma attacks in the past year', 'shortness of breath', 'hospitalization for asthma attack in the past year', 'recent cold', 'chronic sinusitis diagnosis', 'asthma or bronchodilator use', 'cough', 'expiratory wheezing', 'daily exposure to secondhand cigarette smoke']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 69\n- I have had 2 or more asthma attacks in the past year.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have been hospitalized for an asthma attack in the past year.\n- I have had a cold in the last 2 weeks.\n- I have been diagnosed with chronic sinusitis.\n- I have asthma or have used a bronchodilator in the past.\n- I have a cough.\n- I have noticed a wheezing sound when I exhale.\n- I am exposed to secondhand cigarette smoke on a daily basis.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchospasm / acute asthma exacerbation', 0.09889657381739657], ['Bronchitis', 0.0857301002122807], ['Pulmonary neoplasm', 0.07986229104471873], ['Acute COPD exacerbation / infection', 0.07492867699108588], ['Pneumonia', 0.06308989750274147], ['Pulmonary embolism', 0.06017389251840222], ['Tuberculosis', 0.0578302852327805], ['Acute pulmonary edema', 0.056365133627181756], ['Anaphylaxis', 0.056365133627181756], ['Guillain-Barré syndrome', 0.05152101538006757], ['Atrial fibrillation', 0.04921188634446758], ['Myocarditis', 0.04860015990403715], ['Bronchiectasis', 0.03888186867209874], ['Acute dystonic reactions', 0.03628163383768959], ['Myasthenia gravis', 0.03628163383768959], ['Anemia', 0.03628163383768959], ['Scombroid food poisoning', 0.033521149754498075], ['PSVT', 0.019380369302157058], ['SLE', 0.016796664555835627]]",
+    "PATHOLOGY": "Bronchospasm / acute asthma exacerbation",
+    "INITIAL_EVIDENCE": "wheez",
+    "EVIDENCES": "['criseasthm', 'dyspn', 'hosptisasm', 'j06.9', 'j32', 'j45', 'toux', 'trav1_@_N', 'wheez', 'z77.22']",
+    "patient_id": "htsim_0504",
+    "_test_index": 504,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 69-year-old F patient presents to the clinic. Chief complaint: expiratory wheezing.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having expiratory wheezing, along with a cough and significant shortness of breath or difficulty breathing. I’ve also had 2 or more asthma attacks in the past year and I was hospitalized for an asthma attack in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did these symptoms start, and do you know if you have any fever or chest pain?  \nDoctor: Are you currently able to speak full sentences, and do you have nighttime symptoms or require rescue inhaler more than every 4 hours?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or chest pain.\n\nI’m not sure if I’m able to speak full sentences right now.\n\nYes, I’ve had a significant shortness of breath/difficulty breathing, and I’ve had a cough with wheezing when I exhale. I’ve also had a cold in the last 2 weeks and I have chronic sinusitis. I have asthma and have used a bronchodilator in the past, but I don’t know about rescue inhaler use more than every 4 hours or nighttime symptoms.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check your vital signs and your breathing right now—please tell me if you’re using accessory muscles, and whether you feel too short of breath to speak in full sentences; also, do you have any history of COPD or smoking?  \nDoctor: REQUEST TEST: Pulse_Oximetry and Peak_Flow (or Spirometry if able).  \nDoctor: If you can, describe your cough (dry vs phlegm) and the color of any sputum.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about accessory muscles, and I don’t know whether I’m too short of breath to speak in full sentences right now.\n\nI have a cough and I notice wheezing when I exhale, but I don’t know if the cough is dry versus phlegm or the color of any sputum.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need 3 quick answers: do you have fever (≥38°C), are you producing any thick/yellow-green sputum, and do you smoke or have COPD/emphysema history?  \nDoctor: Also, are you currently taking an inhaled steroid or only a bronchodilator, and have you been intubated or required ICU care for asthma before?  \nDoctor: REQUEST TEST: Chest_X-Ray and CBC (to assess infection/other causes).",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or thick/yellow-green sputum.\n\nI don’t smoke, but I’m exposed to secondhand cigarette smoke on a daily basis.\n\nI don’t know whether I’m currently taking an inhaled steroid or only a bronchodilator.\n\nI don’t know about being intubated or requiring ICU care for asthma before.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess severity now—are you currently struggling to speak full sentences, and do you have chest tightness or lips/fingertips that look bluish?  \nDoctor: REQUEST TEST: Arterial_Blood_Gas (if available) and Repeat_Pulse_Oximetry after bronchodilator; also, can you tell me your current oxygen saturation if you know it?  \nDoctor: Considering your age (69), wheeze + cough after a recent cold, and multiple/previous severe asthma exacerbations within the year with hospitalization, I’m most concerned for an **acute asthma exacerbation**, but we must rule out pneumonia with the Chest_X-Ray.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently struggling to speak full sentences.\n\nI don’t know about chest tightness or whether my lips/fingertips look bluish.\n\nI don’t know my current oxygen saturation.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to listen to your lungs and check your work of breathing right now—can you take a deep breath and tell me if the wheeze is mainly when you exhale, and whether you have chest pain with breathing?  \nDoctor: REQUEST TEST: Bronchodilator_Response_Assessment (repeat Pulse_Oximetry + Peak_Flow 15–30 min after albuterol)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have chest pain with breathing.\n\nThe wheezing I notice is when I exhale.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—given expiratory wheeze, cough after a recent cold, and prior hospitalizations for asthma in the past year, this is most consistent with a **severe acute asthma exacerbation**; I still want your current vitals. Do you have a measured oxygen saturation (SpO₂) right now, and did you take any albuterol/neb/inhated steroid today (and when)?  \n\nDoctor: REQUEST TEST: Repeat_Pulse_Oximetry_with_brief_vitals.  \n\nDoctor: Without that data I must assume severity due to recent hospitalization—are you able to speak in full sentences or only short phrases?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to speak in full sentences or only short phrases right now.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a severe asthma exacerbation until proven otherwise—are you currently in distress, and can you confirm whether you can answer without pausing for breath (full sentences) or only short phrases?  \nDoctor: REQUEST TEST: Continuous_Pulse_Oximetry + Serum_Theophylline_not_routine + Basic_Metabolic_Panel (electrolytes before/while giving bronchodilators) and repeat Peak_Flow if available.  \nDoctor: Also, do you have fever now and have you taken any steroids (like prednisone) or used albuterol within the last 6 hours?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever now.\n\nI don’t know whether I’ve taken any steroids like prednisone or used albuterol within the last 6 hours.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need 2 final answers: what’s your current SpO₂ (if you know it) and are you using accessory muscles/too breathless to speak full sentences?  \nDoctor: If you can’t provide those, I’m ordering immediate objective severity checks—REQUEST TEST: Repeat_Pulse_Oximetry + Peak_Flow_NOW, then REQUEST TEST: Blood_Glucose_and_BMP (electrolytes/renal) before further bronchodilators/steroids.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my current SpO₂.\n\nI don’t know whether I’m using accessory muscles or too breathless to speak in full sentences.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat you as a **severe acute asthma exacerbation** right now—REQUEST TEST: immediate Pulse_Oximetry, Peak_Flow_NOW, and Chest_X-Ray; while those are pending, start/continue inhaled albuterol (and systemic corticosteroids if not already).  \nDoctor: Are you currently on supplemental oxygen or have you ever been told you have **asthma/COPD overlap** (or any emphysema), and have you had **any chest pain or inability to speak** more than a few words?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently on supplemental oxygen.\n\nI don’t know if I’ve ever been told I have asthma/COPD overlap or any emphysema.\n\nI don’t know about chest pain or inability to speak more than a few words.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now, are you able to speak at least 2–3 short sentences without stopping for breath, and do you have any fever or runny nose/sputum that’s green or yellow?  \nDoctor: Also, did you take any albuterol (inhaler/nebulizer) or prednisone in the last 6 hours, and can you tell me your current SpO₂ if there’s a home/clinic reading available?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to speak at least 2–3 short sentences without stopping for breath.\n\nI don’t know about fever or whether I have any runny nose or green or yellow sputum.\n\nI don’t know whether I took any albuterol (inhaler or nebulizer) or prednisone in the last 6 hours.\n\nI don’t know my current SpO₂ if there’s a home or clinic reading available.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your history—69 years old, wheezing with cough after a cold, and multiple asthma attacks with a hospitalization in the past year—I’m diagnosing you with a **severe acute asthma exacerbation** as the most likely cause right now.  \nDoctor: Please go for immediate objective assessment and treatment: **REQUEST TEST: Pulse_Oximetry (continuous if possible), Peak_Flow_NOW, Chest_X-Ray, CBC, BMP**, and start/continue **rapid-acting bronchodilator (albuterol via nebulizer) + systemic corticosteroid** while monitoring response.  \nDIAGNOSIS READY: Severe acute asthma exacerbation (high-risk; rule out pneumonia/other triggers with CXR)\n\n[DDX]\n1. Pneumonia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11,
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11415,
+      "completion_tokens": 1210,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 15938,
+      "completion_tokens": 613,
+      "calls": 11
+    }
+  }
+}

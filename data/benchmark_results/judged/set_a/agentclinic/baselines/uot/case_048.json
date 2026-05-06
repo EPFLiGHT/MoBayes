@@ -1,0 +1,80 @@
+{
+  "case_idx": 48,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache three days after undergoing an open cholecystectomy. She mentions right-sided chest pain that increases on inspiration and has had a productive cough for the last 12 hours. She also had an episode of hypotension post-operation that was resolved with IV fluids. Additionally, she had an abdominal hysterectomy 16 years ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fever and productive cough",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Headache",
+        "Right-sided chest pain that increases on inspiration"
+      ]
+    },
+    "Past_Medical_History": "Underwent abdominal hysterectomy 16 years ago for multiple fibroids of the uterus. She has a 17-year history of smoking one pack of cigarettes daily.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 17 years.",
+    "Review_of_Systems": "Reports discomfort. No other abnormalities noted apart from the symptoms related to her recent surgery and current complaints."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fever, chills, headache, right-sided chest pain, and a productive cough following an abdominal surgery.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had fever and chills with a headache, and a productive cough started about 12 hours ago. I also have right-sided chest pain that gets worse when I take a deep breath, three days after my open cholecystectomy.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing 'Pneumonia  '?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are you experiencing pneumonia? Patient: I have a fever with chills and a productive cough, and I’m having right-sided chest pain that’s worse with inspiration. I don’t know what you’d call it, but my symptoms started shortly after my open cholecystectomy.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pneumonia  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia  ",
+    "predicted_set": [
+      "Pneumonia  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 796,
+      "completion_tokens": 132,
+      "calls": 2
+    }
+  }
+}

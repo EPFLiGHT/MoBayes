@@ -1,0 +1,94 @@
+{
+  "case_idx": 25,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Huntington disease",
+  "patient_actor_hidden": {
+    "Demographics": "42-year-old female",
+    "History": "The patient has been experiencing irritability, restlessness, and auditory hallucinations for the past year. Over the past month, the patient has also developed difficulty swallowing. She has a 2-year history of depression, and was terminated from her job 6 months ago due to performance issues linked to forgetfulness. Family history includes the patient's father committing suicide at the age of 50. The patient has smoked one pack of cigarettes daily for the past 20 years and has a history of cocaine use for 8 years but quit 1 year ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Hearing voices, irritability, and restlessness",
+      "Secondary_Symptoms": [
+        "Difficulty swallowing",
+        "Memory issues",
+        "Involuntary movements",
+        "Poor articulation"
+      ]
+    },
+    "Past_Medical_History": "Depression for 2 years.",
+    "Social_History": "Current smoker, past cocaine use (ceased 1 year ago).",
+    "Review_of_Systems": "Patient exhibits confusion, and is oriented to person and place only."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with abnormal behavior, difficulty swallowing, and involuntary movements.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the past year I’ve been hearing voices and feeling very irritable and restless. In the last month I’ve also had trouble swallowing, my memory feels worse, and I’ve noticed some involuntary movements with poor articulation.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you experienced involuntary muscle jerking or abnormal movements (tremor, rigidity, or chorea) that have been progressively worsening over time?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had abnormal movements that seem to come and go, but they have become more noticeable over time. I’ve noticed stiffness at times and some jerky, involuntary movements along with trouble speaking clearly.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **involuntary, jerky movements (chorea)**?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have involuntary jerky movements that can happen on and off, and they’ve become more noticeable over time. Sometimes I also feel stiff, and my speech gets less clear during those episodes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Huntington disease  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Huntington disease",
+    "predicted_set": [
+      "Huntington disease"
+    ],
+    "predicted_raw": [
+      "Huntington disease  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Huntington disease",
+    "predicted_set_remapped": [
+      "Huntington disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1344,
+      "completion_tokens": 154,
+      "calls": 3
+    }
+  }
+}

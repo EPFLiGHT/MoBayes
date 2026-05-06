@@ -1,0 +1,379 @@
+{
+  "case_idx": 35,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Molluscum contagiosum",
+  "patient_actor_hidden": {
+    "Demographics": "44-year-old male",
+    "History": "The patient reports the appearance of small bumps on his left thigh for the last 3 weeks. He mentions feeling fatigued and a general sense of malaise for a few months. Denies any known medical problems or medication use. Shares a history of smoking one pack of cigarettes per day and using intravenous street drugs.",
+    "Symptoms": {
+      "Primary_Symptom": "Small, non-pruritic bumps on the left thigh",
+      "Secondary_Symptoms": [
+        "Fatigue",
+        "Malaise"
+      ]
+    },
+    "Past_Medical_History": "No known medical problems. No regular medications.",
+    "Social_History": "Smokes one pack of cigarettes per day. Uses intravenous street drugs.",
+    "Review_of_Systems": "Denies fever, weight loss, night sweats, cough, or shortness of breath."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with small, non-pruritic bumps on the left thigh and general malaise.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor—I'm a 44-year-old man. For the past three weeks I've noticed small, non-itchy bumps on my left thigh, and over the last few months I've felt fatigued and generally unwell.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_skin_lesions_c31b8292": "yes",
+        "f_nonitchy_skin_lesions_74dfd711": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Vitiligo",
+          0.15232968361280175
+        ],
+        [
+          "Seborrheic keratosis",
+          0.12191940629963313
+        ],
+        [
+          "Actinic Keratosis",
+          0.11134411851518693
+        ],
+        [
+          "Molluscum contagiosum",
+          0.11134411851518693
+        ],
+        [
+          "Lichen Sclerosus",
+          0.04576159219643839
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any loss of vision?",
+      "patient_answer": "“No, I haven’t noticed any changes in my eyesight—no blurriness, dark spots, or any loss of vision. I’ve mainly been dealing with fatigue and this non-itchy bump-like rash on my left thigh.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Vitiligo",
+          0.15394423360265708
+        ],
+        [
+          "Seborrheic keratosis",
+          0.12321163622840121
+        ],
+        [
+          "Actinic Keratosis",
+          0.11252426043602287
+        ]
+      ],
+      "entropy": 4.224781543244498
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Yes, I currently smoke about a pack of cigarettes a day, and I also use intravenous street drugs.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.25000593142119765
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1505412060170653
+        ],
+        [
+          "Pneumonia",
+          0.1237413090212577
+        ]
+      ],
+      "entropy": 3.6228818924183415
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“Not really—I've had no nausea or stomach upset. Mostly it’s just fatigue and feeling generally unwell, plus the small non-itchy bumps on my left thigh.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.30379739012076873
+        ],
+        [
+          "Pneumonia",
+          0.12302638314283826
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1034765521254188
+        ]
+      ],
+      "entropy": 3.562371328298369
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area—nothing painful or painless. It’s mainly the non-itchy bumps on my left thigh and the fatigue and general malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.304567016829888
+        ],
+        [
+          "Pneumonia",
+          0.12333805267480963
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1037386949906081
+        ]
+      ],
+      "entropy": 3.548741013419486
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling emotionally. Lately, have you been experiencing a significant amount of stress or feeling under a lot of pressure?",
+      "patient_answer": "“No, I wouldn’t say I’m under significant stress or pressure. It’s more just ongoing fatigue and feeling generally unwell, along with those small non-itchy bumps on my left thigh.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.30788622745739236
+        ],
+        [
+          "Pneumonia",
+          0.12468220667899245
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.10486925266714263
+        ]
+      ],
+      "entropy": 3.4902660039369
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed if your urine has been darker than usual lately?",
+      "patient_answer": "“No, I haven’t noticed my urine getting darker than usual. My main issues have been the small non-itchy bumps on my left thigh for about three weeks, and fatigue and feeling generally unwell for a few months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.326848511741564
+        ],
+        [
+          "Pneumonia",
+          0.13236121027635886
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.10569373999321484
+        ]
+      ],
+      "entropy": 3.4596749190708627
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast mass at all—nothing to be growing or changing. The only new thing I’ve had is the small, non-itchy bumps on my left thigh for the last three weeks.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.3271364812569073
+        ],
+        [
+          "Pneumonia",
+          0.1324778269724865
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.10578686134450536
+        ]
+      ],
+      "entropy": 3.452936041283373
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I haven’t had any pain in my wrist. I’ve mainly been dealing with the small, non-itchy bumps on my left thigh and the fatigue and general malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.32930504574168284
+        ],
+        [
+          "Pneumonia",
+          0.13335601307233377
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.10648811493012243
+        ]
+      ],
+      "entropy": 3.431229647845857
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or discoloration, running along the path of your veins?",
+      "patient_answer": "“Doctor, I haven’t noticed any rash or bumps running along the paths of my veins on my arms, and I don’t see any unusual discoloration there—mostly it’s just the small, non-itchy bumps on my left thigh.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.32930504574168273
+        ],
+        [
+          "Pneumonia",
+          0.13335601307233377
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.10648811493012243
+        ]
+      ],
+      "entropy": 3.431229647845857
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience any shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I don’t have shortness of breath or trouble catching my breath when I’m active—I can walk and do stairs without feeling unusually winded. It’s mainly the fatigue and feeling generally unwell for months, and the small non-itchy bumps on my left thigh for the last three weeks.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.17369552389195309
+        ],
+        [
+          "Vitiligo",
+          0.1010585018379293
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.09424943714468932
+        ]
+      ],
+      "entropy": 3.9611989134910486
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your current health, could you tell me if you have used any recreational drugs recently?",
+      "patient_answer": "“No, I haven’t used anything recreational recently beyond my ongoing intravenous street drug use. I do have the small, non-itchy bumps on my left thigh for about three weeks, and I’ve felt fatigued and generally unwell for a few months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.17464578858223512
+        ],
+        [
+          "Vitiligo",
+          0.10161137921667579
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.0947650630525467
+        ]
+      ],
+      "entropy": 3.9371745295439604
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_rough_scaly_skin_lesion_e053073e",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any areas of skin that feel rough or have a scaly texture?",
+      "patient_answer": "“No, I haven’t noticed any rough or scaly texture anywhere on my skin—those bumps on my left thigh are the only noticeable change, and they aren’t itchy.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.1902864757959533
+        ],
+        [
+          "Vitiligo",
+          0.10735646186174753
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.10325190216859698
+        ]
+      ],
+      "entropy": 3.8409027973037806
+    }
+  ],
+  "final": {
+    "predicted": "Femoropopliteal artery stenosis",
+    "predicted_top3": [
+      "Femoropopliteal artery stenosis",
+      "Vitiligo",
+      "Pancreatic adenocarcinoma"
+    ],
+    "confidence": 0.1902864757959533,
+    "final_entropy": 3.8409027973037806,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Femoropopliteal artery stenosis",
+    "predicted_set_remapped": [
+      "Femoropopliteal artery stenosis",
+      "Vitiligo",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7750,
+      "completion_tokens": 563
+    },
+    "patient": {
+      "prompt_tokens": 10124,
+      "completion_tokens": 598,
+      "calls": 13
+    }
+  }
+}

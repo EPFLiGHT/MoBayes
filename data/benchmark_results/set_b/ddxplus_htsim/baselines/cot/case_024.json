@@ -1,0 +1,119 @@
+{
+  "case_idx": 24,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: F\nChief Complaint: loss of appetite",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have had a loss of appetite, and I’ve also had increased sweating.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: loss of appetite + increased sweating. These are nonspecific and could reflect infection, endocrine/metabolic issues, cardiac ischemia, anxiety/panic, or other systemic illness. I need a discriminating feature next—especially whether there are respiratory symptoms (infection/PE/pneumonia), chest pain (ACS), or fever (infection).\nTop candidates (tentative):\n1) Pneumonia — can cause systemic symptoms like decreased appetite and sweating/diaphoresis.\n2) Influenza — systemic viral illness with sweating and poor appetite.\n3) Pulmonary embolism — can present with diaphoresis and nonspecific symptoms; respiratory symptoms may be present.\n4) Possible NSTEMI / STEMI — diaphoresis with nonspecific symptoms like poor appetite; chest discomfort may be present.\n5) Panic attack — sweating and poor appetite can occur, but we need to exclude medical causes first.\nMost informative next question: ask about fever/chills to gauge infection vs other causes.\n[/REASONING]\nDo you have a fever or chills (feeling hot, measured temperature, or shaking chills)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have a fever (either felt or measured with a thermometer), and I’ve had chills or shivers.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + chills/shivering + loss of appetite + increased sweating. This strongly supports an infectious/inflammatory process. Next discriminating step: respiratory vs non-respiratory source. Pneumonia/influenza/URTI are likely; also TB is possible but less acute. Need to know if there are cough, shortness of breath, sore throat, or nasal symptoms.\nTop candidates:\n1) Pneumonia — fever/chills + diaphoresis; often cough, sputum, pleuritic pain, or shortness of breath (not yet asked).\n2) Influenza — prominent fever/chills, sweating, poor appetite; may have myalgias and cough.\n3) URTI / Viral pharyngitis — fever/chills with sore throat/coryza; usually less severe than pneumonia.\n4) Acute COPD exacerbation / infection or bronchitis — if underlying COPD or productive cough/wheeze.\n5) Tuberculosis — can cause fever/night sweats and weight loss, but typically more subacute/chronic; still consider depending on duration.\nMost informative next question: Do you have a cough (and if so, is it dry or producing phlegm)? \n[/REASONING]\nDo you have a cough—if yes, is it dry or are you bringing up mucus/phlegm?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a cough. I don’t know if it’s dry or if I’m bringing up mucus/phlegm. I also have nasal congestion or a clear runny nose.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever/chills + cough + nasal congestion/clear rhinorrhea + poor appetite/sweats. This pattern most strongly suggests an acute viral respiratory illness (influenza or other URTI/viral pharyngitis). Pneumonia is still possible, but the clear runny nose points more to upper respiratory source. Next discriminating question: any shortness of breath or chest pain/pleuritic pain to assess pneumonia severity.\nTop candidates:\n1) Influenza — fever/chills, sweating, cough; nasal symptoms can occur.\n2) URTI / Viral pharyngitis — fever + cough + clear rhinorrhea/nasal congestion.\n3) Pneumonia — can start with cough and fever; would be more likely if shortness of breath, pleuritic chest pain, or productive sputum.\n4) Acute rhinosinusitis — usually facial pressure/pain and thicker discharge; less likely with clear runny nose early.\n5) Bronchitis — cough with fever; typically no prominent upper nasal symptoms, but can overlap.\nMost informative next question: Are you short of breath or having chest pain (especially worse with deep breaths)?\n[/REASONING]\nAre you short of breath, or do you have chest pain that’s worse when you take a deep breath?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever/chills + cough + clear runny nose/nasal congestion; shortness of breath/chest pain uncertain. Since we can’t assess that, next most discriminating is symptom duration and severity (sudden vs gradual; how many days). Influenza often has abrupt onset with high fever; URTI/viral pharyngitis may be milder and more gradual. Pneumonia may persist/worsen over several days and may have higher fever or worsening cough.\nTop candidates:\n1) Influenza — abrupt onset, high fever/chills, systemic symptoms.\n2) Viral pharyngitis / URTI — fever + cough + rhinorrhea.\n3) Pneumonia — if symptoms are worsening after initial improvement or if fever persists with increasing cough.\n4) Bronchitis — cough-dominant with fever.\n5) Acute rhinosinusitis — less likely given clear rhinorrhea and no facial pain yet.\nMost informative next question: How long has this been going on (number of days), and did it start suddenly or gradually?\n[/REASONING]\nHow many days has this been happening, and did it start suddenly or gradually?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings remain: fever/chills + cough + clear runny nose/nasal congestion + loss of appetite/sweats. Duration and onset are unknown, limiting discrimination between influenza vs other viral URTI vs early pneumonia. Next most informative question: presence of sore throat or body aches/myalgias—helps distinguish influenza (often prominent myalgias) from uncomplicated URTI.\nTop candidates:\n1) Influenza — fever/chills + cough; often myalgias and significant fatigue.\n2) Viral pharyngitis / URTI — fever + cough + rhinorrhea; sore throat may be prominent.\n3) Pneumonia — possible but less supported by clear rhinorrhea; would expect more focal chest symptoms.\n4) Bronchitis — cough with fever; usually less prominent nasal symptoms.\n5) Acute rhinosinusitis — less likely with clear rhinorrhea and no facial pain.\nMost informative next question: Do you have significant body aches (muscle aches) or a very sore throat?\n[/REASONING]\nDo you have significant body aches (muscle aches) or a very sore throat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever/chills + cough + clear runny nose/nasal congestion + decreased appetite/sweats. We still lack key discriminators: symptom duration/onset, shortness of breath/chest pain, and severity. With current info, most likely is an acute viral respiratory illness (influenza vs URTI/viral pharyngitis). Pneumonia remains a serious alternative but not confirmed. Next discriminating question should assess risk factors and severity: age/comorbidities and ability to breathe/oxygenation proxies. Since we can’t ask about SOB reliably, ask about measured oxygen or breathing rate? Better: ask about wheezing or history of COPD/asthma.\nTop candidates:\n1) Influenza — systemic fever/chills + cough; nasal symptoms possible.\n2) URTI / Viral pharyngitis — fever + cough + clear rhinorrhea.\n3) Pneumonia — still possible; would be more likely if worsening or productive cough.\n4) Acute COPD exacerbation / infection — if COPD history and wheeze/shortness of breath.\n5) Bronchitis — cough with fever, often viral.\nMost informative next question: Do you have asthma or COPD, or are you wheezing?\n[/REASONING]\nDo you have asthma or COPD, or are you wheezing?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever/chills + cough + clear runny nose/nasal congestion + loss of appetite/sweats. We still can’t determine duration, onset, severity (SOB/chest pain), or comorbidities (asthma/COPD). With this limited history, the safest approach is to provide a differential focused on acute respiratory infectious causes while acknowledging uncertainty. I need one more discriminating question that doesn’t rely on “I don’t know”: ask about sputum characteristics (none vs colored/bloody) and/or ability to keep fluids down. Sputum color can help separate pneumonia/bronchitis from uncomplicated viral URTI.\nTop candidates:\n1) Influenza — fever/chills + cough + systemic symptoms; nasal symptoms can occur.\n2) Viral pharyngitis / URTI — fever + cough + clear rhinorrhea.\n3) Pneumonia — possible with fever/chills and cough; would be more likely with productive cough or pleuritic symptoms (unknown).\n4) Bronchitis — cough with fever; may have sputum.\n5) Acute COPD exacerbation / infection — only if wheeze/SOB (unknown).\nMost informative next question: Are you bringing up any mucus/phlegm? If yes, what color (clear/white/yellow/green/bloody)?\n[/REASONING]\nAre you bringing up any mucus/phlegm? If yes, what color (clear",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key features suggest an acute respiratory infection (fever/chills + cough + clear rhinorrhea), but critical discriminators are missing/uncertain (duration/onset, shortness of breath/chest pain, sputum characteristics, and comorbidities like COPD/asthma). With this limited history, I can’t confidently rank serious alternatives such as pneumonia vs influenza vs other URTI.\n\n[POSSIBLE] Influenza, URTI, Pneumonia, Bronchitis, Acute COPD exacerbation / infection",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "URTI",
+      "Pneumonia",
+      "Bronchitis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13850,
+      "completion_tokens": 1939
+    },
+    "patient": {}
+  }
+}

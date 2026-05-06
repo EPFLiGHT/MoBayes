@@ -1,0 +1,102 @@
+{
+  "case_idx": 47,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 41\nSex: Female\nChief Complaint: I have dizziness, lightheadedness/near-fainting, and a cramp pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having dizziness and lightheadedness, like I might faint, plus severe fatigue. I also have cramp-type pain and pain in my forehead and both temples, and I’ve noticed black stools and my periods are very heavy/long.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. I’m going to ask a few focused questions to narrow down what’s causing the dizziness and black stools.\n\n**Current posterior (pre-test)**\n- **Anemia**: 0.45  \n- **Possible NSTEMI / STEMI**: 0.10  \n- **Circulatory Diseases** (e.g., hypotension/dehydration): 0.10  \n- **Pulmonary embolism**: 0.05  \n- **Pericarditis**: 0.05  \n(Other causes remain possible but less likely right now.)\n\n**Question 1 (most important):**  \nWhen you say **black stools**, are they **tarry/sticky** and **very dark (like charcoal)** rather than just dark brown?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, they’re very dark—almost black—and they look tarry/sticky, not just dark brown.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "That’s a key finding.\n\n**Evidence:** tarry/sticky **melena** → strongly suggests **upper GI bleeding**, which commonly causes **iron-deficiency anemia** and can lead to **lightheadedness/presyncope**.\n\n**Likelihood ratios (approx):**\n- **Anemia from GI bleed**: LR ~ 6\n- **Possible NSTEMI / STEMI**: LR ~ 0.2\n- **Circulatory Diseases** (non-bleeding causes): LR ~ 0.4\n- **Pulmonary embolism**: LR ~ 0.2\n- **Pericarditis**: LR ~ 0.1\n\n**Updated posterior**\n- **Anemia**: 0.78  \n- **Possible NSTEMI / STEMI**: 0.03  \n- **Circulatory Diseases**: 0.07  \n- **Pulmonary embolism**: 0.02  \n- **Pericarditis**: 0.01  \n\n**Question 2 (next most discriminating):**  \nDo you have **any vomiting of blood** or **coffee-ground material** (vomit that looks like dark grounds)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t vomited any blood or anything like coffee grounds.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** no hematemesis/coffee-ground emesis. This doesn’t rule out melena (many upper GI bleeds present only with melena), but it slightly lowers the probability of a large/active bleed.\n\n**Likelihood ratio (approx):**\n- **Anemia from GI bleed**: LR ~ 0.8 (still likely)\n- **Possible NSTEMI / STEMI**: LR ~ 1.0 (no change)\n- **Other causes**: small effect\n\n**Updated posterior**\n- **Anemia**: 0.74  \n- **Possible NSTEMI / STEMI**: 0.03  \n- **Circulatory Diseases**: 0.10  \n- **Pulmonary embolism**: 0.02  \n- **Pericarditis**: 0.01  \n\n**Question 3:**  \nAre you having **any abdominal pain** (especially upper/“burning” pain), or do you have **heartburn/known GERD**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have cramp-type pain, but I don’t have burning upper stomach pain or heartburn/GERD that I know of.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** cramp-type pain without classic epigastric burning/GERD symptoms. This makes peptic ulcer/GERD a bit less classic, but GI bleeding can still be from ulcers, gastritis, etc. Cramp pain could also fit menstrual-related issues or other GI pathology.\n\n**Likelihood ratios (approx):**\n- **Anemia from GI bleed**: LR ~ 1.0 (still supported by melena)\n- **Possible NSTEMI / STEMI**: LR ~ 0.8\n- **Circulatory Diseases**: LR ~ 0.9\n\n**Updated posterior**\n- **Anemia**: 0.72  \n- **Possible NSTEMI / STEMI**: 0.02  \n- **Circulatory Diseases**: 0.14  \n- **Pulmonary embolism**: 0.02  \n- **Pericarditis**: 0.01  \n\n**Question 4:**  \nHow old are you, and do you have any **known history of ulcers, gastritis, H. pylori**, or do you take **NSAIDs** (ibuprofen/naproxen/aspirin) or **blood thinners**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 41. I don’t know about ulcers or H. pylori, and I haven’t been told I have gastritis. I do take oral anticoagulants (blood thinners), but I’m not sure about NSAIDs use.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** age 41 doesn’t exclude GI bleed; **being on oral anticoagulants** strongly increases risk of **upper GI bleeding** → supports anemia due to GI bleed.\n\n**Likelihood ratios (approx):**\n- **GI bleed causing anemia** with anticoagulants: LR ~ 2.5\n- **NSTEMI/other cardiac**: LR ~ 0.7\n- **Circulatory causes without bleeding**: LR ~ 0.8\n\n**Updated posterior**\n- **Anemia**: 0.86  \n- **Possible NSTEMI / STEMI**: 0.01  \n- **Circulatory Diseases**: 0.10  \n- **Pulmonary embolism**: 0.02  \n- **Pericarditis**: 0.01  \n\nNow we should identify the *source* of bleeding and whether there’s another cause of dizziness.\n\n**Question 5:**  \nAre you currently having **any shortness of breath, chest pain, or palpitations**—or is it mainly lightheadedness/fatigue?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain, and I’m not really having shortness of breath. It’s mainly lightheadedness/near-fainting and severe fatigue. I’m not sure about palpitations, but I don’t think so.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** no chest pain/shortness of breath makes acute MI/PE less likely; presyncope + melena still points to significant blood loss/anemia.\n\n**Likelihood ratios (approx):**\n- **Anemia from GI bleed**: LR ~ 1.2\n- **Possible NSTEMI / STEMI**: LR ~ 0.6\n- **Pulmonary embolism**: LR ~ 0.5\n- **Circulatory Diseases**: LR ~ 0.9\n\n**Updated posterior**\n- **Anemia**: 0.90  \n- **Possible NSTEMI / STEMI**: 0.006  \n- **Circulatory Diseases**: 0.08  \n- **Pulmonary embolism**: 0.008  \n- **Pericarditis**: 0.002  \n\nAt this point, the dominant diagnosis is **anemia**, very likely from **upper GI bleeding** (melena) plus heavy menses.\n\nI still need one more key safety detail before finalizing: **are you having any active bleeding signs** (e.g., ongoing tarry stools, vomiting blood, or feeling like you’re getting worse rapidly)? But per your instruction, I’ll provide the differential now based on current evidence.\n\n[DDX] Anemia, Possible NSTEMI / STEMI, Circulatory Diseases, Pulmonary embolism, Pericarditis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [
+      "Anemia",
+      "Possible NSTEMI / STEMI",
+      "Circulatory Diseases",
+      "Pulmonary embolism",
+      "Pericarditis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8577,
+      "completion_tokens": 1395
+    },
+    "patient": {
+      "prompt_tokens": 7698,
+      "completion_tokens": 231
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "case_idx": 39,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Spontaneous pneumothorax",
+  "objective_for_doctor": "A 50-year-old Female patient presents to the clinic. Chief complaint: I have chest pain even at rest, upper chest pain, and pleuritic chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have chest pain even at rest—upper chest pain that feels like a knife-stroke, very heartbreaking, and it gets worse when I breathe in (pleuritic). I also feel significant shortness of breath and it’s worse with exertion; the pain is about 9 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess this carefully—are you having any fever, cough, or coughing up blood, and did this start suddenly or gradually?  \nDoctor: Also, do you feel one-sided leg swelling or pain, and have you had any recent long travel, surgery, or are you on estrogen/hormone therapy?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No fever, no cough, and no coughing up blood. It started kind of suddenly—fast onset. I don’t have one-sided leg swelling or leg pain, and I haven’t had recent long travel or surgery, and I’m not on estrogen or hormone therapy.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a potentially serious cause of sudden pleuritic chest pain like a pulmonary embolism or pneumothorax—do you have any history of lung disease or smoking, and have you had chills, fainting, or a fast/irregular heartbeat?  \nDoctor: Also, right now can you tell me your oxygen saturation if known, and I’ll listen to your lungs—any decreased breath sounds on one side, wheeze, or chest-wall tenderness when I press the upper chest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I do smoke cigarettes. I don’t have chills or fainting, and I’m not sure about my heart rhythm. I don’t know my oxygen saturation. I have severe upper chest pain, and it hurts with breathing, but I’m not sure about wheezing or whether breath sounds are decreased on one side.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—smoking plus sudden, severe pleuritic upper chest pain raises concern for pneumothorax, pulmonary embolism, or less commonly pneumonia; can you tell me if you have sudden shortness of breath at rest, and whether the pain is worse on one specific side when you take a deep breath?  \nDoctor: I’d like to check you now—can you take a deep breath while I examine: do you feel more pain with chest-wall pressing (tenderness), and do you notice any new asymmetry in your breathing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have sudden shortness of breath at rest. The pain is worse when I take a deep breath, and it feels like it’s in the upper chest area—more on the right and left chest/breast area, not sure about one exact side. When you press on my chest it’s very painful there too, and I think my breathing feels uneven, but I can’t say exactly.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a high-risk emergency—your sudden severe pleuritic chest pain with dyspnea, plus chest wall tenderness, needs rapid evaluation for pneumothorax and pulmonary embolism; I’m ordering immediate tests now.  \nREQUEST TEST: Chest_X-Ray (for pneumothorax)  \nREQUEST TEST: CT_Pulmonary_Angiography (for pulmonary embolism)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor. I’m ready for the chest X-ray and the CT pulmonary angiography. Please do them as soon as possible—I’m very short of breath and the pain is still extremely severe.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask 3 quick safety questions before we proceed—are you able to speak full sentences, and do you feel lightheaded or have new sweating or nausea? Also, do you have any known history of blood clots or any recent pregnancy or cancer?  \nDoctor: While you answer, I’ll listen for breath-sound asymmetry and check your oxygen saturation and vitals—this presentation is still most concerning for pneumothorax or pulmonary embolism until proven otherwise.  \nDoctor: DIAGNOSIS READY: Acute pulmonary embolism vs pneumothorax—rule out with urgent chest X-ray and CT pulmonary angiography (treat as PE/pneumothorax emergency).\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2942,
+      "completion_tokens": 525,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 4663,
+      "completion_tokens": 323
+    }
+  }
+}

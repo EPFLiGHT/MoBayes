@@ -1,0 +1,109 @@
+{
+  "case_idx": 36,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 83\nSex: F\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having shortness of breath in a significant way, and I’ve also been coughing up blood.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: significant shortness of breath + hemoptysis (coughing up blood). This combination raises concern for serious pulmonary causes (e.g., pulmonary embolism, pneumonia, pulmonary edema, malignancy, pneumothorax) and also cardiac ischemia in some cases.\nTop candidates (tentative):\n1) Pulmonary embolism — hemoptysis can occur; often with acute significant dyspnea.\n2) Pneumonia — can cause cough with blood-tinged sputum and shortness of breath.\n3) Acute pulmonary edema — dyspnea prominent; hemoptysis (“pink frothy” sputum) can occur.\n4) Pulmonary neoplasm — can cause hemoptysis and dyspnea, though acute onset is less typical.\n5) Spontaneous pneumothorax — can cause sudden dyspnea; hemoptysis is less classic but can be reported.\nMost informative next question: determine whether the blood is small streaks vs larger amounts and whether it’s “pink frothy,” which helps separate PE/pneumonia from pulmonary edema.\n[/REASONING]\nHow much blood are you coughing up (streaks vs teaspoons vs more), and is it bright red, dark, or pink/frothy?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: significant dyspnea + hemoptysis, but the amount/appearance of blood is unknown, which is a key discriminator.\nTop candidates remain similar, but we need hemoptysis characterization to narrow:\n- Pulmonary embolism / pneumonia: often blood-tinged sputum.\n- Acute pulmonary edema: classically pink, frothy sputum.\n- Malignancy: can be variable, often recurrent.\nMost informative next question: ask about the appearance of the blood in a concrete way.\n[/REASONING]\nWhen you look at it, does it look more like (1) bright red streaks in mucus, (2) dark clots, or (3) pink and foamy/frothy?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill: significant dyspnea + hemoptysis; we lack critical details about the hemoptysis.\nWe can’t confidently rank diagnoses without at least approximate severity/volume or associated symptoms.\nNext most discriminating question: timing and onset—sudden vs gradual—helps separate PE/pneumothorax (often sudden) from pneumonia/malignancy (often more gradual).\n[/REASONING]\nDid the shortness of breath and coughing up blood start suddenly (minutes to a few hours) or gradually (over days)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: dyspnea + hemoptysis, but onset and hemoptysis characteristics are unknown. With these gaps, we can’t confidently differentiate among PE, pneumonia, pulmonary edema, pneumothorax, or malignancy.\nTo proceed, we need at least one more high-yield discriminating feature that patients can usually answer: chest pain type (pleuritic vs pressure) or leg swelling/risk factors for clot.\nMost informative next question: ask about chest pain, specifically whether it’s worse with breathing (pleuritic), which points toward PE/pneumothorax.\n[/REASONING]\nDo you have chest pain—especially pain that gets worse when you take a deep breath or cough?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have pain somewhere that is increased when I breathe in deeply. It feels like a knife stroke and it’s sharp. The pain is in the side of the chest (right and left), the scapula (right and left), and the posterior chest wall (right).",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: significant shortness of breath + hemoptysis + sharp pleuritic chest pain (worse with deep inspiration). This strongly increases likelihood of pleural-based processes: pulmonary embolism, pneumonia/pleurisy, pneumothorax, less commonly acute pulmonary edema (usually not pleuritic), malignancy (can be pleuritic but often not acute).\nTop candidates:\n1) Pulmonary embolism — pleuritic pain + dyspnea + hemoptysis is a classic triad; onset can be sudden (unknown but still plausible).\n2) Pneumonia — can cause pleuritic pain and hemoptysis, especially with infection symptoms (fever/cough).\n3) Spontaneous pneumothorax — pleuritic pain and dyspnea; hemoptysis is less classic but can occur.\n4) Acute pulmonary edema — dyspnea prominent but pleuritic “knife-like” pain is less typical; hemoptysis can occur.\n5) Possible NSTEMI / STEMI or pericarditis — can cause chest pain, but hemoptysis + pleuritic pain is less typical (pericarditis is positional, not usually “worse with deep breath”).\nMost informative next question: assess for PE risk factors and/or DVT symptoms (leg swelling/pain), which would strongly support PE.\n[/REASONING]\nHave you had any",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Have you had any swelling in your legs or pain in your legs recently?",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe need the answer to whether there are DVT symptoms. If yes, PE becomes much more likely.\nTop candidates remain:\n1) Pulmonary embolism — pleuritic pain + dyspnea + hemoptysis; DVT symptoms would further support.\n2) Pneumonia — still possible.\n3) Spontaneous pneumothorax — still possible.\n4) Acute pulmonary edema — less likely with pleuritic pain.\n5) Possible NSTEMI / STEMI — less likely with hemoptysis/pleuritic pain.\nNext question should be one-at-a-time: ask directly about leg swelling/pain.\n[/REASONING]\nHave you had any swelling in one leg (or pain/tenderness in the calf) recently?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have swelling in one or more areas of my body, including the posterior aspect of the ankle (right and left).",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: significant dyspnea + hemoptysis + pleuritic sharp chest pain + leg swelling (posterior ankle/calf region). This pattern is highly concerning for venous thromboembolism with PE.\nTop candidates:\n1) Pulmonary embolism — pleuritic pain + dyspnea + hemoptysis + leg swelling strongly supports.\n2) Pneumonia — hemoptysis and pleuritic pain can occur, but leg swelling suggests DVT/PE more than infection.\n3) Acute pulmonary edema — dyspnea/hemoptysis possible, but pleuritic pain and leg swelling (DVT) make PE more likely.\n4) Spontaneous pneumothorax — pleuritic pain/dyspnea, but hemoptysis and leg swelling point away.\n5) Possible NSTEMI / STEMI — chest pain possible, but pleuritic quality + hemoptysis + leg swelling favors PE.\nMost informative next question would be hemodynamic stability (syncope, severe hypotension) but we’re already confident enough to provide a differential.\nNeed to provide [DDX] now.\n[/REASONING]\n[DDX] Pulmonary embolism, Pneumonia, Acute pulmonary edema, Spontaneous pneumothorax, Possible NSTEMI / STEMI",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Spontaneous pneumothorax",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9871,
+      "completion_tokens": 1443
+    },
+    "patient": {}
+  }
+}

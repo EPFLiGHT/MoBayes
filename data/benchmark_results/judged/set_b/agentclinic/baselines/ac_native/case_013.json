@@ -1,0 +1,115 @@
+{
+  "case_idx": 13,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Endometritis",
+  "patient_actor_hidden": {
+    "Demographics": "24-year-old woman",
+    "History": "The patient is in the postpartum period after delivering an 11 pound boy vaginally at 40 weeks gestation. She experienced a prolonged course during labor. She reports increased frequency of urination and uterine tenderness. She also mentions a decrease in bowel sounds.",
+    "Symptoms": {
+      "Primary_Symptom": "Uterine tenderness",
+      "Secondary_Symptoms": [
+        "Decreased bowel sounds",
+        "Increased frequency of urination",
+        "Fever"
+      ]
+    },
+    "Past_Medical_History": "Uncomplicated pregnancy leading up to a vaginal delivery. No significant past medical or surgical history.",
+    "Social_History": "Does not smoke, drink alcohol, or use illicit drugs. Lives with her partner.",
+    "Review_of_Systems": "Complains of minor difficulty in breathing but denies any urinary pain, headache, vomiting, or diarrhea."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with postpartum fever and abdominal tenderness.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, when was your delivery (how many days ago), and do you have a measured fever (highest temperature)? Patient: Doctor: Any uterine/abdominal tenderness plus foul-smelling lochia or heavy bleeding, and did you have C-section or other risk factors (prolonged labor/ruptured membranes)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I delivered about 3 days ago, and my temperature has been around 38.5°C. I’ve had significant uterine tenderness, and I did have a prolonged labor. My urination has felt more frequent as well."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—do you have **foul-smelling lochia or heavy postpartum bleeding**, and have you felt **shaking chills** or had **any wound redness/pus** from an incision (if C-section) or perineal area? Doctor: Also, do you have **lower abdominal pain vs. costovertebral/flank pain**, and are you having **burning with urination** suggesting a UTI?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "I haven’t noticed foul-smelling lochia, but my bleeding has felt heavier than expected at times, and I’ve had chills. My lower abdominal pain is more of a deep uterine tenderness, and I don’t have burning when I urinate. I haven’t had any wound redness or pus since delivery."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Given postpartum day 3 with 38.5°C fever, uterine (deep) tenderness, and chills without urinary burning or incision infection, I’m concerned for **postpartum endometritis**—can you confirm whether your lochia is foul-smelling (even intermittently) and whether you have had nausea or uterine subinvolution? Doctor: REQUEST TEST: CBC, Urinalysis, and Blood cultures (before antibiotics). Doctor: REQUEST TEST: Pelvic exam/ultrasound for retained products if bleeding remains heavy.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 102°F (38.9°C); BP 118/78 mmHg; Heart rate 111/min; Respiratory rate 17/min; O2 saturation 98% on room air. CBC: WBC pending, Hemoglobin pending, Platelets pending. Urinalysis: appearance/WBC/RBC/nitrites/leukocyte esterase pending. Abdominal exam: non-distended abdomen, decreased bowel sounds, tympanic percussion throughout, tender uterus. Pulmonary exam: minor bibasilar crackles, no respiratory distress signs. Blood cultures: pending."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: With postpartum day 3 fever to 38.9°C plus uterine tenderness and chills, and no clear urinary burning or incision infection, this is most consistent with **postpartum endometritis**; I want you to do a pelvic assessment to check uterine subinvolution and lochia character while we’re ruling out retained products—will you allow a pelvic exam and uterine palpation now? Doctor: REQUEST TEST: Pelvic exam (lochia odor, uterine subinvolution, cervical motion tenderness) + Transvaginal pelvic ultrasound for retained products; once CBC/UA come back, we’ll start broad-spectrum antibiotics promptly.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 102°F (38.9°C); BP 118/78 mmHg; Heart rate 111/min; Respiratory rate 17/min; Oxygen saturation 98% on room air. CBC: WBC pending, Hemoglobin pending, Platelets pending. Urinalysis: appearance/WBC/RBC/nitrites/leukocyte esterase pending. Abdominal exam: non-distended abdomen; decreased bowel sounds; tympanic percussion throughout; tender uterus. Pulmonary exam: minor bibasilar crackles, no signs of respiratory distress. Blood cultures: pending."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before we start treatment, do you have **foul-smelling lochia** right now or at any point since delivery, and are you having **uterine/fundal tenderness that worsens with movement**? Also, is there any **history of prolonged rupture of membranes** or **chorioamnionitis** during labor. Doctor: While we confirm retained products, I’m ordering **REQUEST TEST: Broad-spectrum postpartum endometritis antibiotic timing confirmation + start empiric therapy after cultures (e.g., clindamycin + gentamicin)** and I’ll proceed with a **pelvic exam** to check lochia odor, cervical motion tenderness, and uterine subinvolution. Doctor: DIAGNOSIS READY: Postpartum endometritis (postpartum uterine infection)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: I’m Dr. Agent—before we start treatment, do you have **foul-smelling lochia** right now or at any point since delivery, and are you having **uterine/fundal tenderness that worsens with movement**? Also, is there any **history of prolonged rupture of membranes** or **chorioamnionitis** during labor. Doctor: While we confirm retained products, I’m ordering **REQUEST TEST: Broad-spectrum postpartum endometritis antibiotic timing confirmation + start empiric therapy after cultures (e.g., clindamycin + gentamicin)** and I’ll proceed with a **pelvic exam** to check lochia odor, cervical motion tenderness, and uterine subinvolution. Doctor: DIAGNOSIS READY: Postpartum endometritis (postpartum uterine infection)",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 5,
+    "predicted_remapped": "Endometritis",
+    "predicted_set_remapped": [
+      "Endometritis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2642,
+      "completion_tokens": 592,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 897,
+      "completion_tokens": 117,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 1403,
+      "completion_tokens": 244,
+      "calls": 2
+    },
+    "moderator": {
+      "prompt_tokens": 229,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

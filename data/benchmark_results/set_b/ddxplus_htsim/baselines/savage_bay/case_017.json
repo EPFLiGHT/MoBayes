@@ -1,0 +1,179 @@
+{
+  "case_idx": 17,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Cluster headache",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Nasal congestion and my eyes produce excessive tears. I also have sharp, knife-stroke pain (7/10) in the forehead, both cheeks, and both eyes, starting very suddenly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors, rough):  \n- Allergic sinusitis 0.25  \n- Acute rhinosinusitis 0.25  \n- Acute laryngitis 0.02  \n- Cluster headache 0.10  \n- GERD 0.02  \n(others low)\n\nGiven “very sudden” sharp knife-stroke facial/eye pain, cluster headache and acute sinus causes are competing; tearing also fits cluster headache (autonomic symptoms) but can occur with sinus/eye irritation.\n\n**Question 1 (one at a time):**  \nIs the pain strictly one-sided (right or left only) or truly both sides at the same time?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Truly both sides at the same time — it’s in the forehead, both cheeks, and both eyes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “truly both sides”):  \n- Allergic sinusitis 0.30  \n- Acute rhinosinusitis 0.30  \n- Cluster headache 0.05  \n- Acute pulmonary edema 0.00 (irrelevant)  \n- Epiglottitis 0.00 (irrelevant)  \n(others negligible)\n\nRationale: cluster headache is classically unilateral; bilateral involvement makes it less likely. Sudden severe facial pain with nasal symptoms still keeps acute rhinosinusitis/allergic sinusitis in play, though “very sudden” is somewhat atypical for sinusitis.\n\n**Question 2:**  \nDo you have any fever, chills, or feeling systemically ill?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no fever info):  \n- Allergic sinusitis 0.32  \n- Acute rhinosinusitis 0.32  \n- Cluster headache 0.06  \n- Influenza 0.03  \n- Viral pharyngitis 0.02  \n\nBecause you’re unsure about fever/systemic illness, I’ll ask about discharge and timing next—this best separates allergic vs infectious sinusitis.\n\n**Question 3:**  \nDo you have nasal discharge? If yes, what color (clear/white vs yellow/green) and is it new today or has it been going on for days?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it's a clear runny nose.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Allergic sinusitis 0.45  \n- Acute rhinosinusitis 0.35  \n- Cluster headache 0.05  \n- Viral pharyngitis 0.05  \n- Influenza 0.10  \n\nEvidence: clear rhinorrhea strongly favors allergic rhinitis/sinusitis or viral URTI over bacterial rhinosinusitis. Cluster headache can cause tearing but usually doesn’t cause clear bilateral rhinorrhea.\n\n**Question 4:**  \nAre you having itching of the nose/eyes or sneezing (especially multiple times)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Allergic sinusitis 0.30  \n- Acute rhinosinusitis 0.50  \n- Viral pharyngitis 0.10  \n- Influenza 0.05  \n- Cluster headache 0.05  \n\nNo itching/sneezing makes allergic sinusitis less likely; acute rhinosinusitis/viral URTI becomes more likely.\n\n**Question 5:**  \nHow long has this been going on—minutes/hours vs days?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It started very suddenly, but I don’t know exactly how long it’s been going on (minutes/hours vs days).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.55  \n- Viral pharyngitis 0.15  \n- Influenza 0.10  \n- Allergic sinusitis 0.10  \n- Cluster headache 0.10  \n\nSudden onset could be viral/irritant rhinitis, but “knife-stroke” severe facial/eye pain is still a bit atypical for uncomplicated rhinosinusitis—cluster headache remains a backup.\n\n**Question 6:**  \nAny eye redness, light sensitivity, or pain with eye movement?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.58  \n- Viral pharyngitis 0.14  \n- Influenza 0.10  \n- Cluster headache 0.12  \n- Allergic sinusitis 0.06  \n\nUncertain eye-specific symptoms keeps cluster headache possible, but nasal clear rhinorrhea keeps rhinosinusitis/viral URTI more likely.\n\n**Question 7:**  \nDo you have a sore throat, cough, or hoarseness?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.65  \n- Acute laryngitis 0.02  \n- Viral pharyngitis 0.08  \n- Influenza 0.05  \n- Cluster headache 0.20  \n\nNo sore throat/cough lowers viral pharyngitis/influenza/laryngitis. Cluster headache stays relatively high because of the “sharp knife-stroke” pain and tearing, even though bilateral is atypical.\n\n**Question 8:**  \nDoes the pain come in repeated attacks (e.g., lasts seconds to a few minutes, then goes away) or is it constant?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Acute rhinosinusitis 0.65  \n- Cluster headache 0.20  \n- Viral pharyngitis 0.08  \n- Influenza 0.05  \n- Allergic sinusitis 0.02  \n\nWe need one more discriminating feature: severe unilateral autonomic symptoms vs sinus-related tenderness/pressure. Since we can’t get timing, ask about facial pressure worse when bending forward.\n\n**Question 9:**  \nIs the facial pain/pressure worse when you bend forward or when you press on your cheeks/forehead?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.62  \n- Cluster headache 0.22  \n- Viral pharyngitis 0.08  \n- Influenza 0.05  \n- Allergic sinusitis 0.03  \n\nInsufficient discriminating info (timing/trigger, eye findings, fever, discharge duration). I can’t confidently narrow to one diagnosis.\n\n**Question 10:**  \nAny dental pain, bad breath, or foul-smelling nasal discharge?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.60  \n- Cluster headache 0.25  \n- Viral pharyngitis 0.08  \n- Influenza 0.05  \n- Allergic sinusitis 0.02  \n\nStill too many unknowns. I’ll ask about neurologic red flags that would push away from sinus/cluster.\n\n**Question 11:**  \nAny weakness, numbness, trouble speaking, confusion, or severe headache “worst of life”?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.58  \n- Cluster headache 0.28  \n- Viral pharyngitis 0.08  \n- Influenza 0.03  \n- Allergic sinusitis 0.03  \n\nWe still lack key discriminators; with “knife-stroke” severe facial/eye pain, we must consider serious ocular/neurologic causes, but those aren’t well represented in the provided list. I’ll ask about breathing/swelling/anaphylaxis features.\n\n**Question 12:**  \nAny lip/tongue/throat swelling, hives, wheezing, or trouble breathing?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Acute rhinosinusitis 0.55  \n- Cluster headache 0.30  \n- Viral pharyngitis 0.08  \n- Influenza 0.03  \n- Anaphylaxis 0.02  \n\nNo info—can’t rule out. Need one last high-yield question: unilateral vs bilateral eye tearing and nasal congestion with autonomic symptoms usually cluster; sinusitis usually has pressure/tenderness and purulent discharge over days.\n\n**Question 13:**  \nIs there any history of similar episodes before, and if so how often do they recur?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating history (duration/attack pattern, eye findings like redness/light sensitivity, triggers such as bending forward, fever/systemic illness, and any neurologic/ocular red flags are unknown), so I can’t confidently distinguish acute rhinosinusitis from other causes of sudden severe facial/eye pain.\n\n[POSSIBLE] Acute rhinosinusitis, Cluster headache, Viral pharyngitis, Allergic sinusitis, Influenza",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Cluster headache",
+      "Viral pharyngitis",
+      "Allergic sinusitis",
+      "Influenza"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23974,
+      "completion_tokens": 1652
+    },
+    "patient": {}
+  }
+}

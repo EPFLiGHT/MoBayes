@@ -1,0 +1,119 @@
+{
+  "case_idx": 31,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Pancreatic neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: M\nChief Complaint: involuntary weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had an involuntary weight loss over the last 3 months. I also have some skin lesions/redness and pain related to this—my pain intensity is about 2/10, and it’s in the epigastric area (also hypochondrium on the left), radiating to the thoracic spine.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. To narrow down the cause of the weight loss and the skin lesions/redness with epigastric/left upper abdominal pain radiating to the back:\n\n**One question:** Have you noticed any **fever, night sweats, or cough/shortness of breath**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify symptoms.\n\n**One question:** Do you have **any known fevers** (measured or felt), **night sweats**, or **unintentional loss of appetite**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Let’s focus on the skin findings, since that can be very discriminating.\n\n**One question:** Can you describe the skin lesions—are they **itchy hives/welts**, **blisters**, **a rash that’s red and painful**, or **something else** (e.g., nodules, ulcers)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They’re lesions/redness that I believe are related to the condition I’m consulting for. The color of the rash is yellow, and the lesions are larger than 1 cm. The rash itching severity is about 4/10.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—yellow, larger-than-1 cm lesions with moderate itch.\n\n**One question:** Are these lesions **on sun-exposed areas** (face/neck/hands) or **more on the trunk/around the abdomen**, and do they look **scaly/crusty** versus **smooth**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**One question:** Have you had **any gastrointestinal symptoms**—especially **heartburn, nausea/vomiting, trouble swallowing, or black/tarry stools**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’ll keep it simple and discriminating.\n\n**One question:** Have you noticed **any new lumps or swelling in the groin** (or pain there), or any **bulge that changes with coughing/standing**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**One question:** Have you had **any shortness of breath, chest pain, or coughing up blood**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t narrow this safely with “I don’t know” responses—there are multiple serious possibilities (infectious, inflammatory, malignancy, and cardiopulmonary causes) that depend on details you haven’t been able to confirm.\n\n**[ABSTAIN]** Insufficient discriminating symptom data (fever/night sweats, rash morphology/location, GI bleeding/reflux, respiratory/cardiac symptoms) to confidently rank a top diagnosis.  \n**[POSSIBLE]** Pancreatic neoplasm, SLE, Tuberculosis, Anaphylaxis, Pneumonia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Pancreatic neoplasm",
+      "SLE",
+      "Tuberculosis",
+      "Anaphylaxis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8489,
+      "completion_tokens": 482
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "case_idx": 43,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been feeling persistent fatigue and my sleep hasn’t been good. I’ve also lost weight without trying over the past month, and I’ve noticed some jaundice.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "When did the jaundice and weight loss start, and have you had any abdominal pain—especially in the right upper abdomen?\nWhen did the jaundice and weight loss start, and have you had any abdominal pain—especially in the right upper abdomen?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The jaundice and weight loss started about a month ago, and I haven’t had any abdominal pain, including in the right upper area. I just feel more tired and I can’t sleep well.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed dark urine, pale/clay-colored stools, or itching?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve had darker-colored urine, and my stools look lighter than usual—closer to clay-colored. I also feel some itching, especially at night.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any fever, chills, nausea, or vomiting?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any fever, chills, nausea, or vomiting. I’ve mainly just been dealing with the fatigue, poor sleep, the jaundice, dark urine, lighter stools, and itching.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any loss of appetite or new back pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, my appetite has been worse lately, and I don’t recall any new back pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and do you have any history of gallstones, liver disease, hepatitis, heavy alcohol use, smoking, or recent new medications/supplements?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m 65 years old. I haven’t had any gallstones or known liver disease, but I do smoke about a pack a day and drink around five alcoholic drinks daily, and I haven’t started any new medications or supplements.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever had pancreatitis, diabetes, or a family history of pancreatic, biliary, or liver cancer?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I’ve never had pancreatitis or diabetes, and I’m not aware of any family history of pancreatic, biliary, or liver cancer. I just know this started about a month ago with the fatigue, poor sleep, weight loss, and the jaundice with dark urine, lighter stools, and itching.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pancreatic head adenocarcinoma, Cholangiocarcinoma, Ampullary carcinoma, Extrahepatic biliary obstruction from choledocholithiasis, Alcohol-related liver disease/hepatocellular dysfunction\n\nPainless jaundice with dark urine, clay-colored stools, pruritus, weight loss, anorexia, and age 65 strongly suggest obstructive cholestatic jaundice, with malignancy highest on the list—especially pancreatic head cancer. Smoking increases pancreatic cancer risk. Lack of fever or abdominal pain makes cholangitis and symptomatic gallstone disease less likely, though a bile duct stone can still obstruct painlessly. Heavy alcohol use raises concern for liver disease, but pale stools/dark urine/pruritus fit extrahepatic obstruction better than primary hepatocellular jaundice.",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic head adenocarcinoma",
+    "predicted_set": [
+      "Pancreatic head adenocarcinoma",
+      "Cholangiocarcinoma",
+      "Ampullary carcinoma",
+      "Extrahepatic biliary obstruction from choledocholithiasis",
+      "Alcohol-related liver disease/hepatocellular dysfunction\n\nPainless jaundice with dark urine"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3285,
+      "completion_tokens": 338
+    },
+    "patient": {
+      "prompt_tokens": 3489,
+      "completion_tokens": 323,
+      "calls": 7
+    }
+  }
+}

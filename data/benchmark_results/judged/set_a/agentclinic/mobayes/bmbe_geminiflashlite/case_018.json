@@ -1,0 +1,378 @@
+{
+  "case_idx": 18,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hello doctor. I’m here for my annual blood pressure check and I don’t have any new complaints. I only have occasional knee pain from my osteoarthritis, and I take acetaminophen as needed.”",
+      "extracted_features": {
+        "f_knee_pain_86af6967": "yes",
+        "f_joint_pain_0f53c5a9": "yes",
+        "f_history_of_hypertension_eece7e3a": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Osteoarthritis",
+          0.19174672508389015
+        ],
+        [
+          "Psoriatic arthritis",
+          0.13112485576221655
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.05619636675523562
+        ],
+        [
+          "Chronic kidney failure",
+          0.05619636675523562
+        ],
+        [
+          "Adhesive capsulitis",
+          0.048636317415966294
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“Doctor, no—my vision hasn’t changed. I haven’t noticed any blurriness, blind spots, or any loss of sight.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.20096057165892386
+        ],
+        [
+          "Psoriatic arthritis",
+          0.13742568985801612
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.058896724224864014
+        ]
+      ],
+      "entropy": 4.288552591611021
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, doctor, I’ve never smoked and I don’t use tobacco. I stay active with daily exercise and my diet is rich in vegetables.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.22381674695257794
+        ],
+        [
+          "Psoriatic arthritis",
+          0.15305574918416687
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.06559532107892863
+        ]
+      ],
+      "entropy": 4.129558820363319
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“Doctor, no—I haven’t had any nausea or stomach upset recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2511252686890687
+        ],
+        [
+          "Psoriatic arthritis",
+          0.17173051910375783
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.07359879390161045
+        ]
+      ],
+      "entropy": 3.970204335794536
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, doctor, I haven’t noticed any lumps or masses in that area.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2546577943785176
+        ],
+        [
+          "Psoriatic arthritis",
+          0.17414621575413167
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.07463409246605637
+        ]
+      ],
+      "entropy": 3.9349303158661098
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. To help me get a better picture of your health, have you been experiencing a significant amount of psychological stress or emotional strain lately?",
+      "patient_answer": "“Doctor, no—I've not had any significant psychological stress or emotional strain lately, and I generally feel well.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.27652528711643887
+        ],
+        [
+          "Psoriatic arthritis",
+          0.18910017040387472
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.08104293017308908
+        ]
+      ],
+      "entropy": 3.7591546008487216
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“Doctor, no—my urine color hasn’t changed and it doesn’t seem darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2883533367780358
+        ],
+        [
+          "Psoriatic arthritis",
+          0.19718871170827867
+        ],
+        [
+          "Adhesive capsulitis",
+          0.07314046385592142
+        ]
+      ],
+      "entropy": 3.7324564644744616
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump or mass at all, so nothing has been growing or changing in size.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.28984816497163024
+        ],
+        [
+          "Psoriatic arthritis",
+          0.19821094106415743
+        ],
+        [
+          "Adhesive capsulitis",
+          0.07351962516088859
+        ]
+      ],
+      "entropy": 3.707457901537287
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you are currently having any pain in your wrist?",
+      "patient_answer": "“No doctor, I’m not having any wrist pain. My only occasional pain is in my knees from osteoarthritis.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2468946340769758
+        ],
+        [
+          "Psoriatic arthritis",
+          0.14505750583564142
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08732150777669627
+        ]
+      ],
+      "entropy": 3.9900584040921716
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, rashes, or unusual marks running along the path of the veins in your arms?",
+      "patient_answer": "“Doctor, I haven’t noticed any skin lesions, rashes, or unusual marks along the veins in my arms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.24689463407697573
+        ],
+        [
+          "Psoriatic arthritis",
+          0.1450575058356414
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08732150777669627
+        ]
+      ],
+      "entropy": 3.9900584040921716
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as when walking or climbing stairs?",
+      "patient_answer": "“Doctor, no—I don’t get shortness of breath or have difficulty catching my breath when I’m active, like walking or climbing stairs.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2561813524873878
+        ],
+        [
+          "Psoriatic arthritis",
+          0.15051371275179623
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09060602733268609
+        ]
+      ],
+      "entropy": 3.9117808400969647
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your current health, could you tell me if you have used any recreational drugs recently?",
+      "patient_answer": "“Doctor, no—I haven’t used any recreational drugs recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.2624889013723254
+        ],
+        [
+          "Psoriatic arthritis",
+          0.15421957421211524
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09283687646015737
+        ]
+      ],
+      "entropy": 3.855536788626065
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_rough_scaly_skin_lesion_e053073e",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you have noticed any areas of skin that feel rough or have a scaly texture?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any areas of skin that feel rough or have a scaly texture.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.29989375621014785
+        ],
+        [
+          "Adhesive capsulitis",
+          0.10606619727880574
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.08170211396605753
+        ]
+      ],
+      "entropy": 3.855286301422812
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_top3": [
+      "Osteoarthritis",
+      "Adhesive capsulitis",
+      "Autosomal dominant polycystic kidney disease"
+    ],
+    "confidence": 0.29989375621014785,
+    "final_entropy": 3.855286301422812,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Osteoarthritis",
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Adhesive capsulitis",
+      "Autosomal dominant polycystic kidney disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7707,
+      "completion_tokens": 563
+    },
+    "patient": {
+      "prompt_tokens": 8807,
+      "completion_tokens": 348,
+      "calls": 13
+    }
+  }
+}

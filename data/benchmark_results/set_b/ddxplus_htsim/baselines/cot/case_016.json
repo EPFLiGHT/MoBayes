@@ -1,0 +1,99 @@
+{
+  "case_idx": 16,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Chronic rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 35\nSex: F\nChief Complaint: purulent nasal discharge",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had greenish or yellowish nasal discharge, along with a cough. I also have pain (around the forehead, cheek on the left, nose, left eye, and right temple) that’s burning and sharp, with intensity about 5/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: green/yellow nasal discharge + cough, and unilateral facial pain (left forehead/cheek/nose/around left eye) described as burning/sharp, moderate (5/10). This pattern raises concern for an acute rhinosinusitis (possibly bacterial) with cough from post-nasal drip. Other considerations include viral URTI, allergic sinusitis, and less likely serious causes of facial/eye pain (e.g., epiglottitis is unlikely; pulmonary causes don’t fit the facial pain).\nTop candidates:\n1) Acute rhinosinusitis — purulent (green/yellow) discharge + focal facial pain/pressure and cough from drainage.\n2) URTI — can cause nasal discharge and cough, but purulence and focal facial pain make sinusitis more likely.\n3) Allergic sinusitis — can cause nasal symptoms and facial pressure, but typically less purulent discharge and usually itching/sneezing.\n4) Influenza — can cause cough and nasal symptoms, but the localized unilateral facial pain with purulent discharge is less typical.\n5) Acute pulmonary edema/PE/pneumonia — cough could fit, but facial pain and nasal discharge point away from primary lung pathology.\nMost informative next question: determine duration and whether symptoms are severe/progressive, which helps distinguish viral vs bacterial sinusitis.\n[/REASONING]\nHow long have these symptoms been going on (days), and are they getting steadily worse or improving",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cold in the last 2 weeks. I don’t know if the symptoms are steadily getting worse or improving.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: ~2 weeks of cold symptoms; green/yellow nasal discharge + cough; unilateral left facial pain (forehead/cheek/nose/around left eye/right temple) burning/sharp 5/10.\nTop candidates:\n1) Acute rhinosinusitis — duration ~2 weeks fits; purulent discharge and facial pain support.\n2) URTI (viral) — 2 weeks can still be viral, but purulence and focal facial pain make bacterial sinusitis more likely.\n3) Allergic sinusitis — less likely given purulent discharge and recent “cold.”\n4) Influenza — possible but less likely without systemic symptoms and with localized facial pain.\n5) Pneumonia/bronchitis — cough could be from post-nasal drip, but facial pain argues against primary lung disease.\nMost informative next question: ask about “double-worsening” or severe onset (highly discriminating for bacterial sinusitis).\n[/REASONING]\nDid you have a period where you started to feel better from the cold, and then your nasal discharge/facial pain/cough got worse again (“double-worsening”)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings remain: 2 weeks of cold; purulent green/yellow discharge; cough; left-sided facial pain around eye/cheek/nose; burning/sharp 5/10. We still need discriminators for bacterial sinusitis vs viral URTI, and also to screen for red flags around the eye/brain.\nTop candidates:\n1) Acute rhinosinusitis — still most likely given purulence + facial pain and ~2-week duration.\n2) URTI — still possible if course is steadily improving or not “double-worsening.”\n3) Allergic sinusitis — less likely (purulent discharge; recent cold).\n4) Influenza — less likely without systemic symptoms.\n5) Pneumonia/bronchitis — less likely given prominent nasal/facial symptoms.\nMost informative next question: assess for fever and severity (bacterial sinusitis more likely with high fever and significant facial pain).\n[/REASONING]\nHave you had a fever (measured temperature), and if so how high?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 2 weeks of symptoms; green/yellow nasal discharge; cough; left-sided facial pain around eye/cheek/nose; no clear info on worsening pattern or fever yet.\nTop candidates:\n1) Acute rhinosinusitis — still most likely; need fever/severity and red-flag screening.\n2) URTI — still possible.\n3) Allergic sinusitis — less likely.\n4) Influenza — less likely.\n5) Pneumonia/bronchitis — less likely.\nMost informative next question: screen for eye/neurologic red flags (would shift away from uncomplicated sinusitis).\n[/REASONING]\nDo you have any swelling around the eye, redness of the eye, trouble moving the eye, or vision changes?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: purulent nasal discharge + cough; unilateral left facial pain involving area around left eye; duration ~2 weeks. We still lack key discriminators: fever, “double-worsening,” and especially orbital/neurologic red flags. Without them, we can’t safely narrow beyond sinusitis vs viral URTI.\nTop candidates:\n1) Acute rhinosinusitis — best fit overall.\n2) Viral URTI — still plausible.\n3) Allergic sinusitis — less likely.\n4) Influenza — less likely.\n5) Epiglottitis/croup/laryngitis — not consistent with nasal discharge/facial pain.\nMost informative next question: ask about severe headache/neck stiffness or neurologic symptoms (confusion, weakness), which would be high-risk.\n[/REASONING]\nHave you had a severe headache different from usual, confusion, fainting, or neck stiffness?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating information: we still don’t know key features that separate bacterial acute rhinosinusitis from viral URTI and rule out serious complications (fever, “double-worsening,” orbital/vision symptoms, neurologic/meningismus red flags).  \n[POSSIBLE] Acute rhinosinusitis, URTI, Allergic sinusitis, Influenza, Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "URTI",
+      "Allergic sinusitis",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8629,
+      "completion_tokens": 1189
+    },
+    "patient": {}
+  }
+}

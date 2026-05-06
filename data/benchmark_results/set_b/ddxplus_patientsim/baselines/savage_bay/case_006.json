@@ -1,0 +1,192 @@
+{
+  "case_idx": 6,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 10\nSex: Male\nChief Complaint: I have a cough that produces colored or more abundant sputum than usual, a cough, and significant dyspnea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough with more and colored mucus than usual, and I’m also having significant trouble breathing. I don’t have any pain, but the breathing feels hard.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—I'll ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, based on cough + colored sputum + significant dyspnea):**\n- Pneumonia: 0.30  \n- Acute COPD exacerbation / infection: 0.20  \n- Bronchitis: 0.15  \n- Bronchospasm / acute asthma exacerbation: 0.15  \n- Pulmonary embolism: 0.10  \n(others lower)\n\n**Q1 (most discriminating):** Do you have a fever (measured ≥38.0°C) or chills?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my temperature right now, and I haven’t had chills. I haven’t been told I have a fever.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Update:** No known fever/chills slightly lowers pneumonia and infection-related causes.\n\n- Pneumonia: 0.24  \n- Acute COPD exacerbation / infection: 0.18  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.20  \n- Pulmonary embolism: 0.12  \n\n**Q2:** Do you have wheezing (a whistling sound when breathing out), or is it more like tightness without wheeze?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It feels tight when I breathe, but I’m not sure if there’s a whistling sound. I haven’t noticed wheezing clearly.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Update:** “Tightness” without clear wheeze keeps bronchospasm/asthma in play, but doesn’t confirm it.\n\n- Pneumonia: 0.22  \n- Acute COPD exacerbation / infection: 0.17  \n- Bronchitis: 0.15  \n- Bronchospasm / acute asthma exacerbation: 0.23  \n- Pulmonary embolism: 0.13  \n\n**Q3:** Have you had any chest pain, especially sharp pain that’s worse with deep breaths, or pain that’s new with breathing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain. It’s mainly the cough and breathing difficulty.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No pleuritic or chest pain makes pulmonary embolism and pneumonia pleurisy somewhat less likely.\n\n- Pneumonia: 0.24  \n- Acute COPD exacerbation / infection: 0.18  \n- Bronchitis: 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.28  \n- Pulmonary embolism: 0.10  \n\n**Q4:** Do you have a history of asthma or COPD (or do you smoke)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had asthma before, and I’ve needed a bronchodilator in the past. I don’t know about COPD, and I don’t smoke.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Prior asthma strongly increases likelihood of bronchospasm/asthma exacerbation.\n\n- Bronchospasm / acute asthma exacerbation: 0.55  \n- Pneumonia: 0.14  \n- Acute COPD exacerbation / infection: 0.08  \n- Bronchitis: 0.12  \n- Pulmonary embolism: 0.11  \n\n**Q5:** When you say “significant trouble breathing,” is it worse when lying flat, or are you short of breath at rest?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s bad even when I’m resting, and it also feels worse when I lie flat.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Worse when lying flat suggests orthopnea (can be heart failure/pulmonary edema), but with your asthma history it could also reflect severe airway obstruction. Still, it raises cardiopulmonary causes.\n\n- Bronchospasm / acute asthma exacerbation: 0.48  \n- Acute pulmonary edema: 0.18  \n- Pneumonia: 0.12  \n- Acute COPD exacerbation / infection: 0.07  \n- Pulmonary embolism: 0.10  \n\n**Q6:** Do you have any swelling in your legs, or have you gained weight quickly over the past few days?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have swelling in my legs, and I haven’t gained weight quickly.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No leg swelling/rapid weight gain makes acute pulmonary edema/heart failure somewhat less likely.\n\n- Bronchospasm / acute asthma exacerbation: 0.52  \n- Pulmonary embolism: 0.12  \n- Pneumonia: 0.13  \n- Acute pulmonary edema: 0.10  \n- Acute COPD exacerbation / infection: 0.08  \n\n**Q7:** Have you tried your bronchodilator (e.g., albuterol) today—did it help, and for how long?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t taken my bronchodilator today, so I can’t say if it helped.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Not trying bronchodilator means we can’t use response to therapy to discriminate yet.\n\n- Bronchospasm / acute asthma exacerbation: 0.50  \n- Pneumonia: 0.14  \n- Pulmonary embolism: 0.12  \n- Acute pulmonary edema: 0.10  \n- Acute COPD exacerbation / infection: 0.08  \n\n**Q8:** Do you have a history of similar episodes that improved with inhalers, or is this different/worse than usual?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had asthma attacks before, but this feels worse than usual, and the breathing is much harder right now.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** “Worse than usual” increases probability of severe asthma exacerbation.\n\n- Bronchospasm / acute asthma exacerbation: 0.58  \n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Acute pulmonary edema: 0.08  \n- Acute COPD exacerbation / infection: 0.07  \n\n**Q9:** Any recent viral illness, sick contacts, or new upper respiratory symptoms (sore throat, runny nose)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I might’ve had a cold recently, but I don’t remember details like runny nose or sore throat. I don’t know about sick contacts.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Possible viral trigger supports asthma exacerbation and also infection-related bronchitis/pneumonia.\n\n- Bronchospasm / acute asthma exacerbation: 0.60  \n- Pneumonia: 0.13  \n- Bronchitis: 0.07  \n- Pulmonary embolism: 0.10  \n- Acute COPD exacerbation / infection: 0.10  \n\n**Q10:** Are you able to speak full sentences, or are you short of breath even with a few words? Any confusion or extreme sleepiness?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I’m short of breath even with a few words, but I’m awake and not confused.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Severe dyspnea (can’t speak full sentences) strongly supports a life-threatening asthma exacerbation.\n\n- Bronchospasm / acute asthma exacerbation: 0.70  \n- Pneumonia: 0.10  \n- Pulmonary embolism: 0.08  \n- Acute COPD exacerbation / infection: 0.07  \n- Acute pulmonary edema: 0.05  \n\n**Q11:** Do you have a history of blood clots, recent long travel/immobility, recent surgery, or are you on estrogen-containing birth control?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a history of blood clots, and I haven’t had recent travel, surgery, or been immobile. I’m not on birth control.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Lack of VTE risk factors lowers pulmonary embolism.\n\n- Bronchospasm / acute asthma exacerbation: 0.73  \n- Pneumonia: 0.11  \n- Pulmonary embolism: 0.05  \n- Acute COPD exacerbation / infection: 0.06  \n- Acute pulmonary edema: 0.05  \n\n**Q12:** Any known allergies or exposure to something new (foods, medications, insect stings) or hives/itching/swelling of lips or tongue?  \n\n(Reason: to rule out anaphylaxis, which can also cause severe breathing trouble.)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No known allergies that I know of, and no hives, itching, or swelling of my lips or tongue.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No anaphylaxis features.\n\n- Bronchospasm / acute asthma exacerbation: 0.75  \n- Pneumonia: 0.10  \n- Pulmonary embolism: 0.05  \n- Acute COPD exacerbation / infection: 0.06  \n- Acute pulmonary edema: 0.04  \n\n**Q13:** Do you have a productive cough with thick colored sputum every time, or is it mostly dry? And is there any blood in the sputum?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "It’s productive—there’s colored, thicker mucus more than usual. I haven’t seen any blood in it.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Productive colored sputum keeps infection/bronchitis/pneumonia in the differential, but asthma still dominates given severity and speech limitation.\n\n- Bronchospasm / acute asthma exacerbation: 0.68  \n- Pneumonia: 0.18  \n- Acute COPD exacerbation / infection: 0.06  \n- Bronchitis: 0.05  \n- Pulmonary embolism: 0.03  \n\n**Q14:** Any measured low oxygen, or do you have a pulse oximeter reading? If not, do you look/feel blue around lips or have severe sweating?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a pulse oximeter reading. I don’t look blue around my lips, and I’m not having severe sweating.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bronchospasm / acute asthma exacerbation, Pneumonia, Acute COPD exacerbation / infection, Bronchitis, Pulmonary embolism",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Bronchospasm / acute asthma exacerbation",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "Bronchitis",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27728,
+      "completion_tokens": 1677
+    },
+    "patient": {
+      "prompt_tokens": 23074,
+      "completion_tokens": 427
+    }
+  }
+}

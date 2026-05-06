@@ -1,0 +1,149 @@
+{
+  "case_idx": 49,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {
+    "AGE": 48,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "productive cough",
+    "EVIDENCES_ENG": "['severe chronic obstructive pulmonary disease (copd)', 'shortness of breath', 'productive cough', 'chronic obstructive pulmonary disease (copd)', 'gastroesophageal reflux disease (gerd) diagnosis', 'occupation in construction', 'cough', 'expiratory wheezing']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 48\n- I have severe Chronic Obstructive Pulmonary Disease (COPD).\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have a cough that produces colored or more abundant sputum than usual.\n- I have a chronic obstructive pulmonary disease (COPD).\n- I have been diagnosed with gastroesophageal reflux.\n- I work in construction.\n- I have a cough.\n- I have noticed a wheezing sound when I exhale.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute COPD exacerbation / infection', 0.1244213435480098], ['Bronchitis', 0.11632363163469966], ['Bronchiectasis', 0.10722603647824498], ['Pneumonia', 0.10440123403202255], ['Pulmonary neoplasm', 0.09557986268881986], ['Guillain-Barré syndrome', 0.061660785224130904], ['Atrial fibrillation', 0.05889720014203215], ['Myocarditis', 0.058165080784891215], ['Pulmonary embolism', 0.052245886770235596], ['Acute dystonic reactions', 0.043422165016410906], ['Myasthenia gravis', 0.043422165016410906], ['Anemia', 0.043422165016410906], ['Tuberculosis', 0.041479860265274254], ['PSVT', 0.023194589242644673], ['Possible NSTEMI / STEMI', 0.01306899706988093], ['Chagas', 0.01306899706988093]]",
+    "PATHOLOGY": "Acute COPD exacerbation / infection",
+    "INITIAL_EVIDENCE": "expecto",
+    "EVIDENCES": "['bode', 'dyspn', 'expecto', 'j44_j42', 'k21', 'tconst', 'toux', 'trav1_@_N', 'wheez']",
+    "patient_id": "htsim_0001",
+    "_test_index": 1,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 48-year-old M patient presents to the clinic. Chief complaint: productive cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having a productive cough with colored sputum that’s more abundant than usual, and I’ve also been having significant shortness of breath and wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How long has this productive cough with colored sputum been going on, and do you have fever or chills?  \nDoctor: Any chest pain, blood in the sputum, smoking history, or known asthma/COPD?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on a significant way, but I don’t know for how long. I don’t know about fever or chills. I don’t know about chest pain or blood in the sputum. I have severe chronic obstructive pulmonary disease (COPD), and I’ve been having significant shortness of breath and wheezing when I exhale.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since your COPD is severe, are you having reduced ability to speak full sentences, increased use of your rescue inhaler, or any swelling of the legs/ankles?  \nDoctor: REQUEST TEST: Chest_X-Ray and REQUEST TEST: Pulse_Oximetry (SpO2)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about reduced ability to speak full sentences or increased use of my rescue inhaler, and I don’t know about any swelling of my legs/ankles.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to clarify: how long (days/weeks) has the colored productive cough and wheezing been worsening, and have you noticed any new confusion, high fever, or rapidly worsening breathlessness?  \nDoctor: Also, do you have a peak flow/spirometry baseline or any recent COPD exacerbation/hospitalization or antibiotic/steroid use in the last month?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how long (days/weeks) it’s been worsening. I also don’t know about new confusion or a high fever, and I don’t know about rapidly worsening breathlessness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you now—please let me know: do you have a home pulse oximeter reading, and during auscultation do you hear diffuse wheezes vs focal crackles?  \nDoctor: REQUEST TEST: CBC_with_differential and REQUEST TEST: Sputum_Gram_stain_and_culture (if feasible)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a home pulse oximeter reading. I also don’t know whether, during auscultation, you would hear diffuse wheezes vs focal crackles.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess severity—can you tell me your current oxygen saturation if known, and whether you’re using your rescue inhaler more than every 4 hours or are needing to sit upright to breathe?  \nDoctor: Also, have you had any recent sick contacts, recent antibiotic or oral steroid use in the last month, or increased sputum volume compared with your usual COPD baseline?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my current oxygen saturation. I don’t know whether I’m using my rescue inhaler more than every 4 hours or whether I’m needing to sit upright to breathe. I don’t know about recent sick contacts or any recent antibiotic or oral steroid use in the last month. I have noticed that my cough produces colored or more abundant sputum than usual.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given severe COPD with new/worsening productive colored sputum and wheeze, I suspect an acute COPD exacerbation—possibly triggered by bacterial or viral bronchitis/pneumonia; I’m ordering an urgent objective severity check and infection evaluation.  \nDoctor: REQUEST TEST: Chest_X-Ray; REQUEST TEST: Pulse_Oximetry (SpO2); REQUEST TEST: CBC_with_differential; REQUEST TEST: Basic_Metabolic_Panel; REQUEST TEST: Arterial_Blood_Gas_(or_VBG_if_needed).",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my current oxygen saturation or any results, but I have severe COPD, and I’ve been having significant shortness of breath and wheezing when I exhale, along with a cough that produces colored or more abundant sputum than usual.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check your exam—right now, are you able to speak in full sentences, and do you have fever (measured or felt) or new chest pain?  \nDoctor: Also, are you currently using any inhalers/nebulizers (name and frequency), and have you taken any antibiotics or oral steroids since symptoms started?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m able to speak in full sentences. I don’t know about fever (measured or felt) or any new chest pain. I don’t know what inhalers or nebulizers I’m using or their frequency, and I don’t know whether I’ve taken any antibiotics or oral steroids since my symptoms started.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask two quick safety questions: do you feel too breathless to walk across the room, and do you have bluish lips/fingertips or confusion?  \nDoctor: Also, what is your current home medication setup—are you on any maintenance inhaler (e.g., LAMA/LABA/ICS) or oxygen, and when was your last dose of rescue albuterol?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I feel too breathless to walk across the room. I also don’t know about bluish lips/fingertips or confusion.\n\nI don’t know my current home medication setup—whether I’m on any maintenance inhaler or oxygen, and when my last dose of rescue albuterol was.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to make this a safety-first assessment: do you have any known oxygen requirement at home or a recent SpO2 reading, and can you tell me whether your symptoms started suddenly (hours–1 day) or gradually (several days)?  \nDoctor: DIAGNOSIS READY: Acute COPD exacerbation likely due to infectious bronchitis (consider pneumonia pending CXR/oxygen/ABG)\n\n[DDX]\n1. Bronchitis\n2. Pneumonia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Bronchitis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Bronchitis",
+    "predicted_set_remapped": [
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute laryngitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6530,
+      "completion_tokens": 708,
+      "calls": 9
+    },
+    "patient": {
+      "prompt_tokens": 10047,
+      "completion_tokens": 505,
+      "calls": 9
+    }
+  }
+}

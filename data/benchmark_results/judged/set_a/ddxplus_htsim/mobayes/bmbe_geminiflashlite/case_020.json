@@ -1,0 +1,132 @@
+{
+  "case_idx": 20,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 43\nSex: F\nChief Complaint: pain improves when leaning forward",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I have pain that improves when I lean forward. It’s a sharp, knife-stroke type pain, intensity about 7/10, and the location precision is about 7/10. The pace at which the pain appears is about 9/10. It’s in my right and left tonsil, the back of my neck, the palate, and the pharynx. I don’t notice it radiating anywhere.",
+      "extracted_features": {
+        "f_e_33": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_56": "7",
+        "f_e_58": "7",
+        "f_e_59": "9",
+        "f_e_55_v_20": "yes",
+        "f_e_55_v_21": "yes",
+        "f_e_133_v_26": "yes",
+        "f_e_55_v_137": "yes",
+        "f_e_55_v_148": "yes",
+        "f_e_57_v_123": "no",
+        "f_e_53": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Epiglottitis",
+          0.9456041713130279
+        ],
+        [
+          "Viral pharyngitis",
+          0.021192444769573958
+        ],
+        [
+          "Acute laryngitis",
+          0.012304552555856402
+        ],
+        [
+          "Pulmonary embolism",
+          0.0036027766267279692
+        ],
+        [
+          "Anaphylaxis",
+          0.0034236132701850478
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_212",
+      "doctor_question": "I would like to ask about your voice: Have you noticed any changes in how it sounds, such as it becoming deeper, softer, or perhaps more hoarse than usual?",
+      "patient_answer": "Yes. I have noticed that the tone of my voice has become deeper, softer, or hoarse.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Epiglottitis",
+          0.9843891043814815
+        ],
+        [
+          "Acute laryngitis",
+          0.014472773713216031
+        ],
+        [
+          "Viral pharyngitis",
+          0.0005730305145423607
+        ]
+      ],
+      "entropy": 0.1255045572130674
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_190",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed that you are producing more saliva than usual?",
+      "patient_answer": "Yes, I have noticed that I produce more saliva than usual.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Epiglottitis",
+          0.9995760560547065
+        ],
+        [
+          "Acute laryngitis",
+          0.0003918948446717045
+        ],
+        [
+          "Viral pharyngitis",
+          1.5516562957358906e-05
+        ]
+      ],
+      "entropy": 0.0056297032139512515
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_top3": [
+      "Epiglottitis",
+      "Acute laryngitis",
+      "Viral pharyngitis"
+    ],
+    "confidence": 0.9995760560547065,
+    "final_entropy": 0.0056297032139512515,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Epiglottitis",
+    "predicted_set_remapped": [
+      "Epiglottitis",
+      "Acute laryngitis",
+      "Viral pharyngitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11375,
+      "completion_tokens": 336
+    },
+    "patient": {}
+  }
+}

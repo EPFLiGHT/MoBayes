@@ -1,0 +1,131 @@
+{
+  "case_idx": 12,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Hemorrhoids",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old female",
+    "History": "The patient reports a 2-week history of rectal bleeding occurring daily with bowel movements. She denies any pain with defecation and does not present with any other complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Rectal bleeding daily with bowel movements",
+      "Secondary_Symptoms": [
+        "No pain with defecation"
+      ]
+    },
+    "Past_Medical_History": "The patient's past medical history is unremarkable except for 5 normal vaginal deliveries.",
+    "Social_History": "Information not specified.",
+    "Review_of_Systems": "The patient denies any changes in bowel habits, abdominal pain, weight loss, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with rectal bleeding and a palpable rectal mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: For the past two weeks, I’ve had rectal bleeding every day when I have bowel movements. It doesn’t hurt when I defecate, and I haven’t noticed any other symptoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given limited info):\n- Hemorrhoids: 0.45  \n- Perforated gastric peptic ulcer: 0.10  \n- Acute Mesenteric Ischemia: 0.05  \n- Acute lymphoblastic leukemia: 0.05  \n- Acute myelogenous leukemia: 0.05  \n(others collectively: 0.30)\n\nEvidence so far: painless rectal bleeding with bowel movements for 2 weeks.\n- Likelihood ratio (LR) for hemorrhoids vs others: ~3.0 → increases hemorrhoids.\n- LR for peptic ulcer/ischemia/leukemia: lower (painless isolated rectal bleeding is less typical).\n\nUpdated posterior:\n- Hemorrhoids: 0.60  \n- Perforated gastric peptic ulcer: 0.06  \n- Acute Mesenteric Ischemia: 0.03  \n- Acute lymphoblastic leukemia: 0.06  \n- Acute myelogenous leukemia: 0.06  \n(others: 0.19)\n\nOne focused question to discriminate:\n**Is the blood bright red on the toilet paper / on the surface of the stool (hematochezia), or is it darker/maroon/black (melena)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s bright red, mostly on the toilet paper and sometimes on the surface of the stool.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (from prior update):\n- Hemorrhoids: 0.60  \n- Acute lymphoblastic leukemia: 0.06  \n- Acute myelogenous leukemia: 0.06  \n- Perforated gastric peptic ulcer: 0.06  \n- Acute Mesenteric Ischemia: 0.03  \n- others: 0.19\n\nNew evidence: **bright red blood per rectum** (hematochezia).\n- Likelihood ratio for hemorrhoids vs other serious causes: ~4.0 (bright red on paper/surface strongly favors distal anorectal source).\n- Likelihood ratio for peptic ulcer/ischemia/melena-type causes: ~0.3 (those more often cause dark/maroon/black stools).\n\nUpdated posterior:\n- Hemorrhoids: 0.78  \n- Acute lymphoblastic leukemia: 0.03  \n- Acute myelogenous leukemia: 0.03  \n- Perforated gastric peptic ulcer: 0.02  \n- Acute Mesenteric Ischemia: 0.01  \n- others: 0.13\n\nNext discriminating question (one at a time):\n**Do you notice any anal lump or swelling, itching, or pain/pressure around the anus—even if defecation itself isn’t painful?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t notice any lump or swelling, and I haven’t had itching or pain or pressure around the anus. I only notice the bright red bleeding when I have bowel movements.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Hemorrhoids: 0.78  \n- Acute lymphoblastic leukemia: 0.03  \n- Acute myelogenous leukemia: 0.03  \n- Perforated gastric peptic ulcer: 0.02  \n- Acute Mesenteric Ischemia: 0.01  \n- others: 0.13\n\nNew evidence: **no anal lump/swelling/itching/pain**.\n- Likelihood ratio for hemorrhoids given painless bleeding: ~0.9 (doesn’t rule it out; internal hemorrhoids can bleed without pain).\n- Likelihood ratio for leukemia/other systemic causes: ~0.8 (still possible but less suggested by isolated anorectal symptoms).\n\nUpdated posterior:\n- Hemorrhoids: 0.74  \n- Acute lymphoblastic leukemia: 0.03  \n- Acute myelogenous leukemia: 0.03  \n- Perforated gastric peptic ulcer: 0.02  \n- Acute Mesenteric Ischemia: 0.01  \n- others: 0.17\n\nNext discriminating question:\n**How much blood are we talking—just a few streaks on the toilet paper, or does it drip into the bowl / make the water turn red?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How much blood are we talking—just a few streaks on the toilet paper, or does it drip into the bowl / make the water turn red? Patient: It’s mostly streaks on the toilet paper, and I don’t think it’s enough to drip or turn the whole toilet water red.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Hemorrhoids: 0.74  \n- Acute lymphoblastic leukemia: 0.03  \n- Acute myelogenous leukemia: 0.03  \n- Perforated gastric peptic ulcer: 0.02  \n- Acute Mesenteric Ischemia: 0.01  \n- others: 0.17\n\nNew evidence: **small-volume bright red blood (streaks only, not dripping/large amounts).**\n- Likelihood ratio for hemorrhoids: ~2.0\n- Likelihood ratio for systemic/major bleeding causes: ~0.5\n\nUpdated posterior:\n- Hemorrhoids: 0.88  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Perforated gastric peptic ulcer: 0.01  \n- Acute Mesenteric Ischemia: 0.005  \n- others: 0.065\n\nNext discriminating question:\n**Any constipation, straining, or hard stools (or do you feel you’re not fully emptying)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have constipation that I’m aware of, and I’m not straining much—I just notice the bright red streaks when I have bowel movements.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Hemorrhoids: 0.88  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Perforated gastric peptic ulcer: 0.01  \n- Acute Mesenteric Ischemia: 0.005  \n- others: 0.065\n\nNew evidence: **no constipation/straining; minimal bleeding with bowel movements only.**\n- Likelihood ratio for hemorrhoids: ~1.1 (doesn’t strongly support or refute; internal hemorrhoids can bleed without straining)\n- Likelihood ratio for leukemia/ischemia/ulcer: ~0.9 (still less consistent with isolated small-volume bright red bleeding)\n\nUpdated posterior:\n- Hemorrhoids: 0.90  \n- Acute lymphoblastic leukemia: 0.018  \n- Acute myelogenous leukemia: 0.018  \n- Perforated gastric peptic ulcer: 0.009  \n- Acute Mesenteric Ischemia: 0.004  \n- others: 0.051\n\nOne last high-yield question to check for systemic/hematologic clues:\n**Have you had any easy bruising, frequent nosebleeds, unusual fatigue/weakness, fevers, or weight loss?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any easy bruising, frequent nosebleeds, unusual fatigue/weakness, fevers, or weight loss? Patient: No—I haven’t had any bruising or nosebleeds, and I don’t feel unusually weak, feverish, or like I’ve lost weight.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hemorrhoids, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Perforated gastric peptic ulcer, Acute Mesenteric Ischemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Hemorrhoids",
+    "predicted_set": [
+      "Hemorrhoids",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Hemorrhoids",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Hemorrhoids",
+    "predicted_set_remapped": [
+      "Hemorrhoids",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9718,
+      "completion_tokens": 1346
+    },
+    "patient": {
+      "prompt_tokens": 6247,
+      "completion_tokens": 295,
+      "calls": 6
+    }
+  }
+}

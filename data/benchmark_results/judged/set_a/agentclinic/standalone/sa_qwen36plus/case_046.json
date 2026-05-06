@@ -1,0 +1,133 @@
+{
+  "case_idx": 46,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“About a week ago I started having left-sided chest pain along with a productive cough with purulent sputum, and I’ve also felt short of breath. I had flu recently but didn’t follow the treatment plan, and I’ve had fever and malaise since then.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Does the chest pain worsen when you take a deep breath or cough, or does it feel more like a constant pressure or squeezing sensation?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It definitely gets worse when I cough and with deep breaths, and it feels more sharp than like a constant pressure or squeezing. I’m also feeling quite uncomfortable with the shortness of breath.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What is the highest temperature you have recorded since these symptoms began?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I measured my highest temperature around 102°F (about 38.9°C) since this started.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any shaking chills or rigors along with the fever?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, I’ve had shaking chills with the fever—like rigors at times—especially in the first few days. I’ve felt pretty weak and miserable overall.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "What color is the sputum?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“My sputum is yellow to green, and it looks pretty purulent. It’s been coming up with the cough most days for the past week.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of smoking or any chronic lung conditions like asthma or COPD?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t smoke, and I don’t have asthma or COPD or any chronic lung condition. I’ve otherwise been pretty healthy before this happened.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Post-influenza secondary bacterial pneumonia, Streptococcus pneumoniae community-acquired pneumonia, Staphylococcus aureus pneumonia, Influenza viral pneumonia, Parapneumonic pleural effusion",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Post-influenza secondary bacterial pneumonia",
+    "predicted_set": [
+      "Post-influenza secondary bacterial pneumonia",
+      "Streptococcus pneumoniae community-acquired pneumonia",
+      "Staphylococcus aureus pneumonia",
+      "Influenza viral pneumonia",
+      "Parapneumonic pleural effusion"
+    ],
+    "predicted_raw": [
+      "Post-influenza secondary bacterial pneumonia",
+      "Streptococcus pneumoniae community-acquired pneumonia",
+      "Staphylococcus aureus pneumonia",
+      "Influenza viral pneumonia",
+      "Parapneumonic pleural effusion"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2459,
+      "completion_tokens": 12950
+    },
+    "patient": {
+      "prompt_tokens": 2718,
+      "completion_tokens": 226,
+      "calls": 6
+    }
+  }
+}

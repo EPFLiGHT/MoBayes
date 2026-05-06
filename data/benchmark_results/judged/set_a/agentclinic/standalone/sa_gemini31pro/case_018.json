@@ -1,0 +1,123 @@
+{
+  "case_idx": 18,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for my annual blood pressure check, and I really don’t have any new complaints. I only have occasional knee pain from my osteoarthritis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you been checking your blood pressure at home, and",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Not consistently, doctor—I haven’t been checking it at home regularly. I’ve been feeling well overall, and I’m still only dealing with the occasional knee pain.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What medications are you currently taking for your blood pressure and your knee pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: For my blood pressure, I’m taking my prescribed medication daily, and for my knee pain I only use acetaminophen occasionally as needed. I haven’t needed anything else for the knee.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "What was your blood pressure reading today when the nurse checked it?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t recall the exact number from today’s reading, doctor, but I’m told it was within an acceptable range. If you tell me what it was, I can confirm whether it’s similar to prior visits.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any headaches, vision changes, chest pain,",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, doctor—I haven’t had any headaches, vision changes, or chest pain. I also haven’t had dizziness, palpitations, or shortness of breath, and I haven’t had any fever, weight loss, or night sweats.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any other medical conditions besides high blood pressure and osteoarthritis?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, doctor—those are the only medical conditions I’m aware of. I occasionally have knee pain, but otherwise I’ve been feeling well.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Essential hypertension, Osteoarthritis, Routine health",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Essential hypertension",
+    "predicted_set": [
+      "Essential hypertension",
+      "Osteoarthritis",
+      "Routine health"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2239,
+      "completion_tokens": 1340
+    },
+    "patient": {
+      "prompt_tokens": 2639,
+      "completion_tokens": 270,
+      "calls": 6
+    }
+  }
+}

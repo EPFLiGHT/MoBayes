@@ -1,0 +1,95 @@
+{
+  "case_idx": 27,
+  "baseline": "uot",
+  "column": "htsim",
+  "ground_truth": "Localized edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 43\nSex: M\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having pain—my pain intensity is about 7/10, and it’s fairly precise (about 8/10). It feels tedious, sensitive, tugging, heavy, and sharp. It’s in both ankles, the lateral side of the left foot, and both thighs. I also have swelling in my right ankle, left thigh, and on the dorsal aspects of both feet and the sole of the left foot.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever with cough and/or shortness of breath** (infectious respiratory symptoms)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever with cough and shortness of breath** (suggesting a lower-respiratory infection)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (or chills) with your throat/upper-airway symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (temperature ≥ 38°C) with **sore throat**?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute otitis media  , Epiglottitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute otitis media  ",
+    "predicted_set": [
+      "Acute otitis media  ",
+      "Epiglottitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Acute otitis media",
+    "predicted_set_remapped": [
+      "Acute otitis media",
+      "Epiglottitis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

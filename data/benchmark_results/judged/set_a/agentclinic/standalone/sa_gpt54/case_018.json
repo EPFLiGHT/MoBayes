@@ -1,0 +1,105 @@
+{
+  "case_idx": 18,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hello doctor—I'm here for my annual blood pressure check. I don’t have any new complaints, just occasional knee pain from my osteoarthritis.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What was your blood pressure reading today, if you know it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t know the exact number offhand, but it was taken at the visit and I was told to keep up with my current regimen.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you currently taking any blood pressure medications? If so, which ones?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, yes—I take my blood pressure medication as prescribed, but I don’t recall the exact name right now.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Any symptoms that could suggest uncontrolled blood pressure or medication side effects—such as headaches, dizziness, chest pain, shortness of breath, leg swelling, or fainting?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any headaches, dizziness, chest pain, shortness of breath, leg swelling, or fainting—just the occasional knee pain. I’m taking my blood pressure medication as prescribed.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Essential hypertension, White coat hypertension, Secondary hypertension, Medication-related blood pressure effects, Osteoarthritis of the knee\n\nNo acute concerning symptoms were reported, and this sounds most consistent with stable treated hypertension at a routine follow-up.",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Essential hypertension",
+    "predicted_set": [
+      "Essential hypertension",
+      "White coat hypertension",
+      "Secondary hypertension",
+      "Medication-related blood pressure effects",
+      "Osteoarthritis of the knee\n\nNo acute concerning symptoms were reported"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1230,
+      "completion_tokens": 122
+    },
+    "patient": {
+      "prompt_tokens": 1485,
+      "completion_tokens": 141,
+      "calls": 4
+    }
+  }
+}

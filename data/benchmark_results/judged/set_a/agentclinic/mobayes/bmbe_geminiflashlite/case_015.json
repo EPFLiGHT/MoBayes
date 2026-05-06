@@ -1,0 +1,334 @@
+{
+  "case_idx": 15,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic kidney failure",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old female",
+    "History": "The patient reports feeling weaker over the last few months and has noticed a decrease in her weight despite no changes in diet or exercise. She denies any changes in urinary frequency or pain during urination. She reports no history of diabetes or hypertension but is concerned about her kidney function due to a family history of kidney disease.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized weakness",
+      "Secondary_Symptoms": [
+        "Unintentional weight loss",
+        "No urinary symptoms",
+        "Concern about kidney disease"
+      ]
+    },
+    "Past_Medical_History": "Denies diabetes, hypertension. No significant surgery history. Family history of kidney disease.",
+    "Social_History": "Non-smoker, drinks alcohol socially, works as a school teacher.",
+    "Review_of_Systems": "Denies fever, rash, changes in bowel habits, dysuria, or nocturia."
+  },
+  "objective_for_doctor": "Assess and manage a 40-year-old woman who has presented with weakness and weight loss, and interpret her laboratory findings to make a diagnosis.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m a 40-year-old woman, and over the last few months I’ve felt weaker and I’ve also lost weight without changing my diet or exercise. I don’t have any urinary symptoms like pain or changes in frequency, but I’m worried because there’s a family history of kidney disease. I’ve also been otherwise okay—no fever, rash, or bowel changes.”",
+      "extracted_features": {
+        "f_generalized_weakness_46c7373c": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_fever_6c156205": "no",
+        "f_urinary_frequency_e94ed4de": "no",
+        "f_burning_with_urination_ca21e5cd": "no"
+      },
+      "top5_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.15819508138797986
+        ],
+        [
+          "Chronic kidney failure",
+          0.10062297764226526
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08775166341597339
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08270291961769353
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08270291961769353
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“No, I haven’t noticed any changes in my vision—no blurriness, blind spots, or loss of sight. It’s been mainly the generalized weakness and the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.1610684237138387
+        ],
+        [
+          "Chronic kidney failure",
+          0.1024506214481076
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08934552187506953
+        ]
+      ],
+      "entropy": 4.3546699975036365
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“I don’t smoke, and I’ve never smoked.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.12802356719144217
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.10522370769275388
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.10522370769275388
+        ]
+      ],
+      "entropy": 4.415608060431272
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t had nausea or felt sick to my stomach. It’s mostly been the generalized weakness and the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.12948915405977973
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.12948915405977973
+        ],
+        [
+          "Chronic kidney failure",
+          0.08911740861204008
+        ]
+      ],
+      "entropy": 4.405664984317373
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and nothing painful or otherwise. My main concerns are the ongoing generalized weakness and unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.13194438828156685
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.13194438828156685
+        ],
+        [
+          "Chronic kidney failure",
+          0.09080715717028807
+        ]
+      ],
+      "entropy": 4.374476061570986
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. To help me get a better picture of your health, have you been experiencing a significant amount of psychological stress or emotional strain lately?",
+      "patient_answer": "“No, I haven’t had significant psychological stress or emotional strain lately—nothing out of the ordinary. It’s been mostly the ongoing weakness and unintentional weight loss that’s concerning to me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14249186674225295
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14249186674225295
+        ],
+        [
+          "Chronic kidney failure",
+          0.09806617399399604
+        ]
+      ],
+      "entropy": 4.234246591752113
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“No, I haven’t noticed any change in my urine color—nothing darker or different than usual. My urinary habits are pretty normal, and there’s no pain or burning either.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.15289125274285198
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.15289125274285198
+        ],
+        [
+          "Chronic kidney failure",
+          0.08077745994137624
+        ]
+      ],
+      "entropy": 4.2402848849156625
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast lump or mass at all—so there’s nothing growing or changing in size. My main issue has been the generalized weakness and the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.15398670201365133
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.15398670201365133
+        ],
+        [
+          "Chronic kidney failure",
+          0.08135622169525257
+        ]
+      ],
+      "entropy": 4.212707510944497
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you are currently having any pain in your wrist?",
+      "patient_answer": "“No, I’m not having any pain in my wrist. My discomfort hasn’t been localized—it's more generalized weakness along with the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.15713034314999064
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.15713034314999064
+        ],
+        [
+          "Chronic kidney failure",
+          0.08301711034260899
+        ]
+      ],
+      "entropy": 4.190001103511309
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, rashes, or unusual marks running along the path of the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes, skin lesions, or unusual marks on my arms, and nothing along the veins. My main symptoms are still the generalized weakness and the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.1571303431499907
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.1571303431499907
+        ],
+        [
+          "Chronic kidney failure",
+          0.08301711034260899
+        ]
+      ],
+      "entropy": 4.19000110351131
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as when walking or climbing stairs?",
+      "patient_answer": "“No, I haven’t really noticed shortness of breath or difficulty catching my breath when I’m active—it's mainly just the generalized weakness and the unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.1672091800132366
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.1672091800132366
+        ],
+        [
+          "Myasthenia gravis",
+          0.08481910319827435
+        ]
+      ],
+      "entropy": 4.1266058511841495
+    }
+  ],
+  "final": {
+    "predicted": "Chronic lymphocytic leukemia",
+    "predicted_top3": [
+      "Chronic lymphocytic leukemia (CLL)",
+      "Chronic lymphocytic leukemia",
+      "Myasthenia gravis"
+    ],
+    "confidence": 0.1672091800132366,
+    "final_entropy": 4.1266058511841495,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Chronic lymphocytic leukemia (CLL)",
+    "predicted_set_remapped": [
+      "Chronic lymphocytic leukemia (CLL)",
+      "Chronic lymphocytic leukemia (CLL)",
+      "Myasthenia gravis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6834,
+      "completion_tokens": 548
+    },
+    "patient": {
+      "prompt_tokens": 7786,
+      "completion_tokens": 449,
+      "calls": 11
+    }
+  }
+}

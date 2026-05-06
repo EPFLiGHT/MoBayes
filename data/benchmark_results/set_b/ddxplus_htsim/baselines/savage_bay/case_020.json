@@ -1,0 +1,169 @@
+{
+  "case_idx": 20,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: M\nChief Complaint: changes in voice",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "He has a change in his voice—his voice has become deeper, softer, or hoarse. Also, he seems to have difficulty swallowing and shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need to know how acute/severe this is.\n\n**Current posterior (pre-test, rough):**\n- Epiglottitis: 0.20  \n- Acute laryngitis: 0.20  \n- Anaphylaxis: 0.15  \n- GERD: 0.15  \n- Pneumonia: 0.10  \n(others lower)\n\n**Question 1 (one at a time):**  \nHow quickly did the voice change and swallowing/breathing difficulty start—minutes to hours, or days?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—then we’ll focus on features that don’t require knowing the exact timing.\n\n**Current posterior (still rough, since timing unknown):**\n- Epiglottitis: 0.20  \n- Acute laryngitis: 0.18  \n- Anaphylaxis: 0.15  \n- GERD: 0.15  \n- Pneumonia: 0.10  \n\n**Question 2:**  \nDoes he have **drooling** or a **muffled “hot potato” voice** (sounds like he can’t get words out clearly), or is he **unable to swallow saliva**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Current posterior (unchanged, still rough):**\n- Epiglottitis: 0.20  \n- Acute laryngitis: 0.18  \n- Anaphylaxis: 0.15  \n- GERD: 0.15  \n- Pneumonia: 0.10  \n\n**Question 3:**  \nIs he having **stridor** (a high-pitched sound when breathing in) or **wheezing**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have noticed a high pitched sound when breathing in.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "That’s important.\n\n**Evidence:** inspiratory stridor → strongly suggests upper airway obstruction.\n\n**Likelihood ratios (approx):**\n- Epiglottitis: LR ~8  \n- Croup: LR ~4 (less likely in adults but possible)  \n- Acute laryngitis: LR ~0.5  \n- Anaphylaxis: LR ~3  \n- GERD: LR ~0.3  \n\n**Updated posterior:**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 4:**  \nDoes he look like he’s struggling to breathe and is he **sitting forward, leaning in (“tripod” posture)** or refusing to lie flat?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Current posterior (after stridor):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 5:**  \nAny **fever** (or feeling hot), and does he have **severe throat pain**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Current posterior (still):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 6:**  \nHas he had any **allergic exposure** or symptoms like **hives/itching**, **lip/tongue swelling**, or **new rash**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 7:**  \nIs he able to **speak full sentences**, or is his voice/airway so affected that he can only manage **short phrases** or can’t speak much?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 8:**  \nAny **recent infection symptoms** like cough, runny nose, or sore throat—or is this mainly voice change with breathing difficulty?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 9:**  \nDoes he have **painful swallowing** (odynophagia) or does swallowing seem **impossible** because of throat pain?\n\n(If you can’t tell, just say “yes/no/unknown.”)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 10:**  \nIs he **drooling** or unable to handle secretions (spitting more than usual)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 11:**  \nAny **recent exposure to a new medication** (especially ACE inhibitor), or did this start after a **new food/medication**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\n**Question 12:**  \nDoes he have **chest pain** or feel like the problem is mainly **lower in the chest** rather than the throat (i.e., does breathing sound normal until you notice the high-pitched inspiratory sound)?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still):**\n- Epiglottitis: 0.55  \n- Anaphylaxis: 0.18  \n- Croup: 0.10  \n- Acute laryngitis: 0.07  \n- GERD: 0.03  \n\nI still don’t have key discriminators (fever/odynophagia/drooling vs rash/allergy), but **inspiratory stridor plus voice change and dysphagia** is most consistent with an **acute upper-airway obstruction**.\n\n[DDX] Epiglottitis, Anaphylaxis, Croup, Acute laryngitis, GERD",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [
+      "Epiglottitis",
+      "Anaphylaxis",
+      "Croup",
+      "Acute laryngitis",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20438,
+      "completion_tokens": 1439
+    },
+    "patient": {}
+  }
+}

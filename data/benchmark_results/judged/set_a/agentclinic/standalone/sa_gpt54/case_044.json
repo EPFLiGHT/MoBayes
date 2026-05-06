@@ -1,0 +1,137 @@
+{
+  "case_idx": 44,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Phyllodes tumor",
+  "patient_actor_hidden": {
+    "Demographics": "48-year-old woman",
+    "History": "The patient noticed a mass in her left breast 4 weeks ago, which has rapidly increased in size. She denies any recent trauma or infections. No history of similar complaints in the past.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a left breast mass",
+      "Secondary_Symptoms": [
+        "Rapid increase in size of the mass",
+        "No skin or nipple changes",
+        "No pain associated with the mass"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. No family history of breast cancer.",
+    "Social_History": "Non-smoker, moderate alcohol use. Elementary school teacher.",
+    "Review_of_Systems": "Denies fever, weight loss, night sweats, or changes in appetite."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I noticed a lump in my left breast about four weeks ago, and it has been rapidly getting larger. I don’t have pain, and I haven’t noticed any skin or nipple changes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?\nHow old are you?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 48 years old.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you felt any swollen lymph nodes, especially in your armpit or above your collarbone on that side?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any swollen lymph nodes in my armpit or above my collarbone on the left side. I also haven’t felt any significant tenderness in those areas.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Is the lump hard or firm, and does it feel fixed in place or mobile when you touch it?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels firm and kind of hard, and it doesn’t really move much when I press on it. I’d describe it as fairly fixed in place rather than freely mobile.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent breast trauma, infection, fever, redness, or are you breastfeeding?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had any recent trauma, infection, fever, or redness, and I’m not breastfeeding.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any prior breast lumps, breast biopsies, or a personal or family history of breast or ovarian cancer?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’ve never had any prior breast lumps, biopsies, or anything like this before, and there’s no personal or family history of breast or ovarian cancer that I know of.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent mammogram, and if so was it normal?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had a recent mammogram, so I don’t have any results to compare. I typically haven’t gone in for screening within the last year.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Invasive ductal carcinoma of the breast, Phyllodes tumor, Fibroadenoma, Invasive lobular carcinoma, Breast cyst\n\nA rapidly enlarging, firm, relatively fixed, painless breast mass in a 48-year-old is most concerning for breast cancer, especially invasive ductal carcinoma. A phyllodes tumor is also a strong consideration because it can enlarge quickly. Benign causes like fibroadenoma or cyst are less likely given your age and the hard/fixed feel, but still possible.\n\nThis needs prompt in-person evaluation with:\n- Diagnostic bilateral mammogram\n- Targeted breast ultrasound\n- Core needle biopsy of the mass if imaging is suspicious\n\nPlease seek urgent breast clinic or surgical evaluation soon. If you develop skin redness, nipple inversion/discharge, fever, or rapidly worsening enlargement, seek care immediately.",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Invasive ductal carcinoma of the breast",
+    "predicted_set": [
+      "Invasive ductal carcinoma of the breast",
+      "Phyllodes tumor",
+      "Fibroadenoma",
+      "Invasive lobular carcinoma",
+      "Breast cyst\n\nA rapidly enlarging"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Phyllodes tumor",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2863,
+      "completion_tokens": 310
+    },
+    "patient": {
+      "prompt_tokens": 3192,
+      "completion_tokens": 247,
+      "calls": 7
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "case_idx": 47,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Benign paroxysmal positional vertigo",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old male",
+    "History": "The patient presents to the emergency department with a sudden-onset sensation that the room is spinning, leading to several episodes of nausea and vomiting. The symptoms started as he was going to bed and lasted for approximately 3 minutes. He mentions that he has never experienced anything like this before and currently feels at his baseline.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden-onset sensation of the room spinning",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Dizziness"
+      ]
+    },
+    "Past_Medical_History": "The patient is otherwise healthy with only a history of eczema. No prior episodes of similar nature.",
+    "Social_History": "No significant social history provided.",
+    "Review_of_Systems": "Denies headaches, hearing loss, tinnitus, loss of consciousness or neurological deficits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden-onset symptoms of vertigo.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I had a sudden spinning sensation as I was going to bed, and it lasted a few minutes. I got nauseated and vomited a few times, but now I feel back to my baseline.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Benign paroxysmal positional vertigo**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure—my main issue was a sudden spinning feeling when I was going to bed, with nausea and a few episodes of vomiting, but it resolved after about 3 minutes and I feel normal now.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Benign paroxysmal positional vertigo, Situational syncope  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Benign paroxysmal positional vertigo",
+    "predicted_set": [
+      "Benign paroxysmal positional vertigo",
+      "Situational syncope"
+    ],
+    "predicted_raw": [
+      "Benign paroxysmal positional vertigo",
+      "Situational syncope  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Benign paroxysmal positional vertigo",
+    "predicted_set_remapped": [
+      "Benign paroxysmal positional vertigo",
+      "Situational syncope"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 710,
+      "completion_tokens": 109,
+      "calls": 2
+    }
+  }
+}

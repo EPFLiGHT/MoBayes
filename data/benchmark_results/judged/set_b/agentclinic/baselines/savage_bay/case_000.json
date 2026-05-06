@@ -1,0 +1,132 @@
+{
+  "case_idx": 0,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Seborrheic keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "77-year-old male",
+    "History": "The patient reports the recent appearance of several brown, greasy, seemingly superficial lesions on his forehead. He mentions they appeared a few weeks ago and has not noticed any recent changes in size or color. He attempted to scrape them off, assuming they were dirt or a smear, but they persisted. No itching or pain is associated with the lesions.",
+    "Symptoms": {
+      "Primary_Symptom": "Brown, greasy-appearing lesions on forehead",
+      "Secondary_Symptoms": [
+        "Attempts to remove lesions unsuccessful",
+        "No associated pain or itching"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, controlled with medication. No history of skin cancer or chronic skin diseases.",
+    "Social_History": "Retired school teacher. Non-smoker. Enjoys gardening and spends time outdoors.",
+    "Review_of_Systems": "Denies weight loss, fever, night sweats, or any recent illnesses."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with skin lesions on the forehead.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve noticed several brown, greasy-looking spots on my forehead that appeared a few weeks ago, and when I tried to scrape them off they wouldn’t come away. They haven’t been painful or itchy, and they don’t seem to be changing much.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (initial priors, based on common ED dermatologic causes):  \n- Seborrheic keratosis: 0.35  \n- Seborrheic dermatitis: 0.20  \n- Vitiligo: 0.02  \n- Bed bug bite: 0.02  \n- Steven-Johnson syndrome: 0.01  \n(others collectively: 0.40)\n\nEvidence so far: “brown, greasy-looking spots on forehead,” “won’t scrape off,” “not itchy/painful,” “few weeks,” “not changing much.”  \nThis increases likelihood of **seborrheic keratosis** (typical ‘stuck-on,’ can’t be scraped off) vs seborrheic dermatitis (more flaky/erythematous).\n\nLikelihood ratio (LR) for seborrheic keratosis given “stuck-on, non-scrapable, brown/greasy, stable, asymptomatic”: ~3.0  \nUpdated posterior (approx):  \n- Seborrheic keratosis: 0.60  \n- Seborrheic dermatitis: 0.12  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: 0.00  \n(others: 0.26)\n\n**Question 1 (one at a time):**  \nWhen you look closely, are the spots **raised and “",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, they seem a bit raised and kind of stuck on, and they look brown and greasy rather than scaly or red. I’ve tried scraping, but they just don’t lift off.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Seborrheic keratosis: 0.60  \n- Seborrheic dermatitis: 0.12  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: 0.26)\n\nNew evidence: “raised,” “stuck on,” “brown/greasy,” “won’t lift off.”  \nLikelihood ratio (LR) for seborrheic keratosis vs seborrheic dermatitis given “raised stuck-on non-scrapable brown lesions”: ~4.0  \nUpdated posterior (approx):  \n- Seborrheic keratosis: 0.82  \n- Seborrheic dermatitis: 0.05  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: 0.11)\n\n**Question 2:**  \nHow many spots are there—roughly **1–2**, **a few (3–5)**, or **many**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: About how many spots are there—roughly 1–2, a few (3–5), or many? Patient: I’d say it’s a few, maybe around four or five, all clustered on my forehead.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Seborrheic keratosis: 0.82  \n- Seborrheic dermatitis: 0.05  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: 0.11)\n\nNew evidence: “a few (4–5) clustered on forehead.”  \nThis is still compatible with seborrheic keratoses (can occur as multiple lesions), and less typical for bed bug bites (usually more pruritic and often in lines) and for vitiligo (usually depigmented, not greasy).  \nLikelihood ratio (LR) for seborrheic keratosis: ~1.2  \nUpdated posterior (approx):  \n- Seborrheic keratosis: 0.86  \n- Seborrheic dermatitis: 0.04  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: 0.08)\n\n**Question 3:**  \nDo the spots have any **tiny dark dots/“horny” plugs** or a **warty/velvety surface** when you look closely (as opposed to smooth)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When I look closely at the spots, do you notice tiny dark dots or little horny plugs, and is the surface more warty/velvety rather than smooth? Patient: Yes—when I look closely they do seem slightly rough, with tiny dark specks, not perfectly smooth.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Seborrheic keratosis: 0.86  \n- Seborrheic dermatitis: 0.04  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: 0.08)\n\nNew evidence: “slightly rough,” “tiny dark specks,” “warty/velvety.”  \nLikelihood ratio (LR) for seborrheic keratosis with rough/warty surface and dark specks (“horny plugs”/pigmented keratin): ~2.5  \nUpdated posterior (approx):  \n- Seborrheic keratosis: 0.95  \n- Seborrheic dermatitis: 0.02  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: 0.01–0.02)\n\n**Question 4:**  \nHave you had any **new medications**, **recent illness**, or **fever**, or are you otherwise feeling well?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any new medications, recent illness, fever, or are you otherwise feeling well? Patient: I’m feeling well overall—no fever or recent illness, and I haven’t started any new medications recently.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Seborrheic keratosis: 0.95  \n- Seborrheic dermatitis: 0.02  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: ~0.01)\n\nNew evidence: “feeling well,” no fever/illness/med changes.  \nLikelihood ratio (LR) for seborrheic keratosis: ~1.1 (still consistent)  \nUpdated posterior (approx):  \n- Seborrheic keratosis: 0.96  \n- Seborrheic dermatitis: 0.02  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: ~0.00–0.01)\n\n**Question 5:**  \nDo you notice **any scaling/flaking** or **redness** on the surrounding skin, or is the rest of the forehead normal aside from these stuck-on spots?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, the surrounding forehead looks normal—there’s no flaking or redness, just these brown, stuck-on spots.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Seborrheic keratosis: 0.96  \n- Seborrheic dermatitis: 0.02  \n- Vitiligo: 0.01  \n- Bed bug bite: 0.01  \n- Steven-Johnson syndrome: ~0.00  \n(others: ~0.00)\n\nNew evidence: “no surrounding flaking/redness; only stuck-on spots.”  \nLikelihood ratio (LR) for seborrheic keratosis vs seborrheic dermatitis: ~2.0  \nUpdated posterior (approx):  \n- Seborrheic keratosis: 0.99  \n- Seborrheic dermatitis: 0.01  \n- Vitiligo: ~0.00  \n- Bed bug bite: ~0.00  \n- Steven-Johnson syndrome: ~0.00\n\n**[DDX] Seborrheic keratosis, Seborrheic dermatitis, Vitiligo, Bed bug bite, Steven-Johnson syndrome**",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Seborrheic keratosis",
+    "predicted_set": [
+      "Seborrheic keratosis",
+      "Seborrheic dermatitis",
+      "Vitiligo",
+      "Bed bug bite",
+      "Steven-Johnson syndrome"
+    ],
+    "predicted_raw": [
+      "Seborrheic keratosis",
+      "Seborrheic dermatitis",
+      "Vitiligo",
+      "Bed bug bite",
+      "Steven-Johnson syndrome**"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Seborrheic keratosis",
+    "predicted_set_remapped": [
+      "Seborrheic keratosis",
+      "Seborrheic dermatitis",
+      "Vitiligo"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9943,
+      "completion_tokens": 1496
+    },
+    "patient": {
+      "prompt_tokens": 6757,
+      "completion_tokens": 311,
+      "calls": 6
+    }
+  }
+}

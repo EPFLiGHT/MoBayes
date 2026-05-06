@@ -1,0 +1,122 @@
+{
+  "case_idx": 46,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Panic attack",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and lightheadedness/near-fainting",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’m here because I have chest pain on both sides—right and left—and I feel really lightheaded like I might faint. I also feel short of breath, my heart is palpitating, and I feel nauseous, scared, and kind of detached from my surroundings.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: bilateral chest pain, lightheadedness/presyncope, shortness of breath, palpitations, nausea, feeling scared/detached.\n\nTop candidates (tentative):\n1) Pulmonary embolism — chest pain + shortness of breath + presyncope; palpitations can occur.\n2) Possible NSTEMI / STEMI — chest pain with lightheadedness and nausea; palpitations may accompany.\n3) Atrial fibrillation — palpitations with lightheadedness; can cause dyspnea/chest discomfort.\n4) Panic attack — “scared/detached” with dyspnea, palpitations, nausea, lightheadedness; diagnosis of exclusion in ED.\n5) PSVT — episodic palpitations with presyncope and dyspnea.\n\nMost informative next question: determine whether symptoms are sudden/pleuritic and assess clot risk.\n[/REASONING]\nFirst question: Did this start suddenly (within minutes), and is the chest pain worse when you take a deep breath or cough?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it started pretty suddenly—like within minutes. And the chest pain feels sharp, and it gets worse when I take a deep breath, and also maybe when I cough.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden onset within minutes; sharp chest pain worse with deep breath/cough (pleuritic); shortness of breath; presyncope; palpitations; nausea and fear/detachment.\n\nTop candidates:\n1) Pulmonary embolism — classic pleuritic sharp pain + dyspnea + presyncope; sudden onset supports.\n2) Pneumonia/bronchitis/URTI — can cause pleuritic pain but usually not as sudden; would expect fever/cough.\n3) Spontaneous pneumothorax — pleuritic pain + sudden dyspnea; would expect unilateral decreased breath sounds (but pain can be perceived bilaterally).\n4) Possible NSTEMI / STEMI — chest pain can be sudden, but pleuritic worsening is less typical (still possible).\n5) Panic attack — can cause sudden dyspnea/palpitations, but pleuritic pain is less specific; would be diagnosis of exclusion.\n\nMost informative next question: assess VTE risk factors (recent immobilization/surgery, prior DVT/PE, leg swelling).\n[/REASONING]\nNext question: In the past 4 weeks, have you had any surgery, long travel/immobility, or have you noticed swelling or pain in one leg?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No surgery. I haven’t had long travel or been stuck in one place for a long time. I also haven’t noticed swelling or pain in one leg.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden pleuritic sharp chest pain, dyspnea, presyncope, palpitations; no recent surgery/immobility/long travel; no unilateral leg swelling/pain.\n\nTop candidates:\n1) Pulmonary embolism — still possible even without classic risk factors; pleuritic pain + sudden dyspnea/presyncope is concerning.\n2) Spontaneous pneumothorax — sudden pleuritic pain + dyspnea; risk factors include tall/young, smoking, underlying lung disease; may not have leg findings.\n3) Possible NSTEMI / STEMI — still possible; nausea/lightheadedness; pleuritic component could be perceived.\n4) Bronchitis/URTI — less likely given sudden onset and presyncope.\n5) Panic attack — possible, but pleuritic pain and presyncope keep organic causes higher.\n\nMost informative next question: ask about smoking/underlying lung disease and whether breath sounds feel different on one side.\n[/REASONING]\nNext question: Do you smoke (or vape), and have you ever had lung problems like asthma/COPD, or is the shortness of breath worse on one side?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t smoke or vape. I do have asthma, and I’ve used a bronchodilator before. I can’t really tell if the shortness of breath feels worse on one side—it feels kind of both sides.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden pleuritic sharp chest pain worse with deep breath/cough; dyspnea; presyncope; palpitations; asthma history; no smoking; no unilateral leg symptoms.\n\nTop candidates:\n1) Pulmonary embolism — still high due to sudden pleuritic pain + dyspnea + presyncope; asthma doesn’t explain pleuritic pain well.\n2) Spontaneous pneumothorax — can occur without smoking; asthma/air trapping could predispose, and pain is pleuritic/sudden with dyspnea.\n3) Bronchospasm / acute asthma exacerbation — asthma history and dyspnea could fit, but pleuritic sharp pain and presyncope are less typical unless severe.\n4) Possible NSTEMI / STEMI — still possible; pleuritic component can be present but less classic.\n5) Panic attack — still possible, but organic causes remain more concerning given pleuritic pain and presyncope.\n\nMost informative next question: ask about wheezing/trigger and whether symptoms started after asthma trigger or inhaler use.\n[/REASONING]\nNext question: Before this started, did you have wheezing or an asthma trigger (allergy/exposure/exercise), and have you tried your rescue inhaler—did it help?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Before it started, I didn’t really notice wheezing or an asthma trigger like allergies or exercise. I did use my rescue inhaler, but it didn’t really help much.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden onset within minutes; sharp pleuritic pain; dyspnea and presyncope; palpitations; nausea; rescue inhaler not helpful; asthma without clear trigger/wheezing.\n\nTop candidates:\n1) Pulmonary embolism — remains top: sudden pleuritic pain + dyspnea + presyncope; no response to bronchodilator.\n2) Spontaneous pneumothorax — sudden pleuritic pain + dyspnea; can occur even without smoking; asthma/air trapping could contribute; bronchodilator won’t help.\n3) Possible NSTEMI / STEMI — still must consider with chest pain + presyncope/nausea; pleuritic component doesn’t fully exclude.\n4) Bronchospasm / acute asthma exacerbation — less likely given lack of trigger/wheezing and poor response to rescue inhaler.\n5) Panic attack — possible but diagnosis of exclusion; pleuritic pain and presyncope keep organic causes higher.\n\nMost informative next question: ask about fever/cough/viral symptoms and whether pain is reproducible with pressing on the chest (to help separate PE/pneumothorax/MI from musculoskeletal).\n[/REASONING]\nNext question: Have you had any fever or cough/viral symptoms in the last few days, and is the chest pain reproducible if you press on the area or move your torso?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had a fever or any cough/viral symptoms lately. The chest pain doesn’t really feel like it changes much when I press on it or when I move my torso.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden pleuritic sharp chest pain worse with deep breath/cough; dyspnea; presyncope; palpitations; nausea; no fever/cough/viral prodrome; not reproducible with palpation or torso movement; rescue inhaler not helpful; asthma history.\n\nTop candidates:\n1) Pulmonary embolism — still most likely: sudden pleuritic pain + dyspnea + presyncope, no infectious symptoms, bronchodilator ineffective.\n2) Spontaneous pneumothorax — still significant: sudden pleuritic pain + dyspnea; may not have infectious symptoms; exam would help (decreased breath sounds).\n3) Possible NSTEMI / STEMI — still must rule out: chest pain with presyncope and nausea; pleuritic features can occur.\n4) Bronchospasm / acute asthma exacerbation — less likely: no wheeze/trigger and inhaler ineffective; pleuritic pain less typical.\n5) Panic attack — possible but less likely than above given pleuritic pain and presyncope; would be diagnosis of exclusion.\n\nMost informative next question: assess for syncope/oxygenation and any hemoptysis.\n[/REASONING]\nNext question: Have you actually fainted or nearly fainted (passed out), and have you noticed coughing up blood (even small streaks)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t fully fainted, but I felt like I was going to—like a near-faint/going to pass out. And no, I haven’t coughed up any blood.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden onset within minutes; sharp pleuritic pain; dyspnea; near-syncope; palpitations; nausea; no fever/cough; no unilateral leg symptoms; bronchodilator not helpful; no hemoptysis.\n\nTop candidates:\n1) Pulmonary embolism — strongest fit: sudden pleuritic pain + dyspnea + presyncope; risk factors absent doesn’t rule out.\n2) Spontaneous pneumothorax — sudden pleuritic pain + dyspnea; can occur without smoking; would expect exam findings (unilateral decreased breath sounds) and possibly asthma-related predisposition.\n3) Possible NSTEMI / STEMI — chest pain with presyncope/nausea; pleuritic component doesn’t exclude.\n4) Atrial fibrillation — palpitations with near-syncope and dyspnea; chest pain can occur.\n5) Panic attack — can cause palpitations, dyspnea, near-syncope sensation, nausea; but pleuritic pain keeps organic causes higher.\n\nMost informative next question: ask about leg symptoms are already negative; next best discriminating question is about recent trauma/strenuous activity or known lung disease (to support pneumothorax).\n[/REASONING]\nNext question: Have you had any recent chest trauma, heavy lifting/straining, or known lung disease beyond asthma (e.g., prior pneumothorax, cyst",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No recent chest trauma or heavy lifting/straining. I don’t know of any lung disease besides my asthma, and I’ve never had a pneumothorax before.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX]Pulmonary embolism, Spontaneous pneumothorax, Possible NSTEMI / STEMI, Atrial fibrillation, Panic attack",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Spontaneous pneumothorax",
+      "Possible NSTEMI / STEMI",
+      "Atrial fibrillation",
+      "Panic attack"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14913,
+      "completion_tokens": 1932
+    },
+    "patient": {
+      "prompt_tokens": 14952,
+      "completion_tokens": 345
+    }
+  }
+}

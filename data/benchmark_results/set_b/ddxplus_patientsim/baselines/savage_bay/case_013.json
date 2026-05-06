@@ -1,0 +1,192 @@
+{
+  "case_idx": 13,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 3\nSex: Female\nChief Complaint: I have a fever, a cough, and tedious pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have a fever and I’m coughing, and I also have a sore throat. I feel really uncomfortable with pain on my head—my forehead and both temples—and I’ve been sweating a lot.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down. First, a quick Bayesian snapshot based on your symptoms (fever + cough + sore throat + headache/sweats):\n\n**Current posterior (pre-test, rough):**\n- **Influenza:** 25%\n- **Pneumonia:** 20%\n- **URTI / Viral pharyngitis:** 20%\n- **Acute rhinosinusitis / Allergic sinusitis:** 15%\n- **Acute laryngitis / Viral pharyngitis:** 10%\n- (others lower)\n\n**Question 1 (most discriminating):**  \nHow long has this been going on (hours/days), and did it start suddenly or gradually?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started about a few days ago, and it felt like it came on gradually—not suddenly.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “a few days” and gradual onset:**\n- **Influenza:** 30% (more consistent with viral prodrome over days)\n- **Pneumonia:** 15% (can be gradual, but less typical early)\n- **URTI / Viral pharyngitis:** 25%\n- **Acute rhinosinusitis:** 15%\n- **Acute laryngitis / Viral pharyngitis:** 10%\n- Others: 5%\n\n**Question 2:**  \nDo you have any shortness of breath or chest pain, or is it mainly throat/cough/fever?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly throat, cough, and fever. I don’t have chest pain or shortness of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “mainly throat/cough/fever; no chest pain or SOB”:**\n- **Influenza:** 33% (still strong)\n- **URTI / Viral pharyngitis:** 30%\n- **Acute rhinosinusitis:** 12%\n- **Pneumonia:** 8% (less likely without SOB/chest symptoms)\n- **Acute laryngitis / Viral pharyngitis:** 12%\n- Others: 5%\n\n**Question 3:**  \nIs your cough dry or productive (any phlegm)? If phlegm, what color?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My cough is mostly dry. I don’t have phlegm I can see, and I’m not sure about any color.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “mostly dry cough; no visible phlegm”:**\n- **Influenza:** 35% (dry cough can occur)\n- **URTI / Viral pharyngitis:** 35% (very consistent)\n- **Acute rhinosinusitis:** 10% (often more post-nasal drip → sometimes more productive)\n- **Acute laryngitis / Viral pharyngitis:** 10%\n- **Pneumonia:** 5% (dry cough possible, but less typical)\n- Others: 5%\n\n**Question 4:**  \nHave you had any runny or stuffy nose, or is it mainly sore throat?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion and a clear runny nose too. It’s not only sore throat.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “nasal congestion + clear runny nose”:**\n- **URTI / Viral pharyngitis:** 40% (strongly supported)\n- **Influenza:** 30% (can include prominent systemic symptoms like sweats/headache)\n- **Acute rhinosinusitis:** 20% (viral rhinosinusitis fits congestion + headache)\n- **Acute laryngitis / Viral pharyngitis:** 5%\n- **Pneumonia:** 3%\n- Others: 2%\n\n**Question 5 (to separate influenza vs viral URTI/rhinosinusitis):**  \nDo you have significant body aches or marked fatigue (beyond the headache), and have you had chills?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel very tired and achy, and I’ve had chills too.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “tired/achy + chills”:**\n- **Influenza:** 55% (systemic aches + chills strongly favor)\n- **URTI / Viral pharyngitis:** 25%\n- **Acute rhinosinusitis:** 15%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 6 (key safety check):**  \nHave you measured your temperature, and if so how high?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t measured it with a thermometer here, but I do have a fever.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “fever (unmeasured)”:**\n- **Influenza:** 58%\n- **URTI / Viral pharyngitis:** 22%\n- **Acute rhinosinusitis:** 15%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 7 (discriminates pneumonia/PE vs viral):**  \nAny wheezing, or do you feel short of breath when walking around or climbing a small flight of stairs?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No wheezing. I don’t feel short of breath when I move around.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “no wheeze, no exertional SOB”:**\n- **Influenza:** 60%\n- **URTI / Viral pharyngitis:** 22%\n- **Acute rhinosinusitis:** 13%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 8 (to rule out strep/other serious causes):**  \nAny swollen/tender glands in your neck, or white patches on your tonsils?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about white patches, but my throat feels sore. I don’t remember swollen glands.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “sore throat; no known tonsillar exudate/swollen glands”:**\n- **Influenza:** 62%\n- **URTI / Viral pharyngitis:** 20%\n- **Acute rhinosinusitis:** 12%\n- **Pneumonia:** 4%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 9 (important for meningitis/serious headache):**  \nIs your headache severe in a way that’s unusual for you, and do you have neck stiffness or pain when you try to touch your chin to your chest?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "My head pain is there on my forehead and temples, but it’s not like the worst headache ever for me. I don’t know about neck stiffness, and I haven’t tried touching my chin to my chest.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “headache not worst; no known neck stiffness”:**\n- **Influenza:** 63%\n- **URTI / Viral pharyngitis:** 18%\n- **Acute rhinosinusitis:** 14%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 10 (to assess sinus vs primary viral):**  \nDo you have facial pain/pressure that’s worse when you bend forward, or pain around your cheeks/forehead?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I have pain on my forehead and around my temples, but I don’t know if it gets worse when I bend forward.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “forehead/temple pain; unsure about worse bending”:**\n- **Influenza:** 60%\n- **Acute rhinosinusitis:** 18%\n- **URTI / Viral pharyngitis:** 17%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 11 (maximizes discrimination):**  \nHave you had any known exposure to someone with the flu, and have you had a sudden onset of symptoms like “hit you all at once” (even if it’s been a few days)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about flu exposure. But it did start over a few days, not all at once.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “uncertain exposure; gradual over a few days”:**\n- **Influenza:** 58%\n- **URTI / Viral pharyngitis:** 20%\n- **Acute rhinosinusitis:** 18%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 1%\n\n**Question 12 (safety + pneumonia):**  \nAny persistent high fever, or have you had vomiting, or are you getting worse quickly instead of slowly?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about the fever being high, but I do have fever. I haven’t vomited that I know of, and it feels like it’s been slowly getting worse over these days.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “fever present; no vomiting; slowly worsening”:**\n- **Influenza:** 57%\n- **Acute rhinosinusitis:** 20%\n- **URTI / Viral pharyngitis:** 18%\n- **Pneumonia:** 4%\n- **Acute laryngitis / Viral pharyngitis:** 1%\n\n**Question 13 (helps distinguish influenza vs sinusitis):**  \nIs your nasal discharge still clear/watery, or has it turned thick/yellow-green?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "It’s clear and watery.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “clear/watery discharge”:**\n- **Influenza:** 58%\n- **URTI / Viral pharyngitis:** 22%\n- **Acute rhinosinusitis:** 15%\n- **Pneumonia:** 3%\n- **Acute laryngitis / Viral pharyngitis:** 2%\n\n**Question 14 (final key discriminator):**  \nAny loss of smell, severe facial tooth pain, or symptoms mainly localized to one side of the face?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have loss of smell. I don’t have tooth pain, and it doesn’t feel mainly on one side of my face.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Influenza, URTI / Viral pharyngitis, Acute rhinosinusitis, Pneumonia, Acute laryngitis / Viral pharyngitis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "URTI / Viral pharyngitis",
+      "Acute rhinosinusitis",
+      "Pneumonia",
+      "Acute laryngitis / Viral pharyngitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 28709,
+      "completion_tokens": 1757
+    },
+    "patient": {
+      "prompt_tokens": 25946,
+      "completion_tokens": 411
+    }
+  }
+}

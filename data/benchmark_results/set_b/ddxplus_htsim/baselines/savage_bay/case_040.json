@@ -1,0 +1,119 @@
+{
+  "case_idx": 40,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: M\nChief Complaint: facial flushing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had facial flushing, diarrhea or an increase in stool frequency, and I feel lightheaded and dizzy like I’m about to faint. My skin also has pink rash/lesions that itch a lot (itching severity 10/10) and swell (swelling severity 4/10). I also have a fast, irregular heartbeat/palpitations.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough):  \n- Anaphylaxis: 0.35  \n- Panic attack: 0.15  \n- Allergic sinusitis: 0.05  \n- Atrial fibrillation: 0.10  \n- Scombroid food poisoning: 0.10  \n(Other causes remain possible but less likely given flushing + GI + itching + lightheadedness + palpitations.)\n\n**Question 1 (most discriminating):**  \nDid this start **within minutes to 2 hours after eating a specific food** (e.g., fish/restaurant meal), or after a **new medication/insect sting/exposure**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. It happened after I ate dark-fleshed fish (like tuna) or Swiss cheese.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):  \n- Anaphylaxis: 0.20  \n- Scombroid food poisoning: 0.55  \n- Panic attack: 0.10  \n- Allergic reaction (non-anaphylactic): 0.10  \n- Atrial fibrillation: 0.05  \n\n**Likelihood update:** Food trigger with fish strongly favors scombroid (histamine poisoning) over true anaphylaxis.\n\n**Question 2:**  \nHow fast did symptoms begin after the fish/cheese—**within 5–30 minutes**, **1–2 hours**, or **>2–3 hours**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Scombroid food poisoning: 0.50  \n- Anaphylaxis: 0.22  \n- Panic attack: 0.10  \n- Allergic reaction (non-anaphylactic): 0.10  \n- Atrial fibrillation: 0.08  \n\n**Question 3:**  \nDo you have **any trouble breathing**, **wheezing**, **throat tightness**, **voice change/hoarseness**, or **swelling of lips/tongue**? (Yes/No)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Scombroid food poisoning: 0.50  \n- Anaphylaxis: 0.22  \n- Panic attack: 0.10  \n- Allergic reaction (non-anaphylactic): 0.10  \n- Atrial fibrillation: 0.08  \n\n**Question 4:**  \nHave you noticed **hives/raised welts** anywhere on your body (not just pink flushing), or is it more like flat redness? (Raised welts/hives vs flat redness)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Scombroid food poisoning: 0.50  \n- Anaphylaxis: 0.22  \n- Panic attack: 0.10  \n- Allergic reaction (non-anaphylactic): 0.10  \n- Atrial fibrillation: 0.08  \n\n**Question 5 (key):**  \nHave you had **vomiting** in addition to diarrhea, or **severe abdominal cramping**? (Yes/No)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Scombroid food poisoning: 0.50  \n- Anaphylaxis: 0.22  \n- Panic attack: 0.10  \n- Allergic reaction (non-anaphylactic): 0.10  \n- Atrial fibrillation: 0.08  \n\n**Question 6:**  \nAre you having **fever** or **chills** right now? (Yes/No)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still):  \n- Scombroid food poisoning: 0.50  \n- Anaphylaxis: 0.22  \n- Panic attack: 0.10  \n- Allergic reaction (non-anaphylactic): 0.10  \n- Atrial fibrillation: 0.08  \n\n**Question 7 (to separate histamine poisoning vs allergic/anaphylaxis):**  \nDo you have **any flushing/itching that feels like “burning” or “hot” skin** and **headache**, which can happen with histamine poisoning? (Yes/No)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating history (timing after exposure, presence/absence of respiratory/throat symptoms, and whether there are true hives/raised welts vs flat rash, plus vomiting/cramping/fever) to confidently rank diagnoses.\n\n[POSSIBLE] Scombroid food poisoning, Anaphylaxis, Panic attack, Acute dystonic reactions, Atrial fibrillation",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Scombroid food poisoning",
+      "Anaphylaxis",
+      "Panic attack",
+      "Acute dystonic reactions",
+      "Atrial fibrillation"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10513,
+      "completion_tokens": 893
+    },
+    "patient": {}
+  }
+}

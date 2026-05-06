@@ -1,0 +1,148 @@
+{
+  "case_idx": 30,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient reports experiencing epigastric discomfort and cramping pain for the past 2 hours, noting that similar episodes have occurred in the past, mostly postprandially. She mentions a recent unintentional weight loss due to meal avoidance as a pain mitigation strategy. She smokes and consumes alcohol occasionally.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Weight loss",
+        "Pain mostly postprandially",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Insignificant, except for chronic knee pain managed with over-the-counter painkillers.",
+    "Social_History": "Smoking habit and occasional alcohol consumption.",
+    "Review_of_Systems": "Denies nausea, vomiting, change in bowel habits, and any urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had cramping epigastric discomfort for about 2 hours, and it feels similar to episodes I’ve had before, mostly after I eat. I’ve even lost some weight unintentionally because I’ve been avoiding meals to prevent the pain.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To better understand your condition, can you tell me if the epigastric discomfort radiates to any other area, such as your back or chest?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it doesn’t really radiate to my back or chest—it's mainly centered in the upper middle of my abdomen. I also haven’t had nausea or vomiting with it, and my bowel habits haven’t changed.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned that the discomfort occurs mostly after eating. Is the pain related to the type of food you eat, such as fatty or spicy foods?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it doesn’t seem very specific to fatty or spicy foods—it's more about eating in general, because I notice it mostly triggers after meals, and I’ve been avoiding eating to keep it from happening.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any other symptoms like bloating, belching, or heartburn along with the epigastric discomfort?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t really noticed significant bloating, belching, or heartburn—it's mostly that cramping discomfort in the upper middle of my abdomen after I eat.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned avoiding meals to prevent the pain and having unintentional weight loss. Have you noticed any other symptoms such as fever, or changes in your appetite aside from avoiding food due to pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had a fever, and aside from avoiding meals because the pain starts after eating, my appetite is generally lower than usual. I just feel uncomfortable in my upper middle abdomen when I eat, so I try to limit how much I take in.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any relief from the discomfort with antacids or other over-the-counter medications for indigestion or heartburn?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t really tried any antacids specifically, but I’ve used over-the-counter painkillers for my knee pain before—those haven’t helped this stomach discomfort, and nothing else I’ve tried has given clear relief.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned using over-the-counter painkillers for knee pain. Are you taking any other medications regularly, such as NSAIDs or steroids, that could be related to your stomach discomfort?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I only take over-the-counter knee pain medicine as needed, mostly NSAIDs like ibuprofen, and I don’t take steroids or any other regular medications.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "To help narrow down the cause of your symptoms, have you ever had any diagnostic tests like an endoscopy or imaging studies (e.g., ultrasound, CT scan) for your stomach issues in the past?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had an endoscopy or any imaging studies for these stomach symptoms in the past.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Given the information gathered so far, it seems you have a chronic condition characterized by postprandial epigastric pain without clear radiation, nausea, vomiting, or significant relief from antacids, and you've experienced unintentional weight loss. \n\n[DDX] Peptic ulcer disease, Gastritis, Functional dyspepsia, Gastroparesis, Chronic pancreatitis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Peptic ulcer disease",
+    "predicted_set": [
+      "Peptic ulcer disease",
+      "Gastritis",
+      "Functional dyspepsia",
+      "Gastroparesis",
+      "Chronic pancreatitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Gastric peptic ulcer",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4368,
+      "completion_tokens": 308
+    },
+    "patient": {
+      "prompt_tokens": 4771,
+      "completion_tokens": 361,
+      "calls": 8
+    }
+  }
+}

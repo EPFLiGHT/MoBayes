@@ -1,0 +1,311 @@
+{
+  "case_idx": 9,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with abdominal cramps, nausea, vomiting, and diarrhea that began suddenly 2 hours ago. He reports eating reheated food from the afternoon, approximately 1 hour before symptom onset.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known food allergies.",
+    "Social_History": "College student living in dormitories. No recent travel history. Reports being in the middle of exam period and experiencing high stress levels.",
+    "Review_of_Systems": "Denies fever, blood in stool, headache, or any urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with symptoms of acute gastrointestinal illness.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor—I'm a 20-year-old college student, and this started suddenly about 2 hours ago. I’ve had abdominal cramps with nausea, vomiting, and diarrhea after eating reheated food about an hour before it began. I’m not running a fever and there’s no blood in my stool.”",
+      "extracted_features": {
+        "f_abdominal_cramps_5c525b72": "yes",
+        "f_nausea_072ff6bd": "yes",
+        "f_vomiting_7ed7266d": "yes",
+        "f_diarrhea_29117dc0": "yes",
+        "f_fever_6c156205": "no",
+        "f_reheated_food_ingestion_d2b86bba": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.910311288279026
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.025019816864284717
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007433582749336115
+        ],
+        [
+          "Chronic kidney failure",
+          0.007433582749336115
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.005327998544102064
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Hello! I'd like to ask you a few questions to better understand how you're feeling. \n\nDo you notice any stiffness in your joints when you wake up in the morning, especially after you've been resting or sleeping?",
+      "patient_answer": "“No, doctor—when I wake up I don’t feel any joint stiffness, and I don’t have pain in my joints or muscles, just the abdominal cramps with nausea, vomiting, and diarrhea since it started.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9126398316965304
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.025083816652727013
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007452597585691897
+        ]
+      ],
+      "entropy": 0.7803995676327781
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're feeling.\n\nAre you currently experiencing any pain or discomfort in your chest?",
+      "patient_answer": "“No, doctor—I’m not having any chest pain or discomfort. It’s mainly abdominal cramps along with nausea, vomiting, and diarrhea.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9188528307213912
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.025254580324211164
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007503332804476413
+        ]
+      ],
+      "entropy": 0.724753576679116
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your daily activities. \n\nAre you currently having any difficulty lifting or carrying objects, such as groceries or everyday items?",
+      "patient_answer": "“No, doctor—I don’t have any difficulty lifting or carrying objects; it’s just the sudden abdominal cramps with nausea, vomiting, and diarrhea.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9211268214429175
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.0253170807371317
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007521902164669281
+        ]
+      ],
+      "entropy": 0.7014325764713584
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "# Question for Patient\n\n---\n\n**\"Have you noticed any skin changes, such as redness, bumps, or sores, along the veins in your arms?\"**\n\n---\n\n*This question is asked in a conversational, caring tone to help the patient feel comfortable describing any visible changes they may have noticed along their arm veins.*",
+      "patient_answer": "“No, doctor—I haven’t noticed any redness, bumps, or sores along the veins in my arms or anywhere on my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9211268214429175
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.0253170807371317
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007521902164669281
+        ]
+      ],
+      "entropy": 0.7014325764713584
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nAre you currently feeling any pain on either side of your back, around your waist or lower ribs area? This is sometimes called flank pain.",
+      "patient_answer": "“No, doctor—I’m not feeling any pain in my back or around my waist or lower ribs, it’s only the abdominal cramps with nausea, vomiting, and diarrhea since it started.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9220141937523678
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.025341470078402924
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.0075291484282021025
+        ]
+      ],
+      "entropy": 0.6924969136155394
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions to better understand your symptoms.\n\nHave you noticed any rough, scaly patches on your skin that have persisted for some time and don't seem to be healing?",
+      "patient_answer": "“No, doctor—I haven’t noticed any rough, scaly patches on my skin or anything that’s persisted and not healed. It’s been mainly the sudden abdominal cramps with nausea, vomiting, and diarrhea since it started.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9233272535295657
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.025377559398155784
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.0075398708466037
+        ]
+      ],
+      "entropy": 0.6784610461565429
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your symptoms.\n\nHave you noticed any sores, lesions, or unusual patches on your scalp?",
+      "patient_answer": "“No, doctor—I haven’t noticed any sores, lesions, or unusual patches on my scalp. It’s been only the sudden abdominal cramps with nausea, vomiting, and diarrhea since it started.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9242457750878761
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.02540280487349013
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007547371474244667
+        ]
+      ],
+      "entropy": 0.669068586572711
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Have you been experiencing any unusual food cravings lately?",
+      "patient_answer": "“No, doctor—I haven’t had any unusual food cravings lately. Since it started, it’s just been the abdominal cramps with nausea, vomiting, and diarrhea, especially after eating that reheated food.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9263170288543445
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.02545973308099865
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007564285288745446
+        ]
+      ],
+      "entropy": 0.6515653362667666
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your health. Have you been experiencing any pain in your knee or knees?",
+      "patient_answer": "“No, doctor—I’m not having any pain in my knees. It’s only the sudden abdominal cramps with nausea, vomiting, and diarrhea since it started.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bacillus cereus infection",
+          0.9266541621100377
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.025468999155609514
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.007567038311789343
+        ]
+      ],
+      "entropy": 0.6474602478935416
+    }
+  ],
+  "final": {
+    "predicted": "Bacillus cereus infection",
+    "predicted_top3": [
+      "Bacillus cereus infection",
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma"
+    ],
+    "confidence": 0.9266541621100377,
+    "final_entropy": 0.6474602478935416,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Bacillus cereus infection",
+    "predicted_set_remapped": [
+      "Bacillus cereus infection",
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6291,
+      "completion_tokens": 1876
+    },
+    "patient": {
+      "prompt_tokens": 6660,
+      "completion_tokens": 407,
+      "calls": 10
+    }
+  }
+}

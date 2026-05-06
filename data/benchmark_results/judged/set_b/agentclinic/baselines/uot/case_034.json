@@ -1,0 +1,82 @@
+{
+  "case_idx": 34,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Hypertrophic cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "23-year-old male",
+    "History": "The patient experienced sudden loss of consciousness while pitching in a baseball game. No history of trauma associated with the event. The patient regained consciousness after receiving cardiopulmonary resuscitation.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden loss of consciousness",
+      "Secondary_Symptoms": [
+        "No history of neurological problems",
+        "No history of cardiovascular problems"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Active, with regular participation in sports. No use of tobacco, alcohol, or recreational drugs reported.",
+    "Review_of_Systems": "Negative for headaches, seizures, chest pain, palpitations, shortness of breath, or dizziness prior to the event."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden loss of consciousness and no prior history of neurological or cardiovascular problems.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I suddenly lost consciousness while pitching in a baseball game and I needed cardiopulmonary resuscitation to wake up. I didn’t have any headaches, seizures, chest pain, palpitations, shortness of breath, or dizziness beforehand.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain or shortness of breath that started suddenly (suggesting an acute cardiac problem)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor—I don’t have chest pain or shortness of breath, and I didn’t feel palpitations or dizziness beforehand.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute Mesenteric Ischemia  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Acute Mesenteric Ischemia",
+    "predicted_set": [
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Acute Mesenteric Ischemia  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Acute Mesenteric Ischemia",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 688,
+      "completion_tokens": 100,
+      "calls": 2
+    }
+  }
+}

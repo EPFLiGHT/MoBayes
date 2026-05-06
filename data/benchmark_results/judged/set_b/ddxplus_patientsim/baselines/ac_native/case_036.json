@@ -1,0 +1,114 @@
+{
+  "case_idx": 36,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Tuberculosis",
+  "objective_for_doctor": "A 66-year-old Female patient presents to the clinic. Chief complaint: I have a cough, significant dyspnea, and unintentional weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a cough, and my breathing feels very difficult—like significant dyspnea. I’ve also lost weight without trying.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m sorry you’re feeling this way—how long has the cough and dyspnea been going on, and do you cough up blood or any colored sputum?  \nDr. Agent: Also, have you had fever/chills, chest pain, or night sweats, and do you smoke or have a history of smoking?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The cough and the breathing trouble have been going on for a while, but I don’t remember the exact number of weeks off the top of my head. I don’t cough up blood, and I don’t think I’m bringing up colored sputum.  \n\nI’ve had night sweats and fever/chills. I don’t smoke.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: Thank you—can you tell me your age (I’ll confirm 66) and whether your cough is mostly dry or if you have any wheezing, and also how long you’ve had the night sweats/fever?  \nDr. Agent: Any exposure risks—recent travel, sick contacts, TB exposure, or living with someone who has chronic cough?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m 66. My cough is mostly there without much sputum—I’m not sure about wheezing, but my main issue is I feel very short of breath.  \n\nThe night sweats and fever/chills have been happening for some time, but I can’t give you an exact duration right now. As for exposures: I haven’t had recent travel, and I don’t know of any sick contacts or someone living with me who has a chronic cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your age, chronic mostly dry cough, marked dyspnea, fever/chills, and night sweats with weight loss, I’m concerned about a serious infectious or malignant process—could you tell me if you’ve had chest pain, and whether symptoms are getting progressively worse?  \nDoctor: Also, have you noticed swollen lymph nodes (neck/armpit), hoarseness, or blood in saliva (even small streaks)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain. And yes—my symptoms feel progressively worse over time, especially the breathing.  \n\nI haven’t noticed swollen lymph nodes, hoarseness, or any blood in my saliva.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the progressive dyspnea and constitutional symptoms, I want to quickly rule out serious causes—REQUEST TEST: Chest_X-Ray, REQUEST TEST: CBC_with_diff, and REQUEST TEST: Sputum_AFB/CBNAAT (TB) if you can produce sputum.  \nDoctor: While we arrange that, do you have any leg swelling, a history of blood clots, or have you traveled by car/plane for long periods recently?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have leg swelling, and I don’t have a known history of blood clots. I haven’t traveled by car or plane for long periods recently.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: Thank you—this makes pulmonary embolism less likely, so with your cough/dyspnea plus fever/chills, night sweats, and weight loss, I’m still most concerned about pulmonary tuberculosis or another serious lung infection/malignancy. Did you have any recent antibiotics or steroid use, and do you have oxygen saturation readings or feel worse when lying flat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve been taking corticosteroids. I don’t know my oxygen saturation readings. I can’t say for sure about feeling worse when lying flat, but my main thing is that my breathing is getting worse over time.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Corticosteroid use can mask infection and increase risk for TB and opportunistic infections—so I’m going to ask: have you lost appetite, and do you have any skin rash or new severe fatigue; also, are your symptoms rapidly worsening over days to weeks?  \nDoctor: Additionally, REQUEST TEST: CT_Chest_with_contrast and REQUEST TEST: Blood cultures; if you can produce sputum, REQUEST TEST: Sputum_culture_and_gram_stain.  \nDoctor: Once results return, we’ll decide between pulmonary TB, severe bacterial pneumonia, or an underlying malignancy—until then, what corticosteroid medication/dose and for how long have you been on?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I have lost appetite, and I don’t have a skin rash. I do feel quite fatigued, but I can’t describe it as “new severe” exactly.  \n\nMy symptoms are worsening over days to weeks. As for the corticosteroids, I’m not sure of the exact medication name and dose—I’d need to check my prescription, but I’ve been on them for some time.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your progressive dyspnea with cough, fever/chills, night sweats, weight loss, and chronic corticosteroid use (masking infection and raising TB/other opportunistic risks), I’m most concerned for **pulmonary tuberculosis**. I’d like one more quick check: have you ever had a prior positive TB test/BCG vaccination, and do you have any sputum you can provide for testing?  \nDoctor: **DIAGNOSIS READY: Pulmonary tuberculosis (TB)**\n\n[DDX]\n1. Tuberculosis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Tuberculosis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Tuberculosis",
+    "predicted_set_remapped": [
+      "Tuberculosis",
+      "Pneumonia",
+      "Influenza"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4812,
+      "completion_tokens": 670,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 6151,
+      "completion_tokens": 416
+    }
+  }
+}

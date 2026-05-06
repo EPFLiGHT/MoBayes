@@ -1,0 +1,122 @@
+{
+  "case_idx": 8,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: Female\nChief Complaint: I have lower chest pain, upper chest pain, and right posterior chest wall radiating pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve been having lower and upper chest pain, kind of like a sharp knife-stab pain that also radiates to my right posterior chest wall and my back/thoracic spine. I also feel palpitations, I get short of breath when lying flat (orthopnea), and the chest pain is worse when I breathe in (pleuritic).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sharp “knife-stab” chest pain radiating to right posterior chest wall/back/thoracic spine; pleuritic (worse with inspiration); palpitations; dyspnea with lying flat (orthopnea).\n\nTop candidates (not yet ranked definitively):\n1) Pulmonary embolism — pleuritic pleuritic chest pain + dyspnea; can have palpitations. Orthopnea can occur from cardiopulmonary strain.\n2) Acute pulmonary edema — orthopnea is classic; chest discomfort can occur; may have dyspnea and palpitations.\n3) Possible NSTEMI / STEMI — chest pain can be pleuritic sometimes, and palpitations/shortness of breath/orthopnea can occur; must not miss.\n4) Pericarditis — sharp pain can be pleuritic and radiate to back; often worse with inspiration; may have palpitations.\n5) Pneumonia — pleuritic pain and dyspnea can occur, though orthopnea is less typical without significant infection/effusion.\n\nMost informative next question: ask about leg symptoms/risk factors for clot, which strongly discriminates PE.\n[/REASONING]\nDo you have any recent leg swelling or pain (especially one-sided calf/thigh), or any recent long travel/immobility, surgery, or history of blood clots?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No— I don’t have any recent leg swelling or pain in one leg. And I haven’t had recent long travel or immobility, and I haven’t had surgery or a blood clot before.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: pleuritic sharp chest pain radiating to right posterior chest wall/back/thoracic spine; palpitations; orthopnea; no unilateral leg swelling/pain; no recent travel/immobility/surgery/clot history.\n\nUpdated top candidates:\n1) Pericarditis — pleuritic/sharp pain that can radiate to back; palpitations possible; orthopnea can occur with pericardial inflammation/effusion (though not classic).\n2) Possible NSTEMI / STEMI — still must consider given chest pain + dyspnea/orthopnea + palpitations; pleuritic quality doesn’t exclude ischemia.\n3) Acute pulmonary edema — orthopnea strongly supports; pleuritic pain is less typical but cardiogenic causes can cause chest discomfort.\n4) Pulmonary embolism — less likely without risk factors/leg symptoms, but PE can still occur without them.\n5) Pneumonia — pleuritic pain + dyspnea possible; orthopnea less typical unless complicated (e.g., effusion).\n\nMost informative next question: ask about fever/cough or infectious symptoms to discriminate pneumonia/viral causes from cardiac/PE.\n[/REASONING]\nHave you had any fever, cough, or recent upper respiratory symptoms (sore throat, runny nose), or are you producing any sputum?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I recently had a viral infection, but I don’t have a cough or fever right now, and I’m not producing any sputum.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: pleuritic sharp chest pain radiating to right posterior chest wall/back/thoracic spine; palpitations; orthopnea; recent viral infection but no current fever/cough/sputum.\n\nUpdated candidates:\n1) Pericarditis — pleuritic sharp pain, can radiate to back; recent viral infection is a strong association; palpitations possible; orthopnea can occur if there’s pericardial effusion or associated cardiac dysfunction.\n2) Possible NSTEMI / STEMI — still critical to rule out with chest pain + dyspnea/orthopnea; pleuritic nature doesn’t fully exclude.\n3) Acute pulmonary edema — orthopnea supports; pleuritic pain less typical but possible if pulmonary congestion/strain.\n4) Pulmonary embolism — still possible even without classic risk factors/calf symptoms; pleuritic pain and palpitations fit.\n5) Pneumonia/bronchitis — less likely without cough/fever/sputum.\n\nMost informative next question: ask about positional relief and associated symptoms like worse when lying flat vs leaning forward, and any recent leg swelling is already negative. The most discriminating is pericarditis pattern: better leaning forward, worse lying flat.\n[/REASONING]\nDoes the chest pain get worse when you lie flat and improve when you sit up and lean forward (or vice versa)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when I lie flat it feels worse, and when I sit up it feels a bit better. I don’t really notice much difference with leaning forward versus sitting up.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: pleuritic sharp “knife-stab” chest pain radiating to right posterior chest wall/back/thoracic spine; worse when lying flat, somewhat better when sitting up; palpitations; recent viral infection; no current cough/fever.\n\nTop candidates now:\n1) Pericarditis — viral prodrome + pleuritic sharp pain + worse supine (classic) + possible radiation to back; palpitations can occur.\n2) Possible NSTEMI / STEMI — still must exclude because chest pain with dyspnea/orthopnea; viral illness doesn’t rule out ischemia.\n3) Acute pulmonary edema — orthopnea supports; pleuritic pain less typical but cardiopulmonary causes can present variably.\n4) Pulmonary embolism — pleuritic pain + dyspnea; orthopnea can be from cardiopulmonary strain; viral history doesn’t exclude.\n5) Acute COPD exacerbation / infection or bronchitis — less likely without cough/wheeze/fever.\n\nMost informative next question: ask about exertional component and any classic pericarditis-associated features like recent pericardial effusion signs (leg swelling) or syncope; but most discriminating is whether pain is reproducible with palpation or movement (musculoskeletal) vs cardiac. For pericarditis, ask about relief with NSAIDs/aspirin and any recent severe shortness of breath",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t tried any medicine yet, so I don’t know if it gets better with ibuprofen or aspirin. The pain feels worse with deep breaths, and I don’t really know if it changes with movement or pressure on my chest. I also haven’t passed out, but the shortness of breath is pretty noticeable.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sharp pleuritic chest pain radiating to right posterior chest wall/back/thoracic spine; worse lying flat, somewhat better sitting up; recent viral infection; palpitations; noticeable shortness of breath/orthopnea; no cough/fever; no syncope; no meds tried; unclear reproducibility with palpation/movement.\n\nMost likely diagnoses:\n1) Pericarditis — viral prodrome + pleuritic sharp pain + worse supine/better sitting up is a classic pattern; palpitations and dyspnea can occur (especially if effusion/pericardial inflammation).\n2) Possible NSTEMI / STEMI — must rule out in any patient with chest pain + dyspnea; pleuritic quality and positional features don’t fully exclude ischemia.\n3) Pulmonary embolism — pleuritic pain + dyspnea/palpitations; lack of leg symptoms/risk factors lowers but doesn’t eliminate.\n4) Acute pulmonary edema — orthopnea supports; pleuritic pain less typical but cardiogenic causes can present with chest discomfort and dyspnea.\n5) Pneumonia/bronchitis — less likely given no cough/fever/sputum, but can still present atypically.\n\nSingle most informative next question to discriminate pericarditis vs PE/ACS: ask about hemoptysis (PE) and/or recent leg swelling already negative; hemopty",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had any coughing up blood. I also don’t have any recent one-sided leg swelling or leg pain.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: pleuritic sharp chest pain radiating to right posterior chest wall/back/thoracic spine; worse lying flat, better sitting up; recent viral infection; palpitations; noticeable shortness of breath/orthopnea; no cough/fever/sputum; no hemoptysis; no unilateral leg swelling/pain; no meds tried.\n\nUpdated top candidates:\n1) Pericarditis — best fit: viral prodrome + pleuritic sharp pain + worse supine/better sitting up; palpitations and dyspnea can occur.\n2) Possible NSTEMI / STEMI — still must exclude due to chest pain + dyspnea/orthopnea; positional/pleuritic features don’t fully rule out.\n3) Pulmonary embolism — less likely without hemoptysis or leg symptoms/risk factors, but still possible.\n4) Acute pulmonary edema — orthopnea supports; pleuritic pain less typical.\n5) Pneumonia/bronchitis — less likely without cough/fever/sputum.\n\nMost informative next question: ask about whether the pain is reproducible with pressing on the chest wall or with certain movements (helps rule in musculoskeletal vs cardiac/pericardial), and also ask about fever (pericarditis can have low-grade). But to discriminate pericarditis vs ACS/PE, asking about recent fever is less discriminating than asking about",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t checked if it’s tender when I press on my chest, and I’m not sure if it changes with moving my arms or twisting. I don’t feel like I have a fever right now, but I did have a viral infection recently.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: viral illness recently; pleuritic sharp chest pain radiating to back/right posterior chest wall; worse when lying flat, better sitting up; palpitations; orthopnea; no cough/fever currently; no hemoptysis; no unilateral leg swelling/pain; no meds tried; unclear chest wall tenderness/movement effect.\n\nMost likely:\n1) Pericarditis — best overall pattern: viral prodrome + pleuritic sharp pain + worse supine/better sitting up; palpitations/dyspnea fit (possible effusion/myopericarditis).\n2) Possible NSTEMI / STEMI — still must rule out because chest pain + dyspnea/orthopnea; atypical features don’t exclude.\n3) Pulmonary embolism — pleuritic pain + dyspnea; absence of classic risk factors/leg symptoms lowers probability but doesn’t eliminate.\n4) Acute pulmonary edema — orthopnea supports; pleuritic pain less typical.\n5) Pneumonia/bronchitis — less likely without cough/fever/sputum.\n\nSingle most informative next question (for safety/triage): ask about current vital/neurologic red flags—specifically, do you have any sweating, nausea/vomiting, or feeling like you might pass out with the pain (ACS/PE severity). But we’re close enough to provide a differential while still needing objective tests.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had sweating or nausea/vomiting with the pain, and I don’t feel like I’m going to pass out.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX]\nPericarditis, Possible NSTEMI / STEMI, Pulmonary embolism, Acute pulmonary edema, Pneumonia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_set": [
+      "Pericarditis",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 16059,
+      "completion_tokens": 2106
+    },
+    "patient": {
+      "prompt_tokens": 14678,
+      "completion_tokens": 373
+    }
+  }
+}

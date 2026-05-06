@@ -1,0 +1,149 @@
+{
+  "case_idx": 14,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 59\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been dealing with a cough, and I’ve also been having significant shortness of breath or difficulty breathing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. To narrow this down, one key question:\n\n**Do you have a fever (measured or felt), chills, or are you coughing up any sputum/phlegm?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I do have a cough. I’ve also had a cold in the last 2 weeks.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—so a cough with a recent cold (last 2 weeks). Next discriminating question:\n\n**Is your shortness of breath worse with exertion, or is it also present at rest (and/or waking you up at night)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I am experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question—this helps separate asthma/bronchospasm from pneumonia/PE/cardiac causes:\n\n**Do you have wheezing (a whistling sound when breathing out), or have you ever been told you have asthma/COPD?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have asthma, and I’ve used a bronchodilator in the past.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next question to distinguish **acute asthma/bronchospasm** from **infection/pneumonia**:\n\n**Are you currently producing any phlegm/sputum? If yes, what color (clear/white/yellow/green/bloody)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I do have a cough and I’ve had a cold in the last 2 weeks.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question—this helps gauge severity and rule in/out serious causes like pneumonia/PE:\n\n**Have you had any chest pain—especially sharp pain with breathing in, or pain/pressure in the center of the chest?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have significant shortness of breath or difficulty breathing in a significant way.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question—this is important for anaphylaxis/airway causes vs asthma:\n\n**Any swelling of your lips/tongue/face, hives/itching, or a sudden onset of symptoms after a new food/medication/insect sting?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. Next question—helps distinguish **viral URTI/bronchitis** from **pneumonia**:\n\n**Do you feel feverish or have you measured a temperature recently?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have a cough and I’ve had a cold in the last 2 weeks.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question—helps separate **pneumonia** from **asthma/bronchospasm**:\n\n**Has your breathing improved after using your bronchodilator, or is it not helping much?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’ve had asthma and I’ve used a bronchodilator in the past.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question—severity/complications:\n\n**Are you able to speak full sentences, or are you short of breath after only a few words?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I am experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t safely narrow to a specific diagnosis yet because key discriminators (fever/sputum, chest pain, response to bronchodilator, wheeze, ability to speak, and any red flags like swelling) are still unknown.\n\n**One last focused question:**  \n**Are you wheezing right now (or has anyone heard wheezing), and is it worse when you exhale?**",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating information (unknown fever/sputum, chest pain, wheeze, response to bronchodilator, ability to speak, and no clear red-flag features).  \n[POSSIBLE] Bronchospasm / acute asthma exacerbation, Acute COPD exacerbation / infection, Pneumonia, Pulmonary embolism, Acute pulmonary edema",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12612,
+      "completion_tokens": 614
+    },
+    "patient": {}
+  }
+}

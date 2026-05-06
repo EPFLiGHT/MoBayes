@@ -1,0 +1,118 @@
+{
+  "case_idx": 28,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Lambert-Eaton Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient reports a 3-month history of chronic cough and progressively worsening difficulty in walking up stairs in his apartment. Interestingly, he notes that his ability to climb stairs improves after he has exercised. Over the last 6 months, he has also experienced a weight loss of 4.6 kg (10.1 lb). The patient has been smoking one pack of cigarettes daily for 35 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Difficulty walking up stairs",
+      "Secondary_Symptoms": [
+        "Chronic cough",
+        "Weight loss of 4.6 kg over 6 months",
+        "Improvement in muscle strength post-exercise"
+      ]
+    },
+    "Past_Medical_History": "No significant previous medical or surgical history reported.",
+    "Social_History": "Smokes one pack of cigarettes daily for 35 years, occasional alcohol consumption.",
+    "Review_of_Systems": {
+      "General": "Weight loss",
+      "Respiratory": "Chronic cough",
+      "Musculoskeletal": "Progressive muscle weakness, improving with exertion",
+      "Neurological": "Sluggish pupil reaction to light"
+    }
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a chronic cough, difficulty walking up stairs which improves after exercise, and significant weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had a chronic cough for about three months, and over the same time I’ve been getting progressively worse at walking up stairs. Oddly, after I exercise for a bit, my strength to climb stairs improves, and I’ve also lost about 4.6 kg over the last six months.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a chronic cough with wheezing and shortness of breath that is worse with exertion and/or at night (suggesting asthma or COPD)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My coughing has been pretty steady and not really tied to wheezing or sudden attacks, and I don’t feel short of breath mainly at night. I mainly notice the stair difficulty getting worse, but it gets better after I’ve exercised a bit.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had chronic inflammation/scarring of the bile ducts causing cholestatic liver problems (e.g., persistent jaundice/itching with abnormal cholangiography)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had chronic inflammation or scarring of the bile ducts, like persistent jaundice or itching, or any abnormal bile-duct imaging? Patient: I haven’t noticed jaundice or significant itching, and I don’t know of any bile-duct problems—my main issues have been the cough, the stair difficulty, and the weight loss.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a progressive worsening of movement problems (e.g., tremor, stiffness, slowness) over time?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, it’s been progressively getting worse over time—climbing stairs is harder, and I feel more sluggish getting around, but after I’ve exercised for a bit it temporarily improves. I don’t really have tremor or stiffness as much as weakness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have prominent early autonomic failure (e.g., severe orthostatic hypotension, urinary dysfunction) within the first year of symptoms?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t really noticed dizziness when standing or fainting, and I don’t have any obvious urinary problems. My main changes have been getting weaker over time, my sluggish movement, the chronic cough, and the stair difficulty that briefly improves after I exercise.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Multiple system atrophy  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Multiple system atrophy",
+    "predicted_set": [
+      "Multiple system atrophy"
+    ],
+    "predicted_raw": [
+      "Multiple system atrophy  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Multiple system atrophy",
+    "predicted_set_remapped": [
+      "Multiple system atrophy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2860,
+      "completion_tokens": 323,
+      "calls": 5
+    }
+  }
+}

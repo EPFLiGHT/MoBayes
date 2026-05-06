@@ -1,0 +1,189 @@
+{
+  "case_idx": 22,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Guillain-Barré syndrome",
+  "patient_actor_hidden": {
+    "AGE": 21,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "limb weakness/paralysis",
+    "EVIDENCES_ENG": "['recent viral infection', 'shortness of breath', 'bilateral weakness', 'foot numbness', 'facial paralysis on one side', 'limb weakness/paralysis', 'generalized paresthesias']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 21\n- I have recently had a viral infection.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I feel weakness in both arms and/or both legs.\n- I have numbness, loss of sensation, or tingling in my feet.\n- I have had weakness or paralysis on one side of my face, which may still be present or completely resolved.\n- I previously, or I currently, have any weakness/paralysis in one or more of my limbs or in my face.\n- I currently, or did I ever, have numbness, loss of sensitivity or tingling anywhere on my body.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Guillain-Barré syndrome', 0.16874753989676403], ['Myasthenia gravis', 0.13642994084323717], ['Pulmonary embolism', 0.1121145829803062], ['Acute pulmonary edema', 0.10501819288669333], ['Atrial fibrillation', 0.09169043058826386], ['Acute dystonic reactions', 0.06759908786543536], ['Anemia', 0.06759908786543536], ['Anaphylaxis', 0.06759908786543536], ['Scombroid food poisoning', 0.04276028025510812], ['PSVT', 0.036109048814669586], ['Panic attack', 0.032346264265963966], ['SLE', 0.03129515082577883], ['Possible NSTEMI / STEMI', 0.020345652523454504], ['Chagas', 0.020345652523454504]]",
+    "PATHOLOGY": "Guillain-Barré syndrome",
+    "INITIAL_EVIDENCE": "rds_paralys_gen",
+    "EVIDENCES": "['B34.9', 'dyspn', 'faiblesse_msmi', 'footnumb', 'paralysie_visage', 'rds_paralys_gen', 'rds_paresthesie_gen', 'trav1_@_N']",
+    "patient_id": "htsim_0793",
+    "_test_index": 793,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 21-year-old M patient presents to the clinic. Chief complaint: limb weakness/paralysis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having limb weakness/paralysis—also numbness/tingling in my feet and significant shortness of breath or difficulty breathing, and I recently had a viral infection.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you’ve had viral illness followed by limb weakness with numbness/tingling and shortness of breath, I suspect a nerve-related syndrome; can you tell me when symptoms started (days since onset) and whether weakness began in your feet/hands and how fast it’s progressing?  \nDoctor: Also, do you have facial weakness, trouble swallowing, blurred/double vision, or any loss of bladder/bowel control?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have had weakness/paralysis on one side of my face, which may still be present or completely resolved.\n\nI don’t know about trouble swallowing, blurred/double vision, or any loss of bladder/bowel control.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the recent viral illness and now one-sided facial weakness plus limb weakness with tingling and breathing difficulty, I’m concerned about a post-infectious neurological cause (like Guillain-Barré spectrum) versus stroke—are your symptoms getting worse over hours-to-days or days-to-weeks, and are both legs more weak than arms?  \nDoctor: Also, do you have trouble lifting your arms/standing/walking, and do you feel your breathing is weak (worse when lying flat) or is it chest tightness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a bit more to decide between Guillain‑Barré syndrome and something like stroke or spinal cord disease—can you tell me, in the last 24 hours, is your weakness clearly worsening, and are you having any trouble walking (unsteady/needs support)?  \nDoctor: Also, when you try to take a deep breath or cough, do you feel weak or unable to generate force, and have you had any fever, new back pain, or loss of sensation above the waist?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need quick specifics—please tell me: (1) are both legs weak with tingling that started in the feet, and is it moving upward? (2) did the breathing difficulty start with the weakness (or separately)?  \nDoctor: While you answer, I’m going to do an exam—can you sit upright and I’ll check your strength, reflexes, and sensation, plus your ability to count to 20 in one breath.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as emergency until proven otherwise—Guillain‑Barré spectrum can cause rapid weakness and respiratory failure after a viral illness; I’m going to ask 1 last key question while we arrange urgent testing: **do you notice your reflexes feel “gone”/less responsive or are your legs getting weaker quickly (within the last 1–2 days)?**  \nDoctor: If you can’t answer, that’s okay—we’ll proceed with **REQUEST TEST: Neurology exam (including deep tendon reflexes, cranial nerves), REQUEST TEST: Respiratory assessment (NIF/FVC), REQUEST TEST: Lumbar puncture for CSF (cell count, protein), REQUEST TEST: EMG/NCS, REQUEST TEST: MRI brain/spine if stroke/spinal cord concern**.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t rely on “I don’t know,” so I’m treating this as **possible Guillain‑Barré syndrome with impending respiratory failure**—please get **vitals and oxygen sat immediately** and we’ll proceed with urgent tests.  \nREQUEST TEST: NIF/FVC (bedside respiratory muscle strength) + ABG if needed; REQUEST TEST: Neurology bedside exam (reflexes, strength, cranial nerves) immediately; REQUEST TEST: Lumbar puncture for CSF (protein/cell count) and serum/CSF studies as per protocol.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to continue the emergency workup—can you tell me if your breathing is worse when lying flat and whether you can speak full sentences without getting short of breath?  \nDoctor: Also, did the tingling/weakness begin in the feet and spread upward over hours to days, and do you have any new facial droop right now?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t provide answers, I’m treating this as **suspected Guillain–Barré syndrome** until proven otherwise—can we confirm immediately that your **oxygen saturation is acceptable** and that you can count/speak full sentences without breath-holding?  \nDoctor: We’ll proceed with urgent objective checks: **REQUEST TEST: NIF/FVC bedside respiratory assessment (and ABG if low)** and **REQUEST TEST: Neurology bedside exam with deep-tendon reflexes and cranial nerve testing now**.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t confirm details and you have recent viral illness with limb weakness/tingling plus breathing difficulty, this is an emergency evaluation for Guillain‑Barré spectrum and possible respiratory failure; can you answer only this: are you short of breath right now, and can you speak full sentences without stopping for breath?  \nDoctor: If not, we’ll treat as critical immediately—please get **REQUEST TEST: Pulse_ox_SpO2_and_vitals_now** and **REQUEST TEST: NIF/FVC bedside respiratory muscle strength now** while **REQUEST TEST: Neurology_bedside_exam_with_reflexes_and_strength now**.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating you as critical because you can’t confirm symptoms and you report limb weakness with tingling plus shortness of breath after a viral illness—**REQUEST TEST: Pulse_ox_and_vitals_now**, **REQUEST TEST: NIF_FVC_bedside_now**, and **REQUEST TEST: Neurology_bedside_exam_with_reflexes_strength_and_cranial_nerves_now**.  \nDoctor: While those results come back, are you currently able to speak full sentences and are you able to sit upright without worsening breathing—yes or no?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t confirm, I’m treating you as **respiratory-risk Guillain–Barré until proven otherwise**—we need immediate objective checks: **REQUEST TEST: Pulse_ox_and_vitals_now**, **REQUEST TEST: NIF/FVC_bedside_now**, and **REQUEST TEST: Neurology_bedside_exam_with_reflexes_strength_and_cranial_nerves_now**.  \nDoctor: Please answer only this: are you currently on oxygen or in any trouble breathing (yes/no)? If yes, we’ll prepare noninvasive ventilation/intubation support while tests are running.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: We’re treating this as **critical Guillain–Barré syndrome** until proven otherwise—REQUEST TEST: Pulse_ox_and_vitals_now, REQUEST TEST: NIF/FVC bedside_now (respiratory muscle strength), REQUEST TEST: ABG_if_SpO2_low_or_fatigue, REQUEST TEST: Neurology_bedside_exam_with_reflexes_and_strength_and_cranial_nerves_now.  \nDoctor: While results are pending, can you tell me **your age and whether the weakness is spreading upward from the legs and started after the viral illness** (yes/no)?  \nDoctor: If you can’t confirm, I will proceed with ICU-level monitoring and respiratory support planning.",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume maximal risk given “viral infection → limb weakness/tingling + breathing difficulty” and inability to provide details—REQUEST TEST: Pulse_ox_and_vitals_now (including respiratory rate, BP, HR, temperature) and REQUEST TEST: NIF/FVC bedside_now immediately.  \nDoctor: Also REQUEST TEST: Neurology_bedside_exam_with_reflexes_strength_cranial_nerves_now and, if there’s no contraindication, REQUEST TEST: Lumbar_puncture_for_CSF_cell_count_protein (GM1/other as per protocol), with REQUEST TEST: EMG/NCS to confirm GBS.  \nDoctor: DIAGNOSIS READY: Guillain–Barré syndrome (post-infectious acute inflammatory demyelinating polyneuropathy) with high risk of respiratory failure / possible GBS spectrum (e.g., Miller Fisher variant unlikely without clear ophthalmoplegia/ataxia).\n\n[ABSTAIN] free-text diagnosis 'Guillain–Barré syndrome (post-infectious acute inflammatory demyelinating polyneuropathy) with high risk of respiratory failure / possible GBS spectrum (e.g., Miller Fisher variant unlikely without clear ophthalmoplegia/ataxia).' did not map to the closed disease set",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12627,
+      "completion_tokens": 1609,
+      "calls": 13
+    },
+    "patient": {
+      "prompt_tokens": 18740,
+      "completion_tokens": 177,
+      "calls": 13
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "case_idx": 16,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "objective_for_doctor": "A 57-year-old Female patient presents to the clinic. Chief complaint: I have a fever, sensitive pain, and forehead pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and strong pain in my forehead, like sensitive pain around my temples and cheeks—about 8 out of 10. I also have a sore throat and nasal congestion or a clear runny nose, and it started pretty quickly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long has this been going on (hours/days), and do you have any redness or swelling around your eyes, or vision changes?  \nDoctor: Also, have you measured your temperature, and do you have any rash or one-sided facial pain (left vs right)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty quickly—within the last 4/10 time for onset (so not very long, more like hours). I don’t have any redness or swelling around my eyes, and no vision changes, and I don’t notice any rash. The facial pain is on both sides for me—my left cheek and both temples (left and right). I haven’t mentioned a measured temperature, but I do have a fever.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask: do you have a cough, trouble breathing, or severe one-sided sinus/tooth pain, and have you had similar episodes before?  \nDoctor: Also, can you tell me if the nasal discharge is clear vs thick/yellow-green, and whether pressing over your forehead/cheeks or bending forward worsens the pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a cough or trouble breathing. I also don’t have severe one-sided sinus or tooth pain. I’ve had similar symptoms from contact with a sick person in the past 2 weeks, but not really the same episode before.\n\nMy nasal discharge is clear/runny, not thick or yellow-green. Pressing on my forehead/cheeks and bending forward does make the pain worse.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the rapid onset (hours), bilateral frontal/cheek pain worsened by bending/pressure, clear runny nose, fever, and no eye swelling/vision changes or rash, I’m most concerned about an acute viral rhinosinusitis; to be safe, I want to check oxygen level and look for signs of bacterial sinusitis or influenza/COVID—any of these: severe facial pain that’s getting worse after 3–5 days, tooth pain, or symptoms lasting >10 days?  \nDoctor: REQUEST TEST: Rapid_influenza_test  \nDoctor: REQUEST TEST: COVID-19_antigen_test",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No—my symptoms started within the last few hours, so they’re not getting worse after 3–5 days, and I don’t have tooth pain. They also haven’t lasted more than 10 days.  \n\nYes, I’m okay with the rapid influenza test and the COVID-19 antigen test.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "REQUEST TEST: Rapid_influenza_test  \nREQUEST TEST: COVID-19_antigen_test  \n\nWhile we wait, do you have severe headache with neck stiffness or light sensitivity, and have you taken anything already (acetaminophen/ibuprofen) and did it help?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have neck stiffness or light sensitivity. I haven’t taken anything yet for it.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—no neck stiffness/light sensitivity and no meds yet. I’m going to request your vital signs (especially temperature and oxygen saturation) and an exam focused on the sinuses/oropharynx; do you currently have shortness of breath or wheezing?  \nREQUEST TEST: Vitals_with_O2_saturation  \nREQUEST TEST: Pulse_Oximetry  \nREQUEST TEST: Focused_ENT_exam",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath or wheezing. I’m ready for the vitals and the ENT-focused exam.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to review your vitals/oxygen and perform a quick ENT exam of your sinuses and throat; while we do, any ear pain, worsening after initially improving, or severe sore throat with pus on the tonsils?  \nDoctor: Also, any chance you’re immunocompromised, pregnant, or have chronic sinus disease?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have ear pain, and I haven’t had symptoms that worsened after initially improving. My sore throat is there, but I don’t see pus on my tonsils.  \n\nI’m not immunocompromised, I’m not pregnant, and I don’t have chronic sinus disease.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your rapid onset (hours), bilateral forehead/cheek pressure pain worsened by bending, clear runny nose, fever, sore throat, and no eye involvement, rash, neck stiffness, or worsening after several days, this most fits **acute viral rhinosinusitis** rather than bacterial sinusitis.  \nDoctor: REQUEST TEST: Throat_strep_test  \nDoctor: DIAGNOSIS READY: Acute viral rhinosinusitis (viral upper respiratory infection) with fever; likely no bacterial sinusitis at this time.\n\n[ABSTAIN] free-text diagnosis 'Acute viral rhinosinusitis (viral upper respiratory infection) with fever; likely no bacterial sinusitis at this time.' did not map to the closed disease set",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4849,
+      "completion_tokens": 597,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 7057,
+      "completion_tokens": 409
+    }
+  }
+}

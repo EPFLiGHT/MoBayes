@@ -1,0 +1,360 @@
+{
+  "case_idx": 38,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m not sure—I don’t feel safe talking because I think I’m being watched. I’m extremely hot and I can’t stay awake, and I’ve been acting strangely with paranoia, muscle stiffness, and my body not regulating properly.",
+      "extracted_features": {
+        "f_paranoia_a9786791": "yes",
+        "f_feeling_intensely_hot_a94d3f90": "yes",
+        "f_drowsiness_420d2bd9": "yes",
+        "f_muscle_rigidity_710ca10d": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.566386540844586
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.04742647209512347
+        ],
+        [
+          "Vitiligo",
+          0.013316792657251428
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.013316792657251428
+        ],
+        [
+          "Actinic Keratosis",
+          0.013316792657251428
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what you're experiencing, have you noticed any changes in your vision, such as blurriness, dark spots, or any loss of sight?",
+      "patient_answer": "“No—my vision seems okay, but I feel extremely hot and I can’t stay awake. I’m still paranoid and my muscles feel stiff, and I’m having trouble with my body regulating properly.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5745791104729875
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.04811247828850748
+        ],
+        [
+          "Vitiligo",
+          0.013509415085935615
+        ]
+      ],
+      "entropy": 3.0176032837730498
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, I don’t smoke. I’ve been using substances before, and right now I feel extremely hot, very drowsy, paranoid, and my muscles are stiff.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6022530962342906
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.05042976413275113
+        ],
+        [
+          "Vitiligo",
+          0.014160081554516344
+        ]
+      ],
+      "entropy": 2.830397421494119
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No—no nausea or stomach pain that I can tell you about, but I do feel very sick in general. I’m too drowsy and tense, and I can’t focus enough to explain more.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6022530962342906
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.05042976413275113
+        ],
+        [
+          "Vitiligo",
+          0.014160081554516344
+        ]
+      ],
+      "entropy": 2.830397421494119
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No—I don’t have any lumps or breast pain, and my main issue is feeling extremely hot, very drowsy and confused. I’m also very paranoid and my muscles stay stiff, like my body isn’t regulating right.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6086077352964627
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.050961870901579484
+        ],
+        [
+          "Chronic kidney failure",
+          0.014309490844285889
+        ]
+      ],
+      "entropy": 2.7875611533009277
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can sometimes be linked to how we are feeling overall. Have you been experiencing a significant amount of stress or emotional pressure lately?",
+      "patient_answer": "“I don’t know—everything feels unsafe and I think people are watching me, and that makes me terrified and tense. I can tell you I’ve been extremely hot, very drowsy, and my muscles are stiff and won’t relax.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5666510467496787
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08495562535049075
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.023854535196935877
+        ]
+      ],
+      "entropy": 2.9242689217395132
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "To help me better understand your current symptoms, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“No, I haven’t been able to tell about my urine—everything feels off, and I can’t stay awake or focus enough. I’m extremely hot, very drowsy, and my muscles are stiff, and I still feel like I’m being watched.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5732591815086945
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08594635540220898
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.024132720482393705
+        ]
+      ],
+      "entropy": 2.8784467330162347
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast lumps or any change in size. My main problem is that I’m extremely hot, very drowsy and confused, with paranoia and muscle stiffness that won’t relax.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5751098729816903
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08622382184707132
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.024210629779719585
+        ]
+      ],
+      "entropy": 2.857920424450785
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No wrist pain—I’m focused on feeling extremely hot, too drowsy to stay awake, and confused, with paranoia and muscle stiffness and rigidity that won’t relax. My body doesn’t seem to regulate properly, but I don’t have any specific wrist pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5803414165064846
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08700816532308987
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.02443086415475928
+        ]
+      ],
+      "entropy": 2.824943671562102
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of the veins in your arms?",
+      "patient_answer": "“No, I don’t really see any rash or bumps on my arms, but I’m very hot and too drowsy to look closely. My muscles feel stiff and my body isn’t regulating properly, and I’m still scared someone is watching me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5803414165064846
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08700816532308987
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.02443086415475928
+        ]
+      ],
+      "entropy": 2.824943671562102
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Have you noticed any shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“I’m too drowsy and confused to really tell if I’m short of breath, but my breathing feels off and my body isn’t regulating right.” “I’ve mostly been feeling extremely hot, very sleepy, and my muscles stay stiff.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.5803414165064846
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08700816532308987
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.02443086415475928
+        ]
+      ],
+      "entropy": 2.824943671562102
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“Yeah… I’ve been using substances again. I don’t feel safe sharing details, but I’ve been hot, very drowsy, paranoid, and my muscles are rigid and won’t relax.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9689622841198033
+        ],
+        [
+          "Factitious disorder",
+          0.007694641938763492
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.005067644277641163
+        ]
+      ],
+      "entropy": 0.32555828831307076
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Factitious disorder",
+      "Brief Psychotic Disorder"
+    ],
+    "confidence": 0.9689622841198033,
+    "final_entropy": 0.32555828831307076,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Factitious disorder",
+      "Brief Psychotic Disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8276,
+      "completion_tokens": 559
+    },
+    "patient": {
+      "prompt_tokens": 9193,
+      "completion_tokens": 585,
+      "calls": 12
+    }
+  }
+}

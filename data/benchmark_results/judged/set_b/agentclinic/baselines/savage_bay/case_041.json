@@ -1,0 +1,164 @@
+{
+  "case_idx": 41,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Parkinson disease",
+  "patient_actor_hidden": {
+    "Demographics": "70-year-old man accompanied by his wife",
+    "History": "The patient first noticed the tremor in his left hand 1 year ago, which has been progressively worsening. Recently, he has faced difficulty in performing tasks that require steadiness, such as reading. His wife has observed a decline in his memory, taking note of his forgetfulness in paying bills, a task she has since had to assume.",
+    "Symptoms": {
+      "Primary_Symptom": "Resting tremor worse on the left hand",
+      "Secondary_Symptoms": [
+        "Soft speech",
+        "Reduced facial expressions",
+        "Memory decline",
+        "Difficulty in managing finances"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, medicated with aspirin and amlodipine. Family history of schizophrenia in his mother. No other significant medical or psychiatric history.",
+    "Social_History": "Drinks 1-2 beers nightly and is a former cigar smoker.",
+    "Review_of_Systems": "Denies any other systemic complaints. Specifically, no urinary symptoms, no significant changes in bowel habits, no reported falls or dizziness."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with hand tremors and recent memory issues.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Well, doctor, my left hand started shaking about a year ago, and it’s been getting worse. Lately it’s made it hard for me to do steady things like reading, and my wife has noticed I’ve been more forgetful with things like paying bills, plus my speech seems softer and my face doesn’t show as much expression.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test) based on progressive unilateral hand tremor + bradykinesia-like symptoms (worse fine motor control), softer speech, reduced facial expression (hypomimia):\n- Parkinson disease: 0.55  \n- Multiple system atrophy: 0.15  \n- Huntington disease: 0.10  \n- Essential thrombocythemia: 0.05  \n- Acute myelogenous leukemia: 0.05  \n(Other causes like medication/toxic exposure are still possible but not yet prioritized.)\n\nTo update this, I need one key discriminator:\n\n**Question 1 (one at a time):**  \nDo you have any **trouble with balance or falls early on**, especially within the first year of symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—early on I didn’t really have trouble with my balance, and I haven’t had any falls. I haven’t felt dizzy or unsteady either.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “no early balance problems/falls” (this makes atypical parkinsonism like multiple system atrophy less likely than idiopathic Parkinson):\n\n- Parkinson disease: 0.68  \n- Multiple system atrophy: 0.08  \n- Huntington disease: 0.10  \n- Essential thrombocythemia: 0.04  \n- Acute myelogenous leukemia: 0.04  \n\nLikelihood reasoning (brief): absence of early gait instability reduces likelihood of MSA (LR < 1 for MSA relative to Parkinson).\n\n**Question 2:**  \nHave you noticed **involuntary movements** such as **jerky, dance-like motions** (chorea) or **progressive worsening of involuntary facial/limb movements**, rather than mainly tremor and slowness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—nothing like jerky, dance-like movements, and I haven’t noticed any involuntary facial or limb flapping; it’s mainly the tremor in my left hand and the slowness/softness you mentioned.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “no chorea/involuntary dance-like movements” (this lowers Huntington and supports a more classic parkinsonian picture):\n\n- Parkinson disease: 0.74  \n- Huntington disease: 0.04  \n- Multiple system atrophy: 0.06  \n- Essential thrombocythemia: 0.06  \n- Acute myelogenous leukemia: 0.10  \n\nBayesian note: lack of choreiform movements makes Huntington less likely (LR << 1). Still, we need to distinguish Parkinson from other causes of tremor/bradykinesia.\n\n**Question 3:**  \nHave you ever tried **carbidopa/levodopa** (or similar Parkinson medication), and if so did it **clearly improve** your tremor or slowness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Well, doctor, I haven’t tried carbidopa or levodopa or any similar Parkinson-type medication yet—so I can’t say whether it improved anything.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no medication trial yet doesn’t help much; we keep Parkinson highest but still need discriminators):\n\n- Parkinson disease: 0.72  \n- Multiple system atrophy: 0.07  \n- Huntington disease: 0.04  \n- Essential thrombocythemia: 0.06  \n- Acute myelogenous leukemia: 0.11  \n\n(AML/ET are low-probability but remain on the list; we’ll likely rule them out with systemic symptoms.)\n\n**Question 4:**  \nDo you have any **new weakness, numbness, or tingling**, or any **back/neck pain** that started around the same time as the tremor?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t had any new weakness, numbness, or tingling, and I don’t really have back or neck pain that started around the time the shaking began.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “no sensory symptoms/weakness/back pain”:\n- Parkinson disease: 0.76  \n- Multiple system atrophy: 0.06  \n- Huntington disease: 0.04  \n- Essential thrombocythemia: 0.06  \n- Acute myelogenous leukemia: 0.08  \n\nReasoning: absence of focal neuro deficits and radicular pain keeps idiopathic Parkinson more likely; AML/ET remain low but not excluded.\n\n**Question 5:**  \nHave you had any **systemic symptoms** such as **fevers, night sweats, unexplained weight loss, easy bruising/bleeding, or frequent infections**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t had fevers, night sweats, or unexplained weight loss, and I haven’t had unusual bruising, bleeding, or frequent infections. I really only notice the shaking and the slowness you described, with my wife saying my memory and expression have been getting worse.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “no systemic symptoms”:\n- Parkinson disease: 0.80  \n- Multiple system atrophy: 0.06  \n- Huntington disease: 0.04  \n- Essential thrombocythemia: 0.05  \n- Acute myelogenous leukemia: 0.05  \n\nNow we should check for a key Parkinson vs atypical discriminator:\n\n**Question 6:**  \nDo you have **autonomic symptoms**, especially **constipation** (worse than usual), **lightheadedness when standing**, or **urinary urgency/retention**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—my bowel habits haven’t changed much, and I don’t feel lightheaded when standing. I also haven’t had urinary urgency or trouble starting or emptying my bladder.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “no autonomic symptoms” (constipation/orthostasis/urinary issues absent):\n- Parkinson disease: 0.85  \n- Multiple system atrophy: 0.03  \n- Huntington disease: 0.04  \n- Essential thrombocythemia: 0.04  \n- Acute myelogenous leukemia: 0.04  \n\nThis further supports idiopathic Parkinson over MSA.\n\n**Question 7:**  \nIs the tremor **resting** (worse when your hand is relaxed at rest) or **action/postural** (worse when holding something or using the hand)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, doctor—the shaking in my left hand is mostly when it’s resting, and it seems to lessen when I’m using it.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior after “resting tremor that lessens with use” (classic for Parkinson):\n- Parkinson disease: 0.92  \n- Huntington disease: 0.03  \n- Multiple system atrophy: 0.03  \n- Essential thrombocythemia: 0.01  \n- Acute myelogenous leukemia: 0.01  \n\nWe’re close to confident, but one more discriminator would be helpful: onset asymmetry and progression pattern is already consistent. I’ll ask about hallucinations/rapid eye movement sleep behavior disorder, but we can proceed.\n\n**Question 8:**  \nHave you had **visual hallucinations** (seeing things others don’t) or **acting out dreams** during sleep?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t had any visual hallucinations, and my wife hasn’t mentioned that I act out my dreams in sleep. It’s mainly the left-hand resting tremor, my softer speech, reduced facial expressions, and the forgetfulness she’s noticed.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (hallucinations/RBD absent):\n- Parkinson disease: 0.93  \n- Huntington disease: 0.02  \n- Multiple system atrophy: 0.03  \n- Essential thrombocythemia: 0.01  \n- Acute myelogenous leukemia: 0.01  \n\nAt this point, Parkinson disease is strongly most likely given: unilateral resting tremor, bradykinesia-like slowness, hypomimia/soft speech, gradual progression, and lack of early autonomic failure, falls, chorea, or systemic illness.\n\n[DDX] Parkinson disease, Multiple system atrophy, Huntington disease, Essential thrombocythemia, Acute myelogenous leukemia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Parkinson disease",
+    "predicted_set": [
+      "Parkinson disease",
+      "Multiple system atrophy",
+      "Huntington disease",
+      "Essential thrombocythemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Parkinson disease",
+      "Multiple system atrophy",
+      "Huntington disease",
+      "Essential thrombocythemia",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Parkinson disease",
+    "predicted_set_remapped": [
+      "Parkinson disease",
+      "Multiple system atrophy",
+      "Huntington disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14955,
+      "completion_tokens": 1313
+    },
+    "patient": {
+      "prompt_tokens": 10279,
+      "completion_tokens": 428,
+      "calls": 9
+    }
+  }
+}

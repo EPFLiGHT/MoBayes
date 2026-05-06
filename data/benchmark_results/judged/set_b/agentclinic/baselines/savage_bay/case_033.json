@@ -1,0 +1,133 @@
+{
+  "case_idx": 33,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Progressive multifocal leukoencephalopathy",
+  "patient_actor_hidden": {
+    "Demographics": "44-year-old male",
+    "History": "The patient's daughter reports a 1-week history of right leg weakness, unsteady gait, and multiple falls. Over the past 6 months, the patient has been increasingly forgetful, losing his way on familiar routes and facing difficulties operating simple kitchen appliances. He has also been paranoid, agitated, and restless recently.",
+    "Symptoms": {
+      "Primary_Symptom": "Right leg weakness and unsteady gait",
+      "Secondary_Symptoms": [
+        "Forgetfulness",
+        "Paranoid and agitated behavior",
+        "Difficulty in using kitchen appliances"
+      ]
+    },
+    "Past_Medical_History": "Known history of HIV, hypertension, and type 2 diabetes mellitus. Noncompliance with medications for over 2 years.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "The patient is somnolent and slightly confused, oriented to person but not to place or time. Mild lymphadenopathy is noted."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with right leg weakness, unsteady gait, multiple falls, forgetfulness, and paranoid behavior.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about a week now my right leg feels weak and I can’t walk straight—I’ve fallen a few times and I feel unsteady. Patient: Over the last several months I’ve also been forgetting things, getting lost on familiar routes, and lately I’ve been more agitated and paranoid, plus I’m having trouble using simple things like kitchen appliances.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, broad):\n- Parkinson disease: 0.20  \n- Multiple system atrophy: 0.15  \n- Huntington disease: 0.10  \n- Progressive multifocal leukoencephalopathy: 0.10  \n- Takotsubo cardiomyopathy: 0.01 (unlikely—kept only as a placeholder from list)\n- Schizoaffective disorder: 0.10  \n- Schizotypal personality disorder: 0.05  \n- Borderline personality disorder: 0.05  \n- Others (including acute neurologic causes): 0.24\n\nThis presentation sounds like a neurologic syndrome (subacute gait/leg weakness + cognitive decline + visuospatial disorientation + new agitation/paranoia + apraxia). To narrow quickly:\n\n**Question 1 (one at a time):**  \nDid the leg weakness/unsteadiness start **suddenly** (hours–days) or was it **gradual** over the week?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Did the leg weakness/unsteadiness start suddenly (hours–days) or was it gradual over the week? Patient: It seemed to come on over about a week, gradually getting worse, with more falls as it progressed.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated after “gradual over ~1 week”):\n- Parkinson disease: 0.12  \n- Multiple system atrophy: 0.10  \n- Huntington disease: 0.08  \n- Progressive multifocal leukoencephalopathy: 0.14  \n- Schizoaffective disorder: 0.06  \n- Schizotypal personality disorder: 0.03  \n- Others/acute neuro causes (stroke, tumor, infection, metabolic, etc.): 0.47\n\nA gradual onset over a week with prominent gait disturbance plus cognitive/behavioral change keeps **progressive multifocal leukoencephalopathy** and neurodegenerative/ataxia syndromes on the table, but we need to discriminate by **immune status** and **focal neurologic deficits**.\n\n**Question 2:**  \nHave you had any known **immunosuppression** (e.g., HIV/AIDS, chemotherapy, chronic steroids, transplant, or known low immune function)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any known immunosuppression—like HIV/AIDS, chemotherapy, chronic steroids, transplant, or generally low immune function? Patient: Yes, I have HIV, and I haven’t been taking my medications regularly for over two years.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated after “HIV with poor adherence”):\n- Progressive multifocal leukoencephalopathy: 0.55  \n- Acute Mesenteric Ischemia: 0.00  \n- Parkinson disease: 0.06  \n- Multiple system atrophy: 0.04  \n- Huntington disease: 0.03  \n- Schizoaffective disorder: 0.03  \n- Schizotypal personality disorder: 0.02  \n- Others/acute neuro causes (stroke, tumor, toxoplasmosis, meningitis/encephalitis, metabolic): 0.27\n\nHIV with prolonged nonadherence strongly increases likelihood of **PML** (and also raises other opportunistic CNS infections, but PML is a top fit for subacute cognitive/behavioral change + gait/weakness over weeks).\n\n**Question 3:**  \nDo you have **any new headaches, fever, or neck stiffness**, or has this been mostly neurologic without systemic symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t recall any fever or neck stiffness, and I haven’t been complaining of new headaches—mostly it’s the weakness, unsteady walking, confusion, and my behavior changing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “no fever/neck stiffness/headache”):\n- Progressive multifocal leukoencephalopathy: 0.62  \n- Acute Mesenteric Ischemia: 0.00  \n- Parkinson disease: 0.05  \n- Multiple system atrophy: 0.03  \n- Huntington disease: 0.02  \n- Schizoaffective disorder: 0.03  \n- Schizotypal personality disorder: 0.02  \n- Others/acute neuro causes: 0.23 (still includes toxoplasmosis/encephalitis, metabolic/toxic, CNS lymphoma)\n\nNo meningeal/systemic symptoms makes classic bacterial meningitis less likely, and PML remains most likely, but we should check for **seizures** or **focal deficits**.\n\n**Question 4:**  \nHave you had **seizures** or episodes of staring/blanking, or any **new speech problems** (slurred speech/word-finding difficulty) beyond confusion?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any seizures or episodes of staring/blanking, or any new speech problems like slurred speech or trouble finding words? Patient: I haven’t noticed seizures or blank spells, but my speech feels a bit slowed and I’ve been harder to understand when I’m confused.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “no seizures; speech slowed/harder to understand when confused”):\n- Progressive multifocal leukoencephalopathy: 0.60  \n- Acute Mesenteric Ischemia: 0.00  \n- Parkinson disease: 0.06  \n- Multiple system atrophy: 0.04  \n- Huntington disease: 0.02  \n- Schizoaffective disorder: 0.03  \n- Schizotypal personality disorder: 0.02  \n- Others/acute neuro causes: 0.23 (CNS lymphoma, toxoplasmosis, other HIV encephalopathies)\n\nSpeech slowing within confusion can occur with diffuse/subcortical or white-matter processes like PML.\n\nTo discriminate PML vs other HIV CNS processes, the next most helpful discriminator is **visual symptoms** or **focal neurologic deficits** (e.g., hemiparesis, sensory loss, visual field cuts).\n\n**Question 5:**  \nHave you noticed any **vision changes** (blurred vision, loss of part of the visual field, double vision) or **one-sided weakness/numbness**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any vision changes or any one-sided weakness or numbness beyond the right leg? Patient: I haven’t noticed vision changes much, but I feel more unsteady mainly on the right side, and sometimes I don’t seem to recognize where I’m at in the room.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence most strongly suggests a neurologic opportunistic process in the setting of untreated HIV, but with the current history alone I can’t confidently rank a single diagnosis to produce a reliable top-5 list (PML is likely, but other HIV-related CNS conditions remain plausible without key discriminators like focal deficits, seizures, imaging findings, CD4 count, or MRI/CSF results).  \n\n[POSSIBLE] Progressive multifocal leukoencephalopathy, Progressive multifocal leukoencephalopathy (vs) Toxoplasmosis, Acute myelogenous leukemia (CNS involvement), Acute lymphoblastic leukemia (CNS involvement), Schizoaffective disorder",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Progressive multifocal leukoencephalopathy",
+      "Progressive multifocal leukoencephalopathy",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Schizoaffective disorder"
+    ],
+    "predicted_raw": [
+      "Progressive multifocal leukoencephalopathy",
+      "Progressive multifocal leukoencephalopathy (vs) Toxoplasmosis",
+      "Acute myelogenous leukemia (CNS involvement)",
+      "Acute lymphoblastic leukemia (CNS involvement)",
+      "Schizoaffective disorder"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Progressive multifocal leukoencephalopathy",
+      "Progressive multifocal leukoencephalopathy",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9247,
+      "completion_tokens": 1207
+    },
+    "patient": {
+      "prompt_tokens": 6037,
+      "completion_tokens": 367,
+      "calls": 6
+    }
+  }
+}

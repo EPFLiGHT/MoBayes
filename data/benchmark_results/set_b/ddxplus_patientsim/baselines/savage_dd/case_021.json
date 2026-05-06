@@ -1,0 +1,142 @@
+{
+  "case_idx": 21,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 40\nSex: Female\nChief Complaint: I have pain or weakness in your jaw, weakness in both arms and/or both legs, and previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’m having pain and weakness in my jaw, trouble swallowing, and I also have double vision. I feel really short of breath, and I’ve had weakness in both my arms and both my legs, plus it’s hard to open or raise my eyelids. In the past, and sometimes now, I’ve had weakness in my face and limbs too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this—those symptoms together can be serious.  \n\n**First question (one at a time):**  \nWhen did this start (how many hours/days ago), and is it getting worse quickly or coming and going in episodes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started a few days ago—about 3 days. It’s been getting worse rather than coming and going, and the weakness and breathing trouble feel more noticeable over time.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you.  \n\n**Next question:**  \nDo you have any fever, sore throat/viral symptoms, or recent infection in the last 1–2 weeks?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No fever, and no sore throat or obvious viral symptoms recently. I don’t think I’ve had an infection in the last 1–2 weeks.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.  \n\n**Next question:**  \nAny new medications or substances in the last month (especially antibiotics like macrolides/fluoroquinolones, antipsychotics, anti-nausea meds like metoclopramide, or muscle relaxants), or any recent dose change?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t think I started any new medications in the last month, and there hasn’t been any dose change.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.  \n\n**Next question:**  \nHave you noticed whether the weakness is worse with repeated use and better after rest (fatigability)—for example, eyelids droop more as you look up or speak longer?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels worse when I keep using my eyes or talking, and it doesn’t feel as bad after I rest for a while. My eyelids are harder to keep open when I’ve been using them longer.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern (fatigability with ocular/limb weakness and trouble swallowing) is very suggestive.  \n\n**Next question (most discriminating):**  \nDo you have any numbness or tingling, or is it mainly weakness without sensory loss?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly weakness. I don’t have numbness or tingling.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—weakness without sensory symptoms plus fatigability strongly points toward a neuromuscular junction problem.\n\n**Next question:**  \nHave you had any facial pain or swelling, or any rash, and do you have any history of autoimmune disease (like thyroid disease) or prior similar episodes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No facial pain or swelling, and no rash. I don’t know of any autoimmune disease in me, and I’ve had similar weakness episodes before, but this time it’s worse.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.  \n\n**Next question:**  \nDo you have any breathing symptoms at rest such as choking on saliva, inability to swallow liquids, or a weak/hoarse voice? (Any change in voice?)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I have trouble swallowing, and I feel like my breathing is hard—especially as it’s getting worse. I don’t know if my voice is hoarse, but I’ve had choking feeling with swallowing.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—bulbar symptoms plus respiratory involvement raises concern for a myasthenic crisis.\n\n**Next question:**  \nWhen you look to the side or up, do you get worsening double vision or eyelid droop (ptosis) that improves after resting your eyes?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes, when I look to the side or up my double vision gets worse and my eyelids droop more. If I rest, it improves.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "That’s very classic for myasthenia gravis (ocular/bulbar fatigable weakness), now with respiratory involvement.\n\n**Next question:**  \nHave you had any recent infection (even mild), surgery, pregnancy/postpartum, or significant stress in the last month that could have triggered a flare?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No recent infection or surgery. I’m not pregnant, and I don’t think there’s been major stress, but it has been stressful overall.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute dystonic reactions, Myasthenia gravis, Acute COPD exacerbation / infection, Pulmonary embolism, Panic attack",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Acute dystonic reactions",
+    "predicted_set": [
+      "Acute dystonic reactions",
+      "Myasthenia gravis",
+      "Acute COPD exacerbation / infection",
+      "Pulmonary embolism",
+      "Panic attack"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12132,
+      "completion_tokens": 515
+    },
+    "patient": {
+      "prompt_tokens": 10121,
+      "completion_tokens": 391
+    }
+  }
+}

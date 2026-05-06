@@ -1,0 +1,162 @@
+{
+  "case_idx": 0,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: Male\nChief Complaint: I have stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have stridor—like a noisy, tight breathing sound. I also had a cold about the last two weeks, and I have gastroesophageal reflux.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—I'll ask a few focused questions to narrow this down.\n\n**Current posterior (very rough, before key discriminators):**\n- Epiglottitis: 20%\n- Croup: 15%\n- Acute laryngitis: 15%\n- GERD-related laryngeal irritation: 20%\n- Anaphylaxis: 10%\n(Other causes remain possible.)\n\n**Question 1 (most important):**  \nHow old is the patient?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 42 years old.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Age 42 makes **epiglottitis/croup** less likely than in children, and shifts toward adult causes (laryngitis, GERD irritation, allergic reaction, airway edema, etc.).\n\n**Updated posterior (still rough):**\n- GERD-related laryngeal irritation: 30%\n- Acute laryngitis: 20%\n- Epiglottitis: 5%\n- Bronchospasm/acute asthma exacerbation: 5%\n- Anaphylaxis: 10%\n- Allergic sinusitis/URTI-related: 10%\n- Other airway edema causes (e.g., dystonic reaction): 10%\n\n**Question 2:**  \nDid this start **suddenly** (minutes–hours) or **gradually** over days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It came on kind of suddenly—more like within hours—not slowly over days.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Sudden onset over hours raises concern for **acute airway process** (allergic reaction/anaphylaxis, acute laryngeal edema, dystonic reaction, less commonly epiglottitis).\n\n**Updated posterior:**\n- Anaphylaxis: 20%  \n- Acute dystonic reactions: 15%  \n- GERD-related laryngeal irritation: 20%  \n- Acute laryngitis: 10%  \n- Epiglottitis: 5%  \n- Allergic sinusitis/URTI-related: 10%  \n- Bronchospasm/acute asthma exacerbation: 10%  \n(Still uncertain.)\n\n**Question 3:**  \nDo you have **any rash, itching, lip/tongue swelling, or hives**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a rash or hives that I can see. I don’t have itching, and I haven’t noticed lip or tongue swelling.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "That makes classic **anaphylaxis** less likely (though not impossible), and dystonic/allergic edema remain.\n\n**Updated posterior:**\n- Acute dystonic reactions: 20%\n- GERD-related laryngeal irritation: 25%\n- Acute laryngitis: 15%\n- Bronchospasm/acute asthma exacerbation: 10%\n- Epiglottitis: 5%\n- Allergic sinusitis/URTI-related: 10%\n- Anaphylaxis: 5%\n\n**Question 4:**  \nAny **drooling**, trouble swallowing, or a “muffled”/hot-potato voice?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No drooling. I don’t think I’m having trouble swallowing, and my voice doesn’t sound muffled to me.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No drooling and no muffled voice makes **epiglottitis** and severe laryngeal obstruction somewhat less likely.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 30%\n- Acute laryngitis: 20%\n- Acute dystonic reactions: 20%\n- Bronchospasm/acute asthma exacerbation: 10%\n- Allergic sinusitis/URTI-related: 10%\n- Epiglottitis: 3%\n- Anaphylaxis: 2%\n\n**Question 5:**  \nHave you taken any **new medications** recently—especially **metoclopramide, prochlorperazine, or other dopamine-blocking anti-nausea/antipsychotic meds**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t taken any new medications like those.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "That lowers acute dystonic reaction somewhat.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 35%\n- Acute laryngitis: 25%\n- Acute dystonic reactions: 10%\n- Bronchospasm/acute asthma exacerbation: 10%\n- Allergic sinusitis/URTI-related: 10%\n- Epiglottitis: 5%\n- Anaphylaxis: 5%\n\n**Question 6:**  \nDo you have **wheezing** or **shortness of breath**, or is it mainly the **noisy upper-airway sound** (stridor) without wheeze?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly the noisy upper-airway sound—stridor. I don’t really feel wheezing, and my breathing feels more blocked in the throat than in the chest.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Upper-airway pattern (throat/stridor) makes asthma/bronchospasm less likely.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 40%\n- Acute laryngitis: 25%\n- Allergic sinusitis/URTI-related: 15%\n- Epiglottitis: 5%\n- Acute dystonic reactions: 10%\n- Anaphylaxis: 3%\n- Bronchospasm/acute asthma exacerbation: 2%\n\n**Question 7:**  \nAny **fever** or feeling systemically very ill?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I have a fever. I don’t feel very systemically ill—mostly it’s the breathing sound.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "No fever/systemic illness makes epiglottitis less likely and supports benign inflammatory/irritative causes.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 45%\n- Acute laryngitis: 25%\n- Allergic sinusitis/URTI-related: 15%\n- Acute dystonic reactions: 10%\n- Epiglottitis: 3%\n- Anaphylaxis: 2%\n\n**Question 8:**  \nDo you have **hoarseness** or change in voice?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes, my voice feels a bit hoarse since this started.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Hoarseness with stridor fits **laryngeal inflammation** (laryngitis) or reflux-related laryngeal irritation.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 40%\n- Acute laryngitis: 35%\n- Allergic sinusitis/URTI-related: 15%\n- Acute dystonic reactions: 5%\n- Epiglottitis: 3%\n- Anaphylaxis: 2%\n\n**Question 9:**  \nIs the stridor **worse when you lie flat** or after meals?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "It seems worse when I lie flat and after meals.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "That strongly points to **GERD/laryngopharyngeal reflux causing laryngeal irritation**.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 70%\n- Acute laryngitis: 20%\n- Allergic sinusitis/URTI-related: 5%\n- Acute dystonic reactions: 3%\n- Epiglottitis: 1%\n- Anaphylaxis: 1%\n\n**Question 10:**  \nAny **heartburn**, sour taste, or regurgitation?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had heartburn and a sour taste, and sometimes I get regurgitation.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "That essentially confirms reflux physiology.\n\n**Updated posterior:**\n- GERD-related laryngeal irritation: 85%\n- Acute laryngitis: 10%\n- Allergic sinusitis/URTI-related: 3%\n- Acute dystonic reactions: 1%\n- Epiglottitis: 1%\n- Anaphylaxis: 0%\n\n**Question 11 (safety check):**  \nAre you able to speak full sentences and do you have any **cyanosis** or rapidly worsening breathing right now?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I can speak full sentences. I don’t look blue/cyanotic, and it doesn’t feel rapidly getting worse right now.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Great—no cyanosis and able to speak full sentences makes immediate complete airway obstruction less likely.\n\n**Updated posterior (final):**\n- GERD-related laryngeal irritation: ~90%\n- Acute laryngitis: ~8%\n- Allergic sinusitis/URTI-related: ~2%\n- Others: very low\n\n[DDX] GERD, Acute laryngitis, Allergic sinusitis, Epiglottitis, Acute dystonic reactions",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [
+      "GERD",
+      "Acute laryngitis",
+      "Allergic sinusitis",
+      "Epiglottitis",
+      "Acute dystonic reactions"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20231,
+      "completion_tokens": 1504
+    },
+    "patient": {
+      "prompt_tokens": 15543,
+      "completion_tokens": 296
+    }
+  }
+}

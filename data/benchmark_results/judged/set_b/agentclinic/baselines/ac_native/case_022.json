@@ -1,0 +1,89 @@
+{
+  "case_idx": 22,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Fibroadenoma",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old female at 17-weeks gestation",
+    "History": "The patient reports noticing a painless mass in the right breast three weeks ago, which has not changed in size. She has no additional complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Painless mass in the right breast",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history. This is her first pregnancy.",
+    "Social_History": "Non-smoker, does not consume alcohol. Works as a high school teacher.",
+    "Review_of_Systems": "Denies fever, weight loss, nipple discharge, or changes in skin over the breast."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: Hello—I'm Dr. Agent. To evaluate your breast mass, I need to ask: how old are you, and when did you first notice the lump?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 33 years old, and I first noticed the lump about three weeks ago. It’s on my right breast and it hasn’t changed in size since then."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any pain, redness, warmth, or nipple discharge/skin dimpling, and does the lump feel mobile or fixed to the skin/chest wall? Doctor: Also, do you have any fever, recent pregnancy/breastfeeding, or a known family history of breast/ovarian cancer? Doctor: REQUEST TEST: Targeted_Breast_Ultrasound_(Right)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Vital signs: Temperature 36.8°C (98.2°F), Blood Pressure 110/70 mmHg, Heart Rate 82 bpm, Respiratory Rate 14 breaths/min. Breast exam (right): No skin changes or nipple discharge; 2.5-cm rubbery, mobile, nontender mass in upper outer quadrant; no axillary lymphadenopathy. Targeted right breast ultrasound: 2.5-cm well-circumscribed, solid mass without suspicious features. Biopsy histopathology: Rounded contour with overgrowth of fibrous and glandular tissue."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Given your age (33) and the exam/ultrasound showing a well-circumscribed, mobile, nontender solid mass, and the biopsy description of fibrous-and-glandular overgrowth with a rounded contour, this most strongly fits a benign fibroadenoma. Doctor: DIAGNOSIS READY: Fibroadenoma (benign breast tumor)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Given your age (33) and the exam/ultrasound showing a well-circumscribed, mobile, nontender solid mass, and the biopsy description of fibrous-and-glandular overgrowth with a rounded contour, this most strongly fits a benign fibroadenoma. Doctor: DIAGNOSIS READY: Fibroadenoma (benign breast tumor)",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 3,
+    "predicted_remapped": "Fibroadenoma",
+    "predicted_set_remapped": [
+      "Fibroadenoma",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 935,
+      "completion_tokens": 201,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 301,
+      "completion_tokens": 39,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 370,
+      "completion_tokens": 126,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 140,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

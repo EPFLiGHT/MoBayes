@@ -1,0 +1,192 @@
+{
+  "case_idx": 9,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Cluster headache",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 63\nSex: Female\nChief Complaint: I have haunting pain, a knife stroke pain, and tugging pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having very bad head pain—like a haunting, knife-stroke, tugging pain. It’s sharp and violent, mostly in my forehead, left cheek, and right temple, and it comes on really fast.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down with a few focused questions.\n\n**Current posterior (pre-test, rough):**\n- **Cluster headache:** 30%\n- **Acute dystonic reactions:** 10%\n- **Migraine/other severe headache (not in list):** 20%\n- **Pericarditis / myocarditis / ACS-related pain (unlikely for this description):** 5%\n- **Other (e.g., infectious/ENT causes):** 35%\n\n**Question 1 (most discriminating):**  \nWhen the pain hits, do you also get **tearing/red eye or a droopy eyelid on the same side** (forehead/cheek/temple side)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—on the same side as the pain I get eye tearing and that area feels very involved. I don’t know about droopy eyelid exactly, but the eye symptoms happen with the attack.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after your answer (same-side tearing with the attack):**\n\n**Current posterior:**\n- **Cluster headache:** 55%\n- **Acute dystonic reactions:** 10%\n- **Acute laryngitis/epiglottitis/other ENT** (less likely): 2%\n- **Pericarditis / myocarditis / ACS-related pain:** 3%\n- **Other severe headache (migraine/secondary causes):** 30%\n\n**Likelihood ratio (rough):** Same-side autonomic eye symptoms (tearing) strongly increases odds of **cluster headache** (LR ~3–5).\n\n**Question 2:**  \nDuring an attack, do you get **a stuffy/runny nose on that same side** (or facial sweating) as well?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I think I get facial sweating on that same side during the pain, but I’m not sure about a runny or stuffy nose.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update: facial sweating on the same side during the attack**\n\n**Current posterior:**\n- **Cluster headache:** 65%\n- **Acute dystonic reactions:** 8%\n- **Migraine/other severe headache:** 22%\n- **Other (secondary causes):** 5%\n\n**Likelihood ratio (rough):** Ipsilateral cranial autonomic features (tearing + facial sweating) further favor **cluster headache** (LR ~1.5–2).\n\n**Question 3 (key discriminator):**  \nHow long does each pain attack last—**15–30 minutes**, **1–3 hours**, or **more than 4 hours**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It lasts more than 4 hours when it hits. It feels like it stays intense for a long time.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after duration >4 hours:**\n\n**Current posterior:**\n- **Cluster headache:** 50%\n- **Migraine/other severe headache:** 35%\n- **Acute dystonic reactions:** 5%\n- **Other (secondary causes):** 10%\n\n**Likelihood ratio (rough):** Cluster attacks are classically 15–180 minutes; **>4 hours** makes classic cluster less likely and raises concern for **migraine/other secondary headache** (LR ~0.7 for cluster; ~1.5 for migraine/secondary).\n\n**Question 4 (very important):**  \nDo you get **nausea or vomiting**, or does **light/sound make it worse** during the attacks?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have nausea or vomiting that I notice. Light and sound do make it worse when the pain is strong.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after photophobia/phonophobia without nausea:**\n\n**Current posterior:**\n- **Cluster headache:** 40%\n- **Migraine/other severe headache:** 45%\n- **Acute dystonic reactions:** 5%\n- **Other secondary causes:** 10%\n\n**Likelihood ratio (rough):** Light/sound sensitivity pushes toward **migraine** (LR ~1.3–1.8 vs cluster).\n\n**Question 5 (to separate migraine vs cluster):**  \nDo you notice the attacks happen in a **pattern**, like **same time each day**, and do you feel **restless/agitated** during the pain (can’t sit still)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels patterned—like it comes at certain times. And during the pain I feel restless, like I can’t just sit still.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after patterned timing + restlessness:**\n\n**Current posterior:**\n- **Cluster headache:** 55%\n- **Migraine/other severe headache:** 35%\n- **Acute dystonic reactions:** 5%\n- **Other secondary causes:** 5%\n\n**Likelihood ratio (rough):** Restlessness/agitation and circadian pattern increase odds of **cluster headache** (LR ~1.5–2).\n\n**Question 6 (safety/secondary causes):**  \nAny **fever**, **neck stiffness**, **new weakness/numbness**, **confusion**, or **vision loss** with these episodes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No fever, no neck stiffness, and no weakness or numbness. I don’t feel confused, and I don’t think I have vision loss.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after no fever/meningismus/neuro deficits:**\n\n**Current posterior:**\n- **Cluster headache:** 60%\n- **Migraine/other severe headache:** 30%\n- **Acute dystonic reactions:** 5%\n- **Other secondary causes:** 5%\n\n**Likelihood ratio (rough):** Lack of red flags lowers concern for secondary causes (LR ~0.5 for secondary).\n\n**Question 7 (discriminator):**  \nHow old is the patient, and is this **new** for you or have you had similar attacks before?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m 63. This is new for me—I haven’t had attacks like this before.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after age 63 + new onset:**\n\n**Current posterior:**\n- **Cluster headache:** 45%\n- **Migraine/other severe headache:** 25%\n- **Other secondary causes (new headache in older adult):** 25%\n- **Acute dystonic reactions:** 5%\n\n**Likelihood ratio (rough):** New onset at 63 increases probability of **secondary headache** (LR ~2–3 against primary headache).\n\n**Question 8 (very important):**  \nDo you have **jaw pain when chewing**, **scalp tenderness**, or **unexplained weight loss** (possible giant cell arteritis)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No jaw pain when chewing, no scalp tenderness, and no unexplained weight loss.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after no GCA symptoms:**\n\n**Current posterior:**\n- **Cluster headache:** 50%\n- **Migraine/other severe headache:** 25%\n- **Other secondary causes:** 20%\n- **Acute dystonic reactions:** 5%\n\n**Likelihood ratio (rough):** Absence of GCA features reduces secondary headache likelihood (LR ~0.7).\n\n**Question 9 (secondary cause screen):**  \nAny **recent head/neck trauma**, **coughing/straining**, or **sudden “worst headache of life”** at onset?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No recent trauma. No coughing or straining. It felt very sudden, but not like the absolute worst headache of my life.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after no trauma/straining and not “worst of life”:**\n\n**Current posterior:**\n- **Cluster headache:** 48%\n- **Migraine/other severe headache:** 27%\n- **Other secondary causes (including vascular/structural):** 20%\n- **Acute dystonic reactions:** 5%\n\n**Likelihood ratio (rough):** Less supportive of SAH/Boerhaave-type catastrophes (LR ~0.7–0.8 for secondary).\n\n**Question 10 (key for secondary vs primary):**  \nIs the pain **completely one-sided** every time, and does it **ever switch sides**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It’s always on one side—mostly the forehead/cheek/temple on the same side—and I don’t think it switches.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after strictly unilateral pain:**\n\n**Current posterior:**\n- **Cluster headache:** 55%\n- **Migraine/other severe headache:** 25%\n- **Other secondary causes:** 15%\n- **Acute dystonic reactions:** 5%\n\n**Likelihood ratio (rough):** Strictly unilateral with autonomic eye symptoms keeps **cluster** high (LR ~1.2–1.5).\n\n**Question 11 (to refine cluster vs other):**  \nDuring the attack, do you notice **a sense of nasal congestion on that same side** or **a runny nose**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about runny or stuffy nose. I mainly notice the facial sweating and the eye tearing on that same side.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no clear nasal symptoms):**\n\n**Current posterior:**\n- **Cluster headache:** 58%\n- **Migraine/other severe headache:** 25%\n- **Other secondary causes:** 12%\n- **Acute dystonic reactions:** 5%\n\n**Likelihood ratio (rough):** Lack of nasal symptoms slightly reduces cluster probability but tearing/sweating still supports it.\n\n**Question 12 (important safety):**  \nAny **new shortness of breath, chest pain, or palpitations** around the time of the headache?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No shortness of breath, no chest pain, and no palpitations around the time of the headache.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after no cardiopulmonary symptoms:**\n\n**Current posterior:**\n- **Cluster headache:** 60%\n- **Migraine/other severe headache:** 25%\n- **Other secondary causes:** 10%\n- **Acute dystonic reactions:** 5%\n\n**Question 13 (to check dystonia):**  \nHave you taken any **new medications** recently (especially anti-nausea meds like metoclopramide/prochlorperazine, antipsychotics), or had **muscle spasms/twisting** with the pain?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t taken any new medications that I know of. I don’t notice muscle spasms or twisting—just the severe one-sided pain and the eye tearing/sweating.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after no new meds / no dystonia features:**\n\n**Current posterior:**\n- **Cluster headache:** 65%\n- **Migraine/other severe headache:** 25%\n- **Other secondary causes:** 5%\n- **Acute dystonic reactions:** 5%\n\n**Question 14 (final discriminator):**  \nDo you have **restlessness/agitation** so you pace or can’t lie still, and do you get **any eyelid droop or pupil difference** during the attack (even if subtle)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’m restless and I feel like I can’t lie still, I want to pace. I’m not sure about eyelid droop or pupil differences, but the eye tearing and the pain on that side are very noticeable.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Cluster headache, Acute dystonic reactions, Acute laryngitis, GERD, Acute pulmonary edema",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Cluster headache",
+    "predicted_set": [
+      "Cluster headache",
+      "Acute dystonic reactions",
+      "Acute laryngitis",
+      "GERD",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30484,
+      "completion_tokens": 1881
+    },
+    "patient": {
+      "prompt_tokens": 27123,
+      "completion_tokens": 484
+    }
+  }
+}

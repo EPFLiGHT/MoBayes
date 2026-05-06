@@ -1,0 +1,99 @@
+{
+  "case_idx": 42,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous rib fracture",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: F\nChief Complaint: intense coughing fits",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have intense coughing fits and significant shortness of breath or difficulty breathing, along with sharp, violent, knife-stroke type pain when I breathe in deeply—mostly in my right side of the chest/breast and posterior chest wall, and it also goes to my posterior chest wall on the left. The pain is 7 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSo far: intense coughing fits + significant dyspnea + sharp pleuritic (worse with deep inspiration) “knife-stroke” chest pain, mostly right-sided with some left posterior involvement. This pattern most strongly suggests a pleuritic process (lung/pleura) rather than purely cardiac.\n\nTop candidates:\n1) Pulmonary embolism — pleuritic chest pain with dyspnea; coughing can occur; unilateral predominance is common (though not required).\n2) Pneumonia — can cause pleuritic pain and cough with shortness of breath, especially if infectious symptoms are present.\n3) Spontaneous pneumothorax — can cause sudden pleuritic pain and dyspnea; cough may occur but is less classic unless irritation.\n4) Acute COPD exacerbation / infection — dyspnea and cough; pleuritic “knife-like” pain is less typical unless there’s pneumonia/pleuritis.\n5) Acute pulmonary edema — dyspnea with chest discomfort, but sharp pleuritic pain is less typical.\n\nMost discriminating next question: whether the onset was sudden and whether there are risk factors for PE (leg swelling, recent immobility/surgery, prior clots, hemoptysis).  \n[/REASONING]\nFirst question: Did this start suddenly (minutes to hours) or more gradually (over days)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still need timing and onset pattern. Sudden onset would push toward pulmonary embolism or pneumothorax; gradual onset would push more toward pneumonia/bronchitis/COPD infection.\n\nNext most discriminating question: any hemoptysis (coughing blood) or leg symptoms (swelling/pain), which strongly supports PE.\n[/REASONING]\nHave you noticed coughing up any blood (even small streaks), or do you have one leg that’s swollen or painful compared with the other?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’re missing key discriminators for PE and pneumothorax. Next, we should assess for pneumothorax clues (sudden severe pleuritic pain + dyspnea, especially if you have lung disease, recent trauma, or recent procedures) versus infection clues (fever, chills, sputum).\n\nMost informative single question now: do you have a fever or chills, or are you producing any sputum (and what color)?\n[/REASONING]\nDo you have a fever/chills, and are you bringing up any phlegm? If yes, what color (clear/white/yellow-green/bloody)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient objective infectious vs noninfectious data. We can narrow by pneumothorax risk factors and severity: pneumothorax often causes sudden pleuritic pain and marked shortness of breath; risk factors include recent trauma, vigorous coughing/vomiting, underlying lung disease (COPD), or recent procedures/central line.\n\nNext discriminating question: any recent chest trauma or procedure (including central line, biopsy, surgery), or did this start right after a coughing/vomiting episode?\n[/REASONING]\nAny recent chest injury/trauma or medical procedure (like a central line, biopsy, surgery), or did the pain/shortness of breath begin right after a bout of coughing or vomiting?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’re still missing the most discriminating history elements. At this point, we should pivot to immediate safety/physiology clues that help distinguish life-threatening causes: unilateral absent breath sounds (pneumothorax), hypoxia, and cardiac ischemia mimics.\n\nNext best single question: do you feel faint, have palpitations, or has your heart been racing? (Also, any sweating or nausea with the pain?)  \n[/REASONING]\nDo you feel faint or have palpitations/your heart racing, or sweating/nausea along with the chest pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN]Key discriminating details are still unknown (timing/sudden onset, fever/sputum, hemoptysis/leg swelling, trauma/procedures, and vital-symptom severity like syncope/palpitations). Without these, I can’t confidently rank the most likely diagnoses from the provided list.\n\n[POSSIBLE]Pulmonary embolism, Pneumonia, Spontaneous pneumothorax, Bronchitis, Acute COPD exacerbation / infection",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Spontaneous pneumothorax",
+      "Bronchitis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7729,
+      "completion_tokens": 915
+    },
+    "patient": {}
+  }
+}

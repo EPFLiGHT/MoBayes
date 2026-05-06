@@ -1,0 +1,119 @@
+{
+  "case_idx": 19,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Ebola",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 21\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, a sore throat, and I’ve been feeling very fatigued with non-restful sleep. I’ve also had shortness of breath and diarrhea/increased stool frequency lately.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. To narrow this down, one question at a time:\n\n**Do you have a fever (measured temperature) or chills?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—**have you noticed any feverish feeling, chills, or sweating**, even if you haven’t measured your temperature?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **Are your symptoms more than 3–5 days old or less than 3–5 days old?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure. My symptoms have been going on lately, including cough, sore throat, fatigue with non-restful sleep, shortness of breath, and diarrhea/increased stool frequency.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **How old are you, and do you have any major medical conditions or immune suppression (e.g., HIV, chemotherapy, steroids)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 21 years old. I don’t know about any major medical conditions or immune suppression.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **Do you have any known exposure to sick people (recent contacts with flu/COVID/strep/viral illness), or did you travel recently?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve been in contact with a person with similar symptoms in the past 2 weeks, and I’ve traveled out of the country to West Africa in the last 4 weeks. Also, in the last month I’ve been in contact with someone infected with the Ebola virus.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "That’s important. **Are you having any bleeding, severe headache, confusion, or vomiting—or have you noticed a rash?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’ve noticed unusual bleeding or bruising related to my consultation today, and I’ve felt confused or disorientated lately. I don’t know about a severe headache, vomiting, or a rash.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m concerned given the West Africa travel and possible Ebola exposure plus bleeding/bruising and confusion.\n\n**Right now, are you having shortness of breath at rest or chest pain, or is it mainly with coughing/activity?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s been shortness of breath or difficulty breathing in a significant way.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence strongly suggests a serious infectious process given West Africa travel, possible Ebola exposure, and bleeding/bruising with confusion and significant dyspnea—but the current symptom set is not specific enough to confidently rank a single diagnosis from the provided list without vitals/exam and key discriminators (e.g., measured fever, rash, GI bleeding, oxygen saturation, chest findings).  \n[POSSIBLE] Ebola, Pneumonia, Influenza, Pulmonary embolism, Anaphylaxis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Ebola",
+      "Pneumonia",
+      "Influenza",
+      "Pulmonary embolism",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7862,
+      "completion_tokens": 346
+    },
+    "patient": {}
+  }
+}

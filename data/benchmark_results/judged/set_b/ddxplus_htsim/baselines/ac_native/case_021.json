@@ -1,0 +1,169 @@
+{
+  "case_idx": 21,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {
+    "AGE": 78,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "symptoms worse when lying down and alleviated while sitting up",
+    "EVIDENCES_ENG": "['pain', 'obesity', 'cigarette smoking', 'hiatal hernia', 'asthma or bronchodilator use', 'cough', 'symptoms worsen after eating', 'symptoms worse when lying down and alleviated while sitting up']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 78\n- I have pain somewhere related to my reason for consulting.\n- I am significantly overweight compared to people of the same height as I.\n- I smoke cigarettes.\n- I have a hiatal hernia.\n- I have asthma or have used a bronchodilator in the past.\n- I have a cough.\n- My symptoms get worse after eating.\n- My symptoms are worse when lying down and alleviated while sitting up.\n- On a scale of 0-10, the pain intensity is 6\n- On a scale of 0-10, the pain's location precision is 6\n- On a scale of 0-10, the pace at which the pain appear is 1\n- The pain is:\n* haunting\n* sensitive\n* a knife stroke\n* tugging\n* sickening\n- The pain locations are:\n* upper chest\n* hypochondrium(R)\n* epigastric\n- The pain radiates to these locations:\n* lower chest\n* upper chest\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['GERD', 0.25526630631587277], ['Bronchitis', 0.22939908214572485], ['Unstable angina', 0.14525388164024713], ['Pericarditis', 0.0987816744139201], ['Tuberculosis', 0.09365487507146657], ['Possible NSTEMI / STEMI', 0.09365487507146657], ['Pancreatic neoplasm', 0.083989305341302]]",
+    "PATHOLOGY": "GERD",
+    "INITIAL_EVIDENCE": "ww_dd",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_lancinante_/_choc_électrique', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_un_tiraillement', 'douleurxx_carac_@_écoeurante', 'douleurxx_endroitducorps_@_haut_du_thorax', 'douleurxx_endroitducorps_@_hypochondre_D_', 'douleurxx_endroitducorps_@_épigastre', 'douleurxx_intens_@_6', 'douleurxx_irrad_@_bas_du_thorax', 'douleurxx_irrad_@_haut_du_thorax', 'douleurxx_precis_@_6', 'douleurxx_soudain_@_1', 'e66', 'f17.210', 'hernie_hiatale', 'j45', 'toux', 'trav1_@_N', 'ww_bouffe', 'ww_dd']",
+    "patient_id": "htsim_0757",
+    "_test_index": 757,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 78-year-old M patient presents to the clinic. Chief complaint: symptoms worse when lying down and alleviated while sitting up.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms are worse when I’m lying down, and they get better when I’m sitting up. I also have a cough, and I’ve been having pain in my upper chest and epigastric area.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you tell me: do you also feel heartburn/regurgitation or sour taste, and do you get short of breath or wheeze when lying down?  \nDoctor: Also, is the upper chest/epigastric pain triggered by meals or exertion, and do you have any fever, weight loss, or trouble swallowing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my symptoms get worse after eating, and the pain is in my upper chest and epigastric area.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—so it sounds like post-meal worsening that’s worse lying down, which is very suggestive of reflux. Do you also have nighttime symptoms (waking with cough/heartburn), and is there any choking/food sticking or black/bloody stools?  \nDoctor: REQUEST TEST: ECG and Chest_X-Ray to rule out cardiac/lung causes, and REQUEST TEST: Upper_GI_Endoscopy if symptoms are frequent or any alarm features.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—can you answer these quickly: do you wake at night with cough or heartburn/regurgitation, and have you had any black or bloody stools or vomiting blood?  \nDoctor: Also, how long has this been going on, and do you notice any trouble swallowing or unintentional weight loss?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask only a few key questions—first, about how long has this been happening, and do you have heartburn or a sour taste in your mouth most days?  \nPatient:  \nDoctor: Second, do you ever have difficulty swallowing or feel food getting stuck, and have you lost weight without trying?  \nPatient:  \nDoctor: Third, any black/tarry stools, vomiting blood, or severe chest pressure with exertion?  \nPatient:",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re not sure about those details, I’m going to focus on what we *do* know: worse after meals and worse when lying down—do you have any burning/acid taste in the throat or cough that is worse at night?  \nDoctor: Also, any history of smoking, known hiatal hernia, or long-term NSAID use?  \nDoctor: REQUEST TEST: Trial of lifestyle + PPI (e.g., omeprazole) and REQUEST TEST: Upper_GI_Endoscopy if symptoms are persistent or any alarm signs.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "My cough is worse when I’m lying down, and it gets worse after eating. I have a hiatal hernia and I smoke cigarettes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With the hiatal hernia plus cough and chest/epigastric pain that worsen after meals and when lying down, this strongly suggests gastroesophageal reflux/aspiration-related symptoms; do you also have heartburn or a sour taste most days?  \nDoctor: REQUEST TEST: Start PPI therapy trial (e.g., omeprazole) + lifestyle changes (no meals 2–3 hrs before bed, elevate head of bed, stop smoking); also request Upper_GI_Endoscopy if symptoms are persistent/recurrent or any alarm features.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "My cough is worse when I’m lying down, and it gets worse after eating. I also have a hiatal hernia and I smoke cigarettes.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your hiatal hernia, smoking, and symptoms worse after meals and when lying down (plus cough), this most likely is gastroesophageal reflux with possible reflux-related airway irritation. Are you having any alarm symptoms like trouble swallowing, unintentional weight loss, vomiting blood, or black/tarry stools?  \nDoctor: REQUEST TEST: Start PPI trial (e.g., omeprazole daily, taken before breakfast) + strict reflux precautions (no food 2–3 hours before bed, elevate head of bed, avoid late/large meals, stop smoking) and REQUEST TEST: Upper_GI_Endoscopy if symptoms persist despite 4–8 weeks of therapy or if any alarm signs appear.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you don’t know about alarm symptoms, I’ll proceed based on what we *do* know: hiatal hernia plus cough and chest/epigastric pain worse after meals and when lying down; do you currently take any proton-pump inhibitor (omeprazole/pantoprazole) or H2 blocker (famotidine)?  \nDoctor: Next, have you had any response at all to avoiding late meals or elevating your head during sleep?  \nDoctor: REQUEST TEST: Upper_GI_Endoscopy (given age + hiatal hernia + persistent/reflux cough) and REQUEST TEST: Start PPI trial (e.g., omeprazole 20–40 mg once daily 30–60 min before breakfast) + strict reflux precautions (no food 2–3 hrs before bed, elevate head of bed, stop smoking).",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t currently take any proton-pump inhibitor or H2 blocker that I know of, but I’m not sure.  \n\nI haven’t noticed whether avoiding late meals or elevating my head during sleep helped, because I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on the hiatal hernia and your cough/chest/epigastric symptoms worsening after meals and when lying down, this most strongly fits reflux with possible reflux-related airway irritation—let’s proceed: can you confirm if the pain feels “burning/acid” and whether you ever get sour taste in your mouth, especially at night?  \nDoctor: REQUEST TEST: Start a PPI trial (omeprazole 20–40 mg once daily, 30–60 min before breakfast) plus strict reflux precautions (no food 2–3 hours before bed, elevate head of bed 6–8 inches, and stop smoking); and REQUEST TEST: Upper_GI_Endoscopy due to age and hiatal hernia if symptoms don’t improve in 4–8 weeks or if any alarm signs appear.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I don’t have enough detail about “burning/acid” or sour taste, but your known hiatal hernia plus cough and chest/epigastric pain that worsen after eating and when lying down is still most consistent with GERD with possible reflux-related aspiration/airway irritation—can you tell me if symptoms have been going on for more than 8 weeks, and have you had any weight loss or trouble swallowing?  \nDoctor: REQUEST TEST: Trial of PPI for 4–8 weeks (e.g., omeprazole 20–40 mg once daily 30–60 min before breakfast) + lifestyle changes (stop smoking; no food 2–3 hrs before bed; elevate head of bed) and REQUEST TEST: Upper_GI_Endoscopy (given age + hiatal hernia, especially if not clearly improving on PPI).",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say my symptoms get worse after eating and when I’m lying down, and I have a hiatal hernia, a cough, and I smoke cigarettes.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given what you’ve confirmed—symptoms worse after meals and worse when lying down, with known hiatal hernia and a chronic cough while smoking—this most strongly indicates GERD with reflux-related airway irritation (and possible microaspiration). I’m going to request objective evaluation: **REQUEST TEST: Upper_GI_Endoscopy** and **REQUEST TEST: Trial PPI (omeprazole 20–40 mg daily, 30–60 min before breakfast) + strict reflux precautions**.  \n\nDIAGNOSIS READY: Gastroesophageal reflux disease (GERD) with hiatal hernia causing reflux-related cough/airway irritation (possible microaspiration)\n\n[DDX]\n1. GERD",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11,
+    "predicted_remapped": "GERD",
+    "predicted_set_remapped": [
+      "GERD",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9437,
+      "completion_tokens": 1405,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 15281,
+      "completion_tokens": 276,
+      "calls": 11
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "case_idx": 21,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 78\nSex: M\nChief Complaint: symptoms worse when lying down and alleviated while sitting up",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms get worse when I lie down and are alleviated while sitting up. I also have a cough, and I have hiatal hernia.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern (worse lying down, better sitting up) plus a hiatal hernia strongly suggests reflux-related symptoms, but I want to narrow it down.\n\n**One question:** Do you have **heartburn or a sour/bitter taste in your mouth**, especially after meals or at night?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**One question:** Have you noticed **burning chest discomfort** or **throat burning/irritation** (e.g., “lump in throat,” hoarseness) that’s worse when you lie down?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**One question:** When you cough, is it **dry** or do you bring up **phlegm/sputum**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**One question:** Do you have **shortness of breath** or **wheezing**—and is it worse at night or when lying flat?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s focus on something more specific.\n\n**One question:** Any **fever** or **chills** recently?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have a cough and my symptoms get worse after eating and when I lie down, and they get better while sitting up. I also have asthma or have used a bronchodilator in the past.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given worse after eating and when lying down (better sitting up) with a history of asthma/bronchodilator use, reflux with aspiration is likely, but asthma/bronchospasm and infection still need consideration.\n\n**One question:** When symptoms worsen, do you get **wheezing or chest tightness** that improves with your bronchodilator?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**One question:** Have you had **any recent sick contacts** or symptoms like **runny nose/sore throat** along with the cough?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow to the most discriminating remaining possibilities.\n\n**One question:** Is the cough **mostly at night/when lying down**, and does it improve with **antacids** or **acid-suppressing meds** (like omeprazole/famotidine) if you’ve tried them?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms get worse after eating and when I lie down, and they’re alleviated while sitting up. I also have a cough and a hiatal hernia.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] GERD, Bronchospasm / acute asthma exacerbation, Pneumonia, Pulmonary embolism, Acute COPD exacerbation / infection",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [
+      "GERD",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9148,
+      "completion_tokens": 420
+    },
+    "patient": {}
+  }
+}

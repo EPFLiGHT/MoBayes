@@ -1,0 +1,132 @@
+{
+  "case_idx": 18,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Vitiligo",
+  "patient_actor_hidden": {
+    "Demographics": "19-year-old Caucasian male",
+    "History": "The patient reports noticing gradually developing patches of lighter skin on his hands and face over the past few months. These patches seem to be expanding in size. He denies any pain, itching, or other discomfort in the areas. No recent illnesses, medication changes, or significant sunburns.",
+    "Symptoms": {
+      "Primary_Symptom": "Hypopigmented skin patches",
+      "Secondary_Symptoms": [
+        "No discomfort in the affected areas",
+        "Gradual increase in size of the patches"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. The patient is otherwise healthy with no chronic conditions.",
+    "Social_History": "Full-time university student, non-smoker, and occasional alcohol use.",
+    "Review_of_Systems": "Denies recent flu-like symptoms, fever, weight loss, changes in vision, hair loss, or history of skin cancer in the family."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with hypopigmented skin patches.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve noticed gradually developing patches of lighter skin on my hands and face over the past few months, and they seem to be slowly expanding. They don’t hurt or itch, and I don’t feel any discomfort in those areas.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (initial priors; no other info yet):\n- Vitiligo: 0.35  \n- Toxic exposure: 0.15  \n- Seborrheic dermatitis: 0.10  \n- Seborrheic keratosis: 0.08  \n- Aromatase deficiency: 0.02  \n(others lower)\n\nTo update this, one key discriminator is whether the lighter patches are truly depigmented (completely white) versus just lighter/irritated or scaly.\n\n**Question 1:** Are the patches *completely white* (loss of pigment) or more *light brown/gray* and/or scaly?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: They look more like they’ve lost pigment completely—fairly stark, white-ish patches rather than just light brown or gray, and they don’t feel scaly or irritated.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “completely white, non-scaly, non-itchy”):\n- Vitiligo: 0.70  \n- Toxic exposure: 0.10  \n- Aromatase deficiency: 0.05  \n- Seborrheic dermatitis: 0.03  \n- Seborrheic keratosis: 0.02  \n(others collectively 0.10)\n\nNext discriminator: vitiligo often has associated features like new/rapid spread after triggers, or family history/autoimmune symptoms; toxic exposure can be more diffuse and linked to a specific exposure.\n\n**Question 2:** Have you noticed any *new or worsening spread after a trigger* (e.g., sunburn/skin injury, significant stress, new medication), or any *similar patches in family members*?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any new or worsening spread after a clear trigger like sunburn or skin injury, significant stress, or starting any new medication—and is there anyone in your family with similar skin patches? Patient: I haven’t had any notable sunburns or skin injuries, I didn’t start any new medications, and I don’t recall a specific stressor—also, no one in my family has anything similar.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no clear trigger, no family history):\n- Vitiligo: 0.78  \n- Toxic exposure: 0.08  \n- Aromatase deficiency: 0.05  \n- Seborrheic dermatitis: 0.03  \n- Seborrheic keratosis: 0.01  \n(others collectively 0.05)\n\nNext discriminator: vitiligo is often associated with other autoimmune conditions (thyroid disease is common). Toxic exposure is less likely without exposure history, but we can still ask about occupational/chemical exposures.\n\n**Question 3:** Do you have any history of thyroid problems (e.g., hypothyroidism/hyperthyroidism) or symptoms like unexplained weight change, heat/cold intolerance, fatigue, or palpitations?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t know of any thyroid problems, and I haven’t noticed unexplained weight change, major fatigue, or heat or cold intolerance, and no palpitations.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Vitiligo: 0.80  \n- Toxic exposure: 0.07  \n- Aromatase deficiency: 0.05  \n- Seborrheic dermatitis: 0.03  \n- Seborrheic keratosis: 0.01  \n(others collectively 0.04)\n\nNext discriminator: aromatase deficiency can cause vitiligo-like depigmentation plus hormonal/sexual development issues (often in younger patients). We should ask about age/sex and pubertal/hormonal history.\n\n**Question 4:** How old are you, and what sex were you assigned at birth? Also, have you had any issues with puberty/sexual development (e.g., delayed puberty, irregular or absent periods, fertility concerns)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How old are you, and what sex were you assigned at birth—and have you had any issues with puberty or sexual development (like delayed puberty, unusual hair growth, or fertility concerns)? Patient: I’m 19, male. I don’t think I had any problems with puberty or sexual development, and I haven’t had fertility concerns.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Vitiligo: 0.82  \n- Toxic exposure: 0.08  \n- Aromatase deficiency: 0.03  \n- Seborrheic dermatitis: 0.03  \n- Seborrheic keratosis: 0.01  \n(others collectively 0.03)\n\nNext discriminator: toxic exposure can be linked to specific chemicals/occupational contact (e.g., phenols, industrial agents) and sometimes has a more abrupt or patterned distribution. Vitiligo often has characteristic distribution (hands/face, around orifices, periorificial, acral). We can ask about distribution pattern and whether lesions are symmetric.\n\n**Question 5:** Are the patches on both sides of the body in a fairly *symmetrical* pattern (e.g., both hands/both sides of face), and do you have any involvement around the eyes, mouth, or fingertips?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are the patches fairly symmetrical on both sides of your body—like both hands and both sides of your face—and do you have any involvement around your eyes, mouth, or fingertips? Patient: They seem to be on both sides, mainly on my hands and on my face, and I’ve noticed them more on areas like around my mouth; I haven’t really seen them specifically on my fingertips.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Vitiligo, Toxic exposure, Aromatase deficiency, Seborrheic dermatitis, Seborrheic keratosis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Vitiligo",
+    "predicted_set": [
+      "Vitiligo",
+      "Toxic exposure",
+      "Aromatase deficiency",
+      "Seborrheic dermatitis",
+      "Seborrheic keratosis"
+    ],
+    "predicted_raw": [
+      "Vitiligo",
+      "Toxic exposure",
+      "Aromatase deficiency",
+      "Seborrheic dermatitis",
+      "Seborrheic keratosis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Vitiligo",
+    "predicted_set_remapped": [
+      "Vitiligo",
+      "Toxic exposure",
+      "Aromatase deficiency"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8449,
+      "completion_tokens": 853
+    },
+    "patient": {
+      "prompt_tokens": 5180,
+      "completion_tokens": 394,
+      "calls": 6
+    }
+  }
+}

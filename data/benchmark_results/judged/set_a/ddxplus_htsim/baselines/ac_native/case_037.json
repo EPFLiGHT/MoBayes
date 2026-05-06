@@ -1,0 +1,169 @@
+{
+  "case_idx": 37,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Pulmonary neoplasm",
+  "patient_actor_hidden": {
+    "AGE": 45,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "involuntary weight loss",
+    "EVIDENCES_ENG": "['coughing up blood', 'pain', 'cigarette smoking', 'fatigue', 'involuntary weight loss', 'former smoker', 'cough', 'daily exposure to secondhand cigarette smoke', 'family history of lung cancer']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 45\n- I have been coughing up blood.\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I constantly feel fatigued or I have non-restful sleep.\n- I have had an involuntary weight loss over the last 3 months.\n- I am a former smoker.\n- I have a cough.\n- I am exposed to secondhand cigarette smoke on a daily basis.\n- I have family members who have had lung cancer.\n- On a scale of 0-10, the pain intensity is 2\n- On a scale of 0-10, the pain's location precision is 3\n- On a scale of 0-10, the pace at which the pain appear is 1\n- The pain is:\n* sensitive\n* a knife stroke\n* exhausting\n- The pain locations are:\n* posterior chest wall(R)\n* posterior chest wall(L)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Pulmonary neoplasm', 0.20285777596398555], ['Bronchitis', 0.16643846621993402], ['Tuberculosis', 0.1523533775295975], ['Spontaneous rib fracture', 0.12581221030224496], ['Unstable angina', 0.10633946281334648], ['Possible NSTEMI / STEMI', 0.09667151155185019], ['Anemia', 0.07985527952697584], ['Pancreatic neoplasm', 0.0696719160920654]]",
+    "PATHOLOGY": "Pulmonary neoplasm",
+    "INITIAL_EVIDENCE": "perte_poids",
+    "EVIDENCES": "['crach_sg', 'douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_épuisante', 'douleurxx_endroitducorps_@_thorax_postérieur_D_', 'douleurxx_endroitducorps_@_thorax_postérieur_G_', 'douleurxx_intens_@_2', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_3', 'douleurxx_soudain_@_1', 'f17.210', 'fatig_mod', 'perte_poids', 'smokingpast', 'toux', 'trav1_@_N', 'z77.22', 'z80.1']",
+    "patient_id": "htsim_1332",
+    "_test_index": 1332,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 45-year-old M patient presents to the clinic. Chief complaint: involuntary weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having involuntary weight loss over the last 3 months, and I’ve been coughing up blood. I also have a cough and I constantly feel fatigued or have non-restful sleep.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned by the combination of weight loss and coughing up blood—how much blood are you seeing (streaks vs clots) and how many times per week?  \nDoctor: Do you have fever/night sweats, chest pain, or shortness of breath?  \nDoctor: Have you ever smoked or had TB/possible TB exposure, and what is your age again?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been smoking cigarettes, and I’m also exposed to secondhand cigarette smoke on a daily basis. I’ve had involuntary weight loss over the last 3 months and I’ve been coughing up blood.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How much do you smoke per day (pack-years if you know), and can you describe the blood—just streaks in sputum or actual clots/how often?  \nDoctor: Any fever or night sweats, and do you have shortness of breath or chest pain?  \nDoctor: REQUEST TEST: Chest_X-Ray",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve had a cough and I’ve been coughing up blood, and I constantly feel fatigued or have non-restful sleep.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given 3 months of involuntary weight loss plus coughing blood and ongoing cigarette exposure, I’m concerned about lung cancer or active TB; do you have fever and night sweats, and is the blood more like streaks or larger amounts?  \nDoctor: REQUEST TEST: Sputum_AFB_x3 (including MTB PCR if available).  \nDoctor: REQUEST TEST: CBC_with_diff_and_CMP.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I can say I’ve had a cough and I’ve been coughing up blood, and I constantly feel fatigued or I have non-restful sleep.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you’re unsure of fever/night sweats and the amount of blood, I need to clarify: have you had any measurable fevers, soaking night sweats, or shortness of breath at rest or with walking?  \nDoctor: Also, any history of TB, living/working in a high-risk setting, or recent travel to an area with TB?  \nDoctor: REQUEST TEST: CT_Chest_with_contrast (or CT_Chest if contrast not feasible)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I have a cough, I’ve been coughing up blood, and I constantly feel fatigued or have non-restful sleep. I’m exposed to secondhand cigarette smoke on a daily basis. I also have family members who have had lung cancer.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand; with hemoptysis, 3 months of involuntary weight loss, persistent fatigue, and smoking/secondhand smoke plus a family history of lung cancer, we need to rule out both lung cancer and active TB—do you have any chest pain and are you short of breath when walking?  \nDoctor: Also, how much blood is it (roughly teaspoons/greater than a tablespoon or just streaks), and have you lost appetite?  \nDoctor: REQUEST TEST: CT_Chest_with_contrast.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve been coughing up blood and I also have a cough. I’ve also had involuntary weight loss over the last 3 months and I constantly feel fatigued or have non-restful sleep. I have pain related to my reason for consulting—its intensity is 2/10 and it’s in the posterior chest wall (right and left), but it radiates nowhere.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—so you have posterior chest wall pain (2/10) plus cough with hemoptysis, 3 months of involuntary weight loss, and fatigue; are you short of breath or do you feel wheezy, and have you noticed fevers or night sweats?  \nDoctor: REQUEST TEST: Bronchoscopy_with_biopsy (or tissue sampling) if CT suggests a mass or TB; otherwise request ENT/Respiratory referral for airway evaluation.  \nDoctor: REQUEST TEST: Quantiferon_TB_Gold or TST (if not already done) and repeat Sputum_gram_stain_culture.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve been coughing and coughing up blood, and I’ve had involuntary weight loss over the last 3 months with constant fatigue or non-restful sleep. I also have pain in the posterior chest wall (right and left).",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t confirm TB vs lung cancer without results, but your hemoptysis plus 3-month weight loss and fatigue are high-risk—right now I need to assess severity and bleeding risk. Are you short of breath, dizzy/faint, or coughing up more than a few teaspoons of blood, and have you had any blood clots/rapid worsening?  \n\nDoctor: While we decide next steps, I’m requesting urgent imaging and labs to clarify the cause of bleeding—REQUEST TEST: CT_Chest_with_contrast (STAT) and REQUEST TEST: Coagulation_profile_PT_INR_aPTT plus repeat CBC.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve been coughing up blood and I’ve had a cough, involuntary weight loss over the last 3 months, and constant fatigue or non-restful sleep. I also have pain in the posterior chest wall (right and left).",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m worried about serious causes of hemoptysis (especially lung cancer or active TB), and I need to quickly determine bleeding severity—are you currently short of breath, and how much blood in the last 24 hours (streaks only vs teaspoons/tablespoons/clots)?  \nDoctor: Also, any lightheadedness/fainting or bleeding gums/nosebleeds or easy bruising?  \n\nDoctor: REQUEST TEST: Coagulation_profile_PT_INR_aPTT_plus_repeat_CBC_with_diff (STAT).  \nDoctor: REQUEST TEST: CT_Chest_with_contrast (STAT, if not already done).",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve been coughing and coughing up blood, and I’ve had involuntary weight loss over the last 3 months with constant fatigue or non-restful sleep. I also have pain in the posterior chest wall (right and left).",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned enough to treat this as potentially serious hemoptysis until proven otherwise—are you short of breath right now, and in the last 24 hours was the blood just streaks or did it reach teaspoons/tablespoons or clots?  \nDoctor: If you’re not sure, estimate: when you cough, does it look pink-tinged, red, or like blood, and how many times have you coughed up blood today?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve been coughing and coughing up blood, and I’ve had involuntary weight loss over the last 3 months with constant fatigue or non-restful sleep. I also have pain in the posterior chest wall (right and left).",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially serious until proven otherwise—do you have shortness of breath right now (yes/no), and are you able to swallow/talk normally without getting winded?  \nDoctor: Also, do you have any history of easy bruising/bleeding disorders, are you on blood thinners (warfarin/apixaban/rivaroxaban), or have you had a recent nose/throat bleed that could be mixing with cough?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I’ve been coughing and coughing up blood, and I’ve had involuntary weight loss over the last 3 months with constant fatigue or non-restful sleep. I also have pain in the posterior chest wall (right and left).",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you’re unsure about shortness of breath and the amount of blood, but you have hemoptysis plus 3 months of involuntary weight loss and tobacco exposure, the leading concerns are lung cancer vs active pulmonary tuberculosis—either is possible and needs urgent rule-out. I’m going to decide based on high-risk features: DIAGNOSIS READY: Suspected pulmonary tuberculosis or lung cancer causing hemoptysis (high-risk undifferentiated pulmonary malignancy vs TB)\n\n[DDX]\n1. Tuberculosis",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Tuberculosis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11,
+    "predicted_remapped": "Tuberculosis",
+    "predicted_set_remapped": [
+      "Tuberculosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10679,
+      "completion_tokens": 1146,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 16076,
+      "completion_tokens": 596,
+      "calls": 11
+    }
+  }
+}

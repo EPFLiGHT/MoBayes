@@ -1,0 +1,99 @@
+{
+  "case_idx": 18,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 4\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, and I have a high-pitched sound when breathing in. My symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.\n\n**Question 1 (one at a time):**  \nDo you have **stridor** (a harsh, high-pitched noise) **when breathing in**, and is it **worse when you’re lying flat at night**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there’s a high-pitched sound when breathing in, and it’s more prominent at night.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 2:**  \nDo you also have **trouble swallowing, drooling, or muffled “hot potato” voice**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 3:**  \nHave you had **any recent upper respiratory symptoms** (sore throat, runny nose, cough), or did this start suddenly without much cold-like illness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have nasal congestion or a clear runny nose.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 4:**  \nDo you have a **cough**—and if yes, is it **barking** or **worse at night**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have a cough, and it’s worse at night.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 5:**  \nHow old is the patient (roughly), and is this happening in an **infant/child** or an **adult**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m 4 years old, and this is happening in a child.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Epiglottitis, Croup, Acute laryngitis, Acute rhinosinusitis, Allergic sinusitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [
+      "Epiglottitis",
+      "Croup",
+      "Acute laryngitis",
+      "Acute rhinosinusitis",
+      "Allergic sinusitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5489,
+      "completion_tokens": 239
+    },
+    "patient": {}
+  }
+}

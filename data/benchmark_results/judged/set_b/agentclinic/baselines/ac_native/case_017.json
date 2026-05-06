@@ -1,0 +1,91 @@
+{
+  "case_idx": 17,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Cardiac contusion",
+  "patient_actor_hidden": {
+    "Demographics": "27-year-old male",
+    "History": "The patient was involved in a head-on collision as the front seat, unrestrained driver. Following the event, the patient complains of chest pain. No past significant medical history. The patient was given 2 liters of Ringer lactate solution and morphine for management.",
+    "Symptoms": {
+      "Primary_Symptom": "Chest pain",
+      "Secondary_Symptoms": [
+        "Bruising over the chest wall"
+      ]
+    },
+    "Past_Medical_History": "No known drug allergies. No previous surgeries or significant medical conditions.",
+    "Social_History": "Occasional alcohol use, denies tobacco or illicit drug use. Works as a computer programmer.",
+    "Review_of_Systems": "Complains of pain in the chest area, denies headache, dizziness, shortness of breath, or abdominal pain."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chest pain following a motor vehicle collision.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. Can you tell me your age, where exactly the chest pain is (center/left/right), and whether it worsens with deep breaths or movement? Doctor: Also, after the motor vehicle collision, did you lose consciousness, have shortness of breath, cough, or any bruising across the chest?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 27, and the chest pain is in the center of my chest. It seems to worsen with deep breaths, but I don’t feel short of breath. After the crash I didn’t lose consciousness or cough, and I do have bruising across my chest wall."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—on a 0–10 scale how severe is the pain, and do you have any dizziness, palpitations, or pain spreading to your shoulder/arm/jaw? Also, have you had any vomiting or coughing up blood? Doctor: I’ll order key tests to rule out lung/heart injury from the collision—REQUEST TEST: Chest_X-Ray; REQUEST TEST: ECG; REQUEST TEST: High-sensitivity_Troponin.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 99.5°F (37.5°C); Blood Pressure 107/58 mmHg; Heart Rate 120 bpm; Respiratory Rate 17 breaths/min; Oxygen Saturation 98% on room air. Chest exam: Visible bruising on chest wall with tenderness; no crepitus; heart sounds normal (no murmurs/rubs/gallops); breath sounds clear bilaterally; resonant percussion. Imaging: Chest X-ray—no rib fractures or pneumothorax detected. Echocardiogram: Normal chamber sizes; no valvular abnormalities; evidence of sinus tachycardia. Labs: High-sensitivity Troponins—elevated; Pulmonary capillary wedge pressure—elevated."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Your center chest pain that worsens with deep breaths plus chest wall bruising fits a blunt-trauma pleuritic pattern, but the elevated high-sensitivity troponin and your sinus tachycardia mean we must strongly consider myocardial injury from the collision—do you have any ongoing shortness of breath, fainting, or new sweating? Also, have you had repeat troponin levels showing a rise/fall (trend) and what did the ECG show for ST changes or arrhythmias? Doctor: DIAGNOSIS READY: Blunt cardiac injury (myocardial contusion) following motor vehicle collision, with associated chest wall trauma/pleuritis.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Your center chest pain that worsens with deep breaths plus chest wall bruising fits a blunt-trauma pleuritic pattern, but the elevated high-sensitivity troponin and your sinus tachycardia mean we must strongly consider myocardial injury from the collision—do you have any ongoing shortness of breath, fainting, or new sweating? Also, have you had repeat troponin levels showing a rise/fall (trend) and what did the ECG show for ST changes or arrhythmias? Doctor: DIAGNOSIS READY: Blunt cardiac injury (myocardial contusion) following motor vehicle collision, with associated chest wall trauma/pleuritis.",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 3,
+    "predicted_remapped": "Cardiac contusion",
+    "predicted_set_remapped": [
+      "Cardiac contusion",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1107,
+      "completion_tokens": 310,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 367,
+      "completion_tokens": 61,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 472,
+      "completion_tokens": 155,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 200,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

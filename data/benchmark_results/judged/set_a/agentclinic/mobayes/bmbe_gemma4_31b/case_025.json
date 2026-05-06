@@ -1,0 +1,312 @@
+{
+  "case_idx": 25,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Factitious disorder",
+  "patient_actor_hidden": {
+    "Demographics": "26-year-old female nurse",
+    "History": "The patient reports a 2-month history of fatigue and several episodes of lower abdominal pain. She expresses a strong belief that she has cancer and desires a diagnostic laparoscopy. The patient has been off work for 2 weeks on sick leave due to stress at work and wishes to return. She was diagnosed with peptic ulcer disease 6 months ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower abdominal pain",
+        "Stress at work",
+        "Desire for diagnostic laparoscopy due to cancer concern"
+      ]
+    },
+    "Medications": "Omeprazole",
+    "Past_Medical_History": "Peptic ulcer disease",
+    "Social_History": "Works as a nurse. No mention of smoking, alcohol use, or recreational drug use.",
+    "Review_of_Systems": "Reports tiredness and depressed mood. No mention of changes in bowel or urinary habits."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with fatigue, stress, and concern for cancer.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 26-year-old nurse, and for the past two months I’ve had a lot of fatigue and a few episodes of lower abdominal pain. I’ve also been very stressed at work and I’m feeling quite down, and I’m worried it could be something serious.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_lower_abdominal_pain_d711aaf0": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_depressed_mood_ae17ad0d": "yes",
+        "f_psychological_stress_391732fb": "yes",
+        "f_belief_of_serious_illness_84d3ba93": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Somatization disorder",
+          0.601955985659288
+        ],
+        [
+          "Factitious disorder",
+          0.1292400603666246
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.05042101009818989
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.03160208312207561
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.028691113161501088
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "“No, I haven’t noticed any small raised skin bumps with a dimple in the center. I’ve mainly been dealing with fatigue, occasional lower abdominal pain, and feeling very stressed and down.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.6033257099905464
+        ],
+        [
+          "Factitious disorder",
+          0.1295341404314047
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.05053574088579468
+        ]
+      ],
+      "entropy": 2.4370785561652
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“No, I haven’t noticed I need to urinate more often than usual. It’s mainly been fatigue and occasional lower abdominal pain, along with a lot of stress and feeling down.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.6069931915010017
+        ],
+        [
+          "Factitious disorder",
+          0.13032154938338247
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.05084293630652143
+        ]
+      ],
+      "entropy": 2.4108546941344473
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual energy lately?",
+      "patient_answer": "“Yes, I’ve definitely felt generally weak and I don’t have my usual energy—I’ve been very fatigued for about two months. I’ve also had a few episodes of lower abdominal pain, and with the stress at work I’m feeling quite low.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.766839742507671
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.072065166127653
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.049921938860530236
+        ]
+      ],
+      "entropy": 1.5465493833582487
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“No, I haven’t had any trouble dressing myself—I can do my usual activities, but I just feel very tired and a bit overwhelmed. When the lower abdominal pain comes, it can slow me down, but I’m still able to manage dressing.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.7723349701641459
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.0725815901886675
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.050279682993866516
+        ]
+      ],
+      "entropy": 1.5076327190534915
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes, bumps, or sores along the veins in my arms. It’s mainly been the fatigue and the occasional lower abdominal pain, with a lot of stress and feeling down at work.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.772334970164146
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.0725815901886675
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.050279682993866516
+        ]
+      ],
+      "entropy": 1.507632719053492
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "“No, I haven’t noticed any itchiness on my skin. It’s mainly been the fatigue for about two months, a few episodes of lower abdominal pain, and feeling very stressed and down at work.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.8036871397115003
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0523207366906529
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.04272289077208669
+        ]
+      ],
+      "entropy": 1.3785377784345734
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calf muscles when you walk that goes away once you stop and rest?",
+      "patient_answer": "“No, I haven’t had any calf pain or cramping when I walk—nothing like that. My main issues are the ongoing fatigue, occasional lower abdominal pain, and feeling very stressed and down.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.8038713729641618
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.052332730436758665
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.04273268435561084
+        ]
+      ],
+      "entropy": 1.3758318694805178
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-colored recently?",
+      "patient_answer": "“No, I haven’t noticed any unusual changes in my stool color—no pale or clay-colored stools. It’s been mostly fatigue, occasional lower abdominal pain, and feeling very stressed and down.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.822692178983718
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0535579813925081
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020320463865445944
+        ]
+      ],
+      "entropy": 1.290632942569092
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or a tendency to drop things more often than usual?",
+      "patient_answer": "“No, I haven’t noticed any weakness in my hands or trouble gripping objects, and I haven’t been dropping things more than usual. It’s mostly been fatigue for two months and occasional lower abdominal pain, along with feeling very stressed and down.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.8265837627551806
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.05381132690440643
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.020416585828711777
+        ]
+      ],
+      "entropy": 1.2599737747160697
+    }
+  ],
+  "final": {
+    "predicted": "Somatization disorder",
+    "predicted_top3": [
+      "Somatization disorder",
+      "Acalculous cholecystitis",
+      "Pancreatic adenocarcinoma"
+    ],
+    "confidence": 0.8265837627551806,
+    "final_entropy": 1.2599737747160697,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Somatization disorder",
+    "predicted_set_remapped": [
+      "Somatization disorder",
+      "Acalculous cholecystitis",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6812,
+      "completion_tokens": 347
+    },
+    "patient": {
+      "prompt_tokens": 6294,
+      "completion_tokens": 477,
+      "calls": 10
+    }
+  }
+}

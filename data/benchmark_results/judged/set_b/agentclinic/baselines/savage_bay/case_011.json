@@ -1,0 +1,135 @@
+{
+  "case_idx": 11,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Silent Thyroiditis",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old female",
+    "History": "Complains of a 3-week history of a swollen neck with the swelling being small, round, and painless initially, increasing in size over time. The patient also reports symptoms associated with hyperthyroidism such as sweaty palms and soles, insomnia, irritability, nervousness, and fatigue but denies having a fever, cervical lymphadenopathy, weight loss, vision problems, or body swelling.",
+    "Symptoms": {
+      "Primary_Symptom": "Swollen neck",
+      "Secondary_Symptoms": [
+        "Sweaty palms and soles",
+        "Insomnia",
+        "Irritability",
+        "Nervousness",
+        "Fatigue"
+      ]
+    },
+    "Past_Medical_History": "Negative for similar symptoms or a thyroid disorder.",
+    "Social_History": "Does not provide specifics that are contributory.",
+    "Review_of_Systems": "Denies fever, weight loss, vision problems, or body swelling."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a swollen neck and systemic symptoms suggestive of a thyroid disorder.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve had a swollen neck for about three weeks—it started small and round and it’s been painless, but it’s gradually grown. I also have symptoms like sweaty palms and soles, insomnia, irritability, nervousness, and fatigue.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (pre-test, broad):\n- Essential thrombocythemia: 0.20\n- Histoplasmosis: 0.15\n- Chronic Granulomatous Disease: 0.10\n- Primary sclerosing cholangitis: 0.10\n- Acute lymphoblastic leukemia: 0.10\n(Other causes collectively: 0.35)\n\nKey evidence so far:\n- Gradually enlarging, painless “swollen neck” over ~3 weeks + systemic hyperadrenergic symptoms (sweaty palms/soles, insomnia, irritability, nervousness) suggests a thyroid/hormonal process more than the above list—but I need one discriminating detail.\n\n**Question 1 (one at a time):**  \nIs the neck swelling in the **front of the neck** (over the thyroid area), and does it **move when you swallow**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, it feels like the swelling is toward the front of my neck over the thyroid area, and it does seem to move when I swallow.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (updated):\n- Essential thrombocythemia: 0.05  \n- Histoplasmosis: 0.05  \n- Chronic Granulomatous Disease: 0.05  \n- Primary sclerosing cholangitis: 0.05  \n- Acute lymphoblastic leukemia: 0.05  \n(Other causes collectively: 0.75)\n\nLikelihood update:\n- “Front of neck over thyroid” + “moves with swallowing” strongly increases likelihood of a **thyroid-origin** neck mass (likelihood ratio high for thyroid disease vs non-thyroid causes in our list).\n\nGiven your hyperadrenergic symptoms (sweaty palms/soles, insomnia, irritability, nervousness) plus a painless enlarging thyroid area, the leading match from the provided list is **Silent Thyroiditis** (can cause transient hyperthyroid symptoms).\n\n**Question 2 (one at a time):**  \nHave you had **weight loss**, **heat intolerance**, **palpitations**, or **tremor**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, I’ve had nervousness and heat-like intolerance with my sweaty palms, and I’ve noticed feeling my heart race at times, but I haven’t had noticeable weight loss or tremor.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities:\n- Silent Thyroiditis: 0.45\n- Essential thrombocythemia: 0.05\n- Histoplasmosis: 0.05\n- Chronic Granulomatous Disease: 0.05\n- Acute lymphoblastic leukemia: 0.05\n(Other causes collectively: 0.35)\n\nLikelihood update:\n- Hyperthyroid-type symptoms (heat intolerance, sweating, episodic palpitations) with a thyroid-area, swallow-moving mass increases likelihood of a thyroid inflammatory process (LR >> 1 for Silent Thyroiditis vs the other listed non-thyroid causes).\n\n**Question 3 (one at a time):**  \nDo you have **neck pain or tenderness** (even mild), or is it completely painless?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It’s completely painless—there’s no tenderness or soreness, just the swelling that’s been slowly increasing.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities:\n- Silent Thyroiditis: 0.60\n- Essential thrombocythemia: 0.03\n- Histoplasmosis: 0.05\n- Chronic Granulomatous Disease: 0.03\n- Acute lymphoblastic leukemia: 0.04\n(Other causes collectively: 0.25)\n\nLikelihood update:\n- “Completely painless” supports **silent** thyroiditis (LR increases further vs infectious/malignant causes).\n\n**Question 4 (one at a time):**  \nIs the swelling **one-sided** or **both sides** of the thyroid?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“It feels like it’s mostly on one side of my thyroid, not both, and it’s the same painless area that’s been gradually getting bigger.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities:\n- Silent Thyroiditis: 0.55\n- Histoplasmosis: 0.08\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.03\n- Acute lymphoblastic leukemia: 0.06\n(Other causes collectively: 0.25)\n\nLikelihood update:\n- Unilateral thyroid-area enlargement slightly lowers “classic” silent thyroiditis probability (which is often more diffuse), but still plausible.\n- Infectious/granulomatous or malignant causes remain possible, especially if there’s a true enlarging nodule.\n\n**Question 5 (one at a time):**  \nAny **difficulty swallowing**, **shortness of breath**, or a **change in voice/hoarseness**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have trouble swallowing, shortness of breath, or hoarseness—everything feels normal aside from the swelling and my hyperthyroid-type symptoms like sweating and insomnia.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities:\n- Silent Thyroiditis: 0.50\n- Histoplasmosis: 0.10\n- Acute lymphoblastic leukemia: 0.08\n- Essential thrombocythemia: 0.05\n- Chronic Granulomatous Disease: 0.05\n(Other causes collectively: 0.22)\n\nLikelihood update:\n- No compressive symptoms (no dysphagia/hoarseness/SOB) keeps benign/inflammatory thyroid etiologies higher than aggressive malignancy or bulky infectious/granulomatous disease.\n\nAt this point, the best match from the provided list is **Silent Thyroiditis** (painless, thyroid-area swelling that moves with swallowing + hyperthyroid-type autonomic symptoms).\n\n[DDX] Silent Thyroiditis, Histoplasmosis, Acute lymphoblastic leukemia, Essential thrombocythemia, Chronic Granulomatous Disease",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Silent Thyroiditis",
+    "predicted_set": [
+      "Silent Thyroiditis",
+      "Histoplasmosis",
+      "Acute lymphoblastic leukemia",
+      "Essential thrombocythemia",
+      "Chronic Granulomatous Disease"
+    ],
+    "predicted_raw": [
+      "Silent Thyroiditis",
+      "Histoplasmosis",
+      "Acute lymphoblastic leukemia",
+      "Essential thrombocythemia",
+      "Chronic Granulomatous Disease"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Silent Thyroiditis",
+    "predicted_set_remapped": [
+      "Silent Thyroiditis",
+      "Histoplasmosis",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8347,
+      "completion_tokens": 1046
+    },
+    "patient": {
+      "prompt_tokens": 5227,
+      "completion_tokens": 225,
+      "calls": 6
+    }
+  }
+}

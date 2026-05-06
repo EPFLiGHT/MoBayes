@@ -1,0 +1,152 @@
+{
+  "case_idx": 22,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "HIV (initial infection)",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 7\nSex: Male\nChief Complaint: I have a fever, swollen or painful lymph nodes, and exhausting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had a fever and my lymph nodes feel swollen and painful. I also have exhausting pain and I feel very tired, with sweating a lot and more diarrhea/stool than usual. My head hurts too—back of my head, top, and my forehead—and I have some pale skin lesions/redness, including in my mouth gums and my labia area and right inner cheek.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.  \n\n**Current posterior (pre-test, rough):**\n- **Influenza:** 25%  \n- **Infectious & Parasitic Diseases (unspecified viral/bacterial syndrome):** 20%  \n- **Pneumonia:** 10%  \n- **Anemia:** 10%  \n- **Anaphylaxis:** 5%  \n- **Other (URTI/viral pharyngitis/other systemic infection):** remainder\n\n**Question 1 (most discriminating):**  \nHow high is the fever (highest temperature), and how many days has it been going on?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the exact number on the thermometer, but it’s been a real fever. It started about **6 days ago** and it’s been going on since then.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after 6 days of fever (no exact temp):**  \n- **Influenza:** 20% (still possible, but 6 days is a bit longer than typical)  \n- **Infectious & Parasitic Diseases (systemic infection):** 35%  \n- **Pneumonia:** 8%  \n- **Anemia:** 8%  \n- **Anaphylaxis:** 2%  \n- **Other URTI/viral pharyngitis:** 27%\n\n**Question 2:**  \nDo you have any **cough or trouble breathing** (including chest pain when breathing, shortness of breath, or wheezing)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have cough or trouble breathing. I’m mostly dealing with fever, tiredness, diarrhea, swollen painful lymph nodes, and head pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no cough / no breathing trouble):**  \n- **Influenza:** 18% (slightly down)  \n- **Infectious & Parasitic Diseases (systemic):** 45% (up)  \n- **Pneumonia:** 2% (down a lot)  \n- **Anemia:** 6% (down)  \n- **Anaphylaxis:** 1% (down)  \n- **Other URTI/viral pharyngitis:** 28% (down a bit)\n\n**Question 3:**  \nAre the **skin/mouth/gum/labia lesions** **painful** or **burning**, and do they look like **blisters/ulcers** (open sores) versus flat red spots?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They feel painful and kind of burning. In my mouth/gums I have sores, and on my labia and inner cheek it looks like red lesions that aren’t just flat spots—more like sores/ulcers.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (painful burning ulcers/sores in mouth and genital area):**  \n- **Infectious & Parasitic Diseases (systemic with mucocutaneous ulcers):** 60%  \n- **Influenza:** 10%  \n- **Pneumonia:** 1%  \n- **Anemia:** 5%  \n- **Other (URTI/viral pharyngitis):** 24%  \n- **Anaphylaxis:** ~0%\n\nThis mucosal + genital ulcer pattern with fever and lymph node swelling raises concern for a **serious systemic infection** (and also some non-infectious causes), but from your symptom list the most fitting category is **Infectious & Parasitic Diseases**.\n\n**Question 4:**  \nHave you had any **new sexual exposure** in the last 2–8 weeks, or any known exposure to someone with a similar illness?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve had unprotected sex with more than one partner in the last 6 months. I don’t know of anyone who had the same illness, and I don’t remember any specific exposure right before the symptoms started.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (recent unprotected sex + mucosal/genital ulcers + fever):**  \n- **Infectious & Parasitic Diseases (systemic with mucocutaneous ulcers):** 70%  \n- **HIV (initial infection):** 15% (up)  \n- **Influenza:** 5% (down)  \n- **Anemia:** 3%  \n- **Other (URTI/viral pharyngitis):** 7%\n\nNow I want to discriminate between **acute HIV** and other ulcerative/mucocutaneous infections.\n\n**Question 5:**  \nDo you have **sore throat**, **swollen neck lymph nodes**, or a **rash on the body** (not just mouth/genitals)—and if yes, is it **spotty/red** or **blister-like**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, my neck lymph nodes feel swollen. I don’t think I have a sore throat. I also have a rash/redness on the skin, and it looks pale/red—not like blisters, more like sores/irritated areas.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (fever + generalized rash/skin irritation + mucosal/genital ulcers + lymphadenopathy):**  \n- **HIV (initial infection):** 35%  \n- **Infectious & Parasitic Diseases (systemic with mucocutaneous ulcers):** 45%  \n- **Influenza:** 3%  \n- **Anemia:** 2%  \n- **Other (URTI/viral pharyngitis):** 15%\n\nAt this point, the key discriminators are: **does this look like herpes (painful grouped ulcers),** **does it fit syphilis (often less painful ulcers),** or **is it more like a severe systemic infection**. From your description (burning, painful ulcers in mouth and genital area) herpes is a strong contender, but it’s not explicitly in the provided disease list—so I’ll keep the broad “Infectious & Parasitic Diseases” bucket while we confirm HIV vs other.\n\n**Question 6 (high-yield):**  \nAre the mouth/genital sores **clustered in groups** (multiple small blisters/ulcers close together) or more **single/large** ulcers?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "They’re kind of **clustered**—like there are **several sores close together** rather than just one big single ulcer.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (clustered painful burning mucosal ulcers + fever + lymphadenopathy):**  \n- **HIV (initial infection):** 25%  \n- **Infectious & Parasitic Diseases (systemic with mucocutaneous ulcers—e.g., HSV/other):** 65%  \n- **Influenza:** 2%  \n- **Anemia:** 2%  \n- **Other:** 6%\n\nGiven the clustered painful ulcers, the most likely infectious cause is **herpes-type mucocutaneous infection**, and HIV is still possible given risk factors and systemic symptoms, but the ulcer morphology is more suggestive of a primary mucocutaneous viral syndrome.\n\n**Question 7:**  \nHave you had **painful urination** or **difficulty passing urine** (burning with urination), or any **eye pain/redness**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about painful urination or trouble passing urine. I also don’t have eye pain or redness.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no urinary obstruction symptoms, no eye involvement):**  \n- **Infectious & Parasitic Diseases (HSV-type mucocutaneous infection):** 70%  \n- **HIV (initial infection):** 20%  \n- **Influenza:** 2%  \n- **Anemia:** 2%  \n- **Other:** 6%\n\nNow I need to decide whether this is primarily **HSV** vs **HIV acute retroviral syndrome** (which can include rash, fever, lymphadenopathy, diarrhea, headache, and mucosal lesions). HSV typically has prominent localized painful genital/oral lesions; HIV acute often has more diffuse systemic symptoms and less “clustered grouped blisters” (though mucosal ulcers can occur).\n\n**Question 8:**  \nDo you have any **throat symptoms** at all (sore throat, painful swallowing), or is it mainly mouth/genitals?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly my mouth and genitals. I don’t really have throat symptoms or painful swallowing.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (mainly mouth/genitals, no throat symptoms):**  \n- **Infectious & Parasitic Diseases (HSV-type mucocutaneous infection):** 78%  \n- **HIV (initial infection):** 15%  \n- **Influenza:** 2%  \n- **Anemia:** 2%  \n- **Other:** 3%\n\nAt this point, I’m still not fully confident because you also have **fever + diarrhea + generalized rash/irritation**, which can occur with severe HSV but also with other systemic infections. I need one more discriminating question: whether the rash is **widespread** and whether there are **any neurologic symptoms** (meningitis-like) given the severe headache.\n\n**Question 9:**  \nIs the headache **severe** and did it come on **suddenly**, and do you have **neck stiffness** or pain when bending your neck forward?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "My headache feels severe and it’s been really exhausting. I don’t know if it came on suddenly. I don’t know about neck stiffness or pain when bending my neck forward.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (severe headache, still no clear neck stiffness):**  \n- **Infectious & Parasitic Diseases (HSV-type mucocutaneous infection):** 72%  \n- **HIV (initial infection):** 18%  \n- **Influenza:** 2%  \n- **Other systemic infection:** 8%\n\nI’m still missing whether there’s any respiratory involvement (unlikely), and whether this could be **anaphylaxis** (unlikely with ulcers/fever/diarrhea over 6 days). Given the mucosal/genital clustered painful ulcers, the top diagnosis remains **HSV-type mucocutaneous infection**; however, since HSV isn’t explicitly in the provided disease list, I’ll map it to the closest available category: **Infectious & Parasitic Diseases**. For HIV, it’s explicitly in the list.\n\n**Question 10 (to firm up HIV vs HSV):**  \nHave you noticed **generalized swollen lymph nodes** in more than one area (e.g., armpits and groin), or is it mainly the neck?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It feels like it’s mainly my neck, not my armpits or groin.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (lymphadenopathy mainly neck):**  \n- **Infectious & Parasitic Diseases (HSV-type mucocutaneous infection):** 75%  \n- **HIV (initial infection):** 15%  \n- **Influenza:** 2%  \n- **Other systemic infection:** 8%\n\nGiven the evidence, I can provide a differential, but I want to ensure safety: severe headache + fever for 6 days could indicate meningitis/encephalitis, which isn’t in your list; also severe mucosal/genital ulcers could be HSV, syphilis, or other infections. Since we must choose from the provided list, I’ll give the best matches: **HIV (initial infection)** and **Infectious & Parasitic Diseases** (as the closest umbrella). I’ll also include **Influenza** and **Pneumonia** less likely, and **Anemia** as a distractor (though ulcers/clustered lesions make it less likely).\n\n**[DDX] Infectious & Parasitic Diseases, HIV (initial infection), Influenza, Pneumonia, Anemia**",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Infectious & Parasitic Diseases",
+    "predicted_set": [
+      "Infectious & Parasitic Diseases",
+      "HIV (initial infection)",
+      "Influenza",
+      "Pneumonia",
+      "Anemia**"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 21162,
+      "completion_tokens": 2081
+    },
+    "patient": {
+      "prompt_tokens": 21366,
+      "completion_tokens": 445
+    }
+  }
+}

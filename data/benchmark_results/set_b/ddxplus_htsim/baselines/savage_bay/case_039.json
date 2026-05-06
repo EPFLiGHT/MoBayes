@@ -1,0 +1,179 @@
+{
+  "case_idx": 39,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Sarcoidosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 62\nSex: F\nChief Complaint: swollen lymph nodes",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve got swollen or painful lymph nodes, and I also have pain—mostly a sensitive, burning pain with intensity 5/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down. First, I’ll estimate current probabilities based on your symptoms alone.\n\n**Current posterior (very uncertain):**\n- **Pneumonia:** 20%\n- **Influenza:** 15%\n- **URTI:** 15%\n- **Anemia:** 10%\n- **SLE:** 10%\n(Other causes remain possible; we need key discriminators.)\n\n**Question 1 (one at a time):**  \nWhere exactly are the swollen/painful lymph nodes (e.g., neck/cervical, armpit/axillary, groin/inguinal, behind the ear, or generalized all over)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—then we need a more specific location.\n\n**Current posterior (still uncertain):**\n- **Pneumonia:** 18%\n- **Influenza:** 14%\n- **URTI:** 14%\n- **Anemia:** 10%\n- **SLE:** 10%\n\n**Question 2:**  \nAre the swollen/painful lymph nodes mainly **in the neck**, **armpits**, **groin**, **behind the ears**, or is it **generalized all over**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—then we’ll pivot to a feature that’s easier to recall.\n\n**Current posterior (very uncertain):**\n- **URTI / viral illness with reactive lymph nodes:** 30%\n- **Influenza:** 20%\n- **Pneumonia:** 15%\n- **SLE:** 10%\n- **Anemia:** 10%\n\n**Question 3:**  \nDo you have **fever or chills**? (Yes/No)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—next we’ll use another high-yield discriminator.\n\n**Current posterior (still uncertain):**\n- **URTI / viral illness with reactive lymph nodes:** 30%\n- **Influenza:** 20%\n- **Pneumonia:** 15%\n- **SLE:** 10%\n- **Anemia:** 10%\n\n**Question 4:**  \nDo you have **any sore throat, cough, or runny nose**? (Tell me which ones, if any.)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—then we need to clarify the “pain” itself.\n\n**Current posterior (still uncertain):**\n- **URTI / viral illness with reactive lymph nodes:** 30%\n- **Influenza:** 20%\n- **Pneumonia:** 15%\n- **SLE:** 10%\n- **Anemia:** 10%\n\n**Question 5:**  \nIs the burning/sensitive pain **only where the lymph nodes are**, or is it **elsewhere too** (e.g., skin burning all over, chest pain, abdominal pain)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—since you’re unsure about several key discriminators, we can’t confidently localize or characterize the syndrome yet.\n\n**Current posterior (still very uncertain):**\n- **URTI / viral illness with reactive lymph nodes:** 30%\n- **Influenza:** 20%\n- **Pneumonia:** 15%\n- **SLE:** 10%\n- **Anemia:** 10%\n\n**Question 6:**  \nWhen did this start—**hours, days, or weeks ago**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It has a pace of about 2/10 for how quickly the pain appeared.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "So it started gradually over ~2/10 “pace” (I’ll interpret as **not sudden**, more like over a day or so). That slightly favors inflammatory/infectious causes over abrupt emergencies.\n\n**Current posterior (updated):**\n- **URTI / viral illness with reactive lymph nodes:** 34%  \n- **Influenza:** 22%  \n- **Pneumonia:** 16%  \n- **SLE:** 12%  \n- **Anemia:** 8%\n\n**Question 7:**  \nIs the pain **worse when you press on the nodes**, or is it **more like deep pain** that doesn’t change much with pressing?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—then we’ll ask about a symptom that strongly separates infectious vs autoimmune vs cardiac/other.\n\n**Current posterior (still uncertain):**\n- **URTI / viral illness with reactive lymph nodes:** 34%\n- **Influenza:** 22%\n- **Pneumonia:** 16%\n- **SLE:** 12%\n- **Anemia:** 8%\n\n**Question 8:**  \nAny **shortness of breath, chest pain, or cough**? (Yes/No; if yes, which?)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I am experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "That’s important—dyspnea raises concern for cardiopulmonary causes (pneumonia, pulmonary edema, pulmonary embolism, asthma/COPD, etc.), not just benign lymph node swelling.\n\n**Current posterior (updated):**\n- **Pneumonia:** 28%  \n- **Acute pulmonary edema:** 18%  \n- **Pulmonary embolism:** 16%  \n- **Acute COPD exacerbation / infection:** 10%  \n- **Bronchospasm / acute asthma exacerbation:** 10%  \n(Other causes like influenza/URTI still possible but less likely given significant dyspnea.)\n\n**Question 9:**  \nIs the shortness of breath **sudden (minutes–hours)** or **gradual (over days)**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "We’ll use another discriminator that’s easier to answer.\n\n**Current posterior (still uncertain):**\n- **Pneumonia:** 28%  \n- **Acute pulmonary edema:** 18%  \n- **Pulmonary embolism:** 16%  \n- **Acute COPD exacerbation / infection:** 10%  \n- **Bronchospasm / acute asthma exacerbation:** 10%\n\n**Question 10:**  \nDo you have **cough** and/or **fever**? (Yes/No; if yes, cough dry vs productive—if you know.)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—then we should ask about leg/circulation clues for pulmonary embolism vs pneumonia/edema.\n\n**Current posterior (still uncertain):**\n- **Pneumonia:** 28%  \n- **Acute pulmonary edema:** 18%  \n- **Pulmonary embolism:** 16%  \n- **Acute COPD exacerbation / infection:** 10%  \n- **Bronchospasm / acute asthma exacerbation:** 10%\n\n**Question 11:**  \nHave you had **leg swelling or pain in one leg**, especially calf pain, or any recent **long travel/immobility/surgery**? (Yes/No)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "We’re still missing key discriminators. Next, we’ll ask about oxygenation/positioning—this helps separate pulmonary edema/PE/pneumonia.\n\n**Current posterior (still uncertain):**\n- **Pneumonia:** 28%  \n- **Acute pulmonary edema:** 18%  \n- **Pulmonary embolism:** 16%  \n- **Acute COPD exacerbation / infection:** 10%  \n- **Bronchospasm / acute asthma exacerbation:** 10%\n\n**Question 12:**  \nDoes breathing get worse when you **lie flat**, and better when you **sit up**? (Yes/No)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "We still can’t discriminate well. I’ll ask about wheeze/trigger, which separates asthma/COPD from edema/PE/pneumonia.\n\n**Current posterior (still uncertain):**\n- **Pneumonia:** 28%  \n- **Acute pulmonary edema:** 18%  \n- **Pulmonary embolism:** 16%  \n- **Acute COPD exacerbation / infection:** 10%  \n- **Bronchospasm / acute asthma exacerbation:** 10%\n\n**Question 13:**  \nHave you noticed **wheezing** or a **history of asthma/COPD**? (Yes/No)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not confident enough to produce a reliable differential because you’re unable to answer several high-yield discriminators (node location/fever/cough timing, PE risk factors, orthopnea, wheeze/asthma history). With significant dyspnea present, serious cardiopulmonary causes remain possible, but the evidence is insufficient to rank them confidently.\n\n[ABSTAIN] Insufficient discriminating history (can’t determine timing, associated respiratory symptoms, orthopnea, wheeze/asthma history, or thromboembolism risk factors).\n\n[POSSIBLE] Pneumonia, Acute pulmonary edema, Pulmonary embolism, Acute COPD exacerbation / infection, Bronchospasm / acute asthma exacerbation",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23260,
+      "completion_tokens": 1760
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "case_idx": 28,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Lambert-Eaton Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient reports a 3-month history of chronic cough and progressively worsening difficulty in walking up stairs in his apartment. Interestingly, he notes that his ability to climb stairs improves after he has exercised. Over the last 6 months, he has also experienced a weight loss of 4.6 kg (10.1 lb). The patient has been smoking one pack of cigarettes daily for 35 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Difficulty walking up stairs",
+      "Secondary_Symptoms": [
+        "Chronic cough",
+        "Weight loss of 4.6 kg over 6 months",
+        "Improvement in muscle strength post-exercise"
+      ]
+    },
+    "Past_Medical_History": "No significant previous medical or surgical history reported.",
+    "Social_History": "Smokes one pack of cigarettes daily for 35 years, occasional alcohol consumption.",
+    "Review_of_Systems": {
+      "General": "Weight loss",
+      "Respiratory": "Chronic cough",
+      "Musculoskeletal": "Progressive muscle weakness, improving with exertion",
+      "Neurological": "Sluggish pupil reaction to light"
+    }
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a chronic cough, difficulty walking up stairs which improves after exercise, and significant weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello—what brings you in today? Patient: I’ve had a chronic cough for about three months, and over the same time I’ve been getting progressively worse difficulty climbing stairs. My strength improves after I exercise, and I’ve also lost around 4.6 kg over the last six months.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given chronic cough + progressive exertional weakness + weight loss):\n- Asthma: 0.10\n- COPD: 0.10\n- Acute myelogenous leukemia: 0.10\n- Acute lymphoblastic leukemia: 0.05\n- Essential thrombocythemia: 0.05\n- Chronic Granulomatous Disease: 0.05\n- Histoplasmosis: 0.10\n- Progressive multifocal leukoencephalopathy: 0.02\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.42\n\nTo narrow this quickly: **Is the cough productive (bringing up sputum), and if so what color (clear/white/yellow/green/bloody)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Is the cough productive—are you bringing up sputum? And what color is it (clear/white/yellow/green/bloody)? Patient: It’s mostly a dry cough, with little to no sputum, and I haven’t noticed any blood.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “mostly dry cough, minimal sputum, no hemoptysis”):\n- Asthma: 0.18\n- COPD: 0.05\n- Acute myelogenous leukemia: 0.08\n- Acute lymphoblastic leukemia: 0.04\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.05\n- Histoplasmosis: 0.06\n- Progressive multifocal leukoencephalopathy: 0.02\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.48\n\nNext highest-yield discriminator: the **pattern of weakness** sounds like possible neuromuscular (improves with use) vs systemic.  \n\n**Question 2 (one at a time):**  \nDo you have **any trouble with eye symptoms**—like droopy eyelids (ptosis) or double vision (diplopia)—that tends to worsen with activity and improve with rest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—my pupils don’t seem to react as quickly to light, and I’ve felt more sluggish than usual, but I haven’t noticed clear droopy eyelids or double vision that comes and goes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (evidence: sluggishness + sluggish pupillary light reaction; no clear ptosis/diplopia):\n- Asthma: 0.16\n- COPD: 0.04\n- Acute myelogenous leukemia: 0.10\n- Acute lymphoblastic leukemia: 0.05\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.05\n- Histoplasmosis: 0.07\n- Progressive multifocal leukoencephalopathy: 0.03\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.46\n\nThis is still not cleanly pointing to one diagnosis from the list, but the **pupillary abnormality + progressive exertional weakness + weight loss** raises concern for a systemic/neurologic process (e.g., malignancy/infiltrative disease, endocrine, or infectious).\n\n**Question 3:**  \nHave you noticed **any shortness of breath at rest**, chest pain, or wheezing—especially when lying flat?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Any shortness of breath at rest, chest pain, or wheezing—especially when you lie flat? Patient: I don’t really get chest pain, but I sometimes feel a bit winded when I exert myself; I haven’t noticed wheezing or problems breathing when lying flat.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “mild exertional windedness; no wheeze; no orthopnea/lying-flat symptoms”):\n- Asthma: 0.12\n- COPD: 0.03\n- Acute myelogenous leukemia: 0.11\n- Acute lymphoblastic leukemia: 0.06\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.05\n- Histoplasmosis: 0.08\n- Progressive multifocal leukoencephalopathy: 0.03\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.46\n\nNext discriminator: **neuromuscular fatigue pattern** vs **central neurologic** vs **hematologic/infiltrative**.\n\n**Question 4:**  \nDo you have **any numbness/tingling, trouble walking, or changes in speech/swallowing**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any numbness or tingling, trouble walking, or any changes in speech or swallowing? Patient: Mostly it’s just trouble climbing stairs and feeling weaker with effort; I don’t have numbness or tingling, and I haven’t noticed any speech or swallowing changes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (with “weakness with effort; no numbness/tingling; no speech/swallowing changes”):\n- Asthma: 0.10\n- COPD: 0.03\n- Acute myelogenous leukemia: 0.12\n- Acute lymphoblastic leukemia: 0.06\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.05\n- Histoplasmosis: 0.10\n- Progressive multifocal leukoencephalopathy: 0.03\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.47\n\nStill, the combination of **progressive exertional weakness + weight loss + chronic cough** keeps malignancy/infiltrative/infectious high, and the **pupillary light reaction issue** suggests possible autonomic/neurologic involvement.\n\n**Question 5:**  \nAny **fever, night sweats, or easy bruising/bleeding** (gums, nosebleeds, petechiae), or frequent infections?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had fever or night sweats, and I don’t bruise or bleed easily, but I do feel run-down more often than I used to.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “no fever/night sweats, no easy bleeding/bruising; feels run-down”):\n- Asthma: 0.09\n- COPD: 0.02\n- Acute myelogenous leukemia: 0.13\n- Acute lymphoblastic leukemia: 0.07\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.05\n- Histoplasmosis: 0.11\n- Progressive multifocal leukoencephalopathy: 0.03\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.46\n\nAt this point, I’m not confident enough to name a single diagnosis from the provided list—there’s overlap between **hematologic malignancy** and **chronic infection/infiltrative disease**, but key discriminators (e.g., specific neuro deficits, immunosuppression, exposure history, abnormal vitals, lymphadenopathy) are missing.\n\n**Question 6:**  \nHave you had any **recent travel or exposure to bird/bat droppings** (caves, chicken coops, old buildings), or living in/visiting an area where **histoplasmosis** is common?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any recent travel or exposure to bird or bat droppings—like caves, chicken coops, or old buildings—or have you been in regions where histoplasmosis is common? Patient: I haven’t taken any recent trips, but I’ve been around an old basement in my building where there’s been a lot of dust and what looks like droppings at times.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “old basement dust with droppings” → supports Histoplasmosis):\n- Asthma: 0.06\n- COPD: 0.02\n- Acute myelogenous leukemia: 0.12\n- Acute lymphoblastic leukemia: 0.06\n- Essential thrombocythemia: 0.03\n- Chronic Granulomatous Disease: 0.05\n- **Histoplasmosis: 0.32**\n- Progressive multifocal leukoencephalopathy: 0.03\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.30\n\nThis exposure makes **Histoplasmosis** substantially more likely, but we still need to see whether the weakness is due to systemic/disseminated infection vs another process.\n\n**Question 7:**  \nHave you had **any skin lesions, mouth ulcers, or swollen lymph nodes** (neck/armpits/groin), or **any vision changes**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any skin lesions, mouth ulcers, swollen lymph nodes, and any vision changes? Patient: I haven’t had any mouth ulcers or skin lesions, and I’m not sure about swollen lymph nodes, but I do feel my vision’s a bit off.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “vision’s a bit off”):\n- Histoplasmosis: 0.36\n- Acute myelogenous leukemia: 0.12\n- Acute lymphoblastic leukemia: 0.06\n- Chronic Granulomatous Disease: 0.05\n- Essential thrombocythemia: 0.03\n- Progressive multifocal leukoencephalopathy: 0.06\n- Asthma: 0.05\n- COPD: 0.02\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.24\n\nVision changes could fit disseminated histoplasmosis (ocular involvement) or other neurologic/infectious processes, but we need a key discriminator.\n\n**Question 8:**  \nIs the vision problem more like **blurred vision**, **loss of vision**, or **new floaters/eye pain**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Is the vision problem more like blurred vision, loss of vision, or new floaters/eye pain? Patient: It’s more blurred than completely losing vision, and I don’t have eye pain—no new floaters that I’m aware of.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (with “blurred vision, no eye pain/floaters”):\n- **Histoplasmosis: 0.40**\n- Acute myelogenous leukemia: 0.11\n- Progressive multifocal leukoencephalopathy: 0.08\n- Acute lymphoblastic leukemia: 0.06\n- Chronic Granulomatous Disease: 0.05\n- Essential thrombocythemia: 0.03\n- Asthma: 0.05\n- COPD: 0.02\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.19\n\nNow I’m leaning toward **Histoplasmosis** (exposure + chronic cough + weight loss + possible ocular involvement). To be more confident, we should check for immunosuppression, which would also raise concern for disseminated histo and for PML.\n\n**Question 9:**  \nDo you take **steroids** (prednisone), have **HIV**, have you had a **transplant**, chemotherapy, or any known immune disorder?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you take steroids (prednisone), have HIV, had a transplant, chemotherapy, or any immune disorder? Patient: I don’t take steroids, I’ve never been told I have HIV, and I haven’t had a transplant or chemo—though I feel like my health has been declining and I’ve been run-down more than usual.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “no known immunosuppression”):\n- **Histoplasmosis: 0.44**\n- Acute myelogenous leukemia: 0.12\n- Progressive multifocal leukoencephalopathy: 0.06\n- Acute lymphoblastic leukemia: 0.06\n- Chronic Granulomatous Disease: 0.05\n- Essential thrombocythemia: 0.03\n- Asthma: 0.05\n- COPD: 0.02\n- Takotsubo cardiomyopathy: 0.01\n- Other/insufficient: 0.14\n\nGiven the strong exposure history and symptom cluster, I’m comfortable giving a top differential from your list.\n\n[DDX] Histoplasmosis, Acute myelogenous leukemia, Progressive multifocal leukoencephalopathy, Acute lymphoblastic leukemia, Chronic Granulomatous Disease",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Histoplasmosis",
+    "predicted_set": [
+      "Histoplasmosis",
+      "Acute myelogenous leukemia",
+      "Progressive multifocal leukoencephalopathy",
+      "Acute lymphoblastic leukemia",
+      "Chronic Granulomatous Disease"
+    ],
+    "predicted_raw": [
+      "Histoplasmosis",
+      "Acute myelogenous leukemia",
+      "Progressive multifocal leukoencephalopathy",
+      "Acute lymphoblastic leukemia",
+      "Chronic Granulomatous Disease"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10,
+    "predicted_remapped": "Histoplasmosis",
+    "predicted_set_remapped": [
+      "Histoplasmosis",
+      "Acute myelogenous leukemia",
+      "Progressive multifocal leukoencephalopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20910,
+      "completion_tokens": 2138
+    },
+    "patient": {
+      "prompt_tokens": 15671,
+      "completion_tokens": 608,
+      "calls": 10
+    }
+  }
+}

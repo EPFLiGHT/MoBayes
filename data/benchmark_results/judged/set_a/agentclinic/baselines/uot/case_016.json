@@ -1,0 +1,125 @@
+{
+  "case_idx": 16,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "71-year-old male",
+    "History": "The patient complains of fatigue and malaise over the last few months. He also reports an unintentional weight loss of 18.1 kg over the past 6 months. He does not recall any changes in diet or exercise routines that could explain the weight loss.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue and malaise",
+      "Secondary_Symptoms": [
+        "Significant unintentional weight loss",
+        "No change in diet or exercise"
+      ]
+    },
+    "Past_Medical_History": "Has a history of diabetes mellitus type II, hypertension, non-seminomatous testicular cancer treated in the past, and hypercholesterolemia.",
+    "Social_History": "Currently smokes 1 pack of cigarettes per day and drinks a glass of wine daily. Denies any illicit drug use.",
+    "Review_of_Systems": "No fever, night sweats, or significant changes in bowel habits."
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with fatigue, malaise, and unintentional weight loss, and assess the need for further diagnostic workup.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling fatigued and generally unwell for a few months now, and I’ve had an 18.1 kg unintentional weight loss over the past 6 months. I can’t think of any diet or exercise changes that would explain it.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **new-onset psychotic symptoms** (e.g., hallucinations or delusions) lasting **less than 1 month**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had hallucinations or delusions. I just feel more tired and generally unwell, along with the weight loss.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent cough with shortness of breath that worsens with exertion and is not fully reversible?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had a persistent cough or shortness of breath that worsens with exertion—nothing like that comes to mind. My main issues are the fatigue, feeling generally unwell, and the significant unintentional weight loss.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pancreatic adenocarcinoma**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not experiencing anything specific that I’d label as pancreatic adenocarcinoma—I mainly have ongoing fatigue and malaise, along with the significant unintentional weight loss over the past 6 months. I haven’t noticed any particular new symptoms beyond that.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic kidney failure**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t know of any chronic kidney failure diagnosis, and I haven’t noticed major changes like swelling or severe shortness of breath beyond the general fatigue and malaise. What I’ve been most focused on is the ongoing tiredness and the significant unintentional weight loss.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic lymphocytic leukemia**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t been told I have chronic lymphocytic leukemia, and I don’t recall any known enlarged lymph nodes, unusual bruising, or frequent infections—my main problems have been the fatigue and the significant unintentional weight loss.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic kidney failure, Chronic lymphocytic leukemia, Factitious disorder, Frontotemporal Dementia, Gastric peptic ulcer",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Chronic kidney failure",
+    "predicted_set": [
+      "Chronic kidney failure",
+      "Chronic lymphocytic leukemia",
+      "Factitious disorder",
+      "Frontotemporal Dementia",
+      "Gastric peptic ulcer"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Chronic kidney failure",
+    "predicted_set_remapped": [
+      "Chronic kidney failure",
+      "Chronic lymphocytic leukemia",
+      "Factitious disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3082,
+      "completion_tokens": 309,
+      "calls": 6
+    }
+  }
+}

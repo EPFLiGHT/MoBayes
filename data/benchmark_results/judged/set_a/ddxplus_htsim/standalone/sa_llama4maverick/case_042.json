@@ -1,0 +1,139 @@
+{
+  "case_idx": 42,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "Spontaneous rib fracture",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 49\nSex: M\nChief Complaint: pain with movement",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having severe pain with movement—my pain is a 9/10, and it’s sharp, violent, and a knife-stroke type pain, mostly in my right and left chest area (side of chest and posterior chest wall). I also have significant shortness of breath and intense coughing fits, along with a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To better understand your condition, can you tell me if your cough is productive, meaning you're coughing up any mucus or blood?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Let's move on to another symptom. Have you experienced any recent trauma or injury to your chest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned severe pain with movement and shortness of breath. Are you experiencing any fever or chills?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Let's try to gather some more specific information about your pain. Does the pain worsen with deep breathing?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. The pain is increased when I breathe in deeply.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The fact that your pain worsens with deep breathing is a significant clue. Does the pain also worsen with specific movements or positions, such as twisting or bending?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes. The pain is increased with movement.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The pain is exacerbated by both deep breathing and movement. Have you noticed any relief from the pain with any particular actions or positions, such as holding your breath or sitting still?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "The information that the pain is sharp, worsens with deep breathing and movement, and is located on the sides and posterior chest wall is quite suggestive. Are you experiencing any radiation of the pain to your back or shoulders?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes. The pain radiates to my posterior chest wall (left).",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "The radiation of pain to the posterior chest wall is another important detail. Given the characteristics of your pain and associated symptoms like shortness of breath and cough, I'm starting to narrow down the possible causes. Have you had any recent illnesses, such as a upper respiratory infection, or been exposed to anyone sick?\n \n(I will try to provide a differential diagnosis soon, as we are getting close to the 15-question limit.)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "We're getting close to the limit of questions. Let's summarize the key points: sharp chest pain that worsens with deep breathing and movement, shortness of breath, cough, and pain radiating to the posterior chest wall. Given these symptoms, I'm going to take a closer look.\n\n[DDX] Pulmonary embolism, Pneumothorax, Pleurisy, Costochondritis, Musculoskeletal strain\n\n(I prioritized these based on the acute presentation and the specific characteristics of the pain and associated symptoms.)",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Pneumothorax",
+      "Pleurisy",
+      "Costochondritis",
+      "Musculoskeletal strain\n\n(I prioritized these based on the acute presentation and the specific characteristics of the pain and associated symptoms.)"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Pulmonary embolism",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Spontaneous pneumothorax",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3998,
+      "completion_tokens": 399
+    },
+    "patient": {}
+  }
+}

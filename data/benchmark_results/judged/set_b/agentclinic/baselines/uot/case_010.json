@@ -1,0 +1,148 @@
+{
+  "case_idx": 10,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Borderline personality disorder",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old woman",
+    "History": "The patient presents to the emergency department with abdominal pain and reports being 10 weeks pregnant. She has a history of constipation, anxiety, and substance abuse. The patient is not currently on any medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal pain and contractions",
+      "Secondary_Symptoms": [
+        "Bloody vaginal discharge",
+        "Recent positive pregnancy test",
+        "Emotional distress upon learning of a spontaneous abortion",
+        "Anger and aggression post-news",
+        "New lacerations over her wrists"
+      ]
+    },
+    "Past_Medical_History": "Constipation, anxiety, substance abuse",
+    "Social_History": "Details on social history not provided, but the doctor should inquire about current life stressors, support systems, and substance use.",
+    "Review_of_Systems": "Negative except for symptoms presented."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with symptoms indicative of a spontaneous abortion and assess for any psychiatric conditions based on patient behavior.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m 10 weeks pregnant, and I’ve had abdominal pain that feels like contractions, plus some bloody vaginal discharge. I’m also really distressed since I learned about a possible miscarriage, and I’ve been having anger and aggression afterward. I have new lacerations on my wrists, and I’m scared and not sure what to do.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **wheezing or shortness of breath** that is consistent with **chronic obstructive lung disease** (asthma/COPD)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have wheezing or shortness of breath. My main symptoms are the abdominal pain that feels like contractions and the bloody vaginal discharge. I’m also very scared and distressed, with some new lacerations on my wrists.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have vertigo that is triggered by changing head position (e.g., rolling in bed or looking up/down)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have vertigo triggered by changing my head position. I’m mostly focused on the abdominal pain that feels like contractions and the bloody vaginal discharge, and I’m feeling very distressed.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a rash or skin lesions (including blisters, ulcers, or abnormal spots) that appeared recently?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have any rash or blisters, ulcers, or abnormal spots that I’ve noticed. The only skin issue is the new lacerations on my wrists, and I’m feeling very distressed about everything that’s happening.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **a single or few round/oval itchy bumps after possible insect exposure (e.g., bed bugs), often clustered**?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have any itchy round or oval bumps or anything clustered after an insect exposure. My main issues are the abdominal pain that feels like contractions and the bloody vaginal discharge, and I’m very distressed—plus I have new lacerations on my wrists.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **itchy, greasy/scaly patches on the scalp or face** (often with redness), that come and go?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have itchy, greasy, or scaly patches on my scalp or face. I’m mainly worried about the abdominal pain that feels like contractions, the bloody vaginal discharge, and the new lacerations on my wrists—I feel very distressed and scared.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have painful skin lesions with blistering/skin detachment (severe mucocutaneous involvement)?  ",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have painful blistering or any skin detachment, and I haven’t noticed severe sores in my mouth or other mucous areas. It’s just the new lacerations on my wrists, and the main concern is the abdominal pain with contraction-like cramps and the bloody vaginal discharge.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the skin lesion appear as a new, dome-shaped, rapidly growing bump with a central keratin “plug” (crater-like) that may ulcerate?  ",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any new dome-shaped, rapidly growing bump with a central plug or crater-like ulcer. It’s just the new lacerations on my wrists along with the abdominal pain that feels like contractions and the bloody vaginal discharge.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Erythema Toxicum, Vitiligo  ",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Erythema Toxicum",
+    "predicted_set": [
+      "Erythema Toxicum",
+      "Vitiligo"
+    ],
+    "predicted_raw": [
+      "Erythema Toxicum",
+      "Vitiligo  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Erythema Toxicum",
+    "predicted_set_remapped": [
+      "Erythema Toxicum",
+      "Vitiligo"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4879,
+      "completion_tokens": 445,
+      "calls": 8
+    }
+  }
+}

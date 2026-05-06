@@ -1,0 +1,204 @@
+{
+  "case_idx": 20,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Oppositional Defiant Disorder",
+  "patient_actor_hidden": {
+    "Demographics": "9-year-old male",
+    "History": "The patient has been increasingly disruptive in class according to his teacher. He often refuses to participate in directed activities with responses such as 'You're not the boss of me' or 'You can't make me.' He is reluctant to participate in gym class, though he engages actively in similar physical activities during recess. His social interactions with peers are positive, and he is described as well-liked by his classmates. The patient's mother describes him as occasionally difficult but notes that he is helpful at home and plays well with his younger sister.",
+    "Symptoms": {
+      "Primary_Symptom": "Behavioral issues at school",
+      "Secondary_Symptoms": [
+        "Refusal to follow instructions",
+        "Reluctance to participate in certain school activities",
+        "Positive peer relationships",
+        "Helpful and cooperative behavior at home"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or psychiatric history.",
+    "Social_History": "Lives with mother, father, and a younger sister. Performs well academically when he chooses to engage. No known substance use in the family.",
+    "Review_of_Systems": "Denies any symptoms of depression or anxiety. No history of bullying or feeling unsafe at school or home."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with behavior issues at school and at home.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I don’t like when people tell me what to do in class, and I get bothered when I’m asked to do directed activities. I don’t really want to do gym class, but I can play fine at recess and I’m usually nice with other kids.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on limited info):\n- Oppositional Defiant Disorder: 0.35  \n- Borderline personality disorder: 0.10  \n- Schizoaffective disorder: 0.05  \n- Situational syncope: 0.02  \n- Asthma: 0.02  \n(others collectively: 0.46)\n\nTo update this, I need to clarify the pattern and context.\n\n**Question 1 (one at a time):** How old is the patient, and how long has this behavior been happening (weeks, months, or years)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 9 years old, and it’s been going on for a few months, getting more noticeable at school.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.45  \n- Borderline personality disorder: 0.05  \n- Schizoaffective disorder: 0.02  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.46)\n\nEvidence: age 9 with school-related oppositional behavior for months → increases ODD likelihood (likelihood ratio ~2.0 vs others).\n\n**Question 2:** When you’re asked to do gym class or other directed activities, what happens—do you argue back, refuse, get angry, or do something else?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you’re asked to do gym class or other directed activities, what happens—do you argue back, refuse, get angry, or do something else? Patient: I just don’t do it when they tell me what to do, and I say things like “you can’t make me,” instead of starting right away.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.60  \n- Borderline personality disorder: 0.05  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.32)\n\nEvidence: “refuse to comply,” “argue,” “you can’t make me,” and delay/refusal specifically with authority-directed tasks → strong for ODD (LR ~2.5).\n\n**Question 3:** Does this happen with other adults too (like parents/guardians/teachers), or mainly at school?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does this happen with other adults too (like parents/guardians/teachers), or mainly at school? Patient: It’s mostly at school with teachers, but at home I’m helpful, and I don’t get as difficult.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.70  \n- Borderline personality disorder: 0.05  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.22)\n\nEvidence: symptoms mostly at school, better at home → still compatible with ODD (LR ~1.3), and makes mood/psychotic disorders less likely (LR ~0.5).\n\n**Question 4:** When you refuse gym class, is it because you feel scared, embarrassed, or in pain (e.g., trouble breathing, stomach pain, injury), or is it more about not wanting to be told what to do?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s mostly because I don’t want to be told what to do, not because I feel scared or hurt. When we play at recess, I’m fine and I can move around. I just don’t like starting right away when it’s a directed activity.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.78  \n- Borderline personality disorder: 0.05  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.14)\n\nEvidence: no pain/scared component; specific dislike of directed compliance; able to play normally at recess → strongly supports ODD and argues against asthma/medical causes (LR for ODD ~1.5; LR for asthma/medical ~0.2).\n\n**Question 5:** Have teachers or parents noticed you often get angry/argue with adults, or that you deliberately annoy others, or seem resentful—most days for the past few months?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have teachers or parents noticed you often get angry/argue with adults, or that you deliberately annoy others, or seem resentful—most days for the past few months? Patient: At school, I argue and refuse when they tell me what to do, and I get upset when I have to start right away. At home I don’t act like that—I’m helpful and I don’t really argue most days.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.85  \n- Borderline personality disorder: 0.03  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.09)\n\nEvidence: persistent school-based refusal/arguing with authority, improved at home → very characteristic of ODD; makes mood/psychotic/syncope less likely.\n\n**Question 6:** Do you ever have symptoms like being very sad/irritable most of the day, losing interest, or any thoughts of self-harm—or is it mainly the refusal/arguing around school directions?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you ever feel very sad or irritable most of the day, lose interest, or have any thoughts of hurting yourself—or is it mainly the refusing and arguing around school directions? Patient: It’s mainly when I’m asked to start or do directed things at school; I don’t feel sad all the time or have thoughts of hurting myself.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.90  \n- Borderline personality disorder: 0.02  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.05)\n\nEvidence: no pervasive mood symptoms or self-harm thoughts; behavior is situational to directed school tasks → further increases ODD (LR ~1.2) and decreases mood/psychotic causes.\n\n**Question 7:** When you refuse or argue at school, do you ever lose control physically (like hitting/kicking), or is it mostly verbal arguing/refusing?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you refuse or argue at school, do you ever lose control physically (like hitting or kicking), or is it mostly verbal arguing/refusing? Patient: It’s mostly verbal—refusing and arguing. I don’t usually hit or kick.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.92  \n- Borderline personality disorder: 0.02  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.01  \n(others collectively: 0.03)\n\nEvidence: mostly verbal refusal/arguing without aggression → still consistent with ODD; less supportive of more severe conduct-type disorders (not in our list) and less supportive of psychosis.\n\n**Question 8:** Are there any learning problems, attention issues, or trouble following instructions in general (not just gym/directed activities)—for example, do you often miss instructions or get distracted?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are there any learning problems, attention issues, or trouble following instructions in general (not just gym/directed activities)—for example, do you often miss instructions or get distracted? Patient: I can follow instructions when I want to, but when they tell me what to do at school I get stubborn and won’t start right away. I’m not usually distracted—it's more that I don’t like being told.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.95  \n- Borderline personality disorder: 0.02  \n- Schizoaffective disorder: 0.01  \n- Situational syncope: 0.01  \n- Asthma: 0.00  \n(others collectively: 0.01)\n\nEvidence: intact attention/following when motivated; stubbornness specifically to being told at school → very specific for ODD.\n\n**Question 9:** Have there been any recent changes at school (new teacher, classroom change, bullying, or major routine change) around when this started a few months ago?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have there been any recent changes at school (new teacher, classroom change, bullying, or major routine change) around when this started a few months ago? Patient: No, I don’t think there was anything big that changed—it's just been happening more in class when they want me to do the directed stuff.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.97  \n- Borderline personality disorder: 0.02  \n- Schizoaffective disorder: 0.00  \n- Situational syncope: 0.00  \n- Asthma: 0.00  \n(others collectively: 0.01)\n\nEvidence: no major precipitating change; pattern is consistent with ODD rather than acute medical/psychotic causes.\n\n**Question 10:** How is your sleep and appetite lately—any big changes?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How is your sleep and appetite lately—any big changes? Patient: My sleep and appetite are pretty normal; I don’t think anything has changed a lot. It’s mostly when I’m told to do the directed stuff at school that I get upset.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.98  \n- Borderline personality disorder: 0.01  \n- Schizoaffective disorder: 0.00  \n- Situational syncope: 0.00  \n- Asthma: 0.00  \n(others collectively: 0.01)\n\nEvidence: normal sleep/appetite and no pervasive mood symptoms further support ODD.\n\n**Question 11:** Do you ever have episodes of dizziness, fainting, or trouble breathing during gym class or directed activities, or is it purely behavioral refusal?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s purely behavioral—I don’t get dizzy or faint, and I can breathe just fine. I just don’t want to start right away when they tell me what to do in gym.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Oppositional Defiant Disorder: 0.99  \n- Borderline personality disorder: 0.01  \n- Schizoaffective disorder: 0.00  \n- Situational syncope: 0.00  \n- Asthma: 0.00  \n(others collectively: 0.00)\n\nEvidence: no physiologic symptoms during activity → essentially rules out asthma/syncope/medical causes.\n\n**Question 12:** Has a teacher or parent ever said you seem to do this because you’re trying to get attention, or because you’re trying to avoid something specific (like a task you can’t do), or is it mainly about control/being told what to do?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has a teacher or parent ever said you do this to get attention, to avoid something you can’t do, or is it mainly about control/being told what to do? Patient: They say it’s mainly because I don’t like being told what to do, and I won’t start right away—not because I can’t do it.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Oppositional Defiant Disorder, Borderline personality disorder, Schizoaffective disorder, Situational syncope, Asthma",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Oppositional Defiant Disorder",
+    "predicted_set": [
+      "Oppositional Defiant Disorder",
+      "Borderline personality disorder",
+      "Schizoaffective disorder",
+      "Situational syncope",
+      "Asthma"
+    ],
+    "predicted_raw": [
+      "Oppositional Defiant Disorder",
+      "Borderline personality disorder",
+      "Schizoaffective disorder",
+      "Situational syncope",
+      "Asthma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13,
+    "predicted_remapped": "Oppositional Defiant Disorder",
+    "predicted_set_remapped": [
+      "Oppositional Defiant Disorder",
+      "Borderline personality disorder",
+      "Schizoaffective disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27341,
+      "completion_tokens": 1705
+    },
+    "patient": {
+      "prompt_tokens": 20445,
+      "completion_tokens": 835,
+      "calls": 13
+    }
+  }
+}

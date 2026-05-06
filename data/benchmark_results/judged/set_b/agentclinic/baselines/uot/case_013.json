@@ -1,0 +1,96 @@
+{
+  "case_idx": 13,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Endometritis",
+  "patient_actor_hidden": {
+    "Demographics": "24-year-old woman",
+    "History": "The patient is in the postpartum period after delivering an 11 pound boy vaginally at 40 weeks gestation. She experienced a prolonged course during labor. She reports increased frequency of urination and uterine tenderness. She also mentions a decrease in bowel sounds.",
+    "Symptoms": {
+      "Primary_Symptom": "Uterine tenderness",
+      "Secondary_Symptoms": [
+        "Decreased bowel sounds",
+        "Increased frequency of urination",
+        "Fever"
+      ]
+    },
+    "Past_Medical_History": "Uncomplicated pregnancy leading up to a vaginal delivery. No significant past medical or surgical history.",
+    "Social_History": "Does not smoke, drink alcohol, or use illicit drugs. Lives with her partner.",
+    "Review_of_Systems": "Complains of minor difficulty in breathing but denies any urinary pain, headache, vomiting, or diarrhea."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with postpartum fever and abdominal tenderness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m having uterine tenderness since delivery, along with fever, decreased bowel sounds, and I’ve been urinating more often. I don’t have urinary pain, and I’ve also noticed some minor difficulty breathing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent cough with shortness of breath that has been worsening over months to years (especially with smoking or long-term exposure)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have a persistent cough or worsening shortness of breath over months or years—I just noticed some minor difficulty breathing since delivery. I don’t smoke or have long-term exposures that I know of.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have symptoms consistent with acute leukemia (e.g., unexplained bruising/bleeding, severe fatigue, frequent infections, abnormal blood counts)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed unusual bruising or bleeding, and I’m not feeling severely fatigued beyond the usual postpartum exhaustion. I don’t think I’ve had frequent infections, but I did have fever since delivery along with uterine tenderness and decreased bowel sounds.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute lymphoblastic leukemia  , Acute myelogenous leukemia",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_set": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Acute lymphoblastic leukemia  ",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1228,
+      "completion_tokens": 168,
+      "calls": 3
+    }
+  }
+}

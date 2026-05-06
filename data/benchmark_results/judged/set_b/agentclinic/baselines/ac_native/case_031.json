@@ -1,0 +1,104 @@
+{
+  "case_idx": 31,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Acute Mesenteric Ischemia",
+  "patient_actor_hidden": {
+    "Demographics": "74-year-old male",
+    "History": "The patient presents with sudden onset of abdominal pain around the umbilicus 16 hours ago, with recent history of hospitalization for an acute myocardial infarction a week ago. Reports several episodes of bloody loose bowel movements. Denies vomiting.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Bloody loose bowel movements",
+        "No vomiting",
+        "Sudden onset"
+      ]
+    },
+    "Past_Medical_History": "Known diabetes mellitus for 35 years and hypertension for 20 years. History of acute myocardial infarction.",
+    "Social_History": "Smokes 15–20 cigarettes per day for the past 40 years.",
+    "Review_of_Systems": "Denies fever, vomiting. Reports bloody loose bowel movements."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with sudden onset of abdominal pain, focusing on the relevance of the patient's medical history and current symptoms.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, where exactly is your abdominal pain (upper/right/left, around the belly button, or lower)? Patient: Doctor: How long ago did it start, and is it constant or crampy?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It started suddenly about 16 hours ago and the pain is centered around my belly button; it’s severe and doesn’t really come and go. Patient: I’m also having several episodes of bloody loose bowel movements, and I haven’t vomited."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—any fever or chills, and does the pain shift toward the right lower abdomen or stay periumbilical? Also, have you taken any recent antibiotics, traveled, or had anyone around you with similar diarrhea?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: No fever or chills, and the pain has stayed centered around my belly button without shifting to the right lower abdomen. I haven’t taken any recent antibiotics, and I haven’t had travel or anyone else with similar diarrhea."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Any history of inflammatory bowel disease, abdominal surgery/hernia, or sudden severe pain worsening with movement; and what are your current vital signs if you know them (heart rate, blood pressure)? Doctor: REQUEST TEST: CBC, CMP, CRP/ESR, Lactate Doctor: REQUEST TEST: Stool PCR/culture for bacterial pathogens (including Shiga toxin), and stool C. difficile testing",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Vital Signs—Temperature 36.9°C (98.4°F); Blood Pressure 95/65 mm Hg; Heart Rate 95 bpm. Abdominal Exam—Inspection normal; Auscultation: bruit over epigastric area; Percussion normal; Palpation: mild periumbilical tenderness. Imaging—CT Angiography Abdomen: evidence suggestive of reduced blood flow to the mesenteric arteries. Requested labs/stool tests (CBC, CMP, CRP/ESR, Lactate; Stool PCR/culture for bacterial pathogens including Shiga toxin; Stool C. difficile): Not provided (no results available)."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: You have sudden severe periumbilical pain with bloody diarrhea, low-normal BP (95/65), and CT angiography showing reduced mesenteric arterial blood flow—have you had any history of atrial fibrillation, heart disease, recent dehydration, or blood-clotting problems? Also, was the bloody stool truly maroon/red and how many episodes since onset? Doctor: REQUEST TEST: CTA/CT report confirmation + ECG; REQUEST TEST: aPTT/INR and blood glucose, and repeat lactate level now. Doctor: DIAGNOSIS READY: Acute mesenteric ischemia (likely thromboembolic/arterial) causing ischemic colitis with bloody diarrhea—needs urgent vascular/surgical management.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: You have sudden severe periumbilical pain with bloody diarrhea, low-normal BP (95/65), and CT angiography showing reduced mesenteric arterial blood flow—have you had any history of atrial fibrillation, heart disease, recent dehydration, or blood-clotting problems? Also, was the bloody stool truly maroon/red and how many episodes since onset? Doctor: REQUEST TEST: CTA/CT report confirmation + ECG; REQUEST TEST: aPTT/INR and blood glucose, and repeat lactate level now. Doctor: DIAGNOSIS READY: Acute mesenteric ischemia (likely thromboembolic/arterial) causing ischemic colitis with bloody diarrhea—needs urgent vascular/surgical management.",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Acute Mesenteric Ischemia",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1559,
+      "completion_tokens": 346,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 787,
+      "completion_tokens": 104,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 467,
+      "completion_tokens": 136,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 216,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "case_idx": 45,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: F\nChief Complaint: cough",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I have a cough for the past 2 weeks, along with nasal congestion or a clear runny nose. I’ve also had pain around the top of my head, my cheeks (right and left), and my temples (right). The pain is a 6 out of 10 and feels tedious and sensitive, and it seems to have been appearing at a pace of 4 out of 10. I’ve been in contact with someone with similar symptoms, and I attend/work in a daycare. Also, I’m exposed to secondhand cigarette smoke daily.",
+      "extracted_features": {
+        "f_e_201": "yes",
+        "f_e_181": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_62": "yes",
+        "f_e_55_v_108": "yes",
+        "f_e_55_v_109": "yes",
+        "f_e_55_v_166": "yes",
+        "f_e_54_v_154": "yes",
+        "f_e_54_v_161": "yes",
+        "f_e_59": "4",
+        "f_e_56": "6",
+        "f_ant_e_41": "yes",
+        "f_ant_e_49": "yes",
+        "f_ant_e_222": "yes"
+      },
+      "top5_posterior": [
+        [
+          "URTI",
+          0.994800298435509
+        ],
+        [
+          "Viral pharyngitis",
+          0.0017429581466001348
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.0007438602570206556
+        ],
+        [
+          "Influenza",
+          0.0006948556280423881
+        ],
+        [
+          "Cluster headache",
+          0.00038488636087741614
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_48",
+      "doctor_question": "To help me get a better understanding of your environment, could you tell me if you live in a household with four or more people?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "URTI",
+          0.994800298435509
+        ],
+        [
+          "Viral pharyngitis",
+          0.0017429581466001348
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.0007438602570206556
+        ]
+      ],
+      "entropy": 0.06415490312285656
+    }
+  ],
+  "final": {
+    "predicted": "URTI",
+    "predicted_top3": [
+      "URTI",
+      "Viral pharyngitis",
+      "Chronic rhinosinusitis"
+    ],
+    "confidence": 0.994800298435509,
+    "final_entropy": 0.06415490312285656,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "URTI",
+    "predicted_set_remapped": [
+      "URTI",
+      "Viral pharyngitis",
+      "Chronic rhinosinusitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11843,
+      "completion_tokens": 330
+    },
+    "patient": {}
+  }
+}

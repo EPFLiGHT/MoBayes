@@ -1,0 +1,319 @@
+{
+  "case_idx": 2,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {
+    "AGE": 63,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "changes in voice",
+    "EVIDENCES_ENG": "['daycare attendance or work', 'pain', 'cigarette smoking', 'fever', 'recent cold', 'cough', 'changes in voice']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 63\n- I attend or work in a daycare.\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I have a fever (either felt or measured with a thermometer).\n- I have had a cold in the last 2 weeks.\n- I have a cough.\n- I have noticed that the tone of my voice has become deeper, softer or hoarse.\n- On a scale of 0-10, the pain intensity is 5\n- On a scale of 0-10, the pain's location precision is 6\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The pain is:\n* burning\n- The pain locations are:\n* pharynx\n* under the jaw\n* trachea\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute laryngitis', 0.23688497116098903], ['Bronchitis', 0.22726327392208767], ['Tuberculosis', 0.14919402099656698], ['Viral pharyngitis', 0.14012917581726916], ['Possible NSTEMI / STEMI', 0.12751539098310147], ['Unstable angina', 0.11901316711998566]]",
+    "PATHOLOGY": "Acute laryngitis",
+    "INITIAL_EVIDENCE": "volume_parole",
+    "EVIDENCES": "['dayc', 'douleurxx', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_endroitducorps_@_pharynx', 'douleurxx_endroitducorps_@_sous_la_machoire', 'douleurxx_endroitducorps_@_trachée', 'douleurxx_intens_@_5', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_6', 'douleurxx_soudain_@_5', 'f17.210', 'fievre', 'j06.9', 'toux', 'trav1_@_N', 'volume_parole']",
+    "patient_id": "htsim_0073",
+    "_test_index": 73,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 63-year-old M patient presents to the clinic. Chief complaint: changes in voice.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My voice has become deeper, softer, and hoarse. I also have a cough and a fever.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When did the hoarseness and cough start, and are you having trouble swallowing or any shortness of breath/wheezing?  \nDoctor: Do you smoke or drink alcohol regularly, and have you had any recent upper-respiratory infection or acid reflux symptoms?  \nDoctor: REQUEST TEST: Chest_X-Ray and REQUEST TEST: CBC (to look for infection/inflammation).",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cold in the last 2 weeks. I smoke cigarettes. I don’t know about trouble swallowing or shortness of breath/wheezing. I don’t know about alcohol use or acid reflux symptoms.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On a scale of 0–10, how bad is the throat pain (if any), and have you noticed weight loss, coughing up blood, or a neck lump? Also, do you have fever now or did it resolve after the cold?  \nDoctor: REQUEST TEST: Laryngoscopy (ENT) and REQUEST TEST: Rapid_Strep/Respiratory_Viral_PCR (if still febrile)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever. The pain intensity is 5 out of 10, and it’s burning in my pharynx, under the jaw, and the trachea. I haven’t noticed a neck lump, coughing up blood, or weight loss—I don’t know about those.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given fever with 2 weeks of hoarseness after a recent cold and burning throat/tracheal pain, do you have any drooling, stridor (high-pitched breathing), or are you able to swallow liquids normally?  \nDoctor: Also, can you confirm how many cigarettes per day and whether you have nighttime reflux/heartburn or sour taste in the mouth?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about drooling, stridor, or whether I can swallow liquids normally. I smoke cigarettes, but I don’t know how many per day. I don’t know about nighttime reflux/heartburn or a sour taste in my mouth.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your throat and neck for swelling and lymph nodes, and I need to know: any thick mucus, severe worsening one-sided throat pain, or inability to open your mouth fully?  \nDoctor: Also, have you had night sweats, unintentional weight loss, or persistent symptoms beyond the cold (no improvement in hoarseness)?  \nDoctor: REQUEST TEST: ENT_Throat_Exam_with_Neck_Lymph_Node_Assessment_and_Vitals",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about thick mucus, severe worsening one-sided throat pain, or an inability to open my mouth fully. I also don’t know about night sweats or unintentional weight loss, or whether my hoarseness is persistent beyond the cold.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll need a few quick specifics—can you swallow water without coughing or choking, and do you have any high-pitched breathing/stridor or drooling? Also, do you have a known history of GERD/heartburn, and how many days has your hoarseness lasted total?\n\nDoctor: REQUEST TEST: ENT_Laryngoscopy (urgent, to directly visualize vocal cords)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can swallow water without coughing or choking. I also don’t know about high-pitched breathing/stridor or drooling. I don’t know about any known history of GERD/heartburn. My hoarseness has been there for about 2 weeks.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned by your 2-week hoarseness with ongoing fever after a recent cold—this could be an acute laryngitis/viral infection, but we must also rule out bacterial laryngitis or vocal-cord inflammation/injury. Do you have any smoking-related history of frequent bronchitis, and are you taking any inhaled steroids or recent antibiotics?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know about a smoking-related history of frequent bronchitis, and I don’t know whether I’m taking any inhaled steroids or have had any recent antibiotics.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as urgent hoarseness with fever for 2 weeks—this most often is viral/bacterial laryngitis after a URI, but we must exclude more serious causes; can you tell me if the fever is still present today and your current temperature, and whether your voice gets worse with use but improves with rest?  \nDoctor: REQUEST TEST: Repeat_Vitals_and_Temperature  \nDoctor: REQUEST TEST: ENT_Laryngoscopy (urgent if not already done)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "My fever is still present today. I don’t know my current temperature. I don’t know whether my voice gets worse with use or improves with rest.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume the fever persists and treat this as urgent—requesting ENT_laryngoscopy results and your actual vital signs (including oxygen saturation) now; could you also tell me whether your hoarseness is steadily getting worse or staying about the same?  \nDoctor: REQUEST TEST: Actual_Vitals_Temp_O2_Sat  \nDoctor: REQUEST TEST: ENT_Laryngoscopy_Result",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether my hoarseness is steadily getting worse or staying about the same.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need one critical safety check: do you have any trouble breathing, noisy breathing (stridor), drooling, or inability to swallow your saliva?  \nDoctor: Also, tell me your current temperature if you can and whether you’ve had hoarseness any longer than 2 weeks total (exact days), and I’ll finalize the most likely diagnosis after reviewing the urgent laryngoscopy/vitals you requested.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about trouble breathing, noisy breathing (stridor), drooling, or inability to swallow my saliva. I don’t know my current temperature.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Because you have persistent hoarseness for ~2 weeks with an ongoing fever and a smoking history, we must treat this as an urgent ENT issue—please answer: is your breathing normal right now (no shortness of breath at rest), and can you swallow your saliva without drooling or choking?  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Full_Set_of_Vitals_now  \nDoctor: REQUEST TEST: ENT_Laryngoscopy_Result (visualize vocal cords and look for edema, ulceration, mass, or abscess)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about trouble breathing or shortness of breath at rest. I don’t know whether I can swallow my saliva without drooling or choking.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to proceed urgently—given 2 weeks of hoarseness with ongoing fever in a cigarette smoker, we must rule out serious vocal cord inflammation/infection or an obstructing process; I need the ENT laryngoscopy findings and your oxygen saturation/vitals.  \nDoctor: REQUEST TEST: ENT_Laryngoscopy_Result (including vocal cord appearance: edema, ulcer, mass, abscess) and REQUEST TEST: Oxygen_Saturation_and_Full_Set_of_Vitals_now.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the ENT laryngoscopy findings or my oxygen saturation/vitals.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need immediate safety info—right now, are you able to breathe comfortably at rest and swallow your saliva without drooling or choking?  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Full_Set_of_Vitals_now and REQUEST TEST: ENT_Laryngoscopy_Result.",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about whether I’m able to breathe comfortably at rest or whether I can swallow my saliva without drooling or choking.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely finalize without the key safety/vocal-cord data—please get/answer immediately: (1) your current temperature and oxygen saturation, and (2) can you swallow saliva without drooling/choking and breathe comfortably at rest (yes/no)?  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Full_Set_of_Vitals_now; REQUEST TEST: ENT_Laryngoscopy_Result (vocal cord appearance: edema/ulcer/mass/abscess)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my current temperature or oxygen saturation. I don’t know whether I can swallow my saliva without drooling or choking, and I don’t know whether I can breathe comfortably at rest.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume an urgent airway risk could exist until proven otherwise—right now, can you breathe comfortably at rest and swallow your saliva (yes/no)? Also, do you have drooling or noisy/high-pitched breathing?  \nDoctor: REQUEST TEST: Current_Vitals_Temp_O2Sat_now and REQUEST TEST: ENT_Laryngoscopy_Result_with_vocal_cord_findings",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or swallow my saliva. I also don’t know whether I have drooling or noisy/high-pitched breathing.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need those safety answers immediately: can you breathe comfortably at rest **(yes/no)** and can you swallow your saliva **without drooling/choking (yes/no)**—and please tell me your current temperature and oxygen saturation.  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Temperature_now; REQUEST TEST: ENT_Laryngoscopy_Result_with_vocal_cord_findings (urgent).",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest (yes/no), or whether I can swallow my saliva without drooling/choking (yes/no). I also don’t know my current temperature or oxygen saturation.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t make a safe diagnosis without the immediate airway-swallowing status and vitals—please answer **now**: (1) can you breathe comfortably at rest **yes/no**, (2) can you swallow your saliva without drooling/choking **yes/no**, and (3) your **current temperature and oxygen saturation** if you have them.  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Temperature_now; REQUEST TEST: ENT_Laryngoscopy_Result_with_vocal_cord_findings",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With “I don’t know” for breathing/swallowing status and no current temp/O2 yet, we have to treat this as potentially unsafe—please call/arrange immediate vitals and urgent ENT review now, and answer: are you having any shortness of breath at rest, drooling, or inability to swallow saliva (yes/no)?  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Temperature_now; REQUEST TEST: Immediate_ENT_Laryngoscopy_Result_with_vocal_cord_findings",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m having any shortness of breath at rest, drooling, or inability to swallow saliva.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still missing two immediate safety pieces—please check and answer right now: (1) can you breathe comfortably at rest (yes/no), and (2) can you swallow your saliva without drooling/choking (yes/no)?  \nDoctor: REQUEST TEST: Oxygen_Saturation_and_Temperature_now; REQUEST TEST: ENT_Laryngoscopy_Result_with_vocal_cord_findings",
+      "turn": 18
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or whether I can swallow my saliva without drooling or choking.",
+      "turn": 18
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as urgent because you can’t confirm breathing or saliva-swallowing safety—right now please go to the ER/urgent airway evaluation, and I need your nurse/clinician to obtain vitals (temp + O2 saturation) immediately and get an urgent ENT laryngoscopy report.  \nDoctor: Once those results are available, I’ll decide between acute laryngitis with vocal cord inflammation vs a more serious cause (e.g., laryngeal abscess/obstructing lesion), but without breathing/swallowing status and laryngoscopy findings I can’t safely diagnose.",
+      "turn": 19
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or whether I can swallow my saliva without drooling or choking.",
+      "turn": 19
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely choose a specific diagnosis without the two critical safety answers (breathing at rest and ability to swallow saliva) plus your current temperature/O2 saturation and the ENT laryngoscopy results.  \nDoctor: Because you have ~2 weeks of hoarseness with ongoing fever and you’re unable to confirm airway/swallow safety, I’m diagnosing this as **potential acute laryngeal obstruction/infection requiring emergency evaluation** until proven otherwise.",
+      "turn": 20
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 20
+    },
+    {
+      "role": "doctor",
+      "content": "Maximum inferences reached",
+      "turn": 21
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 21
+    },
+    {
+      "role": "doctor",
+      "content": "Maximum inferences reached",
+      "turn": 22
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or whether I can swallow my saliva without drooling or choking. I also don’t know my current temperature or oxygen saturation.",
+      "turn": 22
+    },
+    {
+      "role": "doctor",
+      "content": "Maximum inferences reached",
+      "turn": 23
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or whether I can swallow my saliva without drooling or choking. I also don’t know my current temperature or oxygen saturation.",
+      "turn": 23
+    },
+    {
+      "role": "doctor",
+      "content": "Maximum inferences reached",
+      "turn": 24
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or whether I can swallow my saliva without drooling or choking. I also don’t know my current temperature or oxygen saturation.",
+      "turn": 24
+    },
+    {
+      "role": "doctor",
+      "content": "Maximum inferences reached",
+      "turn": 25
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can breathe comfortably at rest or whether I can swallow my saliva without drooling or choking. I also don’t know my current temperature or oxygen saturation.",
+      "turn": 25
+    },
+    {
+      "role": "doctor",
+      "content": "Maximum inferences reached",
+      "turn": -1
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 25,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 28456,
+      "completion_tokens": 1842,
+      "calls": 20
+    },
+    "patient": {
+      "prompt_tokens": 58403,
+      "completion_tokens": 907,
+      "calls": 26
+    }
+  }
+}

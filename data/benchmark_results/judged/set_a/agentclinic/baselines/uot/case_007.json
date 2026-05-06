@@ -1,0 +1,92 @@
+{
+  "case_idx": 7,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Autosomal dominant polycystic kidney disease",
+  "patient_actor_hidden": {
+    "Demographics": "31-year-old female",
+    "History": "The patient reports a 5-month history of intermittent flank pain. She mentions having experienced five urinary tract infections over the past 2 years. She does not report any recent fever, nausea, or vomiting. No changes in urinary habits, such as increased frequency or urgency, except when experiencing a UTI.",
+    "Symptoms": {
+      "Primary_Symptom": "Intermittent flank pain",
+      "Secondary_Symptoms": [
+        "History of multiple UTIs",
+        "No nausea or vomiting",
+        "No significant change in urinary habits"
+      ]
+    },
+    "Past_Medical_History": "No significant medical history. No history of kidney stones or familial kidney diseases as per patient's knowledge.",
+    "Social_History": "Non-smoker, drinks alcohol socially, works in IT management. No recent travels or unusual dietary habits reported.",
+    "Review_of_Systems": "Denies fever, rash, joint pain, or recent infections apart from the UTIs mentioned. No significant weight loss or gain."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with chronic flank pain and a history of urinary tract infections.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I've been having intermittent flank pain for about five months. Over the past two years, I’ve had around five urinary tract infections, but I haven’t had any recent fever, nausea, or vomiting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a persistent cough with fever and/or chest pain that is worse when breathing in?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have a cough or fever, and I’m not having chest pain that gets worse when I breathe in.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you been diagnosed with kidney cysts in your kidneys (for example, seen on ultrasound/CT/MRI)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t been told I have kidney cysts, and I haven’t had any imaging like ultrasound/CT/MRI that showed them.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic kidney failure, Femoropopliteal artery stenosis  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Chronic kidney failure",
+    "predicted_set": [
+      "Chronic kidney failure",
+      "Femoropopliteal artery stenosis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Chronic kidney failure",
+    "predicted_set_remapped": [
+      "Chronic kidney failure",
+      "Femoropopliteal artery stenosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1216,
+      "completion_tokens": 105,
+      "calls": 3
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "case_idx": 31,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Chagas",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 25\nSex: Female\nChief Complaint: I have swollen or painful lymph nodes, sensitive pain, and a cramp pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had swollen and painful lymph nodes, with sensitive cramp-like pain and a “pulse” kind of pain. I also feel exhausted and I’ve had diarrhea with more frequent stools, plus pain in my head (back, top, and forehead) and epigastric cramp pain, and I’m short of breath.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step. First, a key discriminator:\n\n**Question 1 (one-at-a-time):**  \nHow long has this been going on (hours/days/weeks), and did it start suddenly or gradually?  \n\n*(While you answer, I’ll be thinking about infectious causes vs inflammatory/allergic vs cardiopulmonary emergencies given the shortness of breath.)*",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty gradually—about an onset speed of 2/10—so not instantly. I’m not sure exactly how many days, but it’s been ongoing for a short time rather than weeks.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next discriminator is whether this is an upper-respiratory viral syndrome vs something like pneumonia/PE/anaphylaxis, and also whether there are “red flag” symptoms.\n\n**Question 2:**  \nDo you have **fever or chills** (measured temperature if you know it)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had fever or chills. I don’t have a measured temperature to share.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next, I want to clarify the **shortness of breath** pattern, because that strongly changes the differential (e.g., pneumonia/PE/asthma/anaphylaxis vs viral illness).\n\n**Question 3:**  \nIs your shortness of breath **worse with exertion** or **at rest**, and do you have **chest pain or wheezing**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s hard to say exactly—my shortness of breath feels significant, and it doesn’t seem only with exertion; it’s there even at rest. I don’t think I have chest pain, and I don’t have wheezing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next, I need to assess for **dangerous cardiopulmonary causes**—especially pulmonary embolism—by asking about clot risk and leg symptoms.\n\n**Question 4:**  \nHave you had **one-sided leg swelling or pain**, recent **long travel/immobility**, **recent surgery**, or **a history of blood clots**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No one-sided leg swelling or leg pain that I can tell. No recent long travel, no surgery, and I don’t have a history of blood clots.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next I’ll check for **anaphylaxis/allergic reaction** features (can cause SOB and GI symptoms) even if there’s no wheeze.\n\n**Question 5:**  \nHave you had **hives/itching**, **lip/tongue/throat swelling**, or **a sudden onset of symptoms** at any point?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed hives or itching, and I don’t have lip/tongue/throat swelling. It didn’t feel sudden—more gradual.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next, I want to clarify the **lymph node swelling**—location and whether it’s generalized—because that helps distinguish things like viral URTI vs bacterial infection vs other systemic causes.\n\n**Question 6:**  \nWhere are the swollen lymph nodes (neck/cervical, armpits, groin), and are they **one area** or **multiple areas**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "They feel like they’re in the neck area, and it seems like more than one spot rather than just one single lump. I don’t think it’s in the armpits or groin.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating information to confidently rank a top diagnosis—especially because shortness of breath at rest plus lymphadenopathy and diarrhea could represent several different processes (infectious respiratory illness, pneumonia, pulmonary embolism, or other systemic causes), and we still lack key exam/triage details (vitals, oxygen level, cough, and objective chest findings).\n\n[POSSIBLE] Pneumonia, Influenza, URTI, Pulmonary embolism, Anemia",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Influenza",
+      "URTI",
+      "Pulmonary embolism",
+      "Anemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8337,
+      "completion_tokens": 565
+    },
+    "patient": {
+      "prompt_tokens": 7198,
+      "completion_tokens": 306
+    }
+  }
+}

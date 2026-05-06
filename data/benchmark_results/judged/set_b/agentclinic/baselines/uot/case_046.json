@@ -1,0 +1,126 @@
+{
+  "case_idx": 46,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Impaired erythropoietin production",
+  "patient_actor_hidden": {
+    "Demographics": "1-month-old boy",
+    "History": "The patient’s mother reports that the infant occasionally stops breathing while sleeping, with episodes increasing in frequency. The patient was born prematurely at 32 weeks due to placental insufficiency and required respiratory support immediately post-birth. Prenatal testing indicated the mother was not immune to rubella. The pregnancy was otherwise uncomplicated, with the mother taking only prenatal vitamins. The family history includes a healthy 3-year-old sister and a father with a heart condition.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodes of not breathing (apnea) during sleep",
+      "Secondary_Symptoms": [
+        "Increased frequency of apneic episodes",
+        "Pale conjunctiva"
+      ]
+    },
+    "Past_Medical_History": "Premature birth at 32 weeks due to placental insufficiency. Stay in the neonatal intensive care unit for respiratory support.",
+    "Social_History": "The patient’s mother took prenatal vitamins. Father has a heart condition. One healthy sibling.",
+    "Review_of_Systems": "Patient has pale conjunctiva but no other symptoms or complaints provided by the mother."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the infant presenting with episodes of apnea and anemia.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: My mother says I sometimes stop breathing while I’m asleep, and it’s been happening more often lately.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **wheezing/shortness of breath with chronic airflow limitation** (COPD/asthma-type symptoms)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t seem to have any wheezing or trouble breathing—my mother mainly notices that I stop breathing during sleep, and it’s happening more often.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **a painful skin rash with blistering/skin peeling** (e.g., severe mucocutaneous reaction)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have a painful skin rash with blistering or skin peeling? Patient: No, I don’t have any painful rash that my mother can see, and I haven’t had any blistering or peeling of my skin.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had episodes of fainting (syncope) that occur in specific situations (e.g., seeing blood, pain, standing for long periods) rather than during exertion?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had fainting episodes that someone has noticed, especially not tied to specific situations.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had involuntary movements or progressive loss of coordination (e.g., worsening motor control over time)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had involuntary movements or progressive loss of coordination (e.g., worsening motor control over time)? Patient: My mother hasn’t noticed any unusual movements, and I don’t seem to be losing control of my movements over time.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you noticed involuntary, jerky movements (chorea) or difficulty controlling facial/limb movements that are getting progressively worse?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed involuntary, jerky movements (chorea) or difficulty controlling facial/limb movements that are getting progressively worse? Patient: No—my mother hasn’t noticed any jerky or uncontrolled movements, and I don’t seem to have worsening control of my face or limbs.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Multiple system atrophy  , Parkinson disease",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Multiple system atrophy",
+    "predicted_set": [
+      "Multiple system atrophy",
+      "Parkinson disease"
+    ],
+    "predicted_raw": [
+      "Multiple system atrophy  ",
+      "Parkinson disease"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Multiple system atrophy",
+    "predicted_set_remapped": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3239,
+      "completion_tokens": 275,
+      "calls": 6
+    }
+  }
+}

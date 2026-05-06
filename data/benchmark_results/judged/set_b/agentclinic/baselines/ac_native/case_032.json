@@ -1,0 +1,146 @@
+{
+  "case_idx": 32,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Chronic obstructive pulmonary disease (COPD)",
+  "patient_actor_hidden": {
+    "Demographics": "79-year-old male",
+    "History": "The patient reports experiencing shortness of breath with moderate exertion and a slightly productive cough for the past few months. He mentions a long history of heavy smoking, approximately 25 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Shortness of breath with moderate exertion",
+      "Secondary_Symptoms": [
+        "Slightly productive cough"
+      ]
+    },
+    "Past_Medical_History": "The patient has been a heavy smoker for 25 years.",
+    "Social_History": "Retired, lives alone, has a 25-year history of heavy smoking.",
+    "Review_of_Systems": "Denies chest pain, fever, night sweats, or weight loss."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting with shortness of breath and a productive cough.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’ll start by asking a few key questions—first, how long have you had the shortness of breath and the productive cough (days/weeks), and what color is the sputum (clear/white/yellow/green/rusty/bloody)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It’s been a few months now, and the cough has been slightly productive. The sputum is usually whitish, not yellow or green."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you—next, do you have fever or chills, chest pain (especially sharp with breathing), or worsening breathlessness when lying flat? Also, any history of COPD/asthma, smoking, heart failure, or recent pneumonia? Patient: Doctor:",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Doctor: Thanks—do you have fever or chills, any chest pain (especially sharp with breathing), or does your breathlessness worsen when lying flat? Also, have you been diagnosed with COPD or asthma, have you had recent pneumonia, and given your history, do you have any known heart problems? Patient: I don’t have fever or chills, and I don’t have chest pain. I’m not aware of any COPD or asthma diagnosis, I haven’t had recent pneumonia, and I don’t know of any heart problems."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your lungs and oxygen status—do you get short of breath mostly with exertion or also at rest, and have you noticed leg swelling or weight gain? Doctor: Also, have you had wheezing, and are you a current/former smoker or exposed to dust/biomass smoke?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Patient: It’s mostly with moderate exertion; I’m not usually short of breath at rest, and I haven’t noticed leg swelling or significant weight gain. I don’t recall wheezing, and I’m a former heavy smoker with about 25 years of use; I’m not sure about much dust or biomass exposure."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’ll check your vitals and listen to your lungs for wheeze vs crackles/bronchial breath sounds, and assess your oxygen saturation at rest and with walking. Do you have weight loss, night sweats, or coughing up blood, and have you had prior TB exposure or a recent chest CT/X-ray?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "patient",
+      "content": "Doctor: Do you have weight loss, night sweats, coughing up blood, or prior TB exposure, and have you had a recent chest X-ray or CT scan? Patient: I haven’t had weight loss or night sweats, and I haven’t coughed up blood. I’m not aware of any TB exposure, and I don’t recall having a recent chest X-ray or CT."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: I’m concerned by the *months-long*, mostly whitish productive cough with exertional dyspnea in an older former heavy smoker—before deciding, I need two more key details: do you have wheeze/“whistling,” and have you noticed new or worsening shortness of breath over the last 2–4 weeks? Doctor: REQUEST TEST: Chest_X-Ray (PA/Lateral). Doctor: REQUEST TEST: CBC_and_Procalcitonin (to look for bacterial pattern).",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "measurement",
+      "content": "RESULTS: Heart rate 89/min; Respiratory rate 27/min; Blood pressure 120/90 mm Hg. Respiratory exam: no cyanosis or finger clubbing; decreased breath sounds with occasional wheezes and crackles at the lung base; increased resonance to percussion; normal tactile fremitus. Chest radiography: pulmonary hyperinflation with flattened diaphragm (hyperinflation). Spirometry: FEV1 48% (significantly reduced), FVC 85%, FEV1/FVC ratio 56% (obstructive pattern). CBC_and_procalcitonin: NOT PROVIDED (no results available)."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Your chest X-ray shows hyperinflation with flattened diaphragms, and your spirometry shows an obstructive pattern with FEV1 48%—this strongly fits COPD. Before I finalize, do you currently smoke or have you had frequent bronchitis/exacerbations in the past year, and has your shortness of breath been steadily worsening over these months? Doctor: I’m also going to request one result to confirm severity and rule out other causes—REQUEST TEST: Pulse_Oximetry_at_Rest_and_With_6_Minute_Walk (or ABG if available).",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 6,
+      "role": "measurement",
+      "content": "RESULTS: Heart rate 89/min; Respiratory rate 27/min; Blood pressure 120/90 mm Hg. Respiratory exam: no cyanosis or finger clubbing; decreased breath sounds with occasional wheezes and crackles at the lung base; increased resonance to percussion; normal tactile fremitus. Chest radiography: pulmonary hyperinflation with flattened diaphragm (hyperinflation). Spirometry: FEV1 48% (significantly reduced), FVC 85%, FEV1/FVC ratio 56% (obstructive). CBC and procalcitonin: NOT PROVIDED. Pulse oximetry at rest/with 6-minute walk (or ABG): NOT PROVIDED."
+    },
+    {
+      "turn": 7,
+      "role": "doctor",
+      "content": "Doctor: Given your history and the tests we already have—months of productive cough and exertional dyspnea plus hyperinflation on CXR and obstructive spirometry (FEV1 48%, FEV1/FVC 56%)—this most strongly suggests COPD. To be certain it’s not an alternative like pneumonia or another lung process, do you have frequent “flare-ups” in the past year (more symptoms requiring antibiotics/steroids or hospital visits), and do you currently have low oxygen on exertion (from the pulse-ox/6-minute walk if available)? Doctor: REQUEST TEST: CBC (anemia/infection) + CRP.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 7,
+      "role": "measurement",
+      "content": "RESULTS: Heart rate 89/min; Respiratory rate 27/min; Blood pressure 120/90 mm Hg; Respiratory exam: no cyanosis or finger clubbing; decreased breath sounds with occasional wheezes and crackles at the lung base; increased resonance to percussion; normal tactile fremitus; Chest radiography: pulmonary hyperinflation with flattened diaphragm (hyperinflation); Spirometry: FEV1 48% (significantly reduced), FVC 85%, FEV1/FVC ratio 56% (obstructive); CBC + CRP: NOT PROVIDED."
+    },
+    {
+      "turn": 8,
+      "role": "doctor",
+      "content": "Doctor: Based on the months-long cough and exertional dyspnea with a former heavy smoking history, plus CXR hyperinflation/flattened diaphragms and obstructive spirometry (FEV1 48%, FEV1/FVC 56%), this is most consistent with COPD—can you tell me if you’ve had frequent exacerbations in the last year (needing antibiotics/steroids or ER visits)? Doctor: If available, do you have your resting and exertional oxygen saturation (pulse oximetry) or ABG results to confirm severity? Doctor: DIAGNOSIS READY: COPD (obstructive lung disease), likely moderate–severe by FEV1 (≈48%), currently with chronic bronchitis-type productive cough (no current evidence provided for pneumonia/TB).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Based on the months-long cough and exertional dyspnea with a former heavy smoking history, plus CXR hyperinflation/flattened diaphragms and obstructive spirometry (FEV1 48%, FEV1/FVC 56%), this is most consistent with COPD—can you tell me if you’ve had frequent exacerbations in the last year (needing antibiotics/steroids or ER visits)? Doctor: If available, do you have your resting and exertional oxygen saturation (pulse oximetry) or ABG results to confirm severity? Doctor: DIAGNOSIS READY: COPD (obstructive lung disease), likely moderate–severe by FEV1 (≈48%), currently with chronic bronchitis-type productive cough (no current evidence provided for pneumonia/TB).",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 8,
+    "predicted_remapped": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5908,
+      "completion_tokens": 792,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 2042,
+      "completion_tokens": 295,
+      "calls": 4
+    },
+    "measurement": {
+      "prompt_tokens": 2701,
+      "completion_tokens": 401,
+      "calls": 3
+    },
+    "moderator": {
+      "prompt_tokens": 228,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

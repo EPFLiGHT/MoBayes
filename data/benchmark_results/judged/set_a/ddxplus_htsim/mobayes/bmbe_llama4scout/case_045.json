@@ -1,0 +1,201 @@
+{
+  "case_idx": 45,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: F\nChief Complaint: cough",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve had a cough, along with nasal congestion or a clear runny nose. I also have pain related to this reason for consulting—pain intensity 6 out of 10, and it feels tedious and sensitive, located at the top of my head, both cheeks (right and left), and the temples (right). I’ve had pain for a pace of 4 out of 10.",
+      "extracted_features": {
+        "f_e_201": "yes",
+        "f_e_181": "yes",
+        "f_e_55_v_62": "yes",
+        "f_e_55_v_166": "yes",
+        "f_e_55_v_108": "yes",
+        "f_e_55_v_109": "yes",
+        "f_e_54_v_154": "yes",
+        "f_e_56": "6",
+        "f_e_57_v_166": "yes",
+        "f_e_89": "no"
+      },
+      "top5_posterior": [
+        [
+          "URTI",
+          0.6704169815466711
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.16821095125425678
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.08055146450572986
+        ],
+        [
+          "Cluster headache",
+          0.026447190713989665
+        ],
+        [
+          "Influenza",
+          0.013894486156224474
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_25",
+      "doctor_question": "Have any of your close family members, such as parents or siblings, ever been diagnosed with cluster headaches?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "URTI",
+          0.6852784062832558
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.17193975655117397
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.08233708384432689
+        ]
+      ],
+      "entropy": 1.610257069710733
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_148",
+      "doctor_question": "How are you feeling in terms of your stomach? Are you experiencing any nausea or feeling like you might vomit?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "URTI",
+          0.6910972711982847
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.17339973866606448
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.08303622796443143
+        ]
+      ],
+      "entropy": 1.55077276900958
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_180",
+      "doctor_question": "Does your pain feel like it's pulling or tugging on something?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "URTI",
+          0.6910972711982847
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.17339973866606448
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.08303622796443143
+        ]
+      ],
+      "entropy": 1.55077276900958
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_179",
+      "doctor_question": "Does your pain feel like a sharp, stabbing sensation, like being cut with a knife?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "URTI",
+          0.6910972711982847
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.17339973866606448
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.08303622796443143
+        ]
+      ],
+      "entropy": 1.55077276900958
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_ant_e_79",
+      "doctor_question": "Can you tell me if you smoke cigarettes?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "URTI",
+          0.7264062524016485
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.12715739822965977
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.06089207969970503
+        ]
+      ],
+      "entropy": 1.6470746805583556
+    }
+  ],
+  "final": {
+    "predicted": "URTI",
+    "predicted_top3": [
+      "URTI",
+      "Chronic rhinosinusitis",
+      "Acute rhinosinusitis"
+    ],
+    "confidence": 0.7264062524016485,
+    "final_entropy": 1.6470746805583556,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "URTI",
+    "predicted_set_remapped": [
+      "URTI",
+      "Chronic rhinosinusitis",
+      "Acute rhinosinusitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11576,
+      "completion_tokens": 868
+    },
+    "patient": {}
+  }
+}

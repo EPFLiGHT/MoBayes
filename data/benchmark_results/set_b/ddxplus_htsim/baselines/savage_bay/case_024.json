@@ -1,0 +1,189 @@
+{
+  "case_idx": 24,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: F\nChief Complaint: loss of appetite",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a loss of appetite or I get full more quickly than usual. I also have a fever with chills or shivers, nasal congestion or a clear runny nose, and a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I’ll start with the most discriminating feature: **how long have these symptoms been going on?**\n\n**Current posterior (pre-test, rough):**\n- Influenza: 0.25  \n- URTI: 0.20  \n- Pneumonia: 0.15  \n- Bronchitis: 0.15  \n- Viral pharyngitis: 0.10  \n(others lower)\n\n**Question 1:** How many days has it been since symptoms started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s anchor it by timing in a different way.\n\n**Question 2:** Did this start **suddenly over hours** (like you felt fine then got sick quickly), or **gradually over 1–3 days**?  \n\n**Current posterior (still rough, since duration unknown):**\n- Influenza: 0.25  \n- URTI: 0.20  \n- Pneumonia: 0.15  \n- Bronchitis: 0.15  \n- Viral pharyngitis: 0.10",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question that helps separate viral URTI from pneumonia/bronchitis.\n\n**Question 3:** Do you have **shortness of breath** or **chest pain** (especially worse with breathing), or is it mainly congestion/runny nose + cough?  \n\n**Current posterior (pre-test, unchanged):**\n- Influenza: 0.25  \n- URTI: 0.20  \n- Pneumonia: 0.15  \n- Bronchitis: 0.15  \n- Viral pharyngitis: 0.10",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Let’s use another discriminating symptom: **sputum**.\n\n**Question 4:** Is your cough producing mucus/phlegm? If yes, what color (clear/white, yellow-green, or bloody)?  \n\n**Current posterior (pre-test, unchanged):**\n- Influenza: 0.25  \n- URTI: 0.20  \n- Pneumonia: 0.15  \n- Bronchitis: 0.15  \n- Viral pharyngitis: 0.10",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "My cough is producing mucus/phlegm: I don’t know. If it’s producing anything, I don’t know what color it is.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next, I’ll ask about **sore throat vs lower-airway symptoms**, which helps separate viral pharyngitis/URTI from bronchitis/pneumonia.\n\n**Question 5:** Do you have a **sore throat** or **pain when swallowing**, or is it mostly nasal congestion and cough?  \n\n**Current posterior (still rough):**\n- Influenza: 0.25  \n- URTI: 0.20  \n- Pneumonia: 0.15  \n- Bronchitis: 0.15  \n- Viral pharyngitis: 0.10",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Let’s check for a key pneumonia clue: **high fever and rigors**.\n\n**Question 6:** Have you measured your temperature? If yes, what’s the highest number (°F/°C)? If not, does it feel **very high** with shaking chills/rigors?  \n\n**Current posterior (pre-test, unchanged):**\n- Influenza: 0.25  \n- URTI: 0.20  \n- Pneumonia: 0.15  \n- Bronchitis: 0.15  \n- Viral pharyngitis: 0.10",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’ve had a fever (either felt or measured with a thermometer) and chills or shivers.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "That supports an infectious process but still overlaps several diagnoses.\n\n**Question 7:** Any **known sick contacts** (someone around you with flu/cold), or has there been a **local flu outbreak** recently?  \n\n**Current posterior (updated slightly toward influenza/viral):**\n- Influenza: 0.30  \n- URTI: 0.22  \n- Pneumonia: 0.14  \n- Bronchitis: 0.14  \n- Viral pharyngitis: 0.10  \n\n**Likelihood ratio (conceptual):**\n- If sick contacts/flu exposure → increases influenza/viral URTI likelihood.\n- If none → shifts a bit toward pneumonia/bronchitis.\n\nWhat’s the answer?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "No worries—let’s move to a more discriminating symptom: **wheezing**.\n\n**Question 8:** Have you noticed **wheezing** or a whistling sound when breathing, or a history of **asthma/COPD**?  \n\n**Current posterior (still rough):**\n- Influenza: 0.30  \n- URTI: 0.22  \n- Pneumonia: 0.14  \n- Bronchitis: 0.14  \n- Viral pharyngitis: 0.10",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next discriminating feature: **chest tightness** or **rapid breathing**.\n\n**Question 9:** Are you breathing faster than usual, or feeling chest tightness/“can’t get air in,” especially with exertion?  \n\n**Current posterior (unchanged):**\n- Influenza: 0.30  \n- URTI: 0.22  \n- Pneumonia: 0.14  \n- Bronchitis: 0.14  \n- Viral pharyngitis: 0.10",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Given the uncertainty, I’ll ask about a high-yield “red flag” that would push toward pneumonia.\n\n**Question 10:** Have you had **pleuritic chest pain** (sharp pain worse when you take a deep breath) or **one-sided** chest discomfort?  \n\n**Current posterior (still rough):**\n- Influenza: 0.30  \n- URTI: 0.22  \n- Pneumonia: 0.14  \n- Bronchitis: 0.14  \n- Viral pharyngitis: 0.10",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Alright—let’s check for another discriminating clue: **age/risk factors** for pneumonia.\n\n**Question 11:** How old are you, and do you have major risk factors (COPD/asthma, diabetes, heart disease, immunosuppression, pregnancy)?  \n\n**Current posterior (pre-test, unchanged):**\n- Influenza: 0.30  \n- URTI: 0.22  \n- Pneumonia: 0.14  \n- Bronchitis: 0.14  \n- Viral pharyngitis: 0.10",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m 57 years old. I smoke cigarettes. I don’t know about any other major risk factors like COPD/asthma, diabetes, heart disease, immunosuppression, or pregnancy.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "That increases pneumonia/bronchitis risk somewhat (age + smoking), but influenza/viral still plausible.\n\n**Current posterior (updated):**\n- Influenza: 0.27  \n- URTI: 0.20  \n- Pneumonia: 0.18  \n- Bronchitis: 0.18  \n- Viral pharyngitis: 0.10  \n\n**Likelihood ratio (conceptual):**\n- Smoking/older age → increases likelihood of lower respiratory infection (pneumonia/bronchitis) vs uncomplicated URTI.\n\n**Question 12:** Do you have **measured low oxygen** or severe shortness of breath—e.g., can you speak full sentences, or are you gasping at rest?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—last question I’ll ask before giving a best-effort differential: **any history of asthma/COPD** or prior similar episodes?\n\n**Question 13:** Have you ever been diagnosed with **COPD or asthma**, or do you use an inhaler/nebulizer?  \n\n**Current posterior (unchanged):**\n- Influenza: 0.27  \n- Pneumonia: 0.18  \n- Bronchitis: 0.18  \n- URTI: 0.20  \n- Viral pharyngitis: 0.10",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 14:** Any **vomiting**, **severe headache**, **neck stiffness**, or **confusion**?\n\n**Current posterior (final rough, since key discriminators still unknown):**\n- Influenza: 0.27  \n- Pneumonia: 0.20  \n- Bronchitis: 0.18  \n- URTI: 0.20  \n- Viral pharyngitis: 0.10",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are missing (duration/onset, measured fever, sputum characteristics, shortness of breath/pleuritic pain, oxygenation, and exam findings), so I can’t confidently rank a single diagnosis.\n\n[POSSIBLE] Influenza, Pneumonia, Bronchitis, URTI, Viral pharyngitis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Pneumonia",
+      "Bronchitis",
+      "URTI",
+      "Viral pharyngitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 26496,
+      "completion_tokens": 1739
+    },
+    "patient": {}
+  }
+}

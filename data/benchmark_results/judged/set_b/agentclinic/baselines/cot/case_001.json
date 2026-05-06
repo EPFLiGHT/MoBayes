@@ -1,0 +1,144 @@
+{
+  "case_idx": 1,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Fulminant hepatic failure",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male",
+    "History": "The patient was previously healthy and has been brought to the emergency department due to agitation over the past 24 hours. Family members have noticed a yellowish coloring of his skin and eyes over the past week. The patient has a history of occasional cocaine and ecstasy use, and drinks alcohol socially on weekends. The patient also admits to high-risk sexual behaviors without using appropriate protection.",
+    "Symptoms": {
+      "Primary_Symptom": "Agitation",
+      "Secondary_Symptoms": [
+        "Psychomotor agitation",
+        "Not oriented to time and space",
+        "Jaundice on the skin and mucous membranes",
+        "Epistaxis"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Occasional use of cocaine and ecstasy. Social alcohol consumption (about 20 g on weekends).",
+    "Review_of_Systems": "The patient shows signs of psychomotor agitation and confusion. No other symptoms provided."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with agitation, yellowish coloring of the skin and eyes, and abnormal lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been feeling very agitated and restless for about a day, and I’ve been confused and not really oriented to where I am or what time it is. My skin and eyes have looked yellow for about a week, and I’ve also had nosebleeds.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 1 day of agitation/restlessness with confusion/disorientation; 1 week of jaundice (yellow skin/eyes); nosebleeds.\nTop candidates from the list:\n- Fulminant hepatic failure: Jaundice for a week plus acute mental status changes (hepatic encephalopathy) and bleeding tendency (e.g., coagulopathy → epistaxis).\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Can cause jaundice and confusion, and nosebleeds from thrombocytopenia, but the prominent acute delirium with jaundice strongly points more to liver failure.\n- Disseminated Gonococcal Infection: Can cause systemic illness but would not typically cause jaundice for a week with this pattern.\n- Essential thrombocythemia / Hemophilia A: Bleeding (nosebleeds) could fit, but jaundice with acute confusion is less typical.\nMost informative next question: determine whether there are signs of hepatic encephalopathy/bleeding severity—specifically, any vomiting, abdominal pain, or asterixis.\n[/REASONING]\nDo you have any abdominal pain or vomiting, and have you noticed any “flapping” tremor of your hands (when you hold your arms out)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any abdominal pain or vomiting, and have you noticed any “flapping” tremor of your hands when you hold your arms out? Patient: I don’t really remember having abdominal pain or vomiting, but I do feel very confused and restless, and I think my hands may be hard to control when I try to hold them out.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: agitation/restlessness + confusion/disorientation for 1 day; jaundice for 1 week; nosebleeds; possible hand “hard to control” consistent with asterixis (hepatic encephalopathy).\nTop candidates:\n- Fulminant hepatic failure: Fits best—jaundice + acute altered mental status (encephalopathy/asterixis) + bleeding tendency (epistaxis).\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Could explain nosebleeds and confusion, but jaundice plus asterixis is more characteristic of liver failure.\n- Hemophilia A / Essential thrombocythemia: Could explain nosebleeds but not jaundice with acute encephalopathy.\nMost informative next question: ask about rapid progression and any history of liver disease/toxin exposure—specifically, have they taken acetaminophen or any new medications/herbal supplements, or is there any known liver disease?\n[/REASONING]\nHave you taken any acetaminophen (Tylenol) or new medications/herbal supplements recently, or do you have any known history of liver disease?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any known liver disease, and I’m not sure about taking acetaminophen recently—I haven’t had any regular medications or herbal supplements. I have used cocaine and ecstasy occasionally, though, and I drank some alcohol on the weekends.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 1 week jaundice; 1 day acute agitation/confusion; possible asterixis; nosebleeds; no known chronic liver disease; occasional cocaine/ecstasy; some alcohol.\nTop candidates:\n- Fulminant hepatic failure: Still strongest—jaundice + acute encephalopathy/asterixis + bleeding. Toxin/drug-induced liver injury (including MDMA/ecstasy) can precipitate fulminant failure.\n- Toxic exposure: Could be the underlying cause leading to fulminant hepatic failure; but we need to decide if we label it as fulminant hepatic failure vs toxic exposure.\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Nosebleeds could fit, but the combination of jaundice + encephalopathy remains more liver-centric.\nMost informative next question: ask about any recent infection/fever or severe headache, and specifically whether they have had dark urine or pale stools (cholestatic/hepatocellular pattern) and whether symptoms started suddenly.\nBut to discriminate fulminant hepatic failure vs other causes, the single most useful is: any history of viral hepatitis risk (jaundice onset after exposure, IV drug use, unprotected sex, recent travel).\nQuestion one-at-a-time: Have you had any recent fever/illness or any risk factors for hepatitis (IV drug use, unprotected sex, tattoos/piercings, or known exposure)? \n[/",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any recent fever or illness, and do you have any hepatitis risk factors—like unprotected sex, IV drug use, recent tattoos/piercings, or known contact with someone with hepatitis? Patient: I’ve had unprotected sex recently, but I don’t use IV drugs; I did get a tattoo a couple of months ago, and I haven’t noticed a clear fever.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: jaundice x ~1 week; acute confusion/agitation x 1 day with possible asterixis; epistaxis; unprotected sex; tattoo 2 months ago; no IV drug use; no clear fever.\nTop candidates:\n- Fulminant hepatic failure: Strong—jaundice plus acute encephalopathy/asterixis and bleeding. Viral hepatitis is a plausible trigger given tattoo/unprotected sex.\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Could cause bleeding and neurocognitive symptoms, but jaundice with encephalopathy is less typical than liver failure.\n- Toxic exposure: Substance-related liver injury could contribute, but the hepatitis risk factors (tattoo/unprotected sex) keep fulminant viral hepatitis high.\nMost informative next question: ask about the timing of jaundice relative to any preceding symptoms and whether there’s been very rapid worsening—specifically, have they had nausea, poor appetite, or right upper quadrant pain in the days before jaundice, and when exactly did jaundice start?\n[/REASONING]\nWhen did the yellowing (jaundice) start exactly, and in the days right before it began did you have nausea, loss of appetite, or right-upper-abdominal (right side under ribs) pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The yellowing started about a week ago, and before that I didn’t really have nausea or appetite loss, and I don’t recall any specific right-upper abdominal pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: jaundice began ~1 week ago without preceding GI symptoms; now acute encephalopathy-like symptoms (confusion, possible asterixis) and nosebleeds.\nTop candidates:\n- Fulminant hepatic failure: Still best fit—acute mental status changes with jaundice and bleeding suggests hepatic failure/coagulopathy.\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Nosebleeds + confusion could occur, but lack of preceding systemic symptoms and presence of jaundice/encephalopathy keeps liver failure more likely.\n- Toxic exposure: Possible contributor, but hepatitis risk factors and clinical syndrome still point to fulminant hepatic failure.\nMost informative next question: ask about current bleeding/bruising severity—specifically, any gum bleeding, blood in vomit/stool, or easy bruising? This helps gauge coagulopathy severity typical of fulminant hepatic failure.\n[/REASONING]\nHave you had any other bleeding besides nosebleeds—like easy bruising, bleeding gums, blood in vomit, or black/tarry stools?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve had bruising more easily than usual and my gums bleed a bit when I brush, but I haven’t noticed blood in my vomit or black/tarry stools.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: jaundice ~1 week; acute confusion/agitation with possible asterixis; epistaxis, gum bleeding, easy bruising; no GI bleed in vomit/melena; hepatitis risk factors (tattoo, unprotected sex); no IV drugs; no known liver disease.\nTop candidates:\n- Fulminant hepatic failure: Best match—jaundice + hepatic encephalopathy (confusion/asterixis) + coagulopathy/bleeding (bruising, gum bleeding, epistaxis).\n- Toxic exposure: Could be underlying cause of fulminant hepatic failure (e.g., drug-induced), but the syndrome still most directly labeled as fulminant hepatic failure.\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Bleeding could fit, but jaundice with encephalopathy is less typical.\n- Essential thrombocythemia / Hemophilia A: Bleeding disorders alone don’t explain jaundice + encephalopathy.\nMost informative next question: ask about neurologic red flags that could suggest alternative causes of confusion (e.g., severe headache/neck stiffness/seizure), but given the hepatic syndrome, the key discriminant is whether they have seizures or severe headache—still one question.\n[/REASONING]\nHave you had any seizures, severe headache, or fever/neck stiffness, or is the confusion mainly fluctuating/restlessness?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any seizures, severe headache, fever, or neck stiffness— or is your confusion mainly fluctuating restlessness? Patient: I haven’t had seizures, but I do feel very restless and my confusion comes and goes, and I don’t recall fever or neck stiffness.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fluctuating confusion/restlessness (consistent with encephalopathy), no seizures/meningismus; jaundice x 1 week; bleeding (epistaxis, gum bleeding, easy bruising).\nTop candidates:\n- Fulminant hepatic failure: Strong—hepatic encephalopathy with asterixis-like symptoms and coagulopathy bleeding; viral hepatitis trigger possible (tattoo/unprotected sex).\n- Acute myelogenous leukemia / Acute lymphoblastic leukemia: Bleeding and confusion could occur, but fluctuating encephalopathy with jaundice is more liver-specific.\n- Toxic exposure: Could be cause of fulminant hepatic failure; but clinically we still need to name the syndrome as fulminant hepatic failure.\n- Disseminated gonococcal infection: Unlikely—would not explain jaundice/encephalopathy.\n- Hemophilia A / Essential thrombocythemia: Bleeding could occur, but jaundice + encephalopathy is not explained.\nMost informative next step would be labs, but per instructions we should now provide differential.\n[/REASONING]\n[DDX] Fulminant hepatic failure, Acute myelogenous leukemia, Acute lymphoblastic leukemia, Toxic exposure, Disseminated Gonococcal Infection",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Fulminant hepatic failure",
+    "predicted_set": [
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Toxic exposure",
+      "Disseminated Gonococcal Infection"
+    ],
+    "predicted_raw": [
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Toxic exposure",
+      "Disseminated Gonococcal Infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Fulminant hepatic failure",
+    "predicted_set_remapped": [
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12783,
+      "completion_tokens": 1851
+    },
+    "patient": {
+      "prompt_tokens": 9214,
+      "completion_tokens": 433,
+      "calls": 7
+    }
+  }
+}

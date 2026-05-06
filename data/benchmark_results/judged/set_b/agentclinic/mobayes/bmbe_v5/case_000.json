@@ -1,0 +1,172 @@
+{
+  "case_idx": 0,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Seborrheic keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "77-year-old male",
+    "History": "The patient reports the recent appearance of several brown, greasy, seemingly superficial lesions on his forehead. He mentions they appeared a few weeks ago and has not noticed any recent changes in size or color. He attempted to scrape them off, assuming they were dirt or a smear, but they persisted. No itching or pain is associated with the lesions.",
+    "Symptoms": {
+      "Primary_Symptom": "Brown, greasy-appearing lesions on forehead",
+      "Secondary_Symptoms": [
+        "Attempts to remove lesions unsuccessful",
+        "No associated pain or itching"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, controlled with medication. No history of skin cancer or chronic skin diseases.",
+    "Social_History": "Retired school teacher. Non-smoker. Enjoys gardening and spends time outdoors.",
+    "Review_of_Systems": "Denies weight loss, fever, night sweats, or any recent illnesses."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with skin lesions on the forehead.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’m a 77-year-old man, and a few weeks ago I noticed several brown, greasy-looking patches on my forehead. I tried to scrape them off thinking it was something on the surface, but they wouldn’t come off, and there’s no itching or pain.”",
+      "extracted_features": {
+        "f_rash_d84642aa": "yes",
+        "f_non_itchy_skin_lesions_539d1d41": "yes",
+        "f_non_painful_skin_lesions_ee1f6515": "yes",
+        "f_skin_lesion_0967b116": "yes",
+        "f_lesions_do_not_scrape_off_5a8aef78": "yes",
+        "f_brown_greasy_skin_lesions_eec8de0f": "yes",
+        "f_multiple_brown_greasy_skin_lesions_7a624803": "yes",
+        "f_brown_greasy_skin_lesions_on_forehead_aa2e1389": "yes",
+        "f_multiple_brown_greasy_skin_lesions_on_fo_f05a9559": "yes",
+        "f_clustered_forehead_lesions_cca9b996": "yes",
+        "f_lesions_appeared_a_few_weeks_ago_0ffa510f": "yes",
+        "f_slow_onset_over_a_few_weeks_c2ca2717": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Seborrheic keratosis",
+          0.6007636870664419
+        ],
+        [
+          "Meigs syndrome",
+          0.12838491790797246
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.10024575781855377
+        ],
+        [
+          "Seborrheic dermatitis",
+          0.05161922944855808
+        ],
+        [
+          "Keratoacanthoma",
+          0.028203666341241933
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any twitching, jerking, shaking, or any involuntary movements that I can’t stop.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Seborrheic keratosis",
+          0.6078354486584139
+        ],
+        [
+          "Meigs syndrome",
+          0.129896173583034
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.09322975679745361
+        ]
+      ],
+      "entropy": 2.113479352877724
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt and feels like it moves a bit when you touch it**? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any lump in my right breast, and I don’t feel anything there that moves when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Seborrheic keratosis",
+          0.6154816323481146
+        ],
+        [
+          "Meigs syndrome",
+          0.12090148309268785
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.09440252789429045
+        ]
+      ],
+      "entropy": 2.0934711972443836
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently touch around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“Doctor, when you gently press around my belly button area, it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Seborrheic keratosis",
+          0.6517983613361904
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.09189417623851061
+        ],
+        [
+          "Meigs syndrome",
+          0.091823311248159
+        ]
+      ],
+      "entropy": 1.971430586931807
+    }
+  ],
+  "final": {
+    "predicted": "Seborrheic keratosis",
+    "predicted_top3": [
+      "Seborrheic keratosis",
+      "Progressive multifocal leukoencephalopathy",
+      "Meigs syndrome"
+    ],
+    "confidence": 0.6517983613361904,
+    "final_entropy": 1.971430586931807,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Seborrheic keratosis",
+    "predicted_set_remapped": [
+      "Seborrheic keratosis",
+      "Progressive multifocal leukoencephalopathy",
+      "Meigs syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10681,
+      "completion_tokens": 472
+    },
+    "patient": {
+      "prompt_tokens": 1804,
+      "completion_tokens": 144,
+      "calls": 4
+    }
+  }
+}

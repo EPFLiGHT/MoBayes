@@ -1,0 +1,122 @@
+{
+  "case_idx": 24,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Localized edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 5\nSex: Male\nChief Complaint: I have swelling in one or more areas of your body, swelling (right lateral side of the foot), and swelling (right top of the foot)",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have swelling on my feet—right side (right lateral and right top) and also left top and left sole. It hurts a little, like a sharp, heavy pain, about 3 out of 10, and it started somewhat fast.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, based only on “foot swelling, mild pain, somewhat fast onset”):**\n- **Localized edema** 0.35  \n- **Circulatory Diseases** (e.g., venous/lymphatic issues) 0.20  \n- **Anemia** 0.10  \n- **Acute pulmonary edema** 0.05  \n- **Pulmonary embolism** 0.05  \n(others less likely given this limited info)\n\n**Question 1 (most discriminating):**  \nIs the swelling **pitting** when you press firmly on the swollen area for ~5 seconds (does it leave a dent)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it does leave a dent when you press on the swollen spots for a few seconds.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** pitting edema.\n\n**Likelihood ratio (approx):** pitting edema increases likelihood of **Localized edema / circulatory/volume-related causes** and decreases likelihood of purely inflammatory/infectious causes.  \n- LR for **Localized edema**: ~2.0  \n- LR for **Circulatory Diseases**: ~1.8  \n- LR for **Acute pulmonary edema**: ~0.7 (because this is localized to feet, not generalized)  \n- LR for **Pulmonary embolism**: ~0.5\n\n**Updated posterior:**\n- **Localized edema** 0.52  \n- **Circulatory Diseases** 0.28  \n- **Anemia** 0.07  \n- **Acute pulmonary edema** 0.03  \n- **Pulmonary embolism** 0.02  \n\n**Question 2 (next most discriminating):**  \nIs the swelling **mostly on one leg** (right more than left), or is it **truly both sides equally**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s more on the right side—right lateral and right top of the foot are swollen, and the left is swollen too but less.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** predominantly **unilateral** (right > left) pitting edema.\n\n**Likelihood ratio (approx):**\n- Unilateral predominance increases likelihood of **local venous/lymphatic/circulatory** causes and decreases generalized causes.\n- **Localized edema**: LR ~1.5  \n- **Circulatory Diseases**: LR ~1.3  \n- **Anemia / acute pulmonary edema**: LR ~0.7  \n- **Pulmonary embolism**: LR ~1.0–1.2 (can be associated via DVT, but foot-only swelling without other symptoms is less specific)\n\n**Updated posterior:**\n- **Localized edema** 0.58  \n- **Circulatory Diseases** 0.31  \n- **Anemia** 0.05  \n- **Acute pulmonary edema** 0.02  \n- **Pulmonary embolism** 0.03  \n\n**Question 3 (high yield):**  \nDo you have **any redness/warmth** over the swollen areas, or is it mainly swelling without much skin color change?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly swelling; I don’t notice strong redness or that the skin is much warmer.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** minimal redness/warmth → argues against primary cellulitis/infectious inflammatory causes and against acute inflammatory edema.\n\n**Likelihood ratio (approx):**\n- For **Localized edema**: LR ~1.2  \n- For **Circulatory Diseases**: LR ~1.2  \n- For **Pneumonia/Influenza/URTI** etc: not relevant; for **acute pulmonary edema**: LR ~0.8  \n- For **Pulmonary embolism**: LR ~0.9 (still possible but not strongly supported)\n\n**Updated posterior:**\n- **Localized edema** 0.62  \n- **Circulatory Diseases** 0.35  \n- **Anemia** 0.03  \n- **Acute pulmonary edema** 0.01  \n- **Pulmonary embolism** 0.02  \n\n**Question 4 (to separate local venous/lymphatic vs systemic):**  \nHave you had **recent long travel/immobility**, **recent surgery**, **a new leg injury**, or **one-sided calf pain/tenderness**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No recent long travel or immobility. I don’t have a new leg injury, and I don’t have one-sided calf pain that I can tell.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** no travel/immobility/surgery/injury and no calf pain → lowers likelihood of **DVT/PE**.\n\n**Likelihood ratio (approx):**\n- **Pulmonary embolism**: LR ~0.7  \n- **Localized edema / circulatory**: LR ~1.0–1.1 (doesn’t strongly change)\n\n**Updated posterior:**\n- **Localized edema** 0.64  \n- **Circulatory Diseases** 0.34  \n- **Pulmonary embolism** 0.01  \n- **Anemia** 0.01  \n- **Acute pulmonary edema** 0.00  \n\n**Question 5 (key discriminator):**  \nDo you have **shortness of breath**, **chest pain**, or **coughing up blood**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath, chest pain, or coughing up blood.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** no cardiopulmonary symptoms → further lowers **pulmonary embolism** and **acute pulmonary edema**.\n\n**Likelihood ratio (approx):**\n- **Pulmonary embolism**: LR ~0.3  \n- **Acute pulmonary edema**: LR ~0.5  \n- **Localized edema / circulatory**: LR ~1.0\n\n**Updated posterior:**\n- **Localized edema** 0.70  \n- **Circulatory Diseases** 0.29  \n- **Anemia** 0.01  \n- **Pulmonary embolism** 0.00  \n- **Acute pulmonary edema** 0.00  \n\nAt this point, the pattern is most consistent with a **localized edema process** (often venous/lymphatic or local fluid retention) rather than infection, PE, or pulmonary edema—but your exact cause still isn’t fully specified.\n\n**Question 6 (to identify the mechanism):**  \nIs the swelling **worse at the end of the day** or after standing, and **better overnight** (when you wake up)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it's worse later in the day and after being on my feet, and it gets a bit better in the morning after sleeping.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** dependent edema pattern (worse with standing, better overnight) → strongly supports **venous/lymphatic localized edema** / circulatory causes over systemic causes.\n\n**Likelihood ratio (approx):**\n- **Localized edema**: LR ~1.6  \n- **Circulatory Diseases**: LR ~1.4  \n- **Anemia / pulmonary edema / PE**: LR ~0.6 or less\n\n**Updated posterior:**\n- **Localized edema** 0.78  \n- **Circulatory Diseases** 0.22  \n- **Anemia** 0.00  \n- **Pulmonary embolism** 0.00  \n- **Acute pulmonary edema** 0.00  \n\n**Question 7 (final high-yield discriminator):**  \nIs there **any one-sided swelling of the calf/leg** as well, or is it **confined to the foot**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s mostly confined to my feet—right foot more than left. I don’t have noticeable swelling in my calf/whole leg.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** swelling confined to feet (not calf/whole leg) → makes classic DVT less likely; still consistent with **localized dependent edema** (venous/lymphatic/local fluid retention).\n\n**Likelihood ratio (approx):**\n- **Localized edema**: LR ~1.3  \n- **Circulatory Diseases**: LR ~1.1  \n- **Pulmonary embolism**: LR ~0.3  \n- **Acute pulmonary edema**: LR ~0.2\n\n**Updated posterior:**\n- **Localized edema** 0.86  \n- **Circulatory Diseases** 0.14  \n- **Pulmonary embolism** ~0.00  \n- **Acute pulmonary edema** ~0.00  \n- **Anemia** ~0.00  \n\n[DDX] Localized edema, Circulatory Diseases, Anemia, Acute pulmonary edema, Pulmonary embolism",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Localized edema",
+    "predicted_set": [
+      "Localized edema",
+      "Circulatory Diseases",
+      "Anemia",
+      "Acute pulmonary edema",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12988,
+      "completion_tokens": 1611
+    },
+    "patient": {
+      "prompt_tokens": 12076,
+      "completion_tokens": 248
+    }
+  }
+}

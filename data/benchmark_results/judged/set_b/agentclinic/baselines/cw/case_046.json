@@ -1,0 +1,132 @@
+{
+  "case_idx": 46,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Impaired erythropoietin production",
+  "patient_actor_hidden": {
+    "Demographics": "1-month-old boy",
+    "History": "The patient’s mother reports that the infant occasionally stops breathing while sleeping, with episodes increasing in frequency. The patient was born prematurely at 32 weeks due to placental insufficiency and required respiratory support immediately post-birth. Prenatal testing indicated the mother was not immune to rubella. The pregnancy was otherwise uncomplicated, with the mother taking only prenatal vitamins. The family history includes a healthy 3-year-old sister and a father with a heart condition.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodes of not breathing (apnea) during sleep",
+      "Secondary_Symptoms": [
+        "Increased frequency of apneic episodes",
+        "Pale conjunctiva"
+      ]
+    },
+    "Past_Medical_History": "Premature birth at 32 weeks due to placental insufficiency. Stay in the neonatal intensive care unit for respiratory support.",
+    "Social_History": "The patient’s mother took prenatal vitamins. Father has a heart condition. One healthy sibling.",
+    "Review_of_Systems": "Patient has pale conjunctiva but no other symptoms or complaints provided by the mother."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the infant presenting with episodes of apnea and anemia.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Mother: My one-month-old boy has been having occasional pauses in breathing while he sleeps, and they’re happening more often lately. I also noticed his conjunctiva looks pale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry—this sounds concerning. **One question:** Has the baby had any episodes of turning blue/gray (cyanosis) or needing stimulation to breathe during these pauses?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has the baby had any episodes of turning blue/gray (cyanosis) or needing stimulation to breathe during these pauses? Mother: Yes—during some pauses his lips/skin look bluish-gray, and we sometimes have to gently wake or stimulate him to get him breathing again.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you. **One question:** During these breathing pauses, does he seem to be choking/gagging or have noisy breathing/stridor, or is it more like he just stops breathing without obvious airway noise?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Mother: He doesn’t seem to choke or gag, and I don’t notice noisy breathing or stridor—he mostly just stops breathing, and then his color turns bluish-gray and we have to stimulate him to restart breathing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** How long do the pauses last (roughly seconds), and how often per day or per night are they happening now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the pauses last about 10–20 seconds, and lately it’s happening several times a night—maybe around 5–10 episodes overall.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Is he otherwise feeding and gaining weight normally, or has he had poor feeding, vomiting, or decreased wet diapers?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Mother: He’s been feeding okay overall, and I think he’s gaining weight; he hasn’t been vomiting much. He still has wet diapers regularly, though I’m worried because the breathing pauses are happening more often.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Any fever, cough, or signs of infection (runny nose, sick contacts), or has he been otherwise healthy aside from these episodes?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Mother: No fever or cough, and I don’t think he’s been sick—no runny nose or known sick contacts. He’s otherwise been healthy aside from the increasing breathing pauses and the bluish-gray color during them.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history suggests recurrent apnea with cyanosis in a 1-month-old, but the provided information isn’t enough to confidently map to a specific diagnosis from the given list (and several key discriminators—prematurity/gestational age, neurologic symptoms, congenital heart disease signs, metabolic issues, and lab findings—are missing).  \n[POSSIBLE] Situational syncope, Toxic exposure, Acute Mesenteric Ischemia, Takotsubo cardiomyopathy, Asthma",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Situational syncope",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia",
+      "Takotsubo cardiomyopathy",
+      "Asthma"
+    ],
+    "predicted_raw": [
+      "Situational syncope",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia",
+      "Takotsubo cardiomyopathy",
+      "Asthma"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Situational syncope",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5516,
+      "completion_tokens": 285
+    },
+    "patient": {
+      "prompt_tokens": 3373,
+      "completion_tokens": 280,
+      "calls": 6
+    }
+  }
+}

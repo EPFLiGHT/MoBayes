@@ -1,0 +1,120 @@
+{
+  "case_idx": 10,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {
+    "AGE": 13,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "nausea",
+    "EVIDENCES_ENG": "['pain', 'shortness of breath', 'nausea', 'vomiting']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 13\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I am feeling nauseous or I feel like vomiting.\n- I have vomited several times or have made several efforts to vomit.\n- On a scale of 0-10, the pain intensity is 7\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 8\n- The pain is:\n* heartbreaking\n* haunting\n* a knife stroke\n* violent\n* sickening\n- The pain locations are:\n* lower chest\n* hypochondrium(R)\n* hypochondrium(L)\n* belly\n- The pain radiates to these locations:\n* thoracic spine\n* scapula(R)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Boerhaave', 0.14993469490420297], ['Anaphylaxis', 0.09889647861700208], ['Atrial fibrillation', 0.09070918745587893], ['GERD', 0.084978730908516], ['Acute dystonic reactions', 0.06687566296386298], ['Myasthenia gravis', 0.06687566296386298], ['Anemia', 0.06687566296386298], ['Scombroid food poisoning', 0.061787435570617784], ['Guillain-Barré syndrome', 0.05650850503629228], ['Pericarditis', 0.05544005905963777], ['Sarcoidosis', 0.054765648449851066], ['Chagas', 0.05046651828098542], ['PSVT', 0.035722620744269816], ['SLE', 0.03096023962918252], ['Panic attack', 0.02920289245197436]]",
+    "PATHOLOGY": "Boerhaave",
+    "INITIAL_EVIDENCE": "nausee",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_déchirante', 'douleurxx_carac_@_lancinante_/_choc_électrique', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_violente', 'douleurxx_carac_@_écoeurante', 'douleurxx_endroitducorps_@_bas_du_thorax', 'douleurxx_endroitducorps_@_hypochondre_D_', 'douleurxx_endroitducorps_@_hypochondre_G_', 'douleurxx_endroitducorps_@_ventre', 'douleurxx_intens_@_7', 'douleurxx_irrad_@_colonne_dorsale', 'douleurxx_irrad_@_omoplate_D_', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_8', 'dyspn', 'nausee', 'trav1_@_N', 'vo_violent']",
+    "patient_id": "htsim_0361",
+    "_test_index": 361,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 13-year-old F patient presents to the clinic. Chief complaint: nausea.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having nausea—I’ve also vomited several times or made several efforts to vomit. I also have significant difficulty breathing and pain that feels like a knife stroke, violent, and sickening, with intensity about 7/10. The pain is in my lower chest and belly (hypochondrium on the right and left), and it radiates to my thoracic spine and the right scapula.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I decide what this is, I need to pinpoint the cause of your nausea/vomiting and chest/upper belly pain: when did the pain start, and is it worse when you breathe in, move, or lie down?  \nDoctor: Also, do you have fever, black/bloody vomit, severe dizziness/fainting, or any chance of pregnancy (if applicable)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know exactly when the pain started. It seems to come on pretty fast. I don’t know if it’s worse when I breathe in, move, or lie down.\n\nI don’t know if I have fever, black/bloody vomit, severe dizziness/fainting, or any chance of pregnancy.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about your severe right/upper abdominal “knife-like” pain radiating to your back with nausea and repeated vomiting—this can be urgent (for example gallbladder/pancreas or even a lung/heart issue). Can you tell me: where exactly is the worst pain (right upper belly under ribs vs middle vs left), and do you have pain when you press on that spot?  \nDoctor: Also, do you have cough/shortness of breath that’s new, or does breathing feel harder because of the pain (and what’s your oxygen level if you’ve checked)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "The worst pain feels like it’s in my lower chest and belly, especially in the hypochondrium on the right and the hypochondrium on the left. It radiates to my thoracic spine and my right scapula. I don’t know if it gets worse when you press on that spot.\n\nI have significant shortness of breath or difficulty breathing. I don’t know my oxygen level if I’ve checked.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This pattern—severe stabbing upper abdominal/lower chest pain radiating to the back and right scapula with repeated vomiting and difficulty breathing—is highly concerning for an acute abdominal process (like pancreatitis or gallbladder disease) and we also must rule out lung/heart causes. REQUEST TEST: Urgent_12-lead_ECG + Cardiac_markers; REQUEST TEST: RUQ/Abdominal_ultrasound (gallbladder/liver); REQUEST TEST: Serum_lipase + CMP + CBC + CRP; REQUEST TEST: Pregnancy_test (urine/serum hCG) if applicable; REQUEST TEST: Chest_X-ray.  \n\nDoctor: While those are running, do you have any fever or chills, and is the vomiting persistent and unable to keep even water down?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have fever or chills.\n\nI’ve vomited several times or made several efforts to vomit, but I don’t know if it’s persistent or if I’m unable to keep even water down.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as an emergency given the severe stabbing epigastric/upper abdominal pain radiating to the back with repeated vomiting and shortness of breath—right now, can you tell me if you’ve been unable to keep even small sips of water down, and do you have any black/bloody vomit or new yellowing of your eyes/skin?  \nDoctor: Also, are you able to stand and walk normally, or do you feel faint/very weak?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’ve been unable to keep even small sips of water down.\n\nI don’t know if I have black/bloody vomit or new yellowing of my eyes/skin.\n\nI don’t know if I’m able to stand and walk normally, or if I feel faint/very weak.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still treating this as an emergency—please answer quickly: can you rate how severe your shortness of breath is (mild/moderate/severe), and do you have any chest pressure, sweating, or pain that worsens with deep breath/cough?  \nDoctor: Also, have you had any recent abdominal trauma, new medications/NSAIDs, heavy alcohol exposure, or known gallstones, and when was your last normal menstrual period (to confirm pregnancy risk)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can’t say whether my shortness of breath is mild, moderate, or severe.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With your severe stabbing upper abdominal/lower-chest pain radiating to the back plus repeated vomiting and difficulty breathing, you must be seen immediately—are you able to tell a parent/guardian to call emergency services right now?  \nDoctor: I’m making the safest working diagnosis while awaiting results: acute pancreatitis (often severe epigastric pain radiating to the back with nausea/vomiting), but I need the urgent tests already ordered—REQUEST TEST: Urgent_12-lead_ECG + Cardiac_markers; REQUEST TEST: RUQ/Abdominal_ultrasound; REQUEST TEST: Serum_lipase + CMP + CBC + CRP; REQUEST TEST: Pregnancy_test; REQUEST TEST: Chest_X-ray.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I can tell a parent/guardian to call emergency services right now.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this is an emergency requiring ambulance transport; while waiting, are you currently in severe distress—can you describe your shortness of breath as “can’t speak,” “can speak but very hard,” or “bothered but manageable”?  \nDoctor: Also, do you have any diarrhea, known gallstones, or history of pancreas/abdominal ulcers/acid reflux?  \nDoctor: DIAGNOSIS READY: Acute pancreatitis (severe epigastric pain radiating to back with repeated vomiting, pending lipase/CMP and RUQ ultrasound to confirm and rule out biliary cause).\n\n[ABSTAIN] free-text diagnosis 'Acute pancreatitis (severe epigastric pain radiating to back with repeated vomiting, pending lipase/CMP and RUQ ultrasound to confirm and rule out biliary cause).' did not map to the closed disease set",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5692,
+      "completion_tokens": 870,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 8982,
+      "completion_tokens": 402,
+      "calls": 7
+    }
+  }
+}

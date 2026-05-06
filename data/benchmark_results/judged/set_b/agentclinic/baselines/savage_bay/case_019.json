@@ -1,0 +1,139 @@
+{
+  "case_idx": 19,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Toxic exposure",
+  "patient_actor_hidden": {
+    "Demographics": "52-year-old male",
+    "History": "The patient describes a continuous 'nagging' headache for the past month, initially thought to be related to a cold. Over-the-counter ibuprofen provided only mild and temporary relief. Recently, has experienced dizziness and nausea, notably improving when outside in cold air. The patient has been staying in a cabin for 5 weeks and reports no significant travel.",
+    "Symptoms": {
+      "Primary_Symptom": "Persistent headache",
+      "Secondary_Symptoms": [
+        "Dizziness",
+        "Nausea",
+        "Temporary relief upon exposure to cold air"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, type II diabetes mellitus, and asthma.",
+    "Current_Medications": [
+      "Amlodipine",
+      "Metformin",
+      "Glimepiride",
+      "Fluticasone/Salmeterol inhaler"
+    ],
+    "Social_History": "Denies tobacco or illicit drug use.",
+    "Review_of_Systems": "Currently asymptomatic in the office; no fever, cough, chest pain, or recent changes in vision or hearing."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with headache and dizziness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about a month I’ve had a continuous nagging headache that started like it was from a cold, and ibuprofen only helps a little. Lately I’ve also had dizziness and nausea, and it seems to get better when I’m outside in the cold air.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (pre-test, broad ED priors):\n- Benign paroxysmal positional vertigo: 0.20  \n- Asthma: 0.15  \n- Takotsubo cardiomyopathy: 0.10  \n- Progressive multifocal leukoencephalopathy: 0.10  \n- Silent Thyroiditis: 0.10  \n(others share the remaining 0.35)\n\nEvidence so far: “continuous nagging headache ~1 month, started like a cold; ibuprofen only helps a little; dizziness + nausea; improves in cold air.”\n- Likelihood ratio (LR) for Benign paroxysmal positional vertigo: 0.7 (headache + nausea can occur, but “continuous for a month” is less classic)\n- LR for Asthma: 0.6 (cold air improving symptoms could fit bronchospasm-related dizziness, but headache isn’t typical)\n- LR for Progressive multifocal leukoencephalopathy: 0.8 (headache/dizziness possible, but “started like a cold” and improvement with cold air is less typical)\n- LR for Silent Thyroiditis: 0.9 (can cause nonspecific symptoms, but headache pattern is not specific)\n- LR for Takotsubo cardiomyopathy: 0.2 (not a typical presentation)\n\nTo narrow this quickly: **When you say “dizziness,” is it more like the room is spinning (",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It feels more like the room is spinning and I feel unsteady, especially when I’m indoors; when I step outside into the cold air it eases up.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (updated with “room spinning/vertigo, worse indoors, better with cold air”):\n- Benign paroxysmal positional vertigo: 0.45  \n- Asthma: 0.10  \n- Progressive multifocal leukoencephalopathy: 0.08  \n- Silent Thyroiditis: 0.08  \n- Takotsubo cardiomyopathy: 0.05  \n(remaining 0.24 spread across other causes)\n\nEvidence update:\n- “True spinning vertigo” strongly increases BPPV likelihood.\n  - LR for Benign paroxysmal positional vertigo: ~3.0 → posterior rises substantially.\n  - LR for Asthma: ~0.7 (asthma can cause lightheadedness, but not classic spinning vertigo).\n  - LR for PML: ~0.8 (can cause dizziness, but spinning positional pattern is less typical).\n\nNext question (most discriminating):  \n**Does the vertigo get clearly triggered by changing head position**—for example turning in bed, looking up, or bending over?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does the dizziness get clearly triggered by changing head position—like turning in bed, looking up, or bending over? Patient: Yes, it gets worse when I turn my head or change positions in bed, and it makes me feel unsteady.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (updated with positional head-triggered spinning/unsteadiness):\n- Benign paroxysmal positional vertigo: 0.70  \n- Asthma: 0.06  \n- Progressive multifocal leukoencephalopathy: 0.05  \n- Silent Thyroiditis: 0.04  \n- Takotsubo cardiomyopathy: 0.03  \n(remaining 0.12 across other causes)\n\nEvidence update:\n- Positional triggers (turning head/bed) are classic for BPPV.\n  - LR for Benign paroxysmal positional vertigo: ~4.0 → large posterior increase.\n  - LR for other listed conditions: generally <1.\n\nNext question (to confirm and rule out dangerous mimics):  \n**Do you have any new neurologic symptoms**—for example weakness/numbness on one side, trouble speaking, double vision, or difficulty walking that’s not just from dizziness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have weakness or numbness on one side, my speech is normal, and I’m not having double vision. I mainly feel unsteady because of the dizziness, but when I’m standing still I can walk okay.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities:\n- Benign paroxysmal positional vertigo: 0.78  \n- Asthma: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.04  \n- Silent Thyroiditis: 0.03  \n- Takotsubo cardiomyopathy: 0.02  \n(remaining 0.08 across other causes)\n\nEvidence update:\n- Absence of focal neurologic deficits and no true gait inability beyond dizziness lowers concern for central causes (e.g., PML) and stroke-like processes.\n  - LR for BPPV: ~1.2 (supports peripheral vertigo)\n  - LR for PML/central causes: ~0.6 (less likely without focal deficits)\n\nNext question (to further confirm BPPV subtype):  \n**When it happens, is it brief (seconds to under a minute) with head movement, or does it last much longer (minutes to hours)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It comes on in brief bursts—usually just a few seconds to maybe under a minute—whenever I move my head, and then it settles down. Between episodes I still have this nagging headache and I feel a bit off, but the spinning part is short.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (updated with “brief bursts seconds <1 min with head movement”):\n- Benign paroxysmal positional vertigo: 0.88  \n- Asthma: 0.03  \n- Progressive multifocal leukoencephalopathy: 0.03  \n- Silent Thyroiditis: 0.02  \n- Takotsubo cardiomyopathy: 0.02  \n(remaining 0.02 across other causes)\n\nEvidence update:\n- Classic BPPV timing is brief (<1 min) triggered by head motion.\n  - LR for BPPV: ~6 → strong increase\n  - LR for central causes: ~0.7\n\nAt this point, BPPV is the dominant diagnosis. One last safety-check question before finalizing:  \n**Do you have any hearing symptoms on one side—new hearing loss, ringing (tinnitus), or a feeling of fullness in the ear?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any hearing symptoms on one side—new hearing loss, ringing (tinnitus), or a feeling of fullness in the ear? Patient: No, I haven’t noticed any hearing loss, ringing, or ear fullness on either side.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Benign paroxysmal positional vertigo, Asthma, Progressive multifocal leukoencephalopathy, Silent Thyroiditis, Takotsubo cardiomyopathy",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Benign paroxysmal positional vertigo",
+    "predicted_set": [
+      "Benign paroxysmal positional vertigo",
+      "Asthma",
+      "Progressive multifocal leukoencephalopathy",
+      "Silent Thyroiditis",
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "Benign paroxysmal positional vertigo",
+      "Asthma",
+      "Progressive multifocal leukoencephalopathy",
+      "Silent Thyroiditis",
+      "Takotsubo cardiomyopathy"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Benign paroxysmal positional vertigo",
+    "predicted_set_remapped": [
+      "Benign paroxysmal positional vertigo",
+      "Asthma",
+      "Progressive multifocal leukoencephalopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9549,
+      "completion_tokens": 1156
+    },
+    "patient": {
+      "prompt_tokens": 6492,
+      "completion_tokens": 333,
+      "calls": 6
+    }
+  }
+}

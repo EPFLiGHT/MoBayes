@@ -1,0 +1,112 @@
+{
+  "case_idx": 34,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Unstable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Male\nChief Complaint: I have chest pain even at rest, right side of the chest pain, and left side of the chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have chest pain even at rest. It’s on both sides—right and left upper chest—and it feels heavy and exhausting, with a lot of sweating and shortness of breath. The pain also goes to my left biceps/shoulder and sometimes toward my throat area, and I also feel epigastric pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. This sounds potentially serious (cardiac vs other causes), so I’ll ask focused questions one at a time.\n\n**Current posterior (pre-test, based on your description):**\n- **Possible NSTEMI / STEMI:** 0.35  \n- **Unstable angina:** 0.20  \n- **Pulmonary embolism:** 0.15  \n- **GERD:** 0.10  \n- **Pericarditis:** 0.05  \n(others lower)\n\n**Question 1 (most discriminating):**  \nWhen did this chest pain start (exact time or how many hours ago), and has it been constant since then or coming and going?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started very suddenly—like within minutes, about 9/10 speed. I noticed it starting at rest, and it’s been kind of constant since then, not really going away. I can’t give you an exact clock time right now, but it’s been going on for a short while.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “sudden onset at rest, severe, constant, short duration”):**\n- **Possible NSTEMI / STEMI:** 0.45  \n- **Unstable angina:** 0.15  \n- **Pulmonary embolism:** 0.20  \n- **Pericarditis:** 0.05  \n- **GERD:** 0.10  \n\n(Reasoning: sudden severe chest pain at rest with diaphoresis and dyspnea pushes toward acute coronary syndrome and PE; “constant” early on still fits ACS/PE.)\n\n**Question 2 (discriminating):**  \nDoes anything make it better or worse—especially **does it worsen with deep breathing**, coughing, or when you **lie flat** / **lean forward**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It doesn’t really get better by itself. I haven’t noticed it specifically getting worse with deep breathing or coughing. I also don’t know that it changes much when I lie flat or lean forward—it’s mostly just heavy and exhausting the whole time.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no clear pleuritic component; not clearly positional”):**\n- **Possible NSTEMI / STEMI:** 0.50  \n- **Unstable angina:** 0.12  \n- **Pulmonary embolism:** 0.18  \n- **GERD:** 0.10  \n- **Pericarditis:** 0.05  \n\n(Reasoning: lack of pleuritic/positional features slightly lowers PE and pericarditis vs ACS.)\n\n**Question 3 (high yield):**  \nDo you have **any leg symptoms**—pain/swelling in one leg—or have you had **recent long travel/immobility**, **surgery**, or **a history of blood clots**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have pain or swelling in my legs that I’ve noticed. I haven’t had recent long travel, surgery, or known blood clots.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no leg symptoms, no recent immobility/surgery/clot history”):**\n- **Possible NSTEMI / STEMI:** 0.56  \n- **Pulmonary embolism:** 0.12  \n- **Unstable angina:** 0.14  \n- **GERD:** 0.12  \n- **Pericarditis:** 0.06  \n\n(Reasoning: reduces PE likelihood; diaphoresis + dyspnea + radiation to left shoulder/biceps keeps ACS high.)\n\n**Question 4 (discriminating):**  \nHave you had **similar episodes** before, and do you have a history of **heart disease, high blood pressure, diabetes, high cholesterol, smoking, or family history of early heart problems**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have had issues like this before, yes—similar chest pain episodes. I have diabetes, and I also have high cholesterol. I currently smoke cigarettes. And in my family, close relatives had cardiovascular disease before age 50.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with strong cardiac risk factors + prior similar episodes):**\n- **Possible NSTEMI / STEMI:** 0.62  \n- **Unstable angina:** 0.20  \n- **Pulmonary embolism:** 0.06  \n- **GERD:** 0.08  \n- **Pericarditis:** 0.04  \n\n(Reasoning: diabetes, smoking, dyslipidemia, and premature family CAD history strongly increase ACS/unstable angina probability; prior similar episodes support unstable angina/ACS.)\n\n**Question 5 (to separate NSTEMI vs unstable angina):**  \nDuring this episode, have you had **new weakness, fainting, or a feeling of “impending doom”**, and do you have **nausea/vomiting**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I feel very exhausted and I have a strong sense something is really wrong—like an impending doom feeling. I don’t know about fainting or weakness, but I haven’t mentioned fainting. I don’t have nausea or vomiting that I can say for sure.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “impending doom” + exhaustion/diaphoresis):**\n- **Possible NSTEMI / STEMI:** 0.68  \n- **Unstable angina:** 0.22  \n- **Pulmonary embolism:** 0.05  \n- **GERD:** 0.03  \n- **Pericarditis:** 0.02  \n\n(Reasoning: impending doom + diaphoresis + dyspnea + radiation to left shoulder/biceps remains most consistent with acute coronary syndrome; PE/GERD/pericarditis less supported.)\n\n**Question 6 (final key discriminator):**  \nDo you have **any fever or recent viral/respiratory symptoms** (cough, sore throat, runny nose), or is this purely chest pain without infection symptoms?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No fever and no recent viral or respiratory symptoms. It’s mainly just the chest pain with the sweating and shortness of breath.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (with “no fever/URI symptoms”):**\n- **Possible NSTEMI / STEMI:** 0.72  \n- **Unstable angina:** 0.24  \n- **Pulmonary embolism:** 0.03  \n- **GERD:** 0.01  \n- **Pericarditis:** 0.00  \n\nGiven the high-risk features (sudden severe rest pain, diaphoresis, dyspnea, radiation to left shoulder/biceps/throat, strong CAD risk factors, and prior similar episodes), this is most consistent with an acute coronary syndrome. I can’t confirm NSTEMI vs unstable angina without ECG/troponins, but both are in the same emergency pathway.\n\n[DDX] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, GERD, Pericarditis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "GERD",
+      "Pericarditis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10388,
+      "completion_tokens": 1169
+    },
+    "patient": {
+      "prompt_tokens": 10168,
+      "completion_tokens": 360
+    }
+  }
+}

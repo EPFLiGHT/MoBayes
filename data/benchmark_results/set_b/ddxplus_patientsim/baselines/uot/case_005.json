@@ -1,0 +1,99 @@
+{
+  "case_idx": 5,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Sarcoidosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 53\nSex: Male\nChief Complaint: I have swollen or painful lymph nodes, sensitive pain, and burning pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having swollen and painful lymph nodes, with sensitive and burning pain. Also, I’ve had some episodes where I lose consciousness or have seizures, and I’m feeling significant shortness of breath. My eyes are also red.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (or chills) along with **cough or sore throat**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have fever or chills. I also don’t have a cough or sore throat.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain that is worse with breathing in (pleuritic pain) or shortness of breath that started suddenly?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have significant shortness of breath. I’m not sure about chest pain that’s worse when I breathe in, but the breathing problem is definitely there.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **sudden onset chest pain or shortness of breath that is worse with breathing (pleuritic pain)**?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I can’t say it started suddenly or that it’s pleuritic chest pain. But my shortness of breath is significant.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] During the episode, do you have wheezing (a whistling sound when breathing out) that improves with bronchodilator treatment (e.g., albuterol)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know—I haven’t used a bronchodilator like albuterol, so I can’t tell if it improves. I haven’t noticed wheezing like a whistling sound either.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have recurrent, long-term cough with large amounts of sputum (often daily) and frequent chest infections?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a recurrent long-term cough, and I don’t have frequent chest infections.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Panic attack  , Respiratory Diseases",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Panic attack  ",
+    "predicted_set": [
+      "Panic attack  ",
+      "Respiratory Diseases"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4784,
+      "completion_tokens": 208
+    }
+  }
+}

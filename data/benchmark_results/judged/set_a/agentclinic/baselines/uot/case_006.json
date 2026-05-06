@@ -1,0 +1,83 @@
+{
+  "case_idx": 6,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Autosomal dominant polycystic kidney disease",
+  "patient_actor_hidden": {
+    "Demographics": "31-year-old female",
+    "History": "The patient reports a 5-month history of intermittent flank pain. She mentions having had five urinary tract infections over the past 2 years. She has not experienced any recent fever, weight loss, or significant changes in urinary or bowel habits.",
+    "Symptoms": {
+      "Primary_Symptom": "Intermittent flank pain",
+      "Secondary_Symptoms": [
+        "History of urinary tract infections",
+        "No fever",
+        "No significant weight loss",
+        "No noticeable changes in urinary or bowel habits"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history apart from recurrent urinary tract infections.",
+    "Social_History": "Non-smoker, drinks alcohol socially. Works as a middle school teacher.",
+    "Review_of_Systems": "Denies any recent fever, trauma to the back or abdomen, cough, shortness of breath, rash, or joint pain."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with intermittent flank pain and a history of multiple urinary tract infections.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve had intermittent flank pain for about five months, and I’ve also had five urinary tract infections over the past two years. I haven’t had any recent fever, weight loss, or noticeable changes in my urinary or bowel habits.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever with cough and/or shortness of breath** (suggesting an acute lung infection)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any fever, cough, or shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Autosomal dominant polycystic kidney disease, Chronic kidney failure  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Autosomal dominant polycystic kidney disease",
+    "predicted_set": [
+      "Autosomal dominant polycystic kidney disease",
+      "Chronic kidney failure  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Autosomal dominant polycystic kidney disease",
+    "predicted_set_remapped": [
+      "Autosomal dominant polycystic kidney disease",
+      "Chronic kidney failure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 725,
+      "completion_tokens": 72,
+      "calls": 2
+    }
+  }
+}

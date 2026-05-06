@@ -1,0 +1,150 @@
+{
+  "case_idx": 25,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Inguinal hernia",
+  "patient_actor_hidden": {
+    "AGE": 34,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "symptoms worsen with valsava maneuver",
+    "EVIDENCES_ENG": "['abdominal bloating', 'pain', 'skin lesions', 'perinatal complications', 'intense coughing fits', 'symptoms worsen with valsava maneuver']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 34\n- My abdomen is bloated or distended (swollen due to pressure from inside).\n- I have pain somewhere related to my reason for consulting.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I was born prematurely or suffered a complication at birth.\n- I have intense coughing fits.\n- The symptoms or pain are increased with coughing, with an effort like lifting a weight or from forcing a bowel movement.\n- On a scale of 0-10, the pain intensity is 1\n- On a scale of 0-10, the pain's location precision is 2\n- On a scale of 0-10, the pace at which the pain appear is 1\n- The color of the rash is pale.\n- On a scale of 0-10, the rash swelling is 4\n- On a scale of 0-10, the pain intensity caused by the rash is 6\n- The lesion (or lesions) are larger than 1cm.\n- On a scale of 0-10, the severity of the rash itching is 0\n- The pain is:\n* heavy\n- The pain locations are:\n* iliac fossa(R)\n* iliac fossa(L)\n* hip(L)\n* testicle(L)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* iliac fossa(R)\n* iliac fossa(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Inguinal hernia', 0.314460344952731], ['Bronchitis', 0.24241740633972503], ['Anaphylaxis', 0.1726062527981827], ['Whooping cough', 0.1654225826903364], ['Scombroid food poisoning', 0.10509341321902481]]",
+    "PATHOLOGY": "Inguinal hernia",
+    "INITIAL_EVIDENCE": "ww_valsalva",
+    "EVIDENCES": "['ballon_abdo', 'douleurxx', 'douleurxx_carac_@_une_lourdeur_ou_serrement', 'douleurxx_endroitducorps_@_fosse_iliaque_D_', 'douleurxx_endroitducorps_@_fosse_iliaque_G_', 'douleurxx_endroitducorps_@_hanche_G_', 'douleurxx_endroitducorps_@_testicule_G_', 'douleurxx_intens_@_1', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_2', 'douleurxx_soudain_@_1', 'lesions_peau', 'lesions_peau_couleur_@_pale', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_4', 'lesions_peau_endroitducorps_@_fosse_iliaque_D_', 'lesions_peau_endroitducorps_@_fosse_iliaque_G_', 'lesions_peau_intens_@_6', 'lesions_peau_plusqu1cm_@_O', 'lesions_peau_prurit_@_0', 'perinatality', 'toux_sev', 'trav1_@_N', 'ww_valsalva']",
+    "patient_id": "htsim_0901",
+    "_test_index": 901,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 34-year-old F patient presents to the clinic. Chief complaint: symptoms worsen with valsava maneuver.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My abdomen is bloated or distended, and I have intense coughing fits. The pain I have is increased with coughing, with an effort like lifting a weight, or from forcing a bowel movement. I also have lesions and redness on my skin that I believe are related to the condition I’m consulting for.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Let’s start with localization: is the distension/pain mainly in the abdomen (e.g., lower abdomen or around an inguinal/umbilical area) and do you notice any visible bulge that increases with coughing or straining?  \nDoctor: Also, when you have the skin lesions/redness, are they tender/painful and do they appear as firm lumps/raised areas or more like rashes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my abdomen is bloated or distended, and the pain is increased with coughing and with straining (like lifting a weight or forcing a bowel movement).  \n\nI don’t know whether there is a visible bulge that increases with coughing or straining.  \n\nYes—my skin lesions/redness are related to the condition I’m consulting for, and the pain caused by the rash is 6/10. The lesions are larger than 1 cm.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When you cough or strain, do you ever notice a reducible bulge (especially near the groin/umbilicus) and any nausea/vomiting or inability to pass gas/stool? Also, can you describe the skin lesions—are they round/raised nodules (possibly on legs/arms) or painful ulcers/erythematous plaques?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I notice a reducible bulge near the groin/umbilicus.\n\nI don’t know about nausea/vomiting or inability to pass gas/stool.\n\nMy skin lesions/redness are pale in color, and they’re associated with the condition I’m consulting for. I don’t know whether they are round/raised nodules or painful ulcers/erythematous plaques.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Do the skin lesions feel like firm lumps under the skin, and where on your body are they located (legs/arms/groin/near the abdomen)?  \nDoctor: Also, since symptoms worsen with coughing/straining, have you noticed progressive swelling or a new bulge over hours-days, and do you have any fever or recent infection?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether the skin lesions feel like firm lumps under the skin.\n\nI don’t know where on my body they are located (legs/arms/groin/near the abdomen).\n\nI don’t know whether there’s any progressive swelling or a new bulge over hours-days, and I don’t know about fever or recent infection.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be a hernia/abdominal wall issue with associated skin findings, but I need key details—are any of the skin lesions on the abdomen or along a previous scar, and have they been diagnosed as “erythema nodosum” (tender, red/painful nodules) or something ulcerative?  \nDoctor: Also, when you press gently on the painful area, does it feel firm or does it “give way,” and do you ever get symptoms that improve when you lie down?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether any of the skin lesions are on my abdomen or along a previous scar.\n\nI don’t know whether they have been diagnosed as “erythema nodosum” or something ulcerative.\n\nI don’t know whether, when you press gently on the painful area, it feels firm or does it “give way,” and I don’t know whether symptoms improve when I lie down.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to narrow this urgently—are you able to see any bulge that clearly enlarges with coughing/straining, and does it ever reduce when you lie down?  \nDoctor: Also, do the skin lesions follow any pattern like tender red nodules (often on shins) versus painful ulcers or clusters on specific areas, and have you had any recent sore throat, tuberculosis exposure, inflammatory bowel disease, or new medications?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can see any bulge that clearly enlarges with coughing/straining, and I don’t know whether it ever reduces when I lie down.\n\nI don’t know whether the skin lesions follow any pattern like tender red nodules versus painful ulcers or clusters on specific areas.\n\nI don’t know about any recent sore throat, tuberculosis exposure, inflammatory bowel disease, or new medications.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you—right now, can you point to the exact spot of maximal abdominal pain/distension, and I need you to tell me if you feel any lump there that becomes more prominent with coughing/straining?  \nDoctor: Also, where exactly are the skin lesions (e.g., shins, arms, trunk, near groin/abdomen), and are they tender red nodules or more like ulcerated plaques?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I can’t say where the exact maximal abdominal pain spot is beyond that it’s in both iliac fossae (right and left). I don’t know whether there’s a lump there that becomes more prominent with coughing/straining.\n\nI also don’t know where exactly the skin lesions are located on my body. I only know they’re pale in color, and my pain caused by the rash is 6/10.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few targeted questions to make this safe and specific: do you have any fever, and are you able to pass gas and have bowel movements normally?  \nDoctor: When you cough/strain, do you get any groin/umbilical bulge or does anything “pop out” that wasn’t there before?  \nDoctor: For the pale lesions: are they raised/indurated nodules, and are they on the shins/legs or mainly elsewhere (arms/trunk/groin/around the abdomen)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever.\n\nI don’t know whether I’m able to pass gas or have bowel movements normally.\n\nI don’t know whether I get any groin/umbilical bulge or anything “pops out” when I cough/strain.\n\nI don’t know whether the pale lesions are raised/indurated nodules, or whether they’re on the shins/legs versus mainly elsewhere.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still missing the key “red flags” that distinguish a hernia/abdominal wall problem from an inflammatory or vascular skin process—do you currently have fever and any vomiting, and are you passing gas/stool normally?  \nDoctor: Also, are there any distinct lumps that enlarge with coughing/straining (groin, umbilicus, or along prior surgical scars), and are the pale lesions actually raised painful nodules on the shins/legs or are they flat/ulcerated plaques?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or any vomiting.\n\nI don’t know whether I’m passing gas or stool normally.\n\nI don’t know whether there are distinct lumps that enlarge with coughing/straining.\n\nI don’t know whether the pale lesions are raised painful nodules on the shins/legs or whether they’re flat/ulcerated plaques.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m not confident we can safely sort this out yet—given your abdominal/iliac pain worsened by straining plus your concurrent skin lesions, we must consider an abdominal wall hernia and also a systemic inflammatory/vascular skin process; right now, do you have any chest pain, shortness of breath, or severe sudden worsening pain?  \nDoctor: Please answer these two fast: 1) any visible bulge at the groin/umbilicus that changes with coughing/straining? 2) any new darkening/purple color of the skin lesions or skin that feels hot and rapidly spreads?  \nDoctor: REQUEST TEST: Abdomen_and_Inguinal_Ultrasound_with_Valsalva.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can see any bulge at the groin/umbilicus that changes with coughing/straining.\n\nI don’t know whether there’s any new darkening/purple color of the skin lesions or skin that feels hot and rapidly spreads.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still missing the key exam finding, so while the ultrasound is arranged I need two quick answers: do you have any fever, and are the pale lesions tender and fixed/firm (nodules) or do they come and go/itch (rashes)?  \nDoctor: DIAGNOSIS READY: Pending ultrasound with valsalva; differential includes occult inguinal/umbilical hernia (pain with straining) plus a systemic skin process (e.g., erythema nodosum vs vasculitis).\n\n[ABSTAIN] free-text diagnosis 'Pending ultrasound with valsalva; differential includes occult inguinal/umbilical hernia (pain with straining) plus a systemic skin process (e.g., erythema nodosum vs vasculitis).' did not map to the closed disease set",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10421,
+      "completion_tokens": 1031,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 16191,
+      "completion_tokens": 791,
+      "calls": 10
+    }
+  }
+}

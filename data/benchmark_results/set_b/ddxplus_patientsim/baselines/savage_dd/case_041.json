@@ -1,0 +1,142 @@
+{
+  "case_idx": 41,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and exhausting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I have a fever with chills, and I’m feeling very tired. My head hurts all over (back of my head, top, and forehead), and my neck area on the right side hurts too, with some pink red skin lesions there. My body also feels sore all over.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling so bad. To narrow this down, one key question first:\n\n**Do you have any stiff neck or pain when you try to bend your neck forward (chin to chest), or is it hard to do?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I do have pain in the back/right neck area, but I don’t know for sure if it’s “stiff” in the sense of not being able to bend my neck forward—I can try, but it hurts when I move.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—next question (very important for meningitis vs other causes):\n\n**Have you had any confusion, trouble staying awake, or new severe headache that’s getting rapidly worse?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No confusion and I’m staying awake. My headache is bad, but I don’t think it’s getting rapidly worse.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question—this helps distinguish viral/bacterial respiratory infections from other systemic causes:\n\n**Do you have any cough, sore throat, runny nose, or shortness of breath?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No cough, no sore throat, no runny nose, and no shortness of breath.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next question—this helps check for a respiratory source of fever and headache:\n\n**Have you had any pain in your ears, or any ear drainage?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have ear pain and no ear drainage.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question—this targets sinus/upper facial sources:\n\n**Do you have any facial pain/pressure (especially around the forehead/cheeks) or nasal congestion?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have forehead pain, but I don’t have nasal congestion, and I don’t feel facial pressure in the cheeks.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question—this helps distinguish skin/viral exanthems vs localized infection:\n\n**Are the pink-red skin lesions on the neck flat or raised, and do they blanch (turn white) when you press on them?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "They look pink-red and I think they’re raised a bit. When you press, I’m not sure if they turn white—I haven’t checked closely.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question—this is key for serious causes like meningococcemia vs other rashes:\n\n**Do the spots/lesions look like tiny dots (petechiae) or bruises, or are they more like patches/plaques?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "They’re more like patches/plaques, not tiny dot bruises.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question—this helps separate allergic/viral rash from bacterial toxin or autoimmune:\n\n**Any recent new medication, vaccine, or known exposure to someone with a similar illness?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No new medication and no recent vaccine. I don’t know of any close exposure to someone with the same illness.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Next question—this helps identify a likely infectious source:\n\n**Have you had any vomiting or diarrhea, or any abdominal pain?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No vomiting, no diarrhea, and no abdominal pain.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The current information suggests a febrile illness with headache and unilateral neck pain plus a pink-red raised rash, but there isn’t enough discriminating detail to confidently narrow to a specific diagnosis from the provided list (e.g., meningitis/meningococcemia vs viral syndrome vs other causes).  \n\n[POSSIBLE] Influenza, Pneumonia, Acute COPD exacerbation / infection, Anaphylaxis, Acute laryngitis",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "Anaphylaxis",
+      "Acute laryngitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11338,
+      "completion_tokens": 474
+    },
+    "patient": {
+      "prompt_tokens": 10541,
+      "completion_tokens": 297
+    }
+  }
+}

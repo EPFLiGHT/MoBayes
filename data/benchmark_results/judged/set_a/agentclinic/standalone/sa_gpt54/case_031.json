@@ -1,0 +1,149 @@
+{
+  "case_idx": 31,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient presents to the urgent care clinic complaining of epigastric discomfort and cramping pain for the past 2 hours. She reports experiencing similar pain episodes in the past, mostly post-meals, which often subside several hours after eating. This has led her to avoid eating, resulting in weight loss over the past couple of months. She has a habit of smoking and drinks alcohol occasionally. Her past medical history is insignificant except for chronic knee pain, for which she takes over-the-counter painkillers.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Pain subsides hours after eating",
+        "Weight loss",
+        "Avoidance of eating",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Chronic knee pain treated with over-the-counter painkillers. No other significant medical history.",
+    "Social_History": "Smoker, occasional alcohol drinker.",
+    "Review_of_Systems": "Patient denies any changes in bowel or urinary habits, no nausea or vomiting reported."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had cramping discomfort in my epigastric area for the past two hours. It feels like my previous episodes, usually after meals, and it tends to ease a few hours afterward, but I’ve been avoiding eating and I’ve lost some weight over the last couple of months.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Does the pain radiate anywhere, especially to your back or right shoulder?\nDoes the pain radiate anywhere, especially to your back or right shoulder?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It mostly stays in the upper middle part of my abdomen, but sometimes it feels like it can creep toward my back a bit. I don’t notice it going to my right shoulder.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any nausea or vomiting with these episodes?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had nausea or vomiting with these episodes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Any black stools, vomiting blood, or trouble swallowing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any black stools or vomiting blood, and I don’t have any trouble swallowing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you take NSAIDs like ibuprofen/naproxen, drink alcohol regularly, or smoke?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do smoke, and I drink alcohol only occasionally. I take over-the-counter painkillers for my knee pain, which I believe include NSAIDs like ibuprofen at times.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever been told you have an ulcer or tested positive for H. pylori?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’ve never been told I had an ulcer, and I don’t recall any testing for H. pylori. I’ve mostly just had these recurring post-meal pain episodes, which have gotten worse enough that I started avoiding eating.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Any yellowing of your eyes/skin, dark urine, fever, or pale/clay-colored stools?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any yellowing of my eyes or skin, and my urine and stool color seem normal—no fever or pale/clay-colored stools.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 38 years old.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Peptic ulcer disease (likely gastric or duodenal), Gastritis/duodenitis, Functional dyspepsia, Chronic pancreatitis, Biliary colic\n\nYour pattern is most suggestive of peptic ulcer disease or NSAID-related gastritis/duodenitis: recurrent epigastric pain after meals, smoking, intermittent NSAID use, and food avoidance with weight loss. Lack of jaundice/fever makes biliary obstruction or cholangitis less likely, and no vomiting or GI bleeding lowers concern for some complications, though they’re still important to watch for.\n\nThe weight loss and worsening symptoms mean you should get medical evaluation soon, including testing for H. pylori and likely consideration of an upper endoscopy. Seek urgent care immediately if you develop black stools, vomiting blood, severe worsening pain, persistent vomiting, fainting, fever, or jaundice.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Peptic ulcer disease (likely gastric or duodenal)",
+    "predicted_set": [
+      "Peptic ulcer disease (likely gastric or duodenal)",
+      "Gastritis/duodenitis",
+      "Functional dyspepsia",
+      "Chronic pancreatitis",
+      "Biliary colic\n\nYour pattern is most suggestive of peptic ulcer disease or NSAID-related gastritis/duodenitis: recurrent epigastric pain after meals"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Gastric peptic ulcer",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3805,
+      "completion_tokens": 328
+    },
+    "patient": {
+      "prompt_tokens": 4676,
+      "completion_tokens": 307,
+      "calls": 8
+    }
+  }
+}

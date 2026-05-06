@@ -1,0 +1,94 @@
+{
+  "case_idx": 42,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient has experienced gradual yellow discoloration of the skin and generalized pruritus over the past 2 weeks. He also reports a decreased appetite and a weight loss of 6.3 kg (14 lb). The patient’s stool has been pale, and his urine is very dark. Three years ago, he had an episode of acute upper abdominal pain, which was managed with IV fluids, NSAIDs, and dietary modification. The patient has abstained from alcohol for these three years, after having consumed 1–2 beers daily for 40 years. He has a 50-year history of smoking a pack of cigarettes daily.",
+    "Symptoms": {
+      "Primary_Symptom": "Yellow discoloration of the skin",
+      "Secondary_Symptoms": [
+        "Generalized pruritus",
+        "Decreased appetite",
+        "Weight loss",
+        "Pale stool",
+        "Dark urine"
+      ]
+    },
+    "Past_Medical_History": "Episode of acute upper abdominal pain treated three years ago. History of long-term alcohol consumption and smoking.",
+    "Social_History": "Stopped alcohol consumption three years ago; 50-year history of smoking a pack of cigarettes daily.",
+    "Review_of_Systems": "No additional symptoms were reported."
+  },
+  "objective_for_doctor": "Assess the patient and determine the cause of jaundice, pruritus, weight loss, pale stool, and dark urine.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve noticed gradual yellow discoloration of my skin and generalized itching for about two weeks. I’ve also had reduced appetite with weight loss, pale stools, and very dark urine.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **persistent shortness of breath with chronic cough and wheezing** (especially worse with exertion and long-term smoking history)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have persistent shortness of breath, chronic cough, or wheezing—I haven’t noticed those symptoms despite my smoking history.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **upper abdominal pain (epigastric pain) that may be associated with nausea/vomiting and is worse with meals or at night**?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No— I haven’t had current upper abdominal pain, nausea, or vomiting with meals or at night. The only similar issue was an acute upper abdominal pain episode about three years ago.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acalculous cholecystitis  , Chronic kidney failure",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis  ",
+    "predicted_set": [
+      "Acalculous cholecystitis  ",
+      "Chronic kidney failure"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Chronic kidney failure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1385,
+      "completion_tokens": 111,
+      "calls": 3
+    }
+  }
+}

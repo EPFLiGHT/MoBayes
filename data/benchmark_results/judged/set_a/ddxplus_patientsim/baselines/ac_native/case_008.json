@@ -1,0 +1,104 @@
+{
+  "case_idx": 8,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Anemia",
+  "objective_for_doctor": "A 13-year-old Female patient presents to the clinic. Chief complaint: I have lightheadedness/near-fainting, sensitive pain, and top of the head pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve been feeling lightheaded like I might faint, and I’m very tired. I also have sensitive pain on the top of my head—my forehead and left temple hurt too—and I’ve noticed black stools and also some bloody stool. I think I might be pregnant, and I’m also on oral anticoagulants.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the lightheadedness and the head/top-of-head pain start, and how long have you had the black and bloody stools?  \nDoctor: Have you noticed vomiting (especially blood or “coffee-ground” material), severe abdominal pain, or heavy menstrual bleeding, and what oral anticoagulant are you taking (name and dose) along with when you last took it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The lightheadedness and the head pain started today, but I can’t really say a gradual timeline—more like it came on. The black stools and bloody stool have been happening recently, I noticed them today as well.\n\nI haven’t vomited, and I don’t have severe stomach/abdominal pain. I also haven’t had heavy menstrual bleeding. I’m taking oral anticoagulants, but I don’t know the exact name and dose right now, and I took my last dose today.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to understand your bleeding and fainting risk—do you have any recent severe headaches with vision changes, weakness/numbness, fever, or shortness of breath/palpitations? Also, do you know when you last had a normal period or whether pregnancy is confirmed?  \nDoctor: REQUEST TEST: CBC (hemoglobin/platelets), PT/INR and aPTT, type & screen, and pregnancy test (urine/serum hCG).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had vision changes or weakness/numbness. I don’t have fever. I also haven’t noticed shortness of breath or palpitations.\n\nI’m not sure when my last normal period was, and pregnancy isn’t confirmed—I just think I might be pregnant.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given black + bloody stools and near-fainting while on anticoagulants, I’m worried about a significant GI bleed with anemia; please answer—how many times have you passed black or bloody stool today/over 24 hours, and do you feel dizzy on standing or have a racing heartbeat?  \nDoctor: REQUEST TEST: Basic_Metabolic_Panel, LFTs, stool guaiac (if available), vital signs including orthostatics, and consider CTA/CT_angiography or endoscopy referral based on results.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’ve passed black stool today—about once or maybe twice. I’ve also had bloody stool today, but I’m not sure exactly how many times.\n\nYes, I feel dizzy when I stand, like I might faint, but I don’t know if my heartbeat is racing for sure.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned you may have an ongoing GI bleed causing anemia while on anticoagulants—do you have any recent bruising, nosebleeds, or bleeding gums, and what are your current vital signs (blood pressure/heart rate) if you know them?  \nDoctor: Also, when you say top-of-head sensitivity, is it a new severe “worst headache,” and did you take any NSAIDs (ibuprofen/naproxen) or aspirin today?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed bruising, nosebleeds, or bleeding gums.\n\nI don’t know my exact blood pressure or heart rate right now.\n\nThe top-of-head sensitivity feels new to me and it’s pretty painful, around 5/10 to 6/10. I didn’t take ibuprofen/naproxen or aspirin today.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I want to clarify one key safety point—are you currently having severe worsening headache, confusion, fainting, or trouble walking/using your arms or speaking? Also, is the black stool tarry/sticky with a very dark color, and do you have any abdominal tenderness or pain at all?  \nDoctor: I’m going to decide based on suspected GI bleeding on anticoagulants—if you can, tell me whether your anticoagulant is warfarin vs a DOAC (apixaban/rivaroxaban/dabigatran/edoxaban). I’ll treat this as urgent: **REQUEST TEST: Repeat CBC STAT**, **REQUEST TEST: PT/INR & aPTT STAT**, **REQUEST TEST: Stool occult blood/guaiac if available**, and **REQUEST TEST: Orthostatic vital signs + ECG**.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not confused, and I’m not having trouble walking, using my arms, or speaking. I haven’t fully fainted, but I feel like I might.\n\nThe black stool is very dark and sticky/tarry. I don’t have abdominal pain or tenderness.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With tarry black stools (melena) plus hematochezia and near-syncope on oral anticoagulants, I’m treating this as an upper GI bleed causing symptomatic anemia until proven otherwise—do you have any recent NSAID use or alcohol use, and do you have any history of ulcers or liver disease? Also, have you had any recent head injury or is the headache possibly related to anemia/lightheadedness?  \nDoctor: DIAGNOSIS READY: Suspected acute upper GI bleeding (melena) with symptomatic anemia in an anticoagulated patient; consider concurrent lower GI source; headache likely due to anemia/near-syncope, rule out intracranial bleed if worsening.\n\n[DDX]\n1. Anemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Anemia",
+    "predicted_set_remapped": [
+      "Anemia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4349,
+      "completion_tokens": 722,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6968,
+      "completion_tokens": 428
+    }
+  }
+}

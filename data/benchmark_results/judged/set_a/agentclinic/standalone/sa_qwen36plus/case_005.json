@@ -1,0 +1,128 @@
+{
+  "case_idx": 5,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.",
+    "Symptoms": {
+      "Primary_Symptom": "Stiffness in the arm",
+      "Secondary_Symptoms": [
+        "Difficulty combing hair",
+        "Trouble reaching high objects",
+        "Decreased range of motion in shoulder",
+        "Arm strength 4/5"
+      ]
+    },
+    "Past_Medical_History": "Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.",
+    "Social_History": "Sedentary lifestyle, predominately staying indoors and watching television.",
+    "Review_of_Systems": "Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello—what brings you in today? Patient: Over the past few months, I’ve had stiffness in my arm and it’s been getting harder to comb my hair and reach high shelves. My shoulder range of motion feels decreased, and I notice my arm strength is about 4/5.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Do you experience significant pain along with the stiffness, particularly at night or when lying on that shoulder?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do have some discomfort, but not severe pain, and I don’t notice it much at night when I’m lying on that shoulder. It’s mostly stiffness with limited movement.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "When someone else moves your arm for you, is the range of motion equally restricted, or can it be moved further than when you move it yourself?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: When someone else tries to move my arm, they can move it a bit farther than I can when I try myself, but it still feels tight and limited. It’s more restrictive when I attempt the motion.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of diabetes or thyroid disease?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I have diabetes mellitus type II, but I don’t have any known thyroid disease. I’ve also been dealing with stiffness mostly in my arm/shoulder, especially when I try to lift or comb my hair.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 65 years old.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Is the stiffness and restricted movement most pronounced when you try to rotate your arm outward or reach behind your back?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—turning my arm outward and reaching behind my back are the hardest, and that’s when the tightness limits me the most.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Adhesive capsulitis, Glenohumeral osteoarthritis, Rotator cuff tear, Polymyalgia rheumatica, Cervical radiculopathy",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Adhesive capsulitis",
+    "predicted_set": [
+      "Adhesive capsulitis",
+      "Glenohumeral osteoarthritis",
+      "Rotator cuff tear",
+      "Polymyalgia rheumatica",
+      "Cervical radiculopathy"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Adhesive capsulitis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Adhesive capsulitis",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2561,
+      "completion_tokens": 12845
+    },
+    "patient": {
+      "prompt_tokens": 2886,
+      "completion_tokens": 248,
+      "calls": 6
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "case_idx": 5,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 61\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having pain—in particular in my mouth, forehead, right cheek, and nose—with a burning and sharp quality, intensity about 3/10, and it started gradually (pace 1/10). I’ve also had a cold in the last 2 weeks, with greenish or yellowish nasal discharge and a cough, plus a fever and lost my sense of smell. I’ve had pneumonia before and I have asthma or have used a bronchodilator in the past.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: gradual onset over ~2 weeks after a recent “cold,” with burning/sharp facial pain localized to mouth/forehead/right cheek/nose; green/yellow nasal discharge, cough, fever, and anosmia (loss of smell). This pattern strongly suggests an acute rhinosinus process rather than isolated migraine or dental pain. Asthma history is relevant mainly for cough/wheeze but doesn’t explain focal facial pain + purulent discharge + fever.\nTop candidates:\n1) Acute rhinosinusitis — facial pain/pressure with purulent (green/yellow) discharge, fever, and loss of smell after recent URI.\n2) Acute pulmonary infection (e.g., Pneumonia/Influenza) — cough + fever, but would not specifically localize to unilateral facial/mouth/nasal burning pain with anosmia.\n3) Acute bronchitis — cough + fever after URI, but again facial pain/anosmia are less typical.\n4) Allergic sinusitis — can cause congestion and facial discomfort, but fever and purulent discharge/anosmia after URI are less supportive.\n5) URTI/viral pharyngitis — could explain cold symptoms, but purulent discharge + fever + focal facial pain favors bacterial sinusitis over simple viral illness.\nMost informative next question: determine whether symptoms are unilateral and whether there is significant nasal obstruction/tooth pain or worsening after initial improvement—features that help distinguish acute bacterial rhinosinusitis",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the pain is on the right side for the cheek (right cheek), and it involves the nose and the right temple. Also, I don’t know about tooth pain or whether it got worse after initial improvement.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: right-sided facial pain (right cheek, nose, right temple) with burning/sharp quality; recent URI with green/yellow discharge, fever, cough, and anosmia. Unilateral predominance supports acute bacterial rhinosinusitis (often maxillary/ethmoid) and makes simple viral URTI less likely. Need to clarify the “course” (worsening after initial improvement vs persistent) and presence of severe features (orbital/neurologic) to refine urgency and likelihood of bacterial vs viral.\nTop candidates:\n1) Acute rhinosinusitis — unilateral facial pain + purulent discharge + fever + anosmia after URI.\n2) Allergic sinusitis — can be unilateral but fever and purulent discharge are less typical.\n3) URTI/viral pharyngitis — can cause anosmia and facial discomfort, but purulent discharge + fever + unilateral temple/cheek pain favors bacterial sinusitis.\n4) Pneumonia/Influenza — could explain fever/cough, but doesn’t explain focal unilateral facial pain pattern.\n5) GERD/digestive causes — unlikely given nasal discharge/anosmia.\nMost informative next question: ask about the symptom trajectory—did it improve then worsen (“double-worsening”) or has it been steadily present without improvement? This discriminates bacterial acute rhinosinusitis from viral URTI. [/REASONING]\n\nDid your symptoms get better at first and then worsen",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. Also, the pain is on the right side (right cheek, nose, and right temple).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: right-sided facial pain (right cheek/nose/right temple) with burning/sharp quality; recent URI 2 weeks ago with green/yellow nasal discharge, cough, fever, and loss of smell. Course is unclear (no “double-worsening” info yet). Still, the combination of unilateral facial pain + purulent discharge + fever + anosmia after URI keeps acute bacterial rhinosinusitis high.\nNeed to assess for “red flags” that would shift differential toward orbital complications or other serious causes (e.g., cavernous sinus thrombosis, meningitis) and also help decide urgency.\nTop candidates:\n1) Acute rhinosinusitis (bacterial) — best fit overall.\n2) Viral rhinosinusitis — possible, but fever + purulent discharge + unilateral temple/cheek pain makes bacterial more likely.\n3) Pneumonia/Influenza — explains fever/cough but not localized unilateral facial pain/anosmia.\n4) Allergic sinusitis — less likely due to fever and purulent discharge.\n5) Other serious intracranial/orbital process (e.g., cavernous sinus thrombosis/orbital cellulitis) — less likely but must screen for eye symptoms/neurologic deficits.\nMost informative next question: ask about eye/orbital symptoms (pain with eye movement, swelling/redness around eye, vision changes) because their presence would indicate orbital involvement and change management. [/REASON",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have limited “red flag” data. Current evidence remains: 2-week URI with purulent (green/yellow) nasal discharge, fever, cough, anosmia, and right-sided facial pain involving cheek/nose/right temple. That most strongly supports acute bacterial rhinosinusitis. However, we must screen for orbital/intracranial complications because temple pain can occasionally accompany them.\nNext discriminating step: directly ask about orbital/neurologic red flags in a yes/no way to avoid uncertainty.\nTop candidates remain:\n1) Acute rhinosinusitis (bacterial)\n2) Viral rhinosinusitis\n3) Pneumonia/Influenza (systemic illness causing fever/cough)\n4) Allergic sinusitis\n5) Other serious causes (orbital cellulitis/cavernous sinus thrombosis) — lower probability but must rule out\nMost informative next question: any eye symptoms—swelling/redness around the eye, pain with eye movement, double vision, or vision changes? [/REASONING]\n\nDo you have any eye symptoms on the right—swelling/redness around the eye, pain when moving the eye, double vision, or any change in vision?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill unclear on red flags; we only know: right-sided facial pain (cheek/nose/right temple), burning/sharp; URI 2 weeks ago with green/yellow discharge, cough, fever, and anosmia. This continues to point most toward acute rhinosinusitis (possibly bacterial). But without red-flag screening, we can’t confidently exclude orbital/intracranial complications.\nNext most informative question: ask about severe headache/neck stiffness/photophobia or neurologic symptoms (confusion, weakness), which would suggest meningitis or intracranial spread.\nTop candidates:\n1) Acute rhinosinusitis (bacterial)\n2) Viral rhinosinusitis\n3) Influenza/other viral systemic infection with URI symptoms\n4) Pneumonia (less likely for facial pain pattern)\n5) Other serious intracranial complication (low but must screen)\nMost informative next action: ask about meningitis/intracranial red flags. [/REASONING]\n\nHave you had a severe headache, neck stiffness, confusion, or sensitivity to light (photophobia)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have persistent uncertainty about red flags (eye symptoms, meningitis/neurologic signs). Given the limited history, I can’t safely “rule out” serious complications, but the symptom cluster still most strongly matches acute rhinosinusitis after URI.\nTo narrow further without relying on “I don’t know,” we should ask one more high-yield question that also helps distinguish bacterial sinusitis from viral: duration beyond 10 days, and whether symptoms are severe (e.g., high fever ≥39°C, or significant facial pain). Also ask about dental pain/upper tooth pain on the right, which supports maxillary sinusitis.\nTop candidates remain:\n1) Acute COPD exacerbation / infection — unlikely (no dyspnea/wheeze described; facial pain/anosmia not typical)\n2) Acute rhinosinusitis — best fit\n3) Allergic sinusitis — less likely due to fever/purulent discharge\n4) URTI/viral pharyngitis — possible but fever + purulent discharge + anosmia + unilateral facial pain favors bacterial\n5) Pneumonia/Influenza — could explain fever/cough but not localized facial pain/anosmia\nMost informative next question: how long have the nasal discharge/facial pain been going on in total (more or less than 10 days), and is the fever high (≥39°C) or facial pain severe? [/REASONING]\n\nHow long has the nasal discharge",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I can’t confidently narrow to a specific diagnosis because key discriminators are missing/unknown: symptom duration (e.g., >10 days vs “double-worsening”), severity (high fever ≥39°C, severe facial pain), and red-flag features (eye/orbital symptoms, neurologic symptoms/meningismus). With only “2 weeks URI + purulent discharge + fever + anosmia + unilateral facial pain,” acute rhinosinusitis is most likely, but serious complications can’t be excluded.\n\n[POSSIBLE] Acute rhinosinusitis, Viral pharyngitis, Influenza, Pneumonia, Allergic sinusitis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Viral pharyngitis",
+      "Influenza",
+      "Pneumonia",
+      "Allergic sinusitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12439,
+      "completion_tokens": 1817
+    },
+    "patient": {}
+  }
+}

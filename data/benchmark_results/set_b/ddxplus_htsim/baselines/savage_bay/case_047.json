@@ -1,0 +1,189 @@
+{
+  "case_idx": 47,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a fever, and I’ve been coughing along with coughing up blood.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’ll ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, rough):**\n- Pneumonia: 0.30  \n- Pulmonary embolism: 0.20  \n- Influenza: 0.15  \n- Tuberculosis: 0.15  \n- Acute COPD exacerbation / infection: 0.10  \n(Other causes like malignancy/anaphylaxis are less likely given this initial info.)\n\n**Q1 (most discriminating):**  \nHow long has this been going on (hours/days/weeks)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (still uncertain duration):**\n- Pneumonia: 0.28  \n- Pulmonary embolism: 0.22  \n- Influenza: 0.15  \n- Tuberculosis: 0.15  \n- Acute COPD exacerbation / infection: 0.10  \n\n**Q2:** About how old are you? (This helps with TB/malignancy risk and baseline cardiopulmonary risk.)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 26 years old.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (age 26):**\n- Pneumonia: 0.30  \n- Pulmonary embolism: 0.25  \n- Influenza: 0.15  \n- Tuberculosis: 0.15  \n- Acute COPD exacerbation / infection: 0.10  \n\n(You’re young, which lowers malignancy and some cardiac causes, but PE and infection remain plausible.)\n\n**Q3:** Do you have shortness of breath or chest pain—especially pain that’s worse when you breathe in?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have pain—it's sensitive and burning, with intensity 7/10. The pain is located around the tonsil (L), thyroid cartilage, palate, pharynx, and under the jaw, but it doesn’t radiate anywhere.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (pleuritic-type chest pain vs localized throat pain):**\n- Pneumonia: 0.22  \n- Pulmonary embolism: 0.18  \n- Influenza: 0.14  \n- Tuberculosis: 0.14  \n- Acute COPD exacerbation / infection: 0.08  \n\nNew evidence suggests the pain may be **upper airway/throat-related** rather than classic pleuritic chest pain, so I’m shifting probability away from PE/pneumonia a bit.\n\n**Q4:** When you cough up blood, is it **bright red** or **dark/rust-colored**, and about how much (streaks vs teaspoons vs more)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (still limited by unknown hemoptysis details):**\n- Pneumonia: 0.22  \n- Pulmonary embolism: 0.18  \n- Influenza: 0.14  \n- Tuberculosis: 0.14  \n- Acute COPD exacerbation / infection: 0.08  \n\n**Q5:** Do you have **trouble swallowing, drooling, muffled “hot potato” voice, or any noisy breathing/stridor**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no airway-specific symptoms provided):**\n- Pneumonia: 0.22  \n- Pulmonary embolism: 0.18  \n- Influenza: 0.14  \n- Tuberculosis: 0.14  \n- Acute COPD exacerbation / infection: 0.08  \n\n**Q6:** Have you noticed **one-sided throat swelling**, a “lump” feeling, or difficulty opening your mouth (trismus)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (still insufficient airway localization):**\n- Pneumonia: 0.22  \n- Pulmonary embolism: 0.18  \n- Influenza: 0.14  \n- Tuberculosis: 0.14  \n- Acute COPD exacerbation / infection: 0.08  \n\n**Q7:** Do you have **sore throat** or **pain when swallowing**, and is there any **runny nose/cold symptoms**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have nasal congestion or a clear runny nose, and I have pain in the tonsil (L), thyroid cartilage, palate, pharynx, and under the jaw.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (upper respiratory/throat syndrome):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\nNew evidence (nasal congestion/clear rhinorrhea + focal left tonsil/pharyngeal pain) increases likelihood of **viral URTI/influenza** or **localized upper airway infection/inflammation**. Hemoptysis still needs explanation, but it could be from throat irritation/epistaxis rather than lung bleeding.\n\n**Q8:** Do you have **heartburn/reflux**, sour taste, or symptoms worse when lying down?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no reflux info):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\n**Q9:** Have you had **any sick contacts**, and do you have **body aches** or **headache** with the fever?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (still limited):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\n**Q10:** When you cough up blood, is it definitely from your lungs (coughing it up) versus could it be **blood from your nose** (nosebleed) or **blood mixed with saliva** from your mouth/throat?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (hemoptysis source unknown keeps PE/pneumonia on the list):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\n**Q11 (high-yield):** Do you have **shortness of breath**, wheezing, or are you breathing faster than usual?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (still insufficient respiratory status):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\n**Q12:** Any **night sweats**, **unintentional weight loss**, or **cough for more than 2–3 weeks**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no TB risk features provided):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\n**Q13:** Have you had any **recent long travel, leg swelling/pain, recent surgery, or are you on estrogen-containing birth control**?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (PE risk still unknown):**\n- Pneumonia: 0.12  \n- Pulmonary embolism: 0.10  \n- Influenza: 0.18  \n- Tuberculosis: 0.10  \n- Acute COPD exacerbation / infection: 0.06  \n\n**Q14:** Do you have **any rash, hives, lip/tongue swelling, or trouble breathing** (suggesting an allergic/anaphylactic process)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key details are missing/unknown: duration of symptoms, amount/color/source of blood (true hemoptysis vs epistaxis/oral bleeding), and presence of shortness of breath/pleuritic features or airway red flags. Without these, I can’t confidently rank the causes.\n\n[POSSIBLE] Influenza, Pneumonia, Pulmonary embolism, Tuberculosis, Acute COPD exacerbation / infection",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Tuberculosis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 25788,
+      "completion_tokens": 1630
+    },
+    "patient": {}
+  }
+}

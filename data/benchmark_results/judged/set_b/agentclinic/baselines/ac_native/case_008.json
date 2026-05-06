@@ -1,0 +1,103 @@
+{
+  "case_idx": 8,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Perforated gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient is brought in by his wife due to experiencing severe abdominal pain for the past hour. The patient is in too much discomfort to provide detailed information. His wife reports that he has a history of peptic ulcer disease, which has been treated with antacids without significant improvement. She mentions that he has vomited several times in the last few hours, with the vomit being brown/red in color.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Repeated vomiting",
+        "Brown/red-colored vomitus"
+      ]
+    },
+    "Past_Medical_History": "Known history of peptic ulcer disease, treated with antacids.",
+    "Social_History": "Not provided.",
+    "Review_of_Systems": "Unable to provide due to the patient's condition."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with acute, severe abdominal pain, with a background of peptic ulcer disease.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’ll start by assessing your symptoms: where exactly is your abdominal pain (upper/middle/lower; right/left), and when did it begin? Doctor: Do you have any vomiting (especially blood/“coffee-ground”), black or bloody stools, fever, or a rigid/hard belly?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: The pain is in the upper middle of my abdomen and started about an hour ago, very suddenly. I’ve vomited several times and the vomit looked brown/red, and I can’t tell about stools—I’m too uncomfortable. My belly feels very tense but I don’t know if it’s rigid, and I don’t have a fever that I’ve noticed."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Given your sudden epigastric pain with repeated brown/red emesis and a very tense abdomen on a background of peptic ulcer disease, I’m worried about an acute complication like a perforated or bleeding ulcer—do you have dizziness/fainting or feel very weak/pale, and have you noticed any worsening pain with breathing or shoulder-tip pain? Doctor: Also, are you on NSAIDs (ibuprofen/naproxen/aspirin) or blood thinners, and can I examine your abdomen now for involuntary guarding/rigidity?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "I feel very weak and kind of lightheaded, and my pain seems to be getting worse since it started—though I haven’t really noticed any shoulder pain or pain when breathing. I haven’t been taking ibuprofen or aspirin as far as I know, and I’m not on any blood thinners; please examine my abdomen now."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m examining your abdomen now—please tell me if the pain is most severe in the upper middle (epigastrium) and whether it’s “board-like” rigid to touch, and I’m also going to ask one last thing: have you had any history of black/tarry stools or confirmed GI bleeding before today? Doctor: REQUEST TEST: CBC (hemoglobin/hematocrit) and coagulation panel (PT/INR) Doctor: REQUEST TEST: Serum lactate and type & screen (in case you’re actively bleeding)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: - Vital Signs: Temperature 37°C (98.6°F); BP 100/68 mm Hg; Heart Rate 97 bpm; Respiratory Rate 16 breaths/min. - Abdominal Exam: Tense abdomen; board-like rigidity with positive rebound tenderness consistent with peritonitis. - Imaging: Erect abdominal X-ray expected to show free air under the diaphragm (suggestive of gastrointestinal perforation). - CBC (hemoglobin/hematocrit): Not provided. - Coagulation panel (PT/INR): Not provided. - Serum lactate: Not provided. - Type & screen: Not provided."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: This exam (board-like rigidity with rebound tenderness) plus suspected free air strongly indicates a perforated peptic ulcer causing peritonitis—right now we need immediate resuscitation and urgent surgery. Doctor: I’m going to prepare you for emergency exploratory surgery and start IV fluids, IV proton-pump inhibitor, and broad-spectrum IV antibiotics; I’ll also keep you NPO and give antiemetics/analgesia while awaiting the CBC/PT/INR/lactate/type-and-screen. DIAGNOSIS READY: Perforated peptic ulcer with pneumoperitoneum and generalized peritonitis (likely anterior duodenal ulcer)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: This exam (board-like rigidity with rebound tenderness) plus suspected free air strongly indicates a perforated peptic ulcer causing peritonitis—right now we need immediate resuscitation and urgent surgery. Doctor: I’m going to prepare you for emergency exploratory surgery and start IV fluids, IV proton-pump inhibitor, and broad-spectrum IV antibiotics; I’ll also keep you NPO and give antiemetics/analgesia while awaiting the CBC/PT/INR/lactate/type-and-screen. DIAGNOSIS READY: Perforated peptic ulcer with pneumoperitoneum and generalized peritonitis (likely anterior duodenal ulcer)",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Perforated gastric peptic ulcer",
+    "predicted_set_remapped": [
+      "Perforated gastric peptic ulcer",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1847,
+      "completion_tokens": 436,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 915,
+      "completion_tokens": 148,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 488,
+      "completion_tokens": 138,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 197,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

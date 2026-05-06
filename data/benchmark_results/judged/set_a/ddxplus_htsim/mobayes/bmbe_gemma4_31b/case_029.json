@@ -1,0 +1,201 @@
+{
+  "case_idx": 29,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: F\nChief Complaint: exertional symptoms",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been having shortness of breath and difficulty breathing in a significant way, especially when I exert myself, and it gets worse with physical exertion but improves with rest. Along with that, I have pain in my lower chest/right breast that’s very intense (8/10) and feels like a knife stroke. I also feel my heart beating fast and irregularly with palpitations. My symptoms are worse when lying down and better when sitting up.",
+      "extracted_features": {
+        "f_e_66": "yes",
+        "f_e_218": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_159": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_56": "8",
+        "f_e_155": "yes",
+        "f_e_164": "yes",
+        "f_e_217": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Myocarditis",
+          0.5527165368788153
+        ],
+        [
+          "Pericarditis",
+          0.23823539619575682
+        ],
+        [
+          "Acute pulmonary edema",
+          0.05710172012466344
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.05595640828289893
+        ],
+        [
+          "Stable angina",
+          0.01946594143856891
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_0",
+      "doctor_question": "Have you recently had a viral infection, such as a cold or the flu?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.37966736637514326
+        ],
+        [
+          "Pericarditis",
+          0.14182709006715466
+        ],
+        [
+          "Acute pulmonary edema",
+          0.1307461012935992
+        ]
+      ],
+      "entropy": 3.0056918115976274
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_106",
+      "doctor_question": "Have you ever been diagnosed with heart failure?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.4351962577894401
+        ],
+        [
+          "Pericarditis",
+          0.16257025047921672
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.14686261919820753
+        ]
+      ],
+      "entropy": 2.8382657209197557
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_21",
+      "doctor_question": "Have you ever experienced a spontaneous pneumothorax, which is when a lung collapses suddenly without an obvious injury?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.49643929260926134
+        ],
+        [
+          "Pericarditis",
+          0.18544796445896986
+        ],
+        [
+          "Stable angina",
+          0.058279772438792565
+        ]
+      ],
+      "entropy": 2.7291465687162852
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_112",
+      "doctor_question": "Would you describe the pain you're feeling as \"haunting,\" meaning it is persistent, deeply distressing, or seems to linger in a way that is difficult to shake?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.5151365196591859
+        ],
+        [
+          "Pericarditis",
+          0.19243242912374575
+        ],
+        [
+          "Stable angina",
+          0.06047474401724838
+        ]
+      ],
+      "entropy": 2.5814397246551533
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_ant_e_123",
+      "doctor_question": "Have you ever been diagnosed with chronic obstructive pulmonary disease, or COPD?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.5151365196591859
+        ],
+        [
+          "Pericarditis",
+          0.19243242912374575
+        ],
+        [
+          "Stable angina",
+          0.06047474401724838
+        ]
+      ],
+      "entropy": 2.5814397246551533
+    }
+  ],
+  "final": {
+    "predicted": "Myocarditis",
+    "predicted_top3": [
+      "Myocarditis",
+      "Pericarditis",
+      "Stable angina"
+    ],
+    "confidence": 0.5151365196591859,
+    "final_entropy": 2.5814397246551533,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myocarditis",
+    "predicted_set_remapped": [
+      "Myocarditis",
+      "Pericarditis",
+      "Stable angina"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12459,
+      "completion_tokens": 314
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "case_idx": 39,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pancreatic neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 36\nSex: Female\nChief Complaint: I have feeling nauseous or do you feel like vomiting, a cramp pain, and diarrhea or an increase in stool frequency",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having nausea like I might vomit, crampy belly pain, and diarrhea with more frequent stools. I’ve also noticed unintentional weight loss, pale stools, and dark urine, and I have chronic pancreatitis and diabetes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent fever, night sweats, or unexplained weight loss for more than 2 weeks?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or night sweats—I haven’t noticed those. But yes, I have unintentional weight loss, and it’s been going on longer than 2 weeks.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a known exposure to someone with active tuberculosis (TB) within the last 6 months?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t think so. I haven’t had any known exposure to someone with active TB.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chagas  , HIV (initial infection)",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Chagas  ",
+    "predicted_set": [
+      "Chagas  ",
+      "HIV (initial infection)"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2246,
+      "completion_tokens": 122
+    }
+  }
+}

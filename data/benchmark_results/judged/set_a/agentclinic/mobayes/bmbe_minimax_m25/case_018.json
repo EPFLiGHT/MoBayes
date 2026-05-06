@@ -1,0 +1,424 @@
+{
+  "case_idx": 18,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello—what brings you in today, and what’s been going on? Patient: I’m here for my annual blood pressure check. I don’t have any new complaints, just occasional knee pain, and I take acetaminophen only as needed.",
+      "extracted_features": {
+        "f_knee_pain_86af6967": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Osteoarthritis",
+          0.09294057897409856
+        ],
+        [
+          "Psoriatic arthritis",
+          0.06754697816150329
+        ],
+        [
+          "Vitiligo",
+          0.028948704926358558
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.028948704926358558
+        ],
+        [
+          "Actinic Keratosis",
+          0.028948704926358558
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling.\n\nDo you ever experience stiffness in your joints when you wake up in the morning? If so, does it usually last for a while, or does it go away after you start moving around?",
+      "patient_answer": "Patient: Yes, I do sometimes feel some stiffness in my joints when I wake up, mainly in the knees. It usually lasts for a little while, but it tends to improve once I start moving around.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.36908449182453373
+        ],
+        [
+          "Psoriatic arthritis",
+          0.3640423539580782
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09443203918461433
+        ]
+      ],
+      "entropy": 2.6492112984176113
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling today.\n\nAre you currently experiencing any chest pain or discomfort? This could feel like pressure, tightness, squeezing, or any unusual feeling in your chest area.",
+      "patient_answer": "Doctor: Are you currently experiencing any chest pain or discomfort—pressure, tightness, or any unusual sensation? Patient: No, I’m not having any chest pain or discomfort.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.36908449182453373
+        ],
+        [
+          "Psoriatic arthritis",
+          0.3640423539580782
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09443203918461433
+        ]
+      ],
+      "entropy": 2.6492112984176113
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling today.\n\nAre you having any difficulty lifting objects, such as carrying groceries or lifting things around the house?",
+      "patient_answer": "Doctor: Are you having any difficulty lifting objects, such as carrying groceries or lifting things around the house? Patient: Not really—day to day I can lift things, though my knee pain occasionally makes it a bit uncomfortable when I’m carrying or walking.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.36908449182453373
+        ],
+        [
+          "Psoriatic arthritis",
+          0.3640423539580782
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09443203918461433
+        ]
+      ],
+      "entropy": 2.6492112984176113
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your arms to get a better understanding of your condition.\n\nHave you noticed any skin changes, such as redness, rashes, sores, or unusual spots along the veins in your arms?",
+      "patient_answer": "Patient: No, I haven’t noticed any redness, rashes, sores, or unusual spots on my arms. My skin looks normal to me.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.3690844918245338
+        ],
+        [
+          "Psoriatic arthritis",
+          0.3640423539580782
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09443203918461433
+        ]
+      ],
+      "entropy": 2.6492112984176113
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Are you experiencing any pain in your side or flank area, perhaps around your lower ribs or on the sides of your back?",
+      "patient_answer": "Patient: No, I don’t have any pain in my side or flank area, and I haven’t felt anything around my lower ribs or on the sides of my back.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.3705366681019891
+        ],
+        [
+          "Psoriatic arthritis",
+          0.3654746917617978
+        ],
+        [
+          "Adhesive capsulitis",
+          0.09480358545700777
+        ]
+      ],
+      "entropy": 2.628358763197099
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any rough, scaly patches on your skin that have persisted for some time and haven't gone away easily?",
+      "patient_answer": "No, I haven’t noticed any rough, scaly patches that have persisted or wouldn’t go away. My skin’s been normal overall.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.3727013641383051
+        ],
+        [
+          "Psoriatic arthritis",
+          0.36760981544789095
+        ],
+        [
+          "Adhesive capsulitis",
+          0.095357433330468
+        ]
+      ],
+      "entropy": 2.593968191760309
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nHave you noticed any unusual bumps, sores, patches, or areas of irritation on your scalp?",
+      "patient_answer": "Patient: No, I haven’t noticed any unusual bumps, sores, patches, or irritation on my scalp.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4453017200944817
+        ],
+        [
+          "Psoriatic arthritis",
+          0.2484467509364144
+        ],
+        [
+          "Adhesive capsulitis",
+          0.11393258295157405
+        ]
+      ],
+      "entropy": 2.745881982019331
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your eating habits and appetite.\n\nDo you often experience strong cravings for specific types of food? For example, do you find yourself longing for sweets, salty snacks, or other particular foods?",
+      "patient_answer": "Patient: No, I don’t really have strong cravings for specific foods—my appetite feels pretty normal. My diet is mostly vegetables, and I don’t notice a particular pull toward sweets or salty snacks.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.44768738464402075
+        ],
+        [
+          "Psoriatic arthritis",
+          0.24977778241330023
+        ],
+        [
+          "Adhesive capsulitis",
+          0.11454296667999822
+        ]
+      ],
+      "entropy": 2.721037733409775
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your symptoms.\n\nWhen you move your knee—bending or straightening it—do you feel any pain in your thigh area? Please let me know if this happens or if it's something you don't experience.",
+      "patient_answer": "Patient: Yes, when I bend or straighten my knee, I sometimes feel pain mainly around the knee area rather than in the thigh itself. I don’t usually notice significant thigh pain with the movement.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.44768738464402075
+        ],
+        [
+          "Psoriatic arthritis",
+          0.24977778241330023
+        ],
+        [
+          "Adhesive capsulitis",
+          0.11454296667999822
+        ]
+      ],
+      "entropy": 2.7210377334097755
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nHave you been vomiting at all? This means actually throwing up or bringing up the contents of your stomach.",
+      "patient_answer": "“No, I haven’t been vomiting at all.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.45611959574822447
+        ],
+        [
+          "Psoriatic arthritis",
+          0.2544823576653448
+        ],
+        [
+          "Adhesive capsulitis",
+          0.11670038837352102
+        ]
+      ],
+      "entropy": 2.6283054824856507
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_vulvar_itching_2bb4c1ea",
+      "doctor_question": "Hello, thank you for sharing that information with me today.\n\nI'd like to ask you a quick question: Have you been experiencing any itching or discomfort in the vulvar area?",
+      "patient_answer": "Doctor: Have you been experiencing any itching or discomfort in the vulvar area? Patient: No, I haven’t noticed any itching or discomfort in that area.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.45611959574822447
+        ],
+        [
+          "Psoriatic arthritis",
+          0.2544823576653448
+        ],
+        [
+          "Adhesive capsulitis",
+          0.11670038837352102
+        ]
+      ],
+      "entropy": 2.6283054824856507
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello! I'd like to ask you a few questions to help understand what you're experiencing.\n\nAre you currently feeling any pain in your wrist or wrists?",
+      "patient_answer": "“No, I’m not having any pain in my wrists. My main issue is occasional knee pain, and otherwise I feel fine.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4230041955893417
+        ],
+        [
+          "Psoriatic arthritis",
+          0.20276598895134754
+        ],
+        [
+          "Adhesive capsulitis",
+          0.15090898269767514
+        ]
+      ],
+      "entropy": 2.934096335629551
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling. \n\nAre you experiencing any warmth or heat sensation in your legs?",
+      "patient_answer": "Doctor: Are you experiencing any warmth or heat sensation in your legs? Patient: No, I haven’t noticed any warmth or heat in my legs—just the occasional knee pain, especially with movement.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.4230041955893417
+        ],
+        [
+          "Psoriatic arthritis",
+          0.20276598895134754
+        ],
+        [
+          "Adhesive capsulitis",
+          0.15090898269767514
+        ]
+      ],
+      "entropy": 2.934096335629551
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_hip_pain_b43bcb14",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you currently experiencing any pain in your hip or around your hip area?",
+      "patient_answer": "Patient: No, I don’t really have pain in my hip area—my discomfort is mainly around my knees, especially when I bend or straighten them or when I’m walking.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Osteoarthritis",
+          0.30699738461147874
+        ],
+        [
+          "Psoriatic arthritis",
+          0.2128541405468831
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1936209112394202
+        ]
+      ],
+      "entropy": 3.3174621715863193
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_top3": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.30699738461147874,
+    "final_entropy": 3.3174621715863193,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Osteoarthritis",
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Psoriatic arthritis",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7113,
+      "completion_tokens": 3533
+    },
+    "patient": {
+      "prompt_tokens": 12905,
+      "completion_tokens": 571,
+      "calls": 15
+    }
+  }
+}

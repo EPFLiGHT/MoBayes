@@ -1,0 +1,96 @@
+{
+  "case_idx": 38,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Я не могу говорить, меня за мной следят. Я чувствую жар и дезориентацию, у меня дрожь и мышцы как будто напряжены, и я плохо понимаю, что происходит.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a sudden onset of psychotic symptoms (e.g., hallucinations or delusions) lasting less than 1 month, without a history of schizophrenia or bipolar disorder?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "«Да, это началось резко — я чувствую, что меня как будто кто-то контролирует, и я не понимаю происходящее. Также у меня жар, я дезориентирован и мышцы сильно напряжены, дрожу и мне очень плохо.»",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you ever taken antipsychotic (neuroleptic) medication and then developed a sudden episode of high fever with severe muscle stiffness and confusion?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Я ничего не принимал из антипсихотиков или не могу вспомнить такого — но у меня была сильная жара, спутанность, я не понимаю где я, дрожу и мышцы сильно напряжены.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Factitious disorder  , Somatization disorder",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Factitious disorder  ",
+    "predicted_set": [
+      "Factitious disorder  ",
+      "Somatization disorder"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Factitious disorder",
+    "predicted_set_remapped": [
+      "Factitious disorder",
+      "Somatization disorder",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1223,
+      "completion_tokens": 150,
+      "calls": 3
+    }
+  }
+}

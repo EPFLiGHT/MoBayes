@@ -1,0 +1,88 @@
+{
+  "case_idx": 3,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "68-year-old male from California",
+    "History": "The patient comes in for a routine checkup without any specific complaints. He maintains an active lifestyle with jogging and gardening. He has been retired since age 50 and enjoys spending his mornings in the park and afternoons in his garden.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a lesion on the scalp",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "No history of smoking. Drinks alcohol occasionally.",
+    "Review_of_Systems": "Denies any symptoms of fatigue, weight loss, fever, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Perform a routine checkup on a 68-year-old man, assess any dermatological findings, and formulate a diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for a routine checkup, and I’ve noticed a lesion on my scalp. It hasn’t come with any other concerning symptoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **white, thin, “crinkled” skin** (often with **itching or irritation**, sometimes on the genital area)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any white, thin, crinkled skin or itching—especially not in the genital area. The only issue I’ve noticed is the lesion on my scalp.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a small, flesh-colored or pink bump with a central dimple (umbilication) that can spread to nearby skin?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed a small flesh-colored or pink bump with a central dimple that’s spreading to nearby skin. My main concern is just the lesion on my scalp.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic Keratosis, Seborrheic keratosis  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Actinic Keratosis",
+    "predicted_set": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Actinic Keratosis",
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1065,
+      "completion_tokens": 130,
+      "calls": 3
+    }
+  }
+}

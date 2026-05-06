@@ -1,0 +1,103 @@
+{
+  "case_idx": 34,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Hypertrophic cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "23-year-old male",
+    "History": "The patient experienced sudden loss of consciousness while pitching in a baseball game. No history of trauma associated with the event. The patient regained consciousness after receiving cardiopulmonary resuscitation.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden loss of consciousness",
+      "Secondary_Symptoms": [
+        "No history of neurological problems",
+        "No history of cardiovascular problems"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Active, with regular participation in sports. No use of tobacco, alcohol, or recreational drugs reported.",
+    "Review_of_Systems": "Negative for headaches, seizures, chest pain, palpitations, shortness of breath, or dizziness prior to the event."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden loss of consciousness and no prior history of neurological or cardiovascular problems.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s start with key details: what were you doing right when you collapsed, and did you fully lose consciousness? Patient: (answer) Doctor: Any warning symptoms beforehand (chest pain, palpitations, shortness of breath, dizziness, nausea, visual changes) and how long were you out?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I was pitching in a baseball game when I suddenly collapsed and I believe I fully lost consciousness, with no clear warning signs beforehand. Patient: I regained consciousness only after CPR was started."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any symptoms afterward—confusion, seizure-like jerking, tongue biting, loss of bladder control, or persistent headache—and do you have a family history of sudden death or known heart disease? Patient: (answer) Doctor: REQUEST TEST: ECG",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: ECG — Signs of left ventricular hypertrophy."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Before the collapse, did you feel exertional chest pain/pressure, palpitations, or sudden shortness of breath, and have you had any prior fainting episodes during exercise? Doctor: REQUEST TEST: Echocardiogram.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Echocardiogram — Left ventricular hypertrophy with septal thickening; reduced ventricular cavity size."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: This pattern—sudden collapse during exertion with full loss of consciousness and now LV hypertrophy with septal thickening and small cavity—fits hypertrophic cardiomyopathy with high risk of ventricular arrhythmia; did anyone witness any seizure-like movements, and are you on any stimulant/decongestant or had recent heavy alcohol/cocaine use? Doctor: Do you have a family history of hypertrophic cardiomyopathy, unexplained sudden death (especially <50 years), or known cardiomyopathy? DIAGNOSIS READY: Hypertrophic cardiomyopathy (septal hypertrophy) causing exertional syncope and likely malignant ventricular arrhythmia (sudden cardiac arrest).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: This pattern—sudden collapse during exertion with full loss of consciousness and now LV hypertrophy with septal thickening and small cavity—fits hypertrophic cardiomyopathy with high risk of ventricular arrhythmia; did anyone witness any seizure-like movements, and are you on any stimulant/decongestant or had recent heavy alcohol/cocaine use? Doctor: Do you have a family history of hypertrophic cardiomyopathy, unexplained sudden death (especially <50 years), or known cardiomyopathy? DIAGNOSIS READY: Hypertrophic cardiomyopathy (septal hypertrophy) causing exertional syncope and likely malignant ventricular arrhythmia (sudden cardiac arrest).",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Hypertrophic cardiomyopathy",
+    "predicted_set_remapped": [
+      "Hypertrophic cardiomyopathy",
+      "Situational syncope",
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1358,
+      "completion_tokens": 329,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 356,
+      "completion_tokens": 43,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 834,
+      "completion_tokens": 41,
+      "calls": 2
+    },
+    "moderator": {
+      "prompt_tokens": 206,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

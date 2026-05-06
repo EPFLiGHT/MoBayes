@@ -1,0 +1,142 @@
+{
+  "case_idx": 46,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had left-sided chest pain for about a week along with a productive cough bringing up purulent sputum, and I’ve been feeling short of breath. I also had fever and malaise, and I was recently diagnosed with influenza but didn’t follow the treatment plan.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Is the chest pain sharp and does it get worse when you",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the chest pain is sharp and it’s worse when I take a deep breath or cough. It’s been pretty constant over the last week.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any blood in your sputum",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I haven’t noticed any blood in my sputum.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any chills, night sweats, or unintentional",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, yes, I’ve had chills and I’ve been feeling pretty sick overall, but I haven’t had any night sweats or unintentional weight loss.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any pain, swelling, or redness",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed any pain, swelling, or redness in my legs or elsewhere.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you felt your heart racing or fluttering, or have",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed my heart racing or fluttering, and I don’t feel palpitations.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of smoking, asthma, COPD, or any other lung conditions?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t smoke and I don’t have asthma or COPD, and I don’t know of any other lung conditions. I haven’t had anything like this before.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Viral pneumonia* (progression of influenza) -",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve also had chills and feel very run down, but I haven’t had night sweats or weight loss. The cough keeps bringing up purulent sputum, and the sharp left chest pain stays worse with deep breaths or coughing. I’m mainly worried because I’m short of breath and it’s been going on for about a week.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Secondary bacterial pneumonia, Viral pneumonia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Secondary bacterial pneumonia",
+    "predicted_set": [
+      "Secondary bacterial pneumonia",
+      "Viral pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3075,
+      "completion_tokens": 2280
+    },
+    "patient": {
+      "prompt_tokens": 3791,
+      "completion_tokens": 312,
+      "calls": 8
+    }
+  }
+}

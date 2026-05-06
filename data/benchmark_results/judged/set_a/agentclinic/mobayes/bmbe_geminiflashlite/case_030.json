@@ -1,0 +1,312 @@
+{
+  "case_idx": 30,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient reports experiencing epigastric discomfort and cramping pain for the past 2 hours, noting that similar episodes have occurred in the past, mostly postprandially. She mentions a recent unintentional weight loss due to meal avoidance as a pain mitigation strategy. She smokes and consumes alcohol occasionally.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Weight loss",
+        "Pain mostly postprandially",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Insignificant, except for chronic knee pain managed with over-the-counter painkillers.",
+    "Social_History": "Smoking habit and occasional alcohol consumption.",
+    "Review_of_Systems": "Denies nausea, vomiting, change in bowel habits, and any urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’ve had epigastric discomfort and cramping pain for about two hours, and it feels similar to episodes I’ve had before, usually after I eat. I’ve also lost some weight recently because I’ve been avoiding meals to prevent the pain.”",
+      "extracted_features": {
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_food_avoidance_due_to_pain_179117ad": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_abdominal_cramps_5c525b72": "yes",
+        "f_epigastric_pain_c647d535": "yes",
+        "f_postprandial_abdominal_pain_59058822": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.6503182916407185
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16353719799983146
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.10582369113822859
+        ],
+        [
+          "Bacillus cereus infection",
+          0.020755098755161405
+        ],
+        [
+          "Somatization disorder",
+          0.004480485664959787
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any degree of vision loss?",
+      "patient_answer": "“Doctor, I haven’t noticed any changes in my eyesight—no blurriness, dark spots, or vision loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.6514922596166737
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1638324187183582
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.1060147262453301
+        ]
+      ],
+      "entropy": 1.7920616774587987
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Doctor, yes—I currently smoke, and it’s been ongoing for me.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.6939118407396855
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.2124345134201577
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.07609657257940704
+        ]
+      ],
+      "entropy": 1.2774019994689902
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“Doctor, I haven’t had nausea or felt sick to my stomach—no vomiting either. It’s mostly the epigastric discomfort and cramping pain, which tends to come on after I eat.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.6634897175082266
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.2472778238590945
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.05694291085238138
+        ]
+      ],
+      "entropy": 1.3744693495902713
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any lumps or masses in my breast area, and nothing there has been painful. My symptoms have been limited to the epigastric discomfort and cramping pain after meals.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.6635995055593149
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.24731874107249283
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.05695233323081589
+        ]
+      ],
+      "entropy": 1.3725659512362325
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can sometimes be linked to how we are feeling overall. Have you been experiencing a significant amount of stress or emotional pressure lately?",
+      "patient_answer": "“Doctor, I wouldn’t say I’ve had significant stress or emotional pressure lately—my main issue has been the recurring epigastric discomfort and cramping pain that usually comes after eating.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.6640152848580508
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.24747369901303665
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.05698801680347335
+        ]
+      ],
+      "entropy": 1.3656113712955522
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“Doctor, I haven’t noticed any change in my urine color—it doesn’t seem darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.7121533741765523
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.18210047450841946
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.06824541634479753
+        ]
+      ],
+      "entropy": 1.3348747455188885
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“Doctor, I haven’t noticed any breast masses at all, so there’s nothing that could be growing or changing in size.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.7121897323619286
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.18210977144226737
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.06824890053737252
+        ]
+      ],
+      "entropy": 1.3342014677442613
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“Doctor, I haven’t had any pain in my wrist—I’ve mainly been dealing with epigastric discomfort and cramping pain that comes on after I eat, and that’s the only area bothering me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.7123174349406944
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1821424255039238
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.06826113823218966
+        ]
+      ],
+      "entropy": 1.3322636165519681
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of the veins in your arms?",
+      "patient_answer": "“Doctor, I haven’t noticed any rashes, bumps, or marks along the veins in my arms—my skin looks normal and I don’t have any arm discomfort.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Gastric peptic ulcer",
+          0.7123174349406944
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1821424255039238
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.06826113823218966
+        ]
+      ],
+      "entropy": 1.3322636165519681
+    }
+  ],
+  "final": {
+    "predicted": "Gastric peptic ulcer",
+    "predicted_top3": [
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.7123174349406944,
+    "final_entropy": 1.3322636165519681,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Gastric peptic ulcer",
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9911,
+      "completion_tokens": 554
+    },
+    "patient": {
+      "prompt_tokens": 6428,
+      "completion_tokens": 374,
+      "calls": 10
+    }
+  }
+}

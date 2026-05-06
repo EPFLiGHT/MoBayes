@@ -1,0 +1,109 @@
+{
+  "case_idx": 9,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: M\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having significant shortness of breath, and I also feel slightly dizzy or lightheaded.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need a key discriminator first.\n\n**Current posterior (very early, based on your symptoms alone):**\n- **Pulmonary embolism:** 20%\n- **Acute pulmonary edema:** 15%\n- **Acute COPD exacerbation / infection:** 15%\n- **Bronchospasm / acute asthma exacerbation:** 15%\n- **Possible NSTEMI / STEMI:** 15%\n- (Others share the remaining 20%)\n\n**Question 1 (one at a time):**  \nDo you have **chest pain or pressure** (yes/no)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after “chest pain/pressure: yes”**\n\n**Likelihood ratio (LR):** chest pain increases likelihood for **cardiac causes** and some pulmonary causes (PE, pulmonary edema). I’ll use an approximate **LR ~2** toward cardiac/PE vs primary airway disease.\n\n**Updated posterior:**\n- **Possible NSTEMI / STEMI:** 28%\n- **Pulmonary embolism:** 26%\n- **Acute pulmonary edema:** 18%\n- **Acute COPD exacerbation / infection:** 10%\n- **Bronchospasm / acute asthma exacerbation:** 8%\n- (Others ~10%)\n\n**Question 2:**  \nIs the chest pain **worse when you breathe in (pleuritic)** (yes/no)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s use a different discriminator.\n\n**Current posterior (unchanged from last step since pleuritic status unknown):**\n- Possible NSTEMI / STEMI: 28%\n- Pulmonary embolism: 26%\n- Acute pulmonary edema: 18%\n- Acute COPD exacerbation / infection: 10%\n- Bronchospasm / acute asthma exacerbation: 8%\n- Others: 10%\n\n**Question 3:**  \nDo you have **cough or fever** (yes/no)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll go for a high-yield question that doesn’t require knowing cough/fever.\n\n**Current posterior (still):**\n- Possible NSTEMI / STEMI: 28%\n- Pulmonary embolism: 26%\n- Acute pulmonary edema: 18%\n- Acute COPD exacerbation / infection: 10%\n- Bronchospasm / acute asthma exacerbation: 8%\n- Others: 10%\n\n**Question 4:**  \nHave you had **leg swelling or pain** (especially one-sided) or a **recent long trip/immobility/surgery** (yes/no)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "We’ll proceed with another discriminator that’s usually answerable.\n\n**Current posterior (unchanged):**\n- Possible NSTEMI / STEMI: 28%\n- Pulmonary embolism: 26%\n- Acute pulmonary edema: 18%\n- Acute COPD exacerbation / infection: 10%\n- Bronchospasm / acute asthma exacerbation: 8%\n- Others: 10%\n\n**Question 5:**  \nDo you have **wheezing** or a **history of asthma/COPD** (yes/no)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "We still don’t have discriminating features—“don’t know” to multiple key questions makes it hard to confidently rank diagnoses.\n\n**Current posterior (still):**\n- Possible NSTEMI / STEMI: 28%\n- Pulmonary embolism: 26%\n- Acute pulmonary edema: 18%\n- Acute COPD exacerbation / infection: 10%\n- Bronchospasm / acute asthma exacerbation: 8%\n- Others: 10%\n\n**Question 6:**  \nAre you able to speak **full sentences**, or are you **too short of breath to speak** (yes/no)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not getting usable discriminating history (multiple “don’t know”), so I can’t confidently narrow to a top set.\n\n**[ABSTAIN]** — Insufficient discriminating information (can’t determine pleuritic vs cardiac features, presence of infection/wheezing, or PE risk factors).\n\n**[POSSIBLE]** Possible NSTEMI / STEMI, Pulmonary embolism, Acute pulmonary edema, Acute COPD exacerbation / infection, Bronchospasm / acute asthma exacerbation",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Acute COPD exacerbation / infection",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8436,
+      "completion_tokens": 865
+    },
+    "patient": {}
+  }
+}

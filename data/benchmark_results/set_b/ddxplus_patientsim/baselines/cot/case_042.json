@@ -1,0 +1,100 @@
+{
+  "case_idx": 42,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Male\nChief Complaint: I have upper chest radiating pain, a cough, and haunting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had upper chest pain that radiates, plus a cough. It feels like a sharp, stabbing/knife-stroke type pain and it also burns like heartburn, and it gets worse after I eat.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: upper chest pain radiating, sharp/stabbing quality, burning/heartburn sensation, worse after eating, plus cough. This pattern raises concern for reflux/GERD-related pain, but chest pain with cough also overlaps with respiratory/infectious causes (e.g., pneumonia/bronchitis) and—because chest pain can be cardiac—needs screening for cardiac red flags.\nTop candidates (tentative):\n1) GERD — burning quality, worse after eating; can cause chest discomfort and cough.\n2) Pneumonia — chest pain can be pleuritic and cough is present, though “worse after eating/heartburn” points more to GERD.\n3) Bronchitis — cough with chest discomfort; less likely to explain clear post-prandial burning.\n4) Possible NSTEMI / STEMI — must not miss; pain can radiate, but the strong post-meal heartburn quality argues against.\n5) Pulmonary embolism — can cause chest pain and cough, but post-prandial worsening/heartburn argues against.\nMost informative next question: determine whether the pain is clearly related to breathing/movement (pleuritic) vs exertion/cardiac pattern.\n[/REASONING]\nOne question: Does the chest pain get worse when you take a deep breath or move/press on your chest (i.e., is it pleuritic or reproducible)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It feels worse when I move a certain way, and it’s kind of sensitive—like it hurts more with pressure/touch on my chest. Deep breaths can make it feel more intense too.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nUpdated findings: pain is worse with movement and is tender to touch/pressure; deep breaths intensify it. This makes a pleuritic/musculoskeletal or pleuro-pulmonary process more likely than GERD (which typically isn’t tender to palpation or pleuritic).\nTop candidates now:\n1) Pneumonia — can cause pleuritic chest pain and cough; tenderness can occur with pleural involvement.\n2) Acute COPD exacerbation / infection or Bronchitis — cough with chest discomfort; pleuritic component possible but less classic for focal tenderness.\n3) Acute pulmonary edema — less likely with cough/tenderness pattern; would expect dyspnea/orthopnea.\n4) Spontaneous pneumothorax — pleuritic pain and worse with deep breaths; would often have sudden onset and shortness of breath.\n5) Musculoskeletal Diseases (e.g., spontaneous rib fracture) — reproducible tenderness and pain with movement/pressure; cough may be incidental or from a concurrent URTI.\nNeed to discriminate between pleural/lung causes (pneumonia, pneumothorax, PE) vs purely musculoskeletal. Next most informative: ask about shortness of breath and onset timing.\n[/REASONING]\nOne question: Do you have shortness of breath (especially at rest), and did the pain start suddenly or gradually?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t feel short of breath at rest. The pain started kind of gradually, not suddenly.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nUpdated findings: no shortness of breath at rest; gradual onset; pain is pleuritic and reproducible/tender. This shifts away from spontaneous pneumothorax (often sudden with dyspnea) and away from PE (often sudden, though not always). Still possible pneumonia/pleurisy or bronchitis with pleural irritation, and musculoskeletal chest wall pain remains strong.\nTop candidates:\n1) Pneumonia — pleuritic pain + cough; gradual onset fits; tenderness can occur with pleural involvement.\n2) Bronchitis / Acute COPD exacerbation (if smoker/COPD history) — cough with chest wall/pleural irritation; pleuritic pain possible.\n3) Musculoskeletal Diseases (e.g., spontaneous rib fracture / costochondritis) — reproducible tenderness and pain with movement/pressure; cough may be from a concurrent infection.\n4) Pulmonary embolism — less likely due to gradual onset and no dyspnea, but still must consider if risk factors present.\n5) Acute pulmonary edema — unlikely without dyspnea/orthopnea.\nNext most informative question: any fever or chills (infectious pleurisy/pneumonia) and/or sputum characteristics.\n[/REASONING]\nOne question: Have you had fever, chills, or felt generally unwell—and is your cough producing any phlegm (what color)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed fever or chills. My cough is mostly dry, not much phlegm—if anything, it’s just a little and not a clear color.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nUpdated findings: afebrile, dry cough, minimal sputum; pleuritic/reproducible chest wall tenderness and gradual onset. This makes pneumonia less likely (though early/atypical pneumonia can occur), and pushes toward musculoskeletal chest wall pain (costochondritis/rib strain) or viral pleurisy/bronchitis. PE is still a consideration depending on risk factors, but the reproducible tenderness and lack of dyspnea/fever lower likelihood.\nTop candidates:\n1) Musculoskeletal Diseases (costochondritis / chest wall strain; possibly spontaneous rib fracture) — classic for reproducible tenderness and pain with movement/deep breaths; cough may be incidental.\n2) Bronchitis / URTI-related pleurisy — dry cough with pleuritic discomfort; often afebrile.\n3) Pneumonia — less likely without fever or productive cough, but not fully excluded.\n4) Pulmonary embolism — lower probability given gradual onset, no dyspnea, and reproducible tenderness, but risk factors could change this.\n5) GERD — earlier burning component, but current reproducible pleuritic tenderness argues against as primary cause.\nMost informative next question: assess PE risk factors (recent immobilization/surgery, leg swelling, prior clots, estrogen use, hemoptysis).\n[/REASONING]\nOne question: Any recent long travel/immobility, surgery, leg swelling or pain, history",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No recent long travel or immobilization, and I haven’t had any surgery. I also haven’t noticed leg swelling or leg pain, and I don’t have a history of blood clots.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nUpdated findings: no major PE risk factors reported (no recent immobilization/surgery, no leg swelling/pain, no prior clots). With gradual onset, no dyspnea, dry cough, and reproducible/tender pleuritic pain, PE becomes less likely.\nTop candidates now:\n1) Musculoskeletal Diseases (costochondritis / chest wall strain; possibly spontaneous rib fracture) — best match for reproducible tenderness and pain with movement/deep breaths; cough may be from a concurrent viral illness.\n2) Bronchitis / URTI with pleuritic irritation — dry cough with chest discomfort; afebrile supports viral.\n3) Pneumonia — less likely without fever and with dry cough, but early/atypical still possible.\n4) GERD — earlier “burning/heartburn” description could fit, but reproducible pleuritic tenderness makes it less likely as primary.\n5) Pulmonary embolism — lower likelihood given lack of risk factors and no dyspnea, but still consider if symptoms evolve.\nNext most informative question: locate the pain—can you point to a specific spot on your chest wall that reproduces the pain (and is it worse with twisting/arm movement)?\n[/REASONING]\nOne question: Can you point to one specific spot on your chest that’s tender, and does twisting your torso or moving your arm make it worse?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there’s a specific spot in the upper chest area that’s tender. Twisting my torso and moving my arm makes it worse.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: single tender spot in upper chest; pain worsens with twisting and arm movement; deep breaths intensify; gradual onset; dry cough; no fever/chills; no dyspnea; no PE risk factors. This strongly favors a chest wall musculoskeletal cause (costochondritis or muscle strain). Pneumonia/PE become less likely given reproducibility and focal tenderness.\nTop candidates:\n1) Musculoskeletal Diseases (costochondritis / chest wall strain; possibly spontaneous rib fracture) — focal tenderness, reproducible with movement/pressure, pleuritic component from chest wall mechanics.\n2) Bronchitis / URTI with pleuritic irritation — could coexist with cough, but would be less reproducible/tender than chest wall pain.\n3) Pneumonia — less likely without fever/productive cough, and tenderness is more focal/reproducible than typical.\n4) GERD — earlier burning/heartburn could be present, but current focal tender spot and movement-provoked pain argue against as primary.\n5) Pulmonary embolism — low probability given reproducible chest wall tenderness and lack of risk factors/dyspnea.\nMost informative next step would be to ask about recent trauma/heavy lifting and whether there’s any rash (zoster), but we’re already sufficiently confident for a focused differential.\n[/REASONING]\n[DDX] Musculoskeletal Diseases (costochondritis / chest wall strain), Bronchitis, Pne",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Musculoskeletal Diseases (costochondritis / chest wall strain)",
+    "predicted_set": [
+      "Musculoskeletal Diseases (costochondritis / chest wall strain)",
+      "Bronchitis",
+      "Pne"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9653,
+      "completion_tokens": 1755
+    },
+    "patient": {
+      "prompt_tokens": 8612,
+      "completion_tokens": 225
+    }
+  }
+}

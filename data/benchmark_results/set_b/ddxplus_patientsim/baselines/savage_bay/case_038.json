@@ -1,0 +1,102 @@
+{
+  "case_idx": 38,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and been coughing up blood",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. For the last day or so I’ve had sharp chest pain on both sides, like a knife-stab feeling, and I’m coughing up blood. I also feel very short of breath, I have chills, and my cough has more colored sputum than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’m going to ask a few focused questions to narrow down what’s causing your symptoms.\n\n**Current posterior (pre-test, rough):**\n- **Pneumonia:** 0.30  \n- **Pulmonary embolism:** 0.20  \n- **Acute COPD exacerbation / infection:** 0.15  \n- **Acute pulmonary edema:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.10  \n(others lower)\n\n**Question 1 (most discriminating):**  \nWhen you cough up blood, is it **a small streaks** amount, or **more than a teaspoon / clots**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s more than just streaks—there’s a noticeable amount when I cough, and sometimes it looks kind of mixed in with the sputum. I haven’t measured it exactly, but it’s more than a small smear.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you—hemoptysis more than streaks is important.\n\n**Update (Bayesian):**  \n- Hemoptysis (moderate amount) increases likelihood of **pulmonary embolism** and **pneumonia**, and also keeps **acute pulmonary edema** and **malignancy** in mind, while making isolated musculoskeletal causes less likely.\n\n**Posterior after this evidence (approx):**\n- **Pulmonary embolism:** 0.30  \n- **Pneumonia:** 0.28  \n- **Acute COPD exacerbation / infection:** 0.10  \n- **Acute pulmonary edema:** 0.08  \n- **Possible NSTEMI / STEMI:** 0.07  \n- (others combined): 0.17\n\n**Question 2 (next most discriminating):**  \nDo you have **any leg symptoms**—pain/swelling in one calf, or recent leg swelling—or have you had **recent long travel/immobility** or **recent surgery**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I had surgery within the last month. I don’t really think I have one specific swollen or painful calf, and I haven’t had recent long travel.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That helps—recent surgery still raises PE risk even without a classic single swollen calf.\n\n**Update (Bayesian):**\n- Recent surgery → increases **pulmonary embolism** likelihood (especially within 1 month).\n- Lack of unilateral calf symptoms slightly lowers DVT/PE probability but doesn’t rule out PE.\n\n**Posterior (approx):**\n- **Pulmonary embolism:** 0.38  \n- **Pneumonia:** 0.27  \n- **Acute COPD exacerbation / infection:** 0.08  \n- **Acute pulmonary edema:** 0.06  \n- **Possible NSTEMI / STEMI:** 0.06  \n- (others): 0.15\n\n**Question 3 (very discriminating):**  \nDo you have a **fever** (measured temp if you know it), or is the “chills” without a true fever?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had chills/shivers, but I don’t know if I had a measured fever. I haven’t taken my temperature.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Chills can fit infection, but we need fever data.\n\n**Update (Bayesian):**\n- Unknown fever keeps **pneumonia** plausible; chills alone also occur with PE.\n- So we’ll adjust only slightly toward pneumonia.\n\n**Posterior (approx):**\n- **Pulmonary embolism:** 0.36  \n- **Pneumonia:** 0.30  \n- **Acute COPD exacerbation / infection:** 0.09  \n- **Acute pulmonary edema:** 0.06  \n- **Possible NSTEMI / STEMI:** 0.06  \n- (others): 0.13\n\n**Question 4:**  \nIs the chest pain **worse when you take a deep breath** (pleuritic), or is it more like pressure/tightness that’s related to exertion?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It feels worse when I take a deep breath—more sharp/knife-like with that.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Pleuritic sharp pain strongly supports **pulmonary embolism** and also can occur with **pneumonia/pleurisy**.\n\n**Update (Bayesian):**\n- Pleuritic pain increases PE likelihood relative to MI.\n- Also supports pneumonia with pleural involvement.\n\n**Posterior (approx):**\n- **Pulmonary embolism:** 0.48  \n- **Pneumonia:** 0.28  \n- **Acute COPD exacerbation / infection:** 0.07  \n- **Acute pulmonary edema:** 0.05  \n- **Possible NSTEMI / STEMI:** 0.04  \n- (others): 0.08\n\n**Question 5 (to separate pneumonia vs PE):**  \nDo you have **a new/worsening cough with lots of colored sputum** (like yellow/green) and/or **a known sick contact**, or is the cough mainly because of the shortness of breath?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my cough is new/worse and I’m bringing up colored sputum (not just clear). I don’t know about any sick contacts.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "That shifts probability toward **pneumonia/infectious bronchitis** while PE remains high because of **hemoptysis + pleuritic pain + recent surgery + SOB**.\n\n**Update (Bayesian):**\n- Colored sputum + new/worsening cough increases **pneumonia** likelihood vs PE.\n- Hemoptysis and pleuritic pain keep PE high.\n\n**Posterior (approx):**\n- **Pulmonary embolism:** 0.40  \n- **Pneumonia:** 0.40  \n- **Acute COPD exacerbation / infection:** 0.07  \n- **Acute pulmonary edema:** 0.05  \n- **Possible NSTEMI / STEMI:** 0.03  \n- (others): 0.05\n\nI’m not fully confident between PE vs pneumonia without key discriminators (vitals, oxygen level, unilateral leg findings, risk factors like cancer, and exam/imaging). But the combination is concerning enough that we should treat this as potentially life-threatening.\n\n[ABSTAIN] Need objective data (vitals/SpO₂, lung exam, ECG/troponin, and imaging like CTPA/CXR) to confidently rank PE vs pneumonia.  \n[POSSIBLE] Pulmonary embolism, Pneumonia, Acute COPD exacerbation / infection, Acute pulmonary edema, Possible NSTEMI / STEMI",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8232,
+      "completion_tokens": 1211
+    },
+    "patient": {
+      "prompt_tokens": 8533,
+      "completion_tokens": 227
+    }
+  }
+}

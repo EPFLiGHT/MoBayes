@@ -1,0 +1,192 @@
+{
+  "case_idx": 20,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 4\nSex: Male\nChief Complaint: I have significant dyspnea, nasal congestion or a clear runny nose, and noticed that you produce more saliva than usual",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having a lot of trouble breathing, with a stuffy nose or clear runny nose. I also notice I’m drooling more than usual, and I make a noisy sound when I breathe—especially at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I’m going to update probabilities as we go.\n\n**Current posterior (pre-test priors, rough):**\n- **Bronchospasm / acute asthma exacerbation:** 20%\n- **Acute laryngitis:** 15%\n- **Acute pulmonary edema:** 10%\n- **Acute COPD exacerbation / infection:** 10%\n- **Allergic sinusitis:** 10%\n(others combined ~35%)\n\nYour symptoms suggest an upper-airway component (noisy breathing at night, drooling), but we need key discriminators.\n\n**Question 1 (one at a time):**  \nIs the noisy breathing **a high-pitched sound when you breathe in** (stridor), **a whistling sound when you breathe out** (wheeze), or **both**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s a high-pitched noise when I breathe in—like a stridor. I don’t think it’s mainly a whistling when I breathe out.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (inspiratory stridor):** This strongly shifts toward **upper-airway obstruction** rather than lower-airway asthma/COPD.\n\n**Current posterior:**\n- **Epiglottitis:** 30%\n- **Croup:** 20%\n- **Acute laryngitis:** 15%\n- **Acute dystonic reactions:** 10%\n- **Anaphylaxis:** 10%\n- Others (laryngospasm/GERD/other): 15%\n\n**Question 2:**  \nDo you have **fever** and/or feel **very ill**, and is swallowing **painful** or difficult?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have fever, but I don’t feel “very ill.” I also haven’t had trouble swallowing or pain when swallowing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no fever/ill-appearance, no painful or difficult swallowing):** This makes **epiglottitis** less likely and shifts toward **croup/laryngitis** or other non-infectious upper-airway causes.\n\n**Current posterior:**\n- **Croup:** 30%\n- **Acute laryngitis:** 25%\n- **Larygospasm:** 15%\n- **GERD:** 10%\n- **Acute dystonic reactions:** 10%\n- Others (anaphylaxis/epiglottitis): 10%\n\n**Question 3:**  \nHow old is the patient? (Age is a major discriminator for croup.)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m 4 years old.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (age 4):** Strongly supports **croup** (typically 6 months–3 years, but can occur up to school age), and makes epiglottitis less likely than in younger kids.\n\n**Current posterior:**\n- **Croup:** 45%\n- **Acute laryngitis:** 20%\n- **Larygospasm:** 15%\n- **GERD:** 10%\n- **Acute dystonic reactions:** 5%\n- Others: 5%\n\n**Question 4:**  \nDoes the breathing noise get worse **when the child is crying/active**, and is there a **barking cough**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it seems worse when he’s crying or moving around. And I think he has a barking cough.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (worse with crying/activity + barking cough):** This is classic for **croup**.\n\n**Current posterior:**\n- **Croup:** 70%\n- **Acute laryngitis:** 10%\n- **Larygospasm:** 5%\n- **GERD:** 5%\n- **Acute dystonic reactions:** 5%\n- Others: 5%\n\n**Question 5:**  \nAny **drooling** or **difficulty handling secretions** right now, and is there **retractions** (skin pulling in between ribs/at the neck) when breathing?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m drooling more than usual, and it feels like my mouth is making more saliva. I also look like there are pulling-in spots on my chest/neck when I breathe.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (drooling + retractions with stridor):** Still consistent with **croup**, but drooling/secretions can also raise concern for more severe upper-airway obstruction. We need to rule out epiglottitis/foreign body/anaphylaxis, but the barking cough + age keeps croup on top.\n\n**Current posterior:**\n- **Croup:** 60%\n- **Epiglottitis:** 15%\n- **Acute laryngitis:** 10%\n- **Anaphylaxis:** 10%\n- **Bronchospasm / acute asthma exacerbation:** 5%\n\n**Question 6:**  \nHas there been any **rash, hives, lip/tongue swelling**, or a clear **new exposure** (food/medicine/sting) before this started?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No rash or hives, and I don’t think his lips or tongue are swollen. I can’t think of any new food, medicine, or sting exposure before it started.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no rash/hives/swelling):** Makes **anaphylaxis** less likely.\n\n**Current posterior:**\n- **Croup:** 65%\n- **Epiglottitis:** 15%\n- **Acute laryngitis:** 10%\n- **Bronchospasm / acute asthma exacerbation:** 5%\n- **Foreign body / other upper-airway obstruction:** 5% (not in list explicitly, but we’ll keep it as “other”)\n\n**Question 7:**  \nIs the child able to **drink/handle secretions** at all, or is drooling so bad that he can’t swallow and is refusing fluids?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "He can still swallow and drink a little, but it’s harder because he’s drooling more than usual. He’s not completely refusing fluids.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (can swallow/drink somewhat):** Slightly lowers severity of complete obstruction; still compatible with croup, but we must watch for worsening.\n\n**Current posterior:**\n- **Croup:** 70%\n- **Epiglottitis:** 10%\n- **Acute laryngitis:** 10%\n- **Bronchospasm / acute asthma exacerbation:** 5%\n- **Other (e.g., foreign body/GERD/laryngeal spasm):** 5%\n\n**Question 8:**  \nAny **sudden onset** (started abruptly over minutes) or choking episode, versus gradual onset over hours/days?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It didn’t start suddenly in just a few minutes. It feels more like it came on over some time.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (not sudden):** Less supportive of **foreign body** aspiration; more supportive of **infectious/inflammatory** causes like croup/laryngitis.\n\n**Current posterior:**\n- **Croup:** 72%\n- **Acute laryngitis:** 12%\n- **Epiglottitis:** 8%\n- **Bronchospasm / acute asthma exacerbation:** 4%\n- **Other (GERD/laryngeal spasm):** 4%\n\n**Question 9:**  \nHas he had **cold symptoms** (runny nose/congestion) for a day or two before the barking cough/stridor?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes, he’s had a stuffy nose and a clear runny nose for a day or two before the barking cough and noisy breathing started.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (URI prodrome):** Strongly supports **croup** (often follows viral URI).\n\n**Current posterior:**\n- **Croup:** 80%\n- **Acute laryngitis:** 10%\n- **Epiglottitis:** 4%\n- **Bronchospasm / acute asthma exacerbation:** 3%\n- **Other (GERD/laryngeal spasm):** 3%\n\n**Question 10:**  \nAny **high-pitched stridor at rest** (not just when crying), and is he having **trouble speaking/crying** or seems unusually tired?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes, the noisy breathing is there even when he’s resting, not only when he cries. He seems a bit tired, but he’s still able to cry and talk/try to talk.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (stridor at rest + mild tiredness):** Raises concern for **more severe croup** but still most likely. We should also keep epiglottitis in the differential, though less likely given URI prodrome and age.\n\n**Current posterior:**\n- **Croup:** 85%\n- **Epiglottitis:** 5%\n- **Acute laryngitis:** 5%\n- **Bronchospasm / acute asthma exacerbation:** 2%\n- **Other:** 3%\n\n**Question 11:**  \nAny **drooling with inability to lie flat** or **muffled “hot potato” voice**? (If you’re not sure, just tell me if his voice sounds normal vs muffled.)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure, but his voice doesn’t sound muffled to me. He can lie down some, and he’s not totally unable to lie flat.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no muffled voice; can lie somewhat):** Further supports **croup** over epiglottitis.\n\n**Current posterior:**\n- **Croup:** 88%\n- **Epiglottitis:** 4%\n- **Acute laryngitis:** 4%\n- **Bronchospasm / acute asthma exacerbation:** 2%\n- **Other:** 2%\n\n**Question 12:**  \nDoes he have **fever** (measured or by feeling hot), or is he afebrile?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think he has a fever. I haven’t noticed him feeling hot.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no fever):** Makes **epiglottitis** less likely; keeps **croup** dominant.\n\n**Current posterior:**\n- **Croup:** 90%\n- **Acute laryngitis:** 5%\n- **Epiglottitis:** 3%\n- **Bronchospasm / acute asthma exacerbation:** 1%\n- **Other:** 1%\n\n**Question 13:**  \nAny history of **asthma/wheezing** episodes, or is this mainly the barking cough/stridor pattern?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "He doesn’t really have a history of asthma or wheezing episodes. It’s mainly the barking cough and the noisy breathing.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no asthma history; barking/stridor pattern):** Further consolidates **croup**.\n\n**Current posterior:**\n- **Croup:** 93%\n- **Acute laryngitis:** 4%\n- **Epiglottitis:** 1%\n- **Bronchospasm / acute asthma exacerbation:** 1%\n- **Other:** 1%\n\n**Question 14:**  \nIs he currently in **any distress**—for example, fast breathing, inability to speak/cry normally, blue lips, or worsening stridor at rest?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "He is having trouble breathing, and he looks like he’s in some distress, with the noisy breathing still present even at rest. I don’t think his lips are turning blue, and he can still cry, but it’s harder.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Croup, Acute laryngitis, Epiglottitis, Bronchospasm / acute asthma exacerbation, Anaphylaxis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Croup",
+    "predicted_set": [
+      "Croup",
+      "Acute laryngitis",
+      "Epiglottitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30949,
+      "completion_tokens": 1954
+    },
+    "patient": {
+      "prompt_tokens": 25414,
+      "completion_tokens": 498
+    }
+  }
+}

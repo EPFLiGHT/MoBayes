@@ -1,0 +1,114 @@
+{
+  "case_idx": 11,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Bronchiectasis",
+  "objective_for_doctor": "A 13-year-old Female patient presents to the clinic. Chief complaint: I have been coughing up blood, a cough that produces colored or more abundant sputum than usual, and a cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been coughing up blood, and my cough has been producing colored or more sputum than usual. I’ve also had a cough in general.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—so you’ve been coughing up blood and having more/colored sputum; I need to understand how urgent this is.  \nDoctor: How long has this been going on, and is the blood bright red or dark, and about how much (streaks vs teaspoon vs more)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on for a few days, I think. The blood looks more bright red, and mostly it’s like streaks mixed with the sputum rather than a lot—like not a full teaspoon or more.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—bright red streaks for a few days sounds somewhat less massive, but it’s still concerning. Do you have fever, chest pain, shortness of breath, or recent cold/flu symptoms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have chest pain, and I don’t think I’ve had shortness of breath. I don’t know about fever, and I haven’t had a recent cold or flu that I can recall.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to check for infection or lung irritation—do you have a fever (measured or felt), wheezing, or any recent nosebleeds/mouth bleeding that could be mixing with the cough?  \nDoctor: Also, any history of TB exposure, travel, smoking/vaping, or known bleeding/clotting problems, and have you had any weight loss or night sweats?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about fever—I haven’t measured it. I don’t have wheezing that I’ve noticed. I don’t think I’ve had recent nosebleeds or bleeding from my mouth. I don’t smoke or vape, and I don’t have TB exposure or travel. I don’t know about bleeding/clotting problems, and I haven’t noticed weight loss or night sweats.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—no TB risk, no smoking/vaping, no nosebleeds, and bright-red streaks with increased colored sputum for a few days makes me think of an acute lung infection/bronchitis causing airway irritation, but I must rule out more serious causes.  \nDoctor: I’m going to order tests: **REQUEST TEST: Chest_X-Ray** and **REQUEST TEST: CBC_with_Differential** (and **REQUEST TEST: Coagulation_Studies/PT_INR_aPTT** if available).  \nDoctor: While we wait, are you able to drink/eat normally, and have you had any severe fatigue, recurrent infections, or do you have any family history of bleeding disorders?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I can drink and eat normally. I’ve had recurrent infections before, and I don’t know any family history of bleeding disorders. I also feel okay overall—no severe fatigue.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you’re otherwise stable but have recurrent infections plus hemoptysis with colored sputum, I want to confirm there’s no pneumonia/airway lesion and assess infection vs bleeding—have you had any sore throat, sinus symptoms, or foul-smelling sputum suggesting a deeper infection?  \nDoctor: Also, does your cough happen mostly in the morning or after exercise, and have you ever had bronchitis that keeps coming back (since childhood)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have sore throat or sinus symptoms. I don’t know about foul-smelling sputum. My cough is mostly in the morning, and I’ve had bronchitis-type problems that keep coming back since I was younger.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Morning-predominant cough with recurrent “bronchitis-type” episodes since childhood raises the possibility of chronic airway disease (like asthma with mucus plugging or bronchiectasis), but with bright-red streaky hemoptysis I still need to exclude pneumonia or a structural lung issue—so I’ll rely on the Chest X-ray and blood/coagulation tests first.  \nDoctor: Do you ever have wheezing or asthma symptoms, and have you had any frequent chest infections requiring antibiotics, or is there a history of cystic fibrosis/sinus disease in you or your family?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have wheezing or asthma symptoms. I’ve had frequent chest infections that sometimes need antibiotics. I have cystic fibrosis, and I think there’s also sinus disease issues, but I’m not sure about family history details.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—having cystic fibrosis and sinus disease makes recurrent infection and bronchiectasis very likely, which can cause colored sputum and hemoptysis (often streaks).  \nDoctor: REQUEST TEST: Chest_X-Ray and REQUEST TEST: Sputum_Gram_Stain_and_Culture and REQUEST TEST: CBC_with_Differential.  \nDoctor: If the bleeding becomes more than streaks or you develop shortness of breath, chest pain, or dizziness, you need urgent emergency evaluation.  \nDIAGNOSIS READY: Hemoptysis with acute infectious exacerbation of bronchiectasis/CF-related airway infection (likely airway irritation/bronchiectasis)\n\n[DDX]\n1. Bronchiectasis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Bronchiectasis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Bronchiectasis",
+    "predicted_set_remapped": [
+      "Bronchiectasis",
+      "Bronchitis",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4527,
+      "completion_tokens": 701,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 6179,
+      "completion_tokens": 354
+    }
+  }
+}

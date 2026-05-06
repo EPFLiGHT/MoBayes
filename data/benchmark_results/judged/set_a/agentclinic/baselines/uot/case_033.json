@@ -1,0 +1,82 @@
+{
+  "case_idx": 33,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Lichen Sclerosus",
+  "patient_actor_hidden": {
+    "Demographics": "60-year-old female",
+    "History": "The patient presents with a complaint of severe vulvar itching that has been gradually worsening over the course of the past year. She has attempted to use over-the-counter lubricants for relief with no substantial improvement. She reports severe pain during vaginal intercourse that has recently led to cessation of sexual activity.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe vulvar itching",
+      "Secondary_Symptoms": [
+        "Painful sexual intercourse",
+        "Use of over-the-counter lubricants with no relief"
+      ]
+    },
+    "Past_Medical_History": "Diet-controlled type 2 diabetes mellitus, hypertension treated with hydrochlorothiazide, menopause occurred at 52 years of age.",
+    "Social_History": "Sexually active with her husband until recently due to discomfort.",
+    "Review_of_Systems": "Denies urinary symptoms, abnormal vaginal discharge, or rectal symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with chronic vulvar itching and discomfort.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had severe itching of my vulva that’s been gradually getting worse over the past year, and over-the-counter lubricants haven’t helped much. I also have painful intercourse lately, so we’ve stopped sexual activity because it’s too uncomfortable.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you noticed well-defined white patches of skin that are clearly different from the surrounding skin (often with no pain or itching)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed clearly defined white patches on the vulva that look different from the surrounding skin. The main issue is the severe itching, and it’s also painful when we try intercourse.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Lichen Sclerosus, Somatization disorder  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Lichen Sclerosus",
+    "predicted_set": [
+      "Lichen Sclerosus",
+      "Somatization disorder  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Lichen Sclerosus",
+    "predicted_set_remapped": [
+      "Lichen Sclerosus",
+      "Somatization disorder",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 730,
+      "completion_tokens": 99,
+      "calls": 2
+    }
+  }
+}

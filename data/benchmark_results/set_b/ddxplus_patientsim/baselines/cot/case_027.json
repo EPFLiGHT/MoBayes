@@ -1,0 +1,111 @@
+{
+  "case_idx": 27,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Stable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 22\nSex: Female\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I’ve been having pain in my lower chest and upper chest, mostly on the left side, and it also feels like it’s in my left breast. The pain is more like a tedious/pressure-type feeling and it can get exhausting, and I also get significant shortness of breath with it.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: Left-sided lower/upper chest pain described as pressure/tedious, with significant shortness of breath. This raises concern for cardiopulmonary causes (ischemia, pulmonary embolism, pneumonia/edema, etc.), but we need key discriminators (exertional vs pleuritic, radiation, associated symptoms, risk factors).\nTop candidates (tentative):\n1) Possible NSTEMI / STEMI — pressure-like chest pain with dyspnea can be ischemia; left-sided location fits, but we need exertional pattern and risk factors.\n2) Pulmonary embolism — can cause chest pain and significant shortness of breath; pleuritic pain and risk factors would support.\n3) Acute pulmonary edema — dyspnea with chest discomfort; would expect orthopnea/PND, crackles, possible history of heart disease.\n4) Pneumonia — can cause chest pain and dyspnea; would expect fever/cough.\n5) Unstable angina / Stable angina — pressure-type pain with dyspnea; needs exertional trigger and cardiac history.\nMost informative next question: determine whether the pain is exertional and whether it improves with rest, which strongly discriminates cardiac ischemia.\n[/REASONING]\nOne question: Does the chest pressure get worse with physical activity or stress and improve with rest (or does it happen at rest too)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it tends to get worse when I’m active or when I exert myself, and it can improve when I rest. It also happens with stress sometimes, but mainly it comes on with exertion.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Left-sided pressure-type chest pain with significant shortness of breath, worse with exertion/stress, improves with rest—this pattern is strongly suggestive of cardiac ischemia (angina/ACS). We still must differentiate NSTEMI vs unstable angina vs stable angina, and consider PE less likely given exertional reproducibility, but not impossible.\nTop candidates:\n1) Possible NSTEMI / STEMI — exertional pressure with dyspnea; ACS can present this way; need timing, severity, duration, and any ongoing pain.\n2) Unstable angina — exertional pressure that may occur with less predictable triggers; would need whether it’s new/worsening or occurs at rest.\n3) Stable angina — exertional, relieved by rest; would need history of similar episodes and chronic pattern.\n4) Pulmonary embolism — can cause dyspnea and chest pain, but exertional worsening with relief by rest is less classic; risk factors would help.\n5) Acute pulmonary edema — would expect orthopnea/PND and signs of volume overload; exertional angina pattern makes this less likely.\nMost informative next question: Is the pain currently happening, and if so how long has this episode lasted (and does it persist despite rest)? This helps distinguish ACS (ongoing/prolonged) from stable angina.\n[/REASONING]\nIs this chest pressure happening right now, and if not,",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s not completely gone, but it’s not constant at the moment. When it comes on, it lasts long enough that I feel wiped out—like it doesn’t just disappear quickly, even if I stop what I’m doing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Exertional left-sided pressure chest pain with significant dyspnea; improves with rest but episodes last long enough to “wipe you out” and not disappear quickly. This is concerning for ACS (unstable angina/NSTEMI) rather than purely stable angina.\nTop candidates:\n1) Possible NSTEMI / STEMI — exertional pressure with dyspnea; episodes lasting longer and not quickly resolving raises concern for myocardial ischemia/necrosis.\n2) Unstable angina — new/worsening exertional angina, prolonged episodes, may not fully resolve quickly with rest.\n3) Stable angina — would usually be more predictable and shorter-lived with consistent exertional threshold; still possible but less likely given “wiped out” and persistence.\n4) Pulmonary embolism — can cause exertional dyspnea and chest discomfort, but “pressure relieved by rest” pattern fits ACS better; risk factors needed.\n5) Acute pulmonary edema — less likely without orthopnea/PND/volume overload symptoms.\nMost informative next question: When did this start, and has it been getting worse or more frequent recently (e.g., within the last days/weeks), or is it new for you? This discriminates unstable angina/ACS from stable angina.\n[/REASONING]\nHow long has this been going on, and is it new or getting worse/more frequent over the last days to weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It started recently—within the last couple of weeks—and it feels like it’s been getting worse. The episodes are happening more often now, and they feel more intense with the same kind of exertion.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Recent onset (couple weeks), worsening frequency and intensity with exertion, left-sided pressure with significant dyspnea, improves with rest but episodes last long enough to wipe them out. This is classic for unstable angina / ACS (crescendo pattern).\nTop candidates:\n1) Possible NSTEMI / STEMI — ACS spectrum; worsening exertional symptoms over weeks can progress to NSTEMI; need duration of episodes and current status.\n2) Unstable angina — crescendo angina fits very well: new/worsening exertional angina, more frequent and intense, prolonged episodes.\n3) Stable angina — less likely because it’s new and worsening over weeks.\n4) Pulmonary embolism — can be subacute/worsening, but exertional relief pattern and “pressure” more typical for ACS; would need risk factors (recent travel, surgery, leg swelling, prior clots).\n5) Acute pulmonary edema — would expect orthopnea/PND and crackles; not yet elicited.\nMost informative next question: During an episode, how long does it last (minutes), and does it reliably improve within ~5–10 minutes of rest? (Also, do you have any radiation to arm/jaw/back, sweating, nausea?)—but the single most discriminating is episode duration/response time.\n[/REASONING]\nWhen you get an episode, about how many minutes does it last, and does",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "When it happens, it usually lasts around 10 to 20 minutes. If I stop and rest, it improves, but it doesn’t go away quickly—more like it slowly eases off over that time.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: New/worsening exertional left-sided pressure chest pain with significant dyspnea, episodes 10–20 minutes, slowly eases with rest, crescendo pattern over 2 weeks. This strongly supports unstable angina / ACS (NSTEMI possible). PE still possible but less consistent with exertional relief pattern; pneumonia/edema less likely without infectious/volume overload features.\nTop candidates:\n1) Possible NSTEMI / STEMI — exertional pressure with dyspnea; prolonged episodes and crescendo over weeks; NSTEMI can present without constant pain.\n2) Unstable angina — classic crescendo angina: new/worsening exertional angina, prolonged episodes, not rapidly resolving.\n3) Stable angina — less likely because it’s new and worsening over weeks.\n4) Pulmonary embolism — can cause dyspnea and chest discomfort, but exertional relief and “pressure” pattern is less typical; would need strong risk factors.\n5) Acute pulmonary edema — dyspnea with chest discomfort possible, but exertional pattern and lack of orthopnea/PND not yet established.\nMost informative next question: Any associated symptoms during episodes—especially sweating/clamminess, nausea/vomiting, or pain radiation to left arm, jaw, neck, or back? (These increase likelihood of ACS.)\n[/REASONING]\nDuring these episodes, do you get sweating/clamminess, nausea, or",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—during the episodes I get sweating/clamminess, and I also feel nauseous sometimes. The pain can radiate to my jaw and to my right shoulder and biceps, and it also goes through to my thoracic spine.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Crescendo exertional left-sided pressure chest pain with significant dyspnea, diaphoresis/clamminess, nausea, radiation to jaw, right shoulder/biceps, and through to thoracic spine. This is highly characteristic of ACS (unstable angina/NSTEMI) rather than PE or pulmonary causes.\nTop candidates:\n1) Possible NSTEMI / STEMI — strong support: exertional pressure, diaphoresis, nausea, radiation to jaw/shoulder, prolonged episodes, worsening over weeks.\n2) Unstable angina — very likely given crescendo pattern and exertional relief but prolonged episodes.\n3) Stable angina — less likely because it’s new/worsening over weeks.\n4) Pulmonary embolism — less likely due to classic ACS features (diaphoresis, radiation pattern).\n5) Acute pulmonary edema — less likely without orthopnea/PND/volume overload symptoms.\nMost informative next question: Do you have any history of heart disease or risk factors—especially high blood pressure, diabetes, high cholesterol, smoking, prior stent/heart attack, or strong family history of early heart disease? (This helps stratify ACS likelihood and urgency.)\n[/REASONING]\nDo you have any history of heart disease or risk factors like high blood pressure, diabetes, high cholesterol, smoking, prior heart attack/stent, or strong family history of early heart disease?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have diabetes and high cholesterol, and I currently smoke cigarettes. Also, my family has cardiovascular disease problems before age 50. I don’t know of any prior stent or heart attack for me.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Very high-risk ACS presentation: exertional crescendo left-sided pressure with dyspnea, diaphoresis, nausea, radiation to jaw/right shoulder/biceps and thoracic spine; onset/worsening over 2 weeks; significant cardiac risk factors (diabetes, hyperlipidemia, active smoking, strong family history <50).\nTop candidates:\n1) Possible NSTEMI / STEMI — most likely given classic ACS symptoms + high-risk profile; NSTEMI can present without persistent pain.\n2) Unstable angina — very likely given crescendo pattern and exertional relief, but ACS spectrum overlaps; may be NSTEMI.\n3) Pulmonary embolism — less likely due to classic ACS features and strong risk factors for CAD; still a consideration if atypical, but current story fits ACS better.\n4) Acute pulmonary edema — would require signs of heart failure/volume overload (orthopnea/PND, crackles); not yet provided.\n5) Pericarditis — would be less likely without pleuritic/positional pain and without radiation/diaphoresis pattern; still possible but unlikely.\nMost informative next action would be immediate assessment for ACS (vitals, ECG, troponin), but per instruction we will provide differential now given sufficient confidence.\n[/REASONING]\n[DDX] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, Acute pulmonary edema,",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12937,
+      "completion_tokens": 2085
+    },
+    "patient": {
+      "prompt_tokens": 12585,
+      "completion_tokens": 352
+    }
+  }
+}

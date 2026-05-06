@@ -1,0 +1,128 @@
+{
+  "case_idx": 11,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Silent Thyroiditis",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old female",
+    "History": "Complains of a 3-week history of a swollen neck with the swelling being small, round, and painless initially, increasing in size over time. The patient also reports symptoms associated with hyperthyroidism such as sweaty palms and soles, insomnia, irritability, nervousness, and fatigue but denies having a fever, cervical lymphadenopathy, weight loss, vision problems, or body swelling.",
+    "Symptoms": {
+      "Primary_Symptom": "Swollen neck",
+      "Secondary_Symptoms": [
+        "Sweaty palms and soles",
+        "Insomnia",
+        "Irritability",
+        "Nervousness",
+        "Fatigue"
+      ]
+    },
+    "Past_Medical_History": "Negative for similar symptoms or a thyroid disorder.",
+    "Social_History": "Does not provide specifics that are contributory.",
+    "Review_of_Systems": "Denies fever, weight loss, vision problems, or body swelling."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a swollen neck and systemic symptoms suggestive of a thyroid disorder.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, when did your neck swelling start, and is it painful or tender? Patient: Doctor: Next, do you have fever, chills, sore throat, or recent upper-respiratory infection?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It started about three weeks ago, and it’s been small and round but painless—then it’s been slowly getting bigger. I don’t have fever, chills, or a sore throat, and I haven’t had a recent upper-respiratory infection."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any trouble swallowing, breathing, hoarseness, or any unintentional weight loss/gain, heat or cold intolerance? Doctor: Also, do you feel it moves when you swallow and have you noticed any generalized fatigue, tremor, or palpitations?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I haven’t had trouble swallowing or breathing, and no hoarseness. I also don’t have any unintentional weight change, heat or cold intolerance, and it doesn’t seem to move when I swallow. I do feel generalized fatigue with nervousness and insomnia, and I’ve noticed sweaty palms and soles along with some irritability, but no tremor or palpitations."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Thanks—next, do you have a history of thyroid disease/goiter, prior neck radiation, or autoimmune conditions (e.g., Hashimoto/Graves), and are you currently taking thyroid-related meds or biotin? Doctor: Also, on exam today, is the neck swelling firm or rubbery and is it localized to one side or midline? Doctor: REQUEST TEST: Thyroid_Stimulating_Hormone_(TSH), Free_T4, Total_or_Free_T3, and Thyroid_Peroxidase_Antibodies_(TPOAb)/TSH_Receptor_Ab_(TRAb)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Thyroid_Stimulating_Hormone (TSH): NORMAL READINGS; Free T4: NORMAL READINGS; Total or Free T3: NORMAL READINGS; Thyroid Peroxidase Antibodies (TPOAb)/TSH Receptor Ab (TRAb): NORMAL READINGS"
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Given painless, slowly enlarging, non-mobile neck mass with normal TSH/Free T4/T3 and negative TPOAb/TRAb, I’m concerned for a benign structural thyroid lesion—most likely a multinodular goiter or solitary thyroid nodule rather than Graves/Hashitoxicosis. Doctor: REQUEST TEST: Thyroid_Ultrasound (with Doppler) and request FNA cytology if any nodule meets size/suspicious criteria.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Thyroid Ultrasound (with Doppler): NORMAL READINGS. FNA cytology (if indicated by size/suspicious criteria): NORMAL READINGS."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: With painless, slowly enlarging neck swelling and **normal thyroid labs, negative antibodies, and a thyroid ultrasound that’s normal**, I’m less concerned about active autoimmune thyroid disease or a definite structural thyroid nodule. Doctor: Before I finalize—any recent dental infection, salivary gland swelling (pain after meals), or enlarged lymph nodes elsewhere (under jaw/ear/collarbone), and does the mass feel more “from the outside skin/lymph” rather than deep in the neck?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "patient",
+      "content": "Patient: I haven’t had any dental infection, and I don’t notice swelling or pain in the area after meals. I also haven’t noticed enlarged lymph nodes elsewhere, like under my jaw or near my ears or collarbone. The swelling feels more like it’s in the neck from the outside rather than deep inside."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Thanks—given a painless, slowly enlarging “outside” neck lump for ~3 weeks, with negative thyroid labs/antibodies and a normal thyroid ultrasound, this is less likely thyroid-related and more suspicious for a non-thyroid soft-tissue process such as a reactive lymph node, salivary/skin cyst (e.g., epidermoid/branchial cleft), or other benign neck mass; I need one quick clarification: is it mobile under the skin and roughly what size (cm) is it now? Doctor: DIAGNOSIS READY: Benign non-thyroid neck mass most consistent with a superficial/reactive lymph node or epidermoid-type cyst (thyroid disease less likely given normal thyroid labs/antibodies and normal thyroid ultrasound); recommend in-person exam and ultrasound of the soft tissues/lymph nodes for confirmation.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thanks—given a painless, slowly enlarging “outside” neck lump for ~3 weeks, with negative thyroid labs/antibodies and a normal thyroid ultrasound, this is less likely thyroid-related and more suspicious for a non-thyroid soft-tissue process such as a reactive lymph node, salivary/skin cyst (e.g., epidermoid/branchial cleft), or other benign neck mass; I need one quick clarification: is it mobile under the skin and roughly what size (cm) is it now? Doctor: DIAGNOSIS READY: Benign non-thyroid neck mass most consistent with a superficial/reactive lymph node or epidermoid-type cyst (thyroid disease less likely given normal thyroid labs/antibodies and normal thyroid ultrasound); recommend in-person exam and ultrasound of the soft tissues/lymph nodes for confirmation.",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3273,
+      "completion_tokens": 627,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 1592,
+      "completion_tokens": 205,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 1192,
+      "completion_tokens": 102,
+      "calls": 2
+    },
+    "moderator": {
+      "prompt_tokens": 237,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

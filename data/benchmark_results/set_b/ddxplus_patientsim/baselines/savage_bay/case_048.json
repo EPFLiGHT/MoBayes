@@ -1,0 +1,152 @@
+{
+  "case_idx": 48,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 39\nSex: Male\nChief Complaint: I have lightheadedness/near-fainting, a cramp pain, and back of head pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling lightheaded like I might faint, and I’m very tired. I also have cramp-like pain and pain in the back of my head, and it’s also in the top and forehead—about 5/10 right now. I’ve also noticed bloody stool, and I’ve been short of breath.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.  \n\n**Current posterior (pre-test, rough):**  \n- **Anemia** 0.30  \n- **Pulmonary embolism** 0.20  \n- **Possible NSTEMI / STEMI** 0.15  \n- **Panic attack** 0.10  \n- **Infectious & Parasitic Diseases** (e.g., severe infection) 0.10  \n- **Other** 0.15  \n\n**Question 1 (most discriminating):**  \nWhen you say **bloody stool**, is it **bright red blood** on the toilet paper / in the bowl, or is it **dark/black tarry stool** (melena)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s bright red blood—like red blood in the toilet and sometimes on the toilet paper. It’s not black or tarry.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with new evidence (bright red blood per rectum):**  \nBright red blood strongly supports **lower GI bleeding**, which commonly leads to **acute blood-loss anemia** and can cause **lightheadedness/fatigue**. It’s less directly supportive of PE/MI.\n\n**Posterior (updated):**  \n- **Anemia** 0.55  \n- **Possible NSTEMI / STEMI** 0.10  \n- **Pulmonary embolism** 0.10  \n- **Infectious & Parasitic Diseases** 0.10  \n- **Panic attack** 0.05  \n- **Other** 0.10  \n\n**Question 2:**  \nHow old are you, and do you have any known history of **ulcers/GERD**, **hemorrhoids**, **inflammatory bowel disease**, or **colon polyps/cancer**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 39. I don’t know of any ulcers or GERD history, and I don’t have known hemorrhoids or inflammatory bowel disease. I also haven’t been told I have colon polyps or colon cancer.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Age 39 makes some causes (e.g., colon cancer) less likely, but **bright red blood** still keeps **lower GI bleeding → anemia** high. Lack of known hemorrhoids/IBD doesn’t rule them out.\n\n**Posterior:**  \n- **Anemia** 0.60  \n- **Possible NSTEMI / STEMI** 0.08  \n- **Pulmonary embolism** 0.08  \n- **Infectious & Parasitic Diseases** 0.10  \n- **Panic attack** 0.04  \n- **Other** 0.10  \n\n**Question 3 (discriminates anemia severity/bleeding source):**  \nAbout how much blood are you seeing—**a few streaks**, **dripping into the bowl**, or **a lot** (e.g., clots or filling the toilet)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s more than just a few streaks. I’d say it’s like it’s enough to notice in the toilet—sometimes with small clots, but not like the toilet is completely filled.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (moderate hematochezia with small clots):** increases likelihood of **clinically significant lower GI bleed** causing symptomatic **anemia**.\n\n**Posterior:**  \n- **Anemia** 0.68  \n- **Possible NSTEMI / STEMI** 0.06  \n- **Pulmonary embolism** 0.06  \n- **Infectious & Parasitic Diseases** 0.08  \n- **Panic attack** 0.03  \n- **Other** 0.09  \n\nNow, to decide whether the shortness of breath/lightheadedness is from **blood loss** vs **cardiopulmonary causes**:\n\n**Question 4:**  \nDo you have **chest pain/pressure**, or is the shortness of breath mainly when you stand/walk (like you’re “running out of blood”)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have chest pain or pressure. The shortness of breath feels more like it happens with standing or walking, and I just feel like I might pass out.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Orthostatic/near-syncope without chest pain makes **acute blood-loss anemia** more likely than PE/MI.\n\n**Posterior:**  \n- **Anemia** 0.78  \n- **Possible NSTEMI / STEMI** 0.03  \n- **Pulmonary embolism** 0.05  \n- **Infectious & Parasitic Diseases** 0.07  \n- **Panic attack** 0.02  \n- **Other** 0.05  \n\n**Question 5 (key to anemia cause):**  \nHave you had **diarrhea**, **fever**, or **severe abdominal pain/cramping** along with the bloody stool?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have crampy pain, but I don’t have diarrhea or fever that I’m aware of.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Crampy pain with hematochezia without fever/diarrhea keeps possibilities like **colitis/IBD/infectious colitis** lower, but still allows **ischemic colitis**, **diverticular bleed**, **angiodysplasia**, or **hemorrhoids** (even if not known). Still, the dominant syndrome is **symptomatic anemia from lower GI bleeding**.\n\n**Posterior:**  \n- **Anemia** 0.80  \n- **Pulmonary embolism** 0.04  \n- **Possible NSTEMI / STEMI** 0.03  \n- **Infectious & Parasitic Diseases** 0.06  \n- **Panic attack** 0.02  \n- **Other** 0.05  \n\n**Question 6 (helps identify lower GI bleed source):**  \nAny history of **constipation/straining**, or does the blood seem to be **associated with bowel movements** (on the surface of stool / on wiping) rather than mixed throughout?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It seems to be with bowel movements—like it’s on the surface and when I wipe. I do get some constipation/straining sometimes, but I wouldn’t say it’s extreme.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Blood on surface/wiping + constipation/straining increases likelihood of **anorectal source** (e.g., hemorrhoids or fissure), but we can’t confirm without exam. This still fits **anemia from bleeding**, though the amount you described could be more than typical hemorrhoids.\n\n**Posterior:**  \n- **Anemia** 0.78  \n- **Other GI bleeding causes** (still grouped under anemia as the syndrome) 0.12  \n- **Pulmonary embolism** 0.04  \n- **Possible NSTEMI / STEMI** 0.02  \n- **Panic attack** 0.02  \n- **Infectious & Parasitic Diseases** 0.02  \n\n**Question 7 (very important for anemia severity):**  \nHave you noticed **blackouts/fainting**, **palpitations**, or that your heart is racing? And roughly how long has this been going on (hours vs days vs weeks)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t fully fainted, but I’ve had near-fainting/blackout feeling. I do feel like my heart is racing sometimes, and this has been going on for maybe a few days, not just hours.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Near-syncope + palpitations over a few days strongly supports **symptomatic acute blood-loss anemia** (tachycardia/compensatory response). This makes PE/MI less likely given no chest pain and orthostatic pattern.\n\n**Posterior:**  \n- **Anemia** 0.86  \n- **Pulmonary embolism** 0.04  \n- **Possible NSTEMI / STEMI** 0.03  \n- **Infectious & Parasitic Diseases** 0.04  \n- **Panic attack** 0.03  \n\n**Question 8 (to check for alternative causes of SOB/near-syncope):**  \nAny **leg swelling or pain** (especially one-sided), or recent **long travel/immobility**, or **recent surgery**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or leg pain. I haven’t had recent long travel or surgery.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No leg symptoms or travel/surgery lowers PE likelihood.\n\n**Posterior:**  \n- **Anemia** 0.90  \n- **Pulmonary embolism** 0.02  \n- **Possible NSTEMI / STEMI** 0.03  \n- **Infectious & Parasitic Diseases** 0.03  \n- **Panic attack** 0.02  \n\n**Question 9 (discriminates anemia cause/source):**  \nAny **weight loss**, **change in bowel habits** (new constipation/diarrhea), or **family history** of colon cancer/IBD?\n\n(Also, I want to flag: with bright red blood + near-syncope + shortness of breath, you should be evaluated urgently in the ER.)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed weight loss. My bowel habits have been a bit off because of constipation, but no new diarrhea. And I don’t have family history of colon cancer or IBD—just family history of anemia.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No weight loss/new diarrhea/family colon cancer lowers malignancy/IBD a bit, but doesn’t rule out significant anorectal bleeding or other lower-GI sources. Still, the syndrome of **symptomatic anemia from lower GI bleeding** dominates.\n\n**Posterior:**  \n- **Anemia** 0.92  \n- **Possible NSTEMI / STEMI** 0.02  \n- **Pulmonary embolism** 0.02  \n- **Infectious & Parasitic Diseases** 0.02  \n- **Panic attack** 0.02  \n\n**Question 10 (final key discriminator):**  \nAre you currently on any **blood thinners** (warfarin, apixaban/rivaroxaban), **aspirin**, or **NSAIDs** (ibuprofen/naproxen), or do you have a known bleeding disorder?\n\n(If you answer, I can narrow the likely anemia/bleeding cause further.)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’m taking oral anticoagulants. I also take a poor diet, and I don’t have a known bleeding disorder. I’m not sure about aspirin or NSAIDs, so I’d rather not say yes unless you want me to list my exact meds.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Anemia, Possible NSTEMI / STEMI, Pulmonary embolism, Panic attack, Infectious & Parasitic Diseases",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [
+      "Anemia",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Panic attack",
+      "Infectious & Parasitic Diseases"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 21371,
+      "completion_tokens": 1856
+    },
+    "patient": {
+      "prompt_tokens": 19388,
+      "completion_tokens": 465
+    }
+  }
+}

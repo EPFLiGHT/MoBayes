@@ -1,0 +1,195 @@
+{
+  "case_idx": 30,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Female\nChief Complaint: I have feeling nauseous or do you feel like vomiting, significant dyspnea, and did your cheeks suddenly turn red",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’m 17 and I came in because I suddenly started feeling very nauseous and I feel like I might vomit, and I also have significant trouble breathing. My cheeks turned red and I have a pink rash with itching about 6/10, and I noticed it on my right biceps, around my mouth, on my neck area near the thyroid cartilage, and also on both my right and left ankles.",
+      "extracted_features": {
+        "f_e_148": "yes",
+        "f_e_66": "yes",
+        "f_e_75": "yes",
+        "f_e_130": "pink",
+        "f_e_136": "6",
+        "f_e_133_v_33": "yes",
+        "f_e_133_v_30": "yes",
+        "f_e_133_v_32": "yes",
+        "f_e_133_v_34": "yes",
+        "f_e_133_v_35": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Anaphylaxis",
+          0.5410475915486296
+        ],
+        [
+          "Scombroid food poisoning",
+          0.45077345222747534
+        ],
+        [
+          "Panic attack",
+          0.0012492803477969954
+        ],
+        [
+          "Pneumonia",
+          0.000590339126691192
+        ],
+        [
+          "Boerhaave",
+          0.0004923872818997539
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "To help assess it, could you tell me whether the lesion(s) are larger than 1 centimeter (about the width of a pencil eraser)?  \n- No  \n- Yes  \n- Not present / I don’t see any lesions",
+      "patient_answer": "Yes — the lesions are larger than 1 centimeter.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.54513728661422
+        ],
+        [
+          "Scombroid food poisoning",
+          0.45418077903581977
+        ],
+        [
+          "SLE",
+          0.00014050075288292514
+        ]
+      ],
+      "entropy": 1.003916552744749
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_91",
+      "doctor_question": "Do you currently have a fever—either that you feel (hot/flushed) or that you’ve measured with a thermometer?",
+      "patient_answer": "No, I don’t have a fever. I’m not hot or flushed like that, and I haven’t measured a temperature.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.5452718100804844
+        ],
+        [
+          "Scombroid food poisoning",
+          0.454292857175046
+        ],
+        [
+          "SLE",
+          0.00014053542423774664
+        ]
+      ],
+      "entropy": 1.00064416640457
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_79",
+      "doctor_question": "Do you currently smoke cigarettes (yes or no)?",
+      "patient_answer": "No, I don’t smoke cigarettes.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.5453768538569223
+        ],
+        [
+          "Scombroid food poisoning",
+          0.4543803743296911
+        ],
+        [
+          "SLE",
+          4.919687417954174e-05
+        ]
+      ],
+      "entropy": 0.998014696458731
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_129",
+      "doctor_question": "Do you have any skin changes—like lesions, redness, or other problems—that you think are related to the condition you’re asking about?",
+      "patient_answer": "Yes. I have a pink rash with redness and itching, and the rash is on my right biceps, around my mouth, near my thyroid cartilage/neck area, and also on both ankles. There’s no swelling that I can see and no peeling lesions.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.5454356518605036
+        ],
+        [
+          "Scombroid food poisoning",
+          0.4544293618484832
+        ],
+        [
+          "SLE",
+          4.821813461442591e-05
+        ]
+      ],
+      "entropy": 0.9961224144506953
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_183",
+      "doctor_question": "When you feel the pain, does it feel **heavy** (like a dull, weighty pressure) rather than sharp or burning?",
+      "patient_answer": "No, it’s not heavy or dull pressure. It’s more like mild discomfort—my pain is about 2/10—and the main problem is the itching.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.5454564017336213
+        ],
+        [
+          "Scombroid food poisoning",
+          0.4544466495918993
+        ],
+        [
+          "SLE",
+          4.821996896495251e-05
+        ]
+      ],
+      "entropy": 0.9955367440696997
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_top3": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "SLE"
+    ],
+    "confidence": 0.5454564017336213,
+    "final_entropy": 0.9955367440696997,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10435,
+      "completion_tokens": 448
+    },
+    "patient": {
+      "prompt_tokens": 5185,
+      "completion_tokens": 235
+    }
+  }
+}

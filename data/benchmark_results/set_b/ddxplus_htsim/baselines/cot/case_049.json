@@ -1,0 +1,89 @@
+{
+  "case_idx": 49,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 93\nSex: F\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve come in because I have a cough, and I notice a wheezing sound when I exhale. I also have severe COPD and I’ve had one or several flare-ups of COPD in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + expiratory wheeze in a patient with severe COPD and prior COPD flare-ups in the past year. This strongly suggests an acute COPD exacerbation, potentially triggered by infection (pneumonia/bronchitis/influenza) or other causes (e.g., pulmonary embolism, heart failure/pulmonary edema), but we need discriminating features.\nTop candidates:\n1) Acute COPD exacerbation / infection — wheeze and cough in known severe COPD; prior frequent flare-ups increase likelihood; infection is a common trigger.\n2) Bronchitis — cough with wheeze can occur; may be infectious trigger for COPD symptoms.\n3) Pneumonia — COPD patients can present with cough and wheeze; would expect fever, pleuritic pain, focal findings.\n4) Bronchospasm / acute asthma exacerbation — wheeze, but less likely given known severe COPD (still possible overlap).\n5) Pulmonary embolism — can cause cough/wheeze-like symptoms and dyspnea; would be suggested by pleuritic pain, hemoptysis, leg swelling, hypoxia, tachycardia.\nMost informative next question: determine whether this is likely infectious vs noninfectious by asking about fever/sputum change.\n[/REASONING]\nDo you have a fever or have you noticed any change in your sputum—such as increased amount, thicker consistency, or",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nI can say I have a cough and I notice a wheezing sound when I exhale, and I have severe COPD with one or several flare-ups of COPD in the past year.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + expiratory wheeze; severe COPD; one or several flare-ups in past year. Infection is still possible but we don’t yet have fever/sputum change. Need discriminating features for severity/etiology.\nTop candidates:\n1) Acute COPD exacerbation / infection — most consistent with known COPD + wheeze/cough; frequent prior exacerbations increase probability.\n2) Bronchitis — could explain cough/wheeze; may be infectious trigger.\n3) Pneumonia — still possible; would look for fever, chills, pleuritic pain, or new focal symptoms.\n4) Pulmonary embolism — less likely but must consider if symptoms are abrupt/severe or with hypoxia/pleuritic pain/leg swelling.\n5) Acute pulmonary edema — consider if prominent orthopnea/PND, edema, or sudden dyspnea.\nMost informative next question: ask about shortness of breath pattern and onset (sudden vs gradual) to help separate COPD flare from PE/pulmonary edema.\n[/REASONING]\nHow short of breath are you right now, and did it start suddenly (within hours) or gradually (over a day or more)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + expiratory wheeze; severe COPD; recurrent exacerbations. We still lack key discriminators: infectious signs, suddenness, and cardiopulmonary red flags.\nTop candidates remain:\n1) Acute COPD exacerbation / infection\n2) Bronchitis\n3) Pneumonia\n4) Pulmonary embolism\n5) Acute pulmonary edema\nMost informative next question: determine whether there’s chest pain or hemoptysis, which would push toward PE/pneumonia/other serious causes.\nDo you have any chest pain (especially sharp/pleuritic) or have you coughed up any blood?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe COPD with cough and expiratory wheeze; no reliable info yet on fever/sputum, onset, chest pain, or hemoptysis. With limited history, we can’t confidently rank beyond COPD exacerbation vs infection-related causes.\nTop candidates (still):\n1) Acute COPD exacerbation / infection — best fit to baseline disease + wheeze/cough.\n2) Bronchitis — common trigger/overlap.\n3) Pneumonia — possible infectious trigger; needs fever/focal symptoms.\n4) Pulmonary embolism — must consider in COPD patients with unexplained dyspnea; needs pleuritic pain/hemoptysis/sudden onset.\n5) Acute pulmonary edema — consider if prominent orthopnea/edema.\nMost informative next question: ask about orthopnea/leg swelling to assess for pulmonary edema/cardiac causes.\nDo you have swelling in your legs or do you feel more short of breath when lying flat (needing extra pillows)? \n[/REASONING]",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] We have only non-specific symptoms (cough + expiratory wheeze) in a patient with severe COPD and prior exacerbations, but we still lack key discriminators (onset timing, fever/sputum change, chest pain/hemoptysis, hypoxia, orthopnea/leg swelling) needed to confidently rank serious alternatives like pneumonia, pulmonary embolism, or pulmonary edema.\n\n[POSSIBLE] Acute COPD exacerbation / infection, Bronchitis, Pneumonia, Pulmonary embolism, Acute pulmonary edema",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Bronchitis",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6633,
+      "completion_tokens": 1031
+    },
+    "patient": {}
+  }
+}

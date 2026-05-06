@@ -1,0 +1,109 @@
+{
+  "case_idx": 44,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 0\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever and a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSo far we only have: fever + cough. This most broadly suggests an acute respiratory infection (viral URTI/flu, pneumonia, bronchitis/bronchiolitis) but we need discriminating features (duration, severity, sputum, shortness of breath, chest pain, exposures, age/comorbidities).\nTop candidates (tentative):\n1) Pneumonia — fever + cough can fit; would be supported by shortness of breath, pleuritic pain, focal lung findings.\n2) Influenza — fever with cough is common; would be supported by abrupt onset, myalgias, sick contacts.\n3) Bronchitis — fever/cough, usually less severe; less likely if significant hypoxia or focal chest findings.\n4) URTI / Viral pharyngitis — fever + cough can occur; would be supported by prominent sore throat/runny nose.\n5) Acute COPD exacerbation / infection — only if patient has COPD and increased sputum/wheeze.\nMost informative next question: determine duration and severity (e.g., how long symptoms have been present).\n[/REASONING]\nHow long have you had the fever and cough (hours/days), and is it getting worse quickly or gradually?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have only fever + cough, and we lack timing. “I don’t know” limits discrimination, so we should ask for another high-yield feature: severity/shortness of breath, since that helps separate pneumonia/PE/bronchospasm from uncomplicated URTI.\nTop candidates (tentative):\n1) Pneumonia — more likely if shortness of breath, chest pain, or rapid worsening.\n2) Bronchospasm / acute asthma exacerbation — if wheezing and dyspnea predominate.\n3) Acute COPD exacerbation / infection — if COPD history and increased wheeze/sputum.\n4) Influenza / URTI — if no significant dyspnea and symptoms are mild.\n5) Pulmonary embolism — less likely but must consider if sudden onset dyspnea/pleuritic pain and risk factors.\nMost informative next question: do you have shortness of breath or wheezing?\n[/REASONING]\nAre you having shortness of breath or wheezing right now?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill minimal data. We need a discriminating question that doesn’t require the patient to know medical terms. Ask about ability to speak full sentences or need to sit up to breathe (dyspnea). This helps separate serious respiratory causes (pneumonia, PE, pulmonary edema) from mild viral illness.\nTop candidates (tentative):\n1) Pneumonia — fever + cough; dyspnea may be present.\n2) Bronchospasm / acute asthma exacerbation — wheeze/dyspnea.\n3) Pulmonary embolism — if sudden dyspnea/pleuritic pain.\n4) Acute COPD exacerbation / infection — if COPD history.\n5) Influenza / URTI — if no dyspnea and mild symptoms.\nMost informative next question: breathing difficulty.\n[/REASONING]\nCan you speak in full sentences comfortably, or do you feel short of breath even at rest?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still can’t discriminate because the patient can’t assess dyspnea. Next best is to ask about chest pain characteristics (pleuritic vs none) and cough features (productive vs dry, blood). These are easier to answer and help distinguish pneumonia vs bronchitis/viral vs PE vs pulmonary edema.\nTop candidates (tentative):\n1) Pneumonia — fever + cough; supported by productive cough, pleuritic pain.\n2) Pulmonary embolism — supported by pleuritic chest pain, hemoptysis, sudden onset (though we don’t have timing yet).\n3) Bronchitis / URTI — supported by dry cough or mild symptoms.\n4) Influenza — fever + cough; often myalgias/sick contacts.\n5) Acute pulmonary edema — would require orthopnea, leg swelling, known heart failure (not yet).\nMost informative next question: any chest pain, especially sharp pain when you breathe in, or coughing up blood?\n[/REASONING]\nDo you have any chest pain (especially sharp pain when taking a deep breath) or are you coughing up blood?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have essentially no discriminating symptom details beyond fever + cough, and the patient can’t reliably answer. We must ask for objective/observable features: measured temperature, oxygen/respiratory rate if available, and whether there’s runny nose/sore throat (viral) vs productive sputum. Since they can’t answer symptom quality, ask about sputum: presence of phlegm and color, which is usually easier.\nTop candidates (tentative):\n1) Pneumonia — still plausible with fever + cough.\n2) Influenza — plausible.\n3) Bronchitis — plausible.\n4) URTI / viral pharyngitis — plausible.\n5) Pulmonary embolism — lower without chest pain/hemoptysis info, but cannot exclude.\nMost informative next question: is the cough producing mucus/phlegm? If yes, what color (clear/white/yellow/green/bloody)?\n[/REASONING]\nIs your cough bringing up mucus/phlegm? If yes, what color (clear/white/yellow/green/bloody)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have no usable symptom characterization. At this point, further questioning may not yield discriminating answers. We should attempt one last high-yield, observable/known-risk question: any known chronic lung disease (COPD/asthma) or heart disease, because that can shift the differential substantially even if symptom details are unknown.\nTop candidates (tentative):\n1) Pneumonia — fever + cough baseline.\n2) Influenza — fever + cough baseline.\n3) Bronchitis — fever + cough baseline.\n4) Bronchospasm / acute asthma exacerbation — if asthma history.\n5) Acute COPD exacerbation / infection — if COPD history.\nMost informative next question: do you have asthma or COPD (or other chronic lung disease)?\n[/REASONING]\nDo you have asthma or COPD (or any chronic lung condition)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The patient is unable to provide key discriminating symptom details (duration, shortness of breath, chest pain/pleuritic pain, sputum/hemoptysis) and also can’t report relevant history (asthma/COPD). With only “fever and cough,” the evidence is insufficient to confidently narrow to a specific diagnosis.\n\n[POSSIBLE] Pneumonia, Influenza, Bronchitis, URTI, Acute COPD exacerbation / infection",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Influenza",
+      "Bronchitis",
+      "URTI",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10185,
+      "completion_tokens": 1401
+    },
+    "patient": {}
+  }
+}

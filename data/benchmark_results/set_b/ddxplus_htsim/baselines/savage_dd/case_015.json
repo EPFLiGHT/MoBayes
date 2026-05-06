@@ -1,0 +1,109 @@
+{
+  "case_idx": 15,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Chagas",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: F\nChief Complaint: weight loss or loss of appetite",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency, along with a fever. I’ve also unintentionally lost weight or lost my appetite, and I’ve been feeling new fatigue and a change in my general well-being, with diffuse muscle aches. I have pain with intensity 7/10, located around the back of the head/top of the head/occiput and the back of the neck/cervical spine.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. To narrow this down, I need one key detail:\n\n**Question 1:** How high has the fever been (and for how many days)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s switch to something more specific.\n\n**Question 2:** Have you measured the temperature at home or in a clinic? If not, do you feel **chills/rigors** (shaking with fever) or is it more just “feverish”?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Question 3:** When did all of this start—**how many days ago** did the diarrhea/fever and the head/neck pain begin?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. I’ll ask about a very discriminating symptom next.\n\n**Question 4:** Do you have **neck stiffness**—for example, is it painful or difficult to **touch your chin to your chest**, or do you feel worse when you try?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. I’ll ask about a different discriminating feature.\n\n**Question 5:** Any **rash** (new spots, hives, or purple/red non-blanching dots), or **light sensitivity**/severe headache that feels different from usual?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the uncertainty so far, I can’t safely narrow to a confident set of diagnoses. I need at least one more concrete, discriminating detail.\n\n**Question 6:** Is the diarrhea **watery** or **bloody/mucousy**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to pause here—there isn’t enough discriminating information yet (fever severity/timing, neck stiffness/meningismus, rash/light sensitivity, and stool characteristics are all unknown), so I can’t responsibly choose a top differential.\n\n[ABSTAIN] Key details needed to distinguish serious causes (e.g., meningitis/encephalitis vs viral syndrome vs other infectious/inflammatory etiologies) are unknown: fever timing/degree, neck stiffness/meningismus, rash/light sensitivity, and stool type (watery vs bloody/mucousy).  \n[POSSIBLE] Influenza, Pneumonia, URTI, Infectious & Parasitic Diseases, Anemia",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Pneumonia",
+      "URTI",
+      "Infectious & Parasitic Diseases",
+      "Anemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6961,
+      "completion_tokens": 445
+    },
+    "patient": {}
+  }
+}

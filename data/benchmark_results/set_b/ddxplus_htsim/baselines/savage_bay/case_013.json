@@ -1,0 +1,109 @@
+{
+  "case_idx": 13,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: M\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here for nasal congestion and a cough with colored sputum. I also have wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough):  \n- Pneumonia 0.20  \n- Acute COPD exacerbation / infection 0.20  \n- Bronchitis 0.20  \n- Bronchospasm / acute asthma exacerbation 0.20  \n- Influenza 0.10  \n- URTI 0.10  \n\nEvidence so far: nasal congestion + cough with colored sputum + wheeze on exhalation.  \nLikelihood ratios (LR) for “colored sputum” and “wheeze” are modestly supportive of lower-airway disease (pneumonia/bronchitis/COPD/asthma) over simple URTI.\n\nOne question to best discriminate:  \n**Do you have a fever (≥38°C) or chills?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No. I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with “no known fever/chills” = weakly against pneumonia/influenza):  \n- Pneumonia 0.18  \n- Acute COPD exacerbation / infection 0.18  \n- Bronchitis 0.22  \n- Bronchospasm / acute asthma exacerbation 0.20  \n- Influenza 0.08  \n- URTI 0.14  \n\nLR for “no known fever/chills” vs pneumonia/influenza is ~0.7 (mildly lowers likelihood).\n\nNext discriminating question (one at a time):  \n**How long has this been going on (days)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still uncertain; “duration unknown” doesn’t strongly shift):  \n- Bronchitis 0.22  \n- Bronchospasm / acute asthma exacerbation 0.20  \n- Pneumonia 0.18  \n- Acute COPD exacerbation / infection 0.18  \n- URTI 0.14  \n- Influenza 0.08  \n\nTo sharpen the differential, I need a key discriminating feature:\n\n**Do you have a history of asthma or COPD (or do you smoke)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have COPD, and I smoke cigarettes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (COPD + smoking strongly increases COPD exacerbation/infection and lowers primary asthma):  \n- Acute COPD exacerbation / infection 0.45  \n- Bronchitis 0.20  \n- Pneumonia 0.18  \n- Bronchospasm / acute asthma exacerbation 0.05  \n- Influenza 0.07  \n- URTI 0.05  \n\nUpdate: COPD history makes “COPD exacerbation” much more likely (LR ~3–5), and wheeze fits.\n\nNext question to distinguish **COPD exacerbation vs pneumonia**:  \n**Have you noticed any shortness of breath that is worse than your usual, or any chest pain?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have pain somewhere related to my reason for consulting. It’s in the lower chest, side of the chest (right), pharynx, and breast (left), and it’s sensitive and burning. I don’t know if it’s worse than my usual shortness of breath.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (chest pain described as burning/sensitive, plus pharynx involvement):  \n- Acute COPD exacerbation / infection 0.40  \n- Pneumonia 0.20  \n- Bronchitis 0.18  \n- GERD 0.10  \n- Pulmonary embolism 0.05  \n- Acute pulmonary edema 0.05  \n\nEvidence update: burning pain and pharyngeal symptoms can fit GERD/upper airway irritation, which lowers pneumonia a bit (LR ~0.7 for pneumonia) and raises GERD slightly (LR ~2 for GERD vs COPD alone). Still, COPD exacerbation remains most likely given wheeze + smoking + colored sputum.\n\nNext discriminating question (one at a time, high yield for pneumonia/PE):  \n**Do you have shortness of breath right now, and is it worse when you take a deep breath (pleuritic)?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have wheezing when I exhale, and I have a cough with colored sputum.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still favoring COPD exacerbation/infection):  \n- Acute COPD exacerbation / infection 0.55  \n- Pneumonia 0.20  \n- Bronchitis 0.15  \n- GERD 0.05  \n- Pulmonary embolism 0.03  \n- Acute pulmonary edema 0.02  \n\nEvidence update: persistent wheeze + colored sputum increases COPD exacerbation likelihood (LR ~1.5–2 vs pneumonia/bronchitis).\n\nOne last key question to decide between **COPD exacerbation vs pneumonia**:  \n**Have you had any new/worsening fever, chills, or feeling “flu-like” (body aches, marked fatigue)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have a cough with colored sputum and I notice wheezing when I exhale.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, GERD, Pulmonary embolism",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "GERD",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9089,
+      "completion_tokens": 926
+    },
+    "patient": {}
+  }
+}

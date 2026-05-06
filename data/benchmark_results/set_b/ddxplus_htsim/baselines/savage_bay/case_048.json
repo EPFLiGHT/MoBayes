@@ -1,0 +1,109 @@
+{
+  "case_idx": 48,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Whooping cough",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 70\nSex: M\nChief Complaint: vomiting after coughing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having vomiting after coughing spells. I’ve also been in contact with someone who had pertussis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors, based on your two key features: cough-triggered vomiting + pertussis exposure):\n- Whooping cough: 0.45  \n- Pneumonia: 0.15  \n- Bronchitis: 0.10  \n- GERD: 0.10  \n- Panic attack: 0.05  \n(others combined: 0.15)\n\nTo update this most, I need one discriminating detail:\n\n**Question 1 (one at a time):**  \nDo you have **coughing spells that end with a “whoop” sound or make it hard to breathe**, especially in children/young adults?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have wheezing while inhaling, and my breathing is noisy after coughing spells, but I’m not sure about a “whoop” sound or if it’s hard to breathe.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Whooping cough: 0.50  \n- Bronchospasm / acute asthma exacerbation: 0.15  \n- Bronchitis: 0.10  \n- Pneumonia: 0.10  \n- GERD: 0.10  \n- Panic attack: 0.05  \n\nNew evidence: wheezing/noisy breathing after cough spells.\n- Likelihood ratio (LR) for **whooping cough** vs others: ~1.3 (cough fits can cause airway irritation/wheeze)\n- LR for **bronchospasm/asthma** vs whooping cough: ~1.2 (wheeze points toward bronchospasm too)\n\nUpdated posterior (approx):\n- Whooping cough: 0.46  \n- Bronchospasm / acute asthma exacerbation: 0.18  \n- Bronchitis: 0.12  \n- Pneumonia: 0.10  \n- GERD: 0.10  \n- Panic attack: 0.04  \n\n**Question 2:**  \nDuring or after these coughing spells, do you ever have **vomiting that happens repeatedly**, and does it seem **triggered specifically by coughing** (not by meals/heartburn)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my vomiting happens after coughing spells, and it’s triggered by the coughing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Whooping cough: 0.46  \n- Bronchospasm / acute asthma exacerbation: 0.18  \n- Bronchitis: 0.12  \n- Pneumonia: 0.10  \n- GERD: 0.10  \n- Panic attack: 0.04  \n\nNew evidence: vomiting triggered by coughing spells (post-tussive emesis).\n- Likelihood ratio for **whooping cough**: ~2.0 (post-tussive vomiting is classic)\n- Likelihood ratio for **bronchospasm/asthma**: ~0.8 (can cough but post-tussive vomiting less specific)\n- Likelihood ratio for **pneumonia/bronchitis**: ~1.0 (can cough/vomit but less specific)\n\nUpdated posterior (approx):\n- Whooping cough: 0.58  \n- Bronchospasm / acute asthma exacerbation: 0.14  \n- Bronchitis: 0.12  \n- Pneumonia: 0.08  \n- GERD: 0.05  \n- Panic attack: 0.03  \n\n**Question 3 (high-yield):**  \nHow long has this been going on—**days vs more than 2 weeks**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on—I don’t know how long.  \n\nI can say that I wheeze while inhaling, and my breathing is noisy after coughing spells, and I vomit after coughing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (still, since duration unknown):\n- Whooping cough: 0.58  \n- Bronchospasm / acute asthma exacerbation: 0.14  \n- Bronchitis: 0.12  \n- Pneumonia: 0.08  \n- GERD: 0.05  \n- Panic attack: 0.03  \n\nNew evidence: wheeze (inhalation) and noisy breathing after cough spells—this slightly supports airway hyperreactivity but is still compatible with pertussis.\n- LR for **whooping cough**: ~1.1  \n- LR for **bronchospasm/asthma**: ~1.4  \n\nUpdated posterior (approx):\n- Whooping cough: 0.55  \n- Bronchospasm / acute asthma exacerbation: 0.18  \n- Bronchitis: 0.11  \n- Pneumonia: 0.08  \n- GERD: 0.05  \n- Panic attack: 0.03  \n\n**Question 4 (to separate pertussis vs asthma/bronchitis):**  \nDo you have **fever** (measured or felt), and if yes, how high?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Whooping cough: 0.55  \n- Bronchospasm / acute asthma exacerbation: 0.18  \n- Bronchitis: 0.11  \n- Pneumonia: 0.08  \n- GERD: 0.05  \n- Panic attack: 0.03  \n\nNo fever info doesn’t shift much.\n\n**Question 5:**  \nHave you had **any chest pain**, especially **worse when you take a deep breath** or **with coughing**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Whooping cough: 0.55  \n- Bronchospasm / acute asthma exacerbation: 0.18  \n- Bronchitis: 0.11  \n- Pneumonia: 0.08  \n- GERD: 0.05  \n- Panic attack: 0.03  \n\nWe still need one more discriminating feature, ideally severity/complications:\n\n**Question 6:**  \nDuring these episodes, do you ever have **blue lips/face, fainting, or pauses in breathing**, or are you **struggling to breathe at rest**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have wheezing while inhaling, and my breathing is noisy after coughing spells, but I’m not sure about blue lips/face, fainting, pauses in breathing, or struggling to breathe at rest.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating clinical details (e.g., duration, objective fever, “whoop”/post-tussive character specifics, severity/oxygenation, and whether there are red flags like cyanosis/apnea) to confidently rank a single diagnosis.\n\n[POSSIBLE] Whooping cough, Bronchospasm / acute asthma exacerbation, Bronchitis, Pneumonia, GERD",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Whooping cough",
+      "Bronchospasm / acute asthma exacerbation",
+      "Bronchitis",
+      "Pneumonia",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10524,
+      "completion_tokens": 1241
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "case_idx": 23,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "HIV (initial infection)",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 62\nSex: M\nChief Complaint: diarrhea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have diarrhea or an increase in stool frequency. I’m also so tired I can’t do my usual activities or I’m stuck in bed all day. I have a fever and swollen or painful lymph nodes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. To narrow this down, one question at a time:\n\n**How long has this been going on (days), and did it start suddenly or gradually?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question:\n\n**Do you have any blood in your stool or black/tarry stools?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have nausea or I feel like vomiting and involuntary weight loss over the last 3 months.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you had any recent travel, or any known exposure to someone with a contagious illness (or contaminated food/water)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have traveled out of the country to West Africa in the last 4 weeks.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Are you having any respiratory symptoms too—cough, sore throat, or shortness of breath—or is it mainly diarrhea/fever?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have a sore throat, and I also have a fever.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Do you have painful swallowing or drooling, or is your voice muffled/“hot potato” sounding?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Are you having any rash (new spots/skin changes), and if yes is it widespread or localized?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have lesions, redness, or problems on my skin that I believe are related to the condition I’m consulting for. The rash is pale, and the lesions are larger than 1 cm.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Are the swollen/painful lymph nodes in the neck, armpits, or groin—and are they tender or painless?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have swollen or painful lymph nodes.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history is suggestive of a serious infectious process after recent West Africa travel (fever, sore throat, diarrhea, fatigue, weight loss, lymphadenopathy, and a rash), but key discriminators are missing (e.g., rash character/distribution, whether there’s blood in stool, respiratory distress, and whether lymph nodes are specific regions/tender). With current uncertainty, I can’t confidently rank a single best diagnosis.\n\n[POSSIBLE] Ebola, HIV (initial infection), Influenza, Pneumonia, Tuberculosis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Ebola",
+      "HIV (initial infection)",
+      "Influenza",
+      "Pneumonia",
+      "Tuberculosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7731,
+      "completion_tokens": 342
+    },
+    "patient": {}
+  }
+}

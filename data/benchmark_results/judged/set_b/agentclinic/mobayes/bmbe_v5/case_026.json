@@ -1,0 +1,288 @@
+{
+  "case_idx": 26,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Hirschsprung disease",
+  "patient_actor_hidden": {
+    "Demographics": "8-month-old boy",
+    "History": "The patient has been very fussy and has shown decreased interest in feeding for the past few days. His mother reports that despite the feeding difficulties, she believes the child has been gaining weight. There were no complications during birth at 39 weeks of gestation.",
+    "Symptoms": {
+      "Primary_Symptom": "Crying, especially intense with abdominal palpation",
+      "Secondary_Symptoms": [
+        "Distended abdomen",
+        "Decreased feeding",
+        "Weight gain despite decreased feeding"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. Delivered vaginally at 39 weeks without complications.",
+    "Social_History": "First child to young parents, no history of similar illness in the family.",
+    "Review_of_Systems": "No episodes of fever, vomiting, or diarrhea. The baby has not had any known illnesses since birth."
+  },
+  "objective_for_doctor": "Diagnose the underlying condition based on clinical presentation and examination findings in an 8-month-old boy with feeding difficulties and abdominal distension.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor, my son has been very fussy for a few days and cries intensely when we press on his belly. He’s been less interested in feeding, but I think he’s still gaining weight, and his abdomen looks more distended.",
+      "extracted_features": {
+        "f_abdominal_distension_346d0d5a": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_acute_abdominal_pain_154cc46b": "yes",
+        "f_agitation_10f6de33": "yes",
+        "f_decreased_feeding_e74fa5f4": "yes",
+        "f_fussiness_898610cf": "yes",
+        "f_feeding_less_bfb427da": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Hirschsprung disease",
+          0.4063591228853507
+        ],
+        [
+          "Toxic exposure",
+          0.15494041745418022
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.05049002091211873
+        ],
+        [
+          "Acute lymphoblastic leukemia",
+          0.0399283081683508
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.03781895369329006
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any twitching, jerking, or shaking that we can’t stop.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.4303451906418084
+        ],
+        [
+          "Toxic exposure",
+          0.15082657151007153
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.04914945289790961
+        ]
+      ],
+      "entropy": 3.4473203199680507
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any lump or anything that shifts or moves when touched—especially not in his right breast area.” “Can you examine his belly and feeding difficulties more?”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.4303451906418084
+        ],
+        [
+          "Toxic exposure",
+          0.15082657151007153
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.04914945289790961
+        ]
+      ],
+      "entropy": 3.4473203199680507
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "Doctor: When you press or gently tap around his belly button area, does it feel tender or painful? (yes/no) Patient: Yes—he becomes very upset and cries intensely when that area is pressed.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.4303451906418084
+        ],
+        [
+          "Toxic exposure",
+          0.15082657151007153
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.04914945289790961
+        ]
+      ],
+      "entropy": 3.4473203199680507
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, he hasn’t been vomiting.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.31428009290959696
+        ],
+        [
+          "Toxic exposure",
+          0.11014829476013695
+        ],
+        [
+          "Acute lymphoblastic leukemia",
+          0.055982180872101404
+        ]
+      ],
+      "entropy": 4.170675631339089
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in his right breast. His main issue is that he cries very intensely when his belly is pressed—especially around the belly button—and his abdomen looks more distended with decreased feeding, though he still seems to be gaining weight. He hasn’t had any fever, vomiting, or diarrhea.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.31741704244704727
+        ],
+        [
+          "Toxic exposure",
+          0.11124772692302018
+        ],
+        [
+          "Acute lymphoblastic leukemia",
+          0.05654096038233499
+        ]
+      ],
+      "entropy": 4.138782455967178
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, making your vision seem less clear? (Yes/No)",
+      "patient_answer": "“No, I haven’t noticed any cloudiness or hazy appearance in either of his eyes—he seems to see normally when I observe him.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.21516085145443775
+        ],
+        [
+          "Toxic exposure",
+          0.1463825060568181
+        ],
+        [
+          "Acute lymphoblastic leukemia",
+          0.07439799180213912
+        ]
+      ],
+      "entropy": 4.424845669069518
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past few months, have you lost weight without trying (for example, your clothes feel looser or the scale has gone down), even though you didn’t change your diet or exercise?",
+      "patient_answer": "“No, I haven’t noticed any weight loss—I think he’s still gaining weight even though he’s feeding less and gets very upset when his belly is pressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.1854738684609278
+        ],
+        [
+          "Toxic exposure",
+          0.1617304137336697
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.0707730532611752
+        ]
+      ],
+      "entropy": 4.480366895677553
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in his right breast area at all, and there’s nothing painless or small that feels like it shifts.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Hirschsprung disease",
+          0.18862205814900113
+        ],
+        [
+          "Toxic exposure",
+          0.16447558762252634
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.06615823021993983
+        ]
+      ],
+      "entropy": 4.47152147290616
+    }
+  ],
+  "final": {
+    "predicted": "Hirschsprung disease",
+    "predicted_top3": [
+      "Hirschsprung disease",
+      "Toxic exposure",
+      "Chronic Granulomatous Disease"
+    ],
+    "confidence": 0.18862205814900113,
+    "final_entropy": 4.47152147290616,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Hirschsprung disease",
+    "predicted_set_remapped": [
+      "Hirschsprung disease",
+      "Toxic exposure",
+      "Chronic Granulomatous Disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10761,
+      "completion_tokens": 421
+    },
+    "patient": {
+      "prompt_tokens": 5271,
+      "completion_tokens": 342,
+      "calls": 9
+    }
+  }
+}

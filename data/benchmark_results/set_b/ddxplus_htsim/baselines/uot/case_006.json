@@ -1,0 +1,86 @@
+{
+  "case_idx": 6,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 49\nSex: F\nChief Complaint: nasal or throat itching",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Nasal or throat itching. Also severe itching in one or both eyes, with nasal congestion or a clear runny nose, and I have a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (measured temperature ≥ 38°C) and **new/worsening respiratory symptoms** (e.g., cough, sore throat, shortness of breath, or nasal congestion) that started recently?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have nasal congestion or a clear runny nose and a cough, and my nose or the back of my throat is itchy.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **sore throat** (with or without runny nose) **without** prominent wheezing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My nose or the back of my throat is itchy, and I have nasal congestion or a clear runny nose and a cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **wheezing** (or obvious bronchospasm) on breathing?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have asthma or have used a bronchodilator in the past, and I have a cough.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have wheezing (a whistling sound) during breathing?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bronchiolitis  , Bronchitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Bronchiolitis  ",
+    "predicted_set": [
+      "Bronchiolitis  ",
+      "Bronchitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

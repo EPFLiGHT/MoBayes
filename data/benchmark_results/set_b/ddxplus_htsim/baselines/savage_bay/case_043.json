@@ -1,0 +1,99 @@
+{
+  "case_idx": 43,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Stable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 46\nSex: F\nChief Complaint: exertional symptoms",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain that comes on with physical exertion and gets better with rest. It’s a heavy, exhausting, tedious pain with intensity 7/10, located in my lower and upper chest, both breasts, and my epigastric area, and it radiates to both biceps, under my jaw, and both shoulders.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "First, I’m going to narrow this down as an emergency chest-pain problem.\n\n**Current posterior (pre-test, rough):**\n- **Possible NSTEMI / STEMI:** 35%\n- **Unstable angina:** 25%\n- **GERD:** 20%\n- **Pericarditis:** 10%\n- **Pulmonary embolism:** 10%\n\n**Evidence so far:** exertional, heavy/exhausting pain relieved by rest, radiating to jaw/shoulders/biceps → this strongly favors ischemic cardiac pain over reflux or other causes.\n\n**Likelihood ratio (LR) for ischemia vs non-ischemia:** ~3.0\n\n**Updated posterior:**\n- **Possible NSTEMI / STEMI:** 55%\n- **Unstable angina:** 30%\n- **GERD:** 7%\n- **Pericarditis:** 4%\n- **Pulmonary embolism:** 4%\n\n**Question 1 (one at a time):**  \nWhen the pain happens, do you also get **shortness of breath, sweating, nausea/vomiting, or a sense of impending doom**? (Yes/No, and which ones)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s make it more specific.\n\n**Current posterior (given no additional symptoms yet):**\n- **Possible NSTEMI / STEMI:** 55%\n- **Unstable angina:** 30%\n- **GERD:** 7%\n- **Pericarditis:** 4%\n- **Pulmonary embolism:** 4%\n\n**Question 2:**  \nDuring the episode, does **pressing on your chest wall or moving your arms/torso** make the pain **noticeably worse** (Yes/No)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That’s an important discriminator.\n\n**Evidence:** pain worse with chest wall/arm/torso movement → this lowers the probability of classic myocardial ischemia (though it doesn’t fully exclude it).\n\n**Likelihood ratio (LR) for musculoskeletal/chest wall pain vs ischemia:** ~0.6 for ischemia\n\n**Updated posterior:**\n- **Possible NSTEMI / STEMI:** 45%\n- **Unstable angina:** 25%\n- **GERD:** 10%\n- **Pericarditis:** 15%\n- **Pulmonary embolism:** 5%\n\n**Question 3:**  \nDoes the pain get **worse when you take a deep breath** or **when you lie flat**, and does it **improve when you sit up/lean forward**? (Yes/No)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Current posterior (unchanged from last update):**\n- **Possible NSTEMI / STEMI:** 45%\n- **Unstable angina:** 25%\n- **GERD:** 10%\n- **Pericarditis:** 15%\n- **Pulmonary embolism:** 5%\n\n**Question 4:**  \nDo you have **any shortness of breath** right now or during the episodes? (Yes/No)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Current posterior (still):**\n- **Possible NSTEMI / STEMI:** 45%\n- **Unstable angina:** 25%\n- **GERD:** 10%\n- **Pericarditis:** 15%\n- **Pulmonary embolism:** 5%\n\n**Question 5:**  \nHow long does an episode last—**minutes (e.g., <15), 15–30, or >30 minutes**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**[ABSTAIN]** Insufficient discriminating history (key features like associated symptoms, duration, positional/pleuritic triggers, and vitals are unknown), so I can’t confidently rank a top diagnosis.\n\n[POSSIBLE] Possible NSTEMI / STEMI, Unstable angina, Pericarditis, GERD, Pulmonary embolism",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pericarditis",
+      "GERD",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7644,
+      "completion_tokens": 800
+    },
+    "patient": {}
+  }
+}

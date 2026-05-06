@@ -1,0 +1,82 @@
+{
+  "case_idx": 23,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Ewing sarcoma",
+  "patient_actor_hidden": {
+    "Demographics": "13-year-old boy",
+    "History": "The patient has been experiencing left leg pain progressively getting worse over 2 months, now interfering with sleep. Symptoms did not improve with ibuprofen. Noted trauma to the leg with a baseball hit one week before the onset of symptoms, which caused redness and swelling.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive left leg pain",
+      "Secondary_Symptoms": [
+        "Interference with sleep",
+        "History of trauma to the leg",
+        "Redness and swelling following trauma"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. First episode of such symptoms.",
+    "Social_History": "The patient is a middle school student. No relevant social history.",
+    "Review_of_Systems": "Denies fever, weight loss, or any recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive left leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve had progressively worse pain in my left leg for about two months, and it’s now bad enough to keep me from sleeping. It started after I got hit on the leg with a baseball about a week before the pain began, and I had redness and swelling afterward.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **joint pain that worsens with movement and improves with rest** (typical of osteoarthritis)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, it doesn’t really get better with rest—I just feel the pain steadily and it’s been getting worse, even when I’m not moving much. Movement seems to make it hurt more.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Femoropopliteal artery stenosis  , Pneumonia",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Femoropopliteal artery stenosis  ",
+    "predicted_set": [
+      "Femoropopliteal artery stenosis  ",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Femoropopliteal artery stenosis",
+    "predicted_set_remapped": [
+      "Femoropopliteal artery stenosis",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 699,
+      "completion_tokens": 100,
+      "calls": 2
+    }
+  }
+}

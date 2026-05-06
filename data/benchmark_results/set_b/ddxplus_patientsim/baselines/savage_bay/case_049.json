@@ -1,0 +1,102 @@
+{
+  "case_idx": 49,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 62\nSex: Male\nChief Complaint: I have sharp pain, painful mouth ulcers or sores, and chronic fatigue",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve been having sharp pain and painful mouth ulcers or sores. I also feel chronic fatigue, and I’ve noticed red skin lesions with some swelling, plus I get significant shortness of breath. I also came in because I have high blood pressure.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. I’ll ask focused questions one at a time to narrow it down.\n\n**Current posterior (pre-test, rough):**\n- **SLE:** 0.30  \n- **Anemia:** 0.20  \n- **Pneumonia:** 0.15  \n- **Pulmonary embolism:** 0.15  \n- **Myocarditis:** 0.10  \n(Other causes remain possible.)\n\n**Question 1 (most discriminating):**  \nDo you have **fever** (measured temperature) or have you been sick with **cough/sputum** recently?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a fever that I know of, and I haven’t had a cough or been bringing up sputum recently.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. No fever/cough/sputum makes infection less likely.\n\n**Update (likelihood ratios, rough):**\n- SLE (no fever/cough): LR ~1.5 → posterior increases  \n- Anemia (no fever/cough): LR ~1.2 → slight increase  \n- Pneumonia (no fever/cough): LR ~0.3 → decreases  \n- Pulmonary embolism (can be afebrile/no cough): LR ~1.3 → slight increase  \n- Myocarditis (often afebrile): LR ~1.1 → slight increase  \n\n**Current posterior:**\n- **SLE:** 0.38  \n- **Anemia:** 0.22  \n- **Pulmonary embolism:** 0.18  \n- **Myocarditis:** 0.11  \n- **Pneumonia:** 0.06  \n\n**Question 2 (next discriminating):**  \nHave you noticed **painful ulcers in the mouth or nose** that come and go, and do you have **any eye symptoms** (red eyes, pain, light sensitivity, or vision changes)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have painful mouth ulcers or sores. I haven’t noticed any symptoms with my eyes—no red eyes, pain, light sensitivity, or vision changes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That helps.\n\n**Update (likelihood ratios, rough):**\n- **SLE** (oral ulcers present; eye symptoms absent doesn’t rule out): LR ~2.0 → increases\n- **Anemia** (oral ulcers not typical): LR ~0.4 → decreases\n- **Pulmonary embolism** (oral ulcers not typical): LR ~0.2 → decreases\n- **Myocarditis** (oral ulcers not typical): LR ~0.3 → decreases\n- **Pneumonia** (oral ulcers not typical): LR ~0.2 → decreases\n\n**Current posterior:**\n- **SLE:** 0.60  \n- **Anemia:** 0.10  \n- **Pulmonary embolism:** 0.07  \n- **Myocarditis:** 0.10  \n- **Pneumonia:** 0.03  \n\n**Question 3 (high-yield):**  \nDo you have **joint pain or swelling** (especially in the hands/wrists), and/or **a rash that gets worse with sun exposure**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have red skin lesions and some swelling, but I’m not sure about joint pain or swelling in my hands or wrists. I don’t specifically notice it getting worse with sun.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Update (likelihood ratios, rough):**\n- **SLE** (rash + swelling + oral ulcers; sun-worsening not required): LR ~1.6 → increases\n- **Anemia** (rash/ulcers uncommon): LR ~0.3 → decreases\n- **Pulmonary embolism** (rash/ulcers not typical): LR ~0.2 → decreases\n- **Myocarditis** (rash/ulcers not typical): LR ~0.3 → decreases\n- **Pneumonia** (rash/ulcers not typical): LR ~0.2 → decreases\n\n**Current posterior:**\n- **SLE:** 0.78  \n- **Anemia:** 0.06  \n- **Pulmonary embolism:** 0.05  \n- **Myocarditis:** 0.06  \n- **Pneumonia:** 0.03  \n\n**Question 4 (to connect SOB to SLE vs other emergencies):**  \nWhen you say **significant shortness of breath**, is it **sudden** (minutes–hours) or **gradual** (days–weeks)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It feels more **gradual**, like it’s been building up over days, not suddenly in minutes or hours.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern fits SLE-related lung/heart involvement or anemia more than sudden PE.\n\n**Update (likelihood ratios, rough):**\n- **SLE** (can cause gradual dyspnea via pleuritis/interstitial disease/myocarditis): LR ~1.4 → increases\n- **Pulmonary embolism** (often more sudden, though not always): LR ~0.7 → decreases\n- **Myocarditis** (can be subacute): LR ~1.2 → slight increase\n- **Anemia** (can be gradual): LR ~1.3 → increases\n- **Pneumonia** (often more acute but can be subacute): LR ~0.8 → slight decrease\n\n**Current posterior:**\n- **SLE:** 0.82  \n- **Anemia:** 0.08  \n- **Myocarditis:** 0.06  \n- **Pulmonary embolism:** 0.03  \n- **Pneumonia:** 0.01  \n\n**Question 5 (key discriminator for SLE):**  \nHave you had **kidney-related symptoms**—foamy urine, swelling of legs/around eyes, or decreased urination?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed foamy urine, and I don’t think I’ve had swelling around my eyes or my legs. I’m not sure about changes in urination, but I don’t think my urination has decreased.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—no clear kidney involvement makes severe lupus nephritis less likely, but SLE still remains the best fit given the triad of **oral ulcers + rash/swelling + fatigue + dyspnea**.\n\nAt this point, I’m confident enough to give a focused differential.\n\n[DDX] SLE, Anemia, Myocarditis, Pulmonary embolism, Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "SLE",
+    "predicted_set": [
+      "SLE",
+      "Anemia",
+      "Myocarditis",
+      "Pulmonary embolism",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8497,
+      "completion_tokens": 1166
+    },
+    "patient": {
+      "prompt_tokens": 7156,
+      "completion_tokens": 237
+    }
+  }
+}

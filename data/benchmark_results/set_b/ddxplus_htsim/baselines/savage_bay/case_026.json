@@ -1,0 +1,179 @@
+{
+  "case_idx": 26,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 51\nSex: F\nChief Complaint: stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Stridor—when I breathe in, I’ve noticed a high-pitched sound.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior (pre-test priors, since stridor suggests upper-airway obstruction):  \n- Epiglottitis: 0.20  \n- Croup: 0.20  \n- Acute laryngitis: 0.15  \n- Acute dystonic reactions: 0.10  \n- Anaphylaxis: 0.10  \n(others combined: 0.25)\n\nTo update this, I need the most discriminating feature:\n\n**Question 1 (one at a time):**  \nHow old is the patient?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 51 years old.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (age 51 shifts away from typical pediatric croup/epiglottitis; increases adult causes like laryngitis, dystonic reaction, anaphylaxis):  \n- Epiglottitis: 0.05  \n- Croup: 0.02  \n- Acute laryngitis: 0.25  \n- Acute dystonic reactions: 0.15  \n- Anaphylaxis: 0.10  \n- Others (e.g., laryngeal edema/GERD-related irritation, bronchospasm misperceived as stridor): 0.43\n\n**Question 2:**  \nDid the stridor start suddenly (minutes to hours) or gradually (over days)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have a high-pitched sound when breathing in. I’m also exposed to secondhand cigarette smoke on a daily basis.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update: secondhand smoke increases risk of lower-airway irritation/inflammation (bronchitis/COPD/asthma) but stridor specifically suggests upper-airway; still, it can be misperceived.  \n- Epiglottitis: 0.04  \n- Croup: 0.01  \n- Acute laryngitis: 0.22  \n- Acute dystonic reactions: 0.12  \n- Anaphylaxis: 0.08  \n- Others: 0.53\n\nLikelihood ratio for “daily secondhand smoke” favoring “others” (lower airway/irritation) vs classic upper-airway obstruction: ~1.3.\n\n**Question 3:**  \nDo you have any trouble swallowing, drooling, or a “hot potato” muffled voice?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no supportive symptoms provided for epiglottitis/dysphagia/drooling):  \n- Epiglottitis: 0.03  \n- Croup: 0.01  \n- Acute laryngitis: 0.24  \n- Acute dystonic reactions: 0.13  \n- Anaphylaxis: 0.07  \n- Others: 0.52\n\n**Question 4:**  \nAny fever or feeling very ill?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have been diagnosed with gastroesophageal reflux.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update: known GERD increases likelihood of laryngeal irritation/laryngitis-like symptoms and possibly laryngospasm/upper-airway noise.  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.30  \n- Acute dystonic reactions: 0.10  \n- Anaphylaxis: 0.06  \n- Others (GERD-related laryngeal irritation/GERD): 0.51\n\nLikelihood ratio for GERD history supporting “acute laryngitis/GERD-related laryngeal irritation” vs anaphylaxis/epiglottitis: ~1.5.\n\n**Question 5:**  \nDo you have a hoarse voice or sore throat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (still limited data):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.28  \n- Acute dystonic reactions: 0.10  \n- Anaphylaxis: 0.06  \n- Others (GERD/laryngeal irritation, possibly laryngeal spasm): 0.53\n\n**Question 6 (high-yield):**  \nAny rash, itching, lip/tongue swelling, or wheezing along with the breathing sound?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have asthma or have used a bronchodilator in the past, but you asked specifically about rash/itching/lip or tongue swelling or wheezing—I’m not sure. I also have gastroesophageal reflux and I’m exposed to secondhand cigarette smoke on a daily basis.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (asthma history raises possibility of bronchospasm/acute asthma exacerbation, but we still lack wheeze/atopy/anaphylaxis features; stridor remains key):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.25  \n- Acute dystonic reactions: 0.08  \n- Anaphylaxis: 0.05  \n- Others (GERD-related laryngeal irritation/laryngospasm; bronchospasm misperceived as stridor): 0.59\n\nLikelihood ratio for “asthma/bronchodilator history” supporting lower-airway bronchospasm vs pure upper-airway obstruction: ~1.6, but not decisive without wheeze/trigger pattern.\n\n**Question 7:**  \nWhen you breathe in, does it feel like air is getting stuck in the throat (upper airway), or more like tightness in the chest (lower airway)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (still insufficient discriminating features):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.25  \n- Acute dystonic reactions: 0.08  \n- Anaphylaxis: 0.05  \n- Others (GERD-related laryngeal irritation/laryngospasm; possible bronchospasm): 0.59\n\n**Question 8 (safety/triage):**  \nAre you having any difficulty speaking full sentences, drooling, or are you struggling to breathe right now?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have a high-pitched sound when breathing in.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no new discriminating data; still stridor pattern):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.25  \n- Acute dystonic reactions: 0.08  \n- Anaphylaxis: 0.05  \n- Others (GERD-related laryngeal irritation/laryngospasm; possible bronchospasm): 0.59\n\nAt this point, evidence is too incomplete to confidently rank a top diagnosis.\n\n**Question 9:**  \nHave you started any new medications recently (especially antipsychotics like metoclopramide/haloperidol, or anti-nausea meds), or had any recent vomiting?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (still no medication/vomiting info):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.25  \n- Acute dystonic reactions: 0.08  \n- Anaphylaxis: 0.05  \n- Others (GERD-related irritation/laryngospasm; possible bronchospasm): 0.59\n\n**Question 10:**  \nDo you have any known history of vocal cord problems (e.g., vocal cord dysfunction/“paradoxical vocal fold motion”) or recent upper respiratory infection symptoms?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have asthma or have used a bronchodilator in the past, and I’ve been diagnosed with gastroesophageal reflux. I’m also exposed to secondhand cigarette smoke on a daily basis.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (repeated asthma/GERD/secondhand smoke still points to irritation/airway reactivity; no direct evidence for epiglottitis/croup/anaphylaxis):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.22  \n- Acute dystonic reactions: 0.06  \n- Anaphylaxis: 0.04  \n- Others (GERD-related laryngeal irritation/laryngospasm; bronchospasm/acute COPD exacerbation/infection misperceived): 0.65\n\n**Question 11 (most discriminating for upper-airway stridor):**  \nIs the sound worse when you’re lying flat, after meals, or at night (reflux pattern)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have been diagnosed with gastroesophageal reflux, though.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (GERD already known; no new discriminating timing):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.20  \n- Acute dystonic reactions: 0.06  \n- Anaphylaxis: 0.04  \n- Others (GERD-related laryngeal irritation/laryngospasm; possible bronchospasm/airway reactivity): 0.67\n\n**Question 12 (key safety/etiology):**  \nHave you had any choking episode, inhaled something, or any foreign body exposure recently?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (still insufficient):  \n- Epiglottitis: 0.02  \n- Croup: 0.01  \n- Acute laryngitis: 0.20  \n- Acute dystonic reactions: 0.06  \n- Anaphylaxis: 0.04  \n- Others (GERD-related laryngeal irritation/laryngospasm; possible bronchospasm/airway reactivity; possible aspiration/foreign body): 0.67\n\n**Question 13:**  \nDo you have any cough, and if so is it dry or productive (phlegm)?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is insufficient to confidently narrow the cause of inspiratory stridor in this 51-year-old (patient can’t provide key discriminating features like fever/ill appearance, drooling/dysphagia, rash/itching/swelling, timing with meals/lying flat, wheeze vs true upper-airway obstruction, or cough/URI symptoms).  \n[POSSIBLE] Acute laryngitis, GERD, Bronchospasm / acute asthma exacerbation, Acute dystonic reactions, Anaphylaxis",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute laryngitis",
+      "GERD",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute dystonic reactions",
+      "Anaphylaxis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 26168,
+      "completion_tokens": 1961
+    },
+    "patient": {}
+  }
+}

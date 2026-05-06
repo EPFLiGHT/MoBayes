@@ -1,0 +1,99 @@
+{
+  "case_idx": 8,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 83\nSex: F\nChief Complaint: fatigue",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m very tired and I can’t do my usual activities—I’m stuck in my bed all day. I also feel lightheaded and dizzy, like I’m about to faint.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: profound fatigue with inability to do usual activities; lightheadedness/dizziness with near-syncope. No other symptoms provided yet (no chest pain, dyspnea, fever, cough, GI symptoms, neuro deficits, or bleeding history).\nTop candidates (need more data):\n1) Anemia — fatigue + lightheaded/near-syncope can be from low hemoglobin.\n2) Possible NSTEMI / STEMI or Unstable angina — near-syncope can occur with cardiac ischemia, especially if exertional or with chest discomfort.\n3) Atrial fibrillation — can cause dizziness/near-syncope; may be associated with palpitations.\n4) Pulmonary embolism — can cause presyncope, especially with shortness of breath/pleuritic pain/tachycardia.\n5) Panic attack — can cause dizziness/lightheadedness, but usually with anxiety symptoms and often younger/triggered; still a diagnosis of exclusion.\nMost informative next question: determine whether there are cardiopulmonary red flags (dyspnea, chest pain, palpitations) that would steer toward cardiac/PE causes versus anemia/infection.\n[/REASONING]\nOne question: Do you have any chest pain, shortness of breath, or palpitations (feeling your heart racing or irregular)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: severe fatigue, bedbound, lightheaded/near-faint. Patient can’t clarify chest pain/shortness of breath/palpitations yet.\nNeed a more concrete, yes/no discriminating question that doesn’t require medical interpretation.\nMost informative next action: ask about actual fainting/near-faint triggers and whether symptoms worsen with standing (orthostatic) vs occur at rest (cardiac/PE).\nTop candidates remain: anemia, cardiac ischemia/arrhythmia, pulmonary embolism, dehydration/orthostasis (not in list but relevant), panic attack.\n[/REASONING]\nWhen you stand up from lying or sitting, does the dizziness get much worse or do you feel like you might pass out?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill limited history: profound fatigue + near-syncope; no ability to specify chest/respiratory symptoms or orthostatic pattern.\nNext most discriminating question: look for bleeding or heavy menses (anemia), infection/fever (infection), or neurologic deficits (less likely). A single yes/no about bleeding is high-yield for anemia.\nTop candidates: anemia (fatigue + presyncope), possible cardiac ischemia/arrhythmia, pulmonary embolism, infection (influenza/pneumonia), panic attack.\nMost informative next action: ask about any signs of bleeding or black/tarry stools.\n[/REASONING]\nHave you noticed any unusual bleeding—such as black/tarry stools, vomiting blood, blood in urine, or very heavy menstrual bleeding?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I recently had stools that were black (like coal).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: profound fatigue/bedbound + lightheaded/near-syncope + black “coal-like” stools → strongly suggests melena from upper GI bleeding, causing anemia and possible hypovolemia. This is a serious, time-sensitive cause of presyncope.\nTop candidates:\n1) Anemia — supported by melena + presyncope + severe fatigue.\n2) Circulatory Diseases / shock from GI bleed — melena can lead to hypoperfusion; however “circulatory diseases” is broad.\n3) Possible NSTEMI / STEMI — less likely; no chest symptoms provided, and melena is a strong alternative explanation.\n4) Pulmonary embolism — less likely without respiratory symptoms.\n5) Panic attack — less likely given objective bleeding history.\nMost informative next action: ask about current vital/bleeding severity proxies (vomiting blood, ongoing black stools, how long, and whether on blood thinners). But we must choose one question: ask if they are currently having black stools or vomiting blood.\n[/REASONING]\nAre you still having black/tarry stools right now, or have you vomited blood or “coffee-ground” material?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have strong evidence of upper GI bleeding (melena) but uncertainty about ongoing bleeding. Next discriminating question should assess anticoagulant/antiplatelet use and NSAIDs, which would both explain bleeding risk and change urgency/etiology.\nTop candidates (with current evidence):\n1) Anemia — from GI blood loss (melena + presyncope).\n2) Circulatory Diseases — hypovolemia/hemorrhagic shock physiology secondary to GI bleed (melena).\n3) Possible NSTEMI / STEMI — still on differential for presyncope, but melena is a better unifying cause.\n4) Anaphylaxis — unlikely (no allergic trigger).\n5) Panic attack — unlikely with melena.\nMost informative next action: ask about blood thinners/anticoagulants or antiplatelet meds.\n[/REASONING]\nAre you taking any blood thinners or “heart” blood medicines—such as warfarin, apixaban/rivaroxaban, dabigatran, heparin, or daily aspirin/clopidogrel?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I am taking any new oral anticoagulants (NOACs).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: melena (“coal-like” stools) + presyncope + confirmed NOAC use → very likely clinically significant upper GI bleeding causing acute blood loss anemia and/or hypovolemia.\nTop candidates:\n1) Anemia — most direct diagnosis explaining fatigue + near-syncope in context of GI bleed.\n2) Circulatory Diseases — hemorrhagic/hypovolemic state from GI bleeding leading to presyncope.\n3) Possible NSTEMI / STEMI — still possible cause of presyncope, but melena + NOAC is a stronger unifying explanation.\n4) GERD — can cause upper GI symptoms but does not typically cause melena with presyncope; still possible if misattributed.\n5) Digestive Diseases — broad category for upper GI bleeding sources (ulcer/gastritis/malignancy) not specified in the list.\nMost informative next action would be to ask about duration/amount of bleeding and associated symptoms (vomiting blood, abdominal pain), but we’re already confident enough to provide a focused top-5.\n[/REASONING]\n[DDX]Anemia, Circulatory Diseases, Possible NSTEMI / STEMI, Digestive Diseases, GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [
+      "Anemia",
+      "Circulatory Diseases",
+      "Possible NSTEMI / STEMI",
+      "Digestive Diseases",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8105,
+      "completion_tokens": 1340
+    },
+    "patient": {}
+  }
+}

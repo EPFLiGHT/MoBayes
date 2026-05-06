@@ -1,0 +1,104 @@
+{
+  "case_idx": 15,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Chronic rhinosinusitis",
+  "objective_for_doctor": "A 55-year-old Female patient presents to the clinic. Chief complaint: I have a cough, burning pain, and forehead pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough plus burning pain with pain in my forehead that also goes to my right cheek, right temple, and even into my nose. I also lost my sense of smell and I’ve had greenish/yellow nasal discharge after a cold about the last two weeks. The pain is around 6 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thanks; I want to understand this better: do you have fever, facial swelling, or worsening pain when you bend forward?  \nDoctor: Also, is the burning/forehead pain on one side only, and have you noticed any sores/blisters or new rash around your nose/forehead/eye?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have fever or facial swelling. I haven’t noticed worsening pain when I bend forward.  \nThe pain is on one side only—right side. I haven’t seen any sores or blisters or a new rash around my nose/forehead/eye.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—so it’s right-sided facial/forehead pain radiating to the cheek/temple/nose with loss of smell and green/yellow discharge for ~2 weeks. Do you have any bad tooth pain (upper right) or gum pain, and are you having nasal blockage mostly on the right?  \nDoctor: Also, is the right facial pain associated with tingling or a painful skin sensitivity (even to light touch) or any vision changes/eye redness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I do have right-sided facial pain, but I don’t have bad tooth pain or gum pain. My nose is more blocked on the right.  \nI don’t have tingling or painful skin sensitivity, and I haven’t noticed any vision changes or eye redness.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given right-sided sinus/nasal blockage with green/yellow discharge and loss of smell, I’m concerned about acute bacterial rhinosinusitis, but we also need to rule out orbital/intracranial complications; do you have severe headache, eye pain with movement, double vision, or trouble swallowing/confusion?  \nDoctor: Also, have you had symptoms persist >10 days like this (no improvement), or did they initially improve then worsen again?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have trouble swallowing or confusion. I also don’t have double vision, and no eye pain with movement that I’ve noticed.  \nThis has been going on about two weeks—so yes, it’s more than 10 days, and it hasn’t really improved much.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given it’s >10 days without improvement and you have right-sided nasal blockage with green/yellow discharge and loss of smell, this most strongly fits **acute bacterial rhinosinusitis** rather than a viral cold—I'll confirm with an exam of your nasal passages/sinuses; any tenderness over the right cheek/forehead when I press? Also, do you smoke or have diabetes/immunosuppression?  \nDoctor: REQUEST TEST: Nasal exam (anterior rhinoscopy) and vitals; consider CBC if severe/prolonged.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when you press, the right cheek/forehead area feels tender.  \nI do smoke cigarettes, and I don’t have diabetes or any immune problems that I know of.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—tender right cheek/forehead plus >10 days of unilateral congestion and green/yellow discharge with loss of smell strongly supports **acute bacterial rhinosinusitis**. To be safe, do you have any eye redness/swelling, reduced vision, or severe worsening headache?  \nDoctor: If none, I’ll treat as bacterial sinusitis; do you have any medication allergies and are you currently on any antibiotics or steroids?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have eye redness or swelling, and I haven’t noticed reduced vision. My headache isn’t severely worsening.  \nI don’t know of any medication allergies, and I’m not currently on antibiotics or steroids.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given 2 weeks of unilateral right-sided facial/forehead pain with cheek tenderness, right nasal blockage, green/yellow discharge, loss of smell, and no red-flag orbital symptoms, I’m leaning strongly to acute bacterial rhinosinusitis—will you rate your nasal symptoms overall and do you have significant facial pressure when standing or during the day?  \nDoctor: Also, any history of recurrent sinus infections, recent dental work, or recent antibiotic use in the past 3 months?  \nDoctor: If those are negative/unknown, I’ll proceed with treatment for acute bacterial rhinosinusitis.  \n\nDIAGNOSIS READY: Acute bacterial rhinosinusitis (right-sided), likely maxillary/ethmoid involvement.\n\n[ABSTAIN] free-text diagnosis 'Acute bacterial rhinosinusitis (right-sided), likely maxillary/ethmoid involvement.' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3812,
+      "completion_tokens": 631,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6304,
+      "completion_tokens": 333
+    }
+  }
+}

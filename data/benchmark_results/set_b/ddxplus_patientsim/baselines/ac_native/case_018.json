@@ -1,0 +1,95 @@
+{
+  "case_idx": 18,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Epiglottitis",
+  "objective_for_doctor": "A 33-year-old Male patient presents to the clinic. Chief complaint: I have a fever, a knife stroke pain, and sharp pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi—I've had a high fever and really severe throat pain. It feels like a knife-stroke, sharp pain on the left side, and it hurts in my pharynx too. I’m also having trouble swallowing and I feel very short of breath, with hoarseness, stridor, and I’m making more saliva than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before we decide, I need to ask a few quick questions: when did these symptoms start, do you have any rash or neck swelling, and can you estimate how high the fever is (e.g., >39°C/102.2°F)?  \nDoctor: Also, are you able to swallow liquids at all, and do you hear any muffled “hot potato” voice or feel like your breathing is worsening?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They started pretty fast—about 3 out of 10 for how quickly it came on, and the pain is really intense, like 10 out of 10. I have fever for sure, but I can’t give an exact number; it feels high, maybe over 39°C. I don’t know about a rash or neck swelling—I haven’t noticed that.  \n\nI can’t really swallow liquids well because it hurts and I feel like I’m choking a bit. My voice is hoarse, and my breathing feels like it’s getting worse. I don’t know about the “hot potato” sound, but my throat feels tight and noisy when I breathe.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With hoarseness, stridor, drooling/saliva increase, severe unilateral throat pain, and inability to swallow liquids, I’m concerned about a deep neck infection like **peritonsillar/retropharyngeal abscess** or **epiglottitis**—both can obstruct the airway.  \nDoctor: To decide and treat safely, I need 3 fast answers: (1) Have you got any immunosuppression or recent dental/ear/throat infection? (2) Any neck stiffness or you’re sitting upright and leaning forward to breathe better? (3) Is this worsening over hours, and are you able to speak full sentences?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’m immunosuppressed, but I have diabetes and high blood pressure. I haven’t had any recent dental or ear problems that I know of.\n\nI don’t have neck stiffness, and I don’t know about leaning forward—I’ve just been struggling to breathe. Yes, it feels like it’s getting worse over hours, and I can talk, but only with difficulty—I can’t really speak full sentences comfortably.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on rapid worsening over hours, fever >39°C, severe unilateral “knife-like” throat pain, drooling/poor swallowing, hoarseness, and stridor/respiratory distress, I’m most worried about **deep neck space infection with impending airway obstruction (e.g., peritonsillar/retropharyngeal abscess or epiglottitis)**—we need urgent evaluation and airway planning; can you tell me if you’re currently sitting upright and have you had any vomiting, “spit-balling”/unable to manage secretions, or do you feel faint?  \nDoctor: REQUEST TEST: CBC_with_diff  \nDoctor: REQUEST TEST: CT_Neck_with_Contrast_or_Lateral_Neck_Xray (whichever is fastest)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m not really sitting upright on purpose, but I do feel like I can’t lie back—I’m kind of holding myself up because breathing is harder when I’m flat.  \n\nI haven’t vomited. My saliva is definitely hard to manage because I keep producing more than usual, and I feel like I’m struggling with my secretions. I don’t feel faint right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This is an emergency—your inability to swallow/manage secretions with stridor and rapid worsening suggests an upper-airway process (most concerning for **epiglottitis or a deep neck abscess**) that can obstruct suddenly; I’m going to treat you as if your airway is at risk.  \nDoctor: REQUEST TEST: ENT_Airway_Evaluation_at_Bedside (flexible_laryngoscopy if stable)  \nDoctor: REQUEST TEST: CT_Neck_with_Contrast (immediate; if not possible, lateral neck X-ray)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Okay. I understand this is serious. Please do the airway evaluation and the CT or the neck X-ray as fast as you can—I’m struggling to swallow and my breathing feels worse.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your rapid worsening, high fever, drooling/poor secretion control, inability to swallow, hoarseness, and stridor, I’m treating this as **impending upper-airway obstruction** and will proceed with urgent airway and imaging as you requested; please stay upright and don’t lie flat.  \nDoctor: I need 2 final quick checks—do you have a cough or green/black sputum (or can you not clear secretions), and have you had a sore throat/viral URI for several days before this sudden severe throat pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have a cough, and I can’t clear my secretions well. I’m mostly just drooling/saliva buildup because I can’t swallow it down.\n\nI hadn’t really had a sore throat or viral cold symptoms for several days before this—it felt like it became severe pretty suddenly.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With sudden severe throat pain plus high fever, drooling/secretions you can’t handle, hoarseness/stridor, and inability to swallow, the most dangerous likely cause is **acute epiglottitis or a deep neck space abscess causing impending airway obstruction**—either way this needs immediate airway-secured ER-level management now (do not lie flat).  \nDoctor: I’m going to finalize with: **DIAGNOSIS READY: Acute epiglottitis (impending upper-airway obstruction) vs deep neck space abscess—treat as epiglottitis emergency until proven otherwise**\n\n[DDX]\n1. Epiglottitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4928,
+      "completion_tokens": 763,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 7015,
+      "completion_tokens": 486
+    }
+  }
+}

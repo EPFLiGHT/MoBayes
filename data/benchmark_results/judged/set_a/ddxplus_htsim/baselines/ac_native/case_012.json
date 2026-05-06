@@ -1,0 +1,159 @@
+{
+  "case_idx": 12,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Bronchiolitis",
+  "patient_actor_hidden": {
+    "AGE": 0,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "sleep apnea",
+    "EVIDENCES_ENG": "['sleep apnea', 'decreased appetite', 'living with 4 or more people', 'shortness of breath', 'fever', 'nasal congestion', 'vaccination status', 'expiratory wheezing']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 0\n- I temporarily stop breathing while I’m asleep.\n- I have a decrease in appetite.\n- I live with 4 or more people.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have a fever (either felt or measured with a thermometer).\n- I have nasal congestion or a clear runny nose.\n- My vaccinations are up to date.\n- I have noticed a wheezing sound when I exhale.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchiolitis', 0.15818501947280614], ['Acute otitis media', 0.1125618676716747], ['Croup', 0.1125618676716747], ['HIV (initial infection)', 0.10428160669832802], ['Atrial fibrillation', 0.08405584374451062], ['Guillain-Barré syndrome', 0.061970462243807735], ['Acute dystonic reactions', 0.061970462243807735], ['Myocarditis', 0.061970462243807735], ['Myasthenia gravis', 0.061970462243807735], ['Scombroid food poisoning', 0.0572554465028588], ['Chagas', 0.046764896632100435], ['URTI', 0.04258302764121263], ['Pneumonia', 0.03386857498960306]]",
+    "PATHOLOGY": "Bronchiolitis",
+    "INITIAL_EVIDENCE": "apnee",
+    "EVIDENCES": "['apnee', 'boire_ped', 'crowd', 'dyspn', 'fievre', 'rhino_clair', 'trav1_@_N', 'vaccination', 'wheez']",
+    "patient_id": "htsim_0432",
+    "_test_index": 432,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 0-year-old M patient presents to the clinic. Chief complaint: sleep apnea.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I temporarily stop breathing while I’m asleep. I also have shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did this start, and how old were you at the first episodes?  \nDoctor: Do you snore loudly or choke/gasp during sleep, and have you noticed poor weight gain or daytime sleepiness?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—does the wheezing happen more at night or with colds/exercise, and is there any history of eczema/allergies or recurrent chest infections?  \nDoctor: Also, are the episodes of stopping breathing associated with choking/gasping, and have you noticed your mouth staying open or noisy breathing when you sleep?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have a decrease in appetite, a fever, nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale. I live with 4 or more people.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a focused set of questions—are you currently sick with fever and runny nose at night, and do the choking/gasping pauses happen mainly when you have a cold?  \nDoctor: Does anyone in the home smoke or have asthma, and have you had any trouble feeding, bluish lips, or fast/labored breathing when the wheezing occurs?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t confirm the cause from “I don’t know”—let’s clarify: are you currently having a cold/fever and do the breathing pauses happen every night or only during sickness?  \nDoctor: Also, during an episode, do you see pulling-in of the chest/neck (retractions) or fast breathing, and does the wheeze improve after using steam or a prescribed inhaler?  \nDoctor: REQUEST TEST: Pulse_Oximetry_during_sleep or overnight oxygen saturation study.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m having a fever and nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale. I temporarily stop breathing while I’m asleep.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since this 0-year-old has fever/runny nose with wheeze and choking pauses in sleep, I’m concerned about an acute viral lower-airway illness (e.g., bronchiolitis) plus possible sleep-disordered breathing; can you tell me if the breathing pauses are happening *every* night or only while sick right now?  \nDoctor: Also, does he ever turn bluish around the lips, have retractions (chest/neck pulling in), or need to sit up to breathe?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check for immediate danger first—right now, does he have any bluish lips, marked chest/neck retractions, grunting, or is he breathing very fast compared with normal?  \nDoctor: If yes, we need urgent evaluation; if no, can you confirm whether the breathing pauses happen only during this current cold/fever or have been occurring even when he’s well?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m having a fever and nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale. I temporarily stop breathing while I’m asleep.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t assess severity because you’re unsure—right now, is he breathing comfortably at rest, or do you see chest/neck retractions, grunting, or any bluish lips/tongue?  \nDoctor: Given the wheeze with fever/runny nose plus reported sleep apnea–like pauses, I’m ordering urgent evaluation: REQUEST TEST: Overnight_Pulse_Oximetry; if he’s struggling to breathe now, go to the ER immediately for a chest exam and possible bronchiolitis workup.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m having a fever and nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale. I temporarily stop breathing while I’m asleep.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since he’s a 0-year-old with fever/runny nose, wheeze, and possible apnea, I need one safety check—right now, is he breathing comfortably (no grunting/retractions) and are lips/tongue pink? If not, go to the ER now.  \nDoctor: I’m also ordering to clarify severity and duration—REQUEST TEST: Overnight_Pulse_Oximetry_(including_apnea_events) plus consider REQUEST TEST: Respiratory_panel_or_RSV_flu if available.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m having a fever and nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale. I temporarily stop breathing while I’m asleep.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you’re unsure and this is a 0-year-old with fever/runny nose, wheeze, and possible breathing pauses, I need to decide on safety: if he has any grunting, chest/neck retractions, bluish lips, pauses with color change, or is working hard to breathe right now, go to the ER immediately.  \nDoctor: If he’s currently breathing comfortably, please answer only these: are the pauses happening only during this illness or also when well, and is the wheeze improving with breathing treatments/steam?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m having a fever and nasal congestion or a clear runny nose, and I’ve noticed a wheezing sound when I exhale. I temporarily stop breathing while I’m asleep.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because this is a 0-year-old with fever/runny nose and wheeze plus reported breathing pauses and you can’t confirm safety signs, I can’t risk waiting.  \nDoctor: Go to the ER now for an immediate exam and oxygen monitoring; request they perform “overnight/continuous pulse oximetry” and evaluate for viral bronchiolitis with possible apnea.\n\nDIAGNOSIS READY: Viral bronchiolitis with suspected sleep-disordered breathing/possible obstructive apnea (needs urgent ER evaluation due to age and uncertainty of severity)\n\n[DDX]\n1. Bronchiolitis",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Bronchiolitis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10,
+    "predicted_remapped": "Bronchiolitis",
+    "predicted_set_remapped": [
+      "Bronchiolitis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7324,
+      "completion_tokens": 969,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 11401,
+      "completion_tokens": 351,
+      "calls": 10
+    }
+  }
+}

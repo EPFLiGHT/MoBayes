@@ -1,0 +1,172 @@
+{
+  "case_idx": 36,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 66\nSex: Female\nChief Complaint: I have a cough, significant dyspnea, and unintentional weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough, but the bigger problem is significant trouble breathing. I’ve also lost weight without trying.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: significant dyspnea, cough, and unintentional weight loss. This raises concern for serious pulmonary/cardiac causes (infection like pneumonia/TB, pulmonary embolism, malignancy) and less commonly inflammatory airway disease.\nTop candidates (tentative):\n1) Pneumonia — cough + dyspnea; weight loss can occur with prolonged infection.\n2) Pulmonary embolism — can cause sudden significant dyspnea; weight loss is less typical but can coexist.\n3) Tuberculosis — chronic cough, dyspnea, and weight loss are classic.\n4) Pulmonary neoplasm — cough + progressive dyspnea + weight loss.\n5) Acute COPD exacerbation / infection — dyspnea with cough, but weight loss suggests something more chronic/malignant.\nMost informative next question: determine the time course and whether onset was sudden vs gradual.\n[/REASONING]\nHow long has this been going on—hours/days (sudden) or weeks/months (gradual)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been building up gradually over weeks, not suddenly. The breathing got worse step by step, and the cough has been there too.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: gradual worsening over weeks + cough + significant dyspnea + unintentional weight loss.\nTop candidates:\n1) Pulmonary neoplasm — gradual progressive dyspnea/cough with weight loss is concerning.\n2) Tuberculosis — subacute/chronic course with weight loss.\n3) Pneumonia — usually more acute, but can be subacute/lingering; weight loss possible.\n4) Pulmonary embolism — typically more sudden; less likely with gradual course.\n5) Acute COPD exacerbation / infection — possible if underlying COPD, but weight loss still raises concern.\nMost informative next question: any fever/night sweats or known exposures (TB contacts) to support TB/infection vs malignancy.\n[/REASONING]\nHave you had fever and/or night sweats?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about fever, but I have had night sweats. I don’t know of any close contact with someone with TB.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: gradual dyspnea/cough over weeks + night sweats + weight loss.\nTop candidates:\n1) Tuberculosis — night sweats + weight loss + subacute course strongly support.\n2) Pulmonary neoplasm — can also cause weight loss and night sweats, though night sweats are less specific.\n3) Pneumonia (including atypical/organizing) — can cause night sweats/weight loss but less classic.\n4) Acute COPD exacerbation / infection — would usually have more acute infectious symptoms; night sweats less typical.\n5) Pulmonary embolism — night sweats/weight loss less typical and course is usually more abrupt.\nMost informative next question: any blood in the sputum (hemoptysis)?\n[/REASONING]\nHave you coughed up any blood or rust-colored sputum?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t coughed up any blood. My sputum is not rust-colored either.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no hemoptysis; still gradual dyspnea/cough over weeks with night sweats and weight loss.\nTop candidates:\n1) Tuberculosis — still high due to night sweats + weight loss + subacute course; hemoptysis not required.\n2) Pulmonary neoplasm — still possible; hemoptysis may be absent early.\n3) Pneumonia/atypical infection — can be subacute; hemoptysis not necessary.\n4) Bronchitis/COPD exacerbation — would not usually explain significant weight loss + night sweats.\n5) Pulmonary embolism — less likely given gradual course and systemic symptoms.\nMost informative next question: do you have chest pain, and if so is it worse when you take a deep breath (pleuritic)?\n[/REASONING]\nDo you have chest pain—especially pain that’s worse when you take a deep breath (pleuritic)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: gradual dyspnea/cough over weeks; night sweats; weight loss; no hemoptysis; no pleuritic chest pain.\nTop candidates:\n1) Tuberculosis — night sweats + weight loss + chronic/subacute cough/dyspnea remain strong.\n2) Pulmonary neoplasm — progressive symptoms with weight loss; pleuritic pain can be absent.\n3) Pneumonia (including atypical/organizing) — can be subacute with systemic symptoms.\n4) Bronchiectasis — chronic cough can occur, but weight loss/night sweats suggest infection/malignancy more.\n5) Acute COPD exacerbation / infection — possible if COPD history, but night sweats/weight loss are less typical.\nMost informative next question: have you had any known risk factors for TB (incarceration, homelessness, living in crowded settings, immunosuppression, HIV), or are you immunocompromised?\n[/REASONING]\nDo you have any TB risk factors or immunosuppression (e.g., HIV, steroids/chemo, transplant, incarceration, homelessness, crowded living)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about HIV. I do take corticosteroids, but I’m not in any crowded shelter situation, and I haven’t been incarcerated.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: subacute progressive dyspnea/cough over weeks; night sweats; significant weight loss; no hemoptysis; no pleuritic pain; on corticosteroids (immunosuppression risk for TB and atypical infections).\nTop candidates:\n1) Tuberculosis — night sweats + weight loss + subacute course; corticosteroids increase risk/reactivation.\n2) Pulmonary neoplasm — still possible with weight loss/night sweats; steroids don’t explain.\n3) Pneumonia (including atypical) — immunosuppression can cause atypical/subacute pneumonia; weight loss possible.\n4) HIV (initial infection) — could predispose to TB/atypical infections; unknown status.\n5) Bronchitis/acute COPD exacerbation — less consistent with weight loss/night sweats.\nMost informative next question: what is your age and smoking history (packs/day and years)? This helps separate malignancy/COPD from TB/infection.\n[/REASONING]\nHow old are you, and do you smoke (or have you smoked)—if yes, how much and for how many years?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m 66. I used to smoke, but I’m not sure exactly how much or for how many years—I can’t remember the numbers.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: age 66; former smoker; subacute progressive dyspnea/cough over weeks; night sweats; significant weight loss; on corticosteroids; no hemoptysis/pleuritic pain.\nTop candidates:\n1) Pulmonary neoplasm — age + former smoking + weight loss + progressive dyspnea/cough.\n2) Tuberculosis — night sweats + weight loss + subacute course; steroids increase risk.\n3) Pneumonia (including atypical/organizing) — immunosuppression + dyspnea/cough; weight loss can occur.\n4) Bronchiectasis — chronic cough possible, but night sweats/weight loss less typical unless chronic infection.\n5) HIV (initial infection) — could predispose to TB/atypical pneumonia; unknown status.\nMost informative next question: have you had any recent travel, sick contacts, or exposure to someone with chronic cough, and do you have any known immunosuppressive diagnosis besides steroids (e.g., cancer, transplant)?\n[/REASONING]\nAny recent travel or known exposure to someone with chronic cough, and besides corticosteroids do you have any other immunosuppressive condition (cancer, transplant, biologics)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No recent travel. I don’t know of any sick contacts with a chronic cough. Besides the corticosteroids, I don’t think I have any other immunosuppressive condition.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 66-year-old former smoker; gradual dyspnea and cough over weeks; night sweats and significant unintentional weight loss; on corticosteroids; no hemoptysis; no pleuritic chest pain; no known TB contacts or travel.\nTop candidates:\n1) Pulmonary neoplasm — strongest due to age, smoking history, progressive symptoms, and weight loss; night sweats can occur.\n2) Tuberculosis — still plausible with night sweats/weight loss and subacute course; lack of known contacts/travel doesn’t rule it out.\n3) Pneumonia (including atypical/organizing) — corticosteroids increase risk; subacute course possible; weight loss can occur.\n4) HIV (initial infection) — less likely without other risk info, but immunosuppression/infection risk depends on status; still possible.\n5) Acute COPD exacerbation / infection — former smoker and cough/dyspnea fit, but night sweats/marked weight loss are less typical.\nMost informative next question: do you have any fever, chills, or measured temperature, and are symptoms worse at night or with exertion?\n[/REASONING]\nDo you have fever/chills (or have you measured a temperature), and is the shortness of breath worse at night or mainly with exertion?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or chills, and I haven’t measured my temperature. The breathing feels worse when I exert myself, but it also feels bad at night—I get night sweats too.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: subacute progressive dyspnea and cough over weeks; worse with exertion and at night; night sweats; significant unintentional weight loss; no hemoptysis/pleuritic pain; age 66 former smoker; on corticosteroids.\nTop candidates:\n1) Pulmonary neoplasm — progressive dyspnea/cough + weight loss + night symptoms; smoking history.\n2) Tuberculosis — night sweats + weight loss + subacute course; steroids increase risk.\n3) Pneumonia — atypical/organizing or chronic infection can cause subacute dyspnea/cough and systemic symptoms; steroids predispose.\n4) Acute pulmonary edema — can cause worse at night/with exertion, but cough/weight loss/night sweats are less typical; would expect cardiac history/orthopnea/leg swelling.\n5) Pulmonary embolism — can cause exertional dyspnea, but night sweats/weight loss and gradual weeks course make it less likely.\nMost informative next question: do you have orthopnea (need to prop up with pillows) or leg swelling, and any history of heart disease? This helps assess cardiogenic causes vs primary lung/infectious/malignant.\n[/REASONING]\nDo you get short of breath lying flat (orthopnea) or have leg swelling, and do you have any known heart disease?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have leg swelling, and I don’t think I need extra pillows to breathe. I don’t have any known heart disease.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: subacute progressive dyspnea/cough over weeks; worse with exertion and at night; night sweats; significant unintentional weight loss; former smoker; on corticosteroids; no orthopnea/leg swelling; no chest pain/hemoptysis.\nTop candidates:\n1) Pulmonary neoplasm — age + smoking + progressive dyspnea/cough + weight loss; night sweats can occur.\n2) Tuberculosis — night sweats + weight loss + subacute course; steroids increase risk/reactivation.\n3) Pneumonia (including atypical/organizing) — subacute dyspnea/cough with systemic symptoms; immunosuppression supports.\n4) Bronchiectasis — chronic cough can occur, but night sweats/marked weight loss suggest infection/malignancy more than isolated bronchiectasis.\n5) HIV (initial infection) — less direct, but would predispose to TB/atypical infections; unknown status.\nMost informative next question: have you had any recent unintentional loss of appetite, persistent fatigue, or swollen lymph nodes (neck/armpit), and do you have any hoarseness or trouble swallowing? (These can point toward malignancy or TB.)\n[/REASONING]\nHave you noticed loss of appetite or persistent fatigue, any swollen lymph nodes, or hoarseness/trouble swallowing?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had loss of appetite and persistent fatigue. I haven’t noticed any swollen lymph nodes, and I don’t have hoarseness or trouble swallowing.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: subacute progressive dyspnea/cough over weeks; worse with exertion and at night; night sweats; weight loss; loss of appetite and persistent fatigue; former smoker; on corticosteroids; no orthopnea/leg swelling; no hemoptysis; no hoarseness/lymphadenopathy.\nTop candidates:\n1) Pulmonary neoplasm — “B symptoms” (weight loss, night sweats, fatigue, anorexia) + smoking + progressive respiratory symptoms.\n2) Tuberculosis — also fits B symptoms and subacute course; steroids increase risk.\n3) Pneumonia (including atypical/organizing) — can cause systemic symptoms and subacute dyspnea/cough, especially with steroids.\n4) HIV (initial infection) — could underlie TB/atypical infection; still possible given immunosuppression and unknown status.\n5) Acute COPD exacerbation / infection — former smoker and cough/dyspnea, but B symptoms/marked weight loss are less typical.\nMost informative next question: are you currently producing sputum? If yes, what color/amount (and any foul smell)? This helps distinguish TB vs bacterial pneumonia vs malignancy/bronchitis.\n[/REASONING]\nAre you bringing up sputum when you cough—if so, what color and roughly how much per day? Any foul smell?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I am coughing up some sputum, but it’s not a large amount. It’s mostly clear or slightly yellow, and I haven’t noticed a bad/foul smell.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: subacute progressive dyspnea/cough over weeks; night sweats; weight loss; anorexia/fatigue; former smoker; on corticosteroids; small amount clear/slightly yellow sputum; no hemoptysis; no chest pain; no orthopnea/leg swelling.\nTop candidates:\n1) Pulmonary neoplasm — still highest due to age, smoking, B symptoms, progressive dyspnea/cough, weight loss; sputum can be minimal/clear.\n2) Tuberculosis — night sweats + weight loss + subacute course; sputum may be scant and not foul; steroids increase risk.\n3) Pneumonia (atypical/organizing) — can be subacute with minimal sputum; steroids predispose; less classic for prominent night sweats/marked weight loss but possible.\n4) HIV (initial infection) — could predispose to TB/atypical pneumonia; would be a unifying risk factor though not a primary diagnosis.\n5) Bronchiectasis — chronic cough can be present, but B symptoms/weight loss make it less likely without recurrent purulent sputum.\nMost informative next question: have you had any recent COVID/flu-like illness, and have you had a measured temperature or any chills? (Helps assess viral/atypical infection vs TB/malignancy.)\n[/REASONING]\nHave you had any measured fever, chills, or a recent",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t measured my temperature, and I don’t think I’ve had chills. I can’t say for sure about recent flu/COVID-like illness.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is still insufficient to confidently rank a single diagnosis: the combination of progressive dyspnea/cough over weeks with B symptoms (night sweats, weight loss, anorexia, fatigue) strongly suggests either pulmonary malignancy or tuberculosis, but we lack key discriminators (vital signs/fever, imaging findings, TB testing, and objective exam/oxygenation).  \n[POSSIBLE] Pulmonary neoplasm, Tuberculosis, Pneumonia, HIV (initial infection), Acute COPD exacerbation / infection",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary neoplasm",
+      "Tuberculosis",
+      "Pneumonia",
+      "HIV (initial infection)",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30079,
+      "completion_tokens": 3043
+    },
+    "patient": {
+      "prompt_tokens": 25698,
+      "completion_tokens": 416
+    }
+  }
+}

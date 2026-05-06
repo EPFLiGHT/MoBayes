@@ -1,0 +1,223 @@
+{
+  "case_idx": 30,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Minimal Change Disease",
+  "patient_actor_hidden": {
+    "Demographics": "25-year-old female",
+    "History": "The patient reports developing swelling around her eyes and ankles over several days. She mentions a recent diagnosis of Hodgkin's lymphoma but has not started treatment yet. No history of kidney disease or similar symptoms in the past.",
+    "Symptoms": {
+      "Primary_Symptom": "Edema, particularly around the eyes and ankles",
+      "Secondary_Symptoms": [
+        "Fatigue",
+        "No recent infections",
+        "No changes in urine color or frequency"
+      ]
+    },
+    "Past_Medical_History": "Recently diagnosed with Hodgkin's lymphoma. No other significant medical history.",
+    "Social_History": "Non-smoker, does not consume alcohol. Currently a graduate student.",
+    "Review_of_Systems": "Denies recent respiratory infections, no history of drug use, no significant weight changes."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with recent onset of edema and significant proteinuria.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had swelling around my eyes and my ankles over the past few days, and I’ve also been feeling more fatigued. I was recently diagnosed with Hodgkin’s lymphoma but haven’t started treatment yet.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—I'm going to narrow this down.  \n\n**Current posterior (pre-test, rough):**\n- **Membranous nephropathy:** 0.30  \n- **Minimal Change Disease:** 0.20  \n- **Acute lymphoblastic leukemia:** 0.05  \n- **Acute myelogenous leukemia:** 0.05  \n- **Fulminant hepatic failure:** 0.05  \n(Other causes like cardiac/medication-related edema are possible but not in this list; we’ll see based on your answers.)\n\n**Question 1 (most discriminating):**  \nDo you have **any shortness of breath**, especially when lying flat, or chest pain?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have shortness of breath or chest pain, and I haven’t noticed any trouble breathing when I lie down.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—no dyspnea/chest pain.\n\n**Update:** Lack of cardiopulmonary symptoms makes **Takotsubo/cardiac contusion/hypertrophic cardiomyopathy** less likely (though still possible). It doesn’t strongly distinguish kidney vs blood/other causes.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.33  \n- **Minimal Change Disease:** 0.25  \n- **Acute lymphoblastic leukemia:** 0.06  \n- **Acute myelogenous leukemia:** 0.06  \n- **Fulminant hepatic failure:** 0.03  \n\n**Question 2:**  \nHave you noticed **foamy urine** or **reduced urine output**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed my urine getting foamy, and I don’t think my urine output has decreased.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Update:** No foamy urine and no clear oliguria lowers the likelihood of nephrotic syndromes somewhat, but doesn’t rule them out (especially early disease or if the patient hasn’t paid close attention).\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.28  \n- **Minimal Change Disease:** 0.22  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Acute myelogenous leukemia:** 0.10  \n- **Fulminant hepatic failure:** 0.05  \n\n**Question 3:**  \nHave you had **any new abdominal swelling or pain**, or **yellowing of the skin/eyes (jaundice)**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any new abdominal swelling or pain, or any yellowing of your skin or eyes? Patient: I haven’t noticed any abdominal pain or swelling, and I don’t think I’ve had any yellowing of my skin or eyes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Update:** No abdominal pain/swelling or jaundice makes **fulminant hepatic failure** less likely.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.30  \n- **Minimal Change Disease:** 0.24  \n- **Acute lymphoblastic leukemia:** 0.14  \n- **Acute myelogenous leukemia:** 0.14  \n- **Fulminant hepatic failure:** 0.03  \n\n**Question 4:**  \nDo you have **any fever, night sweats, or new bruising/bleeding** (like nosebleeds, gum bleeding, or petechiae)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any fever, night sweats, or new bruising/bleeding—like nosebleeds, gum bleeding, or small red/purple spots on the skin? Patient: I haven’t had fever or night sweats, and I haven’t noticed any unusual bruising or bleeding.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Update:** No fever/night sweats/bruising/bleeding lowers acute leukemia likelihood (but doesn’t eliminate it—edema can occur from other mechanisms or early marrow involvement).\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.33  \n- **Minimal Change Disease:** 0.27  \n- **Acute lymphoblastic leukemia:** 0.11  \n- **Acute myelogenous leukemia:** 0.11  \n- **Fulminant hepatic failure:** 0.02  \n\n**Question 5:**  \nHave you had **weight gain** or swelling that seems to be **worse in the morning** (especially around the eyes), and is it **pitting** when you press on the ankles?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had weight gain or swelling that seems worse in the morning—especially around your eyes—and does it leave an indentation when I press on your ankles? Patient: Yes, it’s worse in the morning around my eyes, and when you press on my ankles it does leave an indentation.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "That’s helpful.\n\n**Update:** Pitting edema worse in the morning supports fluid retention/renal or systemic causes; this increases likelihood of nephrotic-type syndromes (membranous nephropathy/minimal change) relative to leukemia/other non-renal causes.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.42  \n- **Minimal Change Disease:** 0.35  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Acute myelogenous leukemia:** 0.10  \n- **Fulminant hepatic failure:** 0.03  \n\n**Question 6:**  \nHave you had **recent infections** or **new medications** (especially NSAIDs), or any history of **autoimmune disease**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any recent infections, and I haven’t started any new medications—no NSAIDs either. I don’t have any known autoimmune disease.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Update:** No recent infections/NSAIDs makes secondary causes less likely; still fits primary nephrotic syndromes. Leukemia remains possible but less supported.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.44  \n- **Minimal Change Disease:** 0.36  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Acute myelogenous leukemia:** 0.10  \n- **Fulminant hepatic failure:** 0.00  \n\n**Question 7:**  \nDo you have **high blood pressure** (if you’ve checked) or **headaches**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed high blood pressure when it’s been checked, or any headaches? Patient: I don’t recall being told I have high blood pressure, and I haven’t had headaches.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No known hypertension/headache slightly lowers concern for severe hypertensive emergency causes of edema; still consistent with nephrotic syndromes.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.46  \n- **Minimal Change Disease:** 0.38  \n- **Acute lymphoblastic leukemia:** 0.08  \n- **Acute myelogenous leukemia:** 0.08  \n- **Fulminant hepatic failure:** 0.00  \n\n**Question 8:**  \nHave you noticed **foamy urine** at any point, **or** have you had a **urinalysis** done already (even once) showing **protein** in the urine?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed foamy urine at any point, or have you had a urinalysis done already showing protein in your urine? Patient: I still haven’t noticed foamy urine, and I haven’t had a urinalysis yet.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Not having urinalysis/foamy urine doesn’t rule out nephrotic syndrome; it just means we lack key confirmatory data.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.45  \n- **Minimal Change Disease:** 0.37  \n- **Acute lymphoblastic leukemia:** 0.09  \n- **Acute myelogenous leukemia:** 0.09  \n- **Fulminant hepatic failure:** 0.00  \n\n**Question 9:**  \nAny **itching**, **rash**, or **swollen lymph nodes** that seem to be getting bigger since the Hodgkin’s diagnosis?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Any itching, rash, or swollen lymph nodes that seem to be getting bigger since your Hodgkin’s diagnosis? Patient: I’ve noticed some enlarged lymph nodes in my neck that feel more noticeable recently, but I haven’t had significant itching or a new rash.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Hodgkin’s with progressive lymphadenopathy keeps malignancy-associated causes on the table; nephrotic syndromes can be paraneoplastic. Still, we need renal-specific findings.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.47  \n- **Minimal Change Disease:** 0.35  \n- **Acute lymphoblastic leukemia:** 0.09  \n- **Acute myelogenous leukemia:** 0.09  \n- **Fulminant hepatic failure:** 0.00  \n\n**Question 10:**  \nHave you had **any blood in your urine** (pink/cola-colored) or **painful urination**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any blood in my urine, and I don’t have painful urination.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No hematuria makes glomerulonephritis/vasculitis less likely (though not in our top list), and keeps nephrotic-pattern diagnoses higher.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.48  \n- **Minimal Change Disease:** 0.36  \n- **Acute lymphoblastic leukemia:** 0.08  \n- **Acute myelogenous leukemia:** 0.08  \n- **Fulminant hepatic failure:** 0.00  \n\n**Question 11:**  \nDo you have **leg swelling that’s symmetric** (both ankles similarly) and **any generalized swelling** (hands/face), or is it more one-sided?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "“Yes—my leg swelling is pretty symmetric in both ankles, and I’ve also had generalized swelling with it around my eyes.” “When I press on my ankles it leaves an indentation.”",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Symmetric pitting edema with periorbital swelling strongly supports a nephrotic/systemic fluid-retention pattern, favoring **membranous nephropathy** or **minimal change disease** over leukemia-related edema.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.52  \n- **Minimal Change Disease:** 0.40  \n- **Acute lymphoblastic leukemia:** 0.05  \n- **Acute myelogenous leukemia:** 0.03  \n- **Fulminant hepatic failure:** 0.00  \n\n**Question 12 (key discriminator):**  \nHave you had **any recent lab tests** (even from the Hodgkin’s workup) like **creatinine**, **albumin**, or **total protein**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any recent lab tests—like creatinine, albumin, or total protein—from your Hodgkin’s workup? Patient: I’m not sure if albumin or total protein were checked, but I did have bloodwork done recently and I haven’t been told those specific results.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** We still lack the most discriminating renal labs (albumin/proteinuria/creatinine). With the clinical pattern, nephrotic syndromes remain most likely, but we can’t confirm.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.50  \n- **Minimal Change Disease:** 0.38  \n- **Acute lymphoblastic leukemia:** 0.06  \n- **Acute myelogenous leukemia:** 0.04  \n- **Fulminant hepatic failure:** 0.02  \n\n**Question 13:**  \nDo you have **any shortness of breath with exertion**, **reduced exercise tolerance**, or **new cough** (even without chest pain)?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any shortness of breath with exertion, reduced exercise tolerance, or a new cough, even without chest pain? Patient: I haven’t had any new cough, but I do feel more tired than usual when I’m active. Doctor: Any trouble breathing specifically with walking or going up stairs?",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Fatigue with exertion without cough/dyspnea doesn’t strongly point to heart failure; it can occur with anemia or systemic illness, including malignancy or early renal disease.\n\n**Current posterior:**\n- **Membranous nephropathy:** 0.48  \n- **Minimal Change Disease:** 0.38  \n- **Acute lymphoblastic leukemia:** 0.07  \n- **Acute myelogenous leukemia:** 0.05  \n- **Fulminant hepatic failure:** 0.02  \n\n**Question 14:**  \nHave you had **unintentional weight loss**, **night sweats**, or **persistent fevers** since the Hodgkin’s diagnosis?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had unintentional weight loss, night sweats, or persistent fevers since your Hodgkin’s diagnosis? Patient: No, I haven’t had unintentional weight loss, night sweats, or persistent fevers. Doctor: Okay—any change in your urine amount or color since the swelling started?",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Membranous nephropathy, Minimal Change Disease, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Fulminant hepatic failure",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Membranous nephropathy",
+    "predicted_set": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure"
+    ],
+    "predicted_raw": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Fulminant hepatic failure"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Membranous nephropathy",
+    "predicted_set_remapped": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 33767,
+      "completion_tokens": 2123
+    },
+    "patient": {
+      "prompt_tokens": 24583,
+      "completion_tokens": 767,
+      "calls": 15
+    }
+  }
+}

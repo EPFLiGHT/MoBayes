@@ -1,0 +1,402 @@
+{
+  "case_idx": 27,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Femoropopliteal artery stenosis",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient has been experiencing tingling pain in the sole of his right foot for the last 6 weeks, which occurs when he raises his foot above chest level during exercises. He started exercising regularly 2 months ago and notices his right calf cramps when using the incline feature on his treadmill, requiring him to stop frequently. The pain subsides after a few minutes of rest. He has been managing type 2 diabetes mellitus for 8 years. He is a smoker with a 34-year history of smoking two packs per day.",
+    "Symptoms": {
+      "Primary_Symptom": "Tingling pain in the sole of the right foot during exercise",
+      "Secondary_Symptoms": [
+        "Right calf cramps with incline exercise",
+        "Pain resolution upon rest"
+      ]
+    },
+    "Past_Medical_History": "Type 2 diabetes mellitus, managed with metformin for the past 8 years.",
+    "Social_History": "Smoking history of two packs per day for 34 years.",
+    "Review_of_Systems": "No other systemic symptoms reported."
+  },
+  "objective_for_doctor": "Evaluate a 55-year-old man presenting with foot pain and cramping during exercise, and diagnose the underlying condition.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doc, for the last six weeks I’ve had tingling pain in the sole of my right foot when I raise my foot above chest level during exercises. I also get cramps in my right calf when I use the incline on my treadmill, and I have to stop and rest; the pain improves after a few minutes.”",
+      "extracted_features": {
+        "f_tingling_foot_pain_6b9e013e": "yes",
+        "f_calf_pain_with_walking_relieved_by_rest_511c6259": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.24303471924560646
+        ],
+        [
+          "Syringomyelia",
+          0.04843549078439778
+        ],
+        [
+          "Vitiligo",
+          0.0244320617231033
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.0244320617231033
+        ],
+        [
+          "Actinic Keratosis",
+          0.0244320617231033
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“Doc, no— I haven’t noticed any changes in my vision like blurriness, blind spots, or any loss of sight.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.24956318772924305
+        ],
+        [
+          "Syringomyelia",
+          0.04973657885961988
+        ],
+        [
+          "Vitiligo",
+          0.025088362787595863
+        ]
+      ],
+      "entropy": 4.449178508088146
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Doc, yes—I currently smoke and I’ve had a long history, about two packs a day for 34 years.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7135212649065409
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.07756811093206951
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.04670767970103111
+        ]
+      ],
+      "entropy": 1.8711999643682498
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“Doc, no—I haven’t had any nausea or feeling sick to my stomach lately.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7674129687744569
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08342676976894703
+        ],
+        [
+          "Pneumonia",
+          0.030092353904928114
+        ]
+      ],
+      "entropy": 1.5932082347420329
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“Doc, no—I haven’t noticed any lumps or masses in my breast area.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7689388587108013
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08359265186058727
+        ],
+        [
+          "Pneumonia",
+          0.03015218820777782
+        ]
+      ],
+      "entropy": 1.5779007094723736
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of stress or emotional strain in your daily life?",
+      "patient_answer": "“Doc, not really—I haven’t felt unusually stressed or emotionally strained lately.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7714681096904417
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08386761103869876
+        ],
+        [
+          "Pneumonia",
+          0.030251367031554108
+        ]
+      ],
+      "entropy": 1.552696024961105
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“Doc, no—my urine hasn’t seemed darker than usual, and I haven’t noticed any changes in its color.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7853200950364015
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08537348393806574
+        ],
+        [
+          "Pneumonia",
+          0.0307945411272202
+        ]
+      ],
+      "entropy": 1.4760127039487225
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“Doc, I haven’t noticed any breast mass at all, so there’s nothing I’d say is growing or changing rapidly.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7857309101952825
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08541814435308623
+        ],
+        [
+          "Pneumonia",
+          0.030810650309177737
+        ]
+      ],
+      "entropy": 1.4709438185073043
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“Doc, no—I haven’t had any pain in my wrist. The main issue is the tingling in the sole of my right foot during exercise, and then the right calf cramps when I use the incline, which get better after I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7871769143092154
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08557534192102761
+        ],
+        [
+          "Pneumonia",
+          0.030867352071221113
+        ]
+      ],
+      "entropy": 1.4574867773521656
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of the veins in your arms?",
+      "patient_answer": "“Doc, I haven’t noticed any rashes, bumps, or marks along the veins in my arms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.7871769143092154
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08557534192102761
+        ],
+        [
+          "Pneumonia",
+          0.030867352071221113
+        ]
+      ],
+      "entropy": 1.4574867773521656
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“Doc, no—I don’t really get short of breath or have difficulty catching my breath when I’m active; it’s mostly the tingling in my right foot and the calf cramps that slow me down.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.8731853617291611
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.018951496841624105
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.01665618872193032
+        ]
+      ],
+      "entropy": 1.0896349530304588
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your current health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“Doc, no—I haven’t used any recreational or non-prescribed drugs recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.8756867596794866
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.019005786843991256
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.01670390339759412
+        ]
+      ],
+      "entropy": 1.0661146375904895
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_rough_scaly_skin_lesion_e053073e",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any areas of skin that feel rough or have a scaly texture?",
+      "patient_answer": "“Doc, I haven’t noticed any rough or scaly patches on my skin—nothing like that.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.8786084749204816
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.019069199355914487
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.016759635711234126
+        ]
+      ],
+      "entropy": 1.038950646972999
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_fixed_thigh_mass_018ca7d5",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you have noticed any firm or immovable lumps or masses in your thigh area?",
+      "patient_answer": "“Doc, no—I haven’t noticed any firm or immovable lumps or masses in my thigh area. It’s mainly the tingling in the sole of my right foot during exercise and the right calf cramps when I use the incline, which ease after I stop and rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Femoropopliteal artery stenosis",
+          0.8797858646125218
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.019094753262344926
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.016782094659550724
+        ]
+      ],
+      "entropy": 1.02866622227555
+    }
+  ],
+  "final": {
+    "predicted": "Femoropopliteal artery stenosis",
+    "predicted_top3": [
+      "Femoropopliteal artery stenosis",
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma"
+    ],
+    "confidence": 0.8797858646125218,
+    "final_entropy": 1.02866622227555,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Femoropopliteal artery stenosis",
+    "predicted_set_remapped": [
+      "Femoropopliteal artery stenosis",
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9150,
+      "completion_tokens": 604
+    },
+    "patient": {
+      "prompt_tokens": 11184,
+      "completion_tokens": 469,
+      "calls": 14
+    }
+  }
+}

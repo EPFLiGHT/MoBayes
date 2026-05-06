@@ -1,0 +1,152 @@
+{
+  "case_idx": 48,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 39\nSex: Male\nChief Complaint: I have lightheadedness/near-fainting, a cramp pain, and back of head pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling lightheaded like I might faint, with severe fatigue and shortness of breath. I also have cramp pain and pain in the back of my head, top of my head, and forehead—about 5/10, and it started pretty suddenly. I also noticed bloody stool.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. First, to narrow this down: **when did the symptoms start (exact time or how many hours ago), and have they been getting steadily worse since then?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They started pretty suddenly about 5 hours ago. Since then, I feel like it’s been getting worse—especially the lightheadedness and the fatigue.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you. Next question (one key discriminator): **How old is the patient, and do you know if you’re on any blood thinners (warfarin, apixaban/rivaroxaban, clopidogrel, aspirin) or have a bleeding disorder?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 39 years old. Yes, I’m taking oral anticoagulants (blood thinners). I don’t know of any bleeding disorder.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Given sudden worsening over 5 hours + bloody stool + anticoagulant use, I’m concerned about potentially serious bleeding and/or clotting. Next question: **Can you describe the bloody stool—was it bright red blood, dark/tarry black stool, or mixed?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It was bloody stool with hematochezia—so it was red blood. I didn’t notice it being black or tarry.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Red hematochezia on anticoagulants raises concern for **GI bleeding**, but we also need to consider whether the shortness of breath/lightheadedness could be from anemia or another acute process. Next question: **Have you had any chest pain, pressure, or palpitations—or is it mainly shortness of breath and lightheadedness?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain or pressure. It’s mainly shortness of breath and the lightheaded/near-faint feeling, and I feel very tired.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Do you have any fever, cough, or recent infection symptoms (sore throat, runny nose), or is this clearly unrelated to an illness?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No fever or cough. I don’t have recent infection symptoms that I can think of.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Any history of inflammatory bowel disease (ulcerative colitis/Crohn’s), recent severe abdominal pain, or diarrhea?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No history of ulcerative colitis or Crohn’s. I don’t have diarrhea, and I don’t think I have severe abdominal pain. I mostly just have the cramp pain and the headache-type pain.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Where exactly is the cramp pain (lower abdomen vs upper), and does it come in waves/with bowel movements, or is it constant?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s cramp pain but I don’t know if it’s lower or upper—mostly it feels crampy and not clearly tied to bowel movements. It doesn’t feel constant all the time; it comes and goes a bit.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Have you had any vomiting, or any signs of heavy bleeding elsewhere (e.g., vomiting blood, nosebleeds, unusual bruising, bleeding gums, or heavy vaginal bleeding)?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No vomiting. I haven’t noticed nosebleeds, bruising, bleeding gums, or any other heavy bleeding elsewhere.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Are you currently able to speak in full sentences, and do you have any known heart rhythm problems (like atrial fibrillation) or prior blood clots?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I can speak in full sentences. I don’t know of any heart rhythm problems, and I haven’t had blood clots before.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one last high-yield question to distinguish between major categories:\n\n**Do you have any leg swelling or pain (especially one-sided), or have you had recent long travel/immobility, surgery, or a new estrogen-containing medication (birth control/hormone therapy)?**",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or leg pain. I didn’t have recent long travel or immobility, and I’m not on any estrogen-containing medication.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI, Pulmonary embolism, Anemia, Acute pulmonary edema, Pneumonia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Anemia",
+      "Acute pulmonary edema",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13526,
+      "completion_tokens": 520
+    },
+    "patient": {
+      "prompt_tokens": 12017,
+      "completion_tokens": 398
+    }
+  }
+}

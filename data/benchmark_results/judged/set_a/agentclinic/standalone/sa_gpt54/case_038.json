@@ -1,0 +1,100 @@
+{
+  "case_idx": 38,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Okay… I don’t feel safe—someone’s watching me. I can’t answer questions, but I’m very out of it and my body feels out of control.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What substance or medication have you taken today or in the last 24 hours—including alcohol, cannabis, stimulants, opioids, benzos, psychedelics, or any new prescription/OTC meds?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t know—things get blurry, but I think I used drugs again. I can’t focus enough to list what, and I’m scared someone’s monitoring me.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you having any of these right now: chest pain, trouble breathing, severe headache, seizure-like shaking, or thoughts of hurting yourself or anyone else?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have chest pain or trouble breathing, and I’m not trying to hurt anyone—but I feel very shaky and stiff, and I’m too out of it to answer more. I feel like my body isn’t regulating right, and I’m extremely paranoid right now.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Too little reliable history; patient is altered and may have a toxicologic or neurologic emergency requiring immediate in-person assessment.\n[POSSIBLE] stimulant intoxication (e.g., methamphetamine/cocaine) with psychosis, synthetic cannabinoid or other unknown substance intoxication, serotonin syndrome, anticholinergic toxidrome, acute psychosis/mania",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "stimulant intoxication (e.g",
+      "methamphetamine/cocaine) with psychosis",
+      "synthetic cannabinoid or other unknown substance intoxication",
+      "serotonin syndrome",
+      "anticholinergic toxidrome"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 3,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 945,
+      "completion_tokens": 157
+    },
+    "patient": {
+      "prompt_tokens": 1189,
+      "completion_tokens": 134,
+      "calls": 3
+    }
+  }
+}

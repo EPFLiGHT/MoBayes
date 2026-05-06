@@ -1,0 +1,99 @@
+{
+  "case_idx": 41,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have severe right breast pain—about 9 out of 10—that’s worse when I breathe in deeply. It also gets worse with physical exertion and improves with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe unilateral (right) breast pain (9/10), pleuritic component (worse with deep inspiration), and exertional component (worse with exertion, improves with rest). This pattern raises concern for cardiopulmonary causes (ischemia, pulmonary embolism, pneumonia/pleurisy, pneumothorax) rather than purely musculoskeletal pain.\nTop candidates (tentative):\n1) Pulmonary embolism — pleuritic chest pain is classic; exertional worsening can occur; unilateral pain.\n2) Possible NSTEMI / STEMI — exertional chest pain with relief at rest; pleuritic features can still occur.\n3) Pneumonia — pleuritic pain with breathing; could be localized.\n4) Spontaneous pneumothorax — pleuritic pain; often sudden, may have dyspnea.\n5) Musculoskeletal Diseases (e.g., rib fracture) — pain with movement/breathing, but exertional worsening is less typical.\nMost informative next question: ask about shortness of breath, since it strongly discriminates PE/pneumothorax/pneumonia from isolated cardiac pain or musculoskeletal causes.\n[/REASONING]\nDo you have shortness of breath or trouble breathing (even at rest)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have pleuritic (worse with deep breath) and exertional (worse with exertion, better with rest) right-sided chest/breast pain. Shortness of breath is unknown, which limits discrimination among PE, pneumothorax, pneumonia, and cardiac ischemia.\nTop candidates remain:\n1) Pulmonary embolism — pleuritic pain; exertional component possible.\n2) Possible NSTEMI / STEMI — exertional chest pain relieved by rest.\n3) Pneumonia — pleuritic pain; may have fever/cough.\n4) Spontaneous pneumothorax — pleuritic pain; often with sudden dyspnea.\n5) Musculoskeletal/rib injury — pleuritic with movement but exertional pattern less typical.\nMost informative next question: ask about associated cough/fever, which would support pneumonia/bronchitis/URTI and argue against PE/pneumothorax.\n[/REASONING]\nDo you have a cough or fever (or have you felt feverish/chills) since the pain started?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have limited symptom details (no known SOB, no known cough/fever). That keeps the differential broad across PE, ACS, pneumonia/pleurisy, pneumothorax, and musculoskeletal causes.\nTo narrow safely, the next most discriminating question is about sudden onset and severity—PE and pneumothorax often start abruptly; ACS can be more gradual.\nTop candidates (still):\n1) Pulmonary embolism — pleuritic pain; exertional worsening.\n2) Possible NSTEMI / STEMI — exertional pain relieved by rest.\n3) Spontaneous pneumothorax — pleuritic pain; often sudden.\n4) Pneumonia — pleuritic pain; would expect cough/fever but unknown.\n5) Musculoskeletal Diseases — pleuritic with movement.\nMost informative next question: Did this start suddenly (within minutes) or gradually over hours/days?\n[/REASONING]\nDid the pain start suddenly (within minutes) or gradually over hours or days?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient discriminating history: we don’t know SOB, cough/fever, or onset pattern. That prevents confident ranking among PE, pneumothorax, pneumonia/pleurisy, and ACS.\nGiven the severity (9/10) and pleuritic + exertional features, we must keep serious cardiopulmonary causes high on the list, but I can’t justify a confident top-5 without at least one more key discriminator.\nMost informative next question: ask about leg symptoms (unilateral leg swelling/pain), which would strongly support pulmonary embolism.\n[/REASONING]\nHave you had any swelling or pain in one leg (especially calf) recently?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack key discriminators: SOB, cough/fever, sudden onset, and leg swelling. With only pleuritic + exertional unilateral breast/chest pain, evidence is insufficient to confidently rank top diagnoses.\nBecause we must not guess, we should ask one more high-yield question: recent risk factors for PE (recent surgery/immobility, long travel, estrogen use, prior clots). This can quickly shift probability toward PE.\n[/REASONING]\nHave you had any recent long travel/immobility, surgery, or are you on estrogen (birth control or hormone therapy), or have you ever had a blood clot?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSummary: Severe right-sided “breast”/chest pain (9/10), worse with deep inspiration (pleuritic) and worse with exertion, improved with rest. We do not know associated SOB, cough/fever, onset timing, leg swelling, or PE risk factors (travel/surgery/estrogen/prior clot).  \nWith these unknowns, I cannot confidently produce a ranked top-5 diagnosis list without guessing.\n\nMost informative next step would be to ask about objective cardiopulmonary red flags (e.g., shortness of breath), but we’ve already hit multiple “don’t know” answers, so evidence remains insufficient for confident ranking.\n[/REASONING]\n[ABSTAIN] Insufficient discriminating history (SOB, cough/fever, onset timing, leg swelling, and PE risk factors are unknown), so a confident ranked differential would require guessing.\n[POSSIBLE] Pulmonary embolism, Possible NSTEMI / STEMI, Pneumonia, Spontaneous pneumothorax, Musculoskeletal Diseases (rib fracture/pleurisy)",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Pneumonia",
+      "Spontaneous pneumothorax",
+      "Musculoskeletal Diseases (rib fracture/pleurisy)"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8167,
+      "completion_tokens": 1225
+    },
+    "patient": {}
+  }
+}

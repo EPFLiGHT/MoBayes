@@ -1,0 +1,145 @@
+{
+  "case_idx": 27,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Asthma",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old female",
+    "History": "The patient reports a 1-month history of episodic cough and shortness of breath. The cough is nonproductive and worsens when climbing stairs and at night. She experienced fever, sore throat, and nasal congestion 8 weeks ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodic cough and shortness of breath",
+      "Secondary_Symptoms": [
+        "Cough worsens with exertion and at night",
+        "History of recent upper respiratory tract infection symptoms such as fever, sore throat, and nasal congestion"
+      ]
+    },
+    "Past_Medical_History": "10-year history of hypertension, currently managed with enalapril. History of smoking half a pack of cigarettes daily for 16 years.",
+    "Social_History": "Smoker, half a pack of cigarettes daily for 16 years.",
+    "Review_of_Systems": "Denies chest pain or palpitations."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with episodic cough and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had episodic cough and shortness of breath for about a month—my cough is nonproductive and seems worse when I climb stairs and at night. I also had a fever, sore throat, and nasal congestion about eight weeks ago.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 1 month of episodic nonproductive cough and shortness of breath, worse with exertion (stairs) and at night; preceded ~8 weeks ago by an acute viral-like illness (fever, sore throat, nasal congestion).\n\nTop candidates:\n1) Asthma — nocturnal symptoms and exertional worsening with nonproductive cough are classic; viral trigger possible.\n2) COPD — can cause chronic cough/SOB, but less likely without smoking history/age info.\n3) Acute lymphoblastic leukemia / Acute myelogenous leukemia — can present with recurrent infections/constitutional symptoms, but the story sounds more airway/reactive than hematologic; still possible depending on red flags.\n4) Toxic exposure — can cause cough/SOB after exposure; timing unclear.\n5) Histoplasmosis — can follow respiratory symptoms after exposure; usually more persistent and may have systemic features.\n\nMost informative next question: ask about wheezing/chest tightness pattern to discriminate asthma vs other causes.\n[/REASONING]\nDo you notice wheezing or chest tightness during these episodes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I do feel a tightness in my chest during the episodes, and there’s sometimes a wheezy sound when I breathe, especially when I’m going up stairs or lying down at night.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: Nonproductive cough + episodic SOB with chest tightness, wheeze, worse with exertion (stairs) and at night/lying down; viral URI 8 weeks prior.\n\nTop candidates:\n1) Asthma — very supportive: wheeze, chest tightness, nocturnal/exertional worsening, viral trigger.\n2) COPD — less likely given wheeze pattern and likely younger/unknown; would need smoking history and typically less prominent nocturnal pattern.\n3) Takotsubo cardiomyopathy — can cause SOB but cough/wheeze less typical; would expect chest pain/trigger/stress and abnormal cardiac features.\n4) Toxic exposure — could cause bronchospasm but less consistent with classic asthma pattern.\n5) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause dyspnea/infections, but wheeze/nocturnal/exertional pattern points more to asthma.\n\nMost informative next question: ask about smoking/vaping and any known exposures to discriminate asthma from COPD/toxic causes.\n[/REASONING]\nDo you smoke or vape (or have you had significant secondhand smoke exposure), and any recent exposure to fumes/dust/chemicals?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I smoke about half a pack a day and have for 16 years; I don’t vape, and I haven’t had any clear exposure to fumes, dust, or chemicals that I can recall.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Wheeze + chest tightness + nocturnal and exertional worsening; nonproductive cough; viral illness ~8 weeks ago; smoker (0.5 pack/day x16y).\n\nTop candidates:\n1) Asthma (possibly adult-onset or viral-triggered) — still strong due to wheeze/chest tightness and nocturnal/exertional pattern.\n2) COPD (chronic bronchitis/emphysema) — smoking history supports; however classic COPD is more persistent and less “episodic wheeze with night/lying down” (though overlap with asthma-COPD possible).\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — smoking doesn’t explain wheeze; would need systemic symptoms (weight loss, bruising, recurrent infections).\n4) Toxic exposure — no clear exposure history.\n5) Histoplasmosis — would need exposure risk (caves/birds) and more persistent symptoms.\n\nMost informative next question: ask whether symptoms are reversible/variable and whether there’s a history of allergies/eczema or prior similar episodes (to support asthma vs COPD).  \n[/REASONING]\nDo you have any history of allergies, eczema, or prior similar episodes of wheezing (even as a child), or does it improve with an inhaler?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have a history of allergies or eczema, and I don’t remember having wheezing episodes like this before. I haven’t been given an inhaler yet, so I’m not sure if it improves with one.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Smoker; no allergy/eczema history; first known wheezing episodes; nocturnal/exertional worsening; viral trigger 8 weeks ago.\n\nTop candidates:\n1) COPD — smoking supports; could present with cough/wheeze, especially if there’s an inflammatory component after infection; but nocturnal/lying-down worsening is more asthma-like.\n2) Asthma — still possible even without atopy; adult-onset asthma can be triggered by viral infections; variable symptoms and wheeze/chest tightness fit.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — less likely but still consider if there are systemic red flags (fevers, weight loss, bruising, night sweats, recurrent infections).\n4) Toxic exposure — unlikely without exposure.\n5) Histoplasmosis — possible but would usually have more persistent systemic/respiratory features and exposure history.\n\nMost informative next question: ask about symptom variability and triggers—e.g., do episodes come and go with symptom-free periods, and is there any seasonal pattern? This helps asthma (variable) vs COPD (more steadily progressive).  \n[/REASONING]\nDo your symptoms come in distinct episodes with periods where you feel mostly normal between attacks, or is it more constant day-to-day?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels like distinct episodes—I’m usually mostly okay between them, but the cough and shortness of breath flare again, especially at night and when I’m active like climbing stairs. I don’t think it’s constant day-to-day.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Distinct episodic flares with symptom-free-ish intervals; wheeze/chest tightness; nocturnal and exertional worsening; smoker; viral URI 8 weeks prior.\n\nTop candidates:\n1) Asthma — strongest fit: variable/episodic symptoms, nocturnal worsening, wheeze/chest tightness; viral trigger common even without atopy.\n2) COPD — possible given smoking, but COPD is typically more persistent; episodic variability could suggest asthma-COPD overlap.\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — still low probability without systemic red flags, but consider if fevers persist, weight loss, bruising, or recurrent infections.\n4) Toxic exposure — unlikely.\n5) Histoplasmosis — less likely without exposure risk and more persistent course.\n\nMost informative next question: ask about red flags for serious alternative diagnoses—specifically weight loss, night sweats, easy bruising/bleeding, or recurrent infections.  \n[/REASONING]\nHave you had any unintentional weight loss, night sweats, easy bruising/bleeding, or recurrent infections since this started?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any unintentional weight loss, night sweats, or easy bruising/bleeding, and I don’t think I’ve had recurrent infections—just these cough and breathing episodes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: No weight loss/night sweats/bruising; no recurrent infections; episodic wheeze/chest tightness with nocturnal and exertional worsening; smoker; viral illness ~8 weeks prior.\n\nTop candidates:\n1) Asthma — variable episodic symptoms, nocturnal worsening, wheeze/chest tightness; viral trigger; no atopy required.\n2) COPD — smoking history supports; could be chronic bronchitis with episodic flares after infection; but nocturnal/lying-down pattern and distinct episodes favor asthma or asthma-COPD overlap.\n3) Asthma-COPD overlap — not a separate disease in list, but clinically likely given smoking + asthma-like features.\n4) Acute myelogenous leukemia / Acute lymphoblastic leukemia — less likely given absence of systemic red flags.\n5) Histoplasmosis — less likely without exposure/systemic features.\n\nMost informative next question: ask about current cough characteristics and associated symptoms like sputum, hemoptysis, or chest pain; also whether symptoms improve after bronchodilator (if available). Since no inhaler yet, ask about sputum/hemoptysis.  \n[/REASONING]\nIs your cough ever productive (any phlegm), and have you had any coughing up blood (hemoptysis) or chest pain with the episodes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My cough stays nonproductive—no phlegm—and I haven’t coughed up blood. I don’t have chest pain during the episodes either, it’s mainly tightness, wheezing, and shortness of breath.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Nonproductive cough; no hemoptysis; no chest pain; episodic wheeze/chest tightness/SOB worse at night and with exertion; smoker; viral URI 8 weeks prior; no systemic red flags.\n\nTop candidates:\n1) Asthma — very consistent: nonproductive cough, wheeze, chest tightness, nocturnal/exertional worsening, viral trigger; variable episodic course.\n2) COPD — smoking supports; could cause cough/SOB and wheeze, but nocturnal/episodic pattern without chronic daily symptoms makes it less likely (still possible overlap).\n3) Acute myelogenous leukemia / Acute lymphoblastic leukemia — unlikely without systemic symptoms, but dyspnea can occur; low probability.\n4) Toxic exposure — no exposure history; low.\n5) Histoplasmosis — would more likely be persistent and/or have exposure risk; low.\n\nMost informative next question: ask about response to any trial bronchodilator (if they’ve used someone’s inhaler) and/or whether there’s any known diagnosis of reflux/aspiration (GERD can cause nocturnal cough). But we need one question: “Have you tried an albuterol inhaler or any breathing treatments, and did it help?”  \n[/REASONING]\nHave you tried using an albuterol (or any) inhaler or nebulizer yet—if so, did it noticeably improve your symptoms?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you tried using an albuterol (or any) inhaler or nebulizer yet—if so, did it noticeably improve your symptoms? Patient: I haven’t tried an inhaler or nebulizer yet, so I’m not sure if it would help. Doctor: Okay—then we’ll do a breathing exam and likely a lung function test (spirometry) and consider an inhaler trial to see how you respond.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings gathered: 1 month of episodic nonproductive cough with wheeze, chest tightness, and shortness of breath; worse at night and with exertion (stairs); distinct episodes with relative improvement between flares; smoker (0.5 ppd x16y); no hemoptysis, no chest pain, no weight loss/night sweats/bruising/recurrent infections; viral URI symptoms ~8 weeks prior.\n\nTop candidates:\n1) Asthma — best fit: episodic/variable symptoms, wheeze/chest tightness, nocturnal worsening, viral trigger; can occur without atopy.\n2) COPD — smoking supports; wheeze/cough/SOB can occur, and post-infectious exacerbations can be episodic, though classic COPD is more persistent.\n3) Acute myelogenous leukemia — dyspnea/cough can occur, but absence of systemic red flags makes it less likely.\n4) Acute lymphoblastic leukemia — similar reasoning; low without systemic signs.\n5) Histoplasmosis — respiratory symptoms possible, but lack of exposure history and more variable/episodic course makes it less likely.\n\nMost informative next step would be objective testing (spirometry with bronchodilator response) and vitals/oxygenation, but you’ve asked for diagnostic narrowing—evidence is sufficient for a focused top-5.\n[/REASONING]\n[DDX] Asthma, COPD (ch",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Asthma",
+    "predicted_set": [
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "predicted_raw": [
+      "Asthma",
+      "COPD (ch"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Asthma",
+    "predicted_set_remapped": [
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15228,
+      "completion_tokens": 2134
+    },
+    "patient": {
+      "prompt_tokens": 11055,
+      "completion_tokens": 449,
+      "calls": 8
+    }
+  }
+}

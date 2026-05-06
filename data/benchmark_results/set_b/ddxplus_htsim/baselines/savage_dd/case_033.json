@@ -1,0 +1,129 @@
+{
+  "case_idx": 33,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 40\nSex: M\nChief Complaint: chest pain with deep breaths",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Chest pain when I breathe in deeply. It feels like a knife stroke in my lower/upper chest and both breasts and the epigastric area, and it can radiate to the posterior chest wall on both sides. My pain is about a 5 out of 10, and it comes on very quickly (pace 9/10). Also, I’ve been having shortness of breath in a significant way, plus a fast/irregular heartbeat with palpitations. It’s worse when I lie down and better when I sit up.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. I’ll ask a few focused questions to narrow it down.\n\n**Question 1 (one at a time):**  \nWhen you breathe in deeply, does the pain get **significantly worse** (pleuritic), and do you also have **cough** or **fever**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the pain is increased when I breathe in deeply.\n\nI don’t know about cough or fever.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Pleuritic, sharp chest pain with shortness of breath raises concern for several serious causes (like pulmonary embolism or pneumonia/pleurisy), and the “worse when lying down, better sitting up” also points toward pericardial-type pain.\n\n**Question 2:**  \nDo you have **any leg symptoms**—especially **one-sided leg swelling, pain, or warmth**—or have you had **recent long travel/immobility**, **surgery**, or **a prior blood clot**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s focus on the “fast/irregular heartbeat” and positional component.\n\n**Question 3:**  \nWhen the pain started, did you also have **fainting/near-fainting**, **new sweating**, or **feeling like you might pass out**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next, I want to clarify the positional nature and whether this is more “heart lining” vs “lung lining.”\n\n**Question 4:**  \nDoes the pain feel **better leaning forward** (like sitting up and bending slightly forward), or is it only better when you sit up?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Only better when I sit up.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it: worse with deep breath, better sitting up (not leaning forward). That still keeps **pulmonary embolism** and **pericarditis** in play, but we need more.\n\n**Question 5:**  \nDo you have **pain that changes with movement/pressing on the chest** (tender to touch), or is it purely related to breathing?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. \n\nI can tell you the pain is increased when I breathe in deeply, and it’s about a 5/10.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. We’ll go for the most discriminating remaining feature: **heart rhythm** and **risk factors**.\n\n**Question 6:**  \nHave you measured your heart rate or been told it’s **very fast** (e.g., >120), and do you know if it’s **irregular** like atrial fibrillation, or more like a regular fast rhythm?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. I’ll ask about the most important risk factor for pulmonary embolism.\n\n**Question 7:**  \nIn the last **4 weeks**, have you had **surgery**, **a long flight/car ride**, **being bedridden**, **pregnancy/postpartum**, or **using estrogen (birth control/HRT)**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Given the limited history so far, I can’t confidently narrow to one diagnosis. I need one more key discriminator.\n\n**Question 8:**  \nDo you have **leg swelling** (especially one leg) or **sudden worsening shortness of breath** that started at the same time as the chest pain?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating history (can’t determine key features like VTE risk factors, leg symptoms, fever/cough, or whether the rhythm is truly irregular/very fast).  \n[POSSIBLE] Pulmonary embolism, Acute pulmonary edema, Possible NSTEMI / STEMI, Pericarditis, Pneumonia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI",
+      "Pericarditis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11014,
+      "completion_tokens": 673
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "case_idx": 32,
+  "baseline": "savage_dd",
+  "column": "ac_set2",
+  "ground_truth": "Chronic obstructive pulmonary disease (COPD)",
+  "patient_actor_hidden": {
+    "Demographics": "79-year-old male",
+    "History": "The patient reports experiencing shortness of breath with moderate exertion and a slightly productive cough for the past few months. He mentions a long history of heavy smoking, approximately 25 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Shortness of breath with moderate exertion",
+      "Secondary_Symptoms": [
+        "Slightly productive cough"
+      ]
+    },
+    "Past_Medical_History": "The patient has been a heavy smoker for 25 years.",
+    "Social_History": "Retired, lives alone, has a 25-year history of heavy smoking.",
+    "Review_of_Systems": "Denies chest pain, fever, night sweats, or weight loss."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting with shortness of breath and a productive cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: Over the past few months, I’ve had shortness of breath when I exert myself moderately, and I’ve had a slightly productive cough. I’ve also been a heavy smoker for about 25 years.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s narrow this down. **One question at a time:**\n\nDo you have **any chest pain** (especially with breathing in or exertion), or is it mainly **shortness of breath and cough**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t really have chest pain—I mainly notice the shortness of breath with moderate exertion and the slightly productive cough.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next question:\n\nHave you noticed **wheezing** (a whistling sound) or **frequent episodes of bronchitis** over the years?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed a lot of wheezing, and I wouldn’t say I’ve had frequent bronchitis episodes—mostly it’s just been this gradually worsening shortness of breath and the mild, slightly productive cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question:\n\nDo you get **short of breath at rest** or **wake up at night** feeling short of breath (or with coughing)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Mostly it’s with moderate exertion; I don’t usually feel short of breath at rest, and I haven’t been waking up at night feeling that way or coughing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question:\n\nHave you had **fever, chills, or unintentional weight loss** recently?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had fever or chills, and I haven’t noticed any unintentional weight loss.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question:\n\nHave you noticed **swelling in your legs** (ankles/feet), or have you been told you have **high blood pressure, heart disease, or abnormal heart rhythm**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed swelling in my legs, and I don’t think I’ve been told I have high blood pressure, heart disease, or an abnormal heart rhythm. My main issues are still the shortness of breath with moderate exertion and the mild, slightly productive cough.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—next question:\n\nDo you have **any history of asthma** or allergies, or is this entirely new/worsening over the past few months?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a history of asthma or significant allergies; this feels like it’s been a new, gradual worsening over the past few months.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] COPD (chronic obstructive pulmonary disease), Asthma, Acute Mesenteric Ischemia, Takotsubo cardiomyopathy, Acute lymphoblastic leukemia",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Acute Mesenteric Ischemia",
+      "Takotsubo cardiomyopathy",
+      "Acute lymphoblastic leukemia"
+    ],
+    "predicted_raw": [
+      "COPD (chronic obstructive pulmonary disease)",
+      "Asthma",
+      "Acute Mesenteric Ischemia",
+      "Takotsubo cardiomyopathy",
+      "Acute lymphoblastic leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Acute Mesenteric Ischemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7404,
+      "completion_tokens": 265
+    },
+    "patient": {
+      "prompt_tokens": 3643,
+      "completion_tokens": 298,
+      "calls": 7
+    }
+  }
+}

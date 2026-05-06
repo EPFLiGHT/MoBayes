@@ -1,0 +1,357 @@
+{
+  "case_idx": 43,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Lately I’ve been feeling persistently tired and my sleep has been poor. I also noticed I’ve lost weight over the past month without trying, and I think I’ve developed some yellowing of my skin.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_poor_sleep_quality_7fe3b554": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_jaundice_7519dd8b": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.30201446129726717
+        ],
+        [
+          "Chronic kidney failure",
+          0.07512614645315474
+        ],
+        [
+          "Somatization disorder",
+          0.06454135403889989
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.06402376027781165
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.06402376027781165
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“No, I haven’t noticed any changes in my vision—no blurriness, blind spots, or loss of sight. It’s mainly the persistent fatigue, poor sleep, the unintentional weight loss, and the yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.30523821093642767
+        ],
+        [
+          "Chronic kidney failure",
+          0.07592805470112267
+        ],
+        [
+          "Somatization disorder",
+          0.06523027855562703
+        ]
+      ],
+      "entropy": 3.9203583044623906
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Yes, I smoke about a pack of cigarettes a day, and I’ve been doing that for years.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.6159281766348484
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.1900183477372799
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.053814720035871275
+        ]
+      ],
+      "entropy": 2.010345457874826
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t had nausea or felt sick to my stomach. It’s mainly the persistent fatigue, poor sleep, unintentional weight loss, and the yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.516677040340016
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.28179403526700375
+        ],
+        [
+          "Pneumonia",
+          0.04890679786336252
+        ]
+      ],
+      "entropy": 2.204822200754502
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and there’s been no pain or tenderness there. It’s mainly the persistent fatigue, poor sleep, unintentional weight loss, and the yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.5171965861939649
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.28207739394420395
+        ],
+        [
+          "Pneumonia",
+          0.048955976212845774
+        ]
+      ],
+      "entropy": 2.1967075431010987
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can sometimes be linked to how we are feeling overall. Have you been experiencing a significant amount of stress or emotional pressure lately?",
+      "patient_answer": "“No, I haven’t had significant stress or emotional pressure lately. It’s mainly been the ongoing fatigue, poor sleep, the weight loss without trying, and the yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.5225214717122887
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.28498156978402034
+        ],
+        [
+          "Pneumonia",
+          0.049460010801878077
+        ]
+      ],
+      "entropy": 2.1286303677635536
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“Now that you mention it, I think my urine has been darker than usual.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.6128042885393509
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.22936771979882759
+        ],
+        [
+          "Pneumonia",
+          0.03980794234325351
+        ]
+      ],
+      "entropy": 1.8902481373371904
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast mass or anything changing in that area at all. The main issues for me are the persistent fatigue, poor sleep, unintentional weight loss, and the yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.6129665679140679
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.22942845966446718
+        ],
+        [
+          "Pneumonia",
+          0.03981848405797882
+        ]
+      ],
+      "entropy": 1.88734791106834
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I haven’t had any pain in my wrist. It’s mostly the persistent fatigue, poor sleep, unintentional weight loss, and the yellowing of my skin, plus my urine seems darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.6134201572603131
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.22959823451105205
+        ],
+        [
+          "Pneumonia",
+          0.03984794935200585
+        ]
+      ],
+      "entropy": 1.8812729698404425
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of the veins in your arms?",
+      "patient_answer": "“Not that I’ve noticed—no rashes, bumps, or any kind of marks along the veins on my arms. It’s mainly the persistent fatigue, poor sleep, the unintentional weight loss, the yellowing of my skin, and my urine seems darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.6134201572603131
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.22959823451105205
+        ],
+        [
+          "Pneumonia",
+          0.03984794935200585
+        ]
+      ],
+      "entropy": 1.8812729698404425
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I haven’t noticed shortness of breath with walking or climbing stairs. It’s mainly the persistent fatigue, poor sleep, unintentional weight loss, the yellowing of my skin, and my urine seems darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.8040779940436913
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.041709467611137085
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.030994278547656014
+        ]
+      ],
+      "entropy": 1.437804220500984
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“No, I haven’t used any recreational or non-prescribed drugs recently. It’s mainly the persistent fatigue, poor sleep, the unintentional weight loss, the yellowing of my skin, and my urine seems darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.8052231970713655
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.04176887205814941
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.031038421954012463
+        ]
+      ],
+      "entropy": 1.425180425020771
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic adenocarcinoma",
+    "predicted_top3": [
+      "Pancreatic adenocarcinoma",
+      "Femoropopliteal artery stenosis",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.8052231970713655,
+    "final_entropy": 1.425180425020771,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Femoropopliteal artery stenosis",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7563,
+      "completion_tokens": 553
+    },
+    "patient": {
+      "prompt_tokens": 8550,
+      "completion_tokens": 533,
+      "calls": 12
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "case_idx": 23,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "HIV (initial infection)",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 18\nSex: M\nChief Complaint: diffuse muscle pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve had diffuse (widespread) muscle pain with a pain intensity of 6 out of 10. The pain is a pulse, and the pain location precision is 3 out of 10. It’s been around a pace of 1 out of 10. I also have had a fever, increased sweating, diarrhea or an increase in stool frequency, unprotected sex with more than one partner in the last 6 months, and I’ve had sexual intercourse with an HIV-positive partner in the past 12 months. I’ve also had involuntary weight loss over the last 3 months, and lesions/redness or skin problems that I believe are related to what I’m consulting for.",
+      "extracted_features": {
+        "f_e_144": "yes",
+        "f_e_56": "6",
+        "f_e_54_v_184": "yes",
+        "f_e_58": "3",
+        "f_e_59": "1",
+        "f_e_91": "yes",
+        "f_e_50": "yes",
+        "f_e_51": "yes",
+        "f_ant_e_115": "yes",
+        "f_ant_e_189": "yes",
+        "f_e_162": "yes",
+        "f_e_129": "yes"
+      },
+      "top5_posterior": [
+        [
+          "HIV (initial infection)",
+          0.9941924841768608
+        ],
+        [
+          "Influenza",
+          0.0022878418372039512
+        ],
+        [
+          "Pneumonia",
+          0.000667040883095046
+        ],
+        [
+          "URTI",
+          0.00043540414999047297
+        ],
+        [
+          "Pancreatic neoplasm",
+          0.00041477396830341803
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your rash to help with the assessment.\n\nWhat color would you say the rash is? For example, is it red, pink, pale, dark, yellow, or is there no rash present?",
+      "patient_answer": "It’s pale.",
+      "extracted_value": "pale",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "HIV (initial infection)",
+          0.9998309291153097
+        ],
+        [
+          "Influenza",
+          4.8438253921049646e-05
+        ],
+        [
+          "Inguinal hernia",
+          4.7199025842725414e-05
+        ]
+      ],
+      "entropy": 0.0029288323899519077
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_183",
+      "doctor_question": "I'd like to understand more about how your pain feels. Does the pain have a heavy or weighty sensation to it—like something heavy is pressing down on you?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "HIV (initial infection)",
+          0.9999165009435846
+        ],
+        [
+          "Influenza",
+          1.598599185872863e-05
+        ],
+        [
+          "Pneumonia",
+          1.4123817680149369e-05
+        ]
+      ],
+      "entropy": 0.0015902429028348136
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_201",
+      "doctor_question": "Hello! I'm here to help with your assessment today.\n\nI'd like to ask you a simple question: **Do you currently have a cough?**\n\nPlease let me know if your answer is yes or no.",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "HIV (initial infection)",
+          0.9999165009435846
+        ],
+        [
+          "Influenza",
+          1.598599185872863e-05
+        ],
+        [
+          "Pneumonia",
+          1.4123817680149369e-05
+        ]
+      ],
+      "entropy": 0.0015902429028348136
+    }
+  ],
+  "final": {
+    "predicted": "HIV (initial infection)",
+    "predicted_top3": [
+      "HIV (initial infection)",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "confidence": 0.9999165009435846,
+    "final_entropy": 0.0015902429028348136,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "HIV (initial infection)",
+    "predicted_set_remapped": [
+      "HIV (initial infection)",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10900,
+      "completion_tokens": 2057
+    },
+    "patient": {}
+  }
+}

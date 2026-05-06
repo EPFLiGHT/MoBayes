@@ -1,0 +1,139 @@
+{
+  "case_idx": 14,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "patient_actor_hidden": {
+    "AGE": 59,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "cough",
+    "EVIDENCES_ENG": "['multiple asthma attacks in the past year', 'shortness of breath', 'hospitalization for asthma attack in the past year', 'recent cold', 'chronic sinusitis diagnosis', 'asthma or bronchodilator use', 'cough', 'residence in a big city', 'daily exposure to secondhand cigarette smoke', 'increased risk of common allergies']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 59\n- I have had 2 or more asthma attacks in the past year.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have been hospitalized for an asthma attack in the past year.\n- I have had a cold in the last 2 weeks.\n- I have been diagnosed with chronic sinusitis.\n- I have asthma or have used a bronchodilator in the past.\n- I have a cough.\n- I live in a big city.\n- I am exposed to secondhand cigarette smoke on a daily basis.\n- I am more likely to develop common allergies than the general population.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.11882160950905453], ['Pulmonary embolism', 0.08589276895304213], ['Acute pulmonary edema', 0.08045611139692013], ['Guillain-Barré syndrome', 0.07354157235071582], ['Bronchospasm / acute asthma exacerbation', 0.07136670783548313], ['Atrial fibrillation', 0.07024550027632083], ['Myocarditis', 0.06937231631544793], ['Bronchiectasis', 0.05550033781334279], ['Acute dystonic reactions', 0.05178873863788219], ['Myasthenia gravis', 0.05178873863788219], ['Anemia', 0.05178873863788219], ['Anaphylaxis', 0.05178873863788219], ['Pneumonia', 0.04272453980220949], ['Scombroid food poisoning', 0.032759332235704666], ['PSVT', 0.027663717818915117], ['SLE', 0.023975713843589812], ['Pulmonary neoplasm', 0.017365719881619814], ['Possible NSTEMI / STEMI', 0.015587128676230511], ['Tuberculosis', 0.0075719687398748325], ['Chagas', 0.0]]",
+    "PATHOLOGY": "Bronchospasm / acute asthma exacerbation",
+    "INITIAL_EVIDENCE": "toux",
+    "EVIDENCES": "['criseasthm', 'dyspn', 'hosptisasm', 'j06.9', 'j32', 'j45', 'toux', 'trav1_@_N', 'urban1', 'z77.22', 'z84.89']",
+    "patient_id": "htsim_0505",
+    "_test_index": 505,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 59-year-old M patient presents to the clinic. Chief complaint: cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, and I’m also experiencing significant shortness of breath or difficulty breathing. I’ve had 2 or more asthma attacks in the past year, including a hospitalization for an asthma attack in the past year. I also had a cold in the last 2 weeks.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have you been coughing, and is the shortness of breath worse at night or with exertion? Also, do you have fever, chest pain, wheezing, or any sputum (color/blood)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My cough has been present along with the shortness of breath that’s been significant for me. I don’t know about whether it’s worse at night or with exertion. I don’t know about fever, chest pain, wheezing, or sputum color or blood.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I want to clarify quickly—do you currently have wheezing or use a rescue inhaler, and if so does it help; also, do you smoke or have a history of COPD/heart disease, and have you measured your oxygen saturation if available?  \nDoctor: REQUEST TEST: Pulse_Oximetry_and_Vitals; REQUEST TEST: Chest_X_Ray; REQUEST TEST: CBC_with_Diff; REQUEST TEST: Spirometry_(if_stable)_or_Peak_Flow; REQUEST TEST: COVID-19/Influenza_PCR_or_Rapid_Test.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’ve asthma or have used a bronchodilator in the past, and I have a cough. I don’t know whether I currently have wheezing, whether I use a rescue inhaler, or whether it helps. I don’t know about smoking or COPD/heart disease or my oxygen saturation.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need 3 fast answers—(1) right now is your breathing so hard you can’t speak full sentences, (2) do you have measured oxygen sat (even if just a home reading), and (3) any blood in sputum or chest pain?  \nDoctor: If you can’t check, I’ll still proceed—REQUEST TEST: Arterial_Blood_Gas_or_Repeat_Pulse_Oximetry_if_low; REQUEST TEST: D-dimer_or_CTPA_if_clinically_suggested (e.g., severe hypoxia/pleuritic pain/leg swelling).  \nDoctor: Given your recent cold plus significant shortness of breath and history of frequent asthma attacks/hospitalization, the leading concern is an acute asthma exacerbation (triggered by viral illness); but we must exclude pneumonia/PE if oxygen is low or symptoms are severe—answer those 3 items now.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether my breathing is so hard right now that I can’t speak full sentences. I don’t know about any measured oxygen saturation. I don’t know about blood in sputum or chest pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you now—please take a deep breath and try speaking one full sentence; I’m also going to check your oxygen and listen for wheeze/rales. REQUEST TEST: Pulse_Oximetry_and_Vitals; REQUEST TEST: Peak_Flow_or_Spirometry_if_stable.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether my breathing is so hard right now that I can’t speak full sentences. I don’t know my oxygen saturation. I don’t know about blood in sputum or chest pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll ask you 2 quick, crucial questions: are you currently able to speak full sentences, and do you have a home peak-flow number or any rescue inhaler you’ve used today (and did it help)? Also, I’m performing an urgent check—REQUEST TEST: Pulse_Oximetry_and_Vitals.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I’m currently able to speak full sentences. I also don’t know about a home peak-flow number or whether I’ve used a rescue inhaler today, or if it helped.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—while you answer, I’m assessing you right now: are you able to speak full sentences without stopping for breath, and did your breathing start suddenly or gradually over hours/days? REQUEST TEST: Pulse_Oximetry_and_Vitals; REQUEST TEST: Peak_Flow_or_Spirometry_if_stable.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know whether I’m able to speak full sentences without stopping for breath. I don't know whether my breathing started suddenly or gradually over hours/days.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you tell me: (1) can you speak in full sentences right now or only short phrases, and (2) what is your current temperature and oxygen saturation (if you have a pulse ox)?  \nDoctor: If you can, also tell me whether you have wheezing and whether using your rescue inhaler (albuterol) in the last 24 hours helped, even a little.  \nDoctor: REQUEST TEST: Immediate_Vitals_including_Oxygen_Saturation; REQUEST TEST: Respiratory_Exam_and_Peak_Flow_or_Spirometry_if_stable",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I can speak in full sentences right now or only short phrases. I don’t know my current temperature or oxygen saturation. I don’t know whether I have wheezing or whether I’ve used a rescue inhaler in the last 24 hours or whether it helped.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as an urgent asthma exacerbation until proven otherwise—please take a deep breath; I’m listening for wheeze and I’m checking your oxygen saturation now.  \nDoctor: REQUEST TEST: Immediate_Vitals_with_Oxygen_Saturation; REQUEST TEST: Repeat_Chest_X_Ray_if_last_not_recent.  \nDoctor: Given your recent cold plus significant shortness of breath and a history of frequent asthma attacks/hospitalization, the most likely diagnosis is **acute asthma exacerbation (viral-triggered)**.  \nDIAGNOSIS READY: Acute asthma exacerbation triggered by recent viral upper respiratory infection.\n\n[ABSTAIN] free-text diagnosis 'Acute asthma exacerbation triggered by recent viral upper respiratory infection.' did not map to the closed disease set",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6163,
+      "completion_tokens": 828,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 9556,
+      "completion_tokens": 411,
+      "calls": 8
+    }
+  }
+}

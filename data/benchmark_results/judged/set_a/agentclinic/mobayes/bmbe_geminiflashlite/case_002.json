@@ -1,0 +1,356 @@
+{
+  "case_idx": 2,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hello, I’m a 65-year-old woman here for my annual check-up. I’ve noticed a rough, scaly, sandpaper-like plaque on the back of my left hand, but it doesn’t hurt and there’s no tenderness.”",
+      "extracted_features": {
+        "f_rough_scaly_skin_lesion_e053073e": "yes",
+        "f_nontender_skin_lesions_e2323b4b": "yes",
+        "f_skin_lesion_on_sun_exposed_skin_ac1748fc": "yes",
+        "f_localized_skin_lesions_03282994": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6154637723254196
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10185068026136775
+        ],
+        [
+          "Vitiligo",
+          0.04824505907117421
+        ],
+        [
+          "Molluscum contagiosum",
+          0.04365029154058617
+        ],
+        [
+          "Psoriatic arthritis",
+          0.04083052295036357
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any degree of vision loss?",
+      "patient_answer": "“No, I haven’t noticed any changes in my eyesight—no blurriness, dark spots, or any vision loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6184084791705641
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10233798822137176
+        ],
+        [
+          "Vitiligo",
+          0.0484758891574919
+        ]
+      ],
+      "entropy": 2.3825061429395062
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, I don’t smoke and I’ve never smoked.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6279529561750964
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10391746620100595
+        ],
+        [
+          "Vitiligo",
+          0.049224062937318624
+        ]
+      ],
+      "entropy": 2.287731428732757
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t had any nausea or stomach upset, and I haven’t felt sick to my stomach lately.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6388565017323135
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10572185109285329
+        ],
+        [
+          "Vitiligo",
+          0.05007877157029894
+        ]
+      ],
+      "entropy": 2.179782567314301
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and nothing there causes me pain. I haven’t had any related changes that I’m aware of.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6410385713960709
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10608295322367679
+        ],
+        [
+          "Vitiligo",
+          0.050249819948057446
+        ]
+      ],
+      "entropy": 2.1581534309031776
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling overall. Lately, have you been experiencing a significant amount of stress or emotional strain in your daily life?",
+      "patient_answer": "“No, I haven’t been under significant stress or emotional strain lately. Day-to-day things have felt pretty steady, and I’m generally feeling well aside from that rough, scaly patch on my left hand.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6484531182247422
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10730995743137632
+        ],
+        [
+          "Vitiligo",
+          0.05083103246749407
+        ]
+      ],
+      "entropy": 2.0798646974942643
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“No, I haven’t noticed any changes in my urine color—nothing darker than usual and no other concerns. I’ve been feeling well overall besides the rough, scaly patch on the back of my left hand.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6503628996135333
+        ],
+        [
+          "Seborrheic keratosis",
+          0.1076259996459553
+        ],
+        [
+          "Vitiligo",
+          0.0509807366743999
+        ]
+      ],
+      "entropy": 2.060422477408432
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast lumps or anything changing in size, so nothing has been growing or changing rapidly. My only issue is that rough, scaly plaque on the back of my left hand.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6510934295282975
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10774689216979773
+        ],
+        [
+          "Vitiligo",
+          0.05103800155411473
+        ]
+      ],
+      "entropy": 2.0506526305744393
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I haven’t had any pain in my wrist. The only thing I’ve noticed is the rough, scaly, sandpaper-like plaque on the back of my left hand, and it doesn’t hurt or feel tender.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.662967334540461
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10971185803330961
+        ],
+        [
+          "Vitiligo",
+          0.051968774857883517
+        ]
+      ],
+      "entropy": 1.9955553504377301
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what you're experiencing, could you please tell me if you have noticed any skin lesions, rashes, or unusual marks running along the veins of your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes or unusual marks running along the veins of my arms. The only skin issue I’ve seen is the rough, scaly, sandpaper-like plaque on the back of my left hand, and it doesn’t hurt.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.662967334540461
+        ],
+        [
+          "Seborrheic keratosis",
+          0.10971185803330961
+        ],
+        [
+          "Vitiligo",
+          0.051968774857883517
+        ]
+      ],
+      "entropy": 1.9955553504377301
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Have you noticed any shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I haven’t had any shortness of breath or trouble catching my breath with walking or climbing stairs. I’ve been feeling steady overall—just that rough, scaly plaque on the back of my left hand.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6650252410897314
+        ],
+        [
+          "Seborrheic keratosis",
+          0.1100524128984084
+        ],
+        [
+          "Vitiligo",
+          0.05213009032029874
+        ]
+      ],
+      "entropy": 1.9712625219864675
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“No, I haven’t used any recreational or non-prescribed drugs recently. I only take my prescribed metformin and losartan as directed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.6679074331367556
+        ],
+        [
+          "Seborrheic keratosis",
+          0.11052937553022046
+        ],
+        [
+          "Vitiligo",
+          0.052356019987999186
+        ]
+      ],
+      "entropy": 1.9421533373896263
+    }
+  ],
+  "final": {
+    "predicted": "Actinic Keratosis",
+    "predicted_top3": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis",
+      "Vitiligo"
+    ],
+    "confidence": 0.6679074331367556,
+    "final_entropy": 1.9421533373896263,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Actinic Keratosis",
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis",
+      "Vitiligo"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6944,
+      "completion_tokens": 570
+    },
+    "patient": {
+      "prompt_tokens": 8363,
+      "completion_tokens": 478,
+      "calls": 12
+    }
+  }
+}

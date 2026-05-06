@@ -1,0 +1,357 @@
+{
+  "case_idx": 36,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "35-year-old female",
+    "History": "The patient reports a 1-month history of experiencing double vision (diplopia), difficulty in climbing stairs, and weakness when trying to brush her hair. She notes that these symptoms tend to worsen after physical activity but improve significantly after a few hours of rest.",
+    "Symptoms": {
+      "Primary_Symptom": "Double vision",
+      "Secondary_Symptoms": [
+        "Difficulty climbing stairs",
+        "Weakness in upper limbs",
+        "Improvement of symptoms after rest"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Non-smoker, drinks wine occasionally. Works as a graphic designer.",
+    "Review_of_Systems": "Patient denies experiencing any chest pain, palpitations, shortness of breath, or recent infections."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with double vision, difficulty climbing stairs, and upper limb weakness.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hello, I’m 35, and for about a month I’ve had double vision that’s worse when I’m active. I also feel weakness when climbing stairs and when I try to brush my hair, but it improves a lot after I rest for a few hours.”",
+      "extracted_features": {
+        "f_diplopia_a9378b9d": "yes",
+        "f_difficulty_climbing_stairs_4f9df607": "yes",
+        "f_difficulty_raising_arms_overhead_d93533c5": "yes",
+        "f_proximal_muscle_weakness_99f257ca": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Myasthenia gravis",
+          0.7445768465316799
+        ],
+        [
+          "Syringomyelia",
+          0.02905829418397476
+        ],
+        [
+          "Adhesive capsulitis",
+          0.024365721839996246
+        ],
+        [
+          "Osteoarthritis",
+          0.017809922241790985
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.016579272141777023
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what you're experiencing, have you noticed any changes in your vision, such as blurriness, dark spots, or any loss of sight?",
+      "patient_answer": "“Yes, it’s more like true double vision—objects look split—rather than blurry vision. I haven’t noticed dark spots or any loss of sight, just the doubling that gets worse with activity and then eases after I rest.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.7394872287126705
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.12938777811069793
+        ],
+        [
+          "Syringomyelia",
+          0.014429831881906864
+        ]
+      ],
+      "entropy": 1.6911426424073286
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, I don’t smoke and I’ve never smoked.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.7923054748506037
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.07841661053091573
+        ],
+        [
+          "Syringomyelia",
+          0.015460489860130983
+        ]
+      ],
+      "entropy": 1.5139991289883707
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t had nausea or any stomach upset. I feel mostly the vision doubling and the muscle weakness, which both seem to flare with activity and then improve after a few hours of rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8047695586083596
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.07965021452922327
+        ],
+        [
+          "Syringomyelia",
+          0.015703705193950233
+        ]
+      ],
+      "entropy": 1.405536508966483
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and I don’t have any pain or tenderness there.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8067718149369371
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.0798483832402633
+        ],
+        [
+          "Syringomyelia",
+          0.015742775810837224
+        ]
+      ],
+      "entropy": 1.3867193310572001
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can sometimes be linked to how we are feeling emotionally. To help me get a clearer picture of your overall well-being, have you been experiencing a significant amount of psychological stress lately?",
+      "patient_answer": "“Not particularly—no major psychological stress, and nothing else feels emotionally out of the ordinary. It seems much more tied to activity: the symptoms worsen with exertion and then improve after I rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8173200747376766
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08089237297254362
+        ],
+        [
+          "Syringomyelia",
+          0.015948607108067767
+        ]
+      ],
+      "entropy": 1.2944307391902325
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "To help me better understand your current symptoms, have you noticed any changes in the color of your urine, specifically if it has appeared darker than usual?",
+      "patient_answer": "“No, I haven’t noticed any change in the color of my urine—it's been normal and not darker than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8190746874538481
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08106603172710738
+        ],
+        [
+          "Syringomyelia",
+          0.015982845382278784
+        ]
+      ],
+      "entropy": 1.2775945890701554
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any lumps or breast changes at all, so nothing is growing or changing rapidly.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8197451238249841
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08113238662363394
+        ],
+        [
+          "Syringomyelia",
+          0.01599592780445915
+        ]
+      ],
+      "entropy": 1.2694609296502775
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello. I'm here to help you understand what might be going on with your health today. To get started, could you please tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I haven’t had any wrist pain. My main issues have been the double vision and the weakness with things like climbing stairs or brushing my hair, which improve after rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8231106410985337
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08146548094855294
+        ],
+        [
+          "Syringomyelia",
+          0.01606160013329371
+        ]
+      ],
+      "entropy": 1.2442327100021413
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of your veins?",
+      "patient_answer": "“I don’t notice any rashes, bumps, or marks along my veins, and I haven’t seen any skin lesions on my arms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8231106410985337
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08146548094855294
+        ],
+        [
+          "Syringomyelia",
+          0.01606160013329371
+        ]
+      ],
+      "entropy": 1.2442327100021413
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I don’t get shortness of breath or have trouble catching my breath. It’s mainly the double vision and the weakness—those flare with activity, and then I improve after resting for a few hours.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8249450447680896
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08164703682905364
+        ],
+        [
+          "Syringomyelia",
+          0.01609739539185595
+        ]
+      ],
+      "entropy": 1.2240529877904385
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_recent_drug_use_4a0edb9a",
+      "doctor_question": "To help me get a clearer picture of your health, could you tell me if you have used any recreational or non-prescribed drugs recently?",
+      "patient_answer": "“No, I haven’t used any recreational or non-prescribed drugs recently. I haven’t taken anything besides occasional wine socially.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.8320343863994206
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.08234868809775087
+        ],
+        [
+          "Syringomyelia",
+          0.016235731801088595
+        ]
+      ],
+      "entropy": 1.1682428389506785
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Central retinal artery occlusion",
+      "Syringomyelia"
+    ],
+    "confidence": 0.8320343863994206,
+    "final_entropy": 1.1682428389506785,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Central retinal artery occlusion",
+      "Syringomyelia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7592,
+      "completion_tokens": 583
+    },
+    "patient": {
+      "prompt_tokens": 8482,
+      "completion_tokens": 434,
+      "calls": 12
+    }
+  }
+}

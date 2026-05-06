@@ -1,0 +1,179 @@
+{
+  "case_idx": 25,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Inguinal hernia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 34\nSex: F\nChief Complaint: symptoms worsen with valsava maneuver",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have an abdomen that is bloated or distended, and I have pain that gets worse with coughing/with an effort like lifting a weight or from forcing a bowel movement. I also have pale lesions/redness or skin problems that I believe are related to what I’m consulting for.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step. First, I need to know whether the abdominal distension is mainly from **fluid/ascites** vs **bowel gas/obstruction** vs a **localized bulge/hernia**.\n\n**Question 1 (one at a time):**  \nWhere is the pain/distension most prominent—**midline/whole abdomen**, **right or left side**, or is there a **specific localized lump/bulge** (and if so, where)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s prominent in the iliac fossa—both the right iliac fossa and the left iliac fossa.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Bilateral iliac fossa involvement makes a **general process** (e.g., bowel/ileus/obstruction, inflammatory/infectious GI process, or hernias on both sides) more likely than a single focal cause.\n\n**Current posterior (rough priors, before more data):**\n- **Inguinal hernia**: 0.25  \n- **Digestive Diseases** (broad GI cause): 0.25  \n- **Anemia**: 0.10  \n- **Pulmonary embolism** (can cause pleuritic pain but usually not iliac distension): 0.05  \n- **Other System Diseases** (e.g., circulatory/edema): 0.35  \n\n(These are very uncertain—next question will help a lot.)\n\n**Question 2 (one at a time):**  \nDo you notice any **visible or palpable bulge** in either groin that becomes **more prominent when you cough/strain**, and does it **reduce** when you lie down?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s switch to a question that doesn’t require you to identify a bulge.\n\n**Question 3 (one at a time):**  \nAre you having **vomiting** or **can’t pass gas/stool** (or markedly reduced bowel movements) since the bloating started?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll focus on symptoms you can answer more reliably.\n\n**Question 4 (one at a time):**  \nHave you had **fever** or feeling systemically unwell (chills, sweats), along with the abdominal pain/distension?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Question 5 (one at a time):**  \nAny **change in bowel habits**—for example **diarrhea**, **constipation**, or **blood in the stool**?\n\n(If you’re unsure, tell me what’s “most different from your normal.”)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—then we’ll use the skin finding to discriminate.\n\n**Question 6 (one at a time):**  \nCan you describe the skin lesions/redness: are they **hives/raised itchy welts**, **tender bruised-looking spots**, **painful blisters**, or **something else**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I have lesions, redness, or problems on my skin that I believe are related to the condition I’m consulting for. They are pale, and the rash swelling severity is 4/10. The lesion(s) are larger than 1 cm, and the rash itching severity is 0/10.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "That helps: **pale, larger than 1 cm, not itchy**, mild rash severity. That pattern is less like classic allergic urticaria/anaphylaxis and more like **non-itchy dermatoses** or **vascular/edema-related** changes—though we still need more.\n\n**Current posterior (very rough, based on what we have):**\n- **Circulatory Diseases / localized edema**: 0.30  \n- **Digestive Diseases** (broad GI cause of distension/pain): 0.25  \n- **Anemia**: 0.15  \n- **Inguinal hernia**: 0.10  \n- **Pulmonary embolism**: 0.05  \n\n(Still too little to be confident.)\n\n**Question 7 (one at a time):**  \nAre the skin areas **tender or painful**, or are they **completely painless**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I have pain somewhere related to my reason for consulting. The pain intensity is 1/10, and the pain intensity caused by the rash is 6/10.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "So the rash/skin is **more painful (6/10)** than the abdominal pain (1/10). That suggests a **primary skin/pain process** with secondary abdominal symptoms—or a systemic inflammatory/vascular process.\n\n**Current posterior (still uncertain):**\n- **Circulatory Diseases / localized edema**: 0.35  \n- **Digestive Diseases**: 0.25  \n- **Anemia**: 0.15  \n- **Inguinal hernia**: 0.10  \n- **Pulmonary embolism**: 0.05  \n\n**Question 8 (one at a time):**  \nDo the skin lesions appear **purple/bruise-like** or **blanch** (turn white) when you press on them with a finger?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "No worries.\n\n**Question 8 (alternate, one at a time):**  \nAre the skin lesions **on the abdomen/groin area** (near where the iliac fossa pain is), or are they **elsewhere** (legs, arms, back, face)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for. I don’t know where exactly they are located (whether on the abdomen/groin area or elsewhere).",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—then we need a question that doesn’t depend on exact location.\n\n**Question 9 (one at a time):**  \nHave you had any **shortness of breath, chest pain, or coughing** that started around the same time as the abdominal distension/pain?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I have intense coughing fits.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Coughing fits are important because they can both (a) worsen **abdominal wall/hernia pain** and (b) be a primary respiratory illness.\n\n**Current posterior (updated):**\n- **Inguinal hernia**: 0.30 (cough/strain worsens groin/iliac pain)\n- **Bronchitis / URTI / Influenza / Whooping cough** (cough-driven illness): 0.30 (need which fits)\n- **Pulmonary embolism**: 0.05\n- **Digestive Diseases (non-hernia)**: 0.20\n- **Circulatory Diseases / localized edema**: 0.15\n\n**Question 10 (one at a time):**  \nWhen you cough, do you produce **phlegm/sputum** (and what color), or is it a **dry cough**?\n\n(If you’re unsure, tell me “mostly dry” vs “mostly with mucus.”)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Question 10 (alternate, one at a time):**  \nDo you have **fever** or **chills** with the coughing fits?\n\n(Yes/no/unsure is fine.)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Given the uncertainty, we should ask about the most dangerous abdominal cause that can present with distension and pain with straining: **bowel obstruction/ileus** vs **hernia**.\n\n**Question 11 (one at a time):**  \nHave you noticed **vomiting** (especially green/bilious or feculent) or **inability to pass gas**?\n\n(Yes/no/unsure.)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t safely narrow to a confident single diagnosis yet—key discriminators (vomiting/obstruction signs, fever, exact skin morphology/location, whether there’s a reducible bulge) are still unknown.\n\n**[ABSTAIN]** — Insufficient evidence: several critical features are “don’t know” (vomiting/obstruction, fever, sputum, and exact skin characteristics/location), so I can’t confidently rank a top diagnosis.\n\n[POSSIBLE] inguinal hernia, Bronchitis, URTI, Influenza, Pulmonary embolism",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "inguinal hernia",
+      "Bronchitis",
+      "URTI",
+      "Influenza",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23818,
+      "completion_tokens": 1510
+    },
+    "patient": {}
+  }
+}

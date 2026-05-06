@@ -1,0 +1,83 @@
+{
+  "case_idx": 10,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Brief Psychotic Disorder",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old female",
+    "History": "The patient presents with her mother due to experiencing bizarre behavior for the past week following her father’s death from lung cancer. She has been hearing voices that are not present and experiencing intrusive thoughts.",
+    "Symptoms": {
+      "Primary_Symptom": "Auditory hallucinations",
+      "Secondary_Symptoms": [
+        "Intrusive thoughts",
+        "Concentration difficulties",
+        "Voices discussing the patient in the third person and encouraging self-harm"
+      ]
+    },
+    "Past_Medical_History": "No history of medical or psychiatric illness.",
+    "Social_History": "Patient denies the use of medications or substances. No notable social history provided.",
+    "Review_of_Systems": "Denies fever, vomiting, headache, or any sensory disturbances other than auditory hallucinations."
+  },
+  "objective_for_doctor": "Assess, manage, and diagnose the patient presenting with symptoms of a psychiatric disorder, following recent bereavement.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve been acting really strangely for about a week since my father died, and I can hear voices that aren’t there. They talk about me in the third person and sometimes encourage me to hurt myself, and I’ve also had intrusive thoughts and trouble focusing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have your symptoms been intentionally produced or exaggerated to assume the sick role (e.g., to get attention, avoid responsibilities, or receive benefits), rather than from a genuine medical condition?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I'm not trying to get attention or avoid anything, and I don’t want to be like this. It feels distressing and out of my control. I just want the voices and intrusive thoughts to stop.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Brief Psychotic Disorder  , Somatization disorder",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Brief Psychotic Disorder  ",
+    "predicted_set": [
+      "Brief Psychotic Disorder  ",
+      "Somatization disorder"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Brief Psychotic Disorder",
+    "predicted_set_remapped": [
+      "Brief Psychotic Disorder",
+      "Somatization disorder",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 711,
+      "completion_tokens": 122,
+      "calls": 2
+    }
+  }
+}

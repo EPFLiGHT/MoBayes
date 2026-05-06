@@ -1,0 +1,103 @@
+{
+  "case_idx": 35,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Takotsubo cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "43-year-old woman",
+    "History": "The patient has been brought to the emergency department by her brother due to severe chest pain. She is grieving the recent loss of her husband in a car accident and is still in a state of shock over the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe chest pain",
+      "Secondary_Symptoms": [
+        "Shortness of breath",
+        "Emotional distress"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Non-smoker. No history of alcohol or drug abuse. Recently widowed.",
+    "Review_of_Systems": "Denies recent illness, fever, or cough."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with severe chest pain.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s start with key safety questions: Where exactly is the chest pain (center/left/right), and does it radiate to your arm, jaw, back, or neck? Doctor: Also, when did it start and is it constant or comes in waves?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: The pain is in the center of my chest, and it feels like it’s spreading toward my left shoulder. It started about an hour ago and it’s been pretty constant since then, with a lot of tightness that makes me short of breath."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this sounds concerning for a heart or lung cause; do you have any sweating, nausea/vomiting, or feeling faint with the pain? Also, do you have any history of heart disease, high blood pressure, diabetes, high cholesterol, smoking, or blood clots? Doctor: REQUEST TEST: ECG and Cardiac_Troponin (STAT), plus Chest_X-Ray.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98.2°F); Blood Pressure 105/67 mmHg; Heart Rate 96 bpm; Respiratory Rate 23 breaths/min. Heart sounds: Presence of S3; no murmurs/rubs/gallops. Respiratory exam: Rales in the lower right and left lung lobes. Electrocardiogram: No significant findings. Echocardiography: Enlarged left ventricle and left atrium. Troponin: Not mentioned (context suggests possible normal or slightly elevated). BNP: Not mentioned. Chest X-Ray: Not provided."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I need one quick clarification—do you have any leg swelling/pain or recent long travel/surgery that could suggest a clot? Also, were the troponin levels definitely normal or elevated? Doctor: With persistent central chest tightness radiating to the left shoulder plus enlarged left ventricle/left atrium and rales (even if ECG is unrevealing), I’m most concerned for an acute coronary syndrome or acute decompensated heart failure. REQUEST TEST: Repeat ECG in 15–30 minutes and repeat Cardiac_Troponin at 1–3 hours (serial), plus BNP; if troponins are negative and symptoms persist, REQUEST TEST: CT_Angiography_Chest (or V/Q scan if contraindicated).",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98.2°F); Blood Pressure 105/67 mmHg; Heart Rate 96 bpm; Respiratory Rate 23 breaths/min. Cardiac exam: S3 present; no murmurs/rubs/gallops. Respiratory exam: Rales in lower right and left lung lobes. ECG: No significant findings. Echocardiography: Enlarged left ventricle and left atrium. Laboratory tests: Troponin not provided (reported only as possibly normal or slightly elevated); BNP not provided. Chest X-Ray: Not provided."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on your persistent central tight chest pain radiating to the left shoulder, shortness of breath, rales in both lower lung fields, S3, and enlarged left ventricle/left atrium with a non-diagnostic ECG, my concern is acute decompensated heart failure due to an ischemic event (ACS) despite negative/unknown troponins. Doctor: One last thing: are your symptoms worse when lying flat or do you have new swelling of the legs, and have you had a history of prior heart disease or very high blood pressure? Doctor: DIAGNOSIS READY: Acute decompensated left-sided heart failure (pulmonary congestion) likely precipitated by acute coronary syndrome/ischemia (NSTEMI/unstable angina until serial troponins confirm).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: I’m Dr. Agent—based on your persistent central tight chest pain radiating to the left shoulder, shortness of breath, rales in both lower lung fields, S3, and enlarged left ventricle/left atrium with a non-diagnostic ECG, my concern is acute decompensated heart failure due to an ischemic event (ACS) despite negative/unknown troponins. Doctor: One last thing: are your symptoms worse when lying flat or do you have new swelling of the legs, and have you had a history of prior heart disease or very high blood pressure? Doctor: DIAGNOSIS READY: Acute decompensated left-sided heart failure (pulmonary congestion) likely precipitated by acute coronary syndrome/ischemia (NSTEMI/unstable angina until serial troponins confirm).",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1819,
+      "completion_tokens": 486,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 331,
+      "completion_tokens": 55,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 1113,
+      "completion_tokens": 250,
+      "calls": 2
+    },
+    "moderator": {
+      "prompt_tokens": 235,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

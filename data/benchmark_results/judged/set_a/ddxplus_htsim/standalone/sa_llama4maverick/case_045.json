@@ -1,0 +1,119 @@
+{
+  "case_idx": 45,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: F\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, along with nasal congestion or a clear runny nose. I’ve also had pain around the top of my head and my cheeks/temples (pain intensity 6/10).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To help narrow down the diagnosis, can you tell me how long you've been experiencing these symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Was it more than a week or less than a week?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had a fever with these symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any history of allergies or have you recently been exposed to anything that might trigger allergies?\n \n(I'll try to get some information, even if it's indirect or based on the patient's general condition)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have been in contact with a person with similar symptoms in the past 2 weeks, and I attend or work in a daycare.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Working in a daycare and being exposed to someone with similar symptoms increases the likelihood of an infectious cause. Have you noticed any thick or colored nasal discharge?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I’ve had nasal congestion or a clear runny nose.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The presence of clear nasal discharge is more suggestive of a viral upper respiratory infection or allergic rhinitis. Given the pain around your cheeks and temples, I'm going to ask: Does bending forward or lying down make your facial pain worse?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "The fact that you're unsure about many symptoms makes it challenging to narrow down the diagnosis. However, given the information you have provided so far, I'll try to make an educated guess.\n\n[ABSTAIN] Insufficient information to make a confident diagnosis.\n[POSSIBLE] Acute viral upper respiratory tract infection, allergic rhinitis, acute sinusitis, common cold, influenza.",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute viral upper respiratory tract infection",
+      "allergic rhinitis",
+      "acute sinusitis",
+      "common cold",
+      "influenza"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "URTI",
+      "Allergic sinusitis",
+      "Acute rhinosinusitis"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2551,
+      "completion_tokens": 241
+    },
+    "patient": {}
+  }
+}

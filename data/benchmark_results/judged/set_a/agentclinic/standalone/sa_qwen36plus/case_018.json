@@ -1,0 +1,115 @@
+{
+  "case_idx": 18,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for my annual blood pressure check, and I don’t have any new complaints—just the usual occasional knee pain from arthritis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any recent symptoms such as chest pain, shortness of breath, severe headache, dizziness, or vision changes that might suggest your blood pressure is poorly controlled?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any chest pain, shortness of breath, severe headaches, dizziness, or vision changes. I feel generally well aside from occasional knee pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you currently taking any prescribed medications to manage your blood pressure?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I’m taking my prescribed blood pressure medication regularly as directed. I also use occasional acetaminophen for my knee arthritis pain when needed.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "What have your home blood pressure readings typically been over the past few weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My home readings have usually been in a reasonable range, roughly around the 120s to 130s over the 70s to 80s, and they haven’t been wildly different week to week.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Does your knee pain typically worsen with activity and improve with rest, or do you experience prolonged morning stiffness and noticeable joint swelling?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My knee pain usually gets worse with activity and feels better with rest, and I don’t really have prolonged morning stiffness or obvious joint swelling—just intermittent discomfort.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Well-controlled essential hypertension, Primary osteoarthritis of the knee, Degenerative joint disease, Asymptomatic medication effect, Routine preventive health visit",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Well-controlled essential hypertension",
+    "predicted_set": [
+      "Well-controlled essential hypertension",
+      "Primary osteoarthritis of the knee",
+      "Degenerative joint disease",
+      "Asymptomatic medication effect",
+      "Routine preventive health visit"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1938,
+      "completion_tokens": 8211
+    },
+    "patient": {
+      "prompt_tokens": 2125,
+      "completion_tokens": 206,
+      "calls": 5
+    }
+  }
+}

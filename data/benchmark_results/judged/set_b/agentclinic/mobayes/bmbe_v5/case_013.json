@@ -1,0 +1,265 @@
+{
+  "case_idx": 13,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Endometritis",
+  "patient_actor_hidden": {
+    "Demographics": "24-year-old woman",
+    "History": "The patient is in the postpartum period after delivering an 11 pound boy vaginally at 40 weeks gestation. She experienced a prolonged course during labor. She reports increased frequency of urination and uterine tenderness. She also mentions a decrease in bowel sounds.",
+    "Symptoms": {
+      "Primary_Symptom": "Uterine tenderness",
+      "Secondary_Symptoms": [
+        "Decreased bowel sounds",
+        "Increased frequency of urination",
+        "Fever"
+      ]
+    },
+    "Past_Medical_History": "Uncomplicated pregnancy leading up to a vaginal delivery. No significant past medical or surgical history.",
+    "Social_History": "Does not smoke, drink alcohol, or use illicit drugs. Lives with her partner.",
+    "Review_of_Systems": "Complains of minor difficulty in breathing but denies any urinary pain, headache, vomiting, or diarrhea."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with postpartum fever and abdominal tenderness.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m 24, and I recently delivered my baby vaginally at 40 weeks. Since then I’ve had fever with uterine tenderness, I’m needing to urinate more often, and I’ve noticed my bowel sounds seem decreased.”",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_uterine_tenderness_84110f3f": "yes",
+        "f_frequent_urination_861b9e9c": "yes",
+        "f_decreased_bowel_sounds_2ef9201e": "yes",
+        "f_postpartum_state_42f3eb84": "yes",
+        "f_recent_childbirth_651b7c18": "yes",
+        "f_recent_delivery_within_3_days_d6236fa5": "yes",
+        "f_pregnancy_5fa7cc34": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Endometritis",
+          0.8459008400436965
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.019278510057023916
+        ],
+        [
+          "Minimal Change Disease",
+          0.014749872773578039
+        ],
+        [
+          "Pseudocyesis",
+          0.008508217490481034
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.007514047810619573
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.8500759644441527
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.019373663264034995
+        ],
+        [
+          "Minimal Change Disease",
+          0.01482267392331731
+        ]
+      ],
+      "entropy": 1.360701036733701
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes/No)",
+      "patient_answer": "“No, I haven’t noticed any lump in my right breast or anything that moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.8546128143436436
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.017903156509998092
+        ],
+        [
+          "Minimal Change Disease",
+          0.01490178243774656
+        ]
+      ],
+      "entropy": 1.3280045469480548
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently touch around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“It does feel tender when you press around my lower belly/near my belly button area, and it’s painful to touch.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.7990094094553674
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.04717165464033544
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.024125287008978532
+        ]
+      ],
+      "entropy": 1.530752709502189
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.8236576751035772
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.034929132010656096
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.023863565667564708
+        ]
+      ],
+      "entropy": 1.4109567812563037
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (even if it comes and goes)?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in my right breast, and it hasn’t come and gone.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.826431738795762
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.03504677267599453
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.02394393771178336
+        ]
+      ],
+      "entropy": 1.386889944313913
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both eyes** look **cloudy or hazy**, like there’s a film over your vision? (Yes or No)",
+      "patient_answer": "“No—my vision in both eyes doesn’t seem cloudy or hazy, and I don’t notice a film over it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.730136806580134
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.055247992506441086
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.041063678099893794
+        ]
+      ],
+      "entropy": 1.9308764526112863
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past few months, have you lost weight without trying (for example, your clothes feel looser or the scale has gone down), even though you didn’t change your diet or exercise?",
+      "patient_answer": "“No, I haven’t lost weight without trying, and my diet and activity haven’t changed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.7672879368142618
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.0416383761870788
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.039665978566225835
+        ]
+      ],
+      "entropy": 1.73006733451009
+    }
+  ],
+  "final": {
+    "predicted": "Endometritis",
+    "predicted_top3": [
+      "Endometritis",
+      "Pyoderma gangrenosum",
+      "Chronic Granulomatous Disease"
+    ],
+    "confidence": 0.7672879368142618,
+    "final_entropy": 1.73006733451009,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Endometritis",
+    "predicted_set_remapped": [
+      "Endometritis",
+      "Pyoderma gangrenosum",
+      "Chronic Granulomatous Disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11225,
+      "completion_tokens": 406
+    },
+    "patient": {
+      "prompt_tokens": 4064,
+      "completion_tokens": 198,
+      "calls": 8
+    }
+  }
+}

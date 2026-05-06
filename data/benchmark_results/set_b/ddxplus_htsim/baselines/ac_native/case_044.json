@@ -1,0 +1,250 @@
+{
+  "case_idx": 44,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {
+    "AGE": 0,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "fever",
+    "EVIDENCES_ENG": "['hiv infection', 'intravenous drug use', 'diabetes', 'fever', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 0\n- I am infected with the human immunodeficiency virus (HIV).\n- I am currently using intravenous drugs.\n- I have diabetes.\n- I have a fever (either felt or measured with a thermometer).\n- I have a cough.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.32893747008115837], ['Pneumonia', 0.3032566764224121], ['Acute otitis media', 0.19307496168317057], ['Tuberculosis', 0.13377762200247995], ['Chagas', 0.04095326981077899]]",
+    "PATHOLOGY": "Tuberculosis",
+    "INITIAL_EVIDENCE": "fievre",
+    "EVIDENCES": "['HIV', 'drogues_IV', 'e10_e11', 'fievre', 'toux', 'trav1_@_N']",
+    "patient_id": "htsim_1585",
+    "_test_index": 1585,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 0-year-old M patient presents to the clinic. Chief complaint: fever.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever and a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: How long have you had the fever and cough (days), and what is the highest temperature you’ve measured?  \nDr. Agent: Do you have any trouble breathing, wheezing, or fast breathing, and how is your feeding/urination in the past 24 hours?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m going to check your breathing now—can you look comfortable and tell me if you have any grunting or flaring of the nostrils; also, is the cough dry or wet?  \nDr. Agent: Since you don’t know the duration or temperature, I need a quick exam: I’m listening for wheezes/crackles—any chest pulling in when you breathe?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m checking your chest and oxygen level—please tell me if you’re breathing very fast, if your ribs pull in with breaths, or if you look very sleepy or won’t feed.  \nDr. Agent: Also, do you have any runny nose, vomiting/diarrhea, or has anyone around you been sick recently?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m going to listen to your lungs and check your vital signs—please tell me if you can drink/feed at all, and whether you have any fewer wet diapers than usual in the last day.  \nDr. Agent: Also, do you have a rash, stiff neck, or are you hard to wake?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your oxygen level and breathing rate now—please look calm; is your chest pulling in between the ribs or are your lips/face bluish at all?  \nDoctor: Also, when I touch/press your ear and throat area, do you seem in pain, and do you have any swollen glands or reduced tears when crying?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you don’t know, I need to check right now—please keep still while I measure your temperature, count your breaths for 30 seconds, and check oxygen saturation; does anything hurt when I touch your chest or throat?  \nDoctor: Next, I’ll decide what tests are safest—can you request/confirm any recent immunizations (especially pneumococcal/Hib) and whether this is the first day of symptoms or longer?  \nDoctor: I’ll also request a basic workup to clarify the cause if you’re not improving—REQUEST TEST: Pulse_Oximetry_and_Vitals, Chest_X-Ray, CBC_with_Differential, Respiratory_Viral_PCR.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to interpret the results we just ordered—REQUEST TEST: Pulse_Oximetry_and_Vitals (including temp), Chest_X-Ray, CBC_with_Differential, Respiratory_Viral_PCR.  \nDoctor: While we wait, tell me: is the baby under 3 months old, and are there any danger signs right now like not feeding, lethargy, or fewer wet diapers?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I can’t get history from you, so I need to make this safe based on exam—what is the baby’s age in weeks/months (especially is it <3 months), and right now is the baby feeding at all and having normal wet diapers?  \nDr. Agent: REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2), and if SpO2 is low or the baby looks ill then REQUEST TEST: Chest_X-Ray immediately.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t provide history, I’m going to treat this as potentially urgent—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and I’ll also examine for retractions, grunting, dehydration, and level of alertness.  \nDoctor: If oxygen saturation is <92% or the baby appears ill or has significant work of breathing, I will immediately REQUEST TEST: Chest_X-Ray and start emergency evaluation for sepsis/serious infection.",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need your exam immediately—please answer: how old is the baby (weeks/months) and right now can the baby feed and make wet diapers (yes/no, same as usual or less)?  \nDoctor: REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and I will decide based on SpO2 and work of breathing whether this is severe pneumonia/bronchiolitis versus a mild viral illness.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t confirm key history, so I’m treating this as urgent until proven otherwise—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and I’ll perform an immediate exam for retractions/grunting, dehydration, and level of alertness.  \nDoctor: If SpO2 is <92% or there are significant retractions/grunting, I will REQUEST TEST: Chest_X-Ray immediately; if the baby is <3 months or looks ill/lethargic, I’ll escalate to emergency evaluation for serious bacterial infection.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m going to triage this baby as potentially serious because you can’t confirm age, feeding, urine output, or severity—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now.  \nDr. Agent: While we get it, tell me just one thing: is the baby less than 3 months old (yes/no)?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: We must assume possible serious infection because we don’t know the baby’s exact age or whether they’re feeding/having wet diapers—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and I’ll immediately assess alertness, retractions (chest pulling in), grunting, and hydration.  \nDr. Agent: If SpO2 is <92%, there are significant retractions/grunting, or the infant appears lethargic/dehydrated, I will immediately REQUEST TEST: Chest_X-Ray and CBC_with_Differential.  \nDr. Agent: Given the chief complaint is fever + cough in a 0-month-old, my working diagnosis is **acute viral lower respiratory infection/possible pneumonia (rule out serious bacterial infection)** while awaiting vitals and imaging.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I need the immediate vitals to decide severity—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and I’ll quickly examine for retractions/grunting and hydration while you obtain that.  \nDr. Agent: Then I can decide on next steps—please confirm: is this infant less than 3 months old (yes/no) ?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: We still can’t confirm age, feeding, or wet diapers—so I’m treating this as potentially serious; REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now.  \nDoctor: Please also REQUEST TEST: Chest_X-Ray (immediately if SpO2 <92% or significant work of breathing), because fever + cough in a very young infant needs pneumonia/serious infection to be ruled out.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m going to assume the infant may be <3 months and/or possibly ill since you can’t confirm age or feeding/urine output—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now.  \nDr. Agent: If SpO2 is <92% or there are any retractions/grunting/poor alertness, REQUEST TEST: Chest_X-Ray immediately; otherwise I’ll still REQUEST TEST: CBC_with_Differential and Respiratory_Viral_PCR to clarify cause given fever + cough in a young infant.",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m infected with HIV, I’m currently using intravenous drugs, and I have a fever and a cough.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: Thank you—so there’s high risk (HIV and IV drug use) plus fever and cough; please answer two urgent yes/no questions: are you breathing fast or struggling to breathe, and are you hard to wake/too weak to drink?  \nREQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and also REQUEST TEST: CBC_with_Differential + CMP + Blood_Cultures_x2 before antibiotics, plus REQUEST TEST: Chest_X-Ray immediately.",
+      "turn": 17
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure.",
+      "turn": 17
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: Because you can’t confirm how sick you are, I need to treat this as potentially severe—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now; also REQUEST TEST: Chest_X-Ray immediately.  \nDr. Agent: With HIV + active IV drug use and fever/cough, I’m prioritizing bloodstream infection and pneumonia—REQUEST TEST: CBC_with_Differential + CMP + Blood_Cultures_x2 (before antibiotics if possible) and start urgent evaluation/empiric treatment based on the results.",
+      "turn": 18
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have HIV, I’m currently using intravenous drugs, and I have a fever and a cough.",
+      "turn": 18
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still worried about a serious infection given HIV and active IV drug use—REQUEST TEST: Pulse_Oximetry_and_Vitals (temp, HR, RR, SpO2) now, and REQUEST TEST: Chest_X-Ray immediately.  \nDoctor: Also REQUEST TEST: CBC_with_Differential + CMP + Blood_Cultures_x2 (before antibiotics if possible) and then we’ll treat empirically for sepsis/pneumonia while results are pending.",
+      "turn": 19
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m infected with HIV, I’m currently using intravenous drugs, and I have a fever and a cough.",
+      "turn": 19
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With HIV and active intravenous drug use plus fever and cough, the most urgent diagnosis to rule out is **sepsis from bacterial bloodstream infection and/or community-acquired or aspiration pneumonia**.  \nDoctor: DIAGNOSIS READY: **Sepsis secondary to pneumonia (rule out bacteremia/serious bacterial infection in HIV + IV drug use)**\n\n[DDX]\n1. Pneumonia",
+      "turn": 20
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 20
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 22833,
+      "completion_tokens": 2010,
+      "calls": 20
+    },
+    "patient": {
+      "prompt_tokens": 30881,
+      "completion_tokens": 227,
+      "calls": 20
+    }
+  }
+}

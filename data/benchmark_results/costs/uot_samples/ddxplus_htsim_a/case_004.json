@@ -1,0 +1,71 @@
+{
+  "case_idx": 4,
+  "baseline": "uot",
+  "column": "htsim",
+  "ground_truth": "Acute pulmonary edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 43\nSex: M\nChief Complaint: symptoms worse when lying down and alleviated while sitting up",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having shortness of breath or difficulty breathing in a significant way, and it gets worse when I lie down and improves when I sit up. I also have swelling in my ankles and calves.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have shortness of breath (especially sudden or worsening), possibly with low oxygen or difficulty breathing?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’m experiencing shortness of breath or difficulty breathing in a significant way, and it gets worse when lying down.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden shortness of breath that started within the last few hours?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute pulmonary edema  , Pulmonary embolism",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acute pulmonary edema",
+    "predicted_set": [
+      "Acute pulmonary edema",
+      "Pulmonary embolism"
+    ],
+    "predicted_raw": [
+      "Acute pulmonary edema  ",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4490,
+      "completion_tokens": 5317,
+      "total_tokens": 9807
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "case_idx": 43,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Pseudomonas keratitis",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old male",
+    "History": "The patient reports a 1-day history of increasing pain and blurry vision in his right eye, finding it difficult to open the eye due to the pain. The left eye is unaffected. He uses contact lenses regularly and mentions no recent changes in his vision or eye care routine until this episode. He has a history of bronchial asthma for which he uses inhaled salbutamol. Professionally, he is engaged as a kindergarten teacher.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive pain and blurry vision in the right eye",
+      "Secondary_Symptoms": [
+        "Difficulty opening the affected eye",
+        "No symptoms in the left eye",
+        "Uses contact lenses"
+      ]
+    },
+    "Past_Medical_History": "Bronchial Asthma treated with inhaled salbutamol",
+    "Social_History": "Kindergarten teacher, no reported smoking or significant alcohol use",
+    "Review_of_Systems": "Denies fever, nausea, or any other systemic symptoms"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with progressive pain and blurry vision in one eye.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m going to assess your one-eye blurry vision and pain—first, when did it start, and did it come on suddenly or gradually? Doctor: Any redness in that eye, light sensitivity, or headache/nausea?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It started about one day ago and feels like it came on fairly suddenly, with my right eye pain increasing and my vision becoming blurry. The eye is red and it’s painful to open, and bright light really bothers me. I don’t have nausea or a major headache."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: This sounds urgent—do you have a visible white/gray spot on the cornea, and are you able to see halos around lights? Also, do you wear contact lenses or have any recent eye injury/chemical exposure? Doctor: REQUEST TEST: Slit-lamp exam (corneal staining) and visual acuity/eye pressure (tonometry) Doctor: DIAGNOSIS READY: Acute angle-closure glaucoma (right eye) with secondary corneal edema—based on sudden painful red eye with marked photophobia and rapid blurry vision (confirm with elevated intraocular pressure and shallow/closed anterior chamber on exam).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: This sounds urgent—do you have a visible white/gray spot on the cornea, and are you able to see halos around lights? Also, do you wear contact lenses or have any recent eye injury/chemical exposure? Doctor: REQUEST TEST: Slit-lamp exam (corneal staining) and visual acuity/eye pressure (tonometry) Doctor: DIAGNOSIS READY: Acute angle-closure glaucoma (right eye) with secondary corneal edema—based on sudden painful red eye with marked photophobia and rapid blurry vision (confirm with elevated intraocular pressure and shallow/closed anterior chamber on exam).",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 2,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 512,
+      "completion_tokens": 183,
+      "calls": 2
+    },
+    "patient": {
+      "prompt_tokens": 383,
+      "completion_tokens": 60,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "calls": 0
+    },
+    "moderator": {
+      "prompt_tokens": 191,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

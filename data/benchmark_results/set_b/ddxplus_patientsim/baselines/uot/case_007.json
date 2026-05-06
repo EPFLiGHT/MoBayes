@@ -1,0 +1,109 @@
+{
+  "case_idx": 7,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: Female\nChief Complaint: I have a fever, a cough, and sensitive pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and a cough, and I’m also having a sensitive, sharp pain that’s related to this illness. The pain is about 6/10, and it started pretty quickly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **chest pain/pressure that is worse with exertion or stress** (suggesting angina/ischemia)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain or pressure with exertion or stress.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (or chills) with your current illness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever. I also feel sensitive and it’s making me uncomfortable, but I don’t know about chills specifically.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever with a productive cough (phlegm/sputum)**?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a cough, but I’m not sure if it’s productive with phlegm. I don’t have clear sputum I can describe.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever and cough with shortness of breath (or chest tightness) that started within the last 7 days?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have fever and a cough, but I don’t have shortness of breath or chest tightness.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have wheezing or shortness of breath that is worse than usual?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have wheezing or shortness of breath that feels worse than usual.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (temperature ≥ 38°C)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever—at least around 38°C or higher.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Influenza, Whooping cough  ",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "Whooping cough  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4746,
+      "completion_tokens": 196
+    }
+  }
+}

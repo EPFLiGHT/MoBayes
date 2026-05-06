@@ -1,0 +1,103 @@
+{
+  "case_idx": 19,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient reports coming in for his annual blood pressure check-up. He has a history of hypertension and knee osteoarthritis. For his osteoarthritis, he occasionally takes acetaminophen. The patient mentions occasional knee pain but has no other complaints. He follows a diet rich in vegetables and exercises daily. Additionally, he has a family history of hematologic malignancy in a brother who died at the age of 84.",
+    "Symptoms": {
+      "Primary_Symptom": "Occasional knee pain",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "Hypertension, Knee osteoarthritis",
+    "Social_History": "Non-smoker, exercises daily, and follows a vegetable-rich diet.",
+    "Review_of_Systems": "No additional complaints or symptoms noted."
+  },
+  "objective_for_doctor": "Evaluate a 75-year-old man presenting for an annual check-up, focusing on blood pressure management and interpreting laboratory test results.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for my annual blood pressure check-up. I also get occasional knee pain from my osteoarthritis, but nothing else has been bothering me.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "When did your knee pain first start, and is it in one knee or both?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It started gradually a few years ago, and it’s mostly in my left knee, though sometimes both can ache a bit. It comes and goes and I manage it with occasional acetaminophen.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any swelling, redness, warmth, or significant stiffness in the knee, especially in the morning?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t usually notice much swelling, redness, or warmth. In the mornings I may have a little stiffness at times, but it’s mild and doesn’t last long.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Does the knee pain get worse with activity like walking or climbing stairs, and improve with rest?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, it tends to get worse when I’m walking a lot or climbing stairs, and it usually eases with rest. Overall it’s manageable—mostly just intermittent discomfort.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Knee osteoarthritis, patellofemoral pain syndrome, degenerative meniscal tear, pes anserine bursitis, inflammatory arthritis\n\nThe pattern you describe is most consistent with knee osteoarthritis: gradual onset over years, intermittent pain, worse with activity and stairs, mild brief morning stiffness, and no significant warmth/redness/swelling.",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Knee osteoarthritis",
+    "predicted_set": [
+      "Knee osteoarthritis",
+      "patellofemoral pain syndrome",
+      "degenerative meniscal tear",
+      "pes anserine bursitis",
+      "inflammatory arthritis\n\nThe pattern you describe is most consistent with knee osteoarthritis: gradual onset over years"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Osteoarthritis",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1352,
+      "completion_tokens": 142
+    },
+    "patient": {
+      "prompt_tokens": 1600,
+      "completion_tokens": 171,
+      "calls": 4
+    }
+  }
+}

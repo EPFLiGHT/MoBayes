@@ -1,0 +1,363 @@
+{
+  "case_idx": 19,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Toxic exposure",
+  "patient_actor_hidden": {
+    "Demographics": "52-year-old male",
+    "History": "The patient describes a continuous 'nagging' headache for the past month, initially thought to be related to a cold. Over-the-counter ibuprofen provided only mild and temporary relief. Recently, has experienced dizziness and nausea, notably improving when outside in cold air. The patient has been staying in a cabin for 5 weeks and reports no significant travel.",
+    "Symptoms": {
+      "Primary_Symptom": "Persistent headache",
+      "Secondary_Symptoms": [
+        "Dizziness",
+        "Nausea",
+        "Temporary relief upon exposure to cold air"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, type II diabetes mellitus, and asthma.",
+    "Current_Medications": [
+      "Amlodipine",
+      "Metformin",
+      "Glimepiride",
+      "Fluticasone/Salmeterol inhaler"
+    ],
+    "Social_History": "Denies tobacco or illicit drug use.",
+    "Review_of_Systems": "Currently asymptomatic in the office; no fever, cough, chest pain, or recent changes in vision or hearing."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with headache and dizziness.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’ve had this continuous nagging headache for about a month, and it started like it was part of a cold. Ibuprofen only helps a little and doesn’t last, and lately I’ve felt dizzy and nauseous—though it seems better when I’m outside in cold air.”",
+      "extracted_features": {
+        "f_persistent_headache_fea910bf": "yes",
+        "f_dizziness_d46bbf33": "yes",
+        "f_nausea_072ff6bd": "yes",
+        "f_symptoms_improve_when_outside_in_cold_ai_b511c4a2": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Toxic exposure",
+          0.09939221473723936
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.08309840904260998
+        ],
+        [
+          "Benign paroxysmal positional vertigo",
+          0.061094561706322735
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.03964826052359819
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.03964826052359819
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements of your face, arms, legs, or body? (Yes or no)",
+      "patient_answer": "“Doctor, no—I haven’t noticed any twitching, jerking, shaking, or any sudden uncontrollable movements.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Toxic exposure",
+          0.09598714075349556
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.08025154390866024
+        ],
+        [
+          "Benign paroxysmal positional vertigo",
+          0.06418847281265344
+        ]
+      ],
+      "entropy": 5.150097331380628
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves a bit under the skin**? (Yes or no)",
+      "patient_answer": "“Doctor, no—I haven’t noticed any lump in my right breast or anything like that under the skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Toxic exposure",
+          0.09753324213452487
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.08154418604689787
+        ],
+        [
+          "Benign paroxysmal positional vertigo",
+          0.06522238095579388
+        ]
+      ],
+      "entropy": 5.131103829383538
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“Doctor, when I press around my belly button area it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.08245109849484727
+        ],
+        [
+          "Toxic exposure",
+          0.07694369911251528
+        ],
+        [
+          "Benign paroxysmal positional vertigo",
+          0.07174537255162756
+        ]
+      ],
+      "entropy": 5.1378648622842835
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“Doctor, I haven’t been vomiting—just the nausea with the dizziness, which seems to improve when I’m outside in the cold air.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.08148423731743264
+        ],
+        [
+          "Essential thrombocythemia",
+          0.05674369519926033
+        ],
+        [
+          "Cardiac contusion",
+          0.051061956177439576
+        ]
+      ],
+      "entropy": 5.201808433778522
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any lump or mass in my right breast, and there hasn’t been any new growth that I can feel.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.08217651215714644
+        ],
+        [
+          "Essential thrombocythemia",
+          0.057225779020525135
+        ],
+        [
+          "Cardiac contusion",
+          0.05149576900666818
+        ]
+      ],
+      "entropy": 5.179789996821928
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, making your vision seem less clear? (Yes/No)",
+      "patient_answer": "“Doctor, in the office my vision doesn’t seem cloudy or hazy in either eye—I haven’t noticed that kind of change.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.08519319890132712
+        ],
+        [
+          "Essential thrombocythemia",
+          0.05932652830356243
+        ],
+        [
+          "Cardiac contusion",
+          0.053386170529754674
+        ]
+      ],
+      "entropy": 5.144212215273967
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 6 to 12 months, have you lost weight without trying (for example, your clothes feel looser or the scale went down), even though you didn’t change your diet or exercise?",
+      "patient_answer": "“Doctor, no—I haven’t lost weight without trying; my weight and clothes feel about the same.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.0872355564084461
+        ],
+        [
+          "Essential thrombocythemia",
+          0.06074877775556886
+        ],
+        [
+          "Cardiac contusion",
+          0.05947181342946791
+        ]
+      ],
+      "entropy": 5.091755779531497
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small or you only feel it sometimes?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any lump or mass in my right breast, and I don’t feel any painless spot that comes and goes.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.08819115368953308
+        ],
+        [
+          "Essential thrombocythemia",
+          0.061414233095599895
+        ],
+        [
+          "Cardiac contusion",
+          0.06012328062420239
+        ]
+      ],
+      "entropy": 5.082175365739182
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant recently, or is there any chance you could be pregnant right now?",
+      "patient_answer": "“Doctor, I’m not pregnant and there’s no chance of pregnancy.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.0898513066608709
+        ],
+        [
+          "Essential thrombocythemia",
+          0.06257032435068226
+        ],
+        [
+          "Cardiac contusion",
+          0.06125507036499919
+        ]
+      ],
+      "entropy": 5.049167177489744
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to move or shift when you press on it, rather than staying fixed in one spot?",
+      "patient_answer": "“Doctor, no— I haven’t noticed any breast lump or swelling at all, so nothing that would move or shift when I press. My main issue has been the continuous nagging headache for about a month, with dizziness and nausea that seem to ease when I’m outside in cold air.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.09069023103975322
+        ],
+        [
+          "Essential thrombocythemia",
+          0.06315453144174307
+        ],
+        [
+          "Cardiac contusion",
+          0.06182699718241662
+        ]
+      ],
+      "entropy": 5.043446810484181
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_avoids_using_right_knee_due_to_pain_e1c64467",
+      "doctor_question": "Do you find yourself avoiding using your right knee because it hurts? (yes/no)",
+      "patient_answer": "“Doctor, no—I’m not avoiding using my right knee because it hurts.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.09506958970620548
+        ],
+        [
+          "Essential thrombocythemia",
+          0.06620421321478756
+        ],
+        [
+          "Cardiac contusion",
+          0.05957519372089492
+        ]
+      ],
+      "entropy": 4.994601224020569
+    }
+  ],
+  "final": {
+    "predicted": "Steven-Johnson syndrome",
+    "predicted_top3": [
+      "Steven-Johnson syndrome",
+      "Essential thrombocythemia",
+      "Cardiac contusion"
+    ],
+    "confidence": 0.09506958970620548,
+    "final_entropy": 4.994601224020569,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Steven-Johnson syndrome",
+    "predicted_set_remapped": [
+      "Steven-Johnson syndrome",
+      "Essential thrombocythemia",
+      "Cardiac contusion"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12979,
+      "completion_tokens": 448
+    },
+    "patient": {
+      "prompt_tokens": 8332,
+      "completion_tokens": 388,
+      "calls": 12
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "case_idx": 43,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 65\nSex: Male\nChief Complaint: I have a cough, significant dyspnea, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having a bad cough and I feel very short of breath. When I breathe out, I can hear a wheezing sound, and I’ve had flare-ups of my COPD more than once in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (measured temperature ≥ 38°C) along with your symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my temperature right now, but I haven’t noticed a fever like that.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a high fever (≥38.5°C) with a productive cough (phlegm/sputum)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I have a high fever like 38.5°C. And my cough is there, but I’m not sure it’s producing a lot of phlegm.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **prominent upper-respiratory symptoms** such as **nasal congestion/discharge, cough, or sore throat** (without clear signs of severe airway obstruction or primary cardiac disease)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a cough, and I’ve had some upper airway symptoms like congestion. I don’t feel like it’s primarily heart-related.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **a barking cough/stridor** (croup-like symptoms)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a barking cough or stridor.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **nasal symptoms** (e.g., nasal congestion, runny nose, facial pressure)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, nasal congestion. I also have some runny nose.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute rhinosinusitis, Chronic rhinosinusitis  ",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Chronic rhinosinusitis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4176,
+      "completion_tokens": 174
+    }
+  }
+}

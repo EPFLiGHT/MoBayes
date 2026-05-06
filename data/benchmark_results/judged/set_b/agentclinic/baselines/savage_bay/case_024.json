@@ -1,0 +1,221 @@
+{
+  "case_idx": 24,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Keratoacanthoma",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old white man",
+    "History": "The patient presents for an annual examination and mentions noticing a pink bump on his forehead that has developed over the last month. He reports significant sun exposure throughout his life, including episodes of blistering sunburns.",
+    "Symptoms": {
+      "Primary_Symptom": "Pink bump on the forehead",
+      "Secondary_Symptoms": [
+        "Rapid development over the last month"
+      ]
+    },
+    "Past_Medical_History": "History of extensive sun exposure and multiple blistering sunburns. No significant past dermatological diagnoses.",
+    "Social_History": "Retired, spends a lot of time outdoors. Non-smoker and drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, weight loss, night sweats, or changes in appetite. No other skin lesions noted."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the dermatological lesion observed on the patient's forehead.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve noticed a new pink bump on my forehead, and it’s been growing pretty quickly over the past month. I’ve had a lot of sun exposure over the years, including some blistering sunburns.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on limited info):\n- Keratoacanthoma: 0.30  \n- Seborrheic keratosis: 0.20  \n- Bed bug bite: 0.05  \n- Steven-Johnson syndrome: 0.05  \n- Vitiligo: 0.00  \n(Other listed conditions not yet considered are collectively ~0.40)\n\nEvidence: “new pink bump on forehead, growing quickly over ~1 month; significant blistering sun exposure.”\n- Likelihood ratio (LR) for keratoacanthoma vs others: ~2.5 (rapid growth + sun exposure fits)\n- LR for seborrheic keratosis vs others: ~0.8 (usually slower/less “rapidly growing”)\nUpdated posterior:\n- Keratoacanthoma: 0.55  \n- Seborrheic keratosis: 0.14  \n- Bed bug bite: 0.03  \n- Steven-Johnson syndrome: 0.03  \n- Vitiligo: 0.00  \nOthers: ~0.25\n\nQuestion 1 (most discriminating):  \nDoes the bump have a central crater/plug of keratin (like a “volcano” appearance) or is it more smooth/flat?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It looks more like a raised pink dome, and I don’t really see a central crater or plug—more smooth on top than “volcano” shaped.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.55  \n- Seborrheic keratosis: 0.14  \n- Bed bug bite: 0.03  \n- Steven-Johnson syndrome: 0.03  \n- Vitiligo: 0.00  \nOthers: 0.25  \n\nEvidence: “raised pink dome, smooth, no central crater/plug.”\n- Likelihood ratio (LR) for keratoacanthoma vs others: ~0.7 (absence of classic crater makes it less likely)\n- LR for seborrheic keratosis vs others: ~1.2 (smooth dome can fit better than cratered lesions)\nUpdated posterior:\n- Keratoacanthoma: 0.43  \n- Seborrheic keratosis: 0.17  \n- Bed bug bite: 0.02  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.36  \n\nQuestion 2 (next most discriminating):  \nIs the lesion **itchy or painful**, or completely asymptomatic?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Is the lesion itchy or painful, or completely asymptomatic? Patient: It’s not really painful, and I wouldn’t say it’s itchy either—mostly I just noticed it growing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.43  \n- Seborrheic keratosis: 0.17  \n- Bed bug bite: 0.02  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.36  \n\nEvidence: “not painful, not itchy; mainly noticed growth.”\n- LR for keratoacanthoma: ~1.1 (often not very symptomatic)\n- LR for seborrheic keratosis: ~1.3 (often asymptomatic)\n- LR for bed bug bite: ~0.2 (usually itchy)\nUpdated posterior:\n- Keratoacanthoma: 0.40  \n- Seborrheic keratosis: 0.22  \n- Bed bug bite: 0.004  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.35  \n\nQuestion 3:  \nHave you noticed **any ulceration, bleeding, crusting, or a scab that won’t heal** on the bump?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any ulceration, bleeding, crusting, or a scab that won’t heal on the bump? Patient: I haven’t seen any bleeding or open sore, and I don’t recall any persistent crust or scab—just the raised pink bump that’s enlarging.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.40  \n- Seborrheic keratosis: 0.22  \n- Bed bug bite: 0.004  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.35  \n\nEvidence: “no ulceration/bleeding/crusting; just enlarging raised pink bump.”\n- LR for keratoacanthoma: ~0.9 (can be ulcerated but not always early)\n- LR for seborrheic keratosis: ~1.1 (often non-ulcerated)\nUpdated posterior:\n- Keratoacanthoma: 0.36  \n- Seborrheic keratosis: 0.24  \n- Bed bug bite: 0.003  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.37  \n\nQuestion 4 (high-yield):  \nAbout how big is it now (in mm or cm), and is it **firm/hard** to touch?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s about 8 millimeters across, and it feels firm to the touch rather than soft.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.36  \n- Seborrheic keratosis: 0.24  \n- Bed bug bite: 0.003  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.37  \n\nEvidence: “~8 mm, firm.”\n- LR for keratoacanthoma: ~1.4 (often firm, rapidly enlarging)\n- LR for seborrheic keratosis: ~0.9 (can be firm but usually more waxy/“stuck-on”)\nUpdated posterior:\n- Keratoacanthoma: 0.46  \n- Seborrheic keratosis: 0.21  \n- Bed bug bite: 0.002  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.31  \n\nQuestion 5:  \nDoes it have a **waxy “stuck-on” look** with a slightly rough surface, or is it more **smooth and dome-like** overall?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It seems more smooth and dome-like than waxy or “stuck-on,” with no obvious rough, flaky surface.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.46  \n- Seborrheic keratosis: 0.21  \n- Bed bug bite: 0.002  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.31  \n\nEvidence: “smooth dome-like, not waxy/stuck-on.”\n- LR for keratoacanthoma: ~1.3\n- LR for seborrheic keratosis: ~0.6\nUpdated posterior:\n- Keratoacanthoma: 0.60  \n- Seborrheic keratosis: 0.13  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.24  \n\nQuestion 6:  \nAny **rapid color change** (e.g., becoming more red/pink quickly), or any **central depression** that you might have missed early on?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any sudden color change—it's mainly been steadily pink since I first noticed it. I also don’t recall a central depression; it’s looked like a fairly uniform raised dome.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.60  \n- Seborrheic keratosis: 0.13  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.24  \n\nEvidence: “steady pink, uniform raised dome; no sudden color change/central depression.”\n- LR for keratoacanthoma: ~0.9 (doesn’t strongly support classic cratered evolution)\n- LR for seborrheic keratosis: ~1.1 (uniform dome can fit)\nUpdated posterior:\n- Keratoacanthoma: 0.54  \n- Seborrheic keratosis: 0.15  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.29  \n\nQuestion 7 (to decide between keratoacanthoma vs other sun-related tumors):  \nHave you had **any similar lesions** before, or any history of **skin cancer** (basal cell, squamous cell, melanoma)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any similar bumps before, and I don’t have a known history of skin cancer. I’ve just had lots of sun exposure over the years.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.54  \n- Seborrheic keratosis: 0.15  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.29  \n\nEvidence: “no prior similar lesions; no known skin cancer; heavy sun exposure.”\n- LR for keratoacanthoma: ~1.2 (sun exposure supports)\n- LR for seborrheic keratosis: ~0.9 (less tied to sun/blistering)\nUpdated posterior:\n- Keratoacanthoma: 0.60  \n- Seborrheic keratosis: 0.14  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.23  \n\nQuestion 8 (final key discriminator):  \nIs the lesion **bleeding easily if you touch it** or does it look like it could be a **skin cancer that might ulcerate** (even if it hasn’t yet)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does it bleed easily if you touch it, or does it look like it could ulcerate like a skin cancer? Patient: It hasn’t bled when I touch it, and it just looks like a stable raised pink dome without an open sore.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.60  \n- Seborrheic keratosis: 0.14  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.23  \n\nEvidence: “no bleeding with touch; stable raised pink dome; no ulceration.”\n- LR for keratoacanthoma: ~0.9 (can be non-ulcerated early)\n- LR for seborrheic keratosis: ~1.4 (often stable, non-ulcerated)\nUpdated posterior:\n- Keratoacanthoma: 0.51  \n- Seborrheic keratosis: 0.20  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.27  \n\nQuestion 9:  \nDo you know if the bump is **growing to a peak size and then slowing/stopping**, or is it continuing to enlarge day-by-day without slowing?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you know if the bump is growing to a peak size and then slowing, or is it continuing to enlarge day-by-day without slowing? Patient: It feels like it’s still enlarging pretty steadily—no sign it’s slowing down yet.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.51  \n- Seborrheic keratosis: 0.20  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.27  \n\nEvidence: “steady enlargement without slowing.”\n- Likelihood ratio (LR) for keratoacanthoma: ~1.2 (often rapidly enlarges over weeks)\n- LR for seborrheic keratosis: ~0.7 (usually slower)\nUpdated posterior:\n- Keratoacanthoma: 0.58  \n- Seborrheic keratosis: 0.14  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.25  \n\nQuestion 10:  \nAny **rapid onset after an insect exposure** (e.g., new bed bug bites at home, other similar itchy bumps elsewhere on the body)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Any rapid onset after an insect exposure—new bed bug bites at home, or any other similar itchy bumps elsewhere on your body? Patient: I don’t recall any insect bites, and I haven’t had any other similar bumps elsewhere. It seems to be just this single spot on my forehead.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.58  \n- Seborrheic keratosis: 0.14  \n- Bed bug bite: 0.001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.25  \n\nEvidence: “no insect exposure/other lesions; single spot.”\n- LR for keratoacanthoma: ~1.1 (single lesion fits)\n- LR for bed bug bite: ~0.1 (would expect itch/multiple lesions)\nUpdated posterior:\n- Keratoacanthoma: 0.62  \n- Seborrheic keratosis: 0.12  \n- Bed bug bite: 0.0001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.24  \n\nQuestion 11:  \nHave you noticed **any lymph node swelling** (tender lump) in the neck or near the ear on the same side as the lesion?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any tender lumps in my neck or near my ear, and nothing seems swollen on that side. I’ve otherwise felt well.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.62  \n- Seborrheic keratosis: 0.12  \n- Bed bug bite: 0.0001  \n- Steven-Johnson syndrome: 0.02  \n- Vitiligo: 0.00  \nOthers: 0.24  \n\nEvidence: “no tender lymph nodes; otherwise well.”\n- LR for keratoacanthoma: ~1.0 (doesn’t strongly change)\n- LR for Steven-Johnson syndrome: ~0.2 (would expect systemic illness/mucosal involvement)\nUpdated posterior:\n- Keratoacanthoma: 0.63  \n- Seborrheic keratosis: 0.12  \n- Bed bug bite: 0.0001  \n- Steven-Johnson syndrome: 0.004  \n- Vitiligo: 0.00  \nOthers: 0.25  \n\nQuestion 12:  \nIs the lesion **well-circumscribed** with fairly sharp borders, and does it feel **mobile under the skin** or fixed?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "It seems to have fairly well-defined, sharp borders, and when I feel it, it feels like it’s not really moving much under the skin—it feels more fixed than mobile.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.63  \n- Seborrheic keratosis: 0.12  \n- Bed bug bite: 0.0001  \n- Steven-Johnson syndrome: 0.004  \n- Vitiligo: 0.00  \nOthers: 0.25  \n\nEvidence: “well-circumscribed sharp borders; feels fixed.”\n- LR for keratoacanthoma: ~1.1 (often well-demarcated; can feel firm/fixed)\n- LR for seborrheic keratosis: ~0.8 (often more superficial/mobile)\nUpdated posterior:\n- Keratoacanthoma: 0.66  \n- Seborrheic keratosis: 0.10  \n- Bed bug bite: 0.0001  \n- Steven-Johnson syndrome: 0.003  \n- Vitiligo: 0.00  \nOthers: 0.24  \n\nQuestion 13:  \nAny **mucosal symptoms** (mouth sores, eye redness, genital sores) or widespread rash elsewhere?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any mouth sores, eye redness, or genital sores, and I don’t have any other rash elsewhere. I feel otherwise well besides this one bump.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Keratoacanthoma: 0.66  \n- Seborrheic keratosis: 0.10  \n- Bed bug bite: 0.0001  \n- Steven-Johnson syndrome: 0.003  \n- Vitiligo: 0.00  \nOthers: 0.24  \n\nEvidence: “no mucosal symptoms, no widespread rash; otherwise well.”\n- LR for Steven-Johnson syndrome: ~0.1 (makes it much less likely)\n- LR for keratoacanthoma: ~1.0 (doesn’t change much)\nUpdated posterior:\n- Keratoacanthoma: 0.67  \n- Seborrheic keratosis: 0.10  \n- Bed bug bite: 0.00001  \n- Steven-Johnson syndrome: 0.0003  \n- Vitiligo: 0.00  \nOthers: 0.23  \n\nQuestion 14:  \nDo you know your age, and is the lesion on the **sun-exposed forehead** (sounds like yes)—what’s your age? (Age helps separate benign keratoses vs keratoacanthoma/skin cancer.)",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: What’s your age, and is the bump definitely on your sun-exposed forehead? Patient: I’m 67, and yes—it’s on my forehead, where I’ve had a lot of sun exposure over the years. Doctor: Given that, we’ll need to look at it closely and likely remove a small sample to confirm what it is.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Keratoacanthoma, Seborrheic keratosis, Bed bug bite, Steven-Johnson syndrome, Vitiligo",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Keratoacanthoma",
+    "predicted_set": [
+      "Keratoacanthoma",
+      "Seborrheic keratosis",
+      "Bed bug bite",
+      "Steven-Johnson syndrome",
+      "Vitiligo"
+    ],
+    "predicted_raw": [
+      "Keratoacanthoma",
+      "Seborrheic keratosis",
+      "Bed bug bite",
+      "Steven-Johnson syndrome",
+      "Vitiligo"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Keratoacanthoma",
+    "predicted_set_remapped": [
+      "Keratoacanthoma",
+      "Seborrheic keratosis",
+      "Bed bug bite"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 43047,
+      "completion_tokens": 3356
+    },
+    "patient": {
+      "prompt_tokens": 33932,
+      "completion_tokens": 712,
+      "calls": 15
+    }
+  }
+}

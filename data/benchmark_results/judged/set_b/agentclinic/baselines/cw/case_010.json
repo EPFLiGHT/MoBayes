@@ -1,0 +1,135 @@
+{
+  "case_idx": 10,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Borderline personality disorder",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old woman",
+    "History": "The patient presents to the emergency department with abdominal pain and reports being 10 weeks pregnant. She has a history of constipation, anxiety, and substance abuse. The patient is not currently on any medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal pain and contractions",
+      "Secondary_Symptoms": [
+        "Bloody vaginal discharge",
+        "Recent positive pregnancy test",
+        "Emotional distress upon learning of a spontaneous abortion",
+        "Anger and aggression post-news",
+        "New lacerations over her wrists"
+      ]
+    },
+    "Past_Medical_History": "Constipation, anxiety, substance abuse",
+    "Social_History": "Details on social history not provided, but the doctor should inquire about current life stressors, support systems, and substance use.",
+    "Review_of_Systems": "Negative except for symptoms presented."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with symptoms indicative of a spontaneous abortion and assess for any psychiatric conditions based on patient behavior.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m 10 weeks pregnant, and I’ve been having abdominal pain with what feels like contractions. I’ve also noticed bloody vaginal discharge, and it’s been really distressing for me—I've been feeling very angry and I even have new lacerations over my wrists.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. First, to understand the pregnancy-related risk: **are you having any heavy bleeding (soaking a pad in an hour) or passing large clots/tissue?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I’m having some bleeding but I don’t think it’s soaking a pad in an hour, and I haven’t noticed large clots or tissue. Can you check me for what’s going on and help me figure out whether the pregnancy is safe?”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "I can help you think through the possibilities, but I can’t physically examine you here. I’ll ask a few focused questions to narrow it down.\n\n**Question 1 (most important):** Are you having **severe one-sided abdominal/pelvic pain** (right or left), or is it **diffuse**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the pain feels more diffuse and crampy, not severe on just one side, though it comes in waves like contractions.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Question 2:** Have you had **any fever or chills**, or does the pain get worse with **movement/urination**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have a fever or chills, and it doesn’t really get worse with movement or when I urinate. I mostly feel crampy pain coming and going, plus the bloody discharge.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 3:** When you say “bloody discharge,” is it **bright red** or **dark/brown**, and is it **getting heavier** over time?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it’s more bright red at times, then it can look dark/brown, and I’d say it’s been about the same—not suddenly getting much heavier. I’m really scared something is going wrong and I don’t feel safe with my anger today.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I hear how scared you are. I’m going to ask one more medical question to narrow the cause of the bleeding and cramping.\n\n**Question 4:** Have you had **any prior ultrasound** in this pregnancy (and if so, did it show an intrauterine pregnancy with a heartbeat)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had an ultrasound yet in this pregnancy—just the positive test at home, and I don’t know whether there’s a heartbeat.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating information to confidently rank a top diagnosis. Key missing data include ultrasound findings (intrauterine vs ectopic), cervical exam/bleeding source, and vital signs/labs.\n\n[POSSIBLE] Acute Mesenteric Ischemia, Perforated gastric peptic ulcer, Endometritis, Acute lymphoblastic leukemia, Acute myelogenous leukemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Endometritis",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Endometritis",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Endometritis"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5757,
+      "completion_tokens": 336
+    },
+    "patient": {
+      "prompt_tokens": 3303,
+      "completion_tokens": 280,
+      "calls": 6
+    }
+  }
+}

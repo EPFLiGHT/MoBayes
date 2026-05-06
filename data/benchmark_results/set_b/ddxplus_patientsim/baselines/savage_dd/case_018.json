@@ -1,0 +1,122 @@
+{
+  "case_idx": 18,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 33\nSex: Male\nChief Complaint: I have a fever, a knife stroke pain, and sharp pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a bad fever and really sharp, knife-like pain in my throat—mostly the left tonsil and pharynx. It’s getting hard to swallow, I feel very short of breath, and I’m drooling more than usual; my voice is also hoarse and I hear a stridor sound when I breathe.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "This sounds concerning for an upper-airway problem.  \n\n**One question:** Do you have **any trouble breathing when you’re lying flat or any rapid worsening**, and have you measured **oxygen saturation** if available?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my breathing feels very bad, and it’s getting worse fast. I haven’t measured my oxygen saturation, and I haven’t specifically checked how it is when I lie flat.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Have you had **any neck swelling**, a **muffled “hot potato” voice**, or difficulty opening your mouth (**trismus**)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about neck swelling or a “hot potato” voice, and I haven’t checked whether I can open my mouth normally. But my voice is hoarse and my throat pain is very severe.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Do you have **any rash or hives**, **lip/tongue swelling**, or did this start **right after a new food/medication/insect sting**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No rash or hives, and no lip or tongue swelling that I’ve noticed. It didn’t start right after any new food, medicine, or insect sting.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Have you had **cough** or **runny nose**, or is this mainly **isolated throat pain/fever** without much respiratory congestion?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have much cough or runny nose—this is mainly the throat pain with fever. The breathing problem feels more like my throat/airway is affected.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Is your fever very high (e.g., **≥39°C / 102.2°F**), and have you noticed **ear pain on the same side** or **one-sided swelling** in the throat/neck?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the exact temperature. I do have left-sided tonsil and throat pain, but I haven’t noticed ear pain or any clear one-sided neck swelling.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Are you able to **swallow your own saliva**, or are you **unable to swallow/constantly drooling** because swallowing is too painful or unsafe?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m producing more saliva than usual, and swallowing is hard because of the pain. I’m not sure if I can swallow my saliva easily right now.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Can you **speak in full sentences**, or is your voice so affected that you can only manage **short phrases/words** (and does it feel like your airway is closing)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I can speak, but my voice is hoarse. I can manage short phrases, and it feels like my airway is getting tighter.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Upper-airway obstruction is very concerning, but with the information so far I can’t confidently distinguish between the most likely causes (e.g., epiglottitis vs deep neck space infection vs peritonsillar abscess) because key discriminators (trismus, muffled voice, neck swelling, ability to handle secretions, and exam findings) are still unknown.\n\n[POSSIBLE] Epiglottitis, Acute otitis media, Acute dystonic reactions, Acute laryngitis, Pericarditis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Epiglottitis",
+      "Acute otitis media",
+      "Acute dystonic reactions",
+      "Acute laryngitis",
+      "Pericarditis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8731,
+      "completion_tokens": 406
+    },
+    "patient": {
+      "prompt_tokens": 7530,
+      "completion_tokens": 329
+    }
+  }
+}

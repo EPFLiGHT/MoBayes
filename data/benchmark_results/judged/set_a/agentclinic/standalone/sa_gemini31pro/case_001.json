@@ -1,0 +1,113 @@
+{
+  "case_idx": 1,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve been much more confused lately, and I can’t seem to put my thoughts into words like before. I also have a fever around 102°F, and it hurts when you press on my right upper abdomen.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me if you have noticed any yellowing of",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, yes—I think my skin looks more yellow than usual, and my family also mentioned my eyes seem yellow.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you felt lightheaded, dizzy, or passed out",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t passed out, but I do feel quite lightheaded and weak at times, and my dizziness comes and goes.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever been told you have gallstones, or have you had any previous issues with your gallbladder or liver?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m not sure of the exact diagnosis, but I’ve had chronic liver or gallbladder problems discussed in the past while I was under hospice care.” “I don’t remember being told specifically about gallstones, though there may have been mentions of gallbladder inflammation.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "triggered by infection (e.g., SBP, chol",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any vomiting that I recall, but the fever started and the confusion has gotten worse since then, and the right upper belly area has been very tender. I don’t know about SBP or cholangitis—my family just says I seem much more out of it than before.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute ascending cholangitis, Seps",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute ascending cholangitis",
+    "predicted_set": [
+      "Acute ascending cholangitis",
+      "Seps"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1680,
+      "completion_tokens": 1400
+    },
+    "patient": {
+      "prompt_tokens": 2246,
+      "completion_tokens": 235,
+      "calls": 5
+    }
+  }
+}

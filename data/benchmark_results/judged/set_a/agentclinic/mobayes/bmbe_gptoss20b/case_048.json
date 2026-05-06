@@ -1,0 +1,311 @@
+{
+  "case_idx": 48,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache three days after undergoing an open cholecystectomy. She mentions right-sided chest pain that increases on inspiration and has had a productive cough for the last 12 hours. She also had an episode of hypotension post-operation that was resolved with IV fluids. Additionally, she had an abdominal hysterectomy 16 years ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fever and productive cough",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Headache",
+        "Right-sided chest pain that increases on inspiration"
+      ]
+    },
+    "Past_Medical_History": "Underwent abdominal hysterectomy 16 years ago for multiple fibroids of the uterus. She has a 17-year history of smoking one pack of cigarettes daily.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 17 years.",
+    "Review_of_Systems": "Reports discomfort. No other abnormalities noted apart from the symptoms related to her recent surgery and current complaints."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fever, chills, headache, right-sided chest pain, and a productive cough following an abdominal surgery.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, three days after my open cholecystectomy I developed fever and chills with a bad headache. I also have right-sided chest pain that gets worse when I take a deep breath, and I’ve had a productive cough for the past 12 hours.”",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_chills_4b723a54": "yes",
+        "f_headache_380f4309": "yes",
+        "f_chest_pain_27a0380f": "yes",
+        "f_pleuritic_chest_pain_b80fdbc8": "yes",
+        "f_productive_cough_f91866cd": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pneumonia",
+          0.8708188219322965
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016577836901967128
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.01262488779028287
+        ],
+        [
+          "Somatization disorder",
+          0.012494625842369336
+        ],
+        [
+          "Factitious disorder",
+          0.011560150184179241
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Have you noticed any swelling in your joints?",
+      "patient_answer": "“Doctor, I haven’t noticed any swelling in my joints or any joint pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8719132042512701
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01659867073230636
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.01264075383914256
+        ]
+      ],
+      "entropy": 1.106925058294004
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Have you noticed any bumps, sores, or unusual growths on your scalp?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any bumps, sores, or unusual growths on my scalp.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.873545652542827
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.016629747761013988
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.012664420618023866
+        ]
+      ],
+      "entropy": 1.090720282835037
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching lately?",
+      "patient_answer": "“Doctor, I haven’t had any itching lately.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8777746537464773
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01671025554339836
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.012725731495001226
+        ]
+      ],
+      "entropy": 1.0492309518195249
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_raising_arms_overhead_d93533c5",
+      "doctor_question": "Do you have any trouble raising your arms above your head?",
+      "patient_answer": "“Doctor, yes—I can raise my arms above my head, though I feel a bit uncomfortable because of the right-sided chest pain when I move or take a deep breath.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.7718585554479203
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.06446737500572401
+        ],
+        [
+          "Adhesive capsulitis",
+          0.0413600488608978
+        ]
+      ],
+      "entropy": 1.581743228286035
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_painless_vision_loss_97e17a49",
+      "doctor_question": "Have you noticed any loss of vision that isn’t accompanied by pain?",
+      "patient_answer": "“Doctor, no—I haven’t had any loss of vision, and nothing like that has happened without pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.7733848927625584
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.06459485815578236
+        ],
+        [
+          "Adhesive capsulitis",
+          0.04144183766205321
+        ]
+      ],
+      "entropy": 1.5649477324773786
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_severe_hyperthermia_b928b55e",
+      "doctor_question": "Have you had a fever that’s been so high it feels like you’re burning up—something above 104°F (40°C) that makes you feel extremely hot or dizzy?",
+      "patient_answer": "“Doctor, I haven’t measured it, but I do have fever with chills and I feel extremely hot and dizzy at times—about three days after the cholecystectomy.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6884517412391876
+        ],
+        [
+          "Pneumonia",
+          0.2575854096942948
+        ],
+        [
+          "Adhesive capsulitis",
+          0.013802716904041949
+        ]
+      ],
+      "entropy": 1.3011310591245537
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "Have you been feeling unusually stressed or overwhelmed lately?",
+      "patient_answer": "“Doctor, I haven’t been unusually stressed or overwhelmed—mostly it’s the fever with chills, the headache, and the right-sided chest pain that hurts more when I take a deep breath that’s worrying me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6935987312075286
+        ],
+        [
+          "Pneumonia",
+          0.25951116489291065
+        ],
+        [
+          "Adhesive capsulitis",
+          0.013905908516736667
+        ]
+      ],
+      "entropy": 1.2423666576008097
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_burning_with_urination_ca21e5cd",
+      "doctor_question": "Have you experienced any burning or discomfort when you urinate?",
+      "patient_answer": "“Doctor, I haven’t noticed any burning or discomfort when I urinate.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6937342102452595
+        ],
+        [
+          "Pneumonia",
+          0.25956185460919506
+        ],
+        [
+          "Adhesive capsulitis",
+          0.01390862472572013
+        ]
+      ],
+      "entropy": 1.2405595730505392
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_fixed_breast_mass_c5d3cf9f",
+      "doctor_question": "Have you noticed a lump in your breast that feels firm and hasn’t moved?",
+      "patient_answer": "“Doctor, no—I haven’t noticed any firm lumps in my breast, and nothing there feels unusual or hasn’t moved.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.6938294202399156
+        ],
+        [
+          "Pneumonia",
+          0.25959747759336577
+        ],
+        [
+          "Adhesive capsulitis",
+          0.013910533583703854
+        ]
+      ],
+      "entropy": 1.239187823132957
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.6938294202399156,
+    "final_entropy": 1.239187823132957,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Pneumonia",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9143,
+      "completion_tokens": 1933
+    },
+    "patient": {
+      "prompt_tokens": 5592,
+      "completion_tokens": 311,
+      "calls": 10
+    }
+  }
+}

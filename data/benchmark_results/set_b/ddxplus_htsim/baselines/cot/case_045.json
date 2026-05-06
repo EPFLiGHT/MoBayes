@@ -1,0 +1,99 @@
+{
+  "case_idx": 45,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 27\nSex: F\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had nasal congestion, along with a cough that produces colored or more abundant sputum than usual. I also have a sore throat and fever, and diffuse muscle pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: nasal congestion + cough with increased/colored sputum, sore throat, fever, and diffuse myalgias. This pattern most strongly suggests an acute infectious respiratory illness (viral URI/influenza) versus bacterial pneumonia/bronchitis, with less information to distinguish yet.\nTop candidates (provisional):\n1) Influenza — fever + diffuse myalgias + cough/sore throat; sputum can be increased/colored.\n2) Pneumonia — fever + productive cough; myalgias can occur; need to assess for pleuritic pain, dyspnea, and focal lung findings.\n3) Bronchitis — productive cough with systemic symptoms; often follows URIs; fever possible.\n4) URTI — nasal congestion + sore throat + cough + fever (viral).\n5) Acute rhinosinusitis — nasal congestion with fever and cough from post-nasal drip; would expect facial pressure/tooth pain.\nMost discriminating next question: ask about shortness of breath/pleuritic chest pain to separate pneumonia/PE from uncomplicated URI/bronchitis.\n[/REASONING]\nDo you have any shortness of breath or chest pain that’s worse when you take a deep breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: nasal congestion, productive cough with increased/colored sputum, sore throat, fever, diffuse muscle pain. We lack key discriminators for pneumonia (dyspnea/pleuritic pain) and for severity (vitals, oxygenation).\nTop candidates remain:\n1) Influenza (myalgias + fever + cough/sore throat)\n2) Pneumonia (fever + productive cough; need dyspnea/pleuritic pain)\n3) Bronchitis (productive cough after URI; fever possible)\n4) URTI/viral pharyngitis\n5) Acute rhinosinusitis (nasal symptoms predominate; would expect facial pain/pressure)\nMost informative next question: ask about how high the fever is and how long symptoms have been—helps separate influenza (abrupt onset, higher fever) from bacterial pneumonia (often more focal/progressive) and from sinusitis.\n[/REASONING]\nHow many days have you been sick, and what’s the highest temperature you’ve measured (if you know)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings remain nonspecific: fever + myalgias + cough with increased/colored sputum + sore throat + nasal congestion. We still need timing/severity and any red flags.\nTop candidates:\n1) Influenza — systemic myalgias with fever and respiratory symptoms; timing often abrupt but unknown.\n2) Pneumonia — possible with productive cough and fever; need severity/respiratory status.\n3) Bronchitis — productive cough with URI symptoms; fever possible.\n4) URTI/viral pharyngitis — sore throat + congestion + fever.\n5) Acute rhinosinusitis — nasal congestion prominent; would expect facial pressure/tooth pain.\nMost discriminating next question: ask about breathing/oxygenation symptoms that the patient can recognize (since they don’t know dyspnea/pleuritic pain). Ask if they’re able to speak full sentences without getting winded.\n[/REASONING]\nAre you short of breath at rest, or can you speak full sentences without getting winded?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have limited symptom characterization; patient doesn’t know about dyspnea/pleuritic pain or fever/timing. We must pivot to other discriminators that don’t require subjective “breathing” knowledge.\nNext most useful: check for wheeze/known asthma/COPD history—would shift toward bronchospasm/asthma/COPD exacerbation rather than pneumonia/flu.\nTop candidates still:\n1) Influenza\n2) Pneumonia\n3) Bronchitis\n4) Bronchospasm/acute asthma exacerbation (if wheeze)\n5) Acute COPD exacerbation/infection (if COPD history)\nMost informative next question: do they have a history of asthma, COPD, or do they notice wheezing?\n[/REASONING]\nDo you have asthma or COPD, or have you noticed wheezing or a whistling sound when you breathe?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill no discriminating history (timing, severity, dyspnea, wheeze). We need objective/observable features: any known sick contacts, recent travel, or COVID/flu exposure? But from list, influenza is key.\nAlternatively, ask about whether symptoms started suddenly with chills/rigors (more influenza) vs gradual (more sinusitis/bronchitis).\nNext question should be: did this come on suddenly (within hours) or gradually (over days)?\n[/REASONING]\nDid this start suddenly (within a day) or gradually over several days?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack timing, severity, and respiratory-specific symptoms. With only the symptom cluster (nasal congestion + productive colored sputum + sore throat + fever + myalgias), we can’t confidently separate influenza from pneumonia/bronchitis/viral URTI.\nGiven insufficient discriminating data, we should abstain and provide best candidates based on syndrome.\nTop candidates (provisional):\n- Influenza: fever + diffuse myalgias + cough/sore throat.\n- Pneumonia: fever + productive cough (colored sputum) though no dyspnea data.\n- Bronchitis: productive cough after URI with fever possible.\n- Viral URTI/viral pharyngitis: congestion + sore throat + cough + fever.\n- Acute rhinosinusitis: nasal congestion with fever and cough from post-nasal drip (less supported without facial pain).\nNext question would be ideal (but limit reached soon); however per instruction, provide [ABSTAIN] if evidence insufficient.\n[/REASONING]\n[ABSTAIN] Key discriminators (timing, objective respiratory status, wheeze, pleuritic pain, focal chest findings) are unknown, so influenza vs pneumonia vs bronchitis can’t be reliably distinguished.\n[POSSIBLE] Influenza, Pneumonia, Bronchitis, Viral pharyngitis, Acute rhinosinusitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Pneumonia",
+      "Bronchitis",
+      "Viral pharyngitis",
+      "Acute rhinosinusitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8096,
+      "completion_tokens": 1279
+    },
+    "patient": {}
+  }
+}

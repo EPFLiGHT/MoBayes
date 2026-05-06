@@ -1,0 +1,119 @@
+{
+  "case_idx": 25,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Inguinal hernia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 34\nSex: F\nChief Complaint: symptoms worsen with valsava maneuver",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My abdomen is bloated or distended, and I have pain that gets worse with coughing/effort like lifting a weight or forcing a bowel movement. I also have pale lesions with redness/problems on my skin that I believe are related to what I’m consulting for.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: abdominal distension/bloating with pain that worsens with coughing/straining (suggests increased intra-abdominal pressure), plus skin lesions that are pale with surrounding redness/“problems” and patient thinks they’re related.\n\nTop candidates (tentative):\n1) Inguinal hernia — pain worse with coughing/straining is classic; can cause visible bulge and abdominal discomfort.\n2) Circulatory Diseases / localized edema — could explain skin changes and distension, but cough/strain worsening is less specific.\n3) Anemia — can cause pallor/skin findings, but doesn’t explain distension/pain with straining.\n4) Digestive Diseases (e.g., obstruction/colitis) — distension and pain fit, but cough/strain worsening is not as characteristic.\n5) Other System Diseases (e.g., SLE) — can cause skin lesions and abdominal symptoms, but the cough/strain trigger points more toward a hernia.\n\nMost informative next question: determine whether there is a groin/abdominal bulge that changes with coughing/standing (highly discriminating for hernia).\n[/REASONING]\nDo you notice a bulge in your groin (or around your belly button) that becomes more prominent when you cough, stand, or strain—and does it ever go back in when you lie down?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have limited discriminating info. The cough/effort worsening strongly suggests a pressure-related process (hernia, abdominal wall strain, or less commonly other causes), but we need confirmation of a reducible bulge or focal site.\n\nTop candidates (tentative):\n1) Inguinal hernia — best match for pain worse with coughing/straining; reducible bulge may be present but patient doesn’t know.\n2) Digestive obstruction/ileus/constipation — can cause distension and pain; straining can worsen pain but is less specific.\n3) Musculoskeletal abdominal wall strain — effort worsens pain; would not typically cause skin lesions.\n4) Circulatory/edema-related causes — could explain skin changes/distension, but cough/strain trigger is less typical.\n5) SLE/other systemic inflammatory disease — could link skin lesions and abdominal complaints, but pressure-related worsening still points more to hernia.\n\nMost informative next question: locate the pain—hernia pain is often focal (groin, lower abdomen) rather than diffuse.\n[/REASONING]\nWhere exactly is the abdominal pain located (e.g., groin on one side, lower abdomen, around the belly button, or upper abdomen), and is it one-sided or centered?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s in the iliac fossa on both sides (right and left), and it also involves my hip on the left.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bilateral iliac fossa pain (RLQ and LLQ) with distension; pain worsens with coughing/straining/effort; left hip involvement. Skin lesions described as pale with redness.\n\nThis pattern is less classic for a single inguinal hernia (usually unilateral and focal), though bilateral hernias can occur. Bilateral iliac fossa pain raises concern for intra-abdominal pathology (bowel inflammation/obstruction/constipation, infectious colitis, etc.). The skin lesions could be unrelated or suggest systemic disease (e.g., SLE) or circulatory issues.\n\nTop candidates (tentative):\n1) Digestive Diseases (e.g., bowel obstruction/constipation/colitis) — distension + iliac fossa pain; straining can worsen pain.\n2) Inguinal hernia (bilateral) — effort/cough worsening fits, but bilateral iliac fossa pain is less typical and patient didn’t confirm a bulge.\n3) SLE — can cause skin lesions and abdominal pain (serositis/vasculitis), but we need systemic features.\n4) Circulatory Diseases / localized edema — could relate to skin findings and abdominal distension, but pain with straining is less specific.\n5) Musculoskeletal Diseases — hip involvement could suggest referred pain, but would not usually cause abdominal distension/skin lesions.\n\nMost informative next question: ask about bowel function, because",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Have you had any constipation, or trouble passing stool or gas?",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe haven’t yet answered the key discriminating question about bowel function. Constipation/obstructive symptoms would strongly support a digestive cause (obstruction/ileus/constipation/colitis). If stool/gas passage is normal, we’d shift more toward hernia/abdominal wall or systemic causes.\n\nTop candidates (tentative):\n1) Digestive Diseases (constipation/obstruction) — distension + iliac fossa pain; straining worsens pain.\n2) Inguinal hernia (bilateral) — effort/cough worsening; bowel passage may still be normal.\n3) SLE/other systemic inflammatory — could cause abdominal pain and skin lesions; bowel function may be variable.\n4) Circulatory Diseases — less likely to cause iliac fossa pain with distension.\n5) Musculoskeletal — unlikely to explain distension/skin lesions.\n\nMost informative next question: directly determine constipation/obstruction features.\n[/REASONING]\nHave you had constipation or trouble passing stool or gas (and when was your last normal bowel movement)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack the most discriminating bowel-function data. “I don’t know” limits confidence between digestive obstruction/constipation vs hernia/abdominal wall vs systemic causes.\n\nTop candidates (tentative):\n1) Digestive Diseases (constipation/obstruction/colitis) — distension + iliac fossa pain; straining worsens pain.\n2) Inguinal hernia (bilateral) — effort/cough worsening; bowel function may be normal.\n3) SLE — skin lesions + abdominal pain possible.\n4) Circulatory Diseases — could explain distension/skin changes but less consistent with cough/strain trigger.\n5) Musculoskeletal — hip involvement could be referred pain, but distension/skin lesions argue against.\n\nMost informative next question: ask about vomiting and ability to keep fluids down—helps distinguish obstruction/ileus.\n[/REASONING]\nHave you had any vomiting (especially green/bilious or feculent), or are you unable to keep food/fluids down?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient discriminating data. Vomiting/ability to tolerate PO would help identify bowel obstruction/ileus.\n\nTop candidates (tentative):\n1) Digestive Diseases (bowel obstruction/ileus/colitis) — distension + iliac fossa pain.\n2) Inguinal hernia (bilateral) — cough/strain worsening.\n3) SLE/other systemic inflammatory — skin lesions + abdominal pain.\n4) Circulatory Diseases — distension/skin changes possible.\n5) Musculoskeletal — less likely.\n\nMost informative next question: ask about fever or feeling unwell, and whether pain is constant vs crampy/comes in waves (colitis/obstruction often has crampy pain).\n[/REASONING]\nDo you have a fever or feel generally unwell, and is the abdominal pain constant or does it come in crampy waves?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have “unknown” for multiple key discriminators (bowel function, vomiting, fever/character). With current info, we can’t confidently narrow to a single diagnosis. The cough/effort worsening suggests a mechanical/pressure-related issue (hernia or abdominal wall), but bilateral iliac fossa pain and distension point toward intra-abdominal pathology as well. Skin lesions add a systemic/inflammatory/vascular possibility, but we lack details.\n\nTop candidates (still tentative):\n1) Inguinal hernia — effort/cough worsening; could be bilateral.\n2) Digestive Diseases — distension + iliac fossa pain; could be constipation/obstruction/colitis.\n3) SLE — skin lesions + abdominal pain possible (serositis/vasculitis), but abdominal distension mechanism unclear.\n4) Circulatory Diseases — could link skin findings and distension, but pain with straining is less typical.\n5) Musculoskeletal Diseases — hip involvement could suggest referred pain, but doesn’t explain distension/skin lesions.\n\nMost informative next question: characterize the skin lesions (location and appearance), because that could strongly support SLE/vasculitis vs unrelated skin findings.\n[/REASONING]\nCan you describe the skin lesions more: where are they located (legs/arms/face/trunk), and are they raised or flat, itchy or painful, and do they blanch (turn white) when you press on",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are still unknown (bowel function/vomiting/fever and detailed skin lesion characteristics). With “I don’t know” responses, the evidence is insufficient to confidently narrow to a specific diagnosis.\n\n[POSSIBLE] Inguinal hernia, Digestive Diseases, SLE, Circulatory Diseases, Musculoskeletal Diseases",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Inguinal hernia",
+      "Digestive Diseases",
+      "SLE",
+      "Circulatory Diseases",
+      "Musculoskeletal Diseases"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14155,
+      "completion_tokens": 1854
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "case_idx": 21,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {
+    "AGE": 51,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['pain', 'obesity', 'cigarette smoking', 'hiatal hernia', 'asthma or bronchodilator use', 'pregnancy', 'heartburn', 'cough', 'symptoms worsen after eating']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 51\n- I have pain somewhere related to my reason for consulting.\n- I am significantly overweight compared to people of the same height as I.\n- I smoke cigarettes.\n- I have a hiatal hernia.\n- I have asthma or have used a bronchodilator in the past.\n- I think I am pregnant or I am currently pregnant.\n- I have a burning sensation that starts in my stomach then goes up into my throat, and can be associated with a bitter taste in my mouth.\n- I have a cough.\n- My symptoms get worse after eating.\n- On a scale of 0-10, the pain intensity is 4\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 3\n- The pain is:\n* haunting\n* a knife stroke\n* burning\n- The pain locations are:\n* lower chest\n* upper chest\n* hypochondrium(L)\n* belly\n* epigastric\n- The pain radiates to these locations:\n* lower chest\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['GERD', 0.24494427036287517], ['Bronchitis', 0.1918922561423518], ['Spontaneous rib fracture', 0.12768148097377283], ['Unstable angina', 0.12756633746903046], ['Possible NSTEMI / STEMI', 0.08828440597197854], ['Tuberculosis', 0.07834227193976917], ['Stable angina', 0.07103195107447187], ['Pancreatic neoplasm', 0.07025702606575002]]",
+    "PATHOLOGY": "GERD",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_lancinante_/_choc_électrique', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_endroitducorps_@_bas_du_thorax', 'douleurxx_endroitducorps_@_haut_du_thorax', 'douleurxx_endroitducorps_@_hypochondre_G_', 'douleurxx_endroitducorps_@_ventre', 'douleurxx_endroitducorps_@_épigastre', 'douleurxx_intens_@_4', 'douleurxx_irrad_@_bas_du_thorax', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_3', 'e66', 'f17.210', 'hernie_hiatale', 'j45', 'preg1', 'pyrosis', 'toux', 'trav1_@_N', 'ww_bouffe']",
+    "patient_id": "htsim_0756",
+    "_test_index": 756,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 51-year-old F patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a burning sensation that starts in my stomach then goes up into my throat, sometimes with a bitter taste in my mouth. I also have pain in my lower and upper chest and a cough, and my symptoms get worse after eating.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. Burning from the stomach up to the throat with bitter taste and worsening after meals sounds like reflux—do you have trouble swallowing or feel food “sticking” (yes/no)?  \nDoctor: Also, is the cough mostly at night or when you lie down?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to clarify—does the burning ever get better with antacids, and do you have nausea/vomiting or sour regurgitation (yes/no)?  \nDoctor: Also, have you noticed unintentional weight loss, trouble swallowing, or black/tarry stools?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you—please stand/lie back and let me check your abdomen and listen to your lungs; while you answer: do you notice burning that’s worse when you lie down or after spicy/fatty meals (yes/no)?  \nDoctor: And please try to recall: have you ever taken antacids or reflux meds and felt relief (yes/no/unsure)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a few targeted answers—on a 0–10 scale how bad is the burning chest/throat pain, and how long has it been going on?  \nDoctor: Does it improve with sitting upright and get worse when you lie flat (yes/no/unsure)?  \nDoctor: REQUEST TEST: H. pylori stool antigen or breath test (and basic labs if available).",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My burning sensation goes from my stomach up into my throat, and it can be associated with a bitter taste in my mouth, and my symptoms get worse after eating. My pain intensity is 4 on a 0–10 scale, and the pace at which the pain appears is 3 on a 0–10 scale.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given the heartburn going stomach → throat with bitter taste and worse after eating, I’m most concerned for gastroesophageal reflux disease (GERD) or possible reflux-related esophagitis; do you have any alarm signs like trouble swallowing, vomiting blood, black/tarry stools, or weight loss (yes/no)?  \nDoctor: Also, do you smoke, drink alcohol, or take NSAIDs (ibuprofen/naproxen) or aspirin regularly (yes/no/unsure)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I smoke cigarettes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Smoking increases the likelihood of GERD/esophagitis—do you also get symptoms at night or when lying flat (yes/no/unsure), and how long has this been happening (weeks/months/years)?  \nDoctor: REQUEST TEST: Upper GI endoscopy (EGD) consideration and Helicobacter pylori testing (stool antigen or breath test), plus CBC and CMP.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I smoke cigarettes. My burning sensation starts in my stomach and goes up into my throat, sometimes with a bitter taste in my mouth, and my symptoms get worse after eating. My pain intensity is 4 on a 0–10 scale.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—since you smoke and the burning is stomach-to-throat with bitter taste and post-meal worsening, I’m still most concerned for GERD with possible reflux esophagitis. To check for alarm causes: have you had any trouble swallowing, unintentional weight loss, vomiting blood, or black/tarry stools?  \nDoctor: REQUEST TEST: CBC and CMP (already requested), and please obtain an H. pylori stool antigen/breath test; also schedule an upper endoscopy (EGD) if symptoms persist or if any alarm features are present.  \nDIAGNOSIS READY: GERD (likely reflux esophagitis), contributing to chronic heartburn with bitter regurgitation (risk factor: cigarette smoking).\n\n[DDX]\n1. GERD",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "GERD",
+    "predicted_set_remapped": [
+      "GERD",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3599,
+      "completion_tokens": 631,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 7404,
+      "completion_tokens": 214,
+      "calls": 7
+    }
+  }
+}

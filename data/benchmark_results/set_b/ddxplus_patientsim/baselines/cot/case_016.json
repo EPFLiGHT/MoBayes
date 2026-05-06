@@ -1,0 +1,110 @@
+{
+  "case_idx": 16,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and forehead pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever for a bit, and I’m having sensitive pain with strong forehead pain. It also feels like pain around my temples and left cheek, and I have a sore throat with nasal congestion/clear runny nose.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: fever + strong forehead/temple/left cheek pain (facial pain) + sore throat + nasal congestion with clear rhinorrhea. This pattern most strongly suggests an upper respiratory infection with prominent sinus/facial pain, but we need to discriminate between viral URTI vs acute bacterial sinusitis vs allergic sinusitis, and also consider influenza.\nTop candidates:\n1) Acute rhinosinusitis — facial/forehead pain with nasal congestion and fever can fit; clear runny nose can occur early.\n2) URTI / Viral pharyngitis — sore throat + congestion + fever with rhinorrhea strongly suggests viral illness; facial pain can occur with viral sinus inflammation.\n3) Influenza — fever + prominent head/forehead pain + sore throat can fit, especially if abrupt onset and systemic symptoms.\n4) Acute bacterial rhinosinusitis — more likely if symptoms persist/worsen after initial improvement or have severe purulent discharge/tooth pain.\n5) Allergic sinusitis — can cause facial pressure and clear rhinorrhea, but fever is less typical.\nMost informative next question: duration and whether symptoms are worsening or improving.\n[/REASONING]\nHow long have these symptoms been going on (in days), and are they getting better, worse, or about the same?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty quickly—about 4 out of 10 for how fast it came on—and it’s been going on for a few days (I can’t remember the exact number). Right now it feels about the same, maybe slightly worse with the fever and the facial pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: rapid onset over ~4/10 speed, fever and significant forehead/temple/left cheek pain, sore throat, nasal congestion with clear runny nose; symptoms for a few days, slightly worse now.\nTop candidates:\n1) Influenza — rapid onset + fever + prominent headache/forehead pain; sore throat and congestion can occur.\n2) Acute rhinosinusitis (viral) — facial pain + congestion + sore throat; early course can be viral and worsen slightly before improving.\n3) URTI / Viral pharyngitis — sore throat + congestion + fever; facial pain can accompany viral illness.\n4) Acute bacterial rhinosinusitis — less likely this early unless severe features (high fever, purulent discharge, “double worsening”).\n5) Allergic sinusitis — clear rhinorrhea and facial pressure, but fever and worsening make it less likely.\nMost informative next question: do you have any cough or body aches/chills, and how high is the fever?\n[/REASONING]\nDo you have a cough and/or significant body aches/chills, and what’s the highest temperature you’ve measured (if you know it)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I do have a cough. I also feel pretty achy and I’ve had chills. I haven’t measured it exactly, but the fever feels high—around 39°C if I had to guess.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings: fever ~39°C, chills, body aches, achy, cough, sore throat, congestion with clear rhinorrhea, prominent forehead/temple/left cheek pain. Rapid onset over a few days and now slightly worse.\nTop candidates:\n1) Influenza — classic: abrupt onset, high fever, chills, myalgias/aches, cough, headache.\n2) Acute rhinosinusitis (viral) — can cause facial pain and congestion, but high fever + body aches/chills + cough strongly favors influenza.\n3) Pneumonia — cough + high fever could, but we need respiratory severity (shortness of breath, pleuritic pain) and lung symptoms.\n4) Acute bronchitis — fever and cough possible, but prominent high fever/myalgias/headache still points more to influenza.\n5) URTI / Viral pharyngitis — possible, but 39°C with chills/aches is more influenza-like.\nMost informative next question: Are you short of breath or having chest pain (especially with breathing), and how severe is the cough?\n[/REASONING]\nAre you short of breath, and do you have any chest pain (especially when you take a deep breath) or wheezing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not short of breath, and I don’t have chest pain when I breathe. I do have a cough, but it’s not making me wheezy.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings: high fever (~39°C) with chills and body aches, cough, sore throat, nasal congestion with clear runny nose, prominent forehead/temple/left cheek pain; no shortness of breath and no pleuritic chest pain/wheezing.\nTop candidates:\n1) Influenza — best fit: high fever + chills + myalgias + headache + cough + URI symptoms.\n2) Acute rhinosinusitis (viral) — facial pain + congestion + sore throat, but the systemic high fever/chills/aches and cough still lean influenza.\n3) Pneumonia — less likely without dyspnea/pleuritic pain, but still possible early; would need lung exam and oxygen saturation.\n4) Acute COPD exacerbation / infection — unlikely without COPD history and wheeze.\n5) URTI / Viral pharyngitis — possible but less likely given very high fever and prominent headache/aches.\nMost informative next question: any known exposure to someone with flu, and did symptoms start abruptly (within hours) or more gradually?\n[/REASONING]\nDid this start very abruptly (within a few hours), and have you had close contact with someone sick with “the flu” recently?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty abruptly, within a few hours. And yes—I’ve been in contact with someone with similar symptoms in the past 2 weeks.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings: abrupt onset within a few hours; high fever ~39°C with chills, body aches; cough; sore throat; congestion/clear rhinorrhea; prominent headache/facial pain; sick contact with similar symptoms in past 2 weeks; no dyspnea or pleuritic chest pain.\nTop candidates:\n1) Influenza — strongest match: abrupt onset + high fever/chills/myalgias + cough + URI symptoms + exposure.\n2) Acute rhinosinusitis (viral) — can cause facial pain and congestion, but systemic abrupt high fever/chills/aches and cough point more to influenza.\n3) URTI / Viral pharyngitis — could cause sore throat/congestion/cough, but 39°C with chills/aches and abrupt onset favors influenza.\n4) Pneumonia — less likely without respiratory distress/pleuritic pain, but still consider if hypoxia or focal lung findings.\n5) Acute bronchitis — usually less high fever and less prominent systemic symptoms.\nMost informative next question: do you have any severe sore throat with difficulty swallowing, drooling, muffled voice, or neck swelling (to rule out epiglottitis/serious throat infection)?\n[/REASONING]\nDo you have any trouble swallowing, drooling, muffled “hot potato” voice, or significant neck swelling?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have trouble swallowing or drooling. My voice isn’t muffled, and I haven’t noticed any significant neck swelling.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings: abrupt onset within hours; high fever (~39°C) with chills and body aches; cough; sore throat; nasal congestion with clear rhinorrhea; prominent forehead/temple/left cheek pain; no dyspnea/pleuritic chest pain; no drooling/muffled voice/neck swelling.\nTop candidates:\n1) Influenza — best overall: abrupt onset + high fever/chills/myalgias + cough + URI symptoms + sick contact.\n2) Acute rhinosinusitis (viral) — facial pain with congestion/rhinorrhea can occur, but the systemic abrupt high fever/chills and cough still favor influenza as primary.\n3) URTI / Viral pharyngitis — sore throat + cough + fever possible, but prominent high fever/chills and facial pain still lean influenza.\n4) Pneumonia — less likely without dyspnea/pleuritic pain, but cannot fully exclude early disease.\n5) Acute laryngitis — sore throat/voice symptoms would be more prominent; not enough evidence here.\nMost informative next question: have you noticed any rash, severe headache/neck stiffness, or confusion (to screen for more dangerous infections)?\n[/REASONING]\nHave you had any rash, severe headache with neck stiffness, or confusion?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No rash. I don’t have neck stiffness or confusion.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings: abrupt onset within hours; high fever ~39°C with chills and body aches; cough; sore throat; nasal congestion with clear rhinorrhea; prominent forehead/temple/left cheek pain; no dyspnea/pleuritic chest pain; no drooling/muffled voice/neck swelling; no rash; no neck stiffness/confusion; sick contact with similar illness in past 2 weeks.\nTop candidates:\n1) Influenza — most consistent: abrupt onset, high fever with chills/myalgias, headache, cough, URI symptoms, exposure.\n2) URTI / Viral pharyngitis — could explain sore throat/cough/congestion, but the very high fever/chills/abrupt onset makes influenza more likely.\n3) Acute rhinosinusitis (viral) — facial pain and congestion fit, but systemic influenza-like symptoms and abrupt onset still favor influenza as primary.\n4) Pneumonia — cough + high fever could, but absence of dyspnea/pleuritic pain lowers likelihood (would need vitals/SpO2 and lung exam).\n5) Acute bronchitis — possible with cough/fever, but typically less severe systemic symptoms than this presentation.\nMost informative next step would be vitals/SpO2 and lung exam, but based on history alone we can provide a focused differential.\n[/REASONING]\n[DDX]Influenza, URTI, Acute rhinosinusitis (infection),",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "URTI",
+      "Acute rhinosinusitis (infection)"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11975,
+      "completion_tokens": 1869
+    },
+    "patient": {
+      "prompt_tokens": 10439,
+      "completion_tokens": 276
+    }
+  }
+}

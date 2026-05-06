@@ -1,0 +1,119 @@
+{
+  "case_idx": 31,
+  "baseline": "cw",
+  "column": "htsim_v1",
+  "ground_truth": "Pancreatic neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: M\nChief Complaint: involuntary weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Involuntary weight loss over the last 3 months, and I also have skin lesions/redness—yellow in color—that I believe are related to the condition I’m consulting for. I’m also having some pain related to this.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. **One question at a time**:\n\n**1) How old are you, and what do the skin lesions look like exactly (e.g., raised bumps, ulcers/open sores, rash patches), and where on your body are they located?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 30.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **2) What do the skin lesions look like (raised bumps vs blisters vs ulcers/open sores vs flat rash), and where are they located on your body?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "They’re yellow lesions/redness on my skin.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **3) Are the lesions painful or itchy— and do they look like they have pus/drainage or are they more like discoloration without drainage?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They’re itchy (itching severity 4/10). I don’t know about pus or drainage.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **4) Any fever, night sweats, or feeling generally unwell during these 3 months?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. **5) Have you had any cough, shortness of breath, or chest pain—especially with the weight loss?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **6) Any abdominal symptoms—like diarrhea, vomiting, loss of appetite, or blood in stool?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to pause and ask one more focused question, because right now the key discriminators (respiratory vs GI vs systemic) are unclear.\n\n**7) Have you noticed any swollen lymph nodes (lumps) in your neck, armpits, or groin?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I don’t have enough information to narrow this safely yet (fever/night sweats, respiratory/GI symptoms, lymph node swelling, and lesion morphology/drainage are all unknown).  \n\n[ABSTAIN] Insufficient discriminating details about the skin lesions and associated systemic symptoms.  \n[POSSIBLE] Sarcoidosis, SLE, Infectious & Parasitic Diseases, Anemia, Pneumonia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Sarcoidosis",
+      "SLE",
+      "Infectious & Parasitic Diseases",
+      "Anemia",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7028,
+      "completion_tokens": 370
+    },
+    "patient": {}
+  }
+}

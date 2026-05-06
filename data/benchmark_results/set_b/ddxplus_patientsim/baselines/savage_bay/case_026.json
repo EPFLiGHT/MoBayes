@@ -1,0 +1,112 @@
+{
+  "case_idx": 26,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have heavy, sharp pain in my chest—mostly lower and right side, and also upper chest and around the right breast. It started pretty fast, and I also feel very sweaty, short of breath, nauseous, and the pain can go into both biceps/shoulders and my back, plus I have epigastric pain and I’m not eating much.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’m going to ask focused questions to narrow down dangerous causes of chest pain.\n\n**Current posterior (pre-test, rough):**\n- **Possible NSTEMI / STEMI:** 0.30  \n- **Pulmonary embolism:** 0.20  \n- **Unstable angina:** 0.15  \n- **GERD / Digestive Diseases:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n(Other causes like pneumonia, pneumothorax, pericarditis are less likely so far.)\n\n**Question 1 (high-yield):**  \nDid this pain start **with exertion** (walking, stairs) or **at rest**, and how long ago did it begin (minutes/hours)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started at rest, not from walking or stairs. It began pretty suddenly—within minutes—and it’s been going on for about an hour now.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after new evidence (rest onset, sudden within minutes, ~1 hour):**\n\nLikelihood ratios (rough):\n- **Possible NSTEMI / STEMI:** rest + sudden onset → **LR ~2.0**\n- **Pulmonary embolism:** sudden onset at rest → **LR ~1.5**\n- **Unstable angina:** can occur at rest, but usually less “sudden” → **LR ~1.2**\n- **GERD / Digestive Diseases:** less typical for sudden severe chest pain with diaphoresis/SOB → **LR ~0.5**\n\n**Posterior (now):**\n- **Possible NSTEMI / STEMI:** 0.42  \n- **Pulmonary embolism:** 0.26  \n- **Unstable angina:** 0.18  \n- **GERD / Digestive Diseases:** 0.07  \n- **Acute pulmonary edema:** 0.05  \n\n**Question 2 (very discriminating):**  \nDo you feel the pain is **worse when you take a deep breath or cough** (pleuritic), or is it more constant regardless of breathing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It feels more constant and heavy. I don’t notice that it gets much worse when I take a deep breath or when I cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (less pleuritic, more constant/heavy):**\n\nLikelihood ratios (rough):\n- **Possible NSTEMI / STEMI:** non-pleuritic constant pain → **LR ~1.3**\n- **Pulmonary embolism:** PE is often pleuritic → **LR ~0.7**\n- **Unstable angina:** constant/heavy can fit → **LR ~1.2**\n- **GERD:** can be variable → **LR ~0.9**\n\n**Posterior (now):**\n- **Possible NSTEMI / STEMI:** 0.50  \n- **Pulmonary embolism:** 0.20  \n- **Unstable angina:** 0.22  \n- **GERD / Digestive Diseases:** 0.06  \n- **Acute pulmonary edema:** 0.02  \n\n**Question 3:**  \nHave you had **any leg swelling or pain** (especially one-sided), or have you had **recent travel/immobility, surgery, or a long bed rest** in the last 4 weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had leg swelling or leg pain. And I haven’t had recent travel or any long bed rest or surgery in the last month.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no DVT/PE risk factors):**\n\nLikelihood ratios (rough):\n- **Pulmonary embolism:** absence of typical risk factors → **LR ~0.7**\n- **Possible NSTEMI / STEMI:** risk factors absent doesn’t rule out → **LR ~1.0**\n- **Unstable angina:** same → **LR ~1.0**\n- **GERD:** unchanged → **LR ~1.0**\n\n**Posterior (now):**\n- **Possible NSTEMI / STEMI:** 0.50  \n- **Unstable angina:** 0.22  \n- **Pulmonary embolism:** 0.14  \n- **GERD / Digestive Diseases:** 0.06  \n- **Acute pulmonary edema:** 0.02  \n\n**Question 4 (key):**  \nDo you have **any history of heart disease** (prior heart attack, stents, known coronary artery disease) or **major risk factors** like high blood pressure, diabetes, high cholesterol, or smoking?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have a lot of risk factors. I have diabetes, high blood pressure, high cholesterol, and I smoke. I also have had heart problems before—I’ve had angina before.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (strong cardiac risk + prior angina):**\n\nLikelihood ratios (rough):\n- **Possible NSTEMI / STEMI:** prior angina + multiple risk factors → **LR ~2.5**\n- **Unstable angina:** prior angina → **LR ~2.0**\n- **Pulmonary embolism:** cardiac risk doesn’t support PE → **LR ~0.8**\n- **GERD:** less likely with this risk profile → **LR ~0.7**\n\n**Posterior (now):**\n- **Possible NSTEMI / STEMI:** 0.70  \n- **Unstable angina:** 0.25  \n- **Pulmonary embolism:** 0.07  \n- **GERD / Digestive Diseases:** 0.04  \n- **Acute pulmonary edema:** 0.01  \n\n**Question 5 (to distinguish MI vs angina):**  \nDo you have **any chest pressure that feels like “crushing”** and is there **radiation to the jaw** or **left arm** (or is it mainly both shoulders/biceps)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It feels crushing and heavy, like a really scary pain. It does go into my arms—my right biceps and my left biceps too—and into my shoulders. I can’t say about my jaw right now.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (crushing/heavy + bilateral arm radiation):**\n\nLikelihood ratios (rough):\n- **Possible NSTEMI / STEMI:** classic ischemic features → **LR ~2.0**\n- **Unstable angina:** similar but slightly less “sudden/severe” → **LR ~1.3**\n- **Pulmonary embolism:** less typical → **LR ~0.7**\n- **GERD:** less typical → **LR ~0.6**\n\n**Posterior (now):**\n- **Possible NSTEMI / STEMI:** 0.82  \n- **Unstable angina:** 0.17  \n- **Pulmonary embolism:** 0.03  \n- **GERD / Digestive Diseases:** 0.02  \n- **Acute pulmonary edema:** 0.01  \n\nAt this point, the evidence strongly favors an acute coronary syndrome.\n\n**Question 6 (final key discriminator):**  \nHave you had **any similar episodes before**, and if so, did this one feel **worse than usual** or **not relieved by rest** (or did it happen despite rest)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had similar chest pain before. This time feels much worse than usual, and it didn’t really improve with rest. It started even though I wasn’t doing anything.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, Acute pulmonary edema, GERD",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11172,
+      "completion_tokens": 1343
+    },
+    "patient": {
+      "prompt_tokens": 11669,
+      "completion_tokens": 308
+    }
+  }
+}

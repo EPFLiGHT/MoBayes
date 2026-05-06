@@ -1,0 +1,163 @@
+{
+  "case_idx": 43,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Pseudomonas keratitis",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old male",
+    "History": "The patient reports a 1-day history of increasing pain and blurry vision in his right eye, finding it difficult to open the eye due to the pain. The left eye is unaffected. He uses contact lenses regularly and mentions no recent changes in his vision or eye care routine until this episode. He has a history of bronchial asthma for which he uses inhaled salbutamol. Professionally, he is engaged as a kindergarten teacher.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive pain and blurry vision in the right eye",
+      "Secondary_Symptoms": [
+        "Difficulty opening the affected eye",
+        "No symptoms in the left eye",
+        "Uses contact lenses"
+      ]
+    },
+    "Past_Medical_History": "Bronchial Asthma treated with inhaled salbutamol",
+    "Social_History": "Kindergarten teacher, no reported smoking or significant alcohol use",
+    "Review_of_Systems": "Denies fever, nausea, or any other systemic symptoms"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with progressive pain and blurry vision in one eye.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the last day, my right eye has been getting more painful with blurry vision, and it hurts too much to open the eye. My left eye feels normal. I’ve been using contact lenses regularly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on limited info):\n- Pseudomonas keratitis: 0.35  \n- Stevens-Johnson syndrome: 0.05  \n- Asthma: 0.01  \n- Bed bug bite: 0.01  \n- Toxic exposure: 0.02  \n(Other causes collectively: 0.56)\n\nThis sounds most concerning for a contact-lens–associated infectious keratitis, but I need one key discriminating detail.\n\n**Question 1 (one at a time):**  \nDo you have **any eye discharge** (watery, yellow/green, or crusting) or **light sensitivity (photophobia)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, there’s some watery tearing and a bit of crusting in the right eye, and I’m definitely more sensitive to light—it’s very uncomfortable when I’m in bright light.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with new evidence):\n- Pseudomonas keratitis: 0.70  \n- Stevens-Johnson syndrome: 0.08  \n- Toxic exposure: 0.03  \n- Bed bug bite: 0.01  \n- Asthma: 0.00  \n(Other causes collectively: 0.18)\n\nWatery tearing + crusting + photophobia with contact lens use strongly favors infectious keratitis (especially Pseudomonas).\n\n**Question 2:**  \nHave you noticed a **white/gray spot on the cornea** or does the eye look **red** to you?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed a white/gray spot on the cornea, and is the right eye red? Patient: Yes—my right eye is quite red, and I think I can see a faint white area on the surface of the eye.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):\n- Pseudomonas keratitis: 0.82  \n- Stevens-Johnson syndrome: 0.06  \n- Toxic exposure: 0.03  \n- Bed bug bite: 0.01  \n- Asthma: 0.00  \n(Other causes collectively: 0.08)\n\nRed eye + faint corneal white/gray area in a contact lens wearer with severe pain/photophobia is highly suggestive of infectious keratitis, with Pseudomonas high.\n\n**Question 3:**  \nDo you have **any fever or feeling sick**, or is it **only the eye** (no systemic symptoms)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No fever or feeling sick—I feel otherwise normal, and it’s only my right eye.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Pseudomonas keratitis: 0.86  \n- Stevens-Johnson syndrome: 0.05  \n- Toxic exposure: 0.03  \n- Bed bug bite: 0.01  \n- Asthma: 0.00  \n(Other causes collectively: 0.05)\n\nNo systemic illness keeps infectious keratitis most likely; Stevens-Johnson would more often have broader mucocutaneous involvement.\n\n**Question 4:**  \nHave you had **any rash, mouth sores, or genital sores**, or any **skin blistering** since this started (or recently)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any rash, mouth sores, genital sores, or skin blistering since this started? Patient: No, I haven’t noticed any rash or sores—nothing like that, just the painful, blurry, light-sensitive right eye.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Pseudomonas keratitis: 0.90  \n- Stevens-Johnson syndrome: 0.03  \n- Toxic exposure: 0.03  \n- Bed bug bite: 0.01  \n- Asthma: 0.00  \n(Other causes collectively: 0.03)\n\nWith no rash/sores and classic contact lens + red eye + corneal opacity + photophobia, Pseudomonas keratitis dominates.\n\n**Question 5:**  \nDo you wear contacts **daily**, and did you **sleep in them** or use them longer than recommended (or rinse with tap water / homemade solution)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I wear my contacts every day, and I did sleep in them once this past night; I also don’t remember if I used the same solution I usually do.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Pseudomonas keratitis: 0.93  \n- Stevens-Johnson syndrome: 0.02  \n- Toxic exposure: 0.03  \n- Bed bug bite: 0.01  \n- Asthma: 0.00  \n(Other collectively: 0.01)\n\nSleeping in contacts and possible solution contamination further increase likelihood of bacterial keratitis, especially Pseudomonas.\n\n**Question 6:**  \nIs your pain **severe** (e.g., 8–10/10), and is it **worse with blinking** (foreign body sensation)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Is your pain severe (like 8–10/10), and is it worse when you blink, like a foreign-body sensation? Patient: Yes—the pain is quite severe, and it feels much worse when I blink or try to open the eye.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Pseudomonas keratitis: 0.95  \n- Stevens-Johnson syndrome: 0.01  \n- Toxic exposure: 0.02  \n- Bed bug bite: 0.01  \n- Asthma: ~0.00  \n(Other collectively: 0.01)\n\nThis is extremely consistent with corneal ulcer/infectious keratitis.\n\n**Question 7:**  \nDo you have **any decrease in vision** beyond just blurriness—like you can’t see clearly or it’s getting worse over the day?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, the vision in my right eye is clearly worse than normal—it's more than just mild blurriness and seems to be getting worse over the last day.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Pseudomonas keratitis: 0.96  \n- Stevens-Johnson syndrome: 0.01  \n- Toxic exposure: 0.02  \n- Bed bug bite: 0.01  \n- Asthma: ~0.00  \n(Other collectively: 0.00)\n\nProgressive worsening vision + severe pain + photophobia + corneal opacity in a contact lens wearer is essentially diagnostic for infectious keratitis.\n\n**Question 8:**  \nHave you had any **recent eye trauma** (scratch, fingernail, dust) or **chemical exposure** to the eye?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any recent eye trauma—like a scratch, dust/fingernail injury—or any chemical exposure to the eye? Patient: No scratch or trauma that I can think of, and no chemicals got in my eye. I only slept in my contact lenses once last night and then this started the next day.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Pseudomonas keratitis: 0.97  \n- Stevens-Johnson syndrome: 0.01  \n- Toxic exposure: 0.01  \n- Bed bug bite: 0.01  \n- Asthma: ~0.00  \n(Other collectively: ~0.00)\n\nAt this point, the evidence is overwhelmingly consistent with **contact lens–associated bacterial keratitis**, most classically **Pseudomonas**.\n\n[DDX] Pseudomonas keratitis, Steven-Johnson syndrome, Toxic exposure, Bed bug bite, Asthma",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Pseudomonas keratitis",
+    "predicted_set": [
+      "Pseudomonas keratitis",
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Bed bug bite",
+      "Asthma"
+    ],
+    "predicted_raw": [
+      "Pseudomonas keratitis",
+      "Steven-Johnson syndrome",
+      "Toxic exposure",
+      "Bed bug bite",
+      "Asthma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Pseudomonas keratitis",
+    "predicted_set_remapped": [
+      "Pseudomonas keratitis",
+      "Steven-Johnson syndrome",
+      "Toxic exposure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14171,
+      "completion_tokens": 1168
+    },
+    "patient": {
+      "prompt_tokens": 9392,
+      "completion_tokens": 438,
+      "calls": 9
+    }
+  }
+}

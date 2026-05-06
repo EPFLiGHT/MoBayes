@@ -1,0 +1,146 @@
+{
+  "case_idx": 14,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Primary sclerosing cholangitis",
+  "patient_actor_hidden": {
+    "Demographics": "32-year-old male",
+    "History": "The patient reports a 2-month history of increasing generalized fatigue and severe pruritus. He has known hypertension and was diagnosed with ulcerative colitis 5 years ago. He mentions being sexually active with 2 female partners and inconsistent condom use.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue and severe pruritus",
+      "Secondary_Symptoms": [
+        "Scleral icterus",
+        "Multiple scratch marks on trunk and extremities"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Ulcerative Colitis",
+    "Current_Medications": [
+      "Lisinopril",
+      "Rectal Mesalamine"
+    ],
+    "Social_History": "Sexually active with inconsistent condom use",
+    "Review_of_Systems": "Denies fever, diarrhea, joint pain, or recent travel."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with generalized fatigue, severe pruritus, and abnormal liver function tests.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had about two months of steadily worsening fatigue along with severe generalized itching, and I’ve noticed yellowing in my eyes with multiple scratch marks from trying not to scratch. I also have ulcerative colitis, take lisinopril and rectal mesalamine, and I’ve been sexually active with two women but not always using condoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. First question: **Have you noticed dark urine and/or pale (light-colored) stools?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I have noticed my urine has been darker than usual, and my stools have looked lighter than normal. I’m also feeling more tired day by day since this started about two months ago.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Do you have any fever, abdominal pain (especially right upper quadrant), or nausea/vomiting?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any fever, and I don’t have right upper abdominal pain. I also haven’t noticed nausea or vomiting.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Have you had any new medications or dose changes in the last 2–3 months (including over-the-counter supplements or antibiotics)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t started any new prescriptions, and I haven’t changed doses of my lisinopril or mesalamine. I also haven’t taken any antibiotics or over-the-counter supplements that I can recall in the last couple of months.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Have you had any recent rash besides the itching (for example, hives, bumps, or a skin eruption), or is it mainly itching with scratch marks?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mainly severe itching with scratch marks on my trunk and arms/legs; I haven’t noticed hives, bumps, or a distinct rash. The itching feels generalized rather than in one specific area.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Any history of liver disease or abnormal liver tests before this (or have you had labs checked yet—AST/ALT, alkaline phosphatase, bilirubin, INR)?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a known history of liver disease, and I haven’t had any liver blood tests or INR checked since these symptoms started. I’m not sure what the results would be, but I’m willing to get labs done today.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: **Do you have any symptoms of bleeding or bruising (easy bruising, nose/gum bleeding, black/tarry stools, vomiting blood), or any swelling of the legs/abdomen?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed easy bruising or any nose or gum bleeding, and I haven’t had black/tarry stools or vomiting blood. I also haven’t seen any swelling in my legs or abdomen.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating information (especially key lab patterns like cholestatic vs hepatocellular injury, and whether there are signs of infection/hematologic malignancy) to confidently narrow to a single diagnosis from the provided list.\n\n[POSSIBLE] Primary sclerosing cholangitis, Fulminant hepatic failure, Acute myelogenous leukemia, Acute lymphoblastic leukemia, Essential thrombocythemia",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Primary sclerosing cholangitis",
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Essential thrombocythemia"
+    ],
+    "predicted_raw": [
+      "Primary sclerosing cholangitis",
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Essential thrombocythemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Primary sclerosing cholangitis",
+      "Fulminant hepatic failure",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6747,
+      "completion_tokens": 313
+    },
+    "patient": {
+      "prompt_tokens": 3846,
+      "completion_tokens": 331,
+      "calls": 7
+    }
+  }
+}

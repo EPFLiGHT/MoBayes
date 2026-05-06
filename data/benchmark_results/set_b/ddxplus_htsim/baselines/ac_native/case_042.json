@@ -1,0 +1,160 @@
+{
+  "case_idx": 42,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous rib fracture",
+  "patient_actor_hidden": {
+    "AGE": 47,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "intense coughing fits",
+    "EVIDENCES_ENG": "['metastatic cancer', 'pain', 'shortness of breath', 'excessive alcohol consumption', 'cough', 'intense coughing fits', 'pain with movement', 'chest pain with deep breaths']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 47\n- I have metastatic cancer.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I drink alcohol excessively or I have an addiction to alcohol.\n- I have a cough.\n- I have intense coughing fits.\n- I have pain that is increased with movement.\n- I have pain that is increased when I breathe in deeply.\n- On a scale of 0-10, the pain intensity is 7\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 8\n- The pain is:\n* haunting\n* a knife stroke\n* violent\n* sharp\n- The pain locations are:\n* side of the chest(R)\n* breast(R)\n* posterior chest wall(R)\n* posterior chest wall(L)\n- The pain radiates to these locations:\n* posterior chest wall(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Spontaneous pneumothorax', 0.08432500343870666], ['Pulmonary embolism', 0.08344260270176557], ['Bronchitis', 0.08287316566436768], ['Spontaneous rib fracture', 0.08017008642889965], ['Possible NSTEMI / STEMI', 0.07141704498214485], ['Pneumonia', 0.0675531090846419], ['Pulmonary neoplasm', 0.05707816666044994], ['Whooping cough', 0.05493229024928974], ['Guillain-Barré syndrome', 0.052789582586521694], ['Bronchospasm / acute asthma exacerbation', 0.051228422194222106], ['Pericarditis', 0.04692620554734666], ['Panic attack', 0.041471792761103084], ['Tuberculosis', 0.037370547432671215], ['Acute dystonic reactions', 0.0371749720326677], ['Myasthenia gravis', 0.0371749720326677], ['Anemia', 0.0371749720326677], ['Sarcoidosis', 0.030443233894731667], ['Myocarditis', 0.02220589859133924], ['Unstable angina', 0.015138877772077737], ['Stable angina', 0.009109053911717511]]",
+    "PATHOLOGY": "Spontaneous rib fracture",
+    "INITIAL_EVIDENCE": "toux_sev",
+    "EVIDENCES": "['cancer_méta', 'douleurxx', 'douleurxx_carac_@_lancinante_/_choc_électrique', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_violente', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_côté_du_thorax_D_', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_endroitducorps_@_thorax_postérieur_D_', 'douleurxx_endroitducorps_@_thorax_postérieur_G_', 'douleurxx_intens_@_7', 'douleurxx_irrad_@_thorax_postérieur_G_', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_8', 'dyspn', 'f10.129', 'toux', 'toux_sev', 'trav1_@_N', 'ww_bouger', 'ww_respi']",
+    "patient_id": "htsim_1513",
+    "_test_index": 1513,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 47-year-old F patient presents to the clinic. Chief complaint: intense coughing fits.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve been having intense coughing fits, and I also have significant shortness of breath.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have these coughing fits and shortness of breath been going on, and do you have fever or chest pain?  \nPatient: (Reply)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have significant shortness of breath or difficulty breathing in a significant way. I have pain related to this reason for consulting—sharp, violent, knife-stroke, haunting pain—with intensity 7/10 that’s increased with movement and increased when I breathe in deeply. The pain is in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall (left).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On a scale of 1–10, how severe is the shortness of breath, and do you notice any fever, coughing up blood, or recent leg swelling/pain (especially one-sided)?  \nPatient: (Reply)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way, and I also have sharp, violent, knife-stroke, haunting chest pain (7/10) that’s increased with movement and increased when I breathe in deeply. The pain is in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall on the left. I have metastatic cancer.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially serious—do you have any coughing up of blood, new wheezing, or recent worsening of breathing over hours to days?  \nPatient: (Reply)  \nDoctor: Have you had any recent CT/scan results, and are you currently on blood thinners, oxygen, or recent chemotherapy/radiation?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have metastatic cancer. I’m here because of intense coughing fits and significant shortness of breath or difficulty breathing in a significant way.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a dangerous cause (like pulmonary embolism, pneumonia, malignant pleural effusion, or pneumothorax)—do you have any oxygen saturation readings, and when was your last imaging (CT/CXR) or any recent change in treatment?  \nDoctor: Also, have you noticed your breathing is worse when lying flat, and is your chest pain strictly worse with deep breaths (pleuritic) rather than constant pressure?  \nDoctor: REQUEST TEST: Chest_X-Ray; REQUEST TEST: CT_Angio_Chest (if feasible); REQUEST TEST: Vitals_with_O2_saturation_and_EKG; REQUEST TEST: CBC_CMP; REQUEST TEST: D-dimer_and_Troponin_if_appropriate.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have metastatic cancer, intense coughing fits, and significant shortness of breath or difficulty breathing in a significant way. My chest pain is sharp, violent, knife-stroke, haunting, intensity 7/10, increased with movement and increased when I breathe in deeply (pleuritic), located in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall (left).",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With metastatic cancer and **pleuritic sharp chest pain + significant shortness of breath**, I’m most worried about **pulmonary embolism** and/or **pulmonary metastasis with pleural involvement**. I’m ordering urgent tests to decide: **REQUEST TEST: Vitals_with_O2_saturation_and_EKG; REQUEST TEST: CT_Angio_Chest; REQUEST TEST: Chest_X-Ray**.  \n\nDoctor: While those are running, can you confirm **any coughing up blood**, **new one-leg swelling/pain**, and whether your breathing is **worse when lying flat** (yes/no)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way. My chest pain is sharp, violent, knife-stroke, haunting, 7/10, increased with movement and increased when I breathe in deeply.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—because you have metastatic cancer, severe shortness of breath, and pleuritic sharp chest pain with coughing fits, I’m treating this as **pulmonary embolism vs malignant pleural disease** until proven otherwise; do you have **coughing up blood** or **one-sided leg swelling/pain** (yes/no)?  \nDoctor: Please also tell me whether your breathing is **worse when lying flat** (yes/no) and whether you feel **faint/lightheaded** (yes/no).",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way, and sharp, violent, knife-stroke, haunting chest pain (7/10) that’s increased with movement and increased when I breathe in deeply. The pain is in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall (left). I also have metastatic cancer.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given metastatic cancer plus severe pleuritic (worse with deep breath) sharp chest pain and significant shortness of breath with coughing fits, I’m treating this as **high risk pulmonary embolism** (also consider **malignant pleural effusion/hemothorax** and **pneumothorax**).  \nDoctor: I need immediate results—**REQUEST TEST: Vitals_with_O2_saturation_and_EKG** and **REQUEST TEST: CT_Angio_Chest**—and while waiting, are you having **any coughing up blood** or **feeling faint/lightheaded** right now?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way, and sharp, violent, knife-stroke, haunting chest pain (7/10) that’s increased with movement and increased when I breathe in deeply. I have pain in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall (left). I also have metastatic cancer.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as life-threatening until imaging proves otherwise; with metastatic cancer, severe shortness of breath, and pleuritic sharp chest pain, the leading diagnoses are **pulmonary embolism** and **malignant pleural process**—are you currently getting worse, and can you tell me your **current oxygen saturation and heart rate** if you have them?  \nDoctor: REQUEST TEST: Vitals_with_O2_saturation_and_EKG; REQUEST TEST: CT_Angio_Chest; REQUEST TEST: Chest_X-Ray.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way. I also have sharp, violent, knife-stroke, haunting chest pain with intensity 7/10 that’s increased with movement and increased when I breathe in deeply (pleuritic). The pain is in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall (left). I have metastatic cancer.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to make this an emergency working diagnosis—your symptoms (metastatic cancer, severe dyspnea, pleuritic 7/10 sharp chest pain, coughing fits) are most consistent with **pulmonary embolism** until proven otherwise; REQUEST TEST: CT_Angio_Chest and REQUEST TEST: Chest_X-Ray and REQUEST TEST: Vitals_with_O2_saturation_and_EKG now.  \nDoctor: While awaiting results, are you able to tell me if you have **coughing blood** or **new one-sided leg swelling/pain**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way. I also have sharp, violent, knife-stroke, haunting chest pain (7/10) that’s increased with movement and increased when I breathe in deeply (pleuritic), located in the right side of the chest/breast and posterior chest wall on both sides, radiating to the posterior chest wall (left). I have metastatic cancer.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With metastatic cancer plus sudden/worsening pleuritic chest pain (7/10) and significant shortness of breath, I’m treating this as an emergency—do you have **coughing up blood** or **fainting/lightheadedness right now**?  \nDoctor: REQUEST TEST: CT_Angio_Chest_result_pending_protocol; REQUEST TEST: DVT_ultrasound_left_and_right_legs; REQUEST TEST: ABG_or_VBG.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have intense coughing fits and significant shortness of breath or difficulty breathing in a significant way, and I also have sharp, violent, knife-stroke, haunting chest pain (7/10) that’s increased with movement and increased when I breathe in deeply (pleuritic). The pain is located in the right side of the chest/breast and posterior chest wall on both sides, and it radiates to the posterior chest wall (left). I have metastatic cancer.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to stop asking and assume this is an emergency pulmonary embolism until proven otherwise—please proceed with **REQUEST TEST: CT_Angio_Chest** and **REQUEST TEST: Chest_X-Ray** immediately, plus **REQUEST TEST: Vitals_with_O2_saturation_and_EKG** and **REQUEST TEST: D-dimer_and_Troponin_if_appropriate**.  \nDoctor: Given your metastatic cancer, severe shortness of breath, and pleuritic sharp 7/10 chest pain with intense coughing fits, I’m making the working diagnosis: **DIAGNOSIS READY: Pulmonary embolism (highly suspected) vs malignant pleural disease pending CT**.\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11866,
+      "completion_tokens": 1172,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 17071,
+      "completion_tokens": 903,
+      "calls": 11
+    }
+  }
+}

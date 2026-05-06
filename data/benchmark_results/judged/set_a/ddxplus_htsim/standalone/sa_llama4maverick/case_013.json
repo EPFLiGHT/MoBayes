@@ -1,0 +1,129 @@
+{
+  "case_idx": 13,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: M\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having significant shortness of breath and a cough that produces colored or more abundant sputum than usual. I also have a sore throat, and the symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow down the diagnosis, I need to gather more information about the patient's condition. Here's my first question: How long have you been experiencing these symptoms?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "That's okay, we can try to estimate. Have you experienced a recent acute illness or have these symptoms been ongoing for a while?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have COPD, and I smoke cigarettes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Having COPD and smoking cigarettes are significant risk factors for certain respiratory conditions. My next question is: Have you noticed any fever or chills accompanying your symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "It's challenging to gauge the presence of systemic symptoms like fever or chills without a clear recollection. Let's focus on something more objective. Have you been prescribed antibiotics recently or taken any new medications?\nThe symptoms could be related to an exacerbation of COPD or an infection. Clarifying recent treatments might help narrow down the cause.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "We are having difficulty gathering specific information from the patient. Let's try to focus on the symptoms and history we do know. You have COPD, smoke cigarettes, and are experiencing shortness of breath, cough with colored sputum, and sore throat, with symptoms worsening at night. My next question is: Have you experienced any chest pain or tightness along with your shortness of breath?\nThe presence or absence of chest pain could help differentiate between certain conditions.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’m experiencing pain related to my reason for consulting, and it’s in the side of my chest (right), upper chest, and also the breast (left) and posterior chest wall (left).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The presence of chest pain, particularly with varying locations such as the right side, upper chest, left breast, and left posterior chest wall, suggests a more complex condition. The fact that the pain is associated with the reason for consulting (shortness of breath and cough) is significant. My next question is: Does the chest pain change with deep breathing or coughing?\nThis will help differentiate between pleuritic and non-pleuritic chest pain, which can be crucial in diagnosing conditions such as pneumonia or pulmonary embolism.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Given the difficulty in obtaining a clear history, let's try to simplify the assessment. You've mentioned having COPD, smoking cigarettes, and experiencing a combination of respiratory symptoms and chest pain. My next question is: Have you noticed any blood in your sputum?\nThe presence or absence of hemoptysis can be an important clue in diagnosing certain conditions.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "We've reached a point where we're having trouble getting specific information from the patient. Given the history of COPD, smoking, and the complex of symptoms including shortness of breath, cough with colored sputum, and chest pain, we need to consider serious respiratory conditions. \n\nLet's summarize what we know and proceed with a cautious differential diagnosis.\n\n[ABSTAIN] Insufficient clear information to make a definitive diagnosis.\n \n[POSSIBLE] COPD exacerbation, pneumonia, pulmonary embolism, lung cancer, acute bronchitis.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "COPD exacerbation",
+      "pneumonia",
+      "pulmonary embolism",
+      "lung cancer",
+      "acute bronchitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Pulmonary embolism"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3842,
+      "completion_tokens": 532
+    },
+    "patient": {}
+  }
+}

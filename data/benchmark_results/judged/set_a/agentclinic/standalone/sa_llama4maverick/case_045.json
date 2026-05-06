@@ -1,0 +1,147 @@
+{
+  "case_idx": 45,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Phyllodes tumor",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old woman",
+    "History": "The patient reports noticing a mass in her right breast 3 weeks ago, which has rapidly increased in size. She denies experiencing any pain associated with the mass.",
+    "Symptoms": {
+      "Primary_Symptom": "Rapidly enlarging right breast mass",
+      "Secondary_Symptoms": [
+        "No pain",
+        "No changes in skin or nipple appearance",
+        "No noticeable lymphadenopathy"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No history of breast masses or cancer in herself or her family.",
+    "Social_History": "Non-smoker, moderate alcohol use. Works as a teacher.",
+    "Review_of_Systems": "No weight loss, fever, night sweats, or changes in appetite."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I noticed a lump in my right breast about three weeks ago, and it’s been growing quickly. I don’t have any pain, and I haven’t noticed any skin or nipple changes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow down the differential diagnosis, I need to gather more information. Here's my first question: Have you noticed any nipple discharge?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any nipple discharge.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "The absence of nipple discharge is noted. Next question: Have you had any recent trauma to the breast, or have you experienced any fever or chills?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any trauma to my breast, and I haven’t had any fever or chills.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No recent trauma or systemic symptoms like fever or chills. To further assess the risk for breast pathology, my next question is: Do you have a family history of breast cancer?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I don’t have any family history of breast cancer on either side of my family.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No family history of breast cancer is noted. To further characterize the lump, my next question is: Can you describe the lump to me, is it hard or soft, and is it fixed in place or mobile?\nThe response to this will help in assessing the likelihood of malignancy versus other causes.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels firm, and it doesn’t seem very mobile—more like it’s fixed in place.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "A firm and relatively fixed lump is concerning for malignancy. To gather more information about potential risk factors and to guide further evaluation, my next question is: Have you ever had a mammogram or any other breast imaging before, and if so, when was the most recent one?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had a mammogram or any breast imaging before.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No prior breast imaging is noted. Given the patient's age and presentation, it's essential to consider the possibility of breast cancer. My next question is: How old are you?\n(I will ask this question to assess the patient's risk category for breast cancer and guide further management)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m 45 years old.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "At 45 years old, the patient is in a age group where breast cancer becomes more common. Given the characteristics of the lump (firm, fixed, and growing), the next step is to assess for any other symptoms or risk factors. My next question is: Have you experienced any changes in your menstrual cycle or menopausal status recently?\n(I will ask this to assess hormonal influences that could be relevant to the diagnosis)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any changes in my menstrual cycle, and I’m not in menopause. Doctor: Okay—any unintentional weight loss, night sweats, or persistent fatigue? Patient: No, none of those symptoms.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "The absence of systemic symptoms like unintentional weight loss, night sweats, or persistent fatigue is noted. Given the information gathered so far (a firm, relatively fixed, and growing lump in a 45-year-old woman with no prior breast imaging or family history of breast cancer), I have enough information to start forming a differential diagnosis. \n\n[DDX] Breast cancer, fibroadenoma, phyllodes tumor, breast cyst, fat necrosis.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Breast cancer",
+    "predicted_set": [
+      "Breast cancer",
+      "fibroadenoma",
+      "phyllodes tumor",
+      "breast cyst",
+      "fat necrosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Phyllodes tumor"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4040,
+      "completion_tokens": 446
+    },
+    "patient": {
+      "prompt_tokens": 4282,
+      "completion_tokens": 232,
+      "calls": 8
+    }
+  }
+}

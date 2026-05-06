@@ -1,0 +1,126 @@
+{
+  "case_idx": 8,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with complaints of abdominal cramps, nausea, vomiting, and diarrhea which started 2 hours ago. Reports eating reheated food from the afternoon about an hour before symptoms started. Denies any recent travel, sick contacts, or similar symptoms in people around him.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant medical or surgical history.",
+    "Social_History": "College student, reports studying for exams late at night. No recent travel. No history of alcohol or drug abuse.",
+    "Review_of_Systems": "Denies fever, headache, rash, chest pain, dysuria, or cough."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms of food poisoning, taking into account the history of presentation and clinical findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I started having abdominal cramps about two hours ago, and since then I’ve had nausea, vomiting, and diarrhea. I ate reheated food about an hour before symptoms began.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Gastric peptic ulcer**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I’m not having any burning stomach pain or symptoms that feel like an ulcer—I mostly have cramping with nausea, vomiting, and diarrhea since eating the reheated food. Patient: I also haven’t had any fever, rash, chest pain, or trouble urinating.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you noticed a new or changing skin lesion (for example a scaly patch, wart-like growth, or a spot that is growing or changing)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any new or changing skin lesions—no scaly patches, warts, or growing spots.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Bacillus cereus infection**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No—I'm not having any characteristic issues like severe vomiting shortly after the meal; it’s mainly abdominal cramping with nausea, vomiting, and diarrhea starting a couple hours after I ate the reheated food.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acalculous cholecystitis**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I’m not having right upper abdominal pain, and I don’t have pain that’s worse after eating fatty foods. I’m mainly having cramps with nausea, vomiting, and diarrhea since that reheated meal.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Bacillus cereus infection**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not having the kind of rapid, severe vomiting typically seen within an hour of the meal—I started with abdominal cramping plus nausea, vomiting, and diarrhea a couple of hours after eating the reheated food. I don’t have fever, rash, chest pain, or any urinary symptoms.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acalculous cholecystitis, Adhesive capsulitis, Autosomal dominant polycystic kidney disease  , Bacillus cereus infection, Brief Psychotic Disorder",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis",
+    "predicted_set": [
+      "Acalculous cholecystitis",
+      "Adhesive capsulitis",
+      "Autosomal dominant polycystic kidney disease  ",
+      "Bacillus cereus infection",
+      "Brief Psychotic Disorder"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Adhesive capsulitis",
+      "Autosomal dominant polycystic kidney disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2868,
+      "completion_tokens": 302,
+      "calls": 6
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "case_idx": 27,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Localized edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 38\nSex: F\nChief Complaint: edema",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having edema—swelling in my body, including my right and left ankles, my right thigh, and the dorsal aspect of my right foot and my right sole. I’ve also been having pain related to this.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’ll ask a few focused questions to narrow the cause of your swelling/pain.\n\n**Current posterior (pre-test, rough):**\n- **Localized edema** 0.35  \n- **Circulatory Diseases** (e.g., venous/lymphatic/heart-related edema) 0.25  \n- **Anemia** 0.10  \n- **Acute pulmonary edema** 0.10  \n- **Musculoskeletal Diseases** (e.g., injury/inflammation) 0.20  \n\n**Question 1 (most discriminating):**  \nIs the swelling **pitting** when you press firmly on it for ~5 seconds (does it leave a dent)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify that another way.\n\n**Current posterior (unchanged, since we don’t have the key pitting info):**\n- Localized edema 0.35  \n- Circulatory Diseases 0.25  \n- Musculoskeletal Diseases 0.20  \n- Anemia 0.10  \n- Acute pulmonary edema 0.10  \n\n**Question 2:**  \nIs the swelling **warm/red** over the painful areas, or does it look more **normal-colored**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Current posterior (still):**\n- Localized edema 0.35  \n- Circulatory Diseases 0.25  \n- Musculoskeletal Diseases 0.20  \n- Anemia 0.10  \n- Acute pulmonary edema 0.10  \n\n**Question 3 (very important for leg swelling):**  \nDo you have **one leg noticeably more swollen than the other**, or is it fairly **symmetrical** between right and left?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s not symmetrical—my right side is more affected. My right thigh, my right calf, my right ankle, my right dorsal foot, and my right sole are involved, while my left ankle swelling is also present but the other left areas aren’t listed.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with asymmetry):**\n- **Localized edema** 0.45  \n- **Circulatory Diseases** 0.30  \n- **Musculoskeletal Diseases** 0.15  \n- **Acute pulmonary edema** 0.05  \n- **Anemia** 0.05  \n\nAsymmetric leg swelling raises concern for **local vascular/lymphatic problems** (e.g., DVT/venous obstruction) more than generalized causes.\n\n**Question 4 (high-yield):**  \nDo you have **shortness of breath, chest pain, or coughing blood**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged):**\n- **Localized edema** 0.45  \n- **Circulatory Diseases** 0.30  \n- **Musculoskeletal Diseases** 0.15  \n- **Acute pulmonary edema** 0.05  \n- **Anemia** 0.05  \n\n**Question 5 (key for DVT):**  \nHave you had **recent long travel/immobility**, **recent surgery**, **a cast/leg immobilization**, or **any known clotting history**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have traveled out of the country to North America in the last 4 weeks. And I have had deep vein thrombosis (DVT). I also have had surgery to remove lymph nodes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pulmonary embolism, Localized edema, Circulatory Diseases, Acute pulmonary edema, Anemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Localized edema",
+      "Circulatory Diseases",
+      "Acute pulmonary edema",
+      "Anemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7037,
+      "completion_tokens": 619
+    },
+    "patient": {}
+  }
+}

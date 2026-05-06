@@ -1,0 +1,128 @@
+{
+  "case_idx": 42,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Multiple system atrophy",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old male",
+    "History": "The patient has been experiencing a gradual difficulty in walking over the past 3 months, requiring wheelchair assistance for the last month. Additionally, there is a history of urinary incontinence for 1 year and recent onset of speech slurring making communication challenging.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive difficulty walking",
+      "Secondary_Symptoms": [
+        "Urinary incontinence",
+        "Slurred speech",
+        "Rigidity in limbs",
+        "Mild hand tremor",
+        "Orthostatic hypotension"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable. No known chronic diseases.",
+    "Social_History": "Occasionally consumes alcohol. Non-smoker. Works as a bank clerk.",
+    "Review_of_Systems": "Denies recent infections, fever, weight loss, vision changes or seizures."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive difficulty walking, urinary incontinence, and speech difficulties.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. To understand this progressive walking difficulty with urinary incontinence and speech problems, I need to ask: when did symptoms start and how fast are they worsening? Patient: — Doctor: Are you having memory changes or confusion as well?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: My walking difficulties started about three months ago and have been slowly getting worse; I’ve needed a wheelchair for the past month. I don’t have notable memory changes or confusion. My slurred speech began more recently and feels like it’s been worsening too."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you—any numbness, tingling, or weakness in your legs or arms, and have you noticed back pain? Doctor: Also, do you have trouble controlling bowel movements or any sexual dysfunction?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Doctor: Any numbness, tingling, or weakness in your legs or arms, and have you noticed back pain? Patient: I don’t have numbness or tingling, but I feel my legs are getting stiff and weak, and my arms feel rigid too; I don’t recall significant back pain. Doctor: Any trouble controlling bowel movements or any sexual dysfunction? Patient: I’ve had urinary incontinence, but bowel control has been okay, and I’ve noticed some sexual difficulty as well."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you have progressive leg stiffness/weakness plus urinary incontinence and slurred speech without numbness, I need to ask: do you have a sudden severe headache, vision loss, or episodes of choking/aspiration when swallowing? Doctor: Also, have you had any falls early on, and do your legs feel spastic (stiff with spasms) rather than purely weak?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Patient: I haven’t had sudden severe headache or vision loss, and I don’t recall choking episodes. I did have a few falls early on, and my legs feel more stiff with spasms than just simple weakness."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Given the progressive spastic stiffness with early falls, urinary incontinence, and now dysarthria, I’m concerned about a central nervous system process such as cervical/thoracic spinal cord compression (incl. myelopathy) or demyelination—do you have neck pain or pain that shoots down with head movement (Lhermitte’s)? Doctor: REQUEST TEST: MRI_Brain_and_Cervical/Thoracic_Spine_with_Gadolinium",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: MRI_Brain_and_Spinal_Cord: Multiple areas of atrophy and signal changes in the brainstem, cerebellum, and basal ganglia, consistent with neurodegenerative processes."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Given the MRI showing atrophy and signal changes in the brainstem/cerebellum/basal ganglia plus your progressive spastic gait, urinary incontinence, and slurred speech, I’m going to ask one key question: how old are you and do symptoms fluctuate (better/worse days) or are they steadily progressive? Doctor: Also, have you ever noticed tremor at rest, prominent swallowing problems, or a strong family history of similar neurologic decline?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "patient",
+      "content": "Doctor: Given your MRI findings and your progressive spastic gait with urinary incontinence and slurred speech, tell me—how old are you, and do your symptoms fluctuate day to day or are they steadily getting worse? Also, have you had a tremor at rest, prominent swallowing trouble, or any strong family history? Patient: I’m 54, and it’s been steadily getting worse without much day-to-day fluctuation; I do have a mild tremor, and I’ve noticed some swallowing difficulty starting, but no strong family history."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Thanks—age 54 with a steadily progressive course, spastic rigidity/early falls, urinary incontinence, dysarthria/dysphagia, MRI showing brainstem/cerebellar involvement and basal ganglia atrophy/signal changes, plus mild tremor, strongly suggests a neurodegenerative syndrome—one key remaining distinction is whether the tremor is mainly action/postural (not resting) and whether you have prominent eye movement abnormalities or prominent autonomic (lightheadedness) symptoms. Doctor: REQUEST TEST: Neurology exam focusing on Parkinsonism features and ocular motility + consider labs (B12, TSH, HIV, syphilis) and CSF if inflammatory causes are still plausible. Doctor: DIAGNOSIS READY: Progressive supranuclear palsy (PSP) / atypical parkinsonian disorder with predominant axial rigidity and spastic myelopathy-like features (neurodegenerative brainstem–cerebellar/basal ganglia syndrome).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thanks—age 54 with a steadily progressive course, spastic rigidity/early falls, urinary incontinence, dysarthria/dysphagia, MRI showing brainstem/cerebellar involvement and basal ganglia atrophy/signal changes, plus mild tremor, strongly suggests a neurodegenerative syndrome—one key remaining distinction is whether the tremor is mainly action/postural (not resting) and whether you have prominent eye movement abnormalities or prominent autonomic (lightheadedness) symptoms. Doctor: REQUEST TEST: Neurology exam focusing on Parkinsonism features and ocular motility + consider labs (B12, TSH, HIV, syphilis) and CSF if inflammatory causes are still plausible. Doctor: DIAGNOSIS READY: Progressive supranuclear palsy (PSP) / atypical parkinsonian disorder with predominant axial rigidity and spastic myelopathy-like features (neurodegenerative brainstem–cerebellar/basal ganglia syndrome).",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 6,
+    "predicted_remapped": "Multiple system atrophy",
+    "predicted_set_remapped": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Progressive multifocal leukoencephalopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3206,
+      "completion_tokens": 596,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 2267,
+      "completion_tokens": 323,
+      "calls": 4
+    },
+    "measurement": {
+      "prompt_tokens": 732,
+      "completion_tokens": 45,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 262,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

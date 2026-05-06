@@ -1,0 +1,334 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m confused lately and I can’t really explain what I feel very well. I’ve also had a fever around 102°F and discomfort when you press on my right upper belly area.",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_right_upper_quadrant_pain_5ae0b53e": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_altered_mental_status_f460088f": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6039076289619215
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18335431610985248
+        ],
+        [
+          "Pneumonia",
+          0.039381809688360574
+        ],
+        [
+          "Factitious disorder",
+          0.01877227479362575
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.016448930741352036
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "I haven’t noticed any small, raised bumps with a dimple in the center on my skin. I’ve mainly felt more confused, had a fever around 102°F, and I’m uncomfortable when my right upper belly is pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6051368400127551
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18372752078681223
+        ],
+        [
+          "Pneumonia",
+          0.03946196856258108
+        ]
+      ],
+      "entropy": 2.2655399914963756
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“No, I haven’t noticed needing to urinate more often than usual. My main issue has been feeling more confused, having a fever around 102°F, and discomfort when my right upper belly is pressed.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6080864666026572
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18462306629780464
+        ],
+        [
+          "Pneumonia",
+          0.03965431856354882
+        ]
+      ],
+      "entropy": 2.242140505466384
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual strength lately?",
+      "patient_answer": "Doctor: Have you been feeling generally weak or lacking your usual strength lately? Patient: Yes, I’ve felt weaker than usual, and my confusion has been getting worse. I’m not back to how I was before this started.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.6080864666026572
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.18462306629780464
+        ],
+        [
+          "Pneumonia",
+          0.03965431856354882
+        ]
+      ],
+      "entropy": 2.242140505466384
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself or putting on your clothes lately?",
+      "patient_answer": "“Yes, I’ve been having more trouble dressing myself and managing my clothes, and I feel too weak and confused to do it like I used to.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.48348332166034647
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.1467919091301002
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.11561545558192952
+        ]
+      ],
+      "entropy": 2.7820436458963864
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "Patient: No, I haven’t noticed any rashes, bumps, or sores along the veins in my arms. I mainly feel more confused, have had a fever around 102°F, and it hurts when you press on my right upper belly.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.4834833216603464
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.14679190913010015
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.11561545558192948
+        ]
+      ],
+      "entropy": 2.7820436458963855
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "No, I haven’t noticed any itchiness on my skin. I’ve mostly just been increasingly confused, had a fever around 102°F, and it’s uncomfortable when my right upper belly is pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.48878199989595855
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.14840065768299862
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.1168825294824077
+        ]
+      ],
+      "entropy": 2.7212345843433274
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calf muscles while walking that goes away once you stop and rest?",
+      "patient_answer": "I haven’t noticed any calf pain or cramping when I try to walk, and it doesn’t seem related to walking or stopping to rest. My main problems have been getting more confused, feeling weaker, having a fever around 102°F, and discomfort when my right upper belly is pressed.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.48961378593687854
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.14865319888858788
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.11708143463127076
+        ]
+      ],
+      "entropy": 2.7096132476911072
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-colored recently?",
+      "patient_answer": "“I’m not sure what my stools have looked like recently, since I’ve been too confused and weak to pay close attention, but I haven’t noticed any obvious clays or very pale colors. My main concerns are the fever around 102°F, the increasing confusion, and the discomfort when you press my right upper belly.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acalculous cholecystitis",
+          0.48961378593687854
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.14865319888858788
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.11708143463127076
+        ]
+      ],
+      "entropy": 2.7096132476911072
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or opening jars?",
+      "patient_answer": "Patient: Yes, I’ve had more trouble gripping things and doing up my clothes; my hands feel weaker than they used to. I’m also getting more confused and it’s been hard for me to manage day-to-day tasks.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28098805282239375
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2568535141237661
+        ],
+        [
+          "Syringomyelia",
+          0.20994428710406665
+        ]
+      ],
+      "entropy": 2.798434265702133
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_staying_conscious_during_shaking_episode_38ad282a",
+      "doctor_question": "During these shaking episodes, are you able to remain conscious and aware of your surroundings, or do you lose consciousness?",
+      "patient_answer": "Patient: I’m not usually able to stay fully aware—sometimes I feel very disoriented and it’s hard to follow what you’re saying. I don’t think I fully pass out, but I do lose track of my surroundings at times.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.28098805282239375
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.2568535141237661
+        ],
+        [
+          "Syringomyelia",
+          0.20994428710406665
+        ]
+      ],
+      "entropy": 2.798434265702133
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Acalculous cholecystitis",
+      "Syringomyelia"
+    ],
+    "confidence": 0.28098805282239375,
+    "final_entropy": 2.798434265702133,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Acalculous cholecystitis",
+      "Syringomyelia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8345,
+      "completion_tokens": 331
+    },
+    "patient": {
+      "prompt_tokens": 7498,
+      "completion_tokens": 573,
+      "calls": 11
+    }
+  }
+}

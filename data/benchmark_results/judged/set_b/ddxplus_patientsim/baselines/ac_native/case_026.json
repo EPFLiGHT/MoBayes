@@ -1,0 +1,94 @@
+{
+  "case_idx": 26,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "objective_for_doctor": "A 80-year-old Male patient presents to the clinic. Chief complaint: I have lower chest pain, right side of the chest pain, and upper chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have strong pain in my lower chest and upper chest, mostly on the right side, and it also feels like it’s in my right breast area. It started very fast and feels heavy and sharp—like a scary, sickening pain—and I’m very sweaty and short of breath, with nausea and poor appetite/early fullness. The pain also goes to my biceps on both sides, my right shoulder, my thoracic spine, and toward the thyroid cartilage area, and I feel it in my epigastric area too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be a heart/lung emergency—are you having chest pain right now, and does it worsen with exertion or improve with rest or antacids?  \nDoctor: Do you have any sweating beyond the onset, fainting/lightheadedness, fever/cough, or pain that changes with deep breathing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m having chest pain right now—about 7 out of 10. It came on very fast and it feels heavy and sharp; I haven’t noticed it changing with rest or antacids because I’m mostly just trying to breathe through it. I am very sweaty, and I feel short of breath—also nauseous—but I don’t have fever or cough, and I’m not sure about whether it changes with deep breathing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a possible acute coronary syndrome or aortic problem given the sudden severe pain, sweating, and shortness of breath—can you tell me: do you have a history of heart disease, high blood pressure, diabetes, high cholesterol, or smoking?  \nDoctor: Also, any one-sided arm/leg weakness, trouble speaking, or pain that feels like it’s “tearing” through to the back?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have diabetes, high blood pressure, high cholesterol, and I smoke cigarettes. I also have a history of heart disease/angina and a problem with poor circulation, and my family has early heart problems before age 50.  \n\nI don’t have one-sided arm or leg weakness or trouble speaking. The pain does go to my thoracic spine and feels scary and sickening, but I can’t say it feels specifically “tearing.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With sudden severe chest pain radiating to both arms/shoulders plus diaphoresis, nausea, and your risk factors (diabetes, HTN, high cholesterol, smoking, known heart disease), I’m treating this as an emergency—do you have any known prior heart procedures (stent/CABG), and can you tell me your age again and whether the pain is continuous right now?  \nDoctor: While you answer, I’m ordering urgent tests immediately—REQUEST TEST: ECG (STAT) ; REQUEST TEST: High-sensitivity Troponin (serial, STAT) ; REQUEST TEST: Chest_X-Ray ; REQUEST TEST: CMP/CBC ; REQUEST TEST: Lipid/A1c ; REQUEST TEST: CT_Angiography_Chest (if ECG/troponin suggest or if aortic concern persists).",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know of any prior heart procedures like a stent or CABG. I’m 80 years old. The pain is continuous right now and it’s still about 7 out of 10.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume you need immediate emergency care—can you confirm you’re not having fainting, and are you able to lie flat, or does breathing feel worse when you lie down?  \nDoctor: I’m also asking: do you have any severe back pain that’s escalating or any new neurologic symptoms (confusion, weakness, trouble speaking)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m not fainting. I can lie flat, but breathing still feels hard because of the shortness of breath. I don’t have severe back pain that’s getting worse, and I don’t have confusion, weakness, or trouble speaking.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your continuous 7/10 chest pain with heavy pressure-type quality, diaphoresis, nausea, shortness of breath, and very high cardiovascular risk (age 80, diabetes/HTN/high cholesterol/smoking, known heart disease), I’m most concerned for an acute myocardial infarction/acute coronary syndrome until proven otherwise—this needs emergency management now.  \nDoctor: DIAGNOSIS READY: Acute Coronary Syndrome / Acute Myocardial Infarction (STEMI/NSTEMI pending ECG and serial troponins)\n\n[ABSTAIN] free-text diagnosis 'Acute Coronary Syndrome / Acute Myocardial Infarction (STEMI/NSTEMI pending ECG and serial troponins)' did not map to the closed disease set",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3352,
+      "completion_tokens": 526,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 6354,
+      "completion_tokens": 395
+    }
+  }
+}

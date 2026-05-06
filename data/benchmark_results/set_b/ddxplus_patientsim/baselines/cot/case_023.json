@@ -1,0 +1,110 @@
+{
+  "case_idx": 23,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 12\nSex: Male\nChief Complaint: I have a fever, burning pain, and right tonsil pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a fever and really bad throat pain—burning pain in my throat and pain in both tonsils, mostly right but also left. My palate and the back of my throat (pharynx) hurt too, and I’ve had a clear runny nose or congestion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever + severe burning throat pain + tonsillar pain (R>L) + palatal/pharyngeal pain + clear runny nose/congestion. This suggests an acute upper respiratory/infectious process. Key discriminators next are: presence of cough (viral vs bacterial), ability to swallow/secretions, voice change, and airway red flags (epiglottitis/croup), plus unilateral severe pain with muffled voice/trismus (peritonsillar abscess).\nTop candidates (provisional):\n1) Viral pharyngitis / URTI — fever + congestion/runny nose strongly supports viral.\n2) Influenza — fever can be prominent, often with URI symptoms.\n3) Acute laryngitis — throat pain can occur, but tonsillar pain is less classic; still possible.\n4) Pneumonia — less likely without cough/resp symptoms, but fever could mislead.\n5) Epiglottitis — serious cause of severe throat pain; would expect drooling, muffled voice, tripod positioning, minimal URI symptoms.\nMost informative next question: ask about cough and voice/airway symptoms to separate viral pharyngitis from epiglottitis or peritonsillar abscess.\n[/REASONING]\nDo you have a cough, and has your voice changed (muffled/“hot potato” voice) or are you having trouble swallowing your saliva/drooling?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a cough. My voice feels kind of normal, not muffled. I can swallow my saliva, and I’m not drooling.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + very bad throat pain + tonsillar pain (R>L) + congestion/runny nose + cough; voice normal; no drooling; can swallow saliva. This makes epiglottitis less likely (no drooling/muffled voice) and peritonsillar abscess less likely but not excluded (would often have muffled voice, trismus, uvula deviation, worsening one-sided pain).\nTop candidates now:\n1) Viral pharyngitis / URTI — congestion + cough + severe sore throat fits.\n2) Influenza — fever + cough + URI symptoms; throat pain can be prominent.\n3) Acute laryngitis — possible with cough, but tonsillar pain suggests pharyngitis more than isolated laryngitis.\n4) Pneumonia — less likely without lower respiratory symptoms, but still consider if cough is productive or there’s shortness of breath/chest pain.\n5) Acute dystonic reactions / other neuro causes — not supported by current symptoms.\nMost informative next question: ask about difficulty opening the mouth or “one-sided” worsening with muffled voice/trismus, to screen for peritonsillar abscess.\n[/REASONING]\nCan you open your mouth normally, or is it painful/hard to open (trismus)? Also, is the pain significantly worse on the right side compared with the left?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I can open my mouth, but it really hurts when I swallow. The pain is much worse on the right side than the left.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: severe odynophagia (hurts to swallow) + markedly worse right-sided tonsillar/throat pain. No drooling, no muffled voice, can swallow saliva, can open mouth (so less classic for epiglottitis). Unilateral severe tonsillar pain raises concern for peritonsillar abscess, though trismus/“hot potato” voice aren’t present yet. Viral pharyngitis can also be asymmetric.\nTop candidates:\n1) Viral pharyngitis / URTI — still plausible given congestion/runny nose and cough; can cause severe sore throat.\n2) Peritonsillar abscess — unilateral much worse pain + severe swallowing pain; absence of trismus/muffled voice makes it less certain but still possible early.\n3) Acute laryngitis — less likely because pain is localized to tonsils.\n4) Influenza — can cause severe throat pain but usually not strongly unilateral.\n5) Pneumonia — less likely without chest symptoms.\nMost informative next question: ask about muffled “hot potato” voice or any change in voice quality, and whether the uvula feels pushed to one side (patient may notice “something shifted”); but since we must ask one question, the best is voice quality change.\n[/REASONING]\nHave you noticed a muffled “hot potato” voice or any change in how you sound?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, my voice hasn’t changed. It just hurts a lot when I swallow.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough + congestion + severe odynophagia + markedly right > left tonsillar pain; no drooling, no muffled voice, can open mouth. This keeps viral pharyngitis high, but the strong unilateral predominance and severe swallowing pain keep peritonsillar abscess on the table (possibly early or without classic voice/trismus yet).\nTop candidates:\n1) Viral pharyngitis / URTI — congestion/runny nose and cough support viral; can be very painful.\n2) Peritonsillar abscess — unilateral severe tonsillar pain + severe odynophagia is concerning even without voice change yet.\n3) Influenza — fever + cough/URI; throat pain can be prominent but usually not so unilateral.\n4) Acute laryngitis — less likely due to tonsillar-focused pain.\n5) Pneumonia — less likely without lower respiratory symptoms.\nMost informative next question: ask about “trismus” (can you open mouth fully?) or any difficulty speaking/swallowing beyond pain—specifically trismus is discriminating for peritonsillar abscess. We already know they can open mouth, but we should quantify: can they open wide enough to fit 2–3 fingers? One question: ask about trismus.\n[/REASONING]\nDo you have trouble opening your mouth wide because of pain (trismus), like you can’t fit 2–3 fingers between your teeth?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I can open my mouth wide enough. It just hurts a lot when I swallow.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no trismus, no muffled voice, can open mouth widely; still severe odynophagia and right-predominant tonsillar pain with fever and URI symptoms (cough, congestion).\nThis pattern makes peritonsillar abscess less likely (classic findings often include trismus and/or muffled voice), but it’s not fully excluded early. Viral pharyngitis/URTI remains most likely; influenza also possible. Need one more discriminating question: presence of exudates/white patches or swollen tender neck nodes? But we can’t see; ask about rash? Another serious cause: anaphylaxis unlikely; epiglottitis less likely. Most discriminating next: do they have difficulty breathing or drooling (already no drooling), or do they have a severe unilateral ear pain (referred otalgia) which can support peritonsillar abscess. Ask about ear pain.\n[/REASONING]\nDo you have pain in either ear—especially on the right—even though your ear itself may look normal?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have ear pain. It’s mostly in my throat and tonsils.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings after 6 questions: fever + very severe throat/tonsillar pain (R>>L) + odynophagia + cough + congestion/runny nose; no drooling, no muffled voice, no trismus, no ear pain. This strongly favors an acute infectious pharyngitis/URTI. Peritonsillar abscess is less likely without trismus/muffled voice/uvula deviation, but unilateral severity keeps it in the differential. Epiglottitis is less likely given ability to swallow saliva, no drooling, and no voice change.\nTop candidates:\n1) Viral pharyngitis / URTI — congestion/runny nose + cough + fever; can cause severe sore throat.\n2) Influenza — fever + cough/URI; throat pain can be prominent.\n3) Acute laryngitis — cough present, but tonsillar-focused pain makes it less likely.\n4) Peritonsillar abscess — unilateral predominance and severe odynophagia; lacks classic signs but early disease possible.\n5) Pneumonia — less likely without lower respiratory symptoms, but fever + cough could occasionally present early.\nMost informative next question: ask about presence of white patches/exudate on tonsils or “strep-like” features (tender anterior neck nodes, no cough). Since they do have cough, strep is less likely; still, exudate would help. One question: do you have white patches/p",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I see any white patches on my tonsils, but my throat feels very red and swollen.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + very red/swollen throat + severe odynophagia + cough + congestion/runny nose; no visible white patches; no drooling/muffled voice; no trismus; no ear pain. This pattern most strongly supports viral pharyngitis/URTI. Influenza remains plausible. Peritonsillar abscess is less likely without exudate, trismus, muffled voice, or ear pain, though unilateral severity keeps it possible. Pneumonia is less likely without dyspnea/chest symptoms. Acute laryngitis is less likely because pain localizes to tonsils/pharynx.\nTop candidates:\n1) Viral pharyngitis / URTI — URI symptoms (runny nose/congestion) + cough + diffuse red/swollen throat.\n2) Influenza — fever + cough/URI; can cause prominent throat pain.\n3) Peritonsillar abscess — unilateral severe tonsillar pain + odynophagia; less supported by lack of trismus/muffled voice/exudate.\n4) Acute laryngitis — cough present but tonsillar-focused pain makes it less likely.\n5) Pneumonia — fever + cough but no lower respiratory symptoms yet.\nMost informative next question would be about shortness of breath/chest pain, but we’re at sufficient confidence to provide a differential.\n[/REASONING]\n[DDX] Viral pharyngitis, Influenza, Peritonsillar abscess",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Viral pharyngitis",
+    "predicted_set": [
+      "Viral pharyngitis",
+      "Influenza",
+      "Peritonsillar abscess"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12181,
+      "completion_tokens": 1979
+    },
+    "patient": {
+      "prompt_tokens": 10964,
+      "completion_tokens": 216
+    }
+  }
+}

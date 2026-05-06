@@ -1,0 +1,162 @@
+{
+  "case_idx": 49,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 62\nSex: Male\nChief Complaint: I have sharp pain, painful mouth ulcers or sores, and chronic fatigue",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having sharp pain and painful sores in my mouth, plus a lot of chronic fatigue. I also notice red skin lesions, and I feel pretty short of breath.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: painful mouth sores, chronic fatigue, red skin lesions, and shortness of breath. This combination raises concern for systemic illness (e.g., autoimmune/infectious) rather than a purely local mouth problem.\nTop candidates (tentative):\n1) SLE — can cause painful oral ulcers, fatigue, skin lesions (often photosensitive), and can involve lungs (pleuritis/interstitial disease) causing dyspnea.\n2) HIV (initial infection) — can cause mucocutaneous lesions, systemic symptoms/fatigue, and respiratory complaints; skin findings can occur.\n3) Anemia — can cause chronic fatigue and shortness of breath; may coexist with other symptoms but wouldn’t fully explain painful mouth sores + red skin lesions.\n4) Pneumonia — can cause shortness of breath and fatigue, but mouth sores + red skin lesions are less typical unless there’s a broader systemic process.\n5) Pulmonary embolism — can cause shortness of breath, but mouth sores/red lesions are not typical.\nMost informative next question: determine whether the mouth sores are ulcerative and whether there’s any genital involvement or recent high-risk exposure, which would help distinguish SLE vs HIV and other systemic causes.\n[/REASONING]\nFirst question: Are the mouth sores true ulcers (painful open sores) and do you also have any genital sores or recent unprotected sex/high-risk exposure?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, the mouth sores are true painful ulcers—like open sores in my mouth. I don’t have any genital sores, and I haven’t had any recent high-risk sexual exposure that I’m aware of.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: true painful oral ulcers, chronic fatigue, red skin lesions, and shortness of breath; no genital sores and no known recent high-risk sexual exposure.\nTop candidates:\n1) SLE — oral ulcers + fatigue + red skin lesions (often malar/photosensitive) and possible lung involvement can explain dyspnea.\n2) Anemia — could explain fatigue/dyspnea, but wouldn’t usually cause painful oral ulcers + red skin lesions as a unifying picture.\n3) Pneumonia/Influenza/URTI — can cause fatigue and dyspnea, but oral ulcers and red skin lesions together are less classic.\n4) Pulmonary embolism — dyspnea possible, but oral ulcers/skin lesions not typical.\n5) Other systemic inflammatory/autoimmune disease (not in list) — still possible, but within provided list SLE is most fitting.\nMost informative next question: characterize the skin lesions—are they worse with sun exposure (photosensitive) or located on the face (cheeks/nose) or elsewhere?\n[/REASONING]\nNext question: Are the red skin lesions photosensitive (worse after sun) or located on your face (like across the cheeks/nose), or are they on other areas (arms/legs/trunk)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "They’re red and seem worse when I’m in the sun. I also notice them more on my face, not just on my arms or legs.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: true painful oral ulcers, chronic fatigue, red facial skin lesions worse with sun (photosensitive). Shortness of breath.\nThis strongly supports an autoimmune photosensitive rash with mucosal ulcers.\nTop candidates:\n1) SLE — classic triad: oral ulcers + photosensitive facial rash (malar/discoid-type) + fatigue; dyspnea suggests possible pulmonary involvement (pleuritis/interstitial lung disease) or other complications.\n2) Anemia — can cause fatigue/dyspnea but does not explain photosensitive facial rash and oral ulcers well.\n3) HIV (initial infection) — can cause mucocutaneous findings and fatigue, but photosensitive facial rash pattern is more characteristic of SLE; also less likely without exposure history.\n4) Pneumonia/Influenza — could explain dyspnea/fatigue but not photosensitive facial rash + oral ulcers.\n5) Pulmonary embolism — dyspnea possible but again doesn’t explain oral ulcers/photosensitive facial rash.\nMost informative next question: ask about joint pain/swelling or morning stiffness, which is common in SLE and helps confirm autoimmune etiology.\n[/REASONING]\nNext question: Have you had joint pain or swelling (especially in the hands/wrists) or morning stiffness that lasts more than ~30 minutes?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I do have some joint pain, but I’m not sure about swelling. I don’t really notice morning stiffness lasting more than 30 minutes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: oral painful ulcers, photosensitive red facial rash, fatigue, dyspnea, and some joint pain (unclear swelling/stiffness).\nTop candidates:\n1) SLE — still highest likelihood: mucosal ulcers + photosensitive facial rash + fatigue + arthralgias; dyspnea could be from pleuritis/interstitial lung disease or anemia.\n2) Anemia — can explain fatigue/dyspnea and sometimes nonspecific rash, but photosensitive facial rash and oral ulcers are less typical as a primary cause.\n3) HIV (initial infection) — can cause mucocutaneous ulcers and systemic symptoms, but photosensitivity/facial malar-type pattern is more suggestive of SLE; exposure history is unknown but not definitive.\n4) Pneumonia/Influenza — could explain fatigue/dyspnea, but wouldn’t unify oral ulcers + photosensitive facial rash.\n5) Pulmonary embolism — dyspnea possible, but oral ulcers/photosensitive rash are not typical.\nMost informative next question: determine whether the dyspnea is pleuritic (worse with deep breaths) or associated with chest pain, cough, or fever—this helps distinguish SLE lung/pleuritis vs infection vs PE.\n[/REASONING]\nNext question: Do you have chest pain or does the shortness of breath get worse when you take a deep breath (pleuritic pain), and do you have fever or",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a fever that I know of. The shortness of breath feels worse when I breathe in deeply, like it’s more painful with deep breaths, but I’m not sure about a cough.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: photosensitive facial rash, painful oral ulcers, fatigue, joint pain, and pleuritic-type dyspnea (worse with deep breaths), no known fever.\nThis pattern is very consistent with SLE with pleuritis (or less commonly other inflammatory lung/pleural disease).\nTop candidates:\n1) SLE — oral ulcers + photosensitive facial rash + fatigue + arthralgia + pleuritic chest symptoms strongly fit; SLE can cause pleuritis and pulmonary involvement.\n2) Acute pulmonary edema — can cause dyspnea but would not explain oral ulcers/photosensitive rash.\n3) Pneumonia — usually fever/cough; pleuritic pain can occur but photosensitive facial rash + oral ulcers point away.\n4) Pulmonary embolism — pleuritic pain and dyspnea possible, but oral ulcers/photosensitive facial rash are not typical.\n5) Anemia — can cause dyspnea but not pleuritic pain with deep breaths or photosensitive rash/oral ulcers.\nMost informative next question: any history of kidney issues—foamy urine, swelling of legs/around eyes, or high blood pressure? (SLE often involves kidneys.)\n[/REASONING]\nNext question: Have you noticed any foamy urine, swelling of your legs/face/around the eyes, or that your urine looks darker than usual?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have been told I have high blood pressure, but I haven’t noticed foamy urine. I don’t think I’ve had swelling in my legs or around my eyes, and I haven’t noticed dark urine.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: oral painful ulcers, photosensitive facial red rash, fatigue, joint pain, pleuritic dyspnea; no fever; no known kidney/urine findings; history of high blood pressure.\nTop candidates:\n1) SLE — remains most likely: mucosal ulcers + photosensitive facial rash + pleuritic symptoms + fatigue/arthralgia. Kidney involvement not required early; hypertension can be from chronic disease or SLE-related vascular/renal effects even without obvious foamy urine.\n2) Anemia — could contribute to dyspnea/fatigue but doesn’t explain photosensitive facial rash + oral ulcers.\n3) Pulmonary embolism — could explain pleuritic dyspnea, but would not explain photosensitive rash/oral ulcers.\n4) Pneumonia — less likely without fever/cough and with photosensitive rash/oral ulcers.\n5) HIV (initial infection) — still possible for mucocutaneous ulcers/systemic symptoms, but photosensitivity pattern and pleuritic inflammatory symptoms still favor SLE.\nMost informative next question: ask about neurologic symptoms or blood count-related symptoms (easy bruising/bleeding, unusual clots), since SLE can have hematologic involvement and also helps triage severity.\n[/REASONING]\nNext question: Have you had any unusual bruising or bleeding, or have you had any history of blood clots (leg swelling/pain, sudden worsening shortness of breath",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed unusual bruising or bleeding. I also don’t have any known history of blood clots, and my shortness of breath hasn’t suddenly gotten much worse all at once.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: photosensitive facial rash, painful oral ulcers, fatigue, joint pain, pleuritic dyspnea; no fever; no kidney/urine symptoms; no bruising/bleeding; no sudden onset suggesting PE.\nTop candidates:\n1) SLE — best unifying diagnosis: mucosal ulcers + photosensitive facial rash + fatigue + arthralgia + pleuritic symptoms.\n2) Anemia — could explain fatigue/dyspnea but not photosensitive facial rash + oral ulcers.\n3) Pulmonary embolism — less likely given no sudden worsening and no clot history; still possible but not best fit.\n4) Pneumonia/Influenza — less likely without fever/cough and with photosensitive rash/oral ulcers.\n5) HIV (initial infection) — still possible for mucocutaneous ulcers and systemic symptoms, but photosensitivity/facial rash pattern is more characteristic of SLE; exposure history is unknown.\nMost informative next question: ask about current medications/new drug exposures, because drug-induced lupus can mimic SLE and would be important for management.\n[/REASONING]\nNext question: Have you started any new medications in the last few months (including antibiotics, anti-seizure meds, blood pressure meds, or supplements), or do you take any long-term medications?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I take something for my high blood pressure, but I haven’t started any new medicines in the last few months. I don’t use any supplements regularly either.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no new meds; photosensitive facial rash + painful oral ulcers + fatigue + arthralgia + pleuritic dyspnea; no fever; no bleeding/clot history; no kidney/urine symptoms; on chronic antihypertensive.\nTop candidates:\n1) SLE — still most likely; lack of new meds makes drug-induced lupus less likely.\n2) Anemia — still possible as contributor to dyspnea/fatigue; would not explain photosensitive facial rash + oral ulcers.\n3) Pulmonary embolism — still a serious alternative but less supported (no sudden worsening, no clot history).\n4) Pneumonia/Influenza — less likely without fever/cough.\n5) HIV (initial infection) — still possible but less supported by photosensitivity pattern.\nMost informative next question: ask about eye symptoms (pain/redness, light sensitivity, vision changes) or neurologic symptoms, which can occur in SLE and also help gauge severity.\n[/REASONING]\nNext question: Have you had any eye pain/redness, light sensitivity, or any vision changes recently?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had eye pain or redness, and I haven’t noticed light sensitivity or any vision changes.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: photosensitive facial rash, painful oral ulcers, fatigue, joint pain, pleuritic dyspnea; no fever; no eye involvement; no bleeding/clots; no kidney/urine symptoms; no new meds.\nTop candidates:\n1) SLE — still strongest: mucosal ulcers + photosensitive facial rash + fatigue/arthralgia; pleuritic dyspnea fits pleuritis/interstitial lung disease.\n2) Anemia — could explain fatigue/dyspnea but not photosensitive facial rash + oral ulcers.\n3) Pulmonary embolism — pleuritic dyspnea possible, but mucosal ulcers/photosensitive rash are not typical.\n4) HIV (initial infection) — can cause mucocutaneous ulcers and systemic symptoms, but photosensitivity/facial pattern still favors SLE; exposure history unknown.\n5) Pneumonia — less likely without fever/cough.\nMost informative next question: ask about cough and whether there’s any hemoptysis; this helps distinguish SLE pleuritis/interstitial disease vs infection vs PE.\n[/REASONING]\nNext question: Do you have a cough, and if so is there any blood when you cough (hemoptysis)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I do have a cough, but I haven’t noticed any blood when I cough.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: painful oral ulcers, photosensitive red facial rash, fatigue, joint pain, pleuritic dyspnea, and now cough without hemoptysis; no fever; no eye/bleeding/clot history; no new meds.\nTop candidates:\n1) SLE — most consistent: photosensitive facial rash + oral ulcers + fatigue/arthralgia; pleuritic dyspnea and cough suggest pleuritis or interstitial lung disease.\n2) Pneumonia — cough and dyspnea fit, but photosensitive facial rash and oral ulcers are less typical; absence of fever doesn’t fully exclude.\n3) Pulmonary embolism — cough/pleuritic pain/dyspnea can occur without hemoptysis, but oral ulcers/photosensitive rash are not typical.\n4) Anemia — could contribute to dyspnea/cough sensation and fatigue, but doesn’t explain photosensitive rash/oral ulcers.\n5) HIV (initial infection) — can cause mucocutaneous ulcers and systemic symptoms; respiratory symptoms possible, but photosensitivity pattern still favors SLE.\nMost informative next action: ask about fever/chills/night sweats and weight loss to help separate infection (pneumonia/TB) from inflammatory autoimmune disease.\n[/REASONING]\nNext question: Have you had any fever/chills, night sweats, or unintentional weight loss recently?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had fever or chills that I’m aware of. I also haven’t noticed night sweats or any unintentional weight loss.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: photosensitive red facial rash worse in sun, painful oral ulcers, chronic fatigue, joint pain, pleuritic-type dyspnea, and cough; no fever/chills/night sweats/weight loss; no eye symptoms; no bleeding/clot history; no kidney/urine symptoms; no new meds.\nThis strongly supports a systemic autoimmune/inflammatory process, with SLE the best fit given the classic mucocutaneous (oral ulcers + photosensitive facial rash) and systemic (fatigue/arthralgia) features plus pleuritic respiratory symptoms.\nTop candidates with brief reasoning:\n1) SLE — best unifying diagnosis: photosensitive facial rash + oral ulcers + fatigue/arthralgia; pleuritis/interstitial lung disease can cause pleuritic dyspnea and cough.\n2) Pneumonia — cough/dyspnea could fit, but lack of fever/chills and presence of photosensitive facial rash + oral ulcers makes it less likely.\n3) Pulmonary embolism — pleuritic dyspnea/cough possible, but mucosal ulcers/photosensitive rash are not typical and course isn’t sudden.\n4) HIV (initial infection) — can cause mucocutaneous ulcers and systemic symptoms, but photosensitivity/facial pattern is more characteristic of SLE and no exposure history.\n5) Anemia — can explain fatigue/dyspnea, but doesn’t explain photosensitive facial rash + oral ulcers.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I understand. What tests do you want to do next? I’m willing to get blood work and any chest tests you think are necessary.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] SLE, Pneumonia, Pulmonary embolism, HIV (initial infection), Anemia",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "SLE",
+    "predicted_set": [
+      "SLE",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "HIV (initial infection)",
+      "Anemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30574,
+      "completion_tokens": 3089
+    },
+    "patient": {
+      "prompt_tokens": 28176,
+      "completion_tokens": 430
+    }
+  }
+}

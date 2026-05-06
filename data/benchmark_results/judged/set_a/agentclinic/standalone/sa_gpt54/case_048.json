@@ -1,0 +1,147 @@
+{
+  "case_idx": 48,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache three days after undergoing an open cholecystectomy. She mentions right-sided chest pain that increases on inspiration and has had a productive cough for the last 12 hours. She also had an episode of hypotension post-operation that was resolved with IV fluids. Additionally, she had an abdominal hysterectomy 16 years ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fever and productive cough",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Headache",
+        "Right-sided chest pain that increases on inspiration"
+      ]
+    },
+    "Past_Medical_History": "Underwent abdominal hysterectomy 16 years ago for multiple fibroids of the uterus. She has a 17-year history of smoking one pack of cigarettes daily.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 17 years.",
+    "Review_of_Systems": "Reports discomfort. No other abnormalities noted apart from the symptoms related to her recent surgery and current complaints."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fever, chills, headache, right-sided chest pain, and a productive cough following an abdominal surgery.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, three days after my open cholecystectomy I developed fever and chills, along with a headache. I also have right-sided chest pain that gets worse when I take a deep breath, and I’ve had a productive cough for the past 12 hours.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What is your temperature, and are you feeling short of breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“My temperature is 102.5°F, and I’m not very short of breath, but I do feel uncomfortable and I’m coughing up phlegm.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What color is the phlegm, and have you noticed any blood in it?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the phlegm is yellow-green, and I haven’t noticed any blood in it.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any leg swelling or calf pain on either side?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I've not noticed any leg swelling or calf pain on either side.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Since the surgery, have you been mostly in bed, or have you been up walking around regularly?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, after the surgery I’ve been mostly in bed, though I’ve gotten up a little here and there—it hasn’t been regular walking.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any abdominal pain, redness or drainage from the surgical wound, or yellowing of your eyes/skin?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed any redness or drainage from the surgical wound, and I don’t have abdominal pain now. I also haven’t noticed any yellowing of my eyes or skin.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Did the chest pain and cough start suddenly, or did they come on gradually after the fever began?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the fever and chills seemed to come first, and then within the next day the cough started and the right-sided chest pain became noticeable, getting worse when I take a deep breath.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Have you been using the incentive spirometer or taking deep breaths after surgery, and does it hurt enough that you've been avoiding deep breathing?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I was told to use the incentive spirometer, but I haven’t been doing it consistently since I’ve mostly been in bed.” “The chest pain makes me hesitant to take deep breaths, so I’ve been trying to avoid stretching my breathing fully.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Postoperative pneumonia, postoperative atelectasis with secondary infection, pulmonary embolism, subphrenic abscess, pleuritis/pleural effusion\n\nMost likely this is postoperative pneumonia, likely developing on a background of poor deep breathing/atelectasis after open abdominal surgery.\n\nWhy it fits:\n- 3 days after open cholecystectomy\n- Fever to 102.5°F with chills\n- Productive cough with yellow-green sputum\n- Pleuritic right-sided chest pain\n- Mostly bedridden and not using incentive spirometry consistently\n- Avoiding deep breaths, which promotes atelectasis and postoperative lung infection\n\nImportant alternatives:\n- Atelectasis alone can happen after surgery, but the high fever plus purulent sputum makes pneumonia more likely.\n- Pulmonary embolism is important because of recent surgery and immobility, but yellow-green sputum and fever/chills point more toward infection.\n- Subphrenic abscess can occur after abdominal surgery and can cause fever, cough, hiccups, shoulder/chest pain, or pleuritic symptoms, though your lack of abdominal symptoms makes it less likely.\n- Pleural irritation/effusion can accompany pneumonia or subdiaphragmatic infection.\n\nThis needs prompt in-person evaluation with:\n- Vitals and oxygen saturation\n- Lung exam\n- Chest X-ray\n- CBC, basic labs\n- Consider blood cultures if ill-appearing\n- Consider",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Postoperative pneumonia",
+    "predicted_set": [
+      "Postoperative pneumonia",
+      "postoperative atelectasis with secondary infection",
+      "pulmonary embolism",
+      "subphrenic abscess",
+      "pleuritis/pleural effusion\n\nMost likely this is postoperative pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3564,
+      "completion_tokens": 455
+    },
+    "patient": {
+      "prompt_tokens": 4306,
+      "completion_tokens": 310,
+      "calls": 8
+    }
+  }
+}

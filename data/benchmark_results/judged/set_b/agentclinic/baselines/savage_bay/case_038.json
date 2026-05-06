@@ -1,0 +1,133 @@
+{
+  "case_idx": 38,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Aromatase deficiency",
+  "patient_actor_hidden": {
+    "Demographics": "16-year-old female",
+    "History": "The patient has not experienced menarche. She was noted to have partial labial fusion and clitoromegaly at birth. The patient's mother reports that during pregnancy she had abnormal hair growth on her chin. The patient has a history of severe acne and has sustained fractures following minor trauma. She is currently on oral isotretinoin and an oral contraceptive.",
+    "Symptoms": {
+      "Primary_Symptom": "Delayed menarche",
+      "Secondary_Symptoms": [
+        "Severe acne",
+        "History of fractures following minor trauma",
+        "Partial labial fusion and clitoromegaly noted at birth"
+      ]
+    },
+    "Past_Medical_History": "Currently taking oral isotretinoin for acne and an oral contraceptive.",
+    "Social_History": "The patient is a high school student without significant tobacco, alcohol, or drug use.",
+    "Review_of_Systems": "Denies any recent illnesses, appetite change, or weight change."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the adolescent patient presenting with delayed menarche, unusual physical features, and a history suggestive of bone fragility.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I haven’t started my periods yet, and I also had severe acne and was told I had partial labial fusion and clitoromegaly at birth. I’ve even had fractures from minor trauma.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this is helpful. I’m going to narrow this down with one question at a time.\n\n**Current posterior (initial priors, since we only have congenital genital findings + fractures):**\n- **Aromatase deficiency:** 0.35  \n- **Pseudocyesis:** 0.05  \n- **Hemophilia A:** 0.10  \n- **Acute lymphoblastic leukemia:** 0.05  \n- **Acute myelogenous leukemia:** 0.05  \n(Other possibilities exist but these are the closest matches to “delayed menses + congenital genital abnormality + fragility/fractures.”)\n\n**Question 1:**  \nWhen you say you’ve had fractures from minor trauma—have you ever been told you have **very low bone density/osteoporosis** or **high calcium/vitamin D problems**, or is it more like **easy bruising/bleeding** (e.g., nosebleeds, gum bleeding, heavy bruises)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you ever been told you have very low bone density or osteoporosis/high calcium or vitamin D problems, or is it more like easy bruising or bleeding? Patient: I’ve mostly been told I fractured from minor injuries; I haven’t had much discussion of bleeding issues, and I’m not sure about calcium or vitamin D testing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Update with evidence:** “Fractures from minor trauma” without known bleeding history shifts probability away from **Hemophilia A** (bleeding tendency) and toward **bone fragility** causes. From our list, **Aromatase deficiency** can be associated with hormonal issues and sometimes bone health effects, but we still need more discriminating features.\n\n**Current posterior:**\n- **Aromatase deficiency:** 0.55  \n- **Hemophilia A:** 0.05  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Acute myelogenous leukemia:** 0.10  \n- **Pseudocyesis:** 0.20  \n\n**Question 2:**  \nHave you had **any signs of puberty** yet—like **breast development** or **pubic/underarm hair**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any signs of puberty yet—like breast development or pubic/underarm hair? Patient: I don’t think my periods have started, but I do have significant hair growth, and I’ve had severe acne. I’m not sure about breast development details.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** Significant hair growth + delayed/absent menses + severe acne suggests **androgen excess** with impaired estrogen-driven puberty. That strongly supports **Aromatase deficiency** (can cause virilization/androgen effects with delayed estrogenization and delayed menses). It makes **pseudocyesis** much less likely.\n\n**Current posterior:**\n- **Aromatase deficiency:** 0.80  \n- **Acute lymphoblastic leukemia:** 0.05  \n- **Acute myelogenous leukemia:** 0.05  \n- **Hemophilia A:** 0.03  \n- **Pseudocyesis:** 0.02  \n\n**Question 3:**  \nHave you ever had labs showing **high testosterone/DHEA-S** or **low estradiol/estrogen**, or has anyone mentioned “**androgen excess**” or “**low estrogen**”?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you ever had labs showing high testosterone or DHEA-S, or low estradiol/estrogen—or has anyone mentioned androgen excess or low estrogen? Patient: I don’t recall specific hormone results, but I’ve been told my acne and hair growth suggest hormone imbalance.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** “Acne + hair growth suggesting hormone imbalance” increases likelihood of an endocrine androgen excess state, which fits **Aromatase deficiency** better than the other options. We still need a key discriminant: whether there’s **virilization** (e.g., clitoromegaly) and **lack of breast development**.\n\n**Current posterior:**\n- **Aromatase deficiency:** 0.85  \n- **Acute lymphoblastic leukemia:** 0.04  \n- **Acute myelogenous leukemia:** 0.04  \n- **Hemophilia A:** 0.02  \n- **Pseudocyesis:** 0.05  \n\n**Question 4:**  \nDo you have **breast development** at all (even minimal), or has puberty mainly been **hair growth without breast changes**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure, but I think I mainly noticed hair growth and I’ve had severe acne rather than clear breast development.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** Predominant virilization signs (hair growth, severe acne) with unclear/minimal breast development supports **low estrogen effect** → consistent with **Aromatase deficiency**.\n\n**Current posterior:**\n- **Aromatase deficiency:** 0.92  \n- **Acute lymphoblastic leukemia:** 0.03  \n- **Acute myelogenous leukemia:** 0.03  \n- **Hemophilia A:** 0.01  \n- **Pseudocyesis:** 0.01  \n\nWe’re fairly confident now, but I want one last discriminant to ensure we’re not missing a bleeding disorder or another systemic cause of fractures.\n\n**Question 5:**  \nHave you ever had **unusual bruising**, **frequent nosebleeds**, **gum bleeding**, or **heavy bleeding with dental work/menstruation** (even if you haven’t started periods yet)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you ever had unusual bruising, frequent nosebleeds, gum bleeding, or heavy bleeding with dental work—even if you haven’t started your periods yet? Patient: I don’t recall frequent nosebleeds or gum bleeding, and I haven’t been told I have a bleeding problem. Doctor: Thanks—so your main issue sounds more like hormone-related delayed puberty with virilization and bone fragility symptoms rather than a bleeding disorder.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Aromatase deficiency, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Hemophilia A, Pseudocyesis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Aromatase deficiency",
+    "predicted_set": [
+      "Aromatase deficiency",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Hemophilia A",
+      "Pseudocyesis"
+    ],
+    "predicted_raw": [
+      "Aromatase deficiency",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Hemophilia A",
+      "Pseudocyesis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Aromatase deficiency",
+    "predicted_set_remapped": [
+      "Aromatase deficiency",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8993,
+      "completion_tokens": 993
+    },
+    "patient": {
+      "prompt_tokens": 5797,
+      "completion_tokens": 383,
+      "calls": 6
+    }
+  }
+}

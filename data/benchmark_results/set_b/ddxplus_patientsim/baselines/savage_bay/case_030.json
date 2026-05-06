@@ -1,0 +1,102 @@
+{
+  "case_idx": 30,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Female\nChief Complaint: I have feeling nauseous or do you feel like vomiting, significant dyspnea, and did your cheeks suddenly turn red",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, I’m feeling nauseous and like I might vomit, and I also have significant trouble breathing. My cheeks suddenly turned red and I have a pink rash with itching—it's on my right biceps, around my mouth/thyroid area, and both my right and left ankles.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this—this sounds potentially serious.\n\n**Current posterior (pre-test priors, based on your symptoms):**\n- **Anaphylaxis:** 0.45  \n- **Pulmonary embolism:** 0.15  \n- **Acute pulmonary edema:** 0.10  \n- **Acute COPD exacerbation / infection:** 0.10  \n- **Acute asthma exacerbation / bronchospasm:** 0.10  \n(Other causes less likely for now.)\n\n**Question 1 (most discriminating):**  \nDid this reaction start **within minutes to a couple of hours** after a specific trigger—like **food**, a **new medication** (especially antibiotics/NSAIDs), an **insect sting**, or **latex** exposure?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—this started after I ate something before the reaction. I had dark-fleshed fish or Swiss cheese, and then fairly quickly I started feeling nauseous and my breathing got bad, with my cheeks turning red and the itchy pink rash. I didn’t notice any new medicines or an insect sting.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** rapid onset after eating (minutes–hours) + itchy pink rash + red cheeks + nausea + breathing difficulty.\n\n**Likelihood ratios (approx):**\n- Anaphylaxis: LR ~ 8–15 (strongly supports)\n- Pulmonary embolism: LR ~ 0.2 (less likely)\n- Acute pulmonary edema: LR ~ 0.3\n- COPD/asthma exacerbation: LR ~ 0.4–0.6 (can mimic, but rash/cheeks/itching after food strongly favors allergy)\n\n**Updated posterior:**\n- **Anaphylaxis:** 0.80  \n- **Acute asthma exacerbation / bronchospasm:** 0.07  \n- **Acute pulmonary edema:** 0.05  \n- **Pulmonary embolism:** 0.04  \n- **Acute COPD exacerbation / infection:** 0.04  \n\n**Question 2 (key to severity/airway):**  \nDo you have **throat tightness**, **trouble swallowing**, **hoarse voice**, or **tongue/lip swelling**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about throat tightness or hoarse voice, and I haven’t had trouble swallowing. I did notice redness around my mouth area, but I don’t think my tongue or lips were swollen.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** no known dysphagia/hoarseness; redness around mouth; no clear tongue/lip swelling.\n\n**Likelihood ratios (approx):**\n- Anaphylaxis: LR ~ 0.8 (still plausible even without obvious angioedema)\n- Acute asthma/bronchospasm: LR ~ 0.7\n- Pulmonary embolism: LR ~ 0.3\n- Acute pulmonary edema: LR ~ 0.4\n\n**Updated posterior:**\n- **Anaphylaxis:** 0.76  \n- **Acute asthma/bronchospasm:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n- **Pulmonary embolism:** 0.04  \n- **Acute COPD exacerbation / infection:** 0.05  \n\n**Question 3 (airway/resp status):**  \nRight now, are you **wheezing** (a high-pitched sound when you breathe out), or is it more like **can’t get enough air** without wheeze?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It feels more like I can’t get enough air. I’m not sure if I’m wheezing—I just know my breathing feels really hard.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** severe dyspnea without clear wheeze—can fit anaphylaxis (bronchospasm/airway edema) or other cardiopulmonary causes.\n\n**Likelihood ratios (approx):**\n- Anaphylaxis: LR ~ 1.2\n- Acute pulmonary edema: LR ~ 1.5 (dyspnea prominent)\n- Acute asthma/bronchospasm: LR ~ 0.9\n- Pulmonary embolism: LR ~ 1.0\n\n**Updated posterior:**\n- **Anaphylaxis:** 0.72  \n- **Acute pulmonary edema:** 0.10  \n- **Acute asthma/bronchospasm:** 0.09  \n- **Pulmonary embolism:** 0.05  \n- **Acute COPD exacerbation / infection:** 0.04  \n\n**Question 4 (discriminating for PE/pulmonary edema):**  \nDo you have **chest pain**, **cough**, or **coughing up blood**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain, and I don’t have a cough or coughing up blood.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** absence of chest pain/cough/hemoptysis makes PE and pulmonary edema somewhat less likely, but not excluded.\n\n**Likelihood ratios (approx):**\n- Anaphylaxis: LR ~ 1.0 (neutral)\n- Pulmonary embolism: LR ~ 0.7\n- Acute pulmonary edema: LR ~ 0.7\n- Acute asthma/bronchospasm: LR ~ 0.9\n\n**Updated posterior:**\n- **Anaphylaxis:** 0.74  \n- **Acute asthma/bronchospasm:** 0.10  \n- **Pulmonary embolism:** 0.04  \n- **Acute pulmonary edema:** 0.04  \n- **Acute COPD exacerbation / infection:** 0.08  \n\n**Question 5 (circulatory/trigger severity):**  \nDo you feel **lightheaded, faint, or like you might pass out**, or have you noticed **low blood pressure** (if you checked) / very fast heartbeat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel a little lightheaded, like I might pass out. I don’t know my blood pressure, but my heart feels like it’s beating fast.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** lightheadedness + tachycardia after food strongly supports systemic allergic/anaphylactic reaction with hypotension risk.\n\n**Likelihood ratios (approx):**\n- Anaphylaxis: LR ~ 3–5 (supports)\n- Acute asthma/bronchospasm: LR ~ 1.2\n- Pulmonary embolism: LR ~ 1.0\n- Acute pulmonary edema: LR ~ 0.8\n\n**Updated posterior:**\n- **Anaphylaxis:** 0.90  \n- **Acute asthma/bronchospasm:** 0.07  \n- **Pulmonary embolism:** 0.02  \n- **Acute pulmonary edema:** 0.01  \n- **Acute COPD exacerbation / infection:** 0.00–0.01  \n\nGiven the high likelihood and potential for rapid deterioration, this should be treated as an emergency.\n\n[DDX] Anaphylaxis, Bronchospasm / acute asthma exacerbation, Pulmonary embolism, Acute pulmonary edema, Acute COPD exacerbation / infection",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8713,
+      "completion_tokens": 1264
+    },
+    "patient": {
+      "prompt_tokens": 7819,
+      "completion_tokens": 258
+    }
+  }
+}

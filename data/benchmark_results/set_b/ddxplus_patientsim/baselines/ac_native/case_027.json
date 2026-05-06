@@ -1,0 +1,95 @@
+{
+  "case_idx": 27,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Stable angina",
+  "objective_for_doctor": "A 22-year-old Female patient presents to the clinic. Chief complaint: I have lower chest pain, left side of the chest pain, and upper chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have lower chest pain on the left side, and also upper chest pain—like a tedious, exhausting feeling. It’s about 5/10, started pretty fast, and it also comes with epigastric pain plus pain that can radiate to my right biceps, thoracic spine, right shoulder, and even under my jaw, with significant shortness of breath and it happens with exertion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick questions—does the pain feel like pressure/tightness or sharp/stabbing, and does it improve with rest or worsen when you take a deep breath?  \nDoctor: Also, when did it start (hours/days), and do you have any nausea/vomiting, sweating, fever, cough, or do you notice it with meals or lying down?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It feels like pressure/tightness more than sharp/stabbing. It gets worse with exertion and I haven’t noticed that it improves with rest right away.  \n\nIt started pretty fast—within minutes to an hour (not days). I also have significant shortness of breath, but I don’t have nausea/vomiting, fever, or cough, and I’m not sure it changes specifically with meals or lying down.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about possible heart/lung causes—are you having any sweating, palpitations, dizziness/fainting, leg swelling, or recent long travel/surgery, and do you smoke or use estrogen (birth control)?  \nDoctor: Also, on a scale of 0–10, how bad is the shortness of breath, and is the chest pressure reproducible when you press on the chest or move your arms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed sweating, palpitations, dizziness/fainting, or leg swelling. I haven’t had recent long travel or surgery.  \n\nYes, I do smoke cigarettes, and I’m not sure about estrogen/birth control—I can’t say for sure. My shortness of breath feels pretty bad, around 7/10, and the chest pressure doesn’t clearly get worse just by pressing on the chest or moving my arms.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the exertional pressure/tightness with significant shortness of breath plus smoking history, I want to rule out acute coronary syndrome and a lung clot—can you tell me your age, and are you currently on any estrogen-containing birth control (or pregnant)?  \nDoctor: Also, do you have any new wheezing, cough, or one-sided leg pain, and when you take a deep breath does it feel sharper or remain the same pressure?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m 22 years old. I’m not sure about estrogen-containing birth control, and I’m not pregnant as far as I know.  \n\nI don’t have new wheezing or cough, and I don’t have one-sided leg pain. When I take a deep breath, it feels about the same pressure—not noticeably sharper.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With exertional pressure-like chest pain radiating to jaw/shoulder plus significant shortness of breath in a 22-year-old who smokes, I’m still treating this as potentially dangerous—please don’t wait at home: I need urgent vitals and an ECG to rule out acute coronary syndrome.  \nREQUEST TEST: 12-lead_ECG + Serial_troponins  \nREQUEST TEST: CTA_or_VQ_scan_if_high_risk_for_Pulmonary_Embolism (and/or D-dimer if appropriate per protocol)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor—I understand. I’m willing to get the urgent vitals, the 12‑lead ECG, and serial troponins right away. If you think I’m high risk for a lung clot, please also proceed with the CTA or VQ scan (or D‑dimer if that’s what your protocol says).",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check your vitals immediately—blood pressure, heart rate, oxygen saturation, respiratory rate, and temperature—and I’ll interpret your ECG for any ischemic changes.  \nREQUEST TEST: CBC + CMP + PT/INR + aPTT + D-dimer (per PE protocol)  \nREQUEST TEST: Chest_X-Ray",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor—please check my vitals and do the ECG interpretation. I’m also okay with the blood tests (CBC, CMP, PT/INR, aPTT, and D-dimer if needed) and a chest X-ray.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to escalate immediately: please confirm your current blood pressure, heart rate, oxygen saturation, respiratory rate, and temperature, and I’ll review the 12‑lead ECG for ischemia/arrhythmia while we wait on labs.  \nDoctor: If you can, also tell me whether you’re able to speak full sentences without stopping and whether the pain is worsening right now; I’m still concerned for ACS/PE given your exertional symptoms and smoking.  \nDIAGNOSIS READY: Acute Coronary Syndrome (needs immediate ED workup with ECG/serial troponins)\n\n[ABSTAIN] free-text diagnosis 'Acute Coronary Syndrome (needs immediate ED workup with ECG/serial troponins)' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4354,
+      "completion_tokens": 583,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 7150,
+      "completion_tokens": 465
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "case_idx": 41,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {
+    "AGE": 47,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['history of spontaneous pneumothorax', 'pain', 'cigarette smoking', 'chronic obstructive pulmonary disease (copd)', 'family history of pneumothorax', 'exertional symptoms', 'chest pain with deep breaths']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 47\n- I have had a spontaneous pneumothorax.\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I have a chronic obstructive pulmonary disease (COPD).\n- Some of my family members have had a pneumothorax.\n- I have symptoms that are increased with physical exertion but alleviated with rest.\n- I have pain that is increased when I breathe in deeply.\n- On a scale of 0-10, the pain intensity is 9\n- On a scale of 0-10, the pain's location precision is 3\n- On a scale of 0-10, the pace at which the pain appear is 6\n- The pain is:\n* heartbreaking\n* violent\n- The pain locations are:\n* breast(R)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Unstable angina', 0.31434181244199466], ['Stable angina', 0.27990432130799664], ['Possible NSTEMI / STEMI', 0.2233598162650749], ['Spontaneous pneumothorax', 0.1823940499849338]]",
+    "PATHOLOGY": "Spontaneous pneumothorax",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['ap_pneumothorax', 'douleurxx', 'douleurxx_carac_@_déchirante', 'douleurxx_carac_@_violente', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_intens_@_9', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_3', 'douleurxx_soudain_@_6', 'f17.210', 'j44_j42', 'pneumothorax', 'trav1_@_N', 'ww_effort', 'ww_respi']",
+    "patient_id": "htsim_1477",
+    "_test_index": 1477,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 47-year-old F patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have severe pain—right breast pain on the right side—with a pain intensity of 9 out of 10. It’s increased when I breathe in deeply, and it came on at a pace of 6 out of 10; it feels heartbreaking and violent. I also have a spontaneous pneumothorax and COPD, and I smoke cigarettes. The symptoms are worse with physical exertion but better with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this sounds severe. A few quick questions: does the pain radiate to your arm/shoulder or feel like a pressure, and do you have shortness of breath or coughing up blood?  \nDoctor: Also, when was your last pneumothorax, and have you had a recent chest X‑ray/CT or any fever or recent infection?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, the pain doesn’t radiate to my arm or shoulder, and it doesn’t feel like a pressure.\n\nI don’t know about when my last pneumothorax was, and I don’t know whether I’ve had a recent chest X‑ray/CT or any fever or recent infection.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I want to make sure this isn’t an urgent lung or heart issue—right now, are you feeling more short of breath than usual, sweaty/lightheaded, or having palpitations? Also, have you noticed any fever/chills or a new cough?  \nDoctor: REQUEST TEST: Pulse_Oximetry  \nDoctor: REQUEST TEST: ECG  \nDoctor: REQUEST TEST: Chest_X-Ray",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m here for severe right breast pain that’s worse with deep breathing, and my symptoms are increased with physical exertion but alleviated with rest. I have a spontaneous pneumothorax and COPD, and I smoke cigarettes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a lung/pleural cause given the sharp pleuritic breast pain and your history—do you feel sudden worsening shortness of breath compared with your baseline COPD? Also, is the pain reproducible when I press on the breast/chest wall?  \nDoctor: REQUEST TEST: CBC_with_Differential  \nDoctor: REQUEST TEST: D_Dimer",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m not sure whether my shortness of breath is suddenly worse compared with my baseline COPD, and I don’t know whether the pain is reproducible when I press on the breast/chest wall.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your spontaneous pneumothorax history and sharp pleuritic (worse with deep breath) chest/breast pain, my top concern is recurrent pneumothorax or pulmonary embolism—have you had any sudden worsening breathing or leg swelling, and do you feel worse when you lie flat?  \nDoctor: Please answer quickly: do you have a history of recent surgery/long travel/immobility or are you on estrogen therapy/birth control?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m not sure about any recent surgery, long travel, immobility, or whether I’m on estrogen therapy/birth control.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With your severe pleuritic right-sided chest/breast pain, COPD, and history of spontaneous pneumothorax, I’m treating this as a possible **recurrent pneumothorax** or another acute pleural/lung process until proven otherwise.  \nDoctor: REQUEST TEST: CT_Chest_with_Contrast  \nDoctor: REQUEST TEST: Troponin  \nDoctor: Once those are back, I’ll decide—but if you are getting more short of breath or your oxygen is low, you should go to the ER immediately.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m here because of severe right breast pain that’s worse with deep breathing, with pain intensity 9/10, and it came on at a pace of 6/10. My symptoms are increased with physical exertion and alleviated with rest. I have a spontaneous pneumothorax and COPD, and I smoke cigarettes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the pleuritic 9/10 right-sided pain with known spontaneous pneumothorax + COPD, I’m worried about a recurrent pneumothorax or other acute pleural process; can you tell me if you have new or worsening shortness of breath right now, and have you checked your oxygen saturation if available?  \nDoctor: Also, do you have any recent leg swelling/pain or coughing blood (even a little), and is the chest/breast pain definitely worse with pressing on the area (reproducible tenderness)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m here because of severe right breast pain that’s worse with deep breathing (pain intensity 9/10), and my symptoms are increased with physical exertion and alleviated with rest. I have a spontaneous pneumothorax and COPD, and I smoke cigarettes.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this could still be a recurrent pneumothorax given your history and pleuritic 9/10 pain—do you currently feel markedly more short of breath than your usual COPD baseline, and do you have any home oxygen reading (if yes, what number)?  \nDoctor: Since you can’t confirm timing, I need immediate clarity—REQUEST TEST: Bedside_Ultrasound (lung/bladder) and reassess immediately after your Chest_X-Ray result.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m here for severe right breast pain that’s worse with deep breathing (pain intensity 9/10). I have symptoms that are increased with physical exertion and alleviated with rest, and I have a spontaneous pneumothorax and COPD, and I smoke cigarettes.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely rule out a recurrent pneumothorax or other acute lung cause based on what you know, so I need the fastest, highest-yield next steps: REQUEST TEST: Chest_X-Ray_result_review and REQUEST TEST: Repeat_Pulse_Oximetry.  \nDoctor: While we’re doing that, are you having any new/worse shortness of breath right now or any chest tightness that’s rapidly worsening?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m still not able to rule out recurrent pneumothorax or a PE, so I need you to go to the ER now for urgent imaging and monitoring; can you tell me your current oxygen saturation (if you have a home pulse ox) and whether your breathing feels rapidly worsening over minutes?  \nDoctor: DIAGNOSIS READY: Suspected recurrent pneumothorax / acute pleural-lung process (given severe pleuritic right chest/breast pain, COPD, and prior spontaneous pneumothorax)—must be confirmed urgently with CXR/ultrasound and oxygen/ECG.\n\n[DDX]\n1. Spontaneous pneumothorax",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Spontaneous pneumothorax",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7706,
+      "completion_tokens": 892,
+      "calls": 9
+    },
+    "patient": {
+      "prompt_tokens": 11943,
+      "completion_tokens": 504,
+      "calls": 9
+    }
+  }
+}

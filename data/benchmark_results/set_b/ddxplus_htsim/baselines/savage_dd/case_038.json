@@ -1,0 +1,139 @@
+{
+  "case_idx": 38,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 23\nSex: F\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having shortness of breath or difficulty breathing in a significant way. I’m also consulting because I have high blood pressure, and I have pericarditis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. To narrow down the cause of the significant shortness of breath:\n\n**One question:** When did the breathing difficulty start—**suddenly (minutes to hours)** or **gradually (over days)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question (to distinguish dangerous sudden causes):\n\n**One question:** Do you have **chest pain** right now or did you have it recently? If yes, is it **sharp and worse when you breathe in or lie flat**, or more **pressure/tightness**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question:\n\n**One question:** Are you having **fever** (or chills) or have you had any **recent infection symptoms** like cough, sore throat, or runny nose?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question—this helps separate lung vs heart vs airway causes:\n\n**One question:** Have you noticed **wheezing** (a whistling sound) or a **history of asthma/COPD**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. Next question—this is key for blood clot vs other causes:\n\n**One question:** Have you had **leg swelling or pain** (especially one-sided) or **recent long travel/immobility/surgery**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question—this helps assess fluid/heart failure vs other causes:\n\n**One question:** Do you get short of breath **when lying flat**, and does it improve when you sit up?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question—this helps with oxygenation/severity:\n\n**One question:** Are you having **blue lips/face**, **confusion**, or feeling like you might pass out?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question (airway/upper airway causes):\n\n**One question:** Any **throat symptoms**—trouble swallowing, drooling, muffled voice, or noisy breathing/stridor?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more focused question to narrow this down:\n\n**One question:** Have you had **recent vomiting or severe chest pain after vomiting** (concern for esophageal rupture)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient history: the patient can’t provide key discriminating details (timing of onset, chest pain characteristics, fever/infection symptoms, wheeze/asthma history, VTE risk factors, orthopnea, hypoxia/syncope, airway/throat symptoms, or post-vomiting severe pain). Without these, I can’t confidently rank diagnoses.\n\n[POSSIBLE] Possible NSTEMI / STEMI, Pulmonary embolism, Acute pulmonary edema, Bronchospasm / acute asthma exacerbation, Acute COPD exacerbation / infection",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10445,
+      "completion_tokens": 548
+    },
+    "patient": {}
+  }
+}

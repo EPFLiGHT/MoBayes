@@ -1,0 +1,182 @@
+{
+  "case_idx": 46,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Panic attack",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and lightheadedness/near-fainting",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have chest pain on both sides—right and left, and it feels sharp and crampy, including right breast pain. I also feel really short of breath, lightheaded like I might faint, with palpitations, nausea, and numbness/tingling in both arms and legs and around my mouth, like I’m detached from my body or surroundings and like I’m going to die.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’ll ask a few focused questions to narrow it down.\n\n**Current posterior (pre-test, based on your symptoms):**\n- **Possible NSTEMI / STEMI:** 20%\n- **Pulmonary embolism:** 20%\n- **Atrial fibrillation:** 10%\n- **PSVT:** 10%\n- **Panic attack:** 15%\n- (others less likely for now)\n\n**Question 1 (most important):**  \nWhen did this start (exact time or how many minutes/hours ago), and is it constant or coming in waves?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—like within a few minutes (about 5/10 for how fast it came on). It’s been more like it comes in waves, not totally constant.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated for sudden onset within minutes + wave-like):**\n- **Possible NSTEMI / STEMI:** 15% (less likely with wave-like, but still possible)\n- **Pulmonary embolism:** 15%\n- **Atrial fibrillation:** 15%\n- **PSVT:** 20% (paroxysmal, palpitations, waves)\n- **Panic attack:** 20% (can feel sudden with waves)\n- Others: 15%\n\n**Question 2:**  \nDo you have a measured heart rate (pulse) during the episodes—if you can, tell me the number (or whether it feels very fast, like >120)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a number right now. But during the episodes my heart feels like it’s racing and beating very hard, and it feels very fast—probably over 120 if I had to guess.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (racing >120 during waves):**\n- **PSVT:** 30%\n- **Panic attack:** 20%\n- **Atrial fibrillation:** 15%\n- **Possible NSTEMI / STEMI:** 10%\n- **Pulmonary embolism:** 10%\n- Others: 15%\n\n**Question 3 (to distinguish PSVT vs AF vs PE/ACS):**  \nDo you notice any trigger like exertion, stress, caffeine/energy drinks, alcohol, or do they happen at rest?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It happens at rest. I’ve been pretty anxious, and I did drink alcohol heavily recently. I don’t remember caffeine or energy drinks triggering it.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (rest + racing + anxiety + heavy alcohol):**\n- **PSVT:** 30%\n- **Panic attack:** 20%\n- **Atrial fibrillation:** 20% (alcohol can trigger AF)\n- **Possible NSTEMI / STEMI:** 10%\n- **Pulmonary embolism:** 10%\n- Others: 10%\n\n**Question 4 (key for PE):**  \nAny recent long travel/immobility, surgery, leg swelling or pain (especially one-sided), or have you ever had a blood clot?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No recent long travel or immobility. I don’t have leg swelling or one-sided leg pain, and I’ve never had a blood clot.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (no VTE risk factors):**\n- **PSVT:** 32%\n- **Panic attack:** 22%\n- **Atrial fibrillation:** 18%\n- **Possible NSTEMI / STEMI:** 12%\n- **Pulmonary embolism:** 6%\n- Others: 10%\n\n**Question 5 (to separate cardiac ischemia vs anxiety/arrhythmia):**  \nDoes the chest pain worsen with deep breathing, coughing, or twisting/moving your chest—or is it more independent of movement/breath?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It feels more independent of movement and breathing. It doesn’t really get worse when I take a deep breath or twist.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (pleuritic component less likely):**\n- **PSVT:** 34%\n- **Panic attack:** 24%\n- **Atrial fibrillation:** 18%\n- **Possible NSTEMI / STEMI:** 12%\n- **Pulmonary embolism:** 4%\n- Others: 8%\n\n**Question 6 (to distinguish panic vs primary arrhythmia):**  \nDuring an episode, do you feel like you can “catch your breath” or is it more that you feel short of breath because your heart is racing? Also, do you have wheezing or a history of asthma/COPD?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It feels like my breathing gets hard because my heart is racing and I feel panicky. I do have asthma, and I’ve used a bronchodilator before, but I don’t think I’m wheezing right now.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (asthma but no wheeze; SOB likely from tachycardia/panic):**\n- **PSVT:** 36%\n- **Panic attack:** 26%\n- **Atrial fibrillation:** 18%\n- **Possible NSTEMI / STEMI:** 10%\n- **Pulmonary embolism:** 3%\n- Others: 7%\n\n**Question 7 (important for ischemia):**  \nAny exertional component at all—like does walking/stairs reliably bring it on—or is it purely at rest? And do you have any sweating or pain radiating to jaw/left arm/back?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s purely at rest. I don’t have sweating that I can tell, and the pain doesn’t radiate to my jaw or left arm or my back.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (pure rest, no radiation/sweating):**\n- **PSVT:** 38%\n- **Panic attack:** 28%\n- **Atrial fibrillation:** 18%\n- **Possible NSTEMI / STEMI:** 7%\n- **Pulmonary embolism:** 2%\n- Others: 7%\n\n**Question 8 (to distinguish PSVT vs panic):**  \nWhen the episode starts, does it feel like the palpitations come first and the panic/doom feeling follows, or does the panic/doom feeling come first and then the palpitations?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It feels like the fear/doom feeling comes first, and then the palpitations start after.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (doom first → panic more likely than primary arrhythmia):**\n- **Panic attack:** 40%\n- **PSVT:** 30%\n- **Atrial fibrillation:** 15%\n- **Possible NSTEMI / STEMI:** 7%\n- **Pulmonary embolism:** 2%\n- Others: 6%\n\n**Question 9 (to support panic):**  \nDo you have a history of similar episodes, and do they peak within about 10 minutes and then start to ease?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had similar episodes before. They usually peak within like 10 minutes and then start to ease a bit.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (recurrent episodes peaking ~10 min + doom first):**\n- **Panic attack:** 55%\n- **PSVT:** 25%\n- **Atrial fibrillation:** 10%\n- **Possible NSTEMI / STEMI:** 5%\n- **Pulmonary embolism:** 2%\n- Others: 3%\n\n**Question 10 (to check for red flags for PE/ACS):**  \nAny fever, cough, recent infection, or are you coughing up blood?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No fever, no cough, and no coughing up blood.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (no infection/hemoptysis):**\n- **Panic attack:** 58%\n- **PSVT:** 22%\n- **Atrial fibrillation:** 10%\n- **Possible NSTEMI / STEMI:** 5%\n- **Pulmonary embolism:** 2%\n- Others: 3%\n\n**Question 11 (to further separate PSVT from panic):**  \nDuring the episode, have you ever noticed a very regular “clock-like” rhythm, or is it irregular/“fluttery”?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "It feels irregular, like it’s fluttery, not a super regular clock-like rhythm.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (panic still most likely, but irregular flutter keeps AF/other arrhythmia in play):**\n- **Panic attack:** 52%\n- **Atrial fibrillation:** 18%\n- **PSVT:** 18%\n- **Possible NSTEMI / STEMI:** 6%\n- **Pulmonary embolism:** 2%\n- Others: 4%\n\n**Question 12 (key discriminator):**  \nDo you have any known heart disease, prior abnormal ECG, or have you ever been told you have an arrhythmia?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No known heart disease, and I don’t think I’ve ever been told I have an arrhythmia before. I haven’t had an abnormal ECG that I know of.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (no known heart disease; still must rule out arrhythmia/ACS):**\n- **Panic attack:** 50%\n- **Atrial fibrillation:** 18%\n- **PSVT:** 20%\n- **Possible NSTEMI / STEMI:** 6%\n- **Pulmonary embolism:** 2%\n- Others: 4%\n\n**Question 13 (final key safety check):**  \nAre you currently having the symptoms right now, and if so are you able to speak full sentences? Also, do you have any fainting/near-fainting that’s severe or persistent?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I still have the symptoms right now—chest pain and I feel lightheaded/near-fainting, and I’m really short of breath. I can speak, but it’s hard and I feel like I might pass out if it gets worse.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] You’re currently symptomatic with chest pain, near-syncope, and significant shortness of breath—this needs immediate in-person evaluation (ECG, vitals, oxygenation, troponin, and likely PE/ACS workup). I can’t safely narrow to a single diagnosis from history alone.\n\n[POSSIBLE] Panic attack, PSVT, Atrial fibrillation, Possible NSTEMI / STEMI, Pulmonary embolism",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Panic attack",
+      "PSVT",
+      "Atrial fibrillation",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 26867,
+      "completion_tokens": 1693
+    },
+    "patient": {
+      "prompt_tokens": 26561,
+      "completion_tokens": 530
+    }
+  }
+}

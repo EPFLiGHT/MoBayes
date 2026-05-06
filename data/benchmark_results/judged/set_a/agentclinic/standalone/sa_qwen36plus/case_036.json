@@ -1,0 +1,114 @@
+{
+  "case_idx": 36,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "35-year-old female",
+    "History": "The patient reports a 1-month history of experiencing double vision (diplopia), difficulty in climbing stairs, and weakness when trying to brush her hair. She notes that these symptoms tend to worsen after physical activity but improve significantly after a few hours of rest.",
+    "Symptoms": {
+      "Primary_Symptom": "Double vision",
+      "Secondary_Symptoms": [
+        "Difficulty climbing stairs",
+        "Weakness in upper limbs",
+        "Improvement of symptoms after rest"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Non-smoker, drinks wine occasionally. Works as a graphic designer.",
+    "Review_of_Systems": "Patient denies experiencing any chest pain, palpitations, shortness of breath, or recent infections."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with double vision, difficulty climbing stairs, and upper limb weakness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about a month, I’ve had double vision, and it’s been getting harder to climb stairs and to brush my hair because my arms feel weak. It usually worsens with activity and then improves after a few hours of rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any drooping of your eyelids, particularly as the day progresses or after prolonged visual tasks?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—my eyelids seem to droop more later in the day, especially after I’ve been using my eyes for a while. It’s usually worse with prolonged activity and better after resting.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any difficulty with swallowing, chewing, or speaking clearly?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I have some mild trouble chewing and swallowing at times, and my speech can feel a bit slurred when I’m tired, but it’s not constant and it’s worse later in the day.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any shortness of breath or difficulty breathing, particularly when lying flat or with minimal exertion?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any shortness of breath or trouble breathing, even when lying flat or with minimal exertion.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myasthenia gravis, Lambert-Eaton myasthenic syndrome, Thyroid-associated myopathy, Polymyositis, Brainstem lesion",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_set": [
+      "Myasthenia gravis",
+      "Lambert-Eaton myasthenic syndrome",
+      "Thyroid-associated myopathy",
+      "Polymyositis",
+      "Brainstem lesion"
+    ],
+    "predicted_raw": [
+      "Myasthenia gravis",
+      "Lambert-Eaton myasthenic syndrome",
+      "Thyroid-associated myopathy",
+      "Polymyositis",
+      "Brainstem lesion"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Myasthenia gravis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1460,
+      "completion_tokens": 6848
+    },
+    "patient": {
+      "prompt_tokens": 1652,
+      "completion_tokens": 186,
+      "calls": 4
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "case_idx": 7,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {
+    "AGE": 55,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "stridor",
+    "EVIDENCES_ENG": "['severe food allergy', 'contact allergy', 'pain', 'shortness of breath', 'skin lesions', 'nausea', 'edema', 'loss of consciousness', 'stridor', 'expiratory wheezing', 'increased risk of common allergies']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 55\n- I have a known severe food allergy.\n- I have been in contact with or ate something that I have an allergy to.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I am feeling nauseous or I feel like vomiting.\n- I have swelling in one or more areas of my body.\n- I lost consciousness.\n- I have noticed a high pitched sound when breathing in.\n- I have noticed a wheezing sound when I exhale.\n- I am more likely to develop common allergies than the general population.\n- On a scale of 0-10, the pain intensity is 7\n- On a scale of 0-10, the pain's location precision is 3\n- On a scale of 0-10, the pace at which the pain appear is 8\n- The color of the rash is pink.\n- On a scale of 0-10, the rash swelling is 0\n- On a scale of 0-10, the pain intensity caused by the rash is 0\n- The lesion (or lesions) are larger than 1cm.\n- On a scale of 0-10, the severity of the rash itching is 9\n- The pain is:\n* a knife stroke\n* a cramp\n- The pain locations are:\n* flank(R)\n* flank(L)\n* iliac fossa(R)\n* iliac fossa(L)\n* hypochondrium(R)\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* back of the neck\n* biceps(L)\n* mouth\n* thyroid cartilage\n* ankle(R)\n- The swelling locations are:\n* forehead\n* cheek(R)\n* cheek(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Anaphylaxis', 0.10726011196580691], ['Pulmonary embolism', 0.08928393035776158], ['Bronchospasm / acute asthma exacerbation', 0.0841106450325708], ['Acute pulmonary edema', 0.07632203778582299], ['Boerhaave', 0.07438645101547049], ['Inguinal hernia', 0.06413193013624524], ['Larygospasm', 0.06074861971277079], ['GERD', 0.05911723207832932], ['Guillain-Barré syndrome', 0.052013098032213614], ['Atrial fibrillation', 0.049681914261636], ['Acute COPD exacerbation / infection', 0.04638993161264266], ['Possible NSTEMI / STEMI', 0.04241246159052923], ['Chagas', 0.04241246159052923], ['SLE', 0.04184468417968318], ['Acute dystonic reactions', 0.03662816354932934], ['Myasthenia gravis', 0.03662816354932934], ['Anemia', 0.03662816354932934]]",
+    "PATHOLOGY": "Anaphylaxis",
+    "INITIAL_EVIDENCE": "stridor",
+    "EVIDENCES": "['allergie_sev', 'contact_allergie', 'douleurxx', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_une_crampe', 'douleurxx_endroitducorps_@_flanc_D_', 'douleurxx_endroitducorps_@_flanc_G_', 'douleurxx_endroitducorps_@_fosse_iliaque_D_', 'douleurxx_endroitducorps_@_fosse_iliaque_G_', 'douleurxx_endroitducorps_@_hypochondre_D_', 'douleurxx_intens_@_7', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_3', 'douleurxx_soudain_@_8', 'dyspn', 'lesions_peau', 'lesions_peau_couleur_@_rose', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_0', 'lesions_peau_endroitducorps_@_arrière_du_cou', 'lesions_peau_endroitducorps_@_biceps_G_', 'lesions_peau_endroitducorps_@_bouche', 'lesions_peau_endroitducorps_@_cartilage_thyroidien', 'lesions_peau_endroitducorps_@_cheville_D_', 'lesions_peau_intens_@_0', 'lesions_peau_plusqu1cm_@_O', 'lesions_peau_prurit_@_9', 'nausee', 'oedeme', 'oedeme_endroitducorps_@_front', 'oedeme_endroitducorps_@_joue_D_', 'oedeme_endroitducorps_@_joue_G_', 'pdc', 'stridor', 'trav1_@_N', 'wheez', 'z84.89']",
+    "patient_id": "htsim_0253",
+    "_test_index": 253,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 55-year-old M patient presents to the clinic. Chief complaint: stridor.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have shortness of breath with a high pitched sound when breathing in (stridor), and a wheezing sound when I exhale. I also have a known severe food allergy and I’ve been in contact with or ate something I’m allergic to. I have pink skin lesions with severe itching, swelling in my forehead and cheeks, feel nauseous like vomiting, and I lost consciousness. I also have pain intensity 7/10 and it appears quickly (8/10).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—these symptoms sound like a severe allergic reaction with airway involvement. Did this start right after the food exposure, and have you ever had anaphylaxis (previous episodes), and do you have an epinephrine auto-injector you used today?  \n\nDoctor: REQUEST TEST: Serum_tryptase (if available/within 1–4 hours), and if stable: Pulse_oximetry, BP, respiratory rate; also I need your current oxygen saturation and whether you’re wheezing vs only stridor right now.",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it started right after the food exposure.\n\nI don’t know. I have been in contact with or ate something I’m allergic to, but I don’t have information on previous episodes of anaphylaxis.\n\nI don’t know whether I have an epinephrine auto-injector or if I used it today.\n\nRight now, I’m experiencing shortness of breath with a high pitched sound when breathing in (stridor) and a wheezing sound when I exhale.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This is most consistent with anaphylaxis causing upper airway obstruction—do you have epinephrine with you right now, and if so can you use it immediately (0.3–0.5 mg IM to the outer thigh), and are you able to speak full sentences?  \nDoctor: REQUEST TEST: Peak_flow (if able), and if you can’t be stabilized quickly, I’m treating empirically—what is your current BP and oxygen saturation (SpO₂)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I have an epinephrine auto-injector or if I used it today.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as life-threatening anaphylaxis with airway obstruction right now—can you look for an epinephrine auto-injector immediately (in your bag/home/EMS) and tell me if you can speak full sentences, and what your current BP and SpO₂ are?  \nDoctor: REQUEST TEST: Administer IM epinephrine now (0.3–0.5 mg, outer thigh) if no prior dose; then REQUEST TEST: Vital_signs (BP, HR, RR, SpO₂) and consider REQUEST TEST: Arterial_blood_gas if SpO₂ is low or tiring/stridor persists.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I have an epinephrine auto-injector or if I used it today. I’m experiencing shortness of breath with a high pitched sound when breathing in (stridor) and a wheezing sound when I exhale.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this is presumed anaphylaxis with impending airway obstruction; can you immediately call EMS and have someone bring any epinephrine auto-injector/emergency kit, and can you try to sit upright and tell me whether you’re able to speak full sentences?  \nDoctor: REQUEST TEST: Vital_signs now (BP, HR, RR, SpO₂) and check if you’re getting hoarse/stridor is worsening.  \nDoctor: If you cannot confirm epinephrine, we still proceed with immediate escalation—do you have any known asthma or history of laryngeal swelling?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—call EMS immediately right now and get help to find/bring any epinephrine auto-injector (from you/home/anyone nearby); **do not delay**. Can you tell me your current **SpO₂** (if you have a pulse ox) and whether you can **speak in full sentences** right now?  \n\nDoctor: REQUEST TEST: Vital_signs (BP, HR, RR, SpO₂) and I need to know if you’re **drooling, unable to swallow, or rapidly worsening stridor/hoarseness**.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my SpO₂.\n\nI can’t tell whether I’m able to speak in full sentences right now. I also don’t know whether I’m drooling, unable to swallow, or if the stridor/hoarseness is rapidly worsening.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you have stridor plus wheezing and loss of consciousness after a known allergen exposure, this is a medical emergency; **call EMS now** and **tell them it’s suspected anaphylaxis with airway involvement**.  \nDoctor: While waiting, sit upright (or in the position you’re most comfortable), remove any remaining allergen if present, and check your bag/home for an **epinephrine auto-injector**—if you find one, **use it immediately in the outer thigh** (do not wait for tests).  \nDoctor: DIAGNOSIS READY: Life-threatening anaphylaxis with impending upper-airway obstruction (anaphylaxis/airway angioedema).\n\n[DDX]\n1. Anaphylaxis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4321,
+      "completion_tokens": 762,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 8407,
+      "completion_tokens": 340,
+      "calls": 6
+    }
+  }
+}

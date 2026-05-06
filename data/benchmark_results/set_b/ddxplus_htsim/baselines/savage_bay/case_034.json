@@ -1,0 +1,99 @@
+{
+  "case_idx": 34,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 23\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood and I also have pain in my posterior chest wall (left) that’s sharp, around a 3 out of 10. I’ve also had a cough producing colored or more abundant sputum than usual, and my symptoms are more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step. First, a quick Bayesian snapshot based on what you’ve said (hemoptysis + colored/increased sputum + sharp posterior left chest wall pain, worse at night).\n\n**Current posterior (rough):**\n- **Pneumonia** 0.30  \n- **Pulmonary embolism** 0.20  \n- **Acute COPD exacerbation / infection** 0.15  \n- **Spontaneous pneumothorax** 0.10  \n- **Bronchitis** 0.10  \n(others combined 0.15)\n\n**Question 1 (most discriminating):**  \nWhen you cough up blood, is it **a small streaking** mixed with sputum, or **more than a teaspoon / clots**, or **enough to fill a cup**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—then I’ll ask a question that helps separate “blood from the lungs” vs “blood from the throat/nose” and also severity.\n\n**Update (still uncertain):** Without the amount, pneumonia/bronchitis/PE remain close.\n\n**Question 2:**  \nIs the blood **bright red and mixed with your sputum when you cough**, or is it more like **blood from your nose/throat** (e.g., you spit it out without coughing much)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next I’ll focus on the chest pain pattern—pleuritic pain can point toward pneumonia/PE/pneumothorax.\n\n**Current posterior (rough, unchanged):**\n- Pneumonia 0.28  \n- Pulmonary embolism 0.20  \n- Acute COPD exacerbation / infection 0.15  \n- Spontaneous pneumothorax 0.12  \n- Bronchitis 0.10  \n(others 0.15)\n\n**Question 3:**  \nDoes the chest wall pain get **worse when you take a deep breath or cough** (pleuritic), or is it **tender to press on the spot** like a muscle/rib pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—then I’ll ask about key PE risk factors, which can strongly shift the probabilities even if we don’t know the blood amount.\n\n**Current posterior (rough):**\n- Pneumonia 0.28  \n- Pulmonary embolism 0.20  \n- Acute COPD exacerbation / infection 0.15  \n- Spontaneous pneumothorax 0.12  \n- Bronchitis 0.10  \n\n**Question 4:**  \nIn the past 2–4 weeks, have you had any of these: **long travel/immobility, recent surgery, leg swelling or pain (especially one-sided), or a history of blood clots**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Alright—then I’ll ask about classic infection symptoms that would raise pneumonia/bronchitis and lower PE.\n\n**Current posterior (rough):**\n- Pneumonia 0.28  \n- Pulmonary embolism 0.20  \n- Acute COPD exacerbation / infection 0.15  \n- Spontaneous pneumothorax 0.12  \n- Bronchitis 0.10  \n\n**Question 5:**  \nHave you had **fever or chills**, or do you feel **more short of breath than usual**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m not confident enough to produce a reliable top-5 differential because the most discriminating details are missing (amount/character of hemoptysis, pleuritic vs reproducible pain, and key risk factors like PE vs infection).\n\n**[ABSTAIN]** Insufficient evidence: patient can’t characterize hemoptysis (amount/source) or chest pain (pleuritic vs tender), and denies/doesn’t know key discriminators (PE risk factors, fever/shortness of breath).\n\n[POSSIBLE] Pneumonia, Pulmonary embolism, Acute COPD exacerbation / infection, Spontaneous pneumothorax, Bronchitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Spontaneous pneumothorax",
+      "Bronchitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7248,
+      "completion_tokens": 823
+    },
+    "patient": {}
+  }
+}

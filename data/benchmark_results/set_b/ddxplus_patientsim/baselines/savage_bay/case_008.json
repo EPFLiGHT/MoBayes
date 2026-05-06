@@ -1,0 +1,192 @@
+{
+  "case_idx": 8,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: Female\nChief Complaint: I have lower chest pain, upper chest pain, and right posterior chest wall radiating pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have lower chest pain and upper chest pain, plus sharp “knife-stroke” pain that radiates to my right posterior chest wall and also to my thoracic spine. It’s very bad—about 10/10—and it also gets worse with breathing (pleuritic), and I feel palpitations and trouble lying flat (orthopnea). I recently had a viral infection, and I’ve had pericarditis before.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’m going to ask a few focused questions to narrow down the cause of this severe pleuritic chest pain.\n\n**Current posterior (pre-test estimate based on your description):**\n- **Possible NSTEMI / STEMI:** 20%\n- **Pulmonary embolism:** 25%\n- **Pericarditis:** 20%\n- **Acute pulmonary edema:** 10%\n- **Spontaneous pneumothorax:** 10%\n(Other causes share the remaining 15%.)\n\n**Question 1 (most discriminating):**  \nWhen did this pain start (exact timing), and has it been constant since onset or does it come and go?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly—about 7/10 in speed, like it came on fast. The pain has been very severe since it began, and it feels mostly constant rather than coming and going.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after timing (sudden onset, constant severe):**  \n- **Possible NSTEMI / STEMI:** 18% (slightly down—constant pleuritic pain less classic, but still possible)  \n- **Pulmonary embolism:** 32% (up—sudden pleuritic pain fits)  \n- **Pericarditis:** 15% (down—often more gradual, though can be severe)  \n- **Acute pulmonary edema:** 8% (down—usually more dyspnea/orthopnea than “knife-stroke” pleuritic pain)  \n- **Spontaneous pneumothorax:** 12% (up—can be sudden and pleuritic)  \n\n**Question 2:**  \nDo you have **shortness of breath** right now or **cough/fever**? (If yes, which and how severe?)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel short of breath right now, and it’s worse when I try to lie flat. I don’t have cough or fever that I can say for sure.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with dyspnea + orthopnea:**  \n- **Possible NSTEMI / STEMI:** 16% (still possible with cardiac component)  \n- **Pulmonary embolism:** 30% (PE can cause SOB; orthopnea is less typical but can occur with distress)  \n- **Pericarditis:** 18% (can cause SOB; orthopnea can happen if pain limits breathing)  \n- **Acute pulmonary edema:** 12% (orthopnea strongly fits; pleuritic “knife-stroke” less typical but can coexist)  \n- **Spontaneous pneumothorax:** 10% (SOB fits; orthopnea less typical)\n\n**Question 3 (very discriminating):**  \nDo you have **leg symptoms**—pain/swelling in one calf, recent immobility, recent long travel, or recent surgery?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have leg pain or swelling that I’ve noticed. I also haven’t had long travel or surgery recently.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no leg symptoms / no recent travel/surgery):**  \n- **Possible NSTEMI / STEMI:** 17% (unchanged-ish)  \n- **Pulmonary embolism:** 22% (down—less typical risk profile)  \n- **Pericarditis:** 20% (up slightly)  \n- **Acute pulmonary edema:** 14% (up—orthopnea supports)  \n- **Spontaneous pneumothorax:** 12% (unchanged)\n\n**Question 4:**  \nDo you have **any history of lung disease** (COPD/asthma), or have you ever had a pneumothorax? Also, do you smoke or vape?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have COPD or asthma, and I’ve never had a pneumothorax before. I don’t smoke or vape.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no COPD/asthma; no pneumothorax history; non-smoker):**  \n- **Possible NSTEMI / STEMI:** 18%  \n- **Pulmonary embolism:** 20%  \n- **Pericarditis:** 22%  \n- **Acute pulmonary edema:** 16%  \n- **Spontaneous pneumothorax:** 7% (down)\n\n**Question 5 (high-yield):**  \nDoes the pain **change with position**—for example, is it **better when you sit up and lean forward** or **worse when you lie flat**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s worse when I lie flat. I think it’s a bit better if I sit up, but the pain is still there either way. I haven’t noticed a clear “lean forward” effect.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (worse lying flat; partial relief sitting):**  \n- **Possible NSTEMI / STEMI:** 15%  \n- **Pulmonary embolism:** 18%  \n- **Pericarditis:** 35% (up—positional component fits)  \n- **Acute pulmonary edema:** 12%  \n- **Spontaneous pneumothorax:** 5%  \n\n**Question 6 (to confirm pericarditis vs other):**  \nHave you noticed **fever**, **recent viral illness symptoms** (sore throat, flu-like illness), or did you have **pain that’s reproducible when you press on the chest**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I recently had a viral infection. I don’t know about fever right now. And yes—the pain feels like it’s sharp and can be a bit reproducible if you press on the chest, though it’s very painful even without pressing.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (recent viral illness + positional pain + reproducible tenderness):**  \n- **Possible NSTEMI / STEMI:** 10%  \n- **Pulmonary embolism:** 12%  \n- **Pericarditis:** 55% (major up)  \n- **Acute pulmonary edema:** 10%  \n- **Spontaneous pneumothorax:** 3%  \n\n**Question 7 (key to rule out MI/PE):**  \nDo you have **new leg swelling**, **coughing blood**, or **a history of clotting disorders**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No new leg swelling, and I haven’t coughed up blood. I don’t know of any clotting disorder history.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no hemoptysis/leg swelling):**  \n- **Possible NSTEMI / STEMI:** 9%  \n- **Pulmonary embolism:** 10%  \n- **Pericarditis:** 58%  \n- **Acute pulmonary edema:** 12%  \n- **Spontaneous pneumothorax:** 4%  \n\n**Question 8 (to separate pericarditis from pneumonia/pleurisy):**  \nAny **fever/chills** or **sick contacts**, and is there **any cough** at all (even mild)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have cough. I might have felt sick recently from a viral infection, but I don’t have fever or chills right now, and no specific sick contacts that I know of.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no cough/fever now):**  \n- **Possible NSTEMI / STEMI:** 8%  \n- **Pulmonary embolism:** 12%  \n- **Pericarditis:** 62%  \n- **Acute pulmonary edema:** 10%  \n- **Spontaneous pneumothorax:** 3%  \n\n**Question 9 (to assess severity/alternative cardiac causes):**  \nAre you having **radiation to the left arm/jaw**, **sweating**, **nausea/vomiting**, or a sense of impending fainting?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No radiation to my left arm or jaw. I do feel really uncomfortable with the pain, and I get palpitations, but I don’t have nausea/vomiting or feel like I’m about to faint.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no classic ischemic radiation/syncope):**  \n- **Possible NSTEMI / STEMI:** 6%  \n- **Pulmonary embolism:** 10%  \n- **Pericarditis:** 68%  \n- **Acute pulmonary edema:** 12%  \n- **Spontaneous pneumothorax:** 4%  \n\n**Question 10 (to check for heart failure/edema vs primary pericarditis):**  \nWhen you say trouble lying flat, do you also have **leg swelling**, **wheezing**, or **frothy sputum**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling. I don’t have frothy sputum that I’ve noticed, and I’m not sure about wheezing.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no edema signs):**  \n- **Possible NSTEMI / STEMI:** 5%  \n- **Pulmonary embolism:** 9%  \n- **Pericarditis:** 70%  \n- **Acute pulmonary edema:** 8%  \n- **Spontaneous pneumothorax:** 4%  \n\n**Question 11 (very discriminating):**  \nHave you had **recent dental/neck infection**, trouble swallowing, drooling, or a very muffled voice? (to screen for epiglottitis/upper airway causes)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had any dental or neck infection, trouble swallowing, drooling, or a muffled voice.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (upper airway causes less likely):**  \n- **Possible NSTEMI / STEMI:** 5%  \n- **Pulmonary embolism:** 9%  \n- **Pericarditis:** 72%  \n- **Acute pulmonary edema:** 7%  \n- **Spontaneous pneumothorax:** 4%  \n\n**Question 12 (to confirm pericarditis vs PE):**  \nHave you had **any recent prolonged immobility** even without travel (bed rest, long car rides), **cancer**, or **estrogen/testosterone use**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had prolonged immobility, cancer, or hormone use that I know of.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (pericarditis remains dominant; PE slightly down):**\n- **Possible NSTEMI / STEMI:** 5%  \n- **Pulmonary embolism:** 7%  \n- **Pericarditis:** 75%  \n- **Acute pulmonary edema:** 7%  \n- **Spontaneous pneumothorax:** 6%  \n\n**Question 13 (to further support pericarditis):**  \nDoes the pain feel **better when you sit up and lean forward**, or is it only worse lying flat?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly worse when I lie flat. When I sit up, it’s a bit better, but the pain doesn’t fully go away.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (positional relief supports pericarditis):**\n- **Possible NSTEMI / STEMI:** 4%  \n- **Pulmonary embolism:** 6%  \n- **Pericarditis:** 78%  \n- **Acute pulmonary edema:** 6%  \n- **Spontaneous pneumothorax:** 6%  \n\n**Question 14 (to check for pneumothorax):**  \nDo you have **sudden one-sided decreased breath sounds** that you’ve noticed, or is the pain associated with **a feeling of air hunger** that’s worse with deep breaths?\n\n(If you don’t know, just tell me whether breathing feels “tight” or “can’t get a full breath.”)",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about decreased breath sounds on one side. Breathing feels tight and it’s hard to take a full breath, and it gets worse when I try to breathe deeply.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pericarditis, Possible NSTEMI / STEMI, Pulmonary embolism, Acute pulmonary edema, Spontaneous pneumothorax",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_set": [
+      "Pericarditis",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Spontaneous pneumothorax"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 32867,
+      "completion_tokens": 2001
+    },
+    "patient": {
+      "prompt_tokens": 29852,
+      "completion_tokens": 603
+    }
+  }
+}

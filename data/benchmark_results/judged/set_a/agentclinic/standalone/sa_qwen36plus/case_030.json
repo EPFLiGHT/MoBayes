@@ -1,0 +1,145 @@
+{
+  "case_idx": 30,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient reports experiencing epigastric discomfort and cramping pain for the past 2 hours, noting that similar episodes have occurred in the past, mostly postprandially. She mentions a recent unintentional weight loss due to meal avoidance as a pain mitigation strategy. She smokes and consumes alcohol occasionally.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Weight loss",
+        "Pain mostly postprandially",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Insignificant, except for chronic knee pain managed with over-the-counter painkillers.",
+    "Social_History": "Smoking habit and occasional alcohol consumption.",
+    "Review_of_Systems": "Denies nausea, vomiting, change in bowel habits, and any urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve had epigastric discomfort with cramping pain for about two hours, and it feels similar to past episodes that usually happen after I eat. I’ve also unintentionally lost weight because I’ve been avoiding meals to prevent the pain.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you for that information. To help assess for potential complications, have you noticed any black, tarry stools, vomiting blood, or coffee-ground material recently?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed black tarry stools, vomiting blood, or anything like coffee-ground material. I also haven’t had nausea or any change in my bowel habits.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "To help narrow this down, how long after you begin eating does the pain typically start?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“It usually starts fairly soon after I begin eating—within about 15 to 30 minutes—and then the discomfort and cramping can last for a bit after.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and do you have any history of smoking, high blood pressure, high cholesterol, diabetes, or known cardiovascular disease?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 38 years old, and I do smoke; I don’t have high blood pressure, high cholesterol, diabetes, or any known cardiovascular disease.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you regularly take nonsteroidal anti-inflammatory drugs (NSAIDs) like ibuprofen or naproxen, or aspirin?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t take any regular NSAIDs for it, but for my chronic knee pain I use over-the-counter painkillers occasionally—usually around-the-day as needed.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Does the pain radiate to your back or right shoulder, or does it remain localized to the center of your upper abdomen?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“It stays mostly in the center of my upper abdomen and doesn’t really radiate to my back or right shoulder. It’s just epigastric discomfort with cramping that comes on shortly after I start eating.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Does taking antacids or acid-reducing medications (like omeprazole or famotidine) provide any noticeable relief to the discomfort?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t tried antacids or acid-reducing medications yet, so I can’t say whether they help. I’ve just been avoiding meals because the pain tends to come on after I start eating.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Gastric ulcer, Chronic gastritis, Duodenal ulcer, Functional dyspepsia, Biliary colic",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Gastric ulcer",
+    "predicted_set": [
+      "Gastric ulcer",
+      "Chronic gastritis",
+      "Duodenal ulcer",
+      "Functional dyspepsia",
+      "Biliary colic"
+    ],
+    "predicted_raw": [
+      "Gastric ulcer",
+      "Chronic gastritis",
+      "Duodenal ulcer",
+      "Functional dyspepsia",
+      "Biliary colic"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Gastric peptic ulcer",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3284,
+      "completion_tokens": 16924
+    },
+    "patient": {
+      "prompt_tokens": 3635,
+      "completion_tokens": 287,
+      "calls": 7
+    }
+  }
+}

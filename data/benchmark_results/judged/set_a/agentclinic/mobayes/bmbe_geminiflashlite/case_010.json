@@ -1,0 +1,311 @@
+{
+  "case_idx": 10,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Brief Psychotic Disorder",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old female",
+    "History": "The patient presents with her mother due to experiencing bizarre behavior for the past week following her father’s death from lung cancer. She has been hearing voices that are not present and experiencing intrusive thoughts.",
+    "Symptoms": {
+      "Primary_Symptom": "Auditory hallucinations",
+      "Secondary_Symptoms": [
+        "Intrusive thoughts",
+        "Concentration difficulties",
+        "Voices discussing the patient in the third person and encouraging self-harm"
+      ]
+    },
+    "Past_Medical_History": "No history of medical or psychiatric illness.",
+    "Social_History": "Patient denies the use of medications or substances. No notable social history provided.",
+    "Review_of_Systems": "Denies fever, vomiting, headache, or any sensory disturbances other than auditory hallucinations."
+  },
+  "objective_for_doctor": "Assess, manage, and diagnose the patient presenting with symptoms of a psychiatric disorder, following recent bereavement.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m 20, and for about a week now since my father died, I’ve been having voices that aren’t there and thoughts that won’t leave me alone.” “They sometimes talk about me in third person and even encourage me to hurt myself, and I’ve been having trouble concentrating.” “I haven’t used any medications or substances.”",
+      "extracted_features": {
+        "f_difficulty_concentrating_997cc4a5": "yes",
+        "f_auditory_hallucinations_b2e3be80": "yes",
+        "f_psychological_stress_391732fb": "yes",
+        "f_intrusive_thoughts_e93d2613": "yes",
+        "f_suicidal_thoughts_5e2b4695": "yes",
+        "f_recent_drug_use_4a0edb9a": "no"
+      },
+      "top5_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.7905925464856675
+        ],
+        [
+          "Factitious disorder",
+          0.028620960197502727
+        ],
+        [
+          "Somatization disorder",
+          0.028079596318466737
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.02123091428957241
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.015856757243948225
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what you're experiencing, have you noticed any changes in your vision, such as blurriness, dark spots, or any loss of sight?",
+      "patient_answer": "“No, I haven’t noticed any changes in my vision—no blurriness or dark spots, and my sight seems normal.” “The main thing is the voices and intrusive thoughts, and it’s been making it hard to focus.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.7956248235434914
+        ],
+        [
+          "Somatization disorder",
+          0.02825832847193125
+        ],
+        [
+          "Factitious disorder",
+          0.026475611916230667
+        ]
+      ],
+      "entropy": 1.6256566705624729
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“No, I don’t smoke, and I don’t have any history of smoking.” “I haven’t used any substances or medications either.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.8068184791697469
+        ],
+        [
+          "Somatization disorder",
+          0.028655895249799786
+        ],
+        [
+          "Factitious disorder",
+          0.02684809763250679
+        ]
+      ],
+      "entropy": 1.5267496864922825
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach?",
+      "patient_answer": "“I haven’t had any nausea or stomach sickness.” “I just feel overwhelmed by the voices and the intrusive thoughts, and it’s making it difficult to concentrate.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.8339227438575154
+        ],
+        [
+          "Factitious disorder",
+          0.022623520700751056
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.02239452215640756
+        ]
+      ],
+      "entropy": 1.3607157993076056
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, I haven’t noticed any lumps or masses in my breast area, and I don’t have any breast pain. My main concern is the voices, the intrusive thoughts, and how hard it is to concentrate.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.8339227438575154
+        ],
+        [
+          "Factitious disorder",
+          0.022623520700751056
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.02239452215640756
+        ]
+      ],
+      "entropy": 1.3607157993076056
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "To help me better understand your current symptoms, have you noticed any changes in the color of your urine, specifically if it has appeared darker than usual?",
+      "patient_answer": "“No, I haven’t noticed any change in the color of my urine—nothing darker than usual.” “It’s mostly the voices and the intrusive thoughts that feel intense and distracting for me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.8370659504537642
+        ],
+        [
+          "Factitious disorder",
+          0.02270879286777222
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.02247893118623717
+        ]
+      ],
+      "entropy": 1.3347836082555569
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any mass at all, so nothing is changing in size.” “It’s mainly the voices and intrusive thoughts that have felt intense and won’t go away.” “I’ve also had trouble concentrating because of it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.8403443049034368
+        ],
+        [
+          "Factitious disorder",
+          0.022797731465865233
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.022566969534993722
+        ]
+      ],
+      "entropy": 1.3049262547420641
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello. I'm here to help you understand what might be going on with your health today. To get started, could you please tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I don’t have any pain in my wrist. My main issue has been the voices and the intrusive thoughts since my father died, and it’s made it hard to focus.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.842764799091415
+        ],
+        [
+          "Factitious disorder",
+          0.02286339714145823
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.022631970533133414
+        ]
+      ],
+      "entropy": 1.2852453879789654
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of your veins?",
+      "patient_answer": "“No, I haven’t noticed any rashes, bumps, or marks along my veins, and my arms look normal to me.” “I’m mostly focused on the voices and the intrusive thoughts right now.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.842764799091415
+        ],
+        [
+          "Factitious disorder",
+          0.02286339714145823
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.022631970533133414
+        ]
+      ],
+      "entropy": 1.2852453879789654
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "“No, I don’t have any trouble breathing. I can walk and climb stairs without getting short of breath—the main problem is still the voices and the intrusive thoughts.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.8512708410482146
+        ],
+        [
+          "Factitious disorder",
+          0.023094157865648276
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.022860395463941422
+        ]
+      ],
+      "entropy": 1.2226772172183915
+    }
+  ],
+  "final": {
+    "predicted": "Brief Psychotic Disorder",
+    "predicted_top3": [
+      "Brief Psychotic Disorder",
+      "Factitious disorder",
+      "Frontotemporal Dementia"
+    ],
+    "confidence": 0.8512708410482146,
+    "final_entropy": 1.2226772172183915,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Brief Psychotic Disorder",
+    "predicted_set_remapped": [
+      "Brief Psychotic Disorder",
+      "Factitious disorder",
+      "Frontotemporal Dementia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7338,
+      "completion_tokens": 561
+    },
+    "patient": {
+      "prompt_tokens": 6678,
+      "completion_tokens": 446,
+      "calls": 10
+    }
+  }
+}

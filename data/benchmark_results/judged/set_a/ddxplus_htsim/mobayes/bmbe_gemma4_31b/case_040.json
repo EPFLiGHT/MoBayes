@@ -1,0 +1,109 @@
+{
+  "case_idx": 40,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: expiratory wheezing",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m having expiratory wheezing and significant shortness of breath. I also have a pink, very itchy rash with lesions that are larger than 1 cm, on the back of my neck, both biceps, my mouth, and my right ankle. My cheeks suddenly turned red, and I’ve had fast, irregular heartbeats/palpitations. This started after I ate dark-fleshed fish like tuna or Swiss cheese.",
+      "extracted_features": {
+        "f_e_214": "yes",
+        "f_e_66": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_133_v_26": "yes",
+        "f_e_133_v_30": "yes",
+        "f_e_133_v_31": "yes",
+        "f_e_133_v_32": "yes",
+        "f_e_133_v_34": "yes",
+        "f_e_135": "yes",
+        "f_e_92": "yes",
+        "f_e_155": "yes",
+        "f_e_164": "yes",
+        "f_ant_e_187": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Scombroid food poisoning",
+          0.9744696830057595
+        ],
+        [
+          "Anaphylaxis",
+          0.025496816829749993
+        ],
+        [
+          "Influenza",
+          8.148630100358438e-06
+        ],
+        [
+          "Pneumonia",
+          6.744529861804954e-06
+        ],
+        [
+          "SLE",
+          3.707463982990353e-06
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_53",
+      "doctor_question": "Are you experiencing any pain associated with the symptoms that brought you in today?",
+      "patient_answer": "The pain intensity caused by the rash is 1 out of 10.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.5664325420702417
+        ],
+        [
+          "Scombroid food poisoning",
+          0.4329727458929604
+        ],
+        [
+          "Influenza",
+          0.00018102845123594094
+        ]
+      ],
+      "entropy": 0.995699792889828
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_top3": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "Influenza"
+    ],
+    "confidence": 0.5664325420702417,
+    "final_entropy": 0.995699792889828,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Anaphylaxis",
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "Influenza"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11835,
+      "completion_tokens": 333
+    },
+    "patient": {}
+  }
+}

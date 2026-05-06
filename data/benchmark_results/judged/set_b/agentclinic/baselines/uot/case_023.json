@@ -1,0 +1,107 @@
+{
+  "case_idx": 23,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Bed bug bite",
+  "patient_actor_hidden": {
+    "Demographics": "47-year-old male",
+    "History": "The patient presents with intense itching of his right thigh region for the past few days. He also mentions the recent formation of ‘red bumps’ in the same area. The patient has recently attended a business conference in Miami. He has a past medical history of hypertension, diabetes type 2, and hyperlipidemia. The patient’s medication regimen includes enalapril, metformin, and atorvastatin. He denies any history of smoking or drinking.",
+    "Symptoms": {
+      "Primary_Symptom": "Intense itching on the right thigh",
+      "Secondary_Symptoms": [
+        "Recent appearance of ‘red bumps’",
+        "Itching also present on the left leg and right forearm",
+        "Excoriations over the affected regions"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Diabetes Type 2, Hyperlipidemia. Medications: Enalapril, Metformin, Atorvastatin.",
+    "Social_History": "Non-smoker, does not consume alcohol. Recently traveled to Miami for a business conference.",
+    "Review_of_Systems": "Denies fever, weight loss, recent illnesses, or other skin conditions."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with intense itching and development of 'red bumps' on the thigh and other parts of the body.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: For the past few days, I’ve had intense itching on my right thigh, and then red bumps showed up in that same area. I also noticed itching on my left leg and right forearm with some scratch marks from excoriations.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **itchy, greasy/scaly patches on the scalp or other oily areas** (e.g., eyebrows, sides of nose, behind ears)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any itchy, greasy, or scaly patches on my scalp or oily areas like my eyebrows, sides of the nose, or behind my ears. The itching and red bumps have been mainly on my right thigh, with some itching on my left leg and my right forearm.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have well-demarcated, milky-white patches of skin that are clearly different from the surrounding skin (often with no scaling)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed well-demarcated milky-white patches with no scaling—mostly it’s been red bumps and intense itching, with some scratch marks on my right thigh, and itching on my left leg and right forearm.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Is the skin lesion(s) a scaly, “stuck-on” brown/black plaque that looks like it can be scraped off only with difficulty (typical seborrheic keratosis appearance)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have scaly, stuck-on brown or black plaques that look like they can be scraped off with difficulty. It’s been mainly intensely itchy red bumps, mostly on my right thigh, and some itching on my left leg and right forearm with scratch marks from excoriations.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bed bug bite, Erythema Toxicum  ",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Bed bug bite",
+    "predicted_set": [
+      "Bed bug bite",
+      "Erythema Toxicum"
+    ],
+    "predicted_raw": [
+      "Bed bug bite",
+      "Erythema Toxicum  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Bed bug bite",
+    "predicted_set_remapped": [
+      "Bed bug bite",
+      "Erythema Toxicum",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2126,
+      "completion_tokens": 250,
+      "calls": 4
+    }
+  }
+}

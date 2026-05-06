@@ -1,0 +1,84 @@
+{
+  "case_idx": 44,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "URTI",
+  "objective_for_doctor": "A 80-year-old Female patient presents to the clinic. Chief complaint: I have a fever, tedious pain, and sensitive pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hello doctor. I’ve had a fever and a sore throat, and I’m also having a lot of sensitive, tedious pain around my face—forehead, both temples, and the right cheek. I’ve been in contact with someone who had similar symptoms in the last two weeks, and I work at a daycare.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. To pinpoint this, can you tell me: when did the fever and facial pain start, and do you have a rash or blisters around your face/eye?  \nDoctor: Also, do you have any redness/swelling of the eyelid, vision changes, or severe headache that’s worse than usual?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The fever and this facial pain started recently—fast, like within a short time (about a 5/10 speed). I don’t have any rash or blisters around my face or eye, and I don’t have redness or swelling of my eyelid. I also don’t have vision changes or a severe headache that’s worse than usual.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any nasal congestion or thick nasal discharge, and does chewing/touching the face make the pain worse or tender (especially the right cheek/temple)? Also, do you have tooth pain or pain when you swallow?  \nDoctor: REQUEST TEST: CBC_with_diff; REQUEST TEST: Rapid_strep_and_throat_culture; REQUEST TEST: SARS-CoV-2_and_Influenza_PCR.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have nasal congestion or thick nasal discharge. Chewing and touching my face does make the pain worse, especially the right cheek and temple—it feels tender. I don’t have tooth pain, and I’m not sure about pain when I swallow, but I do have a sore throat.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—tender right cheek/temple worsened by touch plus fever and sore throat, with no rash or eye symptoms, suggests either bacterial sinusitis with facial tenderness or an acute viral/streptococcal pharyngitis; do you have localized pain/pressure that’s worse when bending forward, and any foul-smelling breath or nasal drainage?  \nDoctor: Also, have you measured your highest temperature, and do you have cough or shortness of breath?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have nasal drainage, and I don’t notice foul-smelling breath. I’m not sure about pain that’s worse when bending forward—I haven’t paid close attention to that.  \n\nI haven’t measured the highest temperature, and I don’t have cough or shortness of breath.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given fever + sore throat and focal right cheek/temple tenderness with face touch (no cough, no eye symptoms, no nasal drainage), I’m leaning toward acute bacterial sinusitis versus streptococcal pharyngitis—can you check your temperature now and tell me if you have tender swollen lymph nodes in the neck or white patches on your tonsils?  \nDoctor: If you can, also tell me whether you have pain/pressure when you lean forward or press over the right cheek/upper teeth.  \nDoctor: DIAGNOSIS READY: Pending—Await CBC/rapid strep/throat culture and viral PCR results to distinguish bacterial sinusitis from streptococcal pharyngitis.\n\n[ABSTAIN] free-text diagnosis 'Pending—Await CBC/rapid strep/throat culture and viral PCR results to distinguish bacterial sinusitis from streptococcal pharyngitis.' did not map to the closed disease set",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1971,
+      "completion_tokens": 407,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3305,
+      "completion_tokens": 265
+    }
+  }
+}

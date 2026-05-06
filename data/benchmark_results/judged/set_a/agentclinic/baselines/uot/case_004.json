@@ -1,0 +1,84 @@
+{
+  "case_idx": 4,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old woman",
+    "History": "The patient reports a 2-month history of insidious onset left shoulder pain, worsening with extreme ranges of motion and activity. Pain disrupts sleep, and there's noted difficulty with activities of daily living like brushing hair and dressing. No history of shoulder trauma, neck pain, arm/hand weakness, numbness, or paresthesias. The patient has type 2 diabetes mellitus, treated with metformin and glipizide.",
+    "Symptoms": {
+      "Primary_Symptom": "Chronic left shoulder pain",
+      "Secondary_Symptoms": [
+        "Pain at extremes of motion",
+        "Difficulty sleeping on the affected side",
+        "Difficulty with brushing hair and dressing",
+        "No numbness or weakness"
+      ]
+    },
+    "Past_Medical_History": "Type 2 diabetes mellitus",
+    "Social_History": "No relevant social history provided",
+    "Review_of_Systems": "Denies neck pain, arm/hand weakness, numbness, or paresthesias."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with chronic left shoulder pain without a history of trauma.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve had 2 months of gradually worsening pain in my left shoulder, especially when I move it to extreme positions or use it for daily activities. It’s been disrupting my sleep and makes it hard to brush my hair and dress.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **adhesive capsulitis**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Are you experiencing adhesive capsulitis? Patient: I’m not sure of the name, but my left shoulder pain gets much worse with extreme ranges of motion, and it’s started limiting my daily activities like brushing my hair and dressing. It also wakes me up and disrupts my sleep.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Adhesive capsulitis, Osteoarthritis  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Adhesive capsulitis",
+    "predicted_set": [
+      "Adhesive capsulitis",
+      "Osteoarthritis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Adhesive capsulitis",
+    "predicted_set_remapped": [
+      "Adhesive capsulitis",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 769,
+      "completion_tokens": 133,
+      "calls": 2
+    }
+  }
+}

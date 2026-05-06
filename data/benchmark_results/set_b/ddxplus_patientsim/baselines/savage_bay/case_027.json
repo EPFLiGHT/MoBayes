@@ -1,0 +1,102 @@
+{
+  "case_idx": 27,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Stable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 22\nSex: Female\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have pain in my chest—lower chest and upper chest on the left side, also kind of in my left breast and epigastric area. It’s been a tedious, exhausting feeling, about 5/10, and it can get worse with exertion; I also get significant shortness of breath. The pain can radiate to my right biceps, thoracic spine, under my jaw, and right shoulder, and it started pretty fast (about 7/10).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. I’m going to ask a few focused questions to narrow down what’s causing your chest pain.\n\n**Current posterior (pre-test, rough):**\n- **Possible NSTEMI / STEMI:** 30%  \n- **Unstable angina:** 20%  \n- **Pulmonary embolism:** 15%  \n- **Acute pulmonary edema:** 10%  \n- **GERD:** 10%  \n(Other causes like pneumonia/bronchospasm are lower for now.)\n\n**Question 1 (high-yield):**  \nWhen the pain started, did you have **sweating, nausea/vomiting, or feeling faint** along with it? (Yes/No—tell me which ones.)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have nausea or vomiting, and I don’t feel faint. I do feel exhausted and short of breath, but I can’t say I had sweating with it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. That slightly lowers classic ACS features but doesn’t rule them out.\n\n**Update (likelihood ratios, rough):**\n- No nausea/vomiting/fainting:  \n  - **Possible NSTEMI/STEMI** LR ~0.8 (still possible)  \n  - **Unstable angina** LR ~0.9  \n  - **Pulmonary embolism** LR ~0.9  \n  - **Acute pulmonary edema** LR ~0.9  \n  - **GERD** LR ~1.1 (GI symptoms absent makes GERD a bit less likely)\n\n**Posterior (updated, rough):**\n- **Possible NSTEMI / STEMI:** 27%  \n- **Unstable angina:** 18%  \n- **Pulmonary embolism:** 14%  \n- **Acute pulmonary edema:** 9%  \n- **GERD:** 9%  \n\n**Question 2 (very discriminating):**  \nDoes the pain get **worse with deep breathing or coughing**, or is it **worse when you lie flat** and better when you sit up/lean forward? (Pick the closest: worse with breathing / worse lying flat / neither)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s worse with deep breathing. I don’t notice it being worse when I lie flat, and I don’t feel better when I sit up or lean forward.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That’s an important clue.\n\n**Update (likelihood ratios, rough):**\n- Worse with deep breathing (pleuritic) increases **pulmonary embolism** and **pneumonia/pleurisy**, and decreases “pure” GERD/typical ACS a bit.\n  - **Pulmonary embolism:** LR ~2.0  \n  - **Possible NSTEMI/STEMI:** LR ~0.8  \n  - **Unstable angina:** LR ~0.8  \n  - **Acute pulmonary edema:** LR ~0.9  \n  - **GERD:** LR ~0.7  \n\n**Posterior (updated, rough):**\n- **Pulmonary embolism:** 22%  \n- **Possible NSTEMI / STEMI:** 24%  \n- **Unstable angina:** 14%  \n- **Acute pulmonary edema:** 8%  \n- **GERD:** 6%  \n\n**Question 3 (next best discriminator):**  \nDo you have **any leg symptoms**—pain, swelling, or redness in one leg (especially calf)—or any recent **long travel/immobility** or **recent surgery**? (Yes/No; if yes, which?)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have leg pain, swelling, or redness in one leg. And I haven’t had recent long travel or surgery.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No leg symptoms and no recent immobility lowers PE risk, though it doesn’t eliminate it.\n\n**Update (likelihood ratios, rough):**\n- No leg symptoms / no recent travel/surgery:\n  - **Pulmonary embolism:** LR ~0.7  \n  - **Possible NSTEMI/STEMI:** LR ~1.0  \n  - **Unstable angina:** LR ~1.0  \n  - **Acute pulmonary edema:** LR ~0.9  \n  - **GERD:** LR ~0.9  \n\n**Posterior (updated, rough):**\n- **Possible NSTEMI / STEMI:** 25%  \n- **Pulmonary embolism:** 16%  \n- **Unstable angina:** 15%  \n- **Acute pulmonary edema:** 7%  \n- **GERD:** 5%  \n\n**Question 4 (high-yield):**  \nDo you have **cough** or **fever**, or have you coughed up **blood**? (Yes/No; if yes, which?)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No cough, no fever, and I haven’t coughed up any blood.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "That lowers pneumonia/pleurisy and hemoptysis-related causes, and makes PE a bit less likely but still possible.\n\n**Update (likelihood ratios, rough):**\n- No cough/fever/hemoptysis:\n  - **Pulmonary embolism:** LR ~0.8  \n  - **Possible NSTEMI/STEMI:** LR ~1.0  \n  - **Unstable angina:** LR ~1.0  \n  - **Acute pulmonary edema:** LR ~0.9  \n  - **GERD:** LR ~1.1  \n\n**Posterior (updated, rough):**\n- **Possible NSTEMI/STEMI:** 25%  \n- **Unstable angina:** 15%  \n- **Pulmonary embolism:** 13%  \n- **Acute pulmonary edema:** 7%  \n- **GERD:** 6%  \n\n**Question 5 (very discriminating):**  \nWhen you exert yourself, do you get **squeezing/pressure** that improves with **rest**? And if you stop, does it ease within ~5–10 minutes? (Yes/No)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when I exert myself I get a pressure-type chest pain, and when I rest it eases. It usually improves within about 5 to 10 minutes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, Acute pulmonary edema, GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "GERD"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9040,
+      "completion_tokens": 1161
+    },
+    "patient": {
+      "prompt_tokens": 8617,
+      "completion_tokens": 273
+    }
+  }
+}

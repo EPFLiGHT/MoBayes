@@ -1,0 +1,201 @@
+{
+  "case_idx": 33,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 59\nSex: F\nChief Complaint: pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 59-year-old woman. I’ve had a viral infection recently. I have pericarditis. I’m having significant shortness of breath, and my heart is beating fast and irregularly with palpitations. My chest pain is very severe—9 out of 10—sharp, and it started with a rapid pace (9 out of 10). It’s in the lower chest, upper chest, both right and left breasts, and the epigastric area, and it radiates to the posterior chest wall on the left. It’s worse when lying down and better when sitting up.",
+      "extracted_features": {
+        "f_e_66": "yes",
+        "f_e_155": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_55": "yes",
+        "f_e_55_v_159": "yes",
+        "f_e_57_v_171": "yes",
+        "f_e_217": "yes",
+        "f_e_148": "no"
+      },
+      "top5_posterior": [
+        [
+          "Pericarditis",
+          0.7411274198502195
+        ],
+        [
+          "Myocarditis",
+          0.0984996865334581
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.03214561902489905
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.029454074262813688
+        ],
+        [
+          "Acute pulmonary edema",
+          0.026225714783414834
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_216",
+      "doctor_question": "I'm here to help you figure out what's going on. Can you tell me, does moving around make your pain worse?",
+      "patient_answer": "I don’t know. My symptoms are worse when lying down and alleviated while sitting up.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.7411274198502195
+        ],
+        [
+          "Myocarditis",
+          0.0984996865334581
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.03214561902489905
+        ]
+      ],
+      "entropy": 1.6100428368841444
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_0",
+      "doctor_question": "Have you had a recent viral infection, such as a cold, flu, or something similar?",
+      "patient_answer": "Yes—I’ve recently had a viral infection.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.883594480086557
+        ],
+        [
+          "Myocarditis",
+          0.11125354679358251
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.0010085520337559898
+        ]
+      ],
+      "entropy": 0.5670240965674755
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_3",
+      "doctor_question": "Have you ever experienced inflammation of the sac surrounding your heart, which caused chest pain or discomfort that got worse when you took deep breaths or coughed?",
+      "patient_answer": "Yes, I’ve had pericarditis.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.9968985363361544
+        ],
+        [
+          "Myocarditis",
+          0.0029534042771152008
+        ],
+        [
+          "Spontaneous rib fracture",
+          2.6773635322518914e-05
+        ]
+      ],
+      "entropy": 0.03169332975345497
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_57_v_39",
+      "doctor_question": "Does the pain in your upper back spread to other areas, such as your chest, abdomen, or lower back?",
+      "patient_answer": "Yes—my pain is in the lower chest, upper chest, both right and left breast areas, and the epigastric area, and it radiates to the posterior chest wall on the left.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.9998798732950188
+        ],
+        [
+          "Myocarditis",
+          7.795359905469497e-05
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          2.428149748932057e-05
+        ]
+      ],
+      "entropy": 0.0019294189593705776
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_56",
+      "doctor_question": "I'm here to help you figure out what's going on. Can you tell me, do you feel any pain on the left side of your chest?",
+      "patient_answer": "Yes—my pain includes the left chest areas (upper and lower chest, left breast, and it radiates to the posterior chest wall on the left).",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.9968921409130584
+        ],
+        [
+          "Myocarditis",
+          0.002253899330851854
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.0004841788431431256
+        ]
+      ],
+      "entropy": 0.03457712532716611
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_top3": [
+      "Pericarditis",
+      "Myocarditis",
+      "Possible NSTEMI / STEMI"
+    ],
+    "confidence": 0.9968921409130584,
+    "final_entropy": 0.03457712532716611,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pericarditis",
+    "predicted_set_remapped": [
+      "Pericarditis",
+      "Myocarditis",
+      "Possible NSTEMI / STEMI"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11076,
+      "completion_tokens": 687
+    },
+    "patient": {}
+  }
+}

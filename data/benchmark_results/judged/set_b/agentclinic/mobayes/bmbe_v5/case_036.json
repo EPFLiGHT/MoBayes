@@ -1,0 +1,335 @@
+{
+  "case_idx": 36,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Chronic Granulomatous Disease",
+  "patient_actor_hidden": {
+    "Demographics": "3-year-old boy",
+    "History": "The patient's caregiver reports that he has been experiencing recurrent skin lesions since he was 2 months old, despite multiple treatments. He has also suffered from several respiratory tract infections, enlarged lymph nodes, and recurrent fevers. The patient attends daycare, and his older brother has a history of asthma. His immunizations are current.",
+    "Symptoms": {
+      "Primary_Symptom": "Recurrent skin lesions of different sizes, some secreting pus",
+      "Secondary_Symptoms": [
+        "Frequent respiratory tract infections",
+        "Enlarged lymph nodes",
+        "Recurrent fevers",
+        "Failure to thrive (5th percentile for length and 10th percentile for weight)"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Attends daycare. Family history of asthma in an older sibling.",
+    "Review_of_Systems": "The patient appears ill. No other abnormalities noted beyond those related to the primary and secondary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with recurrent skin lesions, recurrent infections, and failure to thrive.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, since he was a baby he’s had recurring skin sores of different sizes, and some leak pus even after different treatments. He also keeps getting colds and other respiratory infections, has swollen lymph nodes, and comes down with fevers a lot, and he hasn’t been growing well.”",
+      "extracted_features": {
+        "f_lymphadenopathy_bd50ece8": "yes",
+        "f_fever_6c156205": "yes",
+        "f_skin_lesion_0967b116": "yes",
+        "f_pustular_rash_92a13bc9": "yes",
+        "f_functional_decline_0b73539a": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.1296582729882926
+        ],
+        [
+          "Histoplasmosis",
+          0.10253581573007628
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.08572666561039159
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.08071862973402544
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.0807186297340254
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrolled movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“Doctor, no—he hasn’t had any twitching, jerking, or uncontrolled shaking movements that we can’t stop.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.12591092751796576
+        ],
+        [
+          "Histoplasmosis",
+          0.0995723555839037
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.09056761364495214
+        ]
+      ],
+      "entropy": 4.625495858507582
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“Doctor, no—he doesn’t have any lump in the breast area that we’ve noticed, and nothing that seems to move or shift when we touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.11961195608122761
+        ],
+        [
+          "Histoplasmosis",
+          0.10290672408816343
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.0881324301405152
+        ]
+      ],
+      "entropy": 4.64312095805576
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“Doctor, when you press around his belly button, he doesn’t seem tender or in pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.12585372815349608
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.09273148995974136
+        ],
+        [
+          "Histoplasmosis",
+          0.08968847375292363
+        ]
+      ],
+      "entropy": 4.697022556793353
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“Doctor, no—he hasn’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.11819913686880794
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.08709143729482342
+        ],
+        [
+          "Histoplasmosis",
+          0.0842335013846137
+        ]
+      ],
+      "entropy": 4.720486516491319
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (even if it comes and goes)?",
+      "patient_answer": "“Doctor, no—there’s been no lump or mass in his right breast area that comes and goes, and nothing that feels like it shifts when we touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.11876025559683563
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.08750488055516818
+        ],
+        [
+          "Histoplasmosis",
+          0.08463337736007633
+        ]
+      ],
+      "entropy": 4.702176624898732
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, like your vision is through a fogged-up window? (Yes/No)",
+      "patient_answer": "“Doctor, I haven’t noticed anything cloudy or hazy in his eyes—his eyes don’t seem fogged up, and we haven’t seen any change in how he can see.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.11876025559683563
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.08750488055516818
+        ],
+        [
+          "Histoplasmosis",
+          0.08463337736007633
+        ]
+      ],
+      "entropy": 4.702176624898732
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 6 to 12 months, have you lost weight without trying (for example, your clothes feel looser or the scale dropped), even if only a little?",
+      "patient_answer": "“Doctor, we haven’t noticed him losing weight from eating less, but his growth has been slow—he’s not growing well and is around the lowest percentiles for length and weight.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.10977436690832602
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.0897567055093741
+        ],
+        [
+          "Erythema Toxicum",
+          0.07843697133922814
+        ]
+      ],
+      "entropy": 4.801419068599009
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small or you only feel it when you press?",
+      "patient_answer": "“Doctor, no—there’s been no lump or mass in his right breast area, and nothing painless that we can feel when we press.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.10371962693545521
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.09226154239963312
+        ],
+        [
+          "Erythema Toxicum",
+          0.08062590884819418
+        ]
+      ],
+      "entropy": 4.8215847484895535
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant recently, or is there any chance you could be pregnant right now?",
+      "patient_answer": "“Doctor, he’s not pregnant—he’s a 3-year-old boy, so there’s no chance of pregnancy.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.11188052515988453
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.09147879994057356
+        ],
+        [
+          "Erythema Toxicum",
+          0.08696974034665965
+        ]
+      ],
+      "entropy": 4.771980383179894
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to move or shift when you press on it, rather than staying fixed in one spot?",
+      "patient_answer": "“Doctor, no—there hasn’t been any breast lump or swelling in his chest area that we can feel moving or shifting when we press on it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute lymphoblastic leukemia",
+          0.10556688329728611
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.09390472919258325
+        ],
+        [
+          "Erythema Toxicum",
+          0.08927609370157584
+        ]
+      ],
+      "entropy": 4.792172936397317
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_top3": [
+      "Acute lymphoblastic leukemia",
+      "Steven-Johnson syndrome",
+      "Erythema Toxicum"
+    ],
+    "confidence": 0.10556688329728611,
+    "final_entropy": 4.792172936397317,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Steven-Johnson syndrome",
+      "Erythema Toxicum"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12247,
+      "completion_tokens": 424
+    },
+    "patient": {
+      "prompt_tokens": 7238,
+      "completion_tokens": 379,
+      "calls": 11
+    }
+  }
+}

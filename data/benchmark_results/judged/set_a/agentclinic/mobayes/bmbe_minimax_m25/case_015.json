@@ -1,0 +1,447 @@
+{
+  "case_idx": 15,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic kidney failure",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old female",
+    "History": "The patient reports feeling weaker over the last few months and has noticed a decrease in her weight despite no changes in diet or exercise. She denies any changes in urinary frequency or pain during urination. She reports no history of diabetes or hypertension but is concerned about her kidney function due to a family history of kidney disease.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized weakness",
+      "Secondary_Symptoms": [
+        "Unintentional weight loss",
+        "No urinary symptoms",
+        "Concern about kidney disease"
+      ]
+    },
+    "Past_Medical_History": "Denies diabetes, hypertension. No significant surgery history. Family history of kidney disease.",
+    "Social_History": "Non-smoker, drinks alcohol socially, works as a school teacher.",
+    "Review_of_Systems": "Denies fever, rash, changes in bowel habits, dysuria, or nocturia."
+  },
+  "objective_for_doctor": "Assess and manage a 40-year-old woman who has presented with weakness and weight loss, and interpret her laboratory findings to make a diagnosis.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been feeling weaker over the last few months, and I’ve also lost some weight without changing my diet or exercise. I don’t have any urinary symptoms like pain or increased frequency, but my family history of kidney disease makes me worried about my kidneys.",
+      "extracted_features": {},
+      "top5_posterior": [
+        [
+          "Vitiligo",
+          0.03225806451612903
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.03225806451612903
+        ],
+        [
+          "Actinic Keratosis",
+          0.03225806451612903
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03225806451612903
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.03225806451612903
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Hello! I'd like to ask you a few questions about how you've been feeling lately.\n\nDo you ever notice that your joints feel stiff when you wake up in the morning? If so, how long does that stiffness usually last?",
+      "patient_answer": "I don’t recall any noticeable joint stiffness when I wake up, and I haven’t had morning stiffness that lasts more than a few minutes, if at all. I’ve mainly been dealing with generalized weakness and unintentional weight loss.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Vitiligo",
+          0.033735266224088886
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.033735266224088886
+        ],
+        [
+          "Actinic Keratosis",
+          0.033735266224088886
+        ]
+      ],
+      "entropy": 4.936371023966666
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling today.\n\nAre you currently experiencing any chest pain or discomfort?",
+      "patient_answer": "“No, I haven’t had any chest pain or discomfort. It’s mostly been generalized weakness and unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Vitiligo",
+          0.0367808991781705
+        ],
+        [
+          "Lichen Sclerosus",
+          0.0367808991781705
+        ],
+        [
+          "Actinic Keratosis",
+          0.0367808991781705
+        ]
+      ],
+      "entropy": 4.899503587334329
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your physical abilities. \n\nAre you currently experiencing any difficulty lifting objects, such as carrying groceries or lifting everyday items?",
+      "patient_answer": "“Yes, I’ve noticed it’s harder to lift and carry everyday items like groceries, and I get tired more quickly than I used to.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.22182980957380805
+        ],
+        [
+          "Syringomyelia",
+          0.18149711692402484
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1452138914077539
+        ]
+      ],
+      "entropy": 3.739700765310139
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your arms to get a better understanding of your condition.\n\nHave you noticed any unusual skin changes, such as redness, bumps, sores, or discoloration along the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any unusual skin changes on my arms—no redness, bumps, sores, or changes along the veins. It’s been more like overall weakness and getting tired quickly when I’m lifting or carrying things.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.22182980957380805
+        ],
+        [
+          "Syringomyelia",
+          0.18149711692402484
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1452138914077539
+        ]
+      ],
+      "entropy": 3.739700765310139
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you currently experiencing any pain in your flank area — that's the side of your body, around your lower ribs and upper back?",
+      "patient_answer": "“No, I haven’t had any flank pain or pain around my lower ribs or upper back. It’s mainly the generalized weakness and the unintentional weight loss that have been worrying me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.22352015388650867
+        ],
+        [
+          "Syringomyelia",
+          0.18288012590714353
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14632042202209206
+        ]
+      ],
+      "entropy": 3.7148714985778346
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions to better understand your symptoms.\n\nHave you noticed any rough, scaly patches on your skin that have persisted for some time and haven't gone away?",
+      "patient_answer": "“No, I haven’t noticed any rough, scaly patches on my skin or anything that’s persisted like that. It’s mainly been the generalized weakness and unintentional weight loss, and my concern about my kidney history in the family.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.22606304191150786
+        ],
+        [
+          "Syringomyelia",
+          0.18496067065487015
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14798504350030436
+        ]
+      ],
+      "entropy": 3.671155222601601
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your scalp.\n\nHave you noticed any unusual spots, sores, bumps, or patches on your scalp?",
+      "patient_answer": "“No, I haven’t noticed any unusual spots, sores, bumps, or patches on my scalp. It’s mainly been the generalized weakness and unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.22805474046909785
+        ],
+        [
+          "Syringomyelia",
+          0.18659024220198925
+        ],
+        [
+          "Adhesive capsulitis",
+          0.14928884617053398
+        ]
+      ],
+      "entropy": 3.640999896611685
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your eating habits and appetite.\n\nHave you been experiencing any unusual food cravings lately?",
+      "patient_answer": "“No, I haven’t had any unusual food cravings. My appetite feels about the same, but I’ve still lost weight and I get weaker and tire faster when I do normal activities.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2349854222532709
+        ],
+        [
+          "Syringomyelia",
+          0.19226080002540355
+        ],
+        [
+          "Adhesive capsulitis",
+          0.15382579850314523
+        ]
+      ],
+      "entropy": 3.6214609198459793
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello, I'm here to help with your medical assessment today.\n\n**Are you currently experiencing any pain in your knee or knees?**",
+      "patient_answer": "“No, I haven’t had any knee pain or discomfort. It’s mostly generalized weakness and unintentional weight loss, along with getting tired faster when I lift or carry things.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.251054337552785
+        ],
+        [
+          "Syringomyelia",
+          0.20540809436136964
+        ],
+        [
+          "Adhesive capsulitis",
+          0.16434480731367054
+        ]
+      ],
+      "entropy": 3.596582074653696
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand what you're experiencing.\n\nWhen you move your knee—bending it, straightening it, or walking—do you feel any pain in your thigh? This would be pain in the upper part of your leg, above the knee.\n\nDoes this happen to you?",
+      "patient_answer": "“No, I haven’t felt any pain in my thighs when bending my knees or walking—it's more that I get tired and feel weak doing everyday things. I don’t have pain, just reduced stamina and overall weakness.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.251054337552785
+        ],
+        [
+          "Syringomyelia",
+          0.20540809436136964
+        ],
+        [
+          "Adhesive capsulitis",
+          0.16434480731367054
+        ]
+      ],
+      "entropy": 3.596582074653696
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting at all?",
+      "patient_answer": "“No, I haven’t been vomiting. I’ve mainly just felt weaker and lost weight over the past few months, and I tire more quickly with everyday activities.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.25930090239408043
+        ],
+        [
+          "Syringomyelia",
+          0.212155283776975
+        ],
+        [
+          "Adhesive capsulitis",
+          0.1697431610049603
+        ]
+      ],
+      "entropy": 3.4902751158338505
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_vulvar_itching_2bb4c1ea",
+      "doctor_question": "Hello, thank you for sharing that information with me today.\n\nI'd like to ask you a few questions to help me understand your symptoms better.\n\n**Are you currently experiencing any itching or discomfort in the vulvar area?**\n\nThis can sometimes be related to various conditions, and I'd like to get a clearer picture of what you're feeling.",
+      "patient_answer": "“No, I don’t have any itching or discomfort in the vulvar area. My symptoms have mainly been generalized weakness and unintentional weight loss, and I tire quickly with normal activities.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.26261731012951334
+        ],
+        [
+          "Syringomyelia",
+          0.21486870828778376
+        ],
+        [
+          "Adhesive capsulitis",
+          0.17191414277554493
+        ]
+      ],
+      "entropy": 3.442095641561331
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\nAre you currently feeling any pain in your wrist or wrists?",
+      "patient_answer": "“No, I haven’t had any pain in my wrists. It’s mainly generalized weakness and unintentional weight loss, and I just get tired more quickly with normal activities.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2658433447026887
+        ],
+        [
+          "Syringomyelia",
+          0.2175081911203818
+        ],
+        [
+          "Adhesive capsulitis",
+          0.17402596460457137
+        ]
+      ],
+      "entropy": 3.4212567926950284
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand your symptoms.\n\nAre you currently experiencing any warmth or heat sensation in your legs?",
+      "patient_answer": "“No, I haven’t noticed any warmth or heat sensation in my legs. It’s been more generalized weakness and unintentional weight loss, and I just tire more quickly with everyday activity.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.26653350208258114
+        ],
+        [
+          "Syringomyelia",
+          0.21807286534029377
+        ],
+        [
+          "Adhesive capsulitis",
+          0.17447775437534432
+        ]
+      ],
+      "entropy": 3.4138565077200926
+    },
+    {
+      "turn": 15,
+      "kind": "qa",
+      "feature_id": "f_hip_pain_b43bcb14",
+      "doctor_question": "Hello! I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you currently experiencing any pain in your hip or around your hip area?",
+      "patient_answer": "“No, I haven’t had any pain around my hip or in the hip area. It’s still mostly generalized weakness and unintentional weight loss, and I tire quicker when I’m lifting or carrying everyday items.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.270023529764029
+        ],
+        [
+          "Syringomyelia",
+          0.22092834253420568
+        ],
+        [
+          "Adhesive capsulitis",
+          0.17676239097002708
+        ]
+      ],
+      "entropy": 3.3860685900654817
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.270023529764029,
+    "final_entropy": 3.3860685900654817,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8013,
+      "completion_tokens": 3050
+    },
+    "patient": {
+      "prompt_tokens": 14586,
+      "completion_tokens": 669,
+      "calls": 16
+    }
+  }
+}

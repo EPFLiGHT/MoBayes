@@ -1,0 +1,109 @@
+{
+  "case_idx": 9,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 55\nSex: F\nChief Complaint: dizziness",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having dizziness and slight lightheadedness. It also gets worse with physical exertion and improves with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "When did this start, and was the onset sudden or gradual?\nWhen did this start, and was the onset sudden or gradual?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe the dizziness more specifically: does it feel like the room is spinning, like you might faint, or more like imbalance/unsteadiness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s more like I might faint—slightly dizzy or lightheaded.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any chest pain, shortness of breath, palpitations, or a racing/irregular heartbeat, especially when it happens with exertion?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I'm having heart beating fast and palpitations, and my symptoms are increased with physical exertion and alleviated with rest.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you actually fainted or nearly fainted, or do you get any sweating, nausea, or tunnel vision when this happens?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any known heart problems, anemia, heavy bleeding, dehydration, fever, recent illness, or are you taking stimulants or new medications?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have severe COPD, diabetes, a known heart defect, and a history of heart attack or angina (chest pain). I also have palpitations/racing and an irregular heartbeat (missing a beat), and my symptoms get worse with physical exertion but improve with rest.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Cardiac arrhythmia causing presyncope, Myocardial ischemia/anginal equivalent, Structural heart disease complication related to known heart defect, COPD-related hypoxemia/exertional intolerance, Heart failure/low cardiac output state\n\nThis pattern is concerning for a cardiac cause, especially given exertional lightheadedness, palpitations/irregular heartbeat, known heart disease/defect, prior MI/angina, diabetes, and severe COPD.\n\nYou should seek urgent in-person evaluation now/emergency care, especially if symptoms are happening currently or if you develop chest pain, shortness of breath, fainting, worsening palpitations, or low oxygen.\n\nLikely workup would include:\n- ECG/telemetry\n- Troponins\n- Electrolytes, CBC, glucose\n- Oxygen saturation\n- Chest X-ray\n- Consider echocardiogram and rhythm monitoring\n\nIf you want, I can also help you think through which diagnosis is most likely based on your exact heart defect and whether the palpitations feel regular or irregular.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Cardiac arrhythmia causing presyncope",
+    "predicted_set": [
+      "Cardiac arrhythmia causing presyncope",
+      "Myocardial ischemia/anginal equivalent",
+      "Structural heart disease complication related to known heart defect",
+      "COPD-related hypoxemia/exertional intolerance",
+      "Heart failure/low cardiac output state\n\nThis pattern is concerning for a cardiac cause"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "PSVT",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "PSVT",
+      "Unstable angina",
+      "Other System Diseases"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2110,
+      "completion_tokens": 386
+    },
+    "patient": {}
+  }
+}

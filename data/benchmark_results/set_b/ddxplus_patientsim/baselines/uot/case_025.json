@@ -1,0 +1,69 @@
+{
+  "case_idx": 25,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Guillain-Barré syndrome",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 65\nSex: Female\nChief Complaint: I have noticed weakness in your facial muscles and/or eyes, previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face, and foot numbness/tingling",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve noticed weakness in my facial muscles and/or my eyes, and I also have numbness and tingling in my feet. This has happened before, and I’m still having problems now.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **progressive, symmetric muscle weakness that worsens with repeated use and improves with rest** (e.g., ptosis/diplopia, fluctuating weakness)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I can say the weakness has been there before and is still present now. I notice it in my face/eyes, and I also have numbness and tingling in my feet, but I’m not sure about “worse with repeated use” or improving with rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a recent fever and a new rash (especially a widespread rash) along with swollen lymph nodes or flu-like symptoms?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had a recent fever or a new rash. I also don’t have swollen lymph nodes or flu-like symptoms that I know of.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chagas, Guillain-Barré syndrome  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Chagas",
+    "predicted_set": [
+      "Chagas",
+      "Guillain-Barré syndrome  "
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1675,
+      "completion_tokens": 137
+    }
+  }
+}

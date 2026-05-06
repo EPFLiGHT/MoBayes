@@ -1,0 +1,380 @@
+{
+  "case_idx": 14,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic kidney failure",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old female",
+    "History": "The patient reports feeling weaker over the past few months and notices unintentional weight loss. She denies any recent infections, bleeding, or changes in urination. She mentions a previous blood workup indicating elevated BUN and creatinine levels.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized weakness",
+      "Secondary_Symptoms": [
+        "Unintentional weight loss",
+        "No urinary symptoms",
+        "No bleeding"
+      ]
+    },
+    "Past_Medical_History": "Hypertension treated with medication. Father had kidney stones.",
+    "Social_History": "Non-smoker, occasional alcohol use. Works as an accountant.",
+    "Review_of_Systems": "Denies fever, nausea, vomiting, diarrhea, dysuria, or change in bowel habits."
+  },
+  "objective_for_doctor": "Evaluate the patient for the cause of anemia, weight loss, and deteriorating renal function.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: Over the past few months I’ve been feeling weaker than usual and I’ve had unintentional weight loss. I was told my previous blood work showed elevated BUN and creatinine as well. I haven’t noticed infections, bleeding, or any urinary changes.",
+      "extracted_features": {
+        "f_generalized_weakness_46c7373c": "yes",
+        "f_fatigue_5b792cc4": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Chronic kidney failure",
+          0.1656709468030833
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1621032395312196
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11032688774829688
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.11032688774829688
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08991953978073132
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_urinary_urgency_ff7b0094",
+      "doctor_question": "Do you often find yourself needing to rush to the bathroom to urinate, even when your bladder doesn't feel completely full?",
+      "patient_answer": "“No, I don’t feel like I have to rush to the bathroom, and I haven’t noticed any urinary changes or a sense that my bladder isn’t fully empty.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.1656709468030833
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1621032395312196
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11032688774829683
+        ]
+      ],
+      "entropy": 3.8680952736743506
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_firm_breast_mass_dcdc31ba",
+      "doctor_question": "Have you noticed any firm lumps or areas of thickening in your breast tissue that feel different from the rest of your breast?",
+      "patient_answer": "“No, I haven’t noticed any firm lumps or thickened areas in my breast tissue that feel different from the rest.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.1664770395214541
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16289197312351172
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11086369702337218
+        ]
+      ],
+      "entropy": 3.8461995622039438
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_smooth_firm_skin_papules_39ca29ed",
+      "doctor_question": "Have you noticed any small, firm bumps on your skin that are smooth to the touch?",
+      "patient_answer": "“No, I haven’t noticed any small, firm bumps on my skin that are smooth to the touch. I’ve mainly just felt progressively weaker and lost weight without meaning to.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.1664770395214541
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16289197312351172
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11086369702337218
+        ]
+      ],
+      "entropy": 3.8461995622039438
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_inability_to_cool_down_554ca5c6",
+      "doctor_question": "I've been reviewing your symptoms, and I want to ask: Have you been feeling like you can't seem to cool down or catch your breath, even when you're in a cooler environment or resting?",
+      "patient_answer": "“No, I haven’t felt like I can’t cool down, and I haven’t had trouble catching my breath when I’m resting or in cooler environments.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.1672417549817259
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.16364022051282015
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11137295153282503
+        ]
+      ],
+      "entropy": 3.82589733682047
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "Have you been feeling overwhelmed, anxious, or struggling to cope with your daily life lately?",
+      "patient_answer": "“No, I haven’t felt overwhelmed or unusually anxious, and I feel like I’ve been able to cope with my daily life as usual. It’s mainly been the progressive weakness and unintentional weight loss that concern me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic kidney failure",
+          0.17435081459167662
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1705961872349957
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11610715772116309
+        ]
+      ],
+      "entropy": 3.716571490831589
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching sensations on your skin lately, either all over or in specific areas?",
+      "patient_answer": "“No, I haven’t had any itching sensations on my skin, either all over or in specific areas.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14162980208044235
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14162980208044235
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.11771120552958017
+        ]
+      ],
+      "entropy": 3.834564409541939
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any unusual spots, rashes, or lesions on your arms, particularly along the veins?",
+      "patient_answer": "“No, I haven’t noticed any unusual spots, rashes, or lesions on my arms, including along the veins. It’s mainly just been the progressive weakness and unintentional weight loss that I’m concerned about.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14162980208044235
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14162980208044235
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.11771120552958012
+        ]
+      ],
+      "entropy": 3.8345644095419384
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_word_finding_difficulty_0b430b71",
+      "doctor_question": "Have you noticed any trouble finding the right words when you're talking, like trying to remember what you want to say but it just doesn't come out?",
+      "patient_answer": "“No, I haven’t noticed any trouble finding the right words or forgetting what I want to say. It’s mainly been the progressive weakness and unintentional weight loss that have stayed consistent.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14162980208044235
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14162980208044235
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.11771120552958012
+        ]
+      ],
+      "entropy": 3.8345644095419384
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_muscle_rigidity_710ca10d",
+      "doctor_question": "Have you noticed that your muscles feel stiff or tense, even when you're not using them? For example, do you feel like your muscles are hard to relax or feel rigid when you touch them?",
+      "patient_answer": "“No, I haven’t noticed any muscle stiffness or rigidity, and my muscles don’t feel hard to relax when I’m not using them. It’s mainly been the progressive weakness and unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14184386631318566
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14184386631318566
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.11788911835955546
+        ]
+      ],
+      "entropy": 3.82440051665659
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_drowsiness_420d2bd9",
+      "doctor_question": "How's your energy level been today? Have you been feeling unusually sleepy or struggling to stay awake?",
+      "patient_answer": "“Yes, my energy level has been lower than usual for months, and I’ve been feeling more tired and weak overall. I’m not so much unusually sleepy that I can’t stay awake, but I feel noticeably worn down.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14171459932195643
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14171459932195643
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.11778168211980036
+        ]
+      ],
+      "entropy": 3.8310945196127926
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_leg_warmth_8549faca",
+      "doctor_question": "How are your legs feeling in terms of temperature? Do they feel warm to you, or do they feel cooler than usual?",
+      "patient_answer": "“No, I haven’t noticed my legs feeling warm or unusually cool—mostly it’s just the progressive weakness and the unintentional weight loss that I’ve been noticing.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.14252516648117997
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.14252516648117997
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.11845535980679377
+        ]
+      ],
+      "entropy": 3.82363973936913
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_productive_cough_f91866cd",
+      "doctor_question": "Do you find that you're coughing up mucus or phlegm when you cough?",
+      "patient_answer": "“No, I haven’t been coughing up mucus or phlegm. I haven’t noticed any persistent cough—my main issues are ongoing weakness and unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.1679323100145847
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.1679323100145847
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.13957171703139465
+        ]
+      ],
+      "entropy": 3.751101070511756
+    }
+  ],
+  "final": {
+    "predicted": "Chronic lymphocytic leukemia",
+    "predicted_top3": [
+      "Chronic lymphocytic leukemia",
+      "Chronic lymphocytic leukemia (CLL)",
+      "Pancreatic adenocarcinoma"
+    ],
+    "confidence": 0.1679323100145847,
+    "final_entropy": 3.751101070511756,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Chronic lymphocytic leukemia",
+    "predicted_set_remapped": [
+      "Chronic lymphocytic leukemia",
+      "Chronic lymphocytic leukemia (CLL)",
+      "Pancreatic adenocarcinoma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6396,
+      "completion_tokens": 754
+    },
+    "patient": {
+      "prompt_tokens": 9090,
+      "completion_tokens": 544,
+      "calls": 13
+    }
+  }
+}

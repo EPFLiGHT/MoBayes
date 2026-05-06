@@ -1,0 +1,123 @@
+{
+  "case_idx": 23,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Bed bug bite",
+  "patient_actor_hidden": {
+    "Demographics": "47-year-old male",
+    "History": "The patient presents with intense itching of his right thigh region for the past few days. He also mentions the recent formation of ‘red bumps’ in the same area. The patient has recently attended a business conference in Miami. He has a past medical history of hypertension, diabetes type 2, and hyperlipidemia. The patient’s medication regimen includes enalapril, metformin, and atorvastatin. He denies any history of smoking or drinking.",
+    "Symptoms": {
+      "Primary_Symptom": "Intense itching on the right thigh",
+      "Secondary_Symptoms": [
+        "Recent appearance of ‘red bumps’",
+        "Itching also present on the left leg and right forearm",
+        "Excoriations over the affected regions"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Diabetes Type 2, Hyperlipidemia. Medications: Enalapril, Metformin, Atorvastatin.",
+    "Social_History": "Non-smoker, does not consume alcohol. Recently traveled to Miami for a business conference.",
+    "Review_of_Systems": "Denies fever, weight loss, recent illnesses, or other skin conditions."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with intense itching and development of 'red bumps' on the thigh and other parts of the body.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello—what brings you in today? Patient: I’ve had intense itching on my right thigh for the past few days, and then red bumps showed up in the same area. The itching is also present on my left leg and right forearm, and I’ve scratched enough to leave excoriations.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, broad dermatologic causes):\n- Bed bug bite: 0.30  \n- Toxic exposure: 0.20  \n- Steven-Johnson syndrome: 0.05  \n- Pyoderma gangrenosum: 0.05  \n- Seborrheic dermatitis: 0.05  \n(Other causes collectively: 0.35)\n\nTo narrow this down, one key question:\n\n**Do the bumps look like small blisters or hives (raised welts), or are they more like discrete red papules/“bite marks”?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do the bumps look like small blisters or hives (raised welts), or are they more like discrete red papules/“bite marks”? Patient: They’re more like discrete red bumps in clusters, not blisters or big raised welts.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior:\n- Bed bug bite: 0.55  \n- Toxic exposure: 0.15  \n- Steven-Johnson syndrome: 0.01  \n- Pyoderma gangrenosum: 0.02  \n- Seborrheic dermatitis: 0.02  \n(Other causes collectively: 0.25)\n\nLikelihood ratio for “discrete red papules in clusters, not blisters/hives”:\n- Bed bug bite vs others: ~2.0 (increases confidence)\n- Steven-Johnson vs others: ~0.2 (decreases)\n\nNext discriminating question (one at a time):\n\n**Have you noticed any similar itching or bumps in close contacts (household members/roommates), or have you been staying in a hotel/shelter recently?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any similar itching or bumps in close contacts, or have you been staying in a hotel or shelter recently? Patient: I haven’t noticed it in anyone around me, but I did stay in a hotel during my Miami business conference.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior:\n- Bed bug bite: 0.70  \n- Toxic exposure: 0.10  \n- Steven-Johnson syndrome: 0.01  \n- Pyoderma gangrenosum: 0.02  \n- Seborrheic dermatitis: 0.02  \n(Other causes collectively: 0.15)\n\nLikelihood ratio for “recent hotel stay” supporting bed bug bites:\n- Bed bug bite vs others: ~1.5 (further increases)\n\nNext question (high-yield):\n\n**Are the lesions mostly on exposed areas (like legs/forearms) and do they seem to appear after sleeping (e.g., worse in the morning or following nights in the hotel)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—most are on exposed areas like my thighs and forearm, and they seem to be worse after I’ve been sleeping, especially since the hotel stay in Miami.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior:\n- Bed bug bite: 0.82  \n- Toxic exposure: 0.07  \n- Steven-Johnson syndrome: 0.01  \n- Pyoderma gangrenosum: 0.02  \n- Seborrheic dermatitis: 0.02  \n(Other causes collectively: 0.06)\n\nLikelihood ratio for “worse after sleeping + exposed areas + cluster papules”:\n- Bed bug bite vs others: ~2.0 (strongly increases)\n\nOne last discriminating question before I finalize:\n\n**Do you see any central punctum/scab on the bumps, and are there any linear “rows” of bites?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I do see small central scabs on some of the bumps, and they seem to be in lines or short rows on the skin.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bed bug bite, Toxic exposure, Steven-Johnson syndrome, Pyoderma gangrenosum, Seborrheic dermatitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Bed bug bite",
+    "predicted_set": [
+      "Bed bug bite",
+      "Toxic exposure",
+      "Steven-Johnson syndrome",
+      "Pyoderma gangrenosum",
+      "Seborrheic dermatitis"
+    ],
+    "predicted_raw": [
+      "Bed bug bite",
+      "Toxic exposure",
+      "Steven-Johnson syndrome",
+      "Pyoderma gangrenosum",
+      "Seborrheic dermatitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Bed bug bite",
+    "predicted_set_remapped": [
+      "Bed bug bite",
+      "Toxic exposure",
+      "Steven-Johnson syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6227,
+      "completion_tokens": 612
+    },
+    "patient": {
+      "prompt_tokens": 3869,
+      "completion_tokens": 252,
+      "calls": 5
+    }
+  }
+}

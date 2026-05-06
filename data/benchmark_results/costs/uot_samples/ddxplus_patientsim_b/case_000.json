@@ -1,0 +1,120 @@
+{
+  "case_idx": 0,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: Male\nChief Complaint: I have stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have stridor—like a noisy breathing sound when I breathe. I also had a cold in the last two weeks, and I have gastroesophageal reflux.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden shortness of breath that started within the last few hours?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure it was within just the last few hours. It’s been going on with the breathing noise, but I can’t say it started suddenly in the last few hours.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain or discomfort that is worse with breathing (pleuritic) or coughing, or do you have sudden shortness of breath?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain or discomfort, and it’s not worse with breathing or coughing. I also don’t have sudden shortness of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain or pressure that is worse with exertion or does not go away within 10–15 minutes?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain or pressure with exertion, and nothing that doesn’t go away within 10–15 minutes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **anaphylaxis**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No. I’m not having anaphylaxis. I don’t have any swelling or rash that I can tell you about.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **PSVT**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not having PSVT. My heart feels normal to me.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Sarcoidosis**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not having sarcoidosis—at least I’ve never been told I have it.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute dystonic reactions, Anaphylaxis, Atrial fibrillation  , PSVT, Sarcoidosis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acute dystonic reactions",
+    "predicted_set": [
+      "Acute dystonic reactions",
+      "Anaphylaxis",
+      "Atrial fibrillation",
+      "PSVT",
+      "Sarcoidosis"
+    ],
+    "predicted_raw": [
+      "Acute dystonic reactions",
+      "Anaphylaxis",
+      "Atrial fibrillation  ",
+      "PSVT",
+      "Sarcoidosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20220,
+      "completion_tokens": 27515,
+      "total_tokens": 47735
+    },
+    "patient": {
+      "prompt_tokens": 4177,
+      "completion_tokens": 215
+    }
+  }
+}

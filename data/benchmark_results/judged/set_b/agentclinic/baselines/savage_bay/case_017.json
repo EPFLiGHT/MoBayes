@@ -1,0 +1,111 @@
+{
+  "case_idx": 17,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Cardiac contusion",
+  "patient_actor_hidden": {
+    "Demographics": "27-year-old male",
+    "History": "The patient was involved in a head-on collision as the front seat, unrestrained driver. Following the event, the patient complains of chest pain. No past significant medical history. The patient was given 2 liters of Ringer lactate solution and morphine for management.",
+    "Symptoms": {
+      "Primary_Symptom": "Chest pain",
+      "Secondary_Symptoms": [
+        "Bruising over the chest wall"
+      ]
+    },
+    "Past_Medical_History": "No known drug allergies. No previous surgeries or significant medical conditions.",
+    "Social_History": "Occasional alcohol use, denies tobacco or illicit drug use. Works as a computer programmer.",
+    "Review_of_Systems": "Complains of pain in the chest area, denies headache, dizziness, shortness of breath, or abdominal pain."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chest pain following a motor vehicle collision.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I’ve been having chest pain after a head-on collision where I was an unrestrained driver. There’s also bruising over my chest wall.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough):  \n- Cardiac contusion: 0.35  \n- Takotsubo cardiomyopathy: 0.10  \n- Hypertrophic cardiomyopathy: 0.05  \n- Acute Mesenteric Ischemia: 0.02  \n- Acute myelogenous leukemia: 0.01  \n(others collectively: 0.47)\n\nEvidence: blunt chest trauma with chest wall bruising → increases likelihood of **cardiac contusion** (and decreases most non-traumatic causes).\n\n**Likelihood ratio (LR) for cardiac contusion given blunt chest trauma + chest wall bruising:** ~3.0  \nUpdated posterior:  \n- Cardiac contusion: 0.65  \n- Takotsubo cardiomyopathy: 0.06  \n- Hypertrophic cardiomyopathy: 0.03  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute myelogenous leukemia: 0.00  \n(others: 0.25)\n\nOne question to discriminate further (most useful next):  \n**Did the chest pain start immediately after the collision, and is it worse with breathing or pressing on the chest (pleuritic or reproducible)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Yeah—the chest pain started right after the collision. It’s worse when I take a deep breath and when someone presses on the bruised area.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Cardiac contusion: 0.65  \n- Takotsubo cardiomyopathy: 0.06  \n- Hypertrophic cardiomyopathy: 0.03  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute myelogenous leukemia: 0.00  \n(others: 0.25)\n\nEvidence: pain that is **immediate after blunt trauma** and **worse with deep breath and reproducible with palpation** strongly favors **chest wall injury/pleuritic pain** over primary cardiac causes (like contusion), though contusion can still coexist.\n\n**LR for “reproducible + pleuritic pain after trauma” favoring chest wall/traumatic causes over cardiac contusion:** ~0.6 for cardiac contusion (i.e., it decreases relative probability).  \nUpdated posterior:  \n- Cardiac contusion: 0.45  \n- Takotsubo cardiomyopathy: 0.05  \n- Hypertrophic cardiomyopathy: 0.02  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute myelogenous leukemia: 0.00  \n(others: 0.47)\n\nNext discriminating question (helps separate cardiac contusion vs other traumatic causes):  \n**Do you have shortness of breath, dizziness, or feel faint since the crash?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t feel short of breath, dizzy, or like I’m going to faint since the crash.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Cardiac contusion: 0.45  \n- Takotsubo cardiomyopathy: 0.05  \n- Hypertrophic cardiomyopathy: 0.02  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute myelogenous leukemia: 0.00  \n(others: 0.47)\n\nEvidence: absence of dyspnea/syncope lowers concern for clinically significant cardiac injury/arrhythmia and makes primary cardiac etiologies less likely.\n\n**LR for “no dyspnea/dizziness/syncope” against cardiac contusion:** ~0.7  \nUpdated posterior:  \n- Cardiac contusion: 0.34  \n- Takotsubo cardiomyopathy: 0.04  \n- Hypertrophic cardiomyopathy: 0.01  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute myelogenous leukemia: ~0.00  \n(others: 0.60)\n\nNext question (to decide if this is primarily chest wall/pleural vs occult cardiac/vascular):  \n**Any cough, coughing up blood, or pain that’s mainly on one side of the chest?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No cough and no coughing up blood. The pain feels mostly in the center where the bruising is, and it hurts more when I take a deep breath.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Cardiac contusion: 0.34  \n- Takotsubo cardiomyopathy: 0.04  \n- Hypertrophic cardiomyopathy: 0.01  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute myelogenous leukemia: ~0.00  \n(others: 0.60)\n\nEvidence: **central, bruised-area pain that is pleuritic (worse with deep breath)** and no hemoptysis/cough further supports **musculoskeletal chest wall injury/pleurisy from trauma** rather than myocardial injury or vascular catastrophe.\n\nHowever, from the provided disease list, the only close “trauma chest” diagnosis is **Cardiac contusion**; there isn’t an explicit “rib fracture/pleural contusion/chest wall pain” entry. So I can’t cleanly map the most likely cause to the list.\n\nGiven that, I’ll provide a best-fit differential from the list, but I’m not fully confident.\n\n[ABSTAIN] The history strongly suggests traumatic pleuritic chest wall pain (e.g., chest wall/pleural injury), but the provided disease list lacks a specific matching diagnosis, so I can’t confidently rank within the list.  \n[POSSIBLE] Cardiac contusion, Takotsubo cardiomyopathy, Hypertrophic cardiomyopathy, Acute Mesenteric Ischemia, Acute myelogenous leukemia",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Cardiac contusion",
+      "Takotsubo cardiomyopathy",
+      "Hypertrophic cardiomyopathy",
+      "Acute Mesenteric Ischemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Cardiac contusion",
+      "Takotsubo cardiomyopathy",
+      "Hypertrophic cardiomyopathy",
+      "Acute Mesenteric Ischemia",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Cardiac contusion",
+      "Takotsubo cardiomyopathy",
+      "Hypertrophic cardiomyopathy"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5091,
+      "completion_tokens": 1090
+    },
+    "patient": {
+      "prompt_tokens": 3002,
+      "completion_tokens": 130,
+      "calls": 4
+    }
+  }
+}

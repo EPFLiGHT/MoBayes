@@ -1,0 +1,137 @@
+{
+  "case_idx": 9,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with abdominal cramps, nausea, vomiting, and diarrhea that began suddenly 2 hours ago. He reports eating reheated food from the afternoon, approximately 1 hour before symptom onset.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known food allergies.",
+    "Social_History": "College student living in dormitories. No recent travel history. Reports being in the middle of exam period and experiencing high stress levels.",
+    "Review_of_Systems": "Denies fever, blood in stool, headache, or any urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with symptoms of acute gastrointestinal illness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: About two hours ago I started having sudden abdominal cramps, along with nausea, vomiting, and diarrhea. I had reheated food about an hour before it began.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned you reheated food about an hour before your symptoms started. Was the food you reheated leftover, and if so, how was it stored?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It was leftover from earlier that day, and I just kept it in the dorm fridge until I reheated it in a microwave. After reheating, I ate it pretty soon after it was hot.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "You stored the leftover in a dorm fridge and reheated it in a microwave. Did you notice anything unusual about the smell or taste of the food when you reheated or ate it?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, it didn’t seem unusual—smell and taste were normal when I reheated it. I didn’t notice any off flavor or anything strange.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "The food seemed normal in terms of smell and taste. Have you eaten similar leftovers or food from the same source recently, and did anyone else eat the same leftover with you?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t eaten that exact leftover before, but I’ve had similar dorm reheated meals earlier this week. I don’t know if anyone else ate the same leftovers, I usually eat alone in my dorm.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "You usually eat alone and haven't eaten that exact leftover before, but you've had similar meals. Are your symptoms primarily gastrointestinal, or are there other symptoms like fever, headache, or muscle aches accompanying your nausea, vomiting, and diarrhea?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s mostly gastrointestinal—abdominal cramps with nausea, vomiting, and diarrhea. I don’t have a fever, headache, or muscle aches, and I haven’t noticed any blood in my stool.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Your symptoms are mainly gastrointestinal without fever, headache, or muscle aches, and no blood in your stool. How would you rate the severity of your abdominal cramps and diarrhea on a scale from 1 to 10, with 10 being the worst?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My abdominal cramps are about a 7 out of 10, and the diarrhea is around a 6 out of 10. I feel pretty nauseated and have been vomiting since it started.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Your abdominal cramps are quite severe, and you're experiencing significant nausea and vomiting. Have you had any recent travel or exposure to potentially contaminated water or food from outside the dorm?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any recent travel or exposure to potentially contaminated water or food from outside the dorm? Patient: No, I haven’t traveled or eaten from outside recently—mostly dorm meals, and I use the dining hall water without anything unusual. It feels like it started right after that reheated leftover.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "The onset of your symptoms seems closely related to eating the reheated leftover. Given the timeline and your symptoms, I'm starting to piece together a likely diagnosis. \n\n[DDX] Food poisoning (Staphylococcus aureus), Food poisoning (Bacillus cereus), Viral gastroenteritis, Clostridioides difficile infection, Food poisoning (Clostridium perfringens)",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Food poisoning (Staphylococcus aureus)",
+    "predicted_set": [
+      "Food poisoning (Staphylococcus aureus)",
+      "Food poisoning (Bacillus cereus)",
+      "Viral gastroenteritis",
+      "Clostridioides difficile infection",
+      "Food poisoning (Clostridium perfringens)"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3623,
+      "completion_tokens": 320
+    },
+    "patient": {
+      "prompt_tokens": 3790,
+      "completion_tokens": 337,
+      "calls": 7
+    }
+  }
+}

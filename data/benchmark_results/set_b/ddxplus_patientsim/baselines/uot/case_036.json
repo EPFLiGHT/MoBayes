@@ -1,0 +1,109 @@
+{
+  "case_idx": 36,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 66\nSex: Female\nChief Complaint: I have a cough, significant dyspnea, and unintentional weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a bad cough, I’m very short of breath, and I’ve lost weight without trying. I’m also underweight, and I’ve been taking corticosteroids and I have diabetes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever** (measured temperature ≥ 38°C) or **chills**?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure of my measured temperature, and I don’t think I’ve had chills. I can’t confirm a fever ≥38°C.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have severe throat pain with drooling or difficulty swallowing (suggesting upper-airway obstruction)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have severe throat pain, drooling, or trouble swallowing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever with productive cough and shortness of breath** (suggesting a lower respiratory infection)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I can’t confirm a fever. My cough is there and I’m very short of breath, but I’m not sure about whether it’s productive.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a productive cough with sputum (phlegm)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have a cough, but I’m not sure if it’s bringing up sputum/phlegm.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever with cough and sore throat (or other upper-respiratory symptoms)?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a sore throat or other upper-respiratory symptoms, and I can’t confirm a fever.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a fever and ear pain (or ear discharge) within the last few days?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have ear pain or ear discharge.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute pulmonary edema, Scombroid food poisoning  ",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acute pulmonary edema",
+    "predicted_set": [
+      "Acute pulmonary edema",
+      "Scombroid food poisoning  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4389,
+      "completion_tokens": 196
+    }
+  }
+}

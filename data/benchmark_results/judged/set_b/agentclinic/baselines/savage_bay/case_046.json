@@ -1,0 +1,182 @@
+{
+  "case_idx": 46,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Impaired erythropoietin production",
+  "patient_actor_hidden": {
+    "Demographics": "1-month-old boy",
+    "History": "The patient’s mother reports that the infant occasionally stops breathing while sleeping, with episodes increasing in frequency. The patient was born prematurely at 32 weeks due to placental insufficiency and required respiratory support immediately post-birth. Prenatal testing indicated the mother was not immune to rubella. The pregnancy was otherwise uncomplicated, with the mother taking only prenatal vitamins. The family history includes a healthy 3-year-old sister and a father with a heart condition.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodes of not breathing (apnea) during sleep",
+      "Secondary_Symptoms": [
+        "Increased frequency of apneic episodes",
+        "Pale conjunctiva"
+      ]
+    },
+    "Past_Medical_History": "Premature birth at 32 weeks due to placental insufficiency. Stay in the neonatal intensive care unit for respiratory support.",
+    "Social_History": "The patient’s mother took prenatal vitamins. Father has a heart condition. One healthy sibling.",
+    "Review_of_Systems": "Patient has pale conjunctiva but no other symptoms or complaints provided by the mother."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the infant presenting with episodes of apnea and anemia.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: My mom says I sometimes stop breathing while I’m sleeping, and the episodes have been happening more often lately. She also noticed my eyes look pale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, rough):**\n- **Acute myelogenous leukemia:** 0.25  \n- **Acute lymphoblastic leukemia:** 0.20  \n- **Essential thrombocythemia:** 0.10  \n- **Hemophilia A:** 0.05  \n- **Impaired erythropoietin production:** 0.10  \n- **Asthma/COPD:** 0.10  \n- **Situational syncope:** 0.05  \n- **Other/insufficient:** 0.15  \n\nThe “pale eyes” suggests anemia, which can contribute to fatigue/weakness and sometimes breathing problems during sleep. “Stops breathing” could also be sleep-disordered breathing, but I want to clarify.\n\n**Question 1 (one at a time):**  \nWhen these episodes happen, does anyone notice **snoring, choking/gasping, or pauses in breathing** that last more than ~10 seconds?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When these episodes happen, does anyone notice snoring, choking/gasping, or pauses in breathing that last more than about 10 seconds? Patient: My mom says there are pauses in my breathing during sleep, and they seem to last longer than a few seconds, sometimes with a gasp afterward.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (pauses in breathing with gasp):**  \nThis strongly supports sleep-disordered breathing (e.g., obstructive sleep apnea or central apnea). However, the **pale eyes** still raises concern for anemia/hematologic disease, which could worsen breathing.\n\n**Likelihood ratios (approx):**\n- Sleep apnea/central apnea pattern: **LR ~5** (for sleep-disordered breathing)\n- Anemia/hematologic causes: **LR ~1.2** (indirectly)\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.20  \n- **Acute lymphoblastic leukemia:** 0.16  \n- **Essential thrombocythemia:** 0.08  \n- **Hemophilia A:** 0.03  \n- **Impaired erythropoietin production:** 0.12  \n- **Asthma/COPD:** 0.05  \n- **Situational syncope:** 0.03  \n- **Other/insufficient:** 0.33  \n\nNext, I need to determine whether the “pale eyes” is from **anemia** and whether there are other red flags for leukemia.\n\n**Question 2:**  \nHave you had **unusual fatigue/weakness**, **shortness of breath with activity**, or **dizziness** recently?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had unusual fatigue or weakness, shortness of breath with activity, or dizziness recently? Patient: My mom hasn’t noticed any dizziness, and I don’t seem especially short of breath during the day—mostly she’s just concerned about my sleep breathing and the pale eyes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (no daytime dyspnea/dizziness; mainly nocturnal breathing + pale eyes):**  \nThis makes severe symptomatic anemia less likely, but anemia is still possible (especially if mild or if symptoms are subtle). Sleep-disordered breathing remains plausible.\n\n**Likelihood ratios (approx):**\n- No daytime dyspnea/dizziness → reduces likelihood of significant anemia/hematologic disease: **LR ~0.7**\n- Sleep apnea pattern remains: **LR ~1.0** (already supported)\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.14  \n- **Acute lymphoblastic leukemia:** 0.11  \n- **Essential thrombocythemia:** 0.06  \n- **Hemophilia A:** 0.02  \n- **Impaired erythropoietin production:** 0.10  \n- **Asthma/COPD:** 0.04  \n- **Situational syncope:** 0.02  \n- **Other/insufficient:** 0.51  \n\nNow I want to characterize the **pale eyes**—is it true pallor from anemia, or something else (e.g., jaundice, conjunctival issues)?\n\n**Question 3:**  \nWhen your mom says “pale eyes,” does she mean **pale/whitish inner eyelids (conjunctiva)**, or is it more like **yellowing of the eyes/skin**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When your mom says “pale eyes,” does she mean pale/whitish inner eyelids (conjunctiva), or is it more like yellowing of the eyes/skin? Patient: She says it looks pale on the inside of my eyelids.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (conjunctival pallor):**  \nConjunctival pallor strongly suggests **anemia**. That increases the probability of hematologic causes of anemia (including leukemia), though it still doesn’t prove which one.\n\n**Likelihood ratios (approx):**\n- Conjunctival pallor → anemia: **LR ~3**\n- Specific leukemia vs other anemia causes: modest increase, but leukemia remains on list: **LR ~1.3** relative to “other/insufficient”\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.18  \n- **Acute lymphoblastic leukemia:** 0.14  \n- **Essential thrombocythemia:** 0.05  \n- **Hemophilia A:** 0.02  \n- **Impaired erythropoietin production:** 0.12  \n- **Asthma/COPD:** 0.03  \n- **Situational syncope:** 0.01  \n- **Other/insufficient:** 0.45  \n\nNext, I need to look for **other clues of bone marrow disease** (bleeding/bruising, infections, bone pain).\n\n**Question 4:**  \nHave you had **easy bruising or bleeding** (nosebleeds, bleeding gums, lots of bruises), or **frequent infections/fevers** recently?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had easy bruising or bleeding (like nosebleeds or bleeding gums), or frequent infections/fevers recently? Patient: My mom hasn’t noticed unusual bruising, bleeding, or fevers.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (no bruising/bleeding/fevers):**  \nThis lowers the likelihood of leukemia/serious marrow failure, though it doesn’t eliminate it (early disease can be subtle). It also keeps sleep-disordered breathing as a major contributor.\n\n**Likelihood ratios (approx):**\n- No bleeding/infections/fevers → against acute leukemia: **LR ~0.6**\n- Against severe marrow failure overall: **LR ~0.7**\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.11  \n- **Acute lymphoblastic leukemia:** 0.09  \n- **Essential thrombocythemia:** 0.03  \n- **Hemophilia A:** 0.01  \n- **Impaired erythropoietin production:** 0.14  \n- **Asthma/COPD:** 0.03  \n- **Situational syncope:** 0.01  \n- **Other/insufficient:** 0.58  \n\nNow I want to determine whether the anemia could be from **kidney/low erythropoietin** or another cause. I’ll ask about urinary/kidney symptoms and general health.\n\n**Question 5:**  \nHave you had **known kidney problems**, **swelling of the face/legs**, **foamy urine**, or **very dark/abnormal urine**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had known kidney problems, swelling of the face or legs, foamy urine, or very dark/abnormal urine? Patient: My mom hasn’t noticed any swelling, foamy urine, or dark or unusual urine, and she doesn’t know of any kidney problems.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (no kidney signs):**  \nThis makes anemia due to impaired erythropoietin from kidney disease less likely, though not impossible.\n\n**Likelihood ratios (approx):**\n- No kidney/urine findings → against impaired erythropoietin production: **LR ~0.8**\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.10  \n- **Acute lymphoblastic leukemia:** 0.08  \n- **Essential thrombocythemia:** 0.03  \n- **Hemophilia A:** 0.01  \n- **Impaired erythropoietin production:** 0.11  \n- **Asthma/COPD:** 0.03  \n- **Situational syncope:** 0.01  \n- **Other/insufficient:** 0.63  \n\nAt this point, the strongest clinical feature is **sleep-related breathing pauses with gasp**, which points to sleep-disordered breathing. But since your provided disease list doesn’t include obstructive/central sleep apnea, I can’t confidently map that to a specific listed diagnosis. The pale conjunctiva suggests anemia, but we don’t yet have objective anemia symptoms or labs.\n\n**Question 6:**  \nHow old are you (and sex, if you’re comfortable sharing)? Age helps a lot for leukemia likelihood.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How old are you, and what’s your sex? Patient: I’m a 1-month-old boy. Doctor: Thank you—have these breathing pauses been happening every night or only sometimes?",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (age 1 month):**  \nAt 1 month, acute leukemia is less likely than in older children, though not impossible. Sleep-disordered breathing can occur in infants, and anemia causes are also possible but we need more data.\n\n**Current posterior (updated):**\n- **Acute myelogenous leukemia:** 0.03  \n- **Acute lymphoblastic leukemia:** 0.02  \n- **Essential thrombocythemia:** 0.005  \n- **Hemophilia A:** 0.01  \n- **Impaired erythropoietin production:** 0.05  \n- **Asthma/COPD:** 0.01  \n- **Situational syncope:** 0.005  \n- **Other/insufficient:** 0.87  \n\n**Question 7:**  \nHave the breathing pauses been happening **every night** or **only sometimes**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have the breathing pauses been happening every night or only sometimes? Patient: My mom says it’s been happening only sometimes, but it’s becoming more frequent.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (sometimes, increasing frequency):**  \nThis pattern is compatible with intermittent sleep-disordered breathing, but also with other infant causes (e.g., reflux-related events, infection, or less commonly anemia-related fatigue). Without fever/cough or feeding issues, serious infection is less likely.\n\n**Likelihood ratios (approx):**\n- Intermittent with increasing frequency → against acute leukemia/major marrow failure: **LR ~0.8**\n- Still supports “other/insufficient” causes: **LR ~1.1**\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.024  \n- **Acute lymphoblastic leukemia:** 0.016  \n- **Essential thrombocythemia:** 0.004  \n- **Hemophilia A:** 0.008  \n- **Impaired erythropoietin production:** 0.04  \n- **Asthma/COPD:** 0.008  \n- **Situational syncope:** 0.003  \n- **Other/insufficient:** 0.897  \n\nNow I need to determine whether these episodes are truly “sleep apnea” physiology or instead **breathing pauses during feeding/illness** (which would shift the differential).  \n\n**Question 8:**  \nDuring the episodes, does he seem to have **choking/coughing**, **turning blue (cyanosis)**, or **trouble feeding** (poor latch, sweating with",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: During these episodes, does he seem to choke or cough, turn blue, or have trouble feeding—like poor latch or sweating while eating? Patient: My mom hasn’t mentioned choking or blue color, and feeding seems mostly normal—though she only notices the breathing pauses during sleep.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (no cyanosis/choking; only during sleep):**  \nThis makes reflux/aspiration during feeds and acute respiratory infection less likely, and keeps sleep-related breathing disorder higher. The anemia clue remains, but we still lack objective anemia severity.\n\n**Likelihood ratios (approx):**\n- No cyanosis/choking/feeding trouble → against acute respiratory/aspiration causes: **LR ~0.7**\n- Still supports sleep-related breathing pauses: **LR ~1.2** (relative)\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.020  \n- **Acute lymphoblastic leukemia:** 0.013  \n- **Essential thrombocythemia:** 0.003  \n- **Hemophilia A:** 0.006  \n- **Impaired erythropoietin production:** 0.035  \n- **Asthma/COPD:** 0.006  \n- **Situational syncope:** 0.002  \n- **Other/insufficient:** 0.915  \n\nAt this point, the evidence is insufficient to confidently choose from the provided disease list. The most likely clinical category is **sleep-disordered breathing** in an infant, but that isn’t represented in your list.\n\n**Question 9:**  \nHas he had **any fever, cough, runny nose, or known sick contacts** in the last week?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has he had any fever, cough, runny nose, or known sick contacts in the last week? Patient: My mom hasn’t noticed any fever, cough, or runny nose, and there haven’t been any known sick contacts.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (no URI symptoms):**  \nThis further lowers likelihood of infection-related breathing pauses.\n\n**Likelihood ratios (approx):**\n- No fever/cough/runny nose/sick contacts → against infection: **LR ~0.6**\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.018  \n- **Acute lymphoblastic leukemia:** 0.012  \n- **Essential thrombocythemia:** 0.003  \n- **Hemophilia A:** 0.006  \n- **Impaired erythropoietin production:** 0.032  \n- **Asthma/COPD:** 0.004  \n- **Situational syncope:** 0.001  \n- **Other/insufficient:** 0.924  \n\nI still can’t map the leading diagnosis (sleep-related breathing pauses) to a specific item in the provided list, and the anemia clue is unconfirmed by labs.\n\n**Question 10:**  \nHas anyone measured his **oxygen saturation** during an episode, or has he had **poor weight gain** / difficulty staying awake during feeds?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has anyone measured his oxygen saturation during an episode, or has he had poor weight gain or difficulty staying awake during feeds? Patient: My mom hasn’t measured his oxygen, and she hasn’t noticed poor weight gain; he feeds and stays awake pretty well.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update after evidence (no measured hypoxia; normal feeding/weight):**  \nThis makes severe cardiopulmonary disease and severe anemia less likely, and keeps the differential broad.\n\n**Likelihood ratios (approx):**\n- No poor feeding/weight issues → against severe systemic illness: **LR ~0.7**\n\n**Updated posterior:**\n- **Acute myelogenous leukemia:** 0.016  \n- **Acute lymphoblastic leukemia:** 0.010  \n- **Essential thrombocythemia:** 0.003  \n- **Hemophilia A:** 0.005  \n- **Impaired erythropoietin production:** 0.028  \n- **Asthma/COPD:** 0.003  \n- **Situational syncope:** 0.001  \n- **Other/insufficient:** 0.934  \n\nAt this point, evidence is still insufficient to confidently select from the provided disease list. The most likely explanation clinically is sleep-related breathing disorder in an infant, but it’s not among the listed diagnoses.\n\n**[ABSTAIN]** Evidence insufficient to confidently match a specific diagnosis from the provided list (leading features suggest sleep-related breathing pauses; anemia is suggested by conjunctival pallor but not confirmed with labs).  \n**[POSSIBLE]** Acute myelogenous leukemia, Acute lymphoblastic leukemia, Impaired erythropoietin production, Hemophilia A, Essential thrombocythemia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Impaired erythropoietin production",
+      "Hemophilia A",
+      "Essential thrombocythemia"
+    ],
+    "predicted_raw": [
+      "** Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Impaired erythropoietin production",
+      "Hemophilia A",
+      "Essential thrombocythemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 11,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Impaired erythropoietin production"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27203,
+      "completion_tokens": 2951
+    },
+    "patient": {
+      "prompt_tokens": 21375,
+      "completion_tokens": 605,
+      "calls": 11
+    }
+  }
+}

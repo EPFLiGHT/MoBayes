@@ -1,0 +1,123 @@
+{
+  "case_idx": 13,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Central retinal artery occlusion",
+  "patient_actor_hidden": {
+    "Demographics": "60-year-old woman",
+    "History": "The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden, painless loss of vision in the right eye",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "Coronary artery disease, hypertension, type 2 diabetes mellitus",
+    "Social_History": "Has difficulty adhering to medication regimen",
+    "Review_of_Systems": "No other systemic symptoms reported"
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden loss of vision in one eye.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I had sudden, painless loss of vision in my right eye about half an hour ago while I was watching TV.” “I didn’t have any pain or other symptoms.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you for that information. To help narrow this down, did you notice any warning signs right before the vision loss, such as flashes of light, a sudden shower of floaters, or a dark curtain-like shadow moving across your field of vision?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Earlier, I didn’t notice flashes of light, a sudden shower of floaters, or any curtain-like dark shadow— it just suddenly went out in my right eye.” “I haven’t had any pain or other symptoms since it happened.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Could you please tell me your age and whether you have any history of high blood pressure, diabetes, high cholesterol, or atrial fibrillation?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 60 years old. I have high blood pressure and type 2 diabetes, and I also have coronary artery disease; I’m not sure about atrial fibrillation, but I do have trouble sticking to my medications.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Is the vision loss in your right eye completely blacked out, or is it partially blurred or missing in a specific area (such as the top or bottom half)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mostly completely gone in my right eye—like it just went black all at once. The left eye is seeing normally.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any recent headaches, scalp tenderness, jaw pain when chewing, or unexplained fever or weight loss?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any headaches, scalp tenderness, jaw pain when chewing, fever, or any unexpected weight loss.” “It’s just the sudden black-out vision in my right eye, and nothing else.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any brief, temporary episodes of vision dimming or loss in that same eye over the past few days or weeks?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Over the past few days or weeks, I don’t think I had any brief episodes or temporary dimming in that right eye—it just happened suddenly and has stayed gone since then.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Central retinal artery occlusion, Nonarteritic anterior ischemic optic neuropathy, Vitreous hemorrhage, Retinal detachment, Giant cell arteritis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Central retinal artery occlusion",
+    "predicted_set": [
+      "Central retinal artery occlusion",
+      "Nonarteritic anterior ischemic optic neuropathy",
+      "Vitreous hemorrhage",
+      "Retinal detachment",
+      "Giant cell arteritis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Central retinal artery occlusion",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Central retinal artery occlusion",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2750,
+      "completion_tokens": 12153
+    },
+    "patient": {
+      "prompt_tokens": 2864,
+      "completion_tokens": 253,
+      "calls": 6
+    }
+  }
+}

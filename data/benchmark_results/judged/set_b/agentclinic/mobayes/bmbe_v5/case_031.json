@@ -1,0 +1,196 @@
+{
+  "case_idx": 31,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Acute Mesenteric Ischemia",
+  "patient_actor_hidden": {
+    "Demographics": "74-year-old male",
+    "History": "The patient presents with sudden onset of abdominal pain around the umbilicus 16 hours ago, with recent history of hospitalization for an acute myocardial infarction a week ago. Reports several episodes of bloody loose bowel movements. Denies vomiting.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Bloody loose bowel movements",
+        "No vomiting",
+        "Sudden onset"
+      ]
+    },
+    "Past_Medical_History": "Known diabetes mellitus for 35 years and hypertension for 20 years. History of acute myocardial infarction.",
+    "Social_History": "Smokes 15–20 cigarettes per day for the past 40 years.",
+    "Review_of_Systems": "Denies fever, vomiting. Reports bloody loose bowel movements."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with sudden onset of abdominal pain, focusing on the relevance of the patient's medical history and current symptoms.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’m a 74-year-old man, and I came in because I had sudden, severe abdominal pain around my belly button about 16 hours ago. I’ve also had several episodes of bloody loose bowel movements, and I haven’t been vomiting.”",
+      "extracted_features": {
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_acute_abdominal_pain_154cc46b": "yes",
+        "f_sudden_onset_abdominal_pain_d5af7c5f": "yes",
+        "f_sudden_severe_abdominal_pain_245786c5": "yes",
+        "f_sudden_severe_periumbilical_abdominal_pa_1a81af1b": "yes",
+        "f_abdominal_pain_for_about_16_hours_377a9a30": "yes",
+        "f_bloody_diarrhea_7b81bd02": "yes",
+        "f_diarrhea_29117dc0": "yes",
+        "f_blood_mixed_with_loose_stool_d3819ff1": "yes",
+        "f_bloody_loose_stools_3098ff4b": "yes",
+        "f_vomiting_7ed7266d": "no"
+      },
+      "top5_posterior": [
+        [
+          "Acute Mesenteric Ischemia",
+          0.6591481139813234
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.16832354314711528
+        ],
+        [
+          "Toxic exposure",
+          0.11967645522130645
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.010697041384950689
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.009931895864055245
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any twitching, jerking, shaking, or uncontrollable movements.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute Mesenteric Ischemia",
+          0.6663073588491119
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.17015176572234988
+        ],
+        [
+          "Toxic exposure",
+          0.11120044129719679
+        ]
+      ],
+      "entropy": 1.6068628870331527
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes/No)",
+      "patient_answer": "“No, I haven’t noticed any lump in my right breast, and there’s nothing that feels like it moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute Mesenteric Ischemia",
+          0.6677004555955418
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.17050751426403873
+        ],
+        [
+          "Toxic exposure",
+          0.11143293606243586
+        ]
+      ],
+      "entropy": 1.5946108221321529
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“Yes—pressing or tapping around my belly button makes the pain worse.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute Mesenteric Ischemia",
+          0.5673840259971747
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.30847586935615806
+        ],
+        [
+          "Toxic exposure",
+          0.0946910659741847
+        ]
+      ],
+      "entropy": 1.5463116695093904
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a new lump or mass in your **right breast** (or a change in the right breast that feels like a lump)?",
+      "patient_answer": "“No, I haven’t noticed any new lump or change in my right breast.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute Mesenteric Ischemia",
+          0.5675169406064393
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.30854813249323
+        ],
+        [
+          "Toxic exposure",
+          0.09471324817434919
+        ]
+      ],
+      "entropy": 1.5438204558783997
+    }
+  ],
+  "final": {
+    "predicted": "Acute Mesenteric Ischemia",
+    "predicted_top3": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Toxic exposure"
+    ],
+    "confidence": 0.5675169406064393,
+    "final_entropy": 1.5438204558783997,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Acute Mesenteric Ischemia",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer",
+      "Toxic exposure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10217,
+      "completion_tokens": 446
+    },
+    "patient": {
+      "prompt_tokens": 2235,
+      "completion_tokens": 148,
+      "calls": 5
+    }
+  }
+}

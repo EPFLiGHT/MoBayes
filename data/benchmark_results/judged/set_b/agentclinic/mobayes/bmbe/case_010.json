@@ -1,0 +1,267 @@
+{
+  "case_idx": 10,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Borderline personality disorder",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old woman",
+    "History": "The patient presents to the emergency department with abdominal pain and reports being 10 weeks pregnant. She has a history of constipation, anxiety, and substance abuse. The patient is not currently on any medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal pain and contractions",
+      "Secondary_Symptoms": [
+        "Bloody vaginal discharge",
+        "Recent positive pregnancy test",
+        "Emotional distress upon learning of a spontaneous abortion",
+        "Anger and aggression post-news",
+        "New lacerations over her wrists"
+      ]
+    },
+    "Past_Medical_History": "Constipation, anxiety, substance abuse",
+    "Social_History": "Details on social history not provided, but the doctor should inquire about current life stressors, support systems, and substance use.",
+    "Review_of_Systems": "Negative except for symptoms presented."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with symptoms indicative of a spontaneous abortion and assess for any psychiatric conditions based on patient behavior.",
+  "kb_dir": "data/cases/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m 10 weeks pregnant, and I’ve been having abdominal pain and what feels like contractions. I also had bloody vaginal discharge, and I’ve been very upset since I found out about the miscarriage—I’m angry and my stress has gotten so intense that I’ve noticed new lacerations on my wrists.",
+      "extracted_features": {
+        "f_pregnancy_5fa7cc34": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_acute_abdominal_pain_154cc46b": "yes",
+        "f_uterine_contractions_5cc60e8c": "yes",
+        "f_vaginal_bleeding_7c6d5a5a": "yes",
+        "f_agitation_10f6de33": "yes",
+        "f_wrist_lacerations_21416d45": "yes",
+        "f_skin_excoriations_65bc0a02": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Endometritis",
+          0.21087315640861495
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.11350194560539892
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.11060497121694156
+        ],
+        [
+          "Pseudocyesis",
+          0.09720359353614524
+        ],
+        [
+          "Borderline personality disorder",
+          0.05954374666376396
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_apnea_episodes_a1c0e66c",
+      "doctor_question": "Have you noticed any episodes where you stop breathing or have pauses in breathing during sleep (for example, someone tells you, or you wake up gasping)?",
+      "patient_answer": "“No, I don’t think I’ve had any episodes where I stop breathing or wake up gasping, and nobody has mentioned pauses in my breathing during sleep.” “I have been sleeping poorly because I’m really distressed, but I haven’t noticed breathing stopping.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.21167703558865616
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.11393463155044893
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.11102661347375901
+        ]
+      ],
+      "entropy": 4.348335897288422
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_fractures_after_minor_trauma_9dcefc97",
+      "doctor_question": "After your minor injury or fall, have you noticed any signs that a bone might be broken—such as severe pain, swelling, bruising, deformity, or trouble using the area? (Yes or no)",
+      "patient_answer": "Patient: No, I haven’t had a fall or anything like that—just the new lacerations on my wrists, but no deformity or trouble using my arms. I also have the abdominal pain and bloody vaginal discharge from being 10 weeks pregnant.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.21250109229664157
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.11437817799912198
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.11145883903541957
+        ]
+      ],
+      "entropy": 4.33584327865718
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_left_wrist_erythema_5984b3bb",
+      "doctor_question": "Have you noticed any redness or warmth on your **left wrist** (the skin looking red compared to the other side)?",
+      "patient_answer": "Patient: I haven’t noticed any redness or warmth on my left wrist compared to the other side. The lacerations are there, but they don’t feel hot or look especially inflamed.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.21303607915505424
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.11466613332893887
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.11173944471839956
+        ]
+      ],
+      "entropy": 4.328962766411625
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_chest_wall_bruising_70fb0c33",
+      "doctor_question": "Have you noticed any bruising on your chest wall (for example, dark or discolored areas on the skin of your chest), especially after an injury or from coughing/strain?",
+      "patient_answer": "“No— I haven’t noticed any bruising on my chest wall, and I haven’t had any injury or heavy coughing/strain that could’ve caused bruising.” “I’m mostly concerned about the abdominal pain, the bloody vaginal discharge, and how overwhelmed I’ve been.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.21303607915505424
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.11466613332893887
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.11173944471839956
+        ]
+      ],
+      "entropy": 4.328962766411625
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_polyuria_44686a96",
+      "doctor_question": "Have you been urinating much more than usual lately—like needing to go to the bathroom more often or producing a larger amount of urine?",
+      "patient_answer": "Patient: I haven’t noticed peeing more often than usual or producing a larger amount of urine. I’ve mostly been focused on the abdominal pain and the bloody discharge, plus feeling extremely overwhelmed and not sleeping well.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.21331363433820216
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.11481552670757787
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.11188502504529384
+        ]
+      ],
+      "entropy": 4.324229182548069
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_substance_use_history_c8c2090d",
+      "doctor_question": "Have you used any substances such as alcohol, tobacco/nicotine, cannabis, opioids, stimulants, or other drugs in the past or currently? (Yes/No)",
+      "patient_answer": "Patient: I’ve used substances in the past, but I’m not sure which ones you’re asking about—I haven’t been able to keep track clearly while I’ve been so overwhelmed. I’m not currently taking any medications.",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.19825496384371763
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.1067102352211515
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.10398660950026138
+        ]
+      ],
+      "entropy": 4.33728988453656
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_urinary_incontinence_d51fa8e3",
+      "doctor_question": "Have you had any trouble controlling your urine—such as leaking urine or not making it to the bathroom in time?",
+      "patient_answer": "“No, I haven’t had any trouble controlling my urine—no leaking and I’m able to make it to the bathroom in time.” “My main issues have been the abdominal pain with what feels like contractions, the bloody vaginal discharge, and feeling extremely overwhelmed.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.19825496384371763
+        ],
+        [
+          "Acute Mesenteric Ischemia",
+          0.1067102352211515
+        ],
+        [
+          "Perforated gastric peptic ulcer",
+          0.10398660950026138
+        ]
+      ],
+      "entropy": 4.33728988453656
+    }
+  ],
+  "final": {
+    "predicted": "Endometritis",
+    "predicted_top3": [
+      "Endometritis",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "confidence": 0.19825496384371763,
+    "final_entropy": 4.33728988453656,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Endometritis",
+    "predicted_set_remapped": [
+      "Endometritis",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6117,
+      "completion_tokens": 463
+    },
+    "patient": {
+      "prompt_tokens": 5123,
+      "completion_tokens": 449,
+      "calls": 8
+    }
+  }
+}

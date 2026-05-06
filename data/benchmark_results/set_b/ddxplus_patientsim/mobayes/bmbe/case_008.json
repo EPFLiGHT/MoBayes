@@ -1,0 +1,126 @@
+{
+  "case_idx": 8,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 50\nSex: Female\nChief Complaint: I have lower chest pain, upper chest pain, and right posterior chest wall radiating pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’m a 50-year-old woman, and I came in because I have bad chest pain—lower and upper chest pain, plus sharp “knife-stroke” pain that seems to radiate to my right posterior chest wall and also toward my thoracic spine. It started pretty fast, and I also feel palpitations and I get worse with deep breaths (pleuritic pain). I recently had a viral infection, and I’ve had pericarditis before, and I’ve also been having trouble lying flat (orthopnea).",
+      "extracted_features": {
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_53": "yes",
+        "f_e_57_v_39": "yes",
+        "f_e_57_v_170": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_220": "yes",
+        "f_e_155": "yes",
+        "f_e_66": "yes",
+        "f_e_217": "yes",
+        "f_ant_e_0": "yes",
+        "f_ant_e_3": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pericarditis",
+          0.9980355262569215
+        ],
+        [
+          "Myocarditis",
+          0.0008964012575700611
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.00027417599931326873
+        ],
+        [
+          "Pulmonary embolism",
+          0.0001925290227640432
+        ],
+        [
+          "Boerhaave",
+          0.00013423163761590686
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_191",
+      "doctor_question": "When you have the pain, does it feel **violent**—like it’s intense, forceful, or overwhelming? (Yes/No)",
+      "patient_answer": "Yes. It feels extremely intense and overwhelming.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.9802318931414987
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.009694262242623231
+        ],
+        [
+          "Boerhaave",
+          0.0050098106673833786
+        ]
+      ],
+      "entropy": 0.1780886814403139
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_71",
+      "doctor_question": "I’m sorry you’re dealing with this. When you think about your pain, does it feel **heartbreaking**—like it’s emotionally crushing or deeply distressing? (Yes/No)",
+      "patient_answer": "Yes. It feels emotionally crushing and really distressing.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.592346255783604
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.21089393168952858
+        ],
+        [
+          "Boerhaave",
+          0.11504075642443459
+        ]
+      ],
+      "entropy": 1.5847761635375224
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_top3": [
+      "Pericarditis",
+      "Spontaneous rib fracture",
+      "Boerhaave"
+    ],
+    "confidence": 0.592346255783604,
+    "final_entropy": 1.5847761635375224,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9972,
+      "completion_tokens": 463
+    },
+    "patient": {
+      "prompt_tokens": 2209,
+      "completion_tokens": 140
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "case_idx": 4,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Female\nChief Complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and swelling in one or more areas of your body",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’m here because I had a severe allergic reaction—after contact with or eating something I’m allergic to. I got lightheaded/near-fainting, I feel very nauseous, I have swelling on my face (forehead and both cheeks), a pink itchy rash on my neck and arms, and I’ve had trouble breathing with a stridor sound.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: After exposure/ingestion of a known allergen, the patient developed near-syncope/lightheadedness, nausea, facial swelling, pink itchy rash, and trouble breathing with stridor. This strongly suggests a systemic allergic reaction with upper-airway involvement.\nTop candidates:\n1) Anaphylaxis — multi-system involvement (lightheadedness/near-fainting + GI nausea + facial swelling + diffuse itchy rash + respiratory compromise/stridor).\n2) Epiglottitis — stridor and facial/upper airway symptoms can occur, but the clear trigger (allergen exposure) and itchy rash make this less likely.\n3) Acute dystonic reactions — can cause stridor/airway symptoms, but typically not itchy rash/triggered by allergen.\n4) Acute laryngitis — can cause stridor, but would not explain near-syncope, facial swelling, and itchy rash after allergen exposure.\n5) GERD — can cause laryngeal symptoms/stridor, but not facial swelling/itchy rash/near-fainting after allergen.\nMost informative next question: determine timing and whether there was hypotension/known exposure plus any response to epinephrine (also helps confirm anaphylaxis severity).\n[/REASONING]\nHow quickly did the symptoms start after the exposure/ingestion—within minutes (e.g., <30 minutes), within a few hours, or later?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—within minutes, like about 5 minutes after I was exposed/ate the thing I’m allergic to.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Onset ~5 minutes after allergen exposure → rapid, classic for anaphylaxis. Symptoms include near-syncope, nausea, facial swelling, itchy rash, and stridor/upper-airway involvement.\nTop candidates:\n1) Anaphylaxis — very strong: rapid onset + multi-system (skin, GI, cardiovascular/near-fainting, respiratory/stridor).\n2) Epiglottitis — can present with stridor, but typically not triggered within minutes by allergen and not with itchy rash/facial swelling.\n3) Acute dystonic reactions — can cause stridor, but usually not with itchy rash and allergen timing.\n4) Acute laryngitis — stridor possible, but lacks systemic allergic features and rapid allergen-linked onset.\n5) Panic attack — can cause dyspnea/stridor-like sensation, but would not cause facial swelling/itchy rash and rapid allergen-triggered multi-system symptoms.\nMost informative next question: Have you had any known low blood pressure symptoms (e.g., feeling like you might pass out), and do you know if you’ve taken epinephrine or antihistamines yet?\n[/REASONING]\nHave you taken any medications since it started (especially an epinephrine auto-injector), and are you currently feeling faint or dizzy?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t taken any medicine yet, and I’m still feeling lightheaded—like I might faint.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Rapid onset (~5 min), no meds yet, ongoing near-fainting. This supports anaphylaxis with cardiovascular involvement and ongoing airway compromise (stridor).\nTop candidates:\n1) Anaphylaxis — most likely given rapid multi-system involvement (skin + GI + near-syncope + respiratory stridor).\n2) Epiglottitis — stridor could fit, but would not explain itchy rash/facial swelling/near-syncope after allergen exposure.\n3) Acute dystonic reactions — can cause stridor, but no itchy rash/facial swelling and not allergen-timed.\n4) Acute laryngitis — stridor possible, but no systemic allergic signs.\n5) Panic attack — could mimic dyspnea/stridor, but not facial swelling/itchy rash and not triggered by allergen.\nMost informative next question: Is the stridor/voice change worse when you inhale, and do you have any swelling of the tongue or trouble swallowing?\n[/REASONING]\nDo you have tongue swelling or trouble swallowing (or a muffled voice), and is the breathing difficulty mainly on inhaling (stridor) rather than wheezing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have swelling around my mouth area, and my voice feels a bit muffled. The breathing trouble seems mainly like a harsh sound when I inhale (more like stridor), and I’m not wheezing. I also feel like swallowing is harder.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Rapid onset after allergen; facial/perioral swelling; muffled voice; stridor on inhalation; difficulty swallowing; itchy rash; near-syncope. This is highly consistent with anaphylaxis with upper-airway angioedema/laryngeal edema.\nTop candidates:\n1) Anaphylaxis — best fit: multi-system + rapid onset + airway edema (stridor, muffled voice, dysphagia) + hypotension/near-fainting.\n2) Epiglottitis — can cause stridor and dysphagia, but itchy rash/triggered allergen exposure and facial swelling make this less likely.\n3) Acute dystonic reactions — can cause laryngeal symptoms/stridor, but would not cause itchy rash/facial angioedema after allergen.\n4) Acute laryngitis — stridor possible but no near-syncope, rash, or allergen timing.\n5) GERD — can cause laryngeal symptoms but not facial swelling/rash/near-syncope.\nMost informative next question: Do you have any known history of similar reactions, and do you have an epinephrine auto-injector available right now?\n[/REASONING]\nDo you have an epinephrine auto-injector with you or available to use right now, and have you ever had this before?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have an epinephrine auto-injector with me right now. I’ve had a severe food allergy before, but I haven’t had this exact reaction like this.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: No epinephrine available; history of severe food allergy; current reaction is rapid, multi-system, with airway edema (stridor, muffled voice, perioral swelling, dysphagia) and near-syncope. This remains most consistent with anaphylaxis.\nTop candidates:\n1) Anaphylaxis — strongest: rapid onset after allergen, skin (itchy rash), angioedema (face/mouth swelling), GI (nausea), cardiovascular (near-fainting), and airway compromise (stridor, dysphagia).\n2) Epiglottitis — stridor/dysphagia possible, but itchy rash and allergen-timed systemic symptoms argue against.\n3) Acute laryngitis — stridor possible, but no allergen-timed systemic features.\n4) Acute dystonic reactions — stridor possible, but no itchy rash/angioedema trigger.\n5) Panic attack — could cause dyspnea/stridor sensation, but would not cause facial swelling/itchy rash after allergen.\nMost informative next question: Are you having any vomiting, abdominal cramping, or diarrhea—and do you have any wheezing or chest tightness (even if you’re not wheezing right now)?\n[/REASONING]\nAre you having any vomiting/abdominal cramping/diarrhea, and any chest tightness or wheezing?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had diarrhea and some crampy abdominal pain and nausea, and I don’t have wheezing right now. I’m also having some chest tightness.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Rapid allergen-triggered reaction with skin (itchy rash), angioedema (face/mouth swelling), airway compromise (stridor, muffled voice, dysphagia), cardiovascular/near-syncope, GI symptoms (nausea, diarrhea, cramping), and chest tightness. This is classic anaphylaxis with possible bronchospasm and/or laryngeal edema.\nTop candidates:\n1) Anaphylaxis — overwhelmingly likely given multi-system involvement and rapid onset.\n2) Pulmonary embolism — can cause chest tightness/near-syncope, but would not cause itchy rash/angioedema immediately after allergen.\n3) Acute pulmonary edema — could cause dyspnea/chest tightness, but not itchy rash/angioedema after allergen.\n4) Possible NSTEMI / STEMI — chest tightness/near-syncope, but would not explain rash/angioedema and rapid allergen timing.\n5) Epiglottitis — stridor/dysphagia possible, but itchy rash/diarrhea/near-syncope after allergen strongly favors anaphylaxis.\nMost informative next action would be immediate treatment/airway assessment, but per instruction I will provide the differential now given strong evidence.\n[/REASONING]\n[DDX] Anaphylaxis, Pulmonary embolism, Acute pulmonary edema, Possible NSTEMI / STEMI,",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9634,
+      "completion_tokens": 1691
+    },
+    "patient": {
+      "prompt_tokens": 10414,
+      "completion_tokens": 264
+    }
+  }
+}

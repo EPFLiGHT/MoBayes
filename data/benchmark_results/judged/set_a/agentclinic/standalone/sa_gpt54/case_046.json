@@ -1,0 +1,136 @@
+{
+  "case_idx": 46,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Patient: “I’ve had left-sided chest pain for about a week, along with a productive cough bringing up purulent sputum and shortness of breath. I also had fever and I was diagnosed with influenza recently, but I didn’t follow the treatment plan.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and do you have any major medical problems like asthma/COPD, heart disease, diabetes, or a weakened immune system?\nHow old are you, and do you have any major medical problems like asthma/COPD, heart disease, diabetes, or a weakened immune system?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 30 years old. I don’t have asthma/COPD, heart disease, diabetes, or any known weakened immune system—just the recent influenza and I didn’t complete the treatment.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Is the chest pain worse when you take a deep breath or cough, and have you had any coughing up of blood?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“It gets worse when I take a deep breath and when I cough, but I haven’t coughed up any blood.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you measured a fever recently, and are you having shaking chills or feeling very ill overall?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve had a fever and I feel pretty ill overall, with chills and body aches—pretty shaky at times.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Are you short of breath only with activity, or also at rest? And do you know your oxygen level, if it was checked?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I’m short of breath even at rest, not just with activity. I haven’t had my oxygen level checked yet, but I feel like my breathing is getting worse.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any leg swelling or pain, recent long travel/immobility, history of blood clots, or are you on estrogen-containing medications?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have any leg swelling or leg pain, and I haven’t had any long travel or been immobilized, and I’m not on any estrogen-containing medications—no history of blood clots either.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any vomiting, trouble swallowing, or episodes where food or liquid “went down the wrong pipe” before this started?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No vomiting or trouble swallowing, and I haven’t had any episodes where food or liquid went down the wrong way.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Community-acquired bacterial pneumonia (including post-influenza secondary bacterial pneumonia), pleurisy/pleuropneumonia with possible parapneumonic effusion, viral pneumonia from influenza, pulmonary embolism, pneumothorax\n\nYour symptoms are most concerning for a lung infection, especially post-influenza bacterial pneumonia, given:\n- 1 week of productive purulent cough\n- fever/chills and feeling systemically ill\n- shortness of breath even at rest\n- pleuritic left-sided chest pain\n\nThe most important dangerous possibilities still considered are pleural complication (effusion/empyema), PE, and less likely pneumothorax.\n\nYou should get urgent in-person evaluation now, ideally in an emergency department, because worsening shortness of breath at rest after influenza can become serious quickly. Likely tests:\n- vital signs and oxygen level\n- lung exam\n- chest X-ray\n- possibly viral testing/labs\n- possibly CT or ultrasound if PE or pleural fluid is suspected\n\nGo immediately / call emergency services now if:\n- lips/face look blue\n- severe trouble breathing\n- confusion\n- fainting\n- chest pain becomes crushing/non-pleuritic\n- oxygen is low if checked",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Community-acquired bacterial pneumonia (including post-influenza secondary bacterial pneumonia)",
+    "predicted_set": [
+      "Community-acquired bacterial pneumonia (including post-influenza secondary bacterial pneumonia)",
+      "pleurisy/pleuropneumonia with possible parapneumonic effusion",
+      "viral pneumonia from influenza",
+      "pulmonary embolism",
+      "pneumothorax\n\nYour symptoms are most concerning for a lung infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3344,
+      "completion_tokens": 468
+    },
+    "patient": {
+      "prompt_tokens": 3706,
+      "completion_tokens": 261,
+      "calls": 7
+    }
+  }
+}

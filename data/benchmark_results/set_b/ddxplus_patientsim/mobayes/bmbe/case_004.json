@@ -1,0 +1,103 @@
+{
+  "case_idx": 4,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Female\nChief Complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and swelling in one or more areas of your body",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’m 29, and I have a known severe food allergy. Today after I ate or got in contact with something I’m allergic to, I started feeling lightheaded like I might faint, nauseous, and I’ve had diarrhea. I also got a pink itchy rash and swelling on my face (forehead and both cheeks), around my mouth and neck/thyroid area, and I’ve had some trouble breathing with a noisy throat/stridor.",
+      "extracted_features": {
+        "f_e_42": "yes",
+        "f_e_82": "yes",
+        "f_e_148": "yes",
+        "f_e_51": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_136": "absent",
+        "f_e_151": "yes",
+        "f_e_152_v_89": "yes",
+        "f_e_152_v_108": "yes",
+        "f_e_152_v_109": "yes",
+        "f_e_75": "yes",
+        "f_e_66": "yes",
+        "f_e_194": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Anaphylaxis",
+          0.9995728424809529
+        ],
+        [
+          "Scombroid food poisoning",
+          0.0003015210864393054
+        ],
+        [
+          "Panic attack",
+          1.573434904440692e-05
+        ],
+        [
+          "Pneumonia",
+          1.4632886363673852e-05
+        ],
+        [
+          "HIV (initial infection)",
+          1.0299769373762129e-05
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "To help assess it: is the lesion (or are the lesions) larger than **1 centimeter** (about the width of a pencil eraser)?",
+      "patient_answer": "Yes. The rash/lesions are larger than 1 centimeter.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anaphylaxis",
+          0.9996741499531987
+        ],
+        [
+          "Scombroid food poisoning",
+          0.0003015516458320761
+        ],
+        [
+          "HIV (initial infection)",
+          1.0300813263267361e-05
+        ]
+      ],
+      "entropy": 0.004432304696220998
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_top3": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "HIV (initial infection)"
+    ],
+    "confidence": 0.9996741499531987,
+    "final_entropy": 0.004432304696220998,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9826,
+      "completion_tokens": 481
+    },
+    "patient": {
+      "prompt_tokens": 1964,
+      "completion_tokens": 114
+    }
+  }
+}

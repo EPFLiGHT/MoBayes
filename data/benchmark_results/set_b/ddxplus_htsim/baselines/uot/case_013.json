@@ -1,0 +1,66 @@
+{
+  "case_idx": 13,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: M\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion with a clear runny nose, along with a cough that produces colored or more abundant sputum than usual, and I also notice wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have wheezing or shortness of breath that is worse with breathing (suggesting lower-airway bronchospasm)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’ve noticed a wheezing sound when I exhale.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have wheezing or a history of asthma/COPD with symptoms that improve after bronchodilator use?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have COPD. I also notice wheezing when I exhale.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection  , Bronchospasm / acute asthma exacerbation",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection  ",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection  ",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

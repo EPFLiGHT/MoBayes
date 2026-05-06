@@ -1,0 +1,135 @@
+{
+  "case_idx": 29,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Acute myelogenous leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old male",
+    "History": "The patient complains of a 2-month history of generalized fatigue. He mentions no specific triggers but notes that the fatigue has been progressively worsening. He denies any recent infections, significant weight loss, or night sweats.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue",
+      "Secondary_Symptoms": [
+        "Appearance of pale skin",
+        "Presence of multiple pinpoint, red, nonblanching spots on extremities"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known blood disorders or cancer history in the family.",
+    "Social_History": "Retired teacher, lives with his wife. Non-smoker and drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, significant weight loss, night sweats, or recent infections. Mentions occasional mild shortness of breath during exertion."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with generalized fatigue, pallor, and abnormal blood findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve been dealing with progressively worsening generalized fatigue for about two months, and my skin looks paler than usual. I’ve also noticed multiple tiny red, non-blanching spots on my extremities, and I get mild shortness of breath when I exert.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had episodes of severe chest pain/shortness of breath with a stress-related trigger and heart imaging showing Takotsubo (broken-heart) pattern?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any severe chest pain or sudden stress-triggered episodes, and I don’t know of any heart imaging that ever showed a broken-heart pattern—my shortness of breath is only mild with exertion.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you developed new skin lesions that are painful and ulcerate (e.g., rapidly worsening painful ulcers or skin breakdown)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had painful lesions or ulcers—just multiple tiny red, non-blanching spots on my extremities that I’ve noticed over time. I don’t have any rapid skin breakdown.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had **unexplained bleeding or easy bruising** (e.g., frequent nose/gum bleeding, blood in urine/stool, or unusually heavy bleeding)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed unusual bleeding or easy bruising—no frequent nose or gum bleeding, no blood in my urine or stool, and my bruising hasn’t seemed heavier than normal.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **visible rectal bleeding with pain/itching consistent with hemorrhoids** (e.g., bright red blood on toilet paper or pain during bowel movements)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No— I haven’t seen any bright red rectal bleeding, and I haven’t had pain or itching with bowel movements. My main issue has been the worsening fatigue, paler skin, and those tiny non-blanching red spots on my extremities.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **bleeding due to a clotting factor deficiency** (e.g., frequent nose/gum bleeding, easy bruising, prolonged bleeding after minor cuts) rather than symptoms of cancer or sudden abdominal ischemia?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had frequent nose or gum bleeding, prolonged bleeding after minor cuts, or unusually easy bruising—I mostly just feel progressively more fatigued, look paler, and I’ve noticed those tiny red non-blanching spots on my extremities.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **sudden severe abdominal pain** (especially with nausea/vomiting) that started **within the last 24 hours**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have sudden severe abdominal pain, nausea, or vomiting—my symptoms have been steadily worsening over about two months, mainly fatigue, paler skin, and those tiny non-blanching red spots on my extremities.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute lymphoblastic leukemia  , Acute myelogenous leukemia",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_set": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Acute lymphoblastic leukemia  ",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4011,
+      "completion_tokens": 358,
+      "calls": 7
+    }
+  }
+}

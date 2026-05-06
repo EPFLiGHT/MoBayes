@@ -1,0 +1,104 @@
+{
+  "case_idx": 23,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Inguinal hernia",
+  "objective_for_doctor": "A 6-year-old Male patient presents to the clinic. Chief complaint: I have intense coughing fits, are the symptoms or pain increased with coughing, with an effort like lifting a weight or from forcing a bowel movement, and heavy pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having intense coughing fits, and when I cough or strain like lifting something or trying to poop, my belly hurts a lot—mostly on the right side near the groin area. My belly feels bloated too, and I also have some pale/red skin lesions there that look swollen.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can I ask: when the belly pain is at its worst, does a bulge appear in the right groin that you can push back in (especially when lying down)? Also, do you have fever, vomiting, or are you able to pass stool and gas normally?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, when the pain is at its worst, I notice a bulge in the right groin area, and it gets worse with coughing or straining. I don’t have fever or vomiting. I’m still able to pass stool and gas normally.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With that groin bulge that appears/worsens with coughing or straining and causes pain, I’m concerned for a right inguinal hernia. REQUEST TEST: Abdominal/Groin ultrasound (inguinal region) to confirm and check for incarceration/complications—do you have any redness over the bulge, increasing constant pain, or inability to push it back in?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, there is redness over the area and the swelling looks worse when it flares. The pain can get very heavy, and it feels worse with coughing/straining, but I’m still able to pass stool and gas. I can usually push it back in, but it becomes harder when it’s at its worst.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since there’s a painful right groin bulge that gets worse with coughing/straining and you report redness with it becoming harder to push back at peak pain, I’m worried about a potentially incarcerated or strangulating inguinal hernia—REQUEST TEST: Urgent abdominal/groin ultrasound (inguinal hernia protocol) and assess blood flow; also, do you currently have a bulge that’s stuck and un-reducible, and has the pain been constant rather than coming and going?  \nDoctor: While we arrange that, if the bulge is currently stuck/unreducible or pain is constant, vomiting starts, or you can’t pass stool/gas, this needs emergency surgery evaluation—can you confirm whether it’s reducible right now and whether any vomiting has occurred?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Right now, it’s not stuck all the time—I can still push it back in when it calms down, and it comes and goes with coughing/straining. I don’t have vomiting, and I’m still able to pass stool and gas normally.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since it’s a reducible, painful right groin bulge that worsens with coughing/straining and you noted redness and increasing difficulty to reduce at peak pain, this fits a symptomatic right inguinal hernia, likely at least intermittently incarcerated. REQUEST TEST: Urgent groin/inguinal ultrasound with hernia protocol (dynamic with Valsalva) to confirm and assess for incarceration/strangulation.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Okay doctor. I’m ready for the urgent ultrasound—especially if it can check whether it’s getting trapped or affecting blood flow.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on your answers so far (right groin bulge that appears with coughing/straining, painful with redness at flares, and sometimes harder to push back), this is most consistent with a right inguinal hernia with intermittent incarceration. While you’re getting the urgent ultrasound, I need to ask one key question: right now, is the bulge fully reducible and are you not having constant severe pain, vomiting, or trouble passing stool/gas?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Right now, the bulge is not fully stuck—I can still push it back in when it’s not at its worst. I don’t have constant severe pain, and I’m not vomiting. I’m also able to pass stool and gas normally.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given a reducible (not fully stuck) but very painful right groin bulge that worsens with coughing/straining, plus redness during flares, I agree this is a symptomatic right inguinal hernia with intermittent incarceration risk. I’ll await the urgent ultrasound results, and in the meantime urgent surgical evaluation is appropriate—REQUEST TEST: CBC (to look for infection/hemoconcentration) and CMP if pre-op planning is needed.  \n\nDoctor: DIAGNOSIS READY: Right inguinal hernia (symptomatic, intermittent incarceration likely; strangulation not currently confirmed based on reducibility and lack of vomiting/obstruction signs).\n\n[DDX]\n1. Inguinal hernia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Inguinal hernia",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Inguinal hernia",
+    "predicted_set_remapped": [
+      "Inguinal hernia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3959,
+      "completion_tokens": 648,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6603,
+      "completion_tokens": 325
+    }
+  }
+}

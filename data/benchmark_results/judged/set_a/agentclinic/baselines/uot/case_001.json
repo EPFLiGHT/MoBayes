@@ -1,0 +1,156 @@
+{
+  "case_idx": 1,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve been more confused lately and I can’t seem to get my thoughts or symptoms out clearly. I also had a fever around 102°F, and it hurts when you press on my right upper belly.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have progressive muscle weakness that worsens with activity and improves with rest (e.g., drooping eyelids or fluctuating weakness)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t notice muscle weakness that changes with activity or gets better with rest. It’s mainly that my thinking feels more confused, and I’ve had a fever and pain when my right upper abdomen is pressed.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a fever (≥38°C) or chills recently?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I had a fever of about 102°F, and I do remember feeling chilled with it.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pneumonia**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m not sure—I haven’t mentioned any coughing or breathing trouble, but I do remember the fever and feeling chilled, and it hurts when you press my right upper belly.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pneumonia**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t think I’ve had pneumonia—I haven’t had coughing or noticeable breathing trouble, just the fever with chills and discomfort in the right upper part of my belly when you press it.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acalculous cholecystitis**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t know the name of it, but I do have a fever with chills and it’s very tender when you press my right upper abdomen. I haven’t been able to clearly describe any nausea or changes in my stool, though I’ve felt generally worse.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acalculous cholecystitis**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I can’t really tell you about nausea or stool changes because I’ve been too confused to track that, but I do know I’ve had fever and chills and it’s very tender in my right upper belly when you press it.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acalculous cholecystitis**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I can’t be sure about all the stomach symptoms because of how confused I’ve been, but the main thing is I’ve had fever and chills and strong tenderness in my right upper abdomen when you press.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acalculous cholecystitis**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I can’t confirm much beyond that I’ve had a fever around 102°F with chills and significant tenderness when you press my right upper abdomen, and my confusion has been getting worse. I don’t know about gallbladder symptoms like nausea or stool changes since I’ve been too disoriented to notice.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acalculous cholecystitis  , Brief Psychotic Disorder, Central retinal artery occlusion, Chronic kidney failure, Chronic obstructive pulmonary disease",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis  ",
+    "predicted_set": [
+      "Acalculous cholecystitis  ",
+      "Brief Psychotic Disorder",
+      "Central retinal artery occlusion",
+      "Chronic kidney failure",
+      "Chronic obstructive pulmonary disease"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Acalculous cholecystitis",
+    "predicted_set_remapped": [
+      "Acalculous cholecystitis",
+      "Brief Psychotic Disorder",
+      "Central retinal artery occlusion"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 5249,
+      "completion_tokens": 430,
+      "calls": 9
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "case_idx": 36,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "35-year-old female",
+    "History": "The patient reports a 1-month history of experiencing double vision (diplopia), difficulty in climbing stairs, and weakness when trying to brush her hair. She notes that these symptoms tend to worsen after physical activity but improve significantly after a few hours of rest.",
+    "Symptoms": {
+      "Primary_Symptom": "Double vision",
+      "Secondary_Symptoms": [
+        "Difficulty climbing stairs",
+        "Weakness in upper limbs",
+        "Improvement of symptoms after rest"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Non-smoker, drinks wine occasionally. Works as a graphic designer.",
+    "Review_of_Systems": "Patient denies experiencing any chest pain, palpitations, shortness of breath, or recent infections."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with double vision, difficulty climbing stairs, and upper limb weakness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had about a month of double vision, along with trouble climbing stairs and weakness in my upper arms—like when I try to brush my hair. It gets worse with activity and then improves after a few hours of rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any drooping of one or both eyelids, especially later in the day?\nDo you have any drooping of one or both eyelids, especially later in the day?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve noticed some eyelid drooping, and it does feel worse later in the day, especially after I’ve been using my eyes and doing more activity.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Any trouble swallowing, chewing, speaking clearly, or shortness of breath?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had some mild trouble speaking clearly at times and I sometimes feel fatigued chewing, but I don’t have any significant shortness of breath. I haven’t noticed any major trouble swallowing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any numbness, tingling, loss of sensation, or changes in bowel/bladder function?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any numbness or tingling, and I don’t have any changes in bowel or bladder function. I just notice the weakness and the double vision get worse with activity and then improve after resting.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myasthenia gravis, Lambert-Eaton myasthenic syndrome, thyroid eye disease with myopathy, inflammatory myopathy, multiple sclerosis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_set": [
+      "Myasthenia gravis",
+      "Lambert-Eaton myasthenic syndrome",
+      "thyroid eye disease with myopathy",
+      "inflammatory myopathy",
+      "multiple sclerosis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Myasthenia gravis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1398,
+      "completion_tokens": 127
+    },
+    "patient": {
+      "prompt_tokens": 1633,
+      "completion_tokens": 177,
+      "calls": 4
+    }
+  }
+}

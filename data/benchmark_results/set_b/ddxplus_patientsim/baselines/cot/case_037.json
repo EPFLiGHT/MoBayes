@@ -1,0 +1,142 @@
+{
+  "case_idx": 37,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Chronic rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 71\nSex: Female\nChief Complaint: I have a cough, burning pain, and sharp pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a cough, and also burning and sharp pain around my face and head—my forehead, both cheeks, and it can radiate to the back of my head and my left temple. I also lost my sense of smell, and this started pretty quickly, with pain around 2 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + acute onset facial/head pain (forehead/cheeks, radiating to back of head and left temple) + loss of smell (anosmia) + relatively mild pain (2/10). This pattern raises concern for an acute upper airway/infectious sinus process, but we need to discriminate between viral URTI vs acute rhinosinusitis vs allergic sinusitis, and also consider serious causes of facial pain/headache (less likely given mild pain and cough, but we’ll screen).\nTop candidates (provisional):\n1) Acute rhinosinusitis — facial pressure/pain with cough and sudden loss of smell can occur; often follows viral illness.\n2) Allergic sinusitis — can cause facial pain/pressure and anosmia, often with sneezing/itching and clear rhinorrhea.\n3) URTI (viral) — cough with head/facial discomfort and smell loss can happen early with viral infections.\n4) Influenza — can cause cough and headache/facial discomfort; smell loss can occur but is less classic.\n5) Acute laryngitis/bronchitis — would explain cough but not prominent facial pain/anosmia.\nMost informative next question: ask about nasal symptoms (congestion/discharge/itching) to distinguish acute rhinosinusitis vs allergic vs viral URTI.\n[/REASONING]\nDo you have nasal congestion or a runny nose—if so, is the discharge",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had a cold in the last 2 weeks, and my nose feels congested. I also have polyps in my nose and a deviated septum, so it’s usually blocked, but in the past couple weeks it feels worse and I’ve been having more nasal symptoms.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: recent cold for 2 weeks, worsening nasal congestion, history of nasal polyps and deviated septum, plus facial pain/pressure (forehead/cheeks, radiating to back of head/left temple) and sudden anosmia, with cough.\nThis strongly supports an acute rhinosinusitis picture on top of chronic nasal obstruction (polyps/deviated septum). Allergic sinusitis is possible but the “cold” and 2-week course favors infectious/inflammatory acute rhinosinusitis. Need to screen for red flags (severe unilateral pain, high fever, eye swelling/vision changes) and for whether this is more like influenza/viral URTI.\nTop candidates:\n1) Acute rhinosinusitis — cold preceding, worsening congestion, facial pain, anosmia; nasal polyps increase risk/severity.\n2) Chronic rhinosinusitis — baseline polyps/deviated septum; could be flare with acute worsening and smell loss.\n3) Influenza — cough + headache, but facial pain localized to sinuses and anosmia with congestion after 2 weeks is more sinus-specific.\n4) Allergic sinusitis — polyps and congestion fit, but “cold” and 2-week worsening with pain suggests infection more than allergy.\n5) URTI (viral) — could explain cough and facial discomfort, but anosmia + facial pain with congestion suggests sinus involvement.\nMost informative next question: ask",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about discharge color, but it’s been more blocked than runny. I don’t think I have severe one-side swelling or vision problems—just the pain/pressure in my face and head and the cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 2-week cold, worsening congestion (more blocked than runny), facial/forehead/cheek pain radiating to back of head and left temple, anosmia, cough; no reported severe unilateral eye swelling or vision changes.\nThis keeps acute rhinosinusitis high. Chronic rhinosinusitis flare is also plausible given polyps/deviated septum. Need to determine duration pattern (symptoms >10 days? “double-worsening” after initial improvement?) and presence of fever/purulent discharge to better separate acute bacterial rhinosinusitis from viral URTI.\nTop candidates:\n1) Acute rhinosinusitis — supported by worsening after a cold and facial pain/anosmia.\n2) Chronic rhinosinusitis — baseline polyps; acute worsening could be flare.\n3) URTI (viral) — still possible, especially if symptoms are not clearly worsening after initial improvement and no fever/purulence.\n4) Allergic sinusitis — less likely without prominent itching/sneezing/clear rhinorrhea, but still possible with polyps.\n5) Influenza — less likely given 2-week course and sinus-focused facial pain/anosmia.\nMost informative next question: Did your symptoms “double-worsen” (you started to improve from the cold, then got worse again), or have they been steadily worsening for the whole 2 weeks? Also, any fever? (I’ll start with the",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They’ve been kind of steadily getting worse over the last 2 weeks, not really better first and then worse again. I don’t know if I’ve had a fever—I haven’t measured my temperature.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: steadily worsening over 2 weeks after a cold; no measured fever; facial pain/pressure + anosmia + worsening congestion + cough; nasal polyps/deviated septum.\nThis pattern (symptoms >10 days and steadily worsening) increases likelihood of acute bacterial rhinosinusitis rather than purely viral. Need to ask about fever and severity/red flags (eye symptoms, severe headache, neurologic symptoms) to ensure safety. Most discriminating next question: fever (measured) and any eye/neurologic red flags.\nTop candidates:\n1) Acute rhinosinusitis (possibly bacterial) — >10 days, steadily worsening, facial pain/anosmia.\n2) Chronic rhinosinusitis flare — polyps predispose; could be infectious exacerbation.\n3) URTI (viral) — less likely with steady worsening and facial pain/anosmia, but still possible.\n4) Allergic sinusitis — less likely with steadily worsening over 2 weeks and pain.\n5) Influenza — less likely given 2-week steady worsening and sinus-specific symptoms.\nMost informative next question: Have you had a fever (≥38°C) or chills, and any eye symptoms (swelling around eyes, pain with eye movement, vision changes)?\n[/REASONING]\nHave you had any fever/chills (if you can, what’s your temperature), or any eye symptoms like swelling around the eyes, pain when moving your eyes",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t measured my temperature, so I can’t say if I’ve had a fever or chills. I don’t have swelling around my eyes, and no vision changes or pain when I move my eyes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 2-week steadily worsening congestion with facial/forehead/cheek pain radiating to back of head/left temple, anosmia, cough; no eye swelling, vision changes, or pain with eye movement; no measured fever.\nThis supports acute rhinosinusitis, and given >10 days and steady worsening, bacterial acute rhinosinusitis becomes more likely. Chronic rhinosinusitis flare remains plausible due to polyps/deviated septum. Need to confirm whether symptoms are unilateral or bilateral and whether there is thick/purulent nasal discharge or bad breath, which can further support bacterial infection. Next discriminating question: is the facial pain/congestion mostly one side or both, and do you notice thick/yellow-green discharge or foul-smelling breath?\nTop candidates:\n1) Acute rhinosinusitis — most likely.\n2) Chronic rhinosinusitis — flare with acute worsening.\n3) URTI (viral) — still possible but less consistent with steady worsening >10 days.\n4) Allergic sinusitis — less likely due to pain and 2-week worsening.\n5) Pneumonia/bronchitis — could explain cough but not anosmia/facial pain.\nMost informative next question: unilateral vs bilateral and purulent/foul discharge.\n[/REASONING]\nIs the facial pain/congestion mostly on one side or both, and have you noticed thick yellow/green (or foul-smelling) nasal discharge",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It feels mostly on both sides, not just one. And I’m not really noticing thick yellow/green discharge—more like it’s blocked. I also don’t notice bad-smelling breath.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bilateral symptoms, blocked congestion without obvious thick yellow/green or foul discharge, 2-week steady worsening, facial pain/pressure + anosmia + cough; no eye red flags.\nThis still fits acute rhinosinusitis, but lack of purulence and bilateral nature makes purely bacterial less certain; could be viral rhinosinusitis or chronic rhinosinusitis flare. Need to check for severe tooth pain (maxillary involvement) and for dental issues, and also for asthma/bronchospasm symptoms (cough etiology). However the anosmia and facial pressure keep sinus diagnoses top.\nMost discriminating next question: any severe tooth pain (upper teeth), or pain worse when bending forward?\nTop candidates:\n1) Acute rhinosinusitis (viral vs bacterial) — still most likely.\n2) Chronic rhinosinusitis flare — polyps/deviated septum; anosmia fits.\n3) URTI (viral) — possible if no purulence and no fever.\n4) Allergic sinusitis — less likely with pain and 2-week worsening, but polyps could contribute.\n5) Bronchitis/acute COPD exacerbation — could explain cough but not anosmia/facial pain.\n[/REASONING]\nDo you have tooth pain (especially upper teeth) or does the facial pain/pressure get worse when you bend forward?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have tooth pain. The pressure feels pretty constant, and I haven’t noticed it getting much worse when I bend forward.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no tooth pain, constant facial pressure, no clear worsening with bending; bilateral; 2-week steady worsening; anosmia; cough; no eye red flags.\nThis continues to support rhinosinusitis (acute or chronic flare). The absence of tooth pain and no bend-forward worsening makes bacterial sinusitis slightly less specific, but still possible. Need to consider other causes of facial/head pain with cough and anosmia: allergic sinusitis (polyps), GERD (cough) is unlikely to explain anosmia/facial pain, and less likely neurologic causes (cluster headache) don’t fit anosmia/cough. Next, ask about allergy features (itching, sneezing, watery rhinorrhea) and about asthma symptoms (wheeze) to separate allergic vs infectious.\nMost discriminating next question: do you have itching (eyes/nose), frequent sneezing, or watery/clear runny nose?\nTop candidates:\n1) Acute rhinosinusitis — still most likely.\n2) Chronic rhinosinusitis flare — polyps/deviated septum; anosmia.\n3) Allergic sinusitis — if itching/sneezing/watery clear discharge.\n4) URTI (viral) — if symptoms are not strongly bacterial.\n5) Bronchospasm/acute asthma exacerbation — if cough with wheeze, but would not explain anosmia.\n[/REASONING]\nDo you have itching (nose",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have itching in my nose or eyes, and I haven’t had a lot of sneezing. It’s more just blocked feeling and the facial pain/pressure with the cough.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no itching/sneezing/watery rhinorrhea; mainly blocked nose + facial pain/pressure + cough + anosmia; 2-week steady worsening; history of nasal polyps/deviated septum.\nThis makes allergic sinusitis less likely. Remaining leading diagnoses are rhinosinusitis (acute vs chronic flare). Need to ensure cough isn’t from lower respiratory disease (pneumonia/bronchitis) and to screen for severe headache/neurologic symptoms. Next most discriminating question: have you had shortness of breath, wheezing, or chest pain, or is the cough mainly from post-nasal drip?\nTop candidates:\n1) Acute rhinosinusitis — most likely.\n2) Chronic rhinosinusitis — flare with polyps.\n3) Pneumonia/bronchitis — less likely because anosmia/facial pain dominate, but cough could be from infection.\n4) Bronchospasm/acute asthma exacerbation — would expect wheeze.\n5) GERD — could cause cough but not anosmia/facial pressure.\nMost informative next question: Is the cough accompanied by shortness of breath or wheezing, or does it feel like post-nasal drip?\n[/REASONING]\nIs your cough associated with shortness of breath or wheezing, or does it feel more like post-nasal drip from your nose/throat?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It feels more like post-nasal drip from my nose/throat. I don’t feel short of breath or wheezy, and I don’t have chest pain.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: cough feels like post-nasal drip; no SOB/wheeze/chest pain. Main symptoms are blocked nose, facial pressure/pain (forehead/cheeks, radiating to back of head/left temple), anosmia, 2-week steady worsening; bilateral; no eye red flags; no tooth pain; no itching/sneezing/watery rhinorrhea; history of nasal polyps/deviated septum.\nThis strongly localizes to rhinosinusitis with cough due to post-nasal drip. Most likely is acute rhinosinusitis (possibly bacterial given >10 days and steady worsening), but chronic rhinosinusitis flare is also plausible due to polyps and baseline obstruction. Need to ensure no systemic infection signs (fever) but we already screened eye red flags. With current evidence, we can provide a focused top-5 differential.\nTop candidates:\n1) Acute rhinosinusitis — fits duration >10 days, steady worsening, facial pain/pressure, anosmia, post-nasal drip cough.\n2) Chronic rhinosinusitis — polyps/deviated septum predispose; acute flare can present similarly with anosmia.\n3) URTI (viral) — still possible if no fever/purulence and symptoms not clearly bacterial.\n4) Allergic sinusitis — less likely without itching/sneezing/watery discharge, but polyps can coexist.\n5) Pneumonia/",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Okay. My main issue is blocked nose with facial pressure/pain (forehead and cheeks), loss of smell, and the cough seems to come from post-nasal drip. I don’t feel short of breath or wheezy, and no chest pain.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute rhinosinusitis, Chronic rhinosinusitis, URTI (viral), Allergic sinusitis, Pneumonia",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Chronic rhinosinusitis",
+      "URTI (viral)",
+      "Allergic sinusitis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23808,
+      "completion_tokens": 2705
+    },
+    "patient": {
+      "prompt_tokens": 22669,
+      "completion_tokens": 479
+    }
+  }
+}

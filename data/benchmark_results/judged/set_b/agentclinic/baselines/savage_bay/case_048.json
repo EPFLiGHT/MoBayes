@@ -1,0 +1,145 @@
+{
+  "case_idx": 48,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Pyoderma gangrenosum",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old woman",
+    "History": "The patient reports a skin lesion on her right leg that has been present for 1 month. The lesion began as a small red spot and has increased in size. She recalls an ant bite at the site before the lesion developed. She has a history of anterior uveitis treated with corticosteroids 8 months ago, as well as Crohn's disease, type 2 diabetes mellitus, and hypertension.",
+    "Symptoms": {
+      "Primary_Symptom": "Painful ulcerative lesion on the right leg",
+      "Secondary_Symptoms": [
+        "Lesion has a central necrotic base and purplish irregular borders",
+        "History of ant bite at the site of the lesion",
+        "Pitting pedal edema of the lower extremities",
+        "Dilated tortuous veins in both lower legs"
+      ]
+    },
+    "Past_Medical_History": [
+      "Crohn's disease",
+      "Type 2 diabetes mellitus",
+      "Hypertension",
+      "Treated for anterior uveitis 8 months ago"
+    ],
+    "Current_Medications": [
+      "Insulin",
+      "Mesalamine",
+      "Enalapril",
+      "Aspirin"
+    ],
+    "Social_History": "Recently returned from a visit to Wisconsin 2 months ago.",
+    "Review_of_Systems": "No additional systemic symptoms mentioned."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a painful, ulcerative skin lesion on her leg.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "It started about a month ago as a small red spot on my right leg, and it has grown into a painful ulcer with a central necrotic area and irregular purplish borders. I remember an ant bite there before it developed, and I also have swelling in both lower legs with visible dilated veins.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities (pre-test; based on your description of a painful enlarging ulcer with central necrosis and irregular purplish borders, plus leg swelling/visible dilated veins):\n- Pyoderma gangrenosum: 0.30  \n- Bed bug bite: 0.15  \n- Toxic exposure: 0.10  \n- Acute Mesenteric Ischemia: 0.01  \n- Perforated gastric peptic ulcer: 0.01  \n(Other listed causes are less likely given the location/ulcer morphology.)\n\nTo update this, I need one key discriminating detail:\n\n**Question 1 (one at a time):**  \nDo you have **fever or feeling systemically ill** (chills, malaise) since the ulcer started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had fever or felt sick overall—no chills or malaise since the ulcer started.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities after “no fever/systemic illness”:\n- Pyoderma gangrenosum: 0.42  \n- Bed bug bite: 0.20  \n- Toxic exposure: 0.12  \n- Acute Mesenteric Ischemia: 0.00  \n- Perforated gastric peptic ulcer: 0.00  \n\nNext discriminating feature:\n\n**Question 2:**  \nIs the ulcer **very tender and does it worsen quickly after any minor trauma** (e.g., scratching, debridement, bandage changes), or does it **stay about the same**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’d say it’s extremely tender, and it seems to get worse quite quickly if I bump it or when the dressing is changed. Even minor trauma makes the pain and the ulcer’s appearance feel like they rapidly worsen.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities after “extremely tender” and **rapid worsening with minor trauma/dressing changes** (pathergy):\n- Pyoderma gangrenosum: 0.70  \n- Bed bug bite: 0.08  \n- Toxic exposure: 0.07  \n- Toxic exposure/other necrotic dermatoses: 0.05  \n- Acute Mesenteric Ischemia: 0.00  \n\nNow I want to confirm the classic associated context:\n\n**Question 3:**  \nHave you been diagnosed with any **inflammatory bowel disease (ulcerative colitis/Crohn’s)**, **arthritis**, or **a blood cancer** (like leukemia) or do you have chronic diarrhea/abdominal pain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I was diagnosed with Crohn’s disease, and I’ve had treatment with mesalamine, but I don’t recall any specific arthritis or a blood cancer diagnosis. I haven’t mentioned any new chronic diarrhea or abdominal pain changes lately.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities after Crohn’s association:\n- Pyoderma gangrenosum: 0.83  \n- Bed bug bite: 0.05  \n- Toxic exposure: 0.05  \n- Toxic exposure/other necrotic dermatoses: 0.05  \n- Acute Mesenteric Ischemia: 0.00  \n\nNext discriminating question (to separate from simple insect bite/trauma-related ulcers):\n\n**Question 4:**  \nDo you have **new similar skin lesions** elsewhere (or ulcers at other sites), or is it only this one spot on the right leg?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly just this one spot on my right leg, and I haven’t noticed similar ulcers or new lesions anywhere else.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior probabilities:\n- Pyoderma gangrenosum: 0.78  \n- Bed bug bite: 0.08  \n- Toxic exposure: 0.07  \n- Other necrotic dermatoses: 0.07  \n- Acute Mesenteric Ischemia: ~0.00  \n\nNext discriminating question (helps distinguish from infection/necrotizing processes):\n\n**Question 5:**  \nHas there been **pus, foul odor, or spreading redness/heat** around the ulcer suggesting bacterial infection, or is the border more “violaceous/purplish” without typical infectious spread?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed pus or a foul odor, and the surrounding area doesn’t feel like it’s spreading with typical infection heat. The borders stay more purplish/violaceous than bright red and I’d describe the main issue as worsening pain and ulceration.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pyoderma gangrenosum, Bed bug bite, Toxic exposure, Acute Mesenteric Ischemia, Perforated gastric peptic ulcer",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pyoderma gangrenosum",
+    "predicted_set": [
+      "Pyoderma gangrenosum",
+      "Bed bug bite",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "predicted_raw": [
+      "Pyoderma gangrenosum",
+      "Bed bug bite",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia",
+      "Perforated gastric peptic ulcer"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Pyoderma gangrenosum",
+    "predicted_set_remapped": [
+      "Pyoderma gangrenosum",
+      "Bed bug bite",
+      "Toxic exposure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7933,
+      "completion_tokens": 739
+    },
+    "patient": {
+      "prompt_tokens": 5216,
+      "completion_tokens": 272,
+      "calls": 6
+    }
+  }
+}

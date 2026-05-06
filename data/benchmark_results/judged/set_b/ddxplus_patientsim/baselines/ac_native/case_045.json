@@ -1,0 +1,134 @@
+{
+  "case_idx": 45,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "objective_for_doctor": "A 56-year-old Female patient presents to the clinic. Chief complaint: I have a cough, significant dyspnea, and noticed a wheezing sound when you exhale.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a bad cough and significant trouble breathing, and I noticed a wheezing sound when I exhale. This feels like my asthma acting up again—especially since I had a cold in the last couple of weeks.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can I ask: when did your symptoms start, and do you have fever or chest pain?  \nDoctor: Also, have you used a rescue inhaler (albuterol) or any steroids, and did they help?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms started a few days ago, and they’ve been getting worse. I don’t have fever or chest pain right now.  \n\nYes, I’ve used a rescue inhaler (albuterol) before and I’ve also been on steroids for asthma in the past, but this time I haven’t gotten good relief.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any history of smoking or COPD, and do you have a measured oxygen saturation or peak-flow reading? Also, is the wheeze mostly on exhale and are you able to speak full sentences?  \nDoctor: REQUEST TEST: Pulse_Oximetry and Peak_Flow (if available).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have COPD, and I’m not a smoker.  \n\nI don’t have a measured oxygen saturation or peak-flow reading right now. The wheeze is mostly when I exhale, and I can only speak short phrases—I get too breathless to talk in full sentences.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be a significant asthma exacerbation, but we also need to rule out pneumonia or other causes—can I ask: do you have any worsening at night or when lying down, and have you noticed swelling of your legs or ankle pain?  \nDoctor: I also need to assess severity quickly—REQUEST TEST: Chest_X-Ray and repeat Pulse_Oximetry.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It feels worse at night, and when I lie down I get more short of breath.  \n\nI haven’t noticed swelling in my legs, and I don’t have ankle pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since you’re worse at night/lying down and you can’t speak full sentences, I need to check how urgent this is; REQUEST TEST: ABG_or_VBG (if available) and repeat vitals (HR, RR, BP) now.  \nDoctor: While we’re waiting, can I ask—are you feeling confused/very drowsy, and do you have any blue lips/face or are you using accessory muscles to breathe?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not confused or very drowsy.  \n\nI haven’t noticed blue lips or face, but I am using my chest muscles to breathe—I feel like I’m really working to get air.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a potentially severe asthma exacerbation given your inability to speak full sentences and need for accessory muscles—REQUEST TEST: CBC_with_diff, Basic_Metabolic_Panel, and administer immediate nebulized_albuterol + ipratropium if available, and give systemic_steroids now.  \nDoctor: Quick question: have you tried albuterol just before coming in, and if so how many puffs/nebulizer treatments and how long ago, and did you notice any improvement?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I tried albuterol just before coming in. I used it a couple of times—about 2 treatments—roughly 1 hour ago, and it didn’t really help much.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With persistent severe dyspnea despite 2 albuterol treatments 1 hour ago and needing accessory muscles, I need to assess response to therapy—are you currently feeling any chest tightness or relief after the first nebulizer/steroids dose, and are you still able to speak only short phrases?  \nDoctor: Also, do you have any history of intubation/ICU admissions for asthma or any recent exposures (smoke, strong odors, pets, new meds) that could trigger this?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I still feel chest tightness and I don’t have much relief after the first dose. I’m still only able to speak short phrases.  \n\nI’ve been hospitalized for asthma in the past year, but I don’t know about intubation/ICU admissions. I haven’t had any smoke or strong odors or new meds that I can think of, and no pets exposure that I’m aware of.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given you’ve had minimal response to 2 albuterol treatments, ongoing chest tightness, accessory-muscle breathing, and can only speak short phrases—this is severe and I want to quickly check oxygenation and look for infection—REQUEST TEST: repeat Pulse_Oximetry with continuous monitoring and Lactate (if available).  \nDoctor: One last key question: have you ever been diagnosed with COPD overlap or vocal cord dysfunction, and do you have any known heart disease or prior blood clots?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t been told I have COPD overlap or vocal cord dysfunction.  \n\nI don’t know of any heart disease, and I’ve never been told I had a prior blood clot.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your severe shortness of breath (can’t speak full sentences, using accessory muscles), minimal relief after 2 albuterol treatments, and wheezing, I’m treating this as a severe asthma attack until proven otherwise—REQUEST TEST: Peak-Expiratory_Flow (or spirometry if available) and repeat ABG_or_VBG (if available) now.  \nDoctor: I need one decision point: do you currently have a fever or productive cough with colored sputum, or any symptoms suggesting blood clot (new unilateral leg swelling/pleuritic chest pain)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a fever, and my cough isn’t producing colored sputum.  \n\nI also don’t have symptoms suggesting a blood clot—no new one-sided leg swelling or pleuritic chest pain.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on severe asthma-exacerbation signs (can’t speak full sentences, accessory-muscle breathing, wheeze with minimal response to albuterol, worse when lying down), I’m making the working diagnosis of an acute severe asthma attack while ruling out pneumonia/other causes—REQUEST TEST: Chest_X-Ray results review, ABG_or_VBG results review, and continuous Pulse_Oximetry trend.  \nDoctor: Do you have your pulse-ox and any arterial/venous blood gas values yet, and are you improving at all after the first steroid/nebulizer dose?  \nDoctor: If you’re not improving quickly, you may need escalation to continuous bronchodilators and possible ICU-level care—DIAGNOSIS READY: Acute severe asthma exacerbation (status asthmaticus), precipitated by recent viral URI.\n\n[ABSTAIN] free-text diagnosis 'Acute severe asthma exacerbation (status asthmaticus), precipitated by recent viral URI.' did not map to the closed disease set",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7111,
+      "completion_tokens": 906,
+      "calls": 9
+    },
+    "patient": {
+      "prompt_tokens": 10306,
+      "completion_tokens": 475
+    }
+  }
+}

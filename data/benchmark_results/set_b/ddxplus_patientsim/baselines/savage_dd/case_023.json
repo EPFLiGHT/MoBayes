@@ -1,0 +1,142 @@
+{
+  "case_idx": 23,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 12\nSex: Male\nChief Complaint: I have a fever, burning pain, and right tonsil pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a fever and really bad throat pain—burning pain and pain in both tonsils, mostly the right one. My palate and the back of my throat also hurt, and I’ve had some nasal congestion or a clear runny nose.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling so bad. One question at a time:\n\nDo you have any trouble breathing or swallowing saliva (drooling, “can’t swallow,” muffled “hot potato” voice), or is it mainly painful swallowing without those breathing/swallowing red flags?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly painful swallowing. I don’t have trouble breathing, and I’m not drooling or choking on saliva. My voice isn’t muffled either.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—next question:\n\nDo you have any cough (even mild), or is this mainly fever + throat pain with no cough?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a cough. It’s mainly fever and throat pain.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\nHave you noticed any white patches/pus on the tonsils or back of the throat, or is it more just redness and swelling?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s more just redness and swelling. I haven’t noticed any white patches or pus.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\nAre you having any significant neck swelling or tender lumps in the front of your neck (lymph nodes), or is the pain mostly in the throat itself?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Mostly it’s in my throat itself. I don’t notice big neck swelling or tender lumps in the front of my neck.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\nDo you have any runny nose or nasal congestion that started around the same time as the fever/throat pain (suggesting a viral URI), or did the throat symptoms come first?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have nasal congestion/clear runny nose, and it started around the same time as the fever and throat pain.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\nHave you had any known exposure to someone with strep throat, influenza, or COVID recently?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—someone I’ve been around had similar symptoms in the past two weeks.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\nHow old is the patient?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m 12 years old.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\nDo you have any rash (especially a sandpaper-like rash on the trunk/arms) or abdominal pain/vomiting?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No rash. And no abdominal pain or vomiting.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Given your age (12), fever + severe throat pain, exposure to someone with similar symptoms, and concurrent nasal congestion/clear runny nose (more viral-URI pattern), I can’t fully pin it down yet.\n\nOne last discriminating question: do you have any difficulty opening your mouth (trismus) or severe one-sided throat pain that seems out of proportion, or is it fairly symmetric aside from the right tonsil being worse?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I can open my mouth normally. It’s mostly symmetric, but the right tonsil is worse than the left.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I have enough to narrow the broad category (infectious pharyngitis/tonsillitis vs other causes), but not enough to confidently choose a single diagnosis from the provided list (e.g., strep vs viral URTI vs influenza/other), since you don’t have classic strep findings (white exudate) and you do have URI symptoms (clear runny nose) that point viral.\n\n[POSSIBLE] Viral pharyngitis, URTI, Influenza, Pneumonia, Acute laryngitis",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Viral pharyngitis",
+      "URTI",
+      "Influenza",
+      "Pneumonia",
+      "Acute laryngitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10808,
+      "completion_tokens": 469
+    },
+    "patient": {
+      "prompt_tokens": 9201,
+      "completion_tokens": 257
+    }
+  }
+}

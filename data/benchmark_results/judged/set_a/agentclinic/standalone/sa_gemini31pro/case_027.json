@@ -1,0 +1,112 @@
+{
+  "case_idx": 27,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Femoropopliteal artery stenosis",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient has been experiencing tingling pain in the sole of his right foot for the last 6 weeks, which occurs when he raises his foot above chest level during exercises. He started exercising regularly 2 months ago and notices his right calf cramps when using the incline feature on his treadmill, requiring him to stop frequently. The pain subsides after a few minutes of rest. He has been managing type 2 diabetes mellitus for 8 years. He is a smoker with a 34-year history of smoking two packs per day.",
+    "Symptoms": {
+      "Primary_Symptom": "Tingling pain in the sole of the right foot during exercise",
+      "Secondary_Symptoms": [
+        "Right calf cramps with incline exercise",
+        "Pain resolution upon rest"
+      ]
+    },
+    "Past_Medical_History": "Type 2 diabetes mellitus, managed with metformin for the past 8 years.",
+    "Social_History": "Smoking history of two packs per day for 34 years.",
+    "Review_of_Systems": "No other systemic symptoms reported."
+  },
+  "objective_for_doctor": "Evaluate a 55-year-old man presenting with foot pain and cramping during exercise, and diagnose the underlying condition.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: For the past six weeks I’ve had a tingling pain in the sole of my right foot when I raise my foot above chest level during exercise. Also, when I use the incline on the treadmill my right calf cramps and I have to stop, but the pain eases after a few minutes of rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and do you have any medical conditions like diabetes, high blood pressure, or high cholesterol?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 55 years old, and I have type 2 diabetes that I’ve been managing with metformin for the past 8 years. I don’t have high blood pressure that I know of, and I’m also a long-time smoker—about two packs a day for 34 years.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you ever get this foot pain at night when you are lying flat in bed, and have you noticed any sores, slow-healing wounds, or color changes on your right foot or toes?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t notice the foot pain much at night when I’m lying flat, but I have seen some color change in my right toes and I’m worried about a couple of areas that seem slow to heal. I haven’t had any obvious new sores.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed if your right foot feels colder to the touch",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, the right foot does seem a bit cooler to the touch compared with the left, especially when I’ve been exercising.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "* (Top diagnosis, fits perfectly with claud",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, the right foot is noticeably cooler than the left, especially after I start exercising. I also feel the tingling in the sole mainly during that raising-the-foot motion, and my right calf cramps on the treadmill incline before I have to stop. I’ve noticed some toe color changes and a couple of spots that seem to heal slowly, but no fresh open sores.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Peripheral arterial disease, Critical limb ischemia,",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Peripheral arterial disease",
+    "predicted_set": [
+      "Peripheral arterial disease",
+      "Critical limb ischemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2127,
+      "completion_tokens": 1314
+    },
+    "patient": {
+      "prompt_tokens": 2673,
+      "completion_tokens": 312,
+      "calls": 5
+    }
+  }
+}

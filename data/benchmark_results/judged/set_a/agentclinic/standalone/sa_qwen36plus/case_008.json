@@ -1,0 +1,127 @@
+{
+  "case_idx": 8,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with complaints of abdominal cramps, nausea, vomiting, and diarrhea which started 2 hours ago. Reports eating reheated food from the afternoon about an hour before symptoms started. Denies any recent travel, sick contacts, or similar symptoms in people around him.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant medical or surgical history.",
+    "Social_History": "College student, reports studying for exams late at night. No recent travel. No history of alcohol or drug abuse.",
+    "Review_of_Systems": "Denies fever, headache, rash, chest pain, dysuria, or cough."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms of food poisoning, taking into account the history of presentation and clinical findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I started about two hours ago with abdominal cramps, along with nausea, vomiting, and diarrhea. I think it may be related to reheated food I ate about an hour before the symptoms began. I don’t have fever or any other symptoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What specific type of food did you reheat and eat?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I reheated some leftover rice and a meat dish from earlier that afternoon, then ate it about an hour before the cramps started. I didn’t add any extra ingredients—just warmed it up and ate it right away.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Has anyone else who ate the same meal developed similar symptoms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, not that I’m aware of—no one else I know who ate it has mentioned similar symptoms. I’m mostly alone in noticing this, and my symptoms came on pretty quickly after I ate.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any blood or mucus in your stool, or is it purely watery?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, my diarrhea has been watery without any visible blood or mucus. I haven’t noticed any discoloration or unusual material—just frequent loose stools.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Which symptom has been most prominent so far: the vomiting, the diarrhea, or the abdominal cramps?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "My most prominent symptom is the abdominal cramps—they come in strong waves. The nausea and vomiting happen alongside them, and the diarrhea has been frequent and watery, but the cramping feels like the main issue.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "How was the leftover food stored before you reheated it—was it left out at room temperature for several hours, or promptly refrigerated?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It was left out at room temperature for a bit after the meal, maybe a few hours, and I only put it back in the fridge later. When I reheated it, I warmed it up and ate it right away without letting it sit out again.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bacillus cereus food poisoning, Staphylococcus aureus food poisoning, Viral gastroenteritis, Clostridium perfringens food poisoning, Acute foodborne chemical/toxin exposure",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Bacillus cereus food poisoning",
+    "predicted_set": [
+      "Bacillus cereus food poisoning",
+      "Staphylococcus aureus food poisoning",
+      "Viral gastroenteritis",
+      "Clostridium perfringens food poisoning",
+      "Acute foodborne chemical/toxin exposure"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2522,
+      "completion_tokens": 8886
+    },
+    "patient": {
+      "prompt_tokens": 2745,
+      "completion_tokens": 277,
+      "calls": 6
+    }
+  }
+}

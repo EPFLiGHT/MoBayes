@@ -1,0 +1,86 @@
+{
+  "case_idx": 35,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: F\nChief Complaint: increased sweating",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m coming in because I have significantly increased sweating. I also have pain (about 5/10) that started quickly (pace 9/10), and I feel nauseous or like vomiting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have fever and a productive cough (phlegm/sputum)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) and feel generally unwell (flu-like symptoms)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have significantly increased sweating, and I also feel nauseous or like vomiting.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have fever and nasal/sinus symptoms (nasal congestion or facial pain/pressure) lasting less than 4 weeks?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t have any nasal/sinus symptoms that I can specifically say yes or no to. I’ve been having significantly increased sweating, and I also feel nauseous or like vomiting.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **new or worsening shortness of breath with increased cough and/or sputum** (compared with your usual baseline)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have significantly increased sweating and I also feel nauseous or like vomiting.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute rhinosinusitis, Bronchiolitis  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Bronchiolitis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

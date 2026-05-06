@@ -1,0 +1,84 @@
+{
+  "case_idx": 30,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient reports experiencing epigastric discomfort and cramping pain for the past 2 hours, noting that similar episodes have occurred in the past, mostly postprandially. She mentions a recent unintentional weight loss due to meal avoidance as a pain mitigation strategy. She smokes and consumes alcohol occasionally.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Weight loss",
+        "Pain mostly postprandially",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Insignificant, except for chronic knee pain managed with over-the-counter painkillers.",
+    "Social_History": "Smoking habit and occasional alcohol consumption.",
+    "Review_of_Systems": "Denies nausea, vomiting, change in bowel habits, and any urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hi doctor—I've been having epigastric discomfort with cramping pain for the last two hours. It’s similar to past episodes and it usually happens after I eat, so I’ve started avoiding meals and I’ve had some unintentional weight loss. I also smoke and have only occasional alcohol.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **gastric peptic ulcer**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Not that I know for sure, doctor—I've had this epigastric cramping discomfort mostly after meals, and during these episodes I’ve avoided eating and lost some weight, but I haven’t noticed nausea, vomiting, or any changes in my bowel habits.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Gastric peptic ulcer, Pancreatic adenocarcinoma  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Gastric peptic ulcer",
+    "predicted_set": [
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Gastric peptic ulcer",
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Pancreatic adenocarcinoma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 728,
+      "completion_tokens": 122,
+      "calls": 2
+    }
+  }
+}

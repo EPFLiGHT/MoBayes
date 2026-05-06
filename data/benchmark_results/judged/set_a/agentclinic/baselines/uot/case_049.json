@@ -1,0 +1,144 @@
+{
+  "case_idx": 49,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient presents requesting prenatal care, reporting 2 months of increasing breast tenderness, nausea, a 6.6 lb weight gain, increased urinary frequency, and uncertainty about the date of her last menstrual period. She stopped taking oral contraceptives 6 months ago and has been trying to conceive with her husband since then. She believes she is pregnant and was happy to share this news with her husband last week.",
+    "Symptoms": {
+      "Primary_Symptom": "Increasing breast tenderness",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Weight gain of 6.6 lbs",
+        "Increased urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Stopped oral contraceptives 6 months prior in an attempt to conceive.",
+    "Social_History": "Reports being in a stable relationship and actively trying to conceive with her husband.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms suggestive of early pregnancy.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hi doctor—I'm here for prenatal care. For about two months I’ve had increasing breast tenderness, nausea, I’ve gained about 6.6 pounds, and I’ve noticed more frequent urination. My last menstrual period is hard to pin down since I stopped birth control six months ago, but I feel like I might be pregnant and I was happy to tell my husband last week.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **muscle weakness that worsens with repeated use and improves with rest** (e.g., drooping eyelids, difficulty swallowing, fluctuating weakness)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed any muscle weakness or drooping eyelids, and I don’t have trouble swallowing or symptoms that change with use and rest.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **kidney-related symptoms** such as flank/back pain or blood in the urine?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I don’t have any flank or back pain, and I haven’t noticed any blood in my urine. I’m just having the increased urinary frequency.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain or shortness of breath that started suddenly and is not clearly related to exertion (e.g., sudden “heart-like” symptoms)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I don’t have chest pain or shortness of breath, and I haven’t noticed any sudden symptoms like that.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **gastric peptic ulcer**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any stomach burning or pain that feels like an ulcer, and I haven’t had vomiting or diarrhea—mostly it’s just nausea along with the breast tenderness and weight gain.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pneumonia**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I don’t have cough, fever, or shortness of breath, and nothing feels like pneumonia. I mainly just have increasing breast tenderness, nausea, about a 6.6 lb weight gain, and more frequent urination.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic obstructive pulmonary disease (COPD)**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I don’t have any chronic breathing issues, wheezing, or shortness of breath that’s persistent like COPD, and I haven’t had any cough problems.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic obstructive pulmonary disease (COPD)**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I don’t have chronic breathing issues, wheezing, or persistent shortness of breath. I also haven’t had any ongoing cough problems.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chronic obstructive pulmonary disease, Gastric peptic ulcer  , Pneumonia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease",
+    "predicted_set": [
+      "Chronic obstructive pulmonary disease",
+      "Gastric peptic ulcer  ",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Chronic obstructive pulmonary disease",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease",
+      "Gastric peptic ulcer",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4773,
+      "completion_tokens": 355,
+      "calls": 8
+    }
+  }
+}

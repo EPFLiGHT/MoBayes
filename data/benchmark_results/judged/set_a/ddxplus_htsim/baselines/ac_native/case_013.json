@@ -1,0 +1,159 @@
+{
+  "case_idx": 13,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {
+    "AGE": 30,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "shortness of breath",
+    "EVIDENCES_ENG": "['pain', 'shortness of breath', 'productive cough', 'cigarette smoking', 'sore throat', 'chronic obstructive pulmonary disease (copd)', 'cough', 'nocturnal symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 30\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have a cough that produces colored or more abundant sputum than usual.\n- I smoke cigarettes.\n- I have a sore throat.\n- I have a chronic obstructive pulmonary disease (COPD).\n- I have a cough.\n- My symptoms are more prominent at night.\n- On a scale of 0-10, the pain intensity is 2\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 3\n- The pain is:\n* sensitive\n* burning\n- The pain locations are:\n* side of the chest(R)\n* upper chest\n* pharynx\n* breast(L)\n* posterior chest wall(L)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.07757478860695013], ['Pneumonia', 0.06887767685795512], ['Bronchiectasis', 0.06834641621400388], ['Possible NSTEMI / STEMI', 0.060373527477037815], ['Panic attack', 0.05901653721289934], ['Acute COPD exacerbation / infection', 0.05801760401873852], ['GERD', 0.05677466576670297], ['Unstable angina', 0.05375051082856164], ['Myocarditis', 0.04622133357431822], ['Stable angina', 0.044098587270455236], ['Acute laryngitis', 0.04330988308164088], ['Guillain-Barré syndrome', 0.04152431208044343], ['Bronchospasm / acute asthma exacerbation', 0.040296302534597414], ['Atrial fibrillation', 0.03966322696787472], ['Boerhaave', 0.039322733063233806], ['Viral pharyngitis', 0.0389014424134445], ['Pericarditis', 0.029903789076759665], ['Acute dystonic reactions', 0.029241851604645593], ['Myasthenia gravis', 0.029241851604645593], ['Anemia', 0.029241851604645593], ['Tuberculosis', 0.02188006858144748], ['PSVT', 0.01561996589547727], ['Chagas', 0.008801073663521215]]",
+    "PATHOLOGY": "Bronchitis",
+    "INITIAL_EVIDENCE": "dyspn",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_endroitducorps_@_côté_du_thorax_D_', 'douleurxx_endroitducorps_@_haut_du_thorax', 'douleurxx_endroitducorps_@_pharynx', 'douleurxx_endroitducorps_@_sein_G_', 'douleurxx_endroitducorps_@_thorax_postérieur_G_', 'douleurxx_intens_@_2', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_3', 'dyspn', 'expecto', 'f17.210', 'gorge_dlr', 'j44_j42', 'toux', 'trav1_@_N', 'ww_nuit']",
+    "patient_id": "htsim_0468",
+    "_test_index": 468,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 30-year-old M patient presents to the clinic. Chief complaint: shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having significant shortness of breath or difficulty breathing. I also have a cough with colored or more abundant sputum than usual, and a sore throat.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m going to ask a few quick questions: when did the shortness of breath start, and do you have fever or chills? Also, is your breathing worse with exertion or lying flat, and any chest pain or wheezing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nMy shortness of breath is significant. I also have cough and it’s more prominent at night, but I don’t know about fever or chills. I smoke cigarettes, and I have COPD.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I want to clarify: is the sputum actually thick/yellow-green and how many days has this flare been going on; also, do you have wheezing or increased use of your rescue inhaler?  \nDr. Agent: REQUEST TEST: Pulse_Oximetry  \nDr. Agent: REQUEST TEST: Chest_X-Ray",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have cough with colored or more abundant sputum than usual, and my symptoms are more prominent at night. I also have COPD and I smoke cigarettes. I do have pain related to my reason for consulting, with chest pain on the right side of the chest and upper chest, and also on the left (breast and posterior chest wall). The pain is sensitive and burning, and the pain intensity is 2/10.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since you have COPD with smoking and now colored/increased sputum plus significant dyspnea and chest-wall burning pain, I need to check severity: what’s your oxygen saturation if you have it, and do you feel worse breathing in (or have you had any recent fever, chills, or ankle swelling)?  \nDoctor: REQUEST TEST: CBC  \nDoctor: REQUEST TEST: VBG_or_ABG",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know my oxygen saturation, and I don’t know about any recent fever or chills.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need 3 key details: do you have wheezing or increased rescue inhaler use, any leg swelling, and is your chest pain worse with deep breath or coughing?  \nDoctor: If you can, I’ll interpret your tests—REQUEST TEST: ECG.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about wheezing or increased rescue inhaler use, and I don’t know about leg swelling. I don’t know whether the chest pain is worse with deep breath or coughing.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume you don’t know the oxygen level or exam details—please tell me: (1) how many days your symptoms have been going on, (2) whether the chest pain gets worse when you take a deep breath or cough, and (3) any recent long travel/immobility or prior blood clots?  \nDoctor: REQUEST TEST: D_dimer_or_CTPA_(as_indicated_by_Clinical_Risk)  \nDoctor: With COPD + smoking and a productive colored-sputum flare, this most strongly suggests an acute COPD exacerbation due to infectious bronchitis/pneumonia, and I’m also keeping pulmonary embolism in mind given pleuritic-quality chest pain uncertainty.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to do a focused exam and risk check—right now, are you having any fever at home, and is the chest pain clearly worse when you take a deep breath or when you cough?  \nDoctor: REQUEST TEST: Respiratory_Viral_Panel (Influenza/COVID/RSV if available)  \nDoctor: REQUEST TEST: Basic_Metabolic_Panel (electrolytes)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have fever at home. I also don’t know whether the chest pain is clearly worse when I take a deep breath or when I cough.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to decide next steps—on a scale of 0–10, how severe is your shortness of breath at rest, and are you able to speak full sentences without stopping? Also, do you take any daily inhalers or steroids for COPD, and did you increase them during this flare?  \nDoctor: REQUEST TEST: Peak_Flow_or_Spirometry_(if_feasible)  \nDoctor: REQUEST TEST: Troponin_(if_chest_pain_any_cardial_features_or_ECG_abnormal)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "On a scale of 0–10, I don’t have my shortness of breath severity at rest listed, and I don’t know whether I can speak full sentences without stopping.\n\nI don’t have any daily inhalers or steroids for my COPD mentioned in my information, and I don’t know if I increased them during this flare.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need two urgent answers: 1) are you currently able to speak in full sentences, and 2) do you have any fever/feeling very hot, or rapidly worsening symptoms over hours to a day?  \nDoctor: REQUEST TEST: Blood_Glucose_and_Lactate_if_available  \nDoctor: REQUEST TEST: Repeat_Pulse_Oximetry_and_assess_for_increased_work_of_breathing (use_ambulatory/ED_protocol)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I also have significant shortness of breath or difficulty breathing. My symptoms are more prominent at night, and I have a cough with colored or more abundant sputum than usual and a sore throat.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to decide urgently—are you short of breath right now at rest, and can you speak full sentences without stopping? Also, do you feel any fever/chills or have you noticed your breathing getting worse over the last 24 hours?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I’m having significant shortness of breath or difficulty breathing, and my symptoms are more prominent at night. I also have a cough with colored or more abundant sputum than usual and a sore throat.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely rule out pneumonia, a severe COPD exacerbation, or even pulmonary embolism without vitals—right now I need you checked urgently: please get a pulse oximeter reading and tell me your breathing work (can you speak full sentences?).  \nDoctor: REQUEST TEST: Repeat_Pulse_Oximetry_and_Respiratory_Rate (now)  \nDoctor: REQUEST TEST: Chest_X-Ray  \nDoctor: DIAGNOSIS READY: Acute COPD exacerbation likely triggered by infectious bronchitis/pneumonia (rule out PE due to pleuritic-type chest pain uncertainty).\n\n[DDX]\n1. Bronchitis\n2. Pneumonia",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Bronchitis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10,
+    "predicted_remapped": "Bronchitis",
+    "predicted_set_remapped": [
+      "Bronchitis",
+      "Acute COPD exacerbation / infection",
+      "URTI"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7999,
+      "completion_tokens": 894,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 13015,
+      "completion_tokens": 458,
+      "calls": 10
+    }
+  }
+}

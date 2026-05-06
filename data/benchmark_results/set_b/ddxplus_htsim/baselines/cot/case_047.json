@@ -1,0 +1,99 @@
+{
+  "case_idx": 47,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, coughing, and I’ve been coughing up blood. I also have nasal congestion or a clear runny nose. I’m immunosuppressed.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough with hemoptysis + nasal congestion/clear rhinorrhea + immunosuppressed.\nTop candidates (not yet fully discriminated):\n1) Pneumonia — fever and cough; hemoptysis can occur, especially in severe/invasive infection or in immunosuppressed patients.\n2) Influenza — fever and cough; can cause significant respiratory symptoms and sometimes blood-streaked sputum.\n3) Acute COPD exacerbation / infection — could fit if there’s underlying COPD; hemoptysis can occur with infectious exacerbations.\n4) Pulmonary embolism — hemoptysis can be a presenting feature, but fever and nasal symptoms make infection more likely (still important to rule out).\n5) Tuberculosis — immunosuppressed status raises risk; hemoptysis and systemic symptoms can occur.\nMost informative next question: determine whether the hemoptysis is small blood-streaks vs larger volume, and whether there are pleuritic chest pain/shortness of breath to steer toward PE vs infection.\n[/REASONING]\nHow much blood are you coughing up (just streaks vs teaspoons/tablespoons vs more), and do you have shortness of breath or chest pain (especially sharp/pleuritic)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood, but I don’t know how much—whether it’s just streaks or more.\n\nI have pain related to my reason for consulting, with intensity 7/10, and it’s burning and sensitive, but I don’t know if it’s chest pain or if it’s sharp/pleuritic.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever + cough + hemoptysis (amount unclear) + nasal congestion/clear rhinorrhea + immunosuppressed; pain 7/10 burning/sensitive, unclear if pleuritic.\nTop candidates:\n1) Pneumonia — fever + cough; hemoptysis possible; immunosuppression increases risk; pain could be pleuritic or inflammatory.\n2) Influenza — fever + cough; can cause hemoptysis; nasal symptoms support viral URI.\n3) Pulmonary embolism — hemoptysis can occur; pain could be pleuritic, but fever/nasal congestion makes it less classic (still possible).\n4) Tuberculosis — immunosuppressed; hemoptysis + systemic symptoms; but nasal congestion/acute rhinorrhea is less typical.\n5) Acute COPD exacerbation / infection — only if COPD history; hemoptysis possible.\nMost informative next question: clarify the pain pattern—does it worsen with deep breaths/cough (pleuritic) and do you have shortness of breath?\n[/REASONING]\nDoes the pain get worse when you take a deep breath or cough, and are you short of breath compared with your usual?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough + hemoptysis (amount unknown) + clear rhinorrhea/nasal congestion + immunosuppressed; chest pain described as burning/sensitive 7/10 but pleuritic vs not unclear; shortness of breath unknown.\nTop candidates remain:\n1) Pneumonia\n2) Influenza\n3) Pulmonary embolism\n4) Tuberculosis\n5) Acute COPD exacerbation / infection (only if COPD history)\nMost informative next question: ask directly about shortness of breath and oxygenation symptoms, since that strongly discriminates PE vs infection and severity.\n[/REASONING]\nAre you short of breath right now (even at rest), and have you noticed any wheezing or reduced ability to speak full sentences?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough + hemoptysis + clear runny nose/nasal congestion + immunosuppressed; chest pain 7/10 burning/sensitive; shortness of breath unknown.\nWe still can’t discriminate well between pneumonia/influenza/TB/PE without severity/resp status and hemoptysis amount.\nMost informative next question: ask about risk factors for PE (recent immobility/surgery, leg swelling/pain, prior clots, estrogen/testosterone, pregnancy) because that can quickly elevate PE likelihood even if infection symptoms exist.\n[/REASONING]\nIn the past 4 weeks, have you had any recent surgery or long travel/immobility, or do you have leg swelling/pain (especially one-sided), or a history of blood clots?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: fever + cough + hemoptysis + clear rhinorrhea/nasal congestion + immunosuppressed; chest pain 7/10 burning/sensitive; shortness of breath and PE risk factors unknown; hemoptysis amount unknown.\nAt this point, evidence is insufficient to confidently rank diagnoses because key discriminators (severity/pleuritic nature, SOB/SpO2, hemoptysis volume, PE risk factors, TB exposure/duration) are missing.\nMost informative next question: ask about duration of symptoms (hours vs days vs weeks) and whether the cough has been ongoing—this helps separate acute viral/bacterial pneumonia from TB or other causes.\n[/REASONING]\nHow long have these symptoms been going on—hours, days, or weeks (and is the cough getting worse over time)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are missing (symptom duration, hemoptysis volume, shortness of breath/oxygen status, pleuritic nature of pain, and PE/TB risk factors). With only fever + cough + hemoptysis + immunosuppression + clear rhinorrhea, I can’t confidently rank the top causes.\n[POSSIBLE] Pneumonia, Influenza, Pulmonary embolism, Tuberculosis, Acute COPD exacerbation / infection",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Influenza",
+      "Pulmonary embolism",
+      "Tuberculosis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8484,
+      "completion_tokens": 1133
+    },
+    "patient": {}
+  }
+}

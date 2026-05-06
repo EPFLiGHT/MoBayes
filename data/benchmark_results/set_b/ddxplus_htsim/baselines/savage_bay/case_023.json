@@ -1,0 +1,189 @@
+{
+  "case_idx": 23,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "HIV (initial infection)",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 62\nSex: M\nChief Complaint: diarrhea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Diarrhea and an inability to do my usual activities because I’m so tired, along with fever and swollen or painful lymph nodes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, rough):**\n- **Infectious & Parasitic Diseases** 0.40  \n- **Influenza** 0.20  \n- **Anemia** 0.10  \n- **Other System Diseases** 0.10  \n- **Panic attack** 0.05  \n- **URTI/Viral pharyngitis** 0.05 (lower so far—depends on symptoms)\n\n**Question 1 (most discriminating):**  \nHow long has this been going on (hours/days), and what’s the highest recorded temperature?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how long it’s been going on (hours/days). I do have a fever, but I don’t know the highest recorded temperature.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “fever present” but duration/peak unknown):**\n- **Infectious & Parasitic Diseases** 0.45  \n- **Influenza** 0.22  \n- **Anemia** 0.08  \n- **Other System Diseases** 0.10  \n- **URTI / Viral pharyngitis** 0.05  \n- **Panic attack** 0.05\n\n**Likelihood update note:** Unknown duration/peak keeps the infectious causes high; it doesn’t strongly support a specific respiratory syndrome yet.\n\n**Question 2 (one-at-a-time):**  \nWhen you say “swollen or painful lymph nodes,” where are they located—neck, armpits, groin, or all over?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (no localization of lymph nodes):**\n- **Infectious & Parasitic Diseases** 0.48  \n- **Influenza** 0.20  \n- **Other System Diseases** 0.12  \n- **Anemia** 0.08  \n- **URTI / Viral pharyngitis** 0.05  \n- **Panic attack** 0.05\n\n**Likelihood update note:** Not knowing location prevents narrowing to specific viral syndromes vs other systemic infections.\n\n**Question 3:**  \nDo you have **any sore throat, cough, or runny nose** along with the diarrhea and fever? (yes/no)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have a sore throat.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (sore throat added):**\n- **Infectious & Parasitic Diseases** 0.50  \n- **Influenza** 0.18  \n- **URTI / Viral pharyngitis** 0.20  \n- **Other System Diseases** 0.07  \n- **Anemia** 0.03  \n- **Panic attack** 0.02\n\n**Likelihood update note:** Sore throat shifts probability toward viral pharyngitis/URTI-type illnesses, while diarrhea + fever still keeps broader infectious causes high.\n\n**Question 4:**  \nAny **cough** or **shortness of breath**? (yes/no)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still broad):**\n- **Infectious & Parasitic Diseases** 0.49  \n- **URTI / Viral pharyngitis** 0.22  \n- **Influenza** 0.18  \n- **Other System Diseases** 0.07  \n- **Anemia** 0.03  \n- **Panic attack** 0.01\n\n**Likelihood update note:** Unknown cough/SOB doesn’t help separate influenza/URTI from other systemic infections.\n\n**Question 5:**  \nHave you had **any blood in the stool** or **severe abdominal pain**? (yes/no)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still broad):**\n- **Infectious & Parasitic Diseases** 0.50  \n- **URTI / Viral pharyngitis** 0.22  \n- **Influenza** 0.17  \n- **Other System Diseases** 0.07  \n- **Anemia** 0.03  \n- **Panic attack** 0.01\n\n**Likelihood update note:** Unknown GI red flags keeps serious GI/invasive infection lower but not excluded.\n\n**Question 6:**  \nAny **rash** or **swollen/tender lymph nodes in the neck** that you can feel? (yes/no)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have lesions, redness, or problems on my skin that I believe are related to the condition I’m consulting for, and I also have swollen or painful lymph nodes.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (rash/skin lesions + tender lymph nodes):**\n- **Infectious & Parasitic Diseases** 0.58  \n- **Influenza** 0.10  \n- **URTI / Viral pharyngitis** 0.14  \n- **Other System Diseases (incl. SLE/other)** 0.10  \n- **Anemia** 0.03  \n- **Panic attack** 0.01\n\n**Likelihood update note:** Skin lesions + lymphadenopathy increases likelihood of a specific infectious syndrome (e.g., viral exanthem, other systemic infection) and makes isolated influenza/URTI less dominant.\n\n**Question 7:**  \nWhat do the skin lesions look like—**blisters**, **hives (raised itchy welts)**, **small red/purple spots**, or **ulcers**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I have lesions, redness, or problems on my skin that I believe are related to the condition I’m consulting for. The color of the rash is pale. The lesion (or lesions) are larger than 1cm.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (rash described as pale, lesions >1 cm; still nonspecific):**\n- **Infectious & Parasitic Diseases** 0.55  \n- **Other System Diseases** 0.20  \n- **Influenza** 0.10  \n- **URTI / Viral pharyngitis** 0.10  \n- **Anemia** 0.03  \n- **Panic attack** 0.02\n\n**Likelihood update note:** Pale rash and larger lesions raise possibility of non-influenza etiologies and other systemic disease, but we still need key discriminators.\n\n**Question 8:**  \nAre the lesions **itchy** or **painful/tender**? (itchy vs painful)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No. On a scale of 0–10, the severity of the rash itching is 0. Also, the pain intensity caused by the rash is 6.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (painful rash, not itchy):**\n- **Infectious & Parasitic Diseases** 0.50  \n- **Other System Diseases** 0.25  \n- **Influenza** 0.10  \n- **URTI / Viral pharyngitis** 0.10  \n- **Anemia** 0.03  \n- **Panic attack** 0.02\n\n**Likelihood update note:** Painful (non-itchy) lesions with fever + lymphadenopathy shifts away from simple urticaria/viral exanthem toward infections causing skin inflammation or other systemic inflammatory conditions.\n\n**Question 9:**  \nWhere are the lesions located (face/neck, trunk, arms/legs, hands/feet), and are they **localized to one area** or **widespread**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "They’re in the lower gum, upper gum, labia majora (right and left), and internal cheek (left).",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (mucosal involvement + genital lesions):**\n- **Infectious & Parasitic Diseases** 0.58  \n- **Other System Diseases** 0.22  \n- **Influenza** 0.07  \n- **URTI / Viral pharyngitis** 0.08  \n- **Anemia** 0.03  \n- **Panic attack** 0.01\n\n**Likelihood update note:** Oral mucosa + labia involvement strongly suggests a mucocutaneous infectious process (e.g., herpes-related, other STI/infectious causes) or severe systemic inflammatory/infectious condition. We need one more key discriminator.\n\n**Question 10:**  \nDo you have **painful blisters/ulcers** in the mouth or on the labia, and did they start **before** the diarrhea/fever or **after**? (before/after/same time)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I have lesions and pain related to my reason for consulting in the lower gum, upper gum, labia majora (right and left), and internal cheek (left). I don’t know whether they started before or after the diarrhea/fever.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (mucocutaneous lesions with fever + diarrhea + lymphadenopathy; timing unknown):**\n- **Infectious & Parasitic Diseases** 0.60  \n- **Other System Diseases** 0.25  \n- **Influenza** 0.06  \n- **URTI / Viral pharyngitis** 0.06  \n- **Anemia** 0.02  \n- **Panic attack** 0.01\n\n**Likelihood update note:** Mucosal + genital involvement keeps infectious/inflammatory mucocutaneous etiologies high, but we still can’t confidently pick a single diagnosis from the provided list.\n\n**Question 11:**  \nAny **difficulty swallowing**, **drooling**, or **voice change**? (yes/no)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still broad):**\n- **Infectious & Parasitic Diseases** 0.62  \n- **Other System Diseases** 0.25  \n- **Influenza** 0.05  \n- **URTI / Viral pharyngitis** 0.06  \n- **Anemia** 0.02  \n- **Panic attack** 0.00\n\n**Likelihood update note:** Unknown airway/oropharyngeal symptoms prevents ruling out severe laryngeal/oral processes.\n\n**Question 12:**  \nHave you noticed **eye redness/pain** or **painful redness around the eyes**? (yes/no)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still broad):**\n- **Infectious & Parasitic Diseases** 0.63  \n- **Other System Diseases** 0.25  \n- **Influenza** 0.05  \n- **URTI / Viral pharyngitis** 0.05  \n- **Anemia** 0.02\n\n**Likelihood update note:** Still missing discriminators for specific mucocutaneous syndromes.\n\n**Question 13:**  \nAre you sexually active or is there any chance of a **new sexual partner** or **unprotected sex** in the last few weeks? (yes/no/unsure)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have had sexual intercourse with an HIV-positive partner in the past 12 months. I have had a sexually transmitted infection.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (HIV-positive partner + STI history + mucocutaneous lesions):**\n- **Infectious & Parasitic Diseases** 0.55  \n- **HIV (initial infection)** 0.25  \n- **Other System Diseases** 0.15  \n- **Influenza** 0.03  \n- **URTI / Viral pharyngitis** 0.02  \n- **Anemia** 0.00\n\n**Likelihood update note:** HIV exposure and STI history markedly increase likelihood of **acute HIV infection** or another STI-related systemic illness.\n\n**Question 14:**  \nHave you had **generalized swollen lymph nodes** (neck/armpits/groin) and **a widespread rash** plus fever within the last 2–6 weeks? (yes/no/unsure)",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are missing (exact rash morphology/distribution beyond mucosa/genitals, timing of lesions vs diarrhea/fever, and whether there is generalized lymphadenopathy/widespread rash). With limited data, I can’t confidently rank a single diagnosis from the provided list.\n\n[POSSIBLE] HIV (initial infection), Anaphylaxis, Infectious & Parasitic Diseases, Acute laryngitis, Acute dystonic reactions",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "HIV (initial infection)",
+      "Anaphylaxis",
+      "Infectious & Parasitic Diseases",
+      "Acute laryngitis",
+      "Acute dystonic reactions"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 30615,
+      "completion_tokens": 2240
+    },
+    "patient": {}
+  }
+}

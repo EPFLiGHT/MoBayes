@@ -1,0 +1,104 @@
+{
+  "case_idx": 9,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Meigs syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old nulliparous woman",
+    "History": "The patient reports experiencing shortness of breath and noticeable increase in abdominal size over the past month. She denies any significant medical history, previous surgeries, or use of medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Shortness of breath",
+      "Secondary_Symptoms": [
+        "Increased abdominal girth",
+        "Fatigue",
+        "No significant weight loss or gain"
+      ]
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "Non-smoker, does not consume alcohol regularly. Works as a high school teacher.",
+    "Review_of_Systems": "Denies fever, night sweats, chest pain, or swelling in the legs. She has not noticed any changes in bowel or urinary habits."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with shortness of breath, increased abdominal girth, and a large ovarian mass.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, how old are you, and how long have you been short of breath and noticed increasing abdominal size? Doctor: Any known ovarian cyst/tumor history, and have you had pelvic pain, early satiety, nausea/vomiting, or abnormal vaginal bleeding? Doctor: I’ll listen to your lungs and check your abdomen for ascites/tense distension—any fever, chest pain, leg swelling, or weight loss?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 40, and my shortness of breath and increasing abdominal size have been going on for about a month. I don’t have any known history of ovarian cysts or tumors, and I haven’t had pelvic pain, early satiety, nausea/vomiting, or abnormal vaginal bleeding. I’ve also not had fever, chest pain, leg swelling, or significant weight loss."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: On exam, I’m checking for ascites—does your abdomen feel very bloated/“full of fluid,” and have you noticed any reduced urine output or sudden worsening breathing when lying flat? Doctor: Also, any family history of ovarian/breast cancer, and have you had recent pregnancy, missed periods, or use of fertility drugs or hormonal therapy?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: My abdomen feels steadily bloated and “full,” but I haven’t noticed reduced urine output, and my breathing doesn’t suddenly get worse when I lie flat. I don’t have a known family history of ovarian or breast cancer, and I’m not recently pregnant, not missing periods, and I haven’t used fertility drugs or hormonal therapy."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your abdomen for shifting dullness/fluid wave and I’ll order key labs and imaging—REQUEST TEST: Pelvic_Abdominal_Ultrasound (with Doppler) and REQUEST TEST: Serum_Cancer_Markers (CA-125, CEA, AFP ± β-hCG). Doctor: Also, to see if this is malignant ascites or another cardiopulmonary cause, REQUEST TEST: CT_Chest_Abdomen_Pelvis with contrast and REQUEST TEST: CBC_CMP_Coagulation_profile.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98°F); BP 125/80 mmHg; HR 85 bpm; RR 20 breaths/min. CBC: WBC 8,500 /μL; Hemoglobin 12.8 g/dL; Platelets 275,000 /μL. Respiratory exam: mild accessory muscle use; dullness right lower lung fields; decreased breath sounds right basal areas. Chest X-ray: right-sided pleural effusion. Abdominal exam: visible distension; normal bowel sounds; shifting dullness/positive fluid wave suggestive of ascites; non-tender. Pelvic exam: palpable right pelvic mass. Abdominal ultrasound: large right ovarian mass with significant ascites. CA-125: normal. (Other requested tests: Pelvic_Abdominal_Ultrasound with Doppler; CEA, AFP ± β-hCG; CT Chest/Abdomen/Pelvis w/ contrast; CMP and"
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Thank you—given a large right ovarian mass with clear ascites on ultrasound, plus a right pleural effusion and normal CA-125, the leading concern is an ovarian tumor with Meigs-/pseudo-Meigs–type presentation (malignant effusion/ascites) versus a benign fibroma/thecoma variant; my next step is to confirm via CT findings and tumor markers. Doctor: REQUEST TEST: CT_Chest_Abdomen_Pelvis_with_contrast (to assess omental/peritoneal disease and pleural/lymph spread) and REQUEST TEST: CEA_plus_AFP_plus_β-hCG (± repeat CA-125) plus REQUEST TEST: Pelvic_Abdominal_Ultrasound_with_Doppler (tumor vascularity). Doctor: If imaging shows no widespread metastases and there’s resolution of effusions after tumor removal, that would strongly support Meigs syndrome (classically ovarian fibroma); otherwise we’d treat as ovarian malignancy causing ascites/pleural effusion. Doctor: DIAGNOSIS READY: Ovarian tumor presenting with ascites and right pleural effusion—most consistent with Meigs/pseudo-Meigs syndrome pending CT and definitive pathology.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thank you—given a large right ovarian mass with clear ascites on ultrasound, plus a right pleural effusion and normal CA-125, the leading concern is an ovarian tumor with Meigs-/pseudo-Meigs–type presentation (malignant effusion/ascites) versus a benign fibroma/thecoma variant; my next step is to confirm via CT findings and tumor markers. Doctor: REQUEST TEST: CT_Chest_Abdomen_Pelvis_with_contrast (to assess omental/peritoneal disease and pleural/lymph spread) and REQUEST TEST: CEA_plus_AFP_plus_β-hCG (± repeat CA-125) plus REQUEST TEST: Pelvic_Abdominal_Ultrasound_with_Doppler (tumor vascularity). Doctor: If imaging shows no widespread metastases and there’s resolution of effusions after tumor removal, that would strongly support Meigs syndrome (classically ovarian fibroma); otherwise we’d treat as ovarian malignancy causing ascites/pleural effusion. Doctor: DIAGNOSIS READY: Ovarian tumor presenting with ascites and right pleural effusion—most consistent with Meigs/pseudo-Meigs syndrome pending CT and definitive pathology.",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Meigs syndrome",
+    "predicted_set_remapped": [
+      "Meigs syndrome",
+      "Fibroadenoma",
+      "Vitiligo"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1967,
+      "completion_tokens": 550,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 927,
+      "completion_tokens": 156,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 630,
+      "completion_tokens": 200,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 310,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

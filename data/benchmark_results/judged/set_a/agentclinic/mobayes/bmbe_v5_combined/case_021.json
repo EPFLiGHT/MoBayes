@@ -1,0 +1,355 @@
+{
+  "case_idx": 21,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic obstructive pulmonary disease",
+  "patient_actor_hidden": {
+    "Demographics": "56-year-old male",
+    "History": "The patient is a former construction worker and worked in a steel mill during high school. He is an active smoker with a 36-pack-year history. He presents a 1-year history of progressive shortness of breath and weight loss.",
+    "Symptoms": {
+      "Primary_Symptom": "Worsening shortness of breath",
+      "Secondary_Symptoms": [
+        "Weight loss"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history noted.",
+    "Social_History": "Active smoker. Former construction worker and steel mill worker. No other hazardous exposures mentioned.",
+    "Review_of_Systems": "Denies recent fevers, cough, or chest pain. No history of asthma or allergic diseases mentioned."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a 1-year history of worsening shortness of breath and weight loss.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello—what brings you in today? Could you tell me about yourself and what’s been going on? Patient: I’m 56, and over the past year my shortness of breath has been getting worse, and I’ve lost weight too. I’m also still an active smoker with a long history.",
+      "extracted_features": {
+        "f_shortness_of_breath_02802ea3": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_exertional_dyspnea_209a7fe6": "no",
+        "f_smoking_5cc22410": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.2585664274326734
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1298566526253952
+        ],
+        [
+          "Pneumonia",
+          0.06622202304718396
+        ],
+        [
+          "Chronic kidney failure",
+          0.05340973758578117
+        ],
+        [
+          "Femoropopliteal artery stenosis",
+          0.045409995089862154
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_jaundice_7519dd8b",
+      "doctor_question": "Have you noticed any yellowing of your skin or the whites of your eyes?",
+      "patient_answer": "Patient: No, I haven’t noticed any yellowing of my skin or my eyes.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.2838719221207294
+        ],
+        [
+          "Pneumonia",
+          0.0727030695971626
+        ],
+        [
+          "Chronic kidney failure",
+          0.05863686565568256
+        ]
+      ],
+      "entropy": 4.184741643770677
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Do you feel stiffness in your joints when you wake up in the morning?",
+      "patient_answer": "Patient: No, I don’t feel any particular stiffness in my joints when I wake up in the morning.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.2901843621619648
+        ],
+        [
+          "Pneumonia",
+          0.07431976266147583
+        ],
+        [
+          "Chronic kidney failure",
+          0.059940769528570866
+        ]
+      ],
+      "entropy": 4.12545406361665
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_confusion_c52e29d9",
+      "doctor_question": "Have you been feeling confused lately—like you’re having trouble thinking clearly, staying oriented, or understanding what’s going on?",
+      "patient_answer": "Doctor: Have you been feeling confused lately—like you’re having trouble thinking clearly, staying oriented, or understanding what’s going on? Patient: No, I haven’t been confused and I can think clearly—I’ve been oriented and understanding what’s going on.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.2901843621619648
+        ],
+        [
+          "Pneumonia",
+          0.07431976266147583
+        ],
+        [
+          "Chronic kidney failure",
+          0.059940769528570866
+        ]
+      ],
+      "entropy": 4.12545406361665
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_night_sweats_0316b006",
+      "doctor_question": "Have you been having **night sweats**—waking up with your clothes or bedding noticeably damp—at least a few nights recently?",
+      "patient_answer": "Patient: No, I don’t recall having night sweats or waking up with my clothes or bedding noticeably damp.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.3075736236303828
+        ],
+        [
+          "Chronic kidney failure",
+          0.06353271261669886
+        ],
+        [
+          "Pneumonia",
+          0.06047248230492918
+        ]
+      ],
+      "entropy": 4.07706951578065
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_intramuscular_thigh_mass_2717ab25",
+      "doctor_question": "Have you noticed a firm lump or swelling inside your thigh muscle (not just on the skin), especially if it’s getting bigger or painful?",
+      "patient_answer": "Patient: No, I haven’t noticed any firm lump or swelling inside my thigh muscles, and I haven’t had any thigh pain or any masses that seem to be getting bigger.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.30935968819135573
+        ],
+        [
+          "Chronic kidney failure",
+          0.06390164388306623
+        ],
+        [
+          "Pneumonia",
+          0.06082364296781061
+        ]
+      ],
+      "entropy": 4.066851283895844
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any skin lesions or unusual spots along the veins on your arm (for example, along the inner arm where veins are more visible)?",
+      "patient_answer": "Patient: I haven’t noticed any unusual skin lesions or new spots along the veins on my arms. I mainly just feel like the shortness of breath has been steadily worsening and I’ve lost weight over the past year.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.3093596881913556
+        ],
+        [
+          "Chronic kidney failure",
+          0.06390164388306623
+        ],
+        [
+          "Pneumonia",
+          0.06082364296781061
+        ]
+      ],
+      "entropy": 4.0668512838958435
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_occupational_metal_dust_exposure_93a74292",
+      "doctor_question": "Have you worked in an environment where you might breathe in metal dust or metal fumes—for example welding, grinding, cutting, machining, construction/renovation with metal, or working in a foundry or metal workshop? (Yes or no)",
+      "patient_answer": "Patient: Yes—I worked in a steel mill in high school and also did construction work before that, so I was around metal dust and fumes at times.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.7581925507693678
+        ],
+        [
+          "Chronic kidney failure",
+          0.022373286419588148
+        ],
+        [
+          "Pneumonia",
+          0.02129561467451091
+        ]
+      ],
+      "entropy": 1.909462584658084
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_bony_joint_enlargement_8eb17a55",
+      "doctor_question": "Have you noticed any bony enlargement or swelling around your joints (for example, fingers, knuckles, knees, or hips), such as bumps that seem to be part of the bone rather than just soft swelling?",
+      "patient_answer": "Patient: No, I haven’t noticed any bony enlargement or swelling around my joints, like bumps on my fingers, knuckles, knees, or hips.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.7594577085275278
+        ],
+        [
+          "Chronic kidney failure",
+          0.022410619596840486
+        ],
+        [
+          "Pneumonia",
+          0.02133114959514934
+        ]
+      ],
+      "entropy": 1.8967224525469688
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_091244fa",
+      "doctor_question": "Do you currently have pain in your thigh (either one or both thighs)?",
+      "patient_answer": "Patient: No, I don’t have pain in either thigh, and I haven’t noticed any swelling there either.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.7609660647057765
+        ],
+        [
+          "Chronic kidney failure",
+          0.022455129246486162
+        ],
+        [
+          "Pneumonia",
+          0.021373515313371318
+        ]
+      ],
+      "entropy": 1.8847654453467806
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_dyspareunia_fc9b88f0",
+      "doctor_question": "I’m sorry you’re dealing with this. When you have sex, do you experience pain or discomfort during penetration (yes or no)?",
+      "patient_answer": "Doctor: When you have sex, do you experience pain or discomfort during penetration (yes or no)? Patient: No, I don’t have pain or discomfort during penetration.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.7609660647057765
+        ],
+        [
+          "Chronic kidney failure",
+          0.022455129246486162
+        ],
+        [
+          "Pneumonia",
+          0.021373515313371318
+        ]
+      ],
+      "entropy": 1.8847654453467806
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_scattered_skin_lesions_915a508d",
+      "doctor_question": "Have you noticed any scattered skin lesions—like small bumps, spots, or sores—appearing in different areas of your body? (Yes or no)",
+      "patient_answer": "Doctor: Have you noticed any scattered skin lesions—like small bumps, spots, or sores—appearing in different areas of your body? Patient: No, I haven’t noticed any scattered skin lesions, spots, or sores anywhere on my body.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.7609660647057765
+        ],
+        [
+          "Chronic kidney failure",
+          0.022455129246486162
+        ],
+        [
+          "Pneumonia",
+          0.021373515313371318
+        ]
+      ],
+      "entropy": 1.8847654453467806
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease",
+    "predicted_top3": [
+      "Chronic obstructive pulmonary disease",
+      "Chronic kidney failure",
+      "Pneumonia"
+    ],
+    "confidence": 0.7609660647057765,
+    "final_entropy": 1.8847654453467806,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Chronic obstructive pulmonary disease",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease",
+      "Chronic kidney failure",
+      "Pneumonia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6786,
+      "completion_tokens": 463
+    },
+    "patient": {
+      "prompt_tokens": 7700,
+      "completion_tokens": 469,
+      "calls": 12
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "case_idx": 10,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Borderline personality disorder",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old woman",
+    "History": "The patient presents to the emergency department with abdominal pain and reports being 10 weeks pregnant. She has a history of constipation, anxiety, and substance abuse. The patient is not currently on any medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal pain and contractions",
+      "Secondary_Symptoms": [
+        "Bloody vaginal discharge",
+        "Recent positive pregnancy test",
+        "Emotional distress upon learning of a spontaneous abortion",
+        "Anger and aggression post-news",
+        "New lacerations over her wrists"
+      ]
+    },
+    "Past_Medical_History": "Constipation, anxiety, substance abuse",
+    "Social_History": "Details on social history not provided, but the doctor should inquire about current life stressors, support systems, and substance use.",
+    "Review_of_Systems": "Negative except for symptoms presented."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with symptoms indicative of a spontaneous abortion and assess for any psychiatric conditions based on patient behavior.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’m 10 weeks pregnant, and I’m having abdominal pain and what feel like contractions. I’ve also had bloody vaginal discharge, and I’ve been feeling very upset and angry since I learned I was having a spontaneous abortion. I have constipation and a history of anxiety and substance abuse, and I made new cuts on my wrists recently.",
+      "extracted_features": {
+        "f_pregnancy_5fa7cc34": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_acute_abdominal_pain_154cc46b": "yes",
+        "f_uterine_contractions_5cc60e8c": "yes",
+        "f_vaginal_bleeding_7c6d5a5a": "yes",
+        "f_constipation_94095923": "yes",
+        "f_anxiety_history_2aeb613e": "yes",
+        "f_substance_use_history_c8c2090d": "yes",
+        "f_agitation_10f6de33": "yes",
+        "f_wrist_lacerations_21416d45": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Borderline personality disorder",
+          0.2809527312075052
+        ],
+        [
+          "Endometritis",
+          0.19177147360640173
+        ],
+        [
+          "Pseudocyesis",
+          0.1076961220020403
+        ],
+        [
+          "Toxic exposure",
+          0.07219636805871302
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.057256500896681044
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements of your face, arms, legs, or body? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any involuntary twitching, jerking, shaking, or sudden uncontrollable movements. I’m mostly dealing with the abdominal pain and contractions, and the bleeding.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Borderline personality disorder",
+          0.29063257013284455
+        ],
+        [
+          "Endometritis",
+          0.19837869528033483
+        ],
+        [
+          "Pseudocyesis",
+          0.11140664337473867
+        ]
+      ],
+      "entropy": 3.586251296056238
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed a lump in my right breast, and nothing feels like it moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Borderline personality disorder",
+          0.2953666775146779
+        ],
+        [
+          "Endometritis",
+          0.2016100813747971
+        ],
+        [
+          "Pseudocyesis",
+          0.10407214418769192
+        ]
+      ],
+      "entropy": 3.574158787939302
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently touch around your belly button area, does it feel tender or painful? (yes or no)",
+      "patient_answer": "Patient: When I press around my belly button area, it feels tender and painful.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.17981801336162526
+        ],
+        [
+          "Toxic exposure",
+          0.17536371874470877
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.13907504199361137
+        ]
+      ],
+      "entropy": 3.5409267264048685
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "I haven’t been vomiting recently. My main issues are the abdominal pain that feels like contractions and the bloody vaginal discharge, and it’s also really upsetting for me emotionally.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.2302379460234889
+        ],
+        [
+          "Toxic exposure",
+          0.1430972395264399
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.14116499871922156
+        ]
+      ],
+      "entropy": 3.6516509570027176
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, I haven’t noticed a lump or mass in my right breast, and I don’t feel anything moving or shifting when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Endometritis",
+          0.23306893422588199
+        ],
+        [
+          "Toxic exposure",
+          0.14485675225616623
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.14290075276353612
+        ]
+      ],
+      "entropy": 3.6273893329336837
+    }
+  ],
+  "final": {
+    "predicted": "Endometritis",
+    "predicted_top3": [
+      "Endometritis",
+      "Toxic exposure",
+      "Pyoderma gangrenosum"
+    ],
+    "confidence": 0.23306893422588199,
+    "final_entropy": 3.6273893329336837,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Endometritis",
+    "predicted_set_remapped": [
+      "Endometritis",
+      "Toxic exposure",
+      "Pyoderma gangrenosum"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11580,
+      "completion_tokens": 416
+    },
+    "patient": {
+      "prompt_tokens": 3146,
+      "completion_tokens": 255,
+      "calls": 6
+    }
+  }
+}

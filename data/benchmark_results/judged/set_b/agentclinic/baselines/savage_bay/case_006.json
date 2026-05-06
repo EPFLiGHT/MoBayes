@@ -1,0 +1,213 @@
+{
+  "case_idx": 6,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Essential thrombocythemia",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient has a 3-week history of fatigue, difficulty to concentrate, and dyspnea on exertion. He also experiences dizziness and digital pain that improves with cold. He has a long history of smoking.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue and difficulty to concentrate",
+      "Secondary_Symptoms": [
+        "Dyspnea on exertion",
+        "Dizziness",
+        "Digital pain that improves with cold"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, currently managed with enalapril.",
+    "Social_History": "Smokes half a pack of cigarettes a day since he was 20.",
+    "Review_of_Systems": "The patient denies any recent infections, bleeding disorders, or significant weight loss."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with fatigue, difficulty to concentrate, and abnormal blood findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I've had about three weeks of fatigue and trouble concentrating, and I get short of breath when I exert myself. I also feel dizzy at times, and my fingers hurt in a way that gets better with cold.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given nonspecific fatigue/SOB/dizziness):\n- Acute myelogenous leukemia: 0.18  \n- Acute lymphoblastic leukemia: 0.12  \n- Essential thrombocythemia: 0.08  \n- Chronic obstructive pulmonary disease (COPD): 0.08  \n- Takotsubo cardiomyopathy: 0.06  \n(others collectively: 0.48)\n\nEvidence #1: 3 weeks of fatigue + exertional dyspnea + dizziness → raises concern for anemia/hematologic disease (AML/ALL) more than COPD/cardiac causes.\n- Likelihood ratio (AML/ALL vs others): ~2.0  \nUpdated posterior (approx):\n- Acute myelogenous leukemia: 0.28  \n- Acute lymphoblastic leukemia: 0.18  \n- Essential thrombocythemia: 0.10  \n- COPD: 0.05  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.35)\n\nEvidence #2: “fingers hurt… gets better with cold” suggests Raynaud phenomenon is less likely (Raynaud is worse with cold), but “pain in fingers” could be microvascular/hematologic. We need more specifics.\n\n**Question 1 (one at a time):**  \nHave you noticed any bleeding or bruising (e.g., nosebleeds, gum bleeding, easy bruis",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any unusual bleeding or easy bruising—no nosebleeds or gum bleeding that I can recall.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (from prior step):\n- Acute myelogenous leukemia: 0.28  \n- Acute lymphoblastic leukemia: 0.18  \n- Essential thrombocythemia: 0.10  \n- COPD: 0.05  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.35)\n\nEvidence: No unusual bleeding/bruising → decreases likelihood of leukemia presentations with thrombocytopenia (AML/ALL) somewhat, and also lowers ET if it were causing platelet dysfunction/bleeding (less typical anyway).\n- Likelihood ratio for AML/ALL given no bleeding: ~0.7  \nUpdated posterior (approx):\n- Acute myelogenous leukemia: 0.24  \n- Acute lymphoblastic leukemia: 0.13  \n- Essential thrombocythemia: 0.12  \n- COPD: 0.06  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.41)\n\n**Question 2:**  \nDo you have any fevers, night sweats, or unintentional weight loss?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any fevers, night sweats, or unintentional weight loss? Patient: No, I haven’t had fevers or night sweats, and I haven’t lost weight without trying.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.24  \n- Acute lymphoblastic leukemia: 0.13  \n- Essential thrombocythemia: 0.12  \n- COPD: 0.06  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.41)\n\nEvidence: No B-symptoms (fever/night sweats/weight loss) lowers probability of aggressive hematologic malignancy somewhat.\n- Likelihood ratio for AML/ALL given no B-symptoms: ~0.8  \nUpdated posterior (approx):\n- Acute myelogenous leukemia: 0.19  \n- Acute lymphoblastic leukemia: 0.10  \n- Essential thrombocythemia: 0.14  \n- COPD: 0.07  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.46)\n\n**Question 3:**  \nWhen you say your fingers hurt—do they turn white/blue/red with cold or stress (color changes), or is it mainly pain/tingling without color change?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you say your fingers hurt—do they turn white/blue/red with cold or stress (color changes), or is it mainly pain/tingling without color change? Patient: It mainly feels painful and a bit tingly, and it improves when I keep my hands warm—I'm not sure I see clear color changes like white or blue.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.19  \n- Acute lymphoblastic leukemia: 0.10  \n- Essential thrombocythemia: 0.14  \n- COPD: 0.07  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.46)\n\nEvidence: Pain/tingling that improves with warmth is more consistent with peripheral neuropathy or microvascular pain than classic Raynaud (which is typically worse with cold and has color change). This slightly lowers ET/AML/ALL (less specific), and keeps a broader differential.\n- Likelihood ratio for AML/ALL given “warmth improves finger pain/tingling without clear color change”: ~0.8  \nUpdated posterior (approx):\n- Acute myelogenous leukemia: 0.15  \n- Acute lymphoblastic leukemia: 0.08  \n- Essential thrombocythemia: 0.12  \n- COPD: 0.08  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.53)\n\n**Question 4:**  \nAny history of smoking or known lung disease (asthma/COPD), or are you otherwise healthy?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Any history of smoking or known lung disease (asthma/COPD), or are you otherwise healthy? Patient: I’ve been smoking about half a pack a day for many years, and I don’t recall being formally diagnosed with COPD or asthma. Doctor: Do you ever get wheezing, cough, or sputum? Patient: Sometimes I have a cough, but it hasn’t been major compared with this new shortness of breath.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.15  \n- Acute lymphoblastic leukemia: 0.08  \n- Essential thrombocythemia: 0.12  \n- COPD: 0.08  \n- Takotsubo cardiomyopathy: 0.04  \n(others: 0.53)\n\nEvidence: Smoking + cough supports COPD more than before.\n- Likelihood ratio for COPD given smoking/cough: ~2.0  \nUpdated posterior (approx):\n- Acute myelogenous leukemia: 0.12  \n- Acute lymphoblastic leukemia: 0.06  \n- Essential thrombocythemia: 0.10  \n- COPD: 0.16  \n- Takotsubo cardiomyopathy: 0.03  \n(others: 0.53)\n\n**Question 5:**  \nDo you have chest pain, palpitations, or do you feel like your heart is racing when you get short of breath?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have chest pain, palpitations, or do you feel like your heart is racing when you get short of breath? Patient: I haven’t had chest pain, but sometimes I feel my breathing is harder and I get lightheaded when I push myself; I don’t notice a racing heartbeat.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.16  \n- Acute myelogenous leukemia: 0.12  \n- Essential thrombocythemia: 0.10  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.03  \n(others: 0.53)\n\nEvidence: No chest pain/palpitations makes acute coronary/Takotsubo less likely; exertional lightheadedness still fits anemia or cardiopulmonary limitation.\n- Likelihood ratio for Takotsubo given no chest pain/palpitations: ~0.7  \nUpdated posterior (approx):\n- COPD: 0.17  \n- Acute myelogenous leukemia: 0.13  \n- Essential thrombocythemia: 0.11  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.02  \n(others: 0.51)\n\n**Question 6:**  \nHave you noticed any swelling of your legs, or waking up at night short of breath / needing extra pillows to sleep?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any swelling of your legs, or waking up at night short of breath / needing extra pillows to sleep? Patient: No, I haven’t noticed swelling in my legs, and I can breathe fine lying down—I don’t wake up short of breath.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.17  \n- Acute myelogenous leukemia: 0.13  \n- Essential thrombocythemia: 0.11  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.02  \n(others: 0.51)\n\nEvidence: No orthopnea/PND/leg swelling makes heart failure/volume overload less likely (and indirectly lowers Takotsubo/cardiac causes).\n- Likelihood ratio for Takotsubo given no orthopnea/PND/edema: ~0.6  \nUpdated posterior (approx):\n- COPD: 0.18  \n- Acute myelogenous leukemia: 0.13  \n- Essential thrombocythemia: 0.11  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.51)\n\n**Question 7:**  \nAny recent infections, mouth sores, or frequent/unusual infections?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Any recent infections, mouth sores, or frequent/unusual infections? Patient: I haven’t had any recent infections or mouth sores, and I don’t feel like I’ve been getting sick more often than usual.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.18  \n- Acute myelogenous leukemia: 0.13  \n- Essential thrombocythemia: 0.11  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.51)\n\nEvidence: No infections/mouth sores slightly lowers leukemia/immune dysfunction likelihood.\n- Likelihood ratio for AML/ALL given no infections/mouth sores: ~0.8  \nUpdated posterior (approx):\n- COPD: 0.20  \n- Acute myelogenous leukemia: 0.10  \n- Essential thrombocythemia: 0.12  \n- Acute lymphoblastic leukemia: 0.05  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.52)\n\n**Question 8:**  \nHave you had any headaches, vision changes, or symptoms that could suggest anemia (e.g., unusual tiredness, pale skin), or do you know if you’ve ever been told your blood counts are abnormal?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any headaches, vision changes, or symptoms that could suggest anemia (unusual tiredness, pale skin), or do you know if you’ve ever been told your blood counts are abnormal? Patient: I’ve been more tired than usual and I do feel lightheaded, but I haven’t noticed clear vision changes or that I look pale. I don’t recall being told my blood counts were abnormal before.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.20  \n- Essential thrombocythemia: 0.12  \n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.05  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.52)\n\nEvidence: More tiredness + lightheadedness raises anemia/hematologic causes relative to COPD (though COPD can also cause exertional symptoms). No known pallor/vision changes doesn’t rule out anemia.\n- Likelihood ratio for AML/ALL/ET given fatigue+lightheadedness without known pallor: ~1.3  \nUpdated posterior (approx):\n- COPD: 0.18  \n- Essential thrombocythemia: 0.14  \n- Acute myelogenous leukemia: 0.13  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.48)\n\n**Question 9:**  \nDo you have any numbness/tingling in your hands or feet, or any weakness—especially if it’s new over these 3 weeks?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any numbness or tingling in your hands or feet, or any weakness—especially if it’s new over these 3 weeks? Patient: Mostly it’s in my fingers—tingly and painful—and it’s been going on over the last few weeks; I haven’t noticed significant weakness in my legs or arms or new numbness elsewhere.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.18  \n- Essential thrombocythemia: 0.14  \n- Acute myelogenous leukemia: 0.13  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.48)\n\nEvidence: Predominant finger tingling/pain over weeks suggests peripheral neuropathy or microvascular/hematologic-related symptoms; this is more compatible with a hematologic process than COPD or Takotsubo.\n- Likelihood ratio for AML/ALL/ET given finger-predominant tingling/pain: ~1.4\nUpdated posterior (approx):\n- COPD: 0.14  \n- Essential thrombocythemia: 0.18  \n- Acute myelogenous leukemia: 0.18  \n- Acute lymphoblastic leukemia: 0.07  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.41)\n\n**Question 10:**  \nHave you noticed any skin changes on your hands/feet—like a mottled/red-blue color, ulcers, or sores that are new?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any new sores or ulcers, but my fingertips can look a bit mottled when they hurt. I don’t have any open wounds or color changes that I’d describe as clearly white or blue.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Essential thrombocythemia: 0.18  \n- Acute myelogenous leukemia: 0.18  \n- COPD: 0.14  \n- Acute lymphoblastic leukemia: 0.07  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.41)\n\nEvidence: “Mottled” fingertips during pain can fit microvascular phenomena (seen in some myeloproliferative disorders like essential thrombocythemia) and is less typical for COPD/Takotsubo. This increases ET relative to AML/ALL somewhat, but still not definitive.\n- Likelihood ratio for ET given mottled fingertips with pain: ~1.6  \nUpdated posterior (approx):\n- Essential thrombocythemia: 0.27  \n- Acute myelogenous leukemia: 0.16  \n- COPD: 0.11  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.39)\n\n**Question 11:**  \nHave you had any abnormal clotting or bleeding events—like a history of blood clots (DVT/PE/stroke), transient vision loss, or very severe headaches?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any abnormal clotting or bleeding events—like a history of blood clots (DVT/PE/stroke), transient vision loss, or very severe headaches? Patient: I don’t recall having any blood clots, strokes, or episodes like vision loss or severe headaches.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Essential thrombocythemia: 0.27  \n- Acute myelogenous leukemia: 0.16  \n- COPD: 0.11  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.39)\n\nEvidence: No prior clots/neurologic ischemic events lowers ET somewhat (though not required), and doesn’t strongly support AML/ALL.\n- Likelihood ratio for ET given no clot/ischemic symptoms: ~0.8  \nUpdated posterior (approx):\n- Essential thrombocythemia: 0.23  \n- Acute myelogenous leukemia: 0.17  \n- COPD: 0.12  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.41)\n\n**Question 12:**  \nHave you noticed any enlarged lymph nodes, fullness in the left upper abdomen (spleen), or easy satiety?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swollen lymph nodes, no fullness in my left upper abdomen, and I don’t feel unusually full when I eat.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Essential thrombocythemia: 0.23  \n- Acute myelogenous leukemia: 0.17  \n- COPD: 0.12  \n- Acute lymphoblastic leukemia: 0.06  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.41)\n\nEvidence: No lymphadenopathy/splenomegaly/easy satiety slightly lowers leukemia likelihood (AML/ALL) and keeps ET relatively more plausible.\n- Likelihood ratio for AML/ALL given no nodes/splenomegaly: ~0.8  \nUpdated posterior (approx):\n- Essential thrombocythemia: 0.25  \n- Acute myelogenous leukemia: 0.14  \n- COPD: 0.13  \n- Acute lymphoblastic leukemia: 0.05  \n- Takotsubo cardiomyopathy: 0.01  \n(others: 0.42)\n\n**Question 13:**  \nDo you have any history of very high platelets or “abnormal blood counts,” or have you had recent lab work (CBC) done?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any history of very high platelets or “abnormal blood counts,” or have you had recent lab work (CBC) done? Patient: I don’t recall ever being told my platelets or blood counts were abnormal, and I haven’t had any blood tests done recently. Doctor: Okay—given your symptoms, we’ll still check a CBC and other labs today.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] We don’t yet have key discriminators (vital signs/oxygenation, exam findings, and—most importantly—CBC/platelet count/hemoglobin and peripheral smear). Without those, the differential can’t be narrowed reliably.\n\n[POSSIBLE] Essential thrombocythemia, Acute myelogenous leukemia, Acute lymphoblastic leukemia, COPD, Takotsubo cardiomyopathy",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Essential thrombocythemia",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "Essential thrombocythemia",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "COPD",
+      "Takotsubo cardiomyopathy"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Essential thrombocythemia",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 39687,
+      "completion_tokens": 3157
+    },
+    "patient": {
+      "prompt_tokens": 31006,
+      "completion_tokens": 882,
+      "calls": 14
+    }
+  }
+}

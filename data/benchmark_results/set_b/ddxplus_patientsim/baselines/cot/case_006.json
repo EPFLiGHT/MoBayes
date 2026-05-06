@@ -1,0 +1,132 @@
+{
+  "case_idx": 6,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 10\nSex: Male\nChief Complaint: I have a cough that produces colored or more abundant sputum than usual, a cough, and significant dyspnea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough that brings up colored mucus, and it’s more than usual. I’m also having significant trouble breathing, so I came in.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: productive cough with colored sputum “more than usual” + significant dyspnea.\nTop candidates (not yet discriminated):\n1) Pneumonia — colored sputum and worsening cough with dyspnea can fit; would expect fever, pleuritic pain, focal lung findings.\n2) Acute COPD exacerbation / infection — if there’s COPD history; productive cough and dyspnea worsening.\n3) Bronchitis — productive cough can occur, but “significant trouble breathing” raises concern for pneumonia/COPD/asthma/PE.\n4) Bronchospasm / acute asthma exacerbation — dyspnea with cough; sputum may be present but colored sputum is less specific.\n5) Pulmonary embolism — can present with sudden dyspnea and cough/sputum, though colored sputum is less typical; risk factors would help.\nMost informative next question: determine whether there are systemic/infectious signs and/or focal chest pain to support pneumonia vs other causes.\n[/REASONING]\nDo you have a fever or chills, or any chest pain that’s worse when you take a deep breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or chills— I haven’t noticed any. And I don’t have chest pain, especially not pain that’s worse when I take a deep breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: productive cough with colored mucus “more than usual,” significant dyspnea; no known fever/chills; no pleuritic chest pain.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — dyspnea without chest pain; cough can be productive; would expect wheeze/trigger history.\n2) Acute COPD exacerbation / infection — similar; may have no fever; would expect COPD history and possibly wheeze.\n3) Pneumonia — still possible even without fever, but absence of pleuritic pain and unknown fever makes it less certain.\n4) Pulmonary embolism — dyspnea without chest pain can occur; colored sputum is atypical; need risk factors (recent travel, surgery, leg swelling, prior clots).\n5) Bronchitis — can cause dyspnea but “significant trouble breathing” suggests more than uncomplicated bronchitis.\nMost informative next question: Do you have wheezing or a history of asthma/COPD, or did this start after an allergen/respiratory trigger?\n[/REASONING]\nDo you hear wheezing (or has anyone noticed it), and do you have a history of asthma or COPD?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, there’s been wheezing, and I’ve had asthma before. I’ve also needed a bronchodilator in the past.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: wheezing + asthma history + productive colored sputum + significant dyspnea.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — strong fit: wheezing, asthma history, dyspnea; cough may be productive.\n2) Acute COPD exacerbation / infection — less likely without COPD history, but could overlap if chronic airway disease; ask about COPD/smoking.\n3) Pneumonia — can trigger asthma exacerbations and cause colored sputum; would expect fever, focal findings, or worsening despite bronchodilator.\n4) Bronchitis — can cause cough/wheeze, but significant dyspnea and wheezing suggests asthma exacerbation more than simple bronchitis.\n5) Pulmonary embolism — still possible but wheezing/asthma history makes it less likely; would need risk factors.\nMost informative next question: Are you having any fever/chills or feeling generally ill, and did symptoms start after a cold/viral illness?\n[/REASONING]\nHave you had any fever/chills or felt sick like you’re coming down with a cold/flu in the last few days?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had fever/chills, and I don’t feel like I’m getting a cold or flu. It just started and the breathing got bad.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history, wheezing, sudden onset with worsening dyspnea; no fever/chills; colored sputum.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — sudden onset, wheeze, dyspnea; infection less suggested by lack of fever/viral prodrome.\n2) Acute COPD exacerbation / infection — less likely without COPD history, but still possible if underlying smoking-related disease.\n3) Pneumonia — less likely without systemic symptoms, but can still present atypically; colored sputum keeps it on list.\n4) Pulmonary embolism — sudden dyspnea can fit; wheezing can occur but is less classic; risk factors needed.\n5) GERD/aspiration or laryngeal causes — could trigger cough/dyspnea, but wheezing points more to lower airway bronchospasm.\nMost informative next question: Did this start after an identifiable trigger (smoke, dust, exercise, cold air, strong odors, allergens), or after stopping your inhaler/meds?\n[/REASONING]\nDid it start after any trigger like smoke/dust/cold air/exercise/strong smells—or did you miss or run out of your asthma inhaler or controller medication?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It started after cold air and I think I got more short of breath with it. I didn’t miss or run out of my inhaler or controller meds.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history; wheezing; dyspnea triggered by cold air; no fever/chills; colored sputum.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — classic trigger (cold air), wheezing, dyspnea; sputum can be present.\n2) Acute laryngitis/epiglottitis/croup — unlikely in adult; would expect sore throat/stridor/odynophagia.\n3) Pneumonia — less likely without infectious prodrome, but still possible.\n4) Pulmonary embolism — less likely with clear trigger and wheeze, but risk factors could override.\n5) GERD/aspiration — could worsen with triggers, but cold-air wheeze is more asthma.\nMost informative next question: Are you able to speak full sentences, and do you have any lips/face turning blue or severe inability to catch your breath?\n[/REASONING]\nCan you speak in full sentences right now, or are you too short of breath to speak more than a few words at a time? Any blue lips or feeling like you might pass out?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I can only say a few words at a time because I’m too short of breath. I don’t think my lips are blue, but I feel like I might pass out if it gets worse.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history; cold-air trigger; wheezing; severe dyspnea with inability to speak full sentences; near-syncope; no cyanosis noted.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — most consistent; severity markers (can’t speak full sentences, near syncope).\n2) Acute pulmonary edema — would expect cardiac history, orthopnea, crackles rather than wheeze; less likely but severe dyspnea.\n3) Pulmonary embolism — can cause severe dyspnea/near syncope; wheeze less typical.\n4) Pneumonia — severe asthma-like symptoms possible but would expect fever/ill appearance.\n5) Possible NSTEMI / STEMI / unstable angina — dyspnea can present, but wheezing/trigger suggests asthma.\nMost informative next question: Do you have any history of heart disease, and are you having leg swelling, recent long travel/surgery, or have you been on estrogen (birth control) or had a prior blood clot?\n[/REASONING]\nAny history of heart disease, and do you have risk factors for blood clots (recent long travel/surgery, leg swelling/pain, estrogen/birth control, prior DVT/PE)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a history of heart disease. I haven’t had long travel or surgery recently, and I don’t have leg swelling or pain. I don’t know about birth control or prior blood clots, but I’ve never been told I had one.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: severe asthma exacerbation features (wheezing, cold-air trigger, inability to speak full sentences, near syncope). No known VTE risk factors; no heart disease.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — strongest fit and severity.\n2) Acute COPD exacerbation / infection — less likely without COPD history/smoking info.\n3) Pneumonia — still possible but less supported (no fever/chills, trigger pattern).\n4) Pulmonary embolism — less likely given no risk factors and wheeze/trigger, but cannot fully exclude.\n5) Acute pulmonary edema — less likely without cardiac history/volume symptoms.\nMost informative next question: Do you smoke or have COPD history, and do you have any fever now or have you had recent sick contacts?\n[/REASONING]\nDo you smoke (or have COPD), and have you had any fever at all or recent sick contacts?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t smoke, and I don’t have COPD that I know of. I also don’t have any fever, and I haven’t been around anyone sick recently.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: non-smoker, no COPD; asthma history; cold-air trigger; wheezing; severe dyspnea/near syncope; no fever/sick contacts; colored sputum.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — best overall match (trigger + wheeze + severity, no infection signs).\n2) Pneumonia — less likely without fever/sick contacts, but colored sputum keeps it on list.\n3) Pulmonary embolism — less likely without risk factors, but severe dyspnea/near syncope warrants consideration.\n4) Acute pulmonary edema — unlikely without cardiac history/volume symptoms, but severe dyspnea requires exclusion.\n5) Acute COPD exacerbation / infection — unlikely without COPD history.\nMost informative next question: Have you ever had similar episodes, and do you have an asthma action plan or know your usual inhaler/controller names and whether you’ve used your rescue inhaler today?\n[/REASONING]\nHave you had similar episodes before, and what asthma inhalers/meds do you use (and did you take your rescue inhaler today—if so, how many puffs and when)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had similar episodes before. I have an inhaler I use for when I get wheezy, but I don’t remember the exact name. I did use my rescue inhaler today— I took a few puffs earlier, but it didn’t help much.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: recurrent asthma exacerbations; cold-air trigger; wheezing; severe dyspnea with inability to speak full sentences and near-syncope; rescue inhaler taken earlier with poor response; no fever/sick contacts; non-smoker/no COPD.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — most consistent: classic trigger (cold air), wheeze, severe airflow limitation, poor response to rescue.\n2) Pneumonia — less likely: no fever/sick contacts, but colored sputum and dyspnea could still represent atypical/early pneumonia or pneumonia-triggered asthma.\n3) Pulmonary embolism — less likely: no VTE risk factors and wheeze/trigger pattern, but severe dyspnea/near-syncope means it can’t be fully excluded.\n4) Acute pulmonary edema — unlikely: no heart disease history, no mention of orthopnea/leg swelling; still a consideration in severe dyspnea.\n5) Acute COPD exacerbation / infection — unlikely: no COPD history and non-smoker.\nMost informative next action: ask about orthopnea/leg swelling and rapidity of onset to further separate PE/cardiac causes from asthma, but we have enough to provide a focused DDX.\n[/REASONING]\n[DDX] Bronchospasm / acute asthma exacerbation, Pneumonia, Pulmonary embolism, Acute pulmonary edema, Acute COPD",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Bronchospasm / acute asthma exacerbation",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Acute COPD"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17297,
+      "completion_tokens": 2235
+    },
+    "patient": {
+      "prompt_tokens": 14694,
+      "completion_tokens": 371
+    }
+  }
+}

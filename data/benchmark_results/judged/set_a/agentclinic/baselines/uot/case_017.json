@@ -1,0 +1,145 @@
+{
+  "case_idx": 17,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient reports a 6-month history of fatigue and an unintentional weight loss of 5 kg (11 lb) despite maintaining a good appetite. He denies any recent changes in his diet or physical activity. He takes no medications and does not smoke or use illicit drugs.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "5 kg unintentional weight loss over 6 months",
+        "Good appetite"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. Patient denies any chronic illnesses or prior hospitalizations.",
+    "Social_History": "Retired engineer; denies tobacco use or illicit drug use. Drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, night sweats, changes in bowel or bladder habits, recent infections, or bleeding disorders."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, unintentional weight loss, and abnormal physical examination findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: Over the past six months I’ve been feeling increasingly fatigued, and I’ve lost about 5 kilograms unintentionally even though my appetite has stayed good.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent cough with shortness of breath that has been getting worse over time (for months or longer)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had a persistent cough, and I don’t notice any shortness of breath that’s been worsening. I’m mainly just feeling tired with that unintentional weight loss, even though I’m eating normally.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had unexplained physical symptoms that you repeatedly report despite negative medical findings, and/or symptoms that appear intentionally produced or exaggerated?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any symptoms like that—I don’t feel I’m intentionally producing or exaggerating anything. My main issues are the ongoing fatigue and the unintentional weight loss, and I’m not aware of any other persistent physical complaints beyond that.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent cough with fever and chest symptoms (e.g., shortness of breath) for days to weeks?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No— I haven’t had a persistent cough, fever, or chest symptoms like worsening shortness of breath. I mainly just feel progressively fatigued and I’ve lost about 5 kilograms over the last six months without trying, despite eating well.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pancreatic adenocarcinoma**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not experiencing anything specific that I’m aware of being tied to the pancreas—I mainly just have ongoing fatigue and that unintentional 5 kg weight loss over six months despite my good appetite.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic lymphocytic leukemia**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t been told I have anything like chronic lymphocytic leukemia, and I don’t notice symptoms such as swollen lymph nodes, frequent infections, or unusual bruising. My main concerns are still the persistent fatigue and unintentional 5 kg weight loss over the past six months even though my appetite is good.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **chronic kidney failure**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any known kidney problems and I haven’t noticed changes in how often I urinate or any swelling in my legs or face. My main ongoing symptoms are still the fatigue and the unintentional 5 kg weight loss over the last six months despite eating normally.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Frontotemporal Dementia**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No—I’m not having any memory or behavior changes that I’d notice, and no one has told me I’m acting differently. My main problems are still the fatigue and the unintentional 5 kg weight loss over the last six months despite keeping my appetite up.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Brief Psychotic Disorder, Chronic kidney failure, Chronic lymphocytic leukemia  , Frontotemporal Dementia, Pancreatic adenocarcinoma",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Brief Psychotic Disorder",
+    "predicted_set": [
+      "Brief Psychotic Disorder",
+      "Chronic kidney failure",
+      "Chronic lymphocytic leukemia  ",
+      "Frontotemporal Dementia",
+      "Pancreatic adenocarcinoma"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Brief Psychotic Disorder",
+    "predicted_set_remapped": [
+      "Brief Psychotic Disorder",
+      "Chronic kidney failure",
+      "Chronic lymphocytic leukemia (CLL)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4617,
+      "completion_tokens": 441,
+      "calls": 8
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "case_idx": 1,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 16\nSex: Male\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have pain in my lower chest, mostly on the left side, and also upper chest pain. It feels like a knife-stab kind of pain, and I also get out of breath very easily with minimal effort, plus I feel short of breath when I lie flat (orthopnea) and with exertion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever or signs of a respiratory infection** (e.g., cough, sore throat, runny nose, or shortness of breath with infection)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I recently had a viral infection. I don’t think I currently have a cough or sore throat right now, but I do feel short of breath easily.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Is your main symptom a cough (with or without sputum) rather than primarily reflux/heartburn or weakness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, it’s not mainly a cough. My main issue is the chest pain and feeling out of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Chagas, Guillain-Barré syndrome  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Chagas",
+    "predicted_set": [
+      "Chagas",
+      "Guillain-Barré syndrome"
+    ],
+    "predicted_raw": [
+      "Chagas",
+      "Guillain-Barré syndrome  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15624,
+      "completion_tokens": 24505,
+      "total_tokens": 40129
+    },
+    "patient": {
+      "prompt_tokens": 1992,
+      "completion_tokens": 129
+    }
+  }
+}

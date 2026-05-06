@@ -1,0 +1,152 @@
+{
+  "case_idx": 35,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 72\nSex: Male\nChief Complaint: I have burning pain, right tonsil pain, and thyroid cartilage pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having burning pain in my throat, mostly on the right side—right tonsil pain and pain around the thyroid cartilage, and also pain in the palate. I also have hoarseness. The pain is about 7 out of 10, and it started pretty gradually.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. One focused question to narrow this down:\n\n**Do you have any trouble swallowing (especially liquids), drooling, or a “hot potato” muffled voice?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I do have pain when swallowing, but I don’t have drooling. I’m not sure about the “hot potato” muffled voice, but my voice is hoarse.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (one key discriminator):\n\n**Have you had a fever or chills, or do you feel systemically unwell (e.g., significant fatigue, body aches)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had fever or chills, and I don’t feel really systemically unwell—mostly it’s the throat and hoarseness.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Any recent upper-respiratory symptoms—runny nose, cough, or known sick contacts—or is this mainly isolated to the throat?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It feels mainly isolated to my throat and hoarseness. I don’t have a runny nose that I notice, and I’m not having a cough. I might have had sick contact because I work at a daycare and live with a lot of people.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Can you open your mouth normally, and do you have any jaw/neck stiffness or worsening pain when you move your neck?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can open my mouth normally. I don’t have neck stiffness, and I’m not sure if moving my neck makes it worse—it’s mostly just the throat and right-side pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you noticed any swelling or a visible lump in the neck, or any ear pain on the same (right) side?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any swelling or a lump in my neck. And I don’t have ear pain on the right side.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Is the pain worse on one side when you swallow, and do you have any difficulty breathing or a sensation of throat tightness/stridor?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s worse on the right side when I swallow. I don’t have trouble breathing, and I don’t have stridor or throat tightness.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Do you have any rash, hives, or itching, or have you had any new medication/food exposure that could trigger an allergic reaction?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No rash, hives, or itching. I haven’t had any new medication or food that I know of.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you had a recent dental infection, gum/tooth pain, or any history of peritonsillar/neck abscess?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No recent dental infection or gum/tooth pain. And I don’t have a history of peritonsillar or neck abscess.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (most discriminating for your pattern):\n\n**When you look in the mirror, do you see a unilateral tonsillar swelling or a white/yellow exudate on the right tonsil?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t looked closely enough in a mirror to say, but the pain is on the right side and my throat feels sore. I don’t know if there’s white or yellow stuff on the right tonsil.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you had any cough at all, or nasal congestion/post-nasal drip, or is it truly just throat pain and hoarseness?**",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It’s truly just throat pain and hoarseness. I don’t have cough or nasal congestion that I notice.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history suggests a localized unilateral sore throat with hoarseness, but we’re missing key exam findings (tonsillar exudate/swelling, uvula deviation, ability to handle secretions, and whether there’s laryngeal tenderness/visible lesions). Without those, I can’t confidently distinguish among several important causes.\n\n[POSSIBLE] Acute laryngitis, Viral pharyngitis, Acute dystonic reactions, Epiglottitis, Pericarditis",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute laryngitis",
+      "Viral pharyngitis",
+      "Acute dystonic reactions",
+      "Epiglottitis",
+      "Pericarditis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13039,
+      "completion_tokens": 473
+    },
+    "patient": {
+      "prompt_tokens": 10539,
+      "completion_tokens": 421
+    }
+  }
+}

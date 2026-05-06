@@ -1,0 +1,119 @@
+{
+  "case_idx": 19,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Ebola",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 21\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, a sore throat, shortness of breath, and I’ve been feeling confused and very fatigued with non-restful sleep. I’ve also had diarrhea/increased stool frequency, diffuse muscle pain, and a lot of weakness.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + sore throat + shortness of breath (respiratory/viral or pneumonia/bronchitis), plus confusion, profound fatigue/non-restful sleep, diarrhea/increased stool frequency, diffuse myalgias, and weakness (systemic/possibly infectious such as influenza/COVID-like illness; also consider pneumonia with sepsis, or other systemic causes).\nTop candidates (tentative):\n1) Influenza — myalgias, fatigue, cough/sore throat, diarrhea can occur; confusion could be from systemic illness.\n2) Pneumonia — cough + shortness of breath; systemic weakness/confusion could reflect more severe infection.\n3) Bronchitis — cough/sore throat with respiratory symptoms; usually less confusion, but possible if severe.\n4) URTI — sore throat/cough; would not fully explain confusion/diarrhea/marked weakness.\n5) Anemia — could contribute to fatigue/weakness and dyspnea, but would not explain sore throat/cough/diarrhea well.\nMost informative next question: determine whether there is fever/high temperature and how high, which helps distinguish influenza vs pneumonia vs other URTI.\n[/REASONING]\nDo you have a fever or measured temperature—if so, how high and when did it start?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I haven’t mentioned a measured fever or temperature in my symptoms, but I have had diarrhea/increased stool frequency, a cough, a sore throat, shortness of breath, confusion/disorientation, and I constantly feel fatigued with non-restful sleep.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: cough + sore throat + shortness of breath; confusion/disorientation; marked fatigue; diarrhea/increased stool frequency; diffuse muscle pain/weakness. Fever is unknown.\nTop candidates remain:\n1) Influenza — classic systemic myalgias, profound fatigue, respiratory symptoms; GI symptoms can occur; confusion can occur with severe illness.\n2) Pneumonia — SOB + cough; confusion can indicate hypoxia/sepsis; diarrhea can accompany systemic infection.\n3) Bronchitis/acute COPD exacerbation / infection — cough/SOB with systemic symptoms, but sore throat and diarrhea point more toward viral syndrome.\n4) Viral URTI — could explain sore throat/cough, but less likely to cause significant confusion and profound weakness.\n5) Pulmonary embolism — can cause SOB and confusion from hypoxia, but would not typically cause sore throat/diarrhea/myalgias.\nMost discriminating next question: ask about oxygenation/hypoxia or chest pain, starting with whether they have chest pain or worsening breathing with exertion/lying flat.\n[/REASONING]\nDo you have chest pain (especially sharp pain with breathing) or are you more short of breath at rest vs only when moving around?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I haven’t mentioned whether I have chest pain or whether my shortness of breath is more at rest versus only when moving around. I can say I’m experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nCurrent: significant dyspnea + cough + sore throat, confusion/disorientation, profound fatigue, diarrhea, diffuse myalgias/weakness. No chest pain info yet.\nTop candidates:\n1) Pneumonia — significant SOB with cough; confusion suggests possible hypoxia or sepsis.\n2) Influenza — can cause severe systemic symptoms (myalgias, fatigue) plus cough/SOB; confusion can occur.\n3) Acute COPD exacerbation / infection — SOB can be significant, but sore throat/diarrhea/myalgias suggest viral illness more than COPD alone (unless they have COPD history).\n4) Pulmonary embolism — can cause significant SOB and confusion from hypoxia, but sore throat/diarrhea/myalgias are less typical.\n5) Bronchospasm / acute asthma exacerbation — can cause SOB, but sore throat/diarrhea/myalgias less typical.\nMost informative next question: ask about wheezing/known asthma/COPD history, because it helps separate bronchospasm/COPD from pneumonia/influenza.\n[/REASONING]\nDo you have a history of asthma or COPD, or have you noticed wheezing or a “whistling” sound when you breathe?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I don’t have any information about asthma or COPD history or whether I’ve noticed wheezing or a “whistling” sound when I breathe.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have no history of asthma/COPD and no wheeze info. Ongoing: significant dyspnea + cough + sore throat; confusion/disorientation; profound fatigue; diarrhea; diffuse myalgias/weakness.\nTop candidates:\n1) Pneumonia — dyspnea + cough; confusion can reflect hypoxia/sepsis; diarrhea and myalgias can occur with systemic infection.\n2) Influenza — myalgias, profound fatigue, respiratory symptoms; GI symptoms possible; confusion possible with severe illness.\n3) Acute COPD exacerbation / infection — still possible but less supported without known history or wheeze.\n4) Pulmonary embolism — significant dyspnea/confusion possible, but sore throat/myalgias/diarrhea are less typical.\n5) Anaphylaxis — would usually have rash/itching, swelling, wheeze/stridor; diarrhea/myalgias less typical; confusion could occur but sore throat/cough pattern less classic.\nMost discriminating next question: ask about rash/itching/swelling or hives, because that would strongly point toward anaphylaxis/allergic reaction.\n[/REASONING]\nHave you had any rash, hives, itching, lip/tongue/throat swelling, or sudden onset symptoms after a new food/medication?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I haven’t mentioned a rash, hives, itching, or lip/tongue/throat swelling.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNo rash/hives/angioedema reported. Still: dyspnea + cough + sore throat; confusion; profound fatigue; diarrhea; diffuse myalgias/weakness.\nTop candidates:\n1) Pneumonia — still strongest given significant SOB + cough; confusion suggests severity.\n2) Influenza — systemic myalgias + profound fatigue + respiratory symptoms; diarrhea possible.\n3) Bronchitis / URTI — could explain cough/sore throat, but significant dyspnea + confusion makes pneumonia more likely.\n4) Pulmonary embolism — dyspnea/confusion possible, but sore throat and myalgias/diarrhea make it less likely (unless coincidental).\n5) GERD/other — not consistent with confusion/diarrhea/myalgias.\nMost discriminating next question: ask about onset speed and whether symptoms started suddenly (minutes-hours) vs gradually (days), which helps separate PE/other acute causes from viral pneumonia/influenza.\n[/REASONING]\nDid this start suddenly (within hours) or more gradually over 1–3 days?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I haven’t mentioned whether it started suddenly within hours or more gradually over 1–3 days.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack key discriminators: fever, chest pain/pleuritic symptoms, wheeze history, rash/angioedema, and timing (sudden vs gradual). Current syndrome: cough + sore throat + significant dyspnea, with confusion/disorientation and profound fatigue, plus diarrhea and diffuse myalgias/weakness. This most strongly suggests an acute infectious respiratory illness with systemic involvement (influenza or pneumonia). PE is less supported by sore throat/myalgias/diarrhea but cannot be excluded without timing/pleuritic symptoms/leg risk factors.\nTop candidates with brief reasoning:\n1) Pneumonia — cough + significant SOB; confusion can occur with hypoxia/sepsis; diarrhea/myalgias can accompany systemic infection.\n2) Influenza — prominent myalgias, profound fatigue, respiratory symptoms; GI symptoms (diarrhea) and confusion can occur in severe cases.\n3) Acute COPD exacerbation / infection — SOB with cough could fit, but no COPD history/wheeze info; still possible.\n4) Pulmonary embolism — can cause significant SOB and confusion from hypoxia; however sore throat and myalgias/diarrhea are atypical.\n5) Bronchitis — can cause cough/SOB but usually less confusion/systemic features than present.\nMost informative next question: ask about sick contacts or known exposure (e.g., household member with flu/COVID) because it helps distinguish influenza",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I have been in contact with a person with similar symptoms in the past 2 weeks.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have a strong exposure history: contact with someone with similar symptoms in past 2 weeks → supports contagious viral illness (influenza/other URTI) and makes bacterial pneumonia less specific (though pneumonia can follow viral infection).\nSyndrome: cough + sore throat + significant SOB + confusion/disorientation + profound fatigue + diarrhea + diffuse myalgias.\nTop candidates:\n1) Influenza — contagious exposure, myalgias, profound fatigue, respiratory symptoms; diarrhea and confusion can occur in severe illness.\n2) Pneumonia — could be viral or secondary bacterial; exposure to respiratory illness could precede pneumonia; confusion suggests severity/hypoxia.\n3) Bronchitis — contagious viral bronchitis fits cough/SOB and exposure; confusion would be less typical but possible if hypoxic/dehydrated.\n4) URTI / Viral pharyngitis — sore throat/cough with exposure; would not fully explain significant dyspnea/confusion/diarrhea.\n5) Pulmonary embolism — exposure history argues against, but still possible if dyspnea/confusion disproportionate.\nMost discriminating next question: ask about measured oxygen saturation or whether they feel worse when lying flat / any severe hypoxia signs—however we can’t measure. Better: ask about how high the shortness of breath is and whether they can speak full sentences (severity of dyspnea).\n[/REASONING]\nAre you able to speak full sentences comfortably, or do",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I still don’t have enough discriminating clinical data (vital signs/oxygen level, timing of onset, chest pain/pleuritic symptoms, wheeze history, and severity of dyspnea such as ability to speak) to confidently rank between influenza vs pneumonia vs other serious causes of dyspnea with confusion.  \n[POSSIBLE] Influenza, Pneumonia, Bronchitis, Acute COPD exacerbation / infection, Pulmonary embolism",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Pneumonia",
+      "Bronchitis",
+      "Acute COPD exacerbation / infection",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14954,
+      "completion_tokens": 1981
+    },
+    "patient": {}
+  }
+}

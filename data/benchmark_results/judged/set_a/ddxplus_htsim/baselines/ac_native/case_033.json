@@ -1,0 +1,89 @@
+{
+  "case_idx": 33,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {
+    "AGE": 59,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['recent viral infection', 'history of pericarditis', 'pain', 'shortness of breath', 'palpitations', 'symptoms worse when lying down and alleviated while sitting up']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 59\n- I have recently had a viral infection.\n- I have had a pericarditis.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- My heart is beating fast (racing), irregularly (missing a beat), or I feel palpitations.\n- My symptoms are worse when lying down and alleviated while sitting up.\n- On a scale of 0-10, the pain intensity is 9\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 9\n- The pain is:\n* sharp\n- The pain locations are:\n* lower chest\n* upper chest\n* breast(R)\n* breast(L)\n* epigastric\n- The pain radiates to these locations:\n* posterior chest wall(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Pericarditis', 0.12867322038476872], ['GERD', 0.12563020157670465], ['Possible NSTEMI / STEMI', 0.12455663397917655], ['Myocarditis', 0.09407379198140306], ['PSVT', 0.0939286217531686], ['Panic attack', 0.08252140321815998], ['Anaphylaxis', 0.07925052600512239], ['Scombroid food poisoning', 0.06356541609488445], ['Acute dystonic reactions', 0.06356541609488445], ['Guillain-Barré syndrome', 0.053711417223224575], ['Sarcoidosis', 0.05205482947215122], ['Stable angina', 0.023274609276642357], ['Acute pulmonary edema', 0.015193912939708797], ['Pulmonary embolism', 0.0]]",
+    "PATHOLOGY": "Pericarditis",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['B34.9', 'I30', 'douleurxx', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_bas_du_thorax', 'douleurxx_endroitducorps_@_haut_du_thorax', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_endroitducorps_@_sein_G_', 'douleurxx_endroitducorps_@_épigastre', 'douleurxx_intens_@_9', 'douleurxx_irrad_@_thorax_postérieur_G_', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_9', 'dyspn', 'palpit', 'trav1_@_N', 'ww_dd']",
+    "patient_id": "htsim_1188",
+    "_test_index": 1188,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 59-year-old F patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significant shortness of breath and severe, sharp chest pain—about 9/10 intensity. The pain is in my lower and upper chest, in both breasts, and in the epigastric area, and it radiates to the posterior chest wall on the left. It’s worse when lying down and better when sitting up. I also feel my heart beating fast and irregularly with palpitations. I recently had a viral infection, and I’ve had pericarditis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about potentially serious causes like pericarditis complications, pulmonary embolism, or acute coronary syndrome—answer me: when did the symptoms start, and do you get fever or chills right now?  \nDoctor: Also, does the chest pain change with deep breaths or coughing, and have you measured your oxygen saturation or heart rate?  \nDoctor: REQUEST TEST: ECG + Troponin (repeat) and a STAT chest X-ray.",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know exactly when they started. I don’t know about fever or chills right now. I don’t know whether the chest pain changes with deep breaths or coughing. I haven’t measured my oxygen saturation or heart rate.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to clarify the risk: do you have leg swelling/pain (especially one side) or any recent long travel/surgery, and have you fainted, feel lightheaded, or have you noticed coughing up blood?  \nDoctor: REQUEST TEST: D-dimer (if appropriate) + CTA Chest to rule out pulmonary embolism; also REQUEST TEST: Bedside echocardiogram to assess for pericardial effusion/tamponade.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No— I don’t know about leg swelling or leg pain. I don’t know about recent long travel or surgery. I don’t know if I’ve fainted or felt lightheaded, and I don’t know about coughing up blood.  \n\nI can say my symptoms are worse when lying down and better when sitting up, and I have significant shortness of breath, severe sharp chest pain (9/10) with palpitations and a racing, irregular heartbeat.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your severe sharp chest pain, shortness of breath, relief when sitting up, and known recent pericarditis—this pattern is highly concerning for **pericarditis with possible pericardial effusion** (and we must also urgently exclude pulmonary embolism/acute coronary syndrome).  \nDoctor: REQUEST TEST: STAT echocardiogram (urgent bedside) + repeat ECG/serial troponins + vitals including SpO₂ and blood pressure.  \nDoctor: Right now, are you able to lie flat without getting markedly worse, and do you have a low blood pressure, new swelling in the neck/jugular veins, or feeling like you might pass out?  \n\nDIAGNOSIS READY: Acute pericarditis with suspected pericardial effusion (evaluate for tamponade; concurrently rule out PE/ACS).\n\n[DDX]\n1. Pericarditis",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Pericarditis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Pericarditis",
+    "predicted_set_remapped": [
+      "Pericarditis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1380,
+      "completion_tokens": 368,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 2737,
+      "completion_tokens": 251,
+      "calls": 3
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "case_idx": 30,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Minimal Change Disease",
+  "patient_actor_hidden": {
+    "Demographics": "25-year-old female",
+    "History": "The patient reports developing swelling around her eyes and ankles over several days. She mentions a recent diagnosis of Hodgkin's lymphoma but has not started treatment yet. No history of kidney disease or similar symptoms in the past.",
+    "Symptoms": {
+      "Primary_Symptom": "Edema, particularly around the eyes and ankles",
+      "Secondary_Symptoms": [
+        "Fatigue",
+        "No recent infections",
+        "No changes in urine color or frequency"
+      ]
+    },
+    "Past_Medical_History": "Recently diagnosed with Hodgkin's lymphoma. No other significant medical history.",
+    "Social_History": "Non-smoker, does not consume alcohol. Currently a graduate student.",
+    "Review_of_Systems": "Denies recent respiratory infections, no history of drug use, no significant weight changes."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with recent onset of edema and significant proteinuria.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had swelling around my eyes and also my ankles over the past several days, and I feel more fatigued than usual. I was recently diagnosed with Hodgkin’s lymphoma but I haven’t started any treatment yet.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: periorbital (around eyes) and ankle swelling over several days + fatigue; newly diagnosed Hodgkin’s lymphoma, not yet treated. This raises concern for systemic causes of edema (e.g., nephrotic syndrome/renal involvement, cardiac causes, hepatic causes, or less commonly hematologic complications). From the provided disease list, the closest matches involving edema/fatigue would be Membranous nephropathy (can cause periorbital + ankle edema), Fulminant hepatic failure (can cause edema but usually more severe illness), and Acute myeloid/lymphoblastic leukemia (fatigue, but edema pattern less typical). Takotsubo cardiomyopathy and cardiac contusion are less likely without chest pain/dyspnea history.\nMost informative next discriminator: determine whether the edema is due to kidney (nephrotic syndrome) vs heart/liver by asking about urine findings.\n[/REASONING]\nFirst question: Have you noticed any change in your urine—especially foamy urine, dark/bloody urine, or decreased urine output?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t noticed any change in my urine color or frequency, and I’m not having any foamy urine or reduced output.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: periorbital + ankle swelling for several days, fatigue; Hodgkin’s lymphoma newly diagnosed, no treatment yet. No foamy urine, no dark/bloody urine, and no decreased urine output—this makes classic nephrotic syndrome/primary membranous nephropathy somewhat less likely, though early disease can still present without obvious urine changes.\nNext discriminators: look for signs of liver/portal hypertension (jaundice, abdominal swelling, easy bruising/bleeding) versus cardiac/heart failure (shortness of breath, orthopnea, chest pain).\nMost informative next question: Do you have any shortness of breath, especially when lying flat (orthopnea) or waking up at night short of breath? \n[/REASONING]\nDo you have any shortness of breath, especially when lying flat or waking up at night?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had shortness of breath when lying down or waking up at night, and I don’t have chest pain.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: periorbital + ankle edema, fatigue; no urinary changes; no orthopnea/PND or chest pain. This makes overt heart failure less likely.\nNext discriminator: assess for hepatic/portal causes—jaundice, abdominal distension/ascites, easy bruising/bleeding, or dark stools.\nMost informative next question: Have you noticed yellowing of your eyes/skin (jaundice) or swelling of your belly/abdominal bloating?\n[/REASONING]\nHave you noticed yellowing of your eyes/skin (jaundice) or swelling of your belly/abdominal bloating?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, Doctor—I haven’t noticed yellowing of my eyes or skin, and I haven’t had any noticeable belly swelling or bloating.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: periorbital + ankle swelling, fatigue over several days; no urinary changes (no foamy/dark/decreased output), no orthopnea/PND/chest pain, no jaundice or abdominal distension. With Hodgkin’s lymphoma untreated, we still must consider systemic causes of edema and fatigue, including hematologic complications (e.g., anemia/lymphatic obstruction) and less common causes like medication/toxic exposure (though none mentioned).\nNext discriminator: check for fever/night sweats/weight loss (B symptoms) and whether swelling is unilateral vs bilateral (lymphatic/venous obstruction). Most informative single question: Is the swelling in both eyes/ankles equally, or is it more on one side?\n[/REASONING]\nIs the swelling in both eyes and both ankles about equally, or is it more on one side?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it seems about equally on both sides—both my eyes and both ankles are swollen, not just one.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: bilateral periorbital and bilateral ankle edema over several days + fatigue; no urinary changes, no dyspnea/orthopnea, no jaundice/abdominal distension; Hodgkin’s lymphoma newly diagnosed and untreated. Bilateral edema without renal/heart/liver symptoms makes classic nephrotic syndrome/heart failure less obvious, but still possible early or atypical. In lymphoma, consider systemic effects such as anemia, hypoalbuminemia from malignancy, or less commonly hepatic/vascular complications; from the provided list, the best fit for edema + fatigue is Membranous nephropathy (can present with periorbital edema) though urine changes may be absent early. Another possibility from the list is Fulminant hepatic failure (can cause edema) but would usually have prominent systemic/hepatic signs. Leukemia entities are less likely given Hodgkin’s diagnosis but hematologic malignancy can cause fatigue and edema via marrow failure or systemic inflammation.\nWe have insufficient discriminating data (vitals, exam, labs like albumin, creatinine, urinalysis, BNP, LFTs) to confidently rank beyond broad categories.\nNext most informative question: Do you know if you’ve had recent weight gain and/or have you been told your albumin is low, or have you had blood tests (creatinine, liver tests, albumin, CBC) yet?\n[/REASONING]\nHave you had",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t know my albumin levels, and I haven’t had blood tests for this new swelling yet—no one has mentioned creatinine or liver results. I’ve only noticed the swelling and my increased fatigue, and I haven’t had any measured weight change.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] We have bilateral periorbital and ankle edema with fatigue in a patient with untreated Hodgkin’s lymphoma, but no key discriminators yet (vitals, exam findings like JVP/ascites, and no labs such as urinalysis/proteinuria, creatinine, albumin, LFTs, BNP, CBC). Without these, I can’t confidently narrow to a specific diagnosis from the provided list.\n\n[POSSIBLE] Membranous nephropathy, Fulminant hepatic failure, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Takotsubo cardiomyopathy",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Membranous nephropathy",
+      "Fulminant hepatic failure",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "Membranous nephropathy",
+      "Fulminant hepatic failure",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Takotsubo cardiomyopathy"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Membranous nephropathy",
+      "Fulminant hepatic failure",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8389,
+      "completion_tokens": 1168
+    },
+    "patient": {
+      "prompt_tokens": 5280,
+      "completion_tokens": 227,
+      "calls": 6
+    }
+  }
+}

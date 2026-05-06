@@ -1,0 +1,169 @@
+{
+  "case_idx": 33,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Pericarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 40\nSex: M\nChief Complaint: chest pain with deep breaths",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had chest pain with deep breaths. The pain is in my lower and upper chest, both breasts (right and left), and in the epigastric area, and it feels like a knife stroke. It’s worse when lying down and better when sitting up, and I also have significant shortness of breath, plus my heart feels like it’s racing with irregular beats/palpitations.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, rough):**\n- **Pulmonary embolism:** 0.28  \n- **Acute pulmonary edema:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.18  \n- **Pericarditis:** 0.20  \n- **Anaphylaxis:** 0.05  \n(others lower)\n\n**Evidence so far:** pleuritic/positional chest pain (worse lying down, better sitting up) + significant dyspnea + palpitations/irregular beats.\n\n**Question 1 (most discriminating):**  \nWhen did this start, and is it **sudden (minutes)** or **gradual (hours–days)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started very fast—the pain’s pace at which the pain appeared is 9 on a 0–10 scale. I don’t know whether it was sudden in minutes or gradual over hours to days.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Rapid onset increases concern for **pulmonary embolism**, **acute coronary syndrome**, **spontaneous pneumothorax**, and **pericarditis less so**.\n\n**Current posterior (updated, rough):**\n- **Pulmonary embolism:** 0.34  \n- **Possible NSTEMI / STEMI:** 0.22  \n- **Pericarditis:** 0.14  \n- **Acute pulmonary edema:** 0.10  \n- **Spontaneous pneumothorax:** 0.10  \n(others combined 0.10)\n\n**Question 2:**  \nDo you have **leg symptoms**—especially **one-sided leg swelling/pain** (calf or thigh), or have you had **recent long travel/immobility** or **recent surgery**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—if you’re unsure, we’ll keep PE in the differential but need other discriminators.\n\n**Current posterior (unchanged, rough):**\n- **Pulmonary embolism:** 0.34  \n- **Possible NSTEMI / STEMI:** 0.22  \n- **Pericarditis:** 0.14  \n- **Acute pulmonary edema:** 0.10  \n- **Spontaneous pneumothorax:** 0.10  \n\n**Question 3 (high-yield):**  \nHave you had **fever, cough, or recent infection/flu-like symptoms**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have recently had a viral infection.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "That shifts probability toward **pericarditis** (post-viral), **pneumonia/bronchitis**, or **viral-related PE risk**, but we need specifics.\n\n**Current posterior (updated, rough):**\n- **Pericarditis:** 0.26  (post-viral makes this more likely)\n- **Pulmonary embolism:** 0.28  (still plausible)\n- **Possible NSTEMI / STEMI:** 0.18\n- **Acute pulmonary edema:** 0.08\n- **Pneumonia:** 0.08\n(others lower)\n\n**Question 4:**  \nDoes the pain **worsen when you take a deep breath** (pleuritic) *and* is it **better leaning forward** (you already said sitting up helps—leaning forward specifically)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. My chest pain is increased when I breathe in deeply, and it’s worse when lying down and alleviated while sitting up.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Great—this pattern (pleuritic + worse lying down, better sitting up/leaning forward) strongly supports **pericarditis**.\n\n**Current posterior (updated, rough):**\n- **Pericarditis:** 0.55  \n- **Pulmonary embolism:** 0.18  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Pneumonia:** 0.07  \n- **Spontaneous pneumothorax:** 0.06  \n\n**Question 5 (to confirm pericarditis vs ACS/PE):**  \nDo you have **fever** (measured or you feel hot), and have you noticed a **new cough** or **sputum**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll proceed with other discriminators.\n\n**Current posterior (rough):**\n- **Pericarditis:** 0.55  \n- **Pulmonary embolism:** 0.18  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Pneumonia:** 0.07  \n- **Spontaneous pneumothorax:** 0.06  \n\n**Question 6 (very discriminating):**  \nDoes the pain **radiate to your shoulder/arm/jaw**, or is it mainly **central chest/epigastric**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My pain is in my lower chest and upper chest, both breasts (right and left), and the epigastric area, and it radiates to my posterior chest wall on both sides (right and left).",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated, rough):**\n- **Pericarditis:** 0.62  \n- **Pulmonary embolism:** 0.16  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n- **Pneumonia:** 0.04  \n\nRadiation to the back bilaterally can fit pericardial pain, but we still must not miss PE/ACS.\n\n**Question 7 (key for PE):**  \nAny **coughing up blood**, **new/worsening leg swelling**, or **recent immobilization/long flight**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—keep PE on the list.\n\n**Current posterior (rough):**\n- **Pericarditis:** 0.62  \n- **Pulmonary embolism:** 0.16  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n- **Pneumonia:** 0.04  \n\n**Question 8 (ACS discriminator):**  \nDo you have **sweating, nausea/vomiting, or a feeling of impending doom** with the pain?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My main symptoms are the chest pain with deep breaths (worse when lying down and better when sitting up), significant shortness of breath, and palpitations with a racing, irregular heartbeat.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated, rough):**\n- **Pericarditis:** 0.66  \n- **Pulmonary embolism:** 0.14  \n- **Possible NSTEMI / STEMI:** 0.08  \n- **Acute pulmonary edema:** 0.05  \n- **Atrial fibrillation:** 0.04  \n\nPalpitations/irregular rhythm could be secondary to pain/hypoxia, but we should still consider primary arrhythmia.\n\n**Question 9 (arrhythmia/ACS discriminator):**  \nHave you ever been told you have **atrial fibrillation** or any heart rhythm problem before?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—then we’ll use other symptom patterns.\n\n**Current posterior (rough):**\n- **Pericarditis:** 0.66  \n- **Pulmonary embolism:** 0.14  \n- **Possible NSTEMI / STEMI:** 0.08  \n- **Acute pulmonary edema:** 0.05  \n- **Atrial fibrillation:** 0.04  \n\n**Question 10 (pericarditis vs PE):**  \nDo you have **pain relief when you lean forward** (you already said sitting up helps)—and does it get worse **when you lie flat**? (Just confirm yes/no.)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes. My symptoms are worse when lying down and alleviated while sitting up.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated, rough):**\n- **Pericarditis:** 0.72  \n- **Pulmonary embolism:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.07  \n- **Acute pulmonary edema:** 0.04  \n- **Atrial fibrillation:** 0.03  \n\nWe’re now fairly confident pericarditis is the leading diagnosis, but we still must consider PE/ACS because of significant dyspnea and palpitations.\n\n**Question 11 (safety discriminator):**  \nDo you have **new leg swelling**, **one-sided calf pain**, or **recent surgery/immobility**—even if you’re not sure? (Yes/No/Not sure is fine.)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Current posterior (rough):**\n- **Pericarditis:** 0.72  \n- **Pulmonary embolism:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.07  \n- **Acute pulmonary edema:** 0.04  \n- **Atrial fibrillation:** 0.03  \n\nAt this point, the positional/pleuritic pattern after a viral illness is most consistent with pericarditis, but we still can’t exclude PE/ACS without objective testing (ECG, troponin, CXR, and likely CT-PA or V/Q depending on risk).\n\n**Question 12 (final key discriminator):**  \nHave you noticed **feeling worse with exertion** or **any fainting/near-fainting**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**[ABSTAIN]** I have a strong pattern for pericarditis (pleuritic chest pain, worse lying down, better sitting up, recent viral infection), but the history is still insufficient to confidently exclude other life-threatening causes (especially pulmonary embolism and acute coronary syndrome) without objective data (ECG, troponin, vitals/oxygenation, CXR, and PE risk assessment/imaging).\n\n[POSSIBLE] Pericarditis, Pulmonary embolism, Possible NSTEMI / STEMI, Acute pulmonary edema, Atrial fibrillation",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pericarditis",
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Atrial fibrillation"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 24895,
+      "completion_tokens": 1893
+    },
+    "patient": {}
+  }
+}

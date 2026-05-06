@@ -1,0 +1,123 @@
+{
+  "case_idx": 41,
+  "baseline": "bmbe",
+  "column": "htsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 47\nSex: F\nChief Complaint: pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been having severe pain—mostly in my right breast—with a pain intensity of 9/10. It gets worse when I breathe in deeply and when I’m physically exerting, and it eases with rest. The pain is heartbreaking and violent, and it feels like it comes on at a pace of 6/10. I also have a history of a spontaneous pneumothorax, and some family members have had a pneumothorax. I smoke cigarettes and I have COPD.",
+      "extracted_features": {
+        "f_e_55_v_159": "yes",
+        "f_e_53": "yes",
+        "f_e_220": "yes",
+        "f_e_218": "yes",
+        "f_e_56": "9",
+        "f_e_59": "6",
+        "f_e_54_v_191": "yes",
+        "f_e_54_v_71": "yes",
+        "f_e_54_v_11": "yes",
+        "f_ant_e_79": "yes",
+        "f_ant_e_21": "yes",
+        "f_ant_e_165": "yes",
+        "f_ant_e_123": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.9952427327389289
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.0018679793950898672
+        ],
+        [
+          "Pneumonia",
+          0.0006051491044011804
+        ],
+        [
+          "Stable angina",
+          0.00043951286555172635
+        ],
+        [
+          "Unstable angina",
+          0.0004049460428466515
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_216",
+      "doctor_question": "Do you have pain that gets worse when you move (for example, when you walk, turn, or use the affected area)?",
+      "patient_answer": "Yes, it gets worse with physical exertion, but it eases with rest.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.9117860523696444
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.0855669427431834
+        ],
+        [
+          "Pneumonia",
+          0.0005544039608091436
+        ]
+      ],
+      "entropy": 0.4581079616241184
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_203",
+      "doctor_question": "Do you have intense coughing fits—episodes where coughing becomes very hard to control?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Spontaneous pneumothorax",
+          0.981499147688261
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.01565856353720039
+        ],
+        [
+          "Pneumonia",
+          0.0005967924312891
+        ]
+      ],
+      "entropy": 0.1555999246341183
+    }
+  ],
+  "final": {
+    "predicted": "Spontaneous pneumothorax",
+    "predicted_top3": [
+      "Spontaneous pneumothorax",
+      "Spontaneous rib fracture",
+      "Pneumonia"
+    ],
+    "confidence": 0.981499147688261,
+    "final_entropy": 0.1555999246341183,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9961,
+      "completion_tokens": 441
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,21 @@
+model:
+  name: gpt-4o-mini  # Model used to generate features and distributions
+
+feature_generation:
+  threshold_p: 0.1  # Min P(symptom|disease) for inclusion
+
+distribution_generation:
+  chunk_size: 20
+  max_api_calls: null
+  temperature: 0.2
+  numerical_distribution_type: discrete_0_5
+  numeric_scale_min: 0
+  numeric_scale_max: 5
+
+paths:
+  diseases_json: ../../../data/raw/llmkb/input/diseases18.json
+  generated_features_json: ../../../data/raw/llmkb/output/generated_features_diseases18.json
+  generated_distributions_json: ../../../data/raw/llmkb/output/generated_distributions_diseases18.json
+
+prompt:
+  max_existing_features_in_prompt: null

@@ -1,0 +1,94 @@
+{
+  "case_idx": 32,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "objective_for_doctor": "A 21-year-old Male patient presents to the clinic. Chief complaint: I have lower chest pain, upper chest pain, and tedious pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have really bad chest pain—upper and lower chest—and it feels heavy and sickening, like a scary pain. It started pretty fast and I’m also very sweaty and short of breath, with pain going into my arms (biceps/shoulders) and my back near the thoracic spine, plus epigastric pain and both breast pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I examine you, I need to clarify: when did the pain start, how long has it lasted, and is it worse with exertion or better with rest (and does it change with breathing or pressing on the chest)?  \nDoctor: Also, any fever/cough, nausea/vomiting, or recent cocaine/stimulant use, and do you have a history of heart disease, blood clots, or high blood pressure?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The pain started really fast—about an 8/10 speed—and it’s been going on since it began, and it feels like it’s getting intense. It’s very bad (around 9/10) and I feel short of breath; I don’t know if it’s specifically worse with exertion, but it feels severe and not relieved by rest. It also doesn’t feel like it changes with breathing or when I press on my chest.\n\nNo fever or cough, and no nausea/vomiting. I don’t use cocaine or stimulants. I do have diabetes, high cholesterol, I smoke, and I’ve been told I have heart/angina-type risk before, and I also have a history related to poor circulation. I don’t know about blood clots.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the sudden, crushing 9/10 chest pain with sweating, shortness of breath, and radiation to arms/back plus your diabetes, high cholesterol, smoking, and prior “angina-type” risk, I’m very concerned for an acute coronary syndrome; I need you to answer quickly: are you currently having the pain right now, and do you have any fainting/dizziness or new weakness?  \nDoctor: Also, REQUEST TEST: 12-lead_ECG and REQUEST TEST: High-sensitivity_Troponin (serial if possible).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the pain is still happening right now. I feel really unwell and scared, but I don’t have fainting; I’m not sure about dizziness, and I don’t have new weakness that I can tell.  \n\nAnd yes, I’m okay with the 12-lead ECG and blood tests for high-sensitivity troponin.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you now—please tell me your vital signs if you know them (especially heart rate, blood pressure, oxygen saturation), and any leg swelling or recent long travel/immobility.  \nDoctor: REQUEST TEST: CBC, REQUEST TEST: Basic_metabolic_panel, REQUEST TEST: Chest_X-Ray.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my exact vital signs right now—no heart rate, blood pressure, or oxygen saturation numbers. I don’t have leg swelling that I’ve noticed. I haven’t had any recent long travel or been immobile.  \n\nAnd yes, I’m okay with the CBC, basic metabolic panel, and chest X-ray.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a possible heart attack/unstable angina until proven otherwise—right now, do you have any allergies to aspirin or do you take blood thinners?  \nDoctor: Also, do you have access to emergency care/are you able to call 911 immediately, or should I activate urgent ER transfer now?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about any allergies to aspirin, and I’m not sure if I take blood thinners—I can’t confirm right now.  \n\nBut yes, I can call emergency services right away. Please activate urgent ER transfer now.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Please call 911/activate ER transfer immediately and stay on the phone with dispatch while you’re moving; I want an ambulance ECG and repeat troponins ASAP.  \nDoctor: While awaiting transport, confirm whether you can take aspirin (if no known allergy/bleeding history), and if you’re able, I’ll have the ER start standard acute coronary syndrome care after the ECG is obtained.  \nDoctor: DIAGNOSIS READY: Acute Coronary Syndrome (likely STEMI/NSTEMI vs unstable angina) — requires immediate ER evaluation.\n\n[DDX]\n1. Unstable angina\n2. Stable angina",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unstable angina",
+    "predicted_set_remapped": [
+      "Unstable angina",
+      "Possible NSTEMI / STEMI",
+      "Anemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3404,
+      "completion_tokens": 475,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 5906,
+      "completion_tokens": 432
+    }
+  }
+}

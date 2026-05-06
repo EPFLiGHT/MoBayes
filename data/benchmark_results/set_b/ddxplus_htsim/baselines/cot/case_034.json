@@ -1,0 +1,99 @@
+{
+  "case_idx": 34,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 23\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood and I have pain—it's sharp, around the posterior chest wall on the left (3/10). My cough produces colored or more abundant sputum than usual, and it’s more prominent at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: hemoptysis (“coughing up blood”), sharp left posterior chest wall pain (3/10), increased/colored sputum, worse at night. This pattern raises concern for infection/inflammation of the airways or lung, but hemoptysis also requires considering pulmonary embolism and malignancy. Chest wall–localized sharp pain could be pleuritic or musculoskeletal, but with hemoptysis we must be cautious.\nTop candidates:\n1) Pneumonia — colored/increased sputum and pleuritic-type chest pain can fit; hemoptysis can occur.\n2) Bronchitis — increased sputum and cough; hemoptysis can occur but usually less dramatic.\n3) Pulmonary embolism — hemoptysis can be a key feature; pain can be pleuritic; sputum changes may be coincidental.\n4) Pulmonary neoplasm — hemoptysis with chest pain; sputum changes could occur but less specific.\n5) Spontaneous pneumothorax — can cause sharp unilateral pain; hemoptysis is less typical.\nMost informative next question: determine whether the pain is pleuritic and assess for PE risk factors (sudden onset, dyspnea, leg swelling, recent immobility/surgery).\n[/REASONING]\nOne question: Did the chest pain start suddenly, and do you have shortness of breath or feel worse",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if it started suddenly.\n\nI don’t know about shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: hemoptysis, left posterior sharp chest wall pain, increased colored sputum, worse at night. We still lack key discriminators: presence of dyspnea, sudden onset, and PE risk factors. Without dyspnea/sudden onset info, pneumonia/bronchitis remain plausible, but PE can’t be excluded.\nTop candidates:\n1) Pneumonia — still supported by colored/increased sputum and chest pain with cough/at night; hemoptysis possible.\n2) Bronchitis — sputum/cough pattern fits; hemoptysis possible.\n3) Pulmonary embolism — hemoptysis is concerning; pain could be pleuritic, but we need PE risk factors and dyspnea.\n4) Pulmonary neoplasm — hemoptysis; need duration and risk factors.\n5) Spontaneous pneumothorax — sharp unilateral pain possible, but hemoptysis less typical; need dyspnea/trauma.\nMost informative next question: ask about PE red flags—leg swelling/pain, recent immobility/surgery, or prior clots.\n[/REASONING]\nOne question: Have you had any recent long travel, surgery, being bedridden/immobile, or leg swelling/pain (especially one-sided) in the past 4 weeks?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: hemoptysis + colored/increased sputum + left posterior sharp chest wall pain; no info on dyspnea or sudden onset; PE risk factors unknown. Because the patient can’t provide PE risk details, we should pivot to other discriminators: fever/systemic symptoms (infection), and whether bleeding is small streaks vs large volume, and any wheeze/asthma history.\nTop candidates remain:\n1) Pneumonia — colored sputum, night cough, pleuritic pain; hemoptysis possible.\n2) Bronchitis — productive cough with sputum; hemoptysis possible.\n3) Pulmonary embolism — still possible given hemoptysis; need dyspnea/pleuritic features.\n4) Pulmonary neoplasm — hemoptysis; need chronicity and smoking history.\n5) Bronchospasm/acute asthma exacerbation — less likely with hemoptysis but could cause cough; would expect wheeze.\nMost informative next question: do you have fever/chills or feel sick/weak (suggesting infection)? \n[/REASONING]\nOne question: Have you had a fever (or chills) or felt generally unwell?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches, or a change in my general well-being related to my consultation today.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: hemoptysis, increased colored sputum, cough worse at night, left posterior sharp chest wall pain, and now nonspecific “vague discomfort,” fatigue/generalized malaise, and diffuse muscle aches. These systemic symptoms increase likelihood of an infectious process (viral influenza/URTI, pneumonia) but hemoptysis still keeps PE and malignancy on the list.\nTop candidates:\n1) Pneumonia — systemic symptoms (malaise, myalgias) + colored/increased sputum + pleuritic chest pain; hemoptysis can occur.\n2) Influenza — myalgias and systemic symptoms with cough; hemoptysis can occur but colored sputum is less specific.\n3) Bronchitis — productive cough with sputum; systemic symptoms possible (especially viral), hemoptysis possible.\n4) Pulmonary embolism — hemoptysis can occur; systemic myalgias are less typical, but still possible.\n5) Pulmonary neoplasm — hemoptysis; systemic symptoms less acute.\nMost informative next question: How much blood are you coughing up—just streaks in sputum, teaspoons, or more than a tablespoon / clots? \n[/REASONING]\nOne question: Approximately how much blood is it (streaks vs teaspoons vs more than a tablespoon, and any clots)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: hemoptysis (amount unknown), colored/increased sputum, cough worse at night, left posterior sharp chest wall pain, and systemic malaise/myalgias. We still lack key discriminators: fever, dyspnea, PE risk factors, and bleeding volume. With limited history, infection (pneumonia/influenza/bronchitis) is still most supported by colored sputum + myalgias, but hemoptysis prevents ruling out PE and malignancy.\nTop candidates:\n1) Pneumonia — colored/increased sputum + pleuritic chest pain + systemic symptoms.\n2) Influenza — myalgias/systemic malaise + cough; hemoptysis can occur.\n3) Bronchitis — productive cough with sputum; hemoptysis possible.\n4) Pulmonary embolism — hemoptysis + pleuritic pain possible; systemic myalgias not classic but history incomplete.\n5) Pulmonary neoplasm — hemoptysis; less supported by acute systemic symptoms but possible.\nMost informative next question: Do you have any shortness of breath (even mild), or does the chest pain worsen when you take a deep breath? \n[/REASONING]\nOne question: Are you short of breath, and does the pain get worse with deep breaths?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are still missing (bleeding volume, dyspnea/pleuritic worsening, fever, and PE risk factors like immobility/surgery/leg swelling). With only hemoptysis + colored/increased sputum + systemic malaise/myalgias, infection is most likely, but pulmonary embolism and malignancy cannot be excluded safely.\n\n[POSSIBLE] Pneumonia, Influenza, Bronchitis, Pulmonary embolism, Pulmonary neoplasm",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Influenza",
+      "Bronchitis",
+      "Pulmonary embolism",
+      "Pulmonary neoplasm"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9312,
+      "completion_tokens": 1511
+    },
+    "patient": {}
+  }
+}

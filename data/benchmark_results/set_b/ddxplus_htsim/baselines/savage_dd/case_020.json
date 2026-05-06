@@ -1,0 +1,89 @@
+{
+  "case_idx": 20,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Epiglottitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: M\nChief Complaint: changes in voice",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve noticed my voice has become deeper, softer, or hoarse. I also have pain in my tonsils (right and left), in the back of my neck, in the palate, and in the pharynx. The pain is sharp and feels like a knife stroke, and it’s very intense (9/10).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that—let’s narrow this down quickly.\n\n**One question:** Do you have **fever** (measured or felt), and if so what’s the highest temperature?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question:\n\n**Do you have any trouble breathing or swallowing**, like drooling, inability to swallow liquids, or a “hot potato” muffled voice?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have difficulty swallowing, or a feeling of discomfort/blockage when swallowing. I’m also experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (very important):\n\n**Are you having drooling or can’t handle your saliva, or is your breathing worse when you lie flat?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have difficulty swallowing, or a feeling of discomfort/blockage when swallowing. I’m also experiencing shortness of breath or difficulty breathing in a significant way.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. I need to clarify one more high-risk feature:\n\n**Is your voice muffled/“hot potato,” and do you have a new/worsening stridor (a high-pitched sound when breathing in)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve noticed a high pitched sound when breathing in.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Epiglottitis, Croup, Acute laryngitis, Acute dystonic reactions, Anaphylaxis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [
+      "Epiglottitis",
+      "Croup",
+      "Acute laryngitis",
+      "Acute dystonic reactions",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4628,
+      "completion_tokens": 191
+    },
+    "patient": {}
+  }
+}

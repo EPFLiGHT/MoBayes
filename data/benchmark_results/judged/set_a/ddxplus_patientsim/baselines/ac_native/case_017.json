@@ -1,0 +1,94 @@
+{
+  "case_idx": 17,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Croup",
+  "objective_for_doctor": "A 5-year-old Male patient presents to the clinic. Chief complaint: I have a fever, does the person have a whooping cough, and significant dyspnea.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have a fever and I’m having a lot of trouble breathing. I also make more saliva than usual, and I have a harsh breathing sound (stridor).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your fever, severe trouble breathing, extra saliva, and stridor, I’m concerned about an upper-airway obstruction or a serious throat infection; can you tell me: when did the symptoms start, and is your breathing worse when you’re lying down?  \nPatient:",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My symptoms started today (earlier this morning). My breathing feels worse when I lie down, so I’ve been trying to stay more upright.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a focused question to narrow this down: do you have a barking cough, trouble swallowing/drooling, or a muffled “hot potato” voice?  \nPatient:",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a barking cough. I’m drooling more than usual, and my voice sounds a bit muffled.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—your barking cough, drooling, muffled voice, and stridor with fever strongly suggest an acute upper-airway infection; can you tell me if you can swallow fluids at all, and whether you see your neck pulling in (retractions) or if he is unusually sleepy or worsening quickly?  \nPatient:",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I can swallow some fluids, but it’s hard. I think his neck is pulling in when he breathes, and he seems like he’s getting worse pretty quickly.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This sounds like a potentially life-threatening airway infection (likely croup, epiglottitis, or retropharyngeal involvement); can you tell me your temperature and whether he’s had any recent choking/foreign body or a sore throat before today?  \nDoctor: Also, right now, is he able to talk/cry normally, and are you hearing harsh stridor even at rest (not only when upset)?  \nDoctor: REQUEST TEST: Pulse_Oximetry (SpO2) and REQUEST TEST: Lateral_Neck_and_or_Chest_XRay to assess for epiglottitis/airway narrowing.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know his exact temperature, but he does have a fever. No recent choking/foreign body, and no sore throat before today.\n\nRight now he can’t really talk—he’s more quiet/crying weakly—and the harsh stridor is there even when he’s resting, not only when he’s upset.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—based on drooling, muffled voice, stridor at rest, inability to talk/cry normally, and rapid worsening, I’m most concerned about **acute epiglottitis** rather than typical viral croup; can you confirm if he looks very ill/toxic and whether he’s sitting upright with neck extended (tripod posture)?  \nPatient:  \n\nDoctor: I’m going to decide now—**DIAGNOSIS READY: Acute epiglottitis (life-threatening upper airway infection)**\n\n[DDX]\n1. Epiglottitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Epiglottitis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Epiglottitis",
+    "predicted_set_remapped": [
+      "Epiglottitis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2255,
+      "completion_tokens": 425,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 3363,
+      "completion_tokens": 205
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "case_idx": 45,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Erythema Toxicum",
+  "patient_actor_hidden": {
+    "Demographics": "4-day-old newborn",
+    "History": "The newborn was born at term with no complications. The mother had no prenatal care and has a history of gonorrhea treated 4 years ago. The newborn presents with a generalized rash that has been present for 1 day.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized erythematous maculopapular rash and pustules",
+      "Secondary_Symptoms": [
+        "Rash with an erythematous base",
+        "Rash over the trunk and extremities",
+        "Sparing of the palms and soles"
+      ]
+    },
+    "Past_Medical_History": "Born at term, no prenatal care for the mother, mother's history of gonorrhea treated 4 years ago.",
+    "Social_History": "N/A for the newborn.",
+    "Review_of_Systems": "No other abnormalities noted in the systems review; the rest of the examination shows no abnormalities."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn presenting with a generalized rash.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m 4 days old, and I have a generalized rash—red, bumpy spots and some pustules—started about a day ago, mostly on my trunk and arms/legs, with my palms and soles spared.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors for a neonate with rash):  \n- Steven-Johnson syndrome: 0.20  \n- Bed bug bite: 0.10  \n- Erythema Toxicum: 0.30  \n- Histoplasmosis: 0.05  \n- Acute lymphoblastic leukemia: 0.05  \n- Other/insufficient: 0.30  \n\nEvidence so far: “4 days old, generalized red bumpy spots + some pustules, trunk/limbs, palms/soles spared, started ~1 day ago.”  \n- Likelihood ratio (LR) for **Erythema Toxicum** vs others: ~3.0 (classic timing ~day 2–3, pustular/bumpy rash, typically spares palms/soles)  \n- LR for **Steven-Johnson**: ~0.2 (SJS usually has mucosal involvement/skin pain and more severe systemic illness)  \n\nUpdated posterior:  \n- Erythema Toxicum: 0.60  \n- Steven-Johnson syndrome: 0.04  \n- Bed bug bite: 0.08  \n- Histoplasmosis: 0.03  \n- Acute lymphoblastic leukemia: 0.02  \n- Other/insufficient: 0.23  \n\nOne key question to discriminate benign neonatal pustular rash from serious mucocutaneous disease:  \n**Do you see",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any sores in your mouth or eyes, trouble feeding, fever, or pain with the rash? Patient: I’m feeding okay, and I don’t seem to have any mouth or eye sores; the rash is mostly on my trunk and arms/legs with some pustules, and my palms and soles look clear.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Erythema Toxicum: 0.60  \n- Steven-Johnson syndrome: 0.04  \n- Bed bug bite: 0.08  \n- Histoplasmosis: 0.03  \n- Acute lymphoblastic leukemia: 0.02  \n- Other/insufficient: 0.23  \n\nNew evidence: **No mouth/eye sores, no feeding trouble, no mention of fever/pain**.  \n- Likelihood ratio for **SJS** given absence of mucosal lesions/pain: ~0.3 (lowers SJS)  \n- Likelihood ratio for **Erythema Toxicum** given palms/soles spared and no systemic symptoms: ~1.2 (slightly supports)\n\nUpdated posterior:  \n- Erythema Toxicum: 0.65  \n- Steven-Johnson syndrome: 0.01  \n- Bed bug bite: 0.10  \n- Histoplasmosis: 0.02  \n- Acute lymphoblastic leukemia: 0.01  \n- Other/insufficient: 0.21  \n\nNext discriminating question (very high value):  \n**Does the rash come and go or change quickly (hours), and are the babies otherwise well-appearing (normal breathing, normal temperature, no lethargy)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The rash seems to have started yesterday and hasn’t made me seem very unwell—my breathing looks normal and I’ve been alert enough to feed, with no lethargy. It isn’t really coming and going in quick hours, it’s just spread on my trunk and limbs.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Erythema Toxicum: 0.65  \n- Bed bug bite: 0.10  \n- Steven-Johnson syndrome: 0.01  \n- Histoplasmosis: 0.02  \n- Acute lymphoblastic leukemia: 0.01  \n- Other/insufficient: 0.21  \n\nNew evidence: **well-appearing, no lethargy, normal breathing; rash started yesterday (~day 2–3 of life) and is persistent/spreading rather than rapidly fluctuating.**  \n- Likelihood ratio for **Erythema Toxicum**: ~1.3 (timing and well appearance support)  \n- Likelihood ratio for **SJS**: ~0.1 (SJS typically more ill and often mucosal involvement)  \n- Likelihood ratio for **bed bug bites**: ~0.6 (less likely in a 4-day-old with no mention of exposure pattern; also usually not “pustules” generalized in a classic neonatal pattern)\n\nUpdated posterior:  \n- Erythema Toxicum: 0.72  \n- Bed bug bite: 0.06  \n- Steven-Johnson syndrome: 0.001  \n- Histoplasmosis: 0.02  \n- Acute lymphoblastic leukemia: 0.01  \n- Other/insufficient: 0.19  \n\nOne last high-yield question:  \n**Can you",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: “Are you having any peeling of the skin, blistering, or fever, and can you tell if the rash is tender or painful to touch?” Patient: “I don’t have fever, and I haven’t noticed any blistering or peeling—when you look at it, it doesn’t seem especially painful.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Erythema Toxicum: 0.72  \n- Bed bug bite: 0.06  \n- Steven-Johnson syndrome: 0.001  \n- Histoplasmosis: 0.02  \n- Acute lymphoblastic leukemia: 0.01  \n- Other/insufficient: 0.19  \n\nNew evidence: **No fever, no blistering/peeling, not especially painful.**  \n- Likelihood ratio for **SJS** given no fever + no blistering/peeling + no pain: ~0.05 (strongly lowers)  \n- Likelihood ratio for **Erythema Toxicum** given benign course and lack of mucosal/systemic signs: ~1.5  \n\nUpdated posterior:  \n- Erythema Toxicum: 0.86  \n- Bed bug bite: 0.05  \n- Steven-Johnson syndrome: 0.00005  \n- Histoplasmosis: 0.015  \n- Acute lymphoblastic leukemia: 0.005  \n- Other/insufficient: 0.07  \n\nWe have enough to be confident.  \n\n[DDX] Erythema Toxicum, Bed bug bite, Histoplasmosis, Steven-Johnson syndrome, Acute lymphoblastic leukemia",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Erythema Toxicum",
+    "predicted_set": [
+      "Erythema Toxicum",
+      "Bed bug bite",
+      "Histoplasmosis",
+      "Steven-Johnson syndrome",
+      "Acute lymphoblastic leukemia"
+    ],
+    "predicted_raw": [
+      "Erythema Toxicum",
+      "Bed bug bite",
+      "Histoplasmosis",
+      "Steven-Johnson syndrome",
+      "Acute lymphoblastic leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Erythema Toxicum",
+    "predicted_set_remapped": [
+      "Erythema Toxicum",
+      "Bed bug bite",
+      "Histoplasmosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5587,
+      "completion_tokens": 1146
+    },
+    "patient": {
+      "prompt_tokens": 3439,
+      "completion_tokens": 270,
+      "calls": 4
+    }
+  }
+}

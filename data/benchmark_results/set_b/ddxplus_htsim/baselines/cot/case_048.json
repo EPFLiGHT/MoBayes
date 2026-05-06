@@ -1,0 +1,99 @@
+{
+  "case_idx": 48,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Whooping cough",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 70\nSex: M\nChief Complaint: vomiting after coughing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had vomiting after coughing. Also, I’ve been wheezing while inhaling, and my breathing is noisy after coughing spells.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: vomiting triggered after coughing; wheezing (specifically “while inhaling”); noisy breathing after coughing spells. This pattern suggests a cough-spasm syndrome (e.g., pertussis) or an acute airway process (bronchospasm/asthma, laryngospasm/croup/epiglottitis less likely in an adult). Vomiting after coughing is a classic clue for pertussis. No info yet on fever, duration, sick contacts, or whether the cough is in paroxysms with inspiratory “whoop.”\nTop candidates:\n1) Whooping cough — paroxysmal coughing with post-tussive vomiting; noisy breathing after spells.\n2) Bronchospasm / acute asthma exacerbation — wheeze and noisy breathing, but post-tussive vomiting is less classic.\n3) Pneumonia — cough with respiratory symptoms; vomiting can occur, but wheeze/noisy inspiratory sounds after spells could fit less.\n4) Acute COPD exacerbation / infection — wheeze and cough, but vomiting after coughing is not typical unless severe.\n5) GERD — cough with vomiting possible, but “coughing spells” with inspiratory noise is less typical.\nMost informative next question: duration and whether cough comes in attacks/paroxysms with a characteristic inspiratory sound.\n[/REASONING]\nHow long has this been going on, and are the coughing episodes happening",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on for an I don’t know amount of time.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack duration, which is important for distinguishing pertussis (often subacute/prolonged) vs acute bronchospasm/infection. The patient also can’t specify how long it’s been. Next most discriminating is whether the cough is in distinct paroxysms and whether there’s an inspiratory “whoop” or choking/noisy inspiratory stridor after coughing.\nTop candidates remain:\n1) Whooping cough — still best fit due to post-tussive vomiting and noisy breathing after spells.\n2) Bronchospasm / acute asthma exacerbation — wheeze/noisy breathing, but post-tussive vomiting less specific.\n3) Pneumonia — possible, but “spells” with noisy inspiratory breathing suggests cough paroxysms.\n4) Acute COPD exacerbation / infection — possible if older/smoker, but vomiting after coughing still points more to pertussis.\n5) GERD — possible vomiting, but paroxysmal cough with inspiratory noise less typical.\nNext action: ask about paroxysmal nature and the “whoop”/choking sound.\n[/REASONING]\nDuring these coughing spells, do you get repeated bursts of coughing that are hard to stop, and then a loud noisy gasp/inspiratory sound (sometimes described as a “whoop”)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’re missing key discriminators: paroxysmal cough pattern, inspiratory “whoop,” and duration. The patient can’t provide those details, so we should pivot to objective/observable features: fever, sick contacts, and age/risk factors (smoking/COPD, asthma history). Next most informative is whether there are fever or infectious symptoms and whether there’s known exposure (e.g., household contact with prolonged cough), which would support pertussis or pneumonia.\nTop candidates:\n1) Whooping cough — still leading due to post-tussive vomiting and noisy breathing after spells.\n2) Pneumonia — vomiting can occur; would expect fever, focal chest symptoms.\n3) Bronchospasm / acute asthma exacerbation — wheeze suggests; would expect known asthma/allergy triggers, less likely post-tussive vomiting.\n4) Acute COPD exacerbation / infection — if smoker/older.\n5) GERD — less likely to cause wheeze/noisy inspiratory sounds.\nNext question should assess fever and sick contacts.\n[/REASONING]\nHave you had any fever, and has anyone close to you (household/work) had a prolonged cough or “whooping” illness recently?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do know that I’ve been in contact with someone who has had pertussis (whooping cough).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have a major discriminating clue: known contact with pertussis. Combined with vomiting after coughing and noisy breathing after coughing spells, this strongly supports pertussis. Need to confirm severity/red flags (respiratory distress, cyanosis, inability to keep fluids), but diagnosis is already most likely.\nTop candidates:\n1) Whooping cough — classic post-tussive vomiting; noisy inspiratory breathing; confirmed exposure.\n2) Bronchospasm / acute asthma exacerbation — could cause wheeze, but exposure to pertussis and post-tussive vomiting favors pertussis.\n3) Pneumonia — vomiting can occur; but pertussis exposure and cough-spell pattern favors pertussis.\n4) Acute COPD exacerbation / infection — wheeze possible; exposure less relevant.\n5) GERD — vomiting possible; wheeze/noisy inspiratory spells less typical and exposure points to pertussis.\nMost informative next question (for safety): any trouble breathing, blue lips, or chest pain?\n[/REASONING]\nAre you having any trouble breathing right now (or blue/gray lips), chest pain, or feeling like you can’t catch your breath?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have strong exposure (known pertussis contact) plus vomiting after coughing and noisy breathing after coughing spells—this is highly characteristic. We still lack severity/red-flag details, but that doesn’t change the most likely diagnosis; it affects urgency. Since the patient can’t answer, we should ask one more targeted safety question: can they speak full sentences and are they breathing comfortably at rest?\nTop candidates remain:\n1) Whooping cough — best supported by exposure + post-tussive vomiting + noisy inspiratory breathing.\n2) Bronchospasm / acute asthma exacerbation — wheeze, but post-tussive vomiting and pertussis exposure less likely.\n3) Pneumonia — vomiting possible, but exposure and cough-spell/noisy inspiratory breathing favors pertussis.\n4) Acute COPD exacerbation / infection — wheeze, but exposure less relevant.\n5) GERD — vomiting possible, but wheeze/noisy inspiratory spells and pertussis exposure favor pertussis.\nNext action: assess current respiratory status (speak full sentences).\n[/REASONING]\nCan you speak in full sentences without stopping to catch your breath?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have enough diagnostic direction to proceed: confirmed exposure to pertussis plus vomiting after coughing and noisy breathing after coughing spells strongly point to whooping cough. Remaining uncertainty is mainly severity, but the question is diagnostic. We can’t obtain more history, so we’ll provide the differential based on current evidence.\nTop candidates:\n1) Whooping cough — classic post-tussive vomiting; noisy breathing after cough spells; confirmed exposure.\n2) Bronchospasm / acute asthma exacerbation — wheeze/noisy breathing; could coexist, but post-tussive vomiting and pertussis exposure favor pertussis.\n3) Pneumonia — cough with vomiting possible; would expect fever/focal findings (unknown).\n4) Acute COPD exacerbation / infection — wheeze; vomiting less typical; exposure to pertussis makes less likely.\n5) GERD — vomiting/cough possible; wheeze and pertussis exposure make less likely.\nNext action would be to assess severity, but per instructions we provide DDX now.\n[/REASONING]\n[DDX] Whooping cough, Bronchospasm / acute asthma exacerbation, Pneumonia, Acute COPD exacerbation / infection, GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Whooping cough",
+    "predicted_set": [
+      "Whooping cough",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9001,
+      "completion_tokens": 1580
+    },
+    "patient": {}
+  }
+}

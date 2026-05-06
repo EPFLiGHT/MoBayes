@@ -1,0 +1,223 @@
+{
+  "case_idx": 47,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Benign paroxysmal positional vertigo",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old male",
+    "History": "The patient presents to the emergency department with a sudden-onset sensation that the room is spinning, leading to several episodes of nausea and vomiting. The symptoms started as he was going to bed and lasted for approximately 3 minutes. He mentions that he has never experienced anything like this before and currently feels at his baseline.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden-onset sensation of the room spinning",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Dizziness"
+      ]
+    },
+    "Past_Medical_History": "The patient is otherwise healthy with only a history of eczema. No prior episodes of similar nature.",
+    "Social_History": "No significant social history provided.",
+    "Review_of_Systems": "Denies headaches, hearing loss, tinnitus, loss of consciousness or neurological deficits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden-onset symptoms of vertigo.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I suddenly felt like the room was spinning when I was going to bed, and I had a few episodes of nausea and vomiting. It lasted about 3 minutes and then I returned to how I feel normally, which is why I came in.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given limited info):\n- Benign paroxysmal positional vertigo (BPPV): 0.30  \n- Situational syncope: 0.10  \n- Asthma: 0.02  \n- COPD: 0.02  \n- Takotsubo cardiomyopathy: 0.02  \n(Other causes of transient vertigo/syncope are possible but not yet prioritized.)\n\nEvidence so far: sudden room-spinning vertigo with brief nausea/vomiting that resolved in ~3 minutes → strongly favors a peripheral vertigo pattern.\n\n**Question 1 (one-at-a-time):**  \nWhen it happened, did it clearly get worse with turning your head or changing position (e.g., lying down or rolling over in bed)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—when I changed position in bed, especially turning my head, the spinning sensation seemed to get noticeably worse, and then it settled after a few minutes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with positional trigger):\n- Benign paroxysmal positional vertigo (BPPV): 0.70  \n- Situational syncope: 0.05  \n- Asthma: 0.01  \n- COPD: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n(Remaining probability spread across other less-likely causes of transient vertigo.)\n\nEvidence: positional, head-movement–provoked, brief spinning with nausea → classic for BPPV. Likelihood ratio for BPPV vs others is high (roughly ~5–10).\n\n**Question 2:**  \nDuring the episode, did you notice any hearing symptoms—new hearing loss, ringing (tinnitus), or a feeling of fullness in the ear?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I didn’t notice any hearing loss, ringing, or ear fullness during the episode. It was mainly the sudden spinning sensation with nausea and vomiting that then went away.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.78  \n- Situational syncope: 0.06  \n- Asthma: 0.01  \n- COPD: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n(Other causes remain low.)\n\nEvidence: absence of hearing symptoms makes Ménière’s-type inner ear disease less likely, which slightly supports BPPV over other vestibular causes (LR modestly ~1.2–1.5).\n\n**Question 3:**  \nDid you have any neurologic symptoms with it—new weakness/numbness on one side, trouble speaking, double vision, trouble walking, or a severe new headache?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I didn’t have any weakness or numbness, trouble speaking, double vision, trouble walking, or a severe new headache—just the spinning sensation with the nausea and vomiting. It resolved after a few minutes and I’ve felt normal since.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.85  \n- Situational syncope: 0.07  \n- Asthma: 0.01  \n- COPD: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n(Other serious central causes become less likely given no focal neuro symptoms and full resolution.)\n\nEvidence: no focal neuro symptoms and classic positional, brief vertigo strongly decreases concern for central causes (LR for “BPPV given no neuro deficits” vs “central vertigo” is high, ~3–5).\n\n**Question 4:**  \nHave you had similar episodes before, or any recent ear infection/viral illness or head/neck injury?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had similar episodes before, or any recent ear infection/viral illness or head/neck injury? Patient: No, I’ve never had anything like this before, and I haven’t had any recent ear infection, viral illness, or any head or neck injury.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.82  \n- Situational syncope: 0.10  \n- Asthma: 0.02  \n- COPD: 0.02  \n- Takotsubo cardiomyopathy: 0.02  \n\nEvidence: first episode doesn’t rule out BPPV (can be idiopathic), but it increases the relative chance of other transient causes like presyncope/syncope. Positional provocation still keeps BPPV highest.\n\n**Question 5:**  \nWhen you felt the spinning, did you feel like you might pass out (lightheaded/“about to faint”), or was it clearly a spinning/rotational sensation only?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you felt the spinning, did you feel like you might pass out (lightheaded/“about to faint”), or was it clearly a spinning/rotational sensation only? Patient: It was clearly a spinning, rotational sensation—not like I was about to faint.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.88  \n- Situational syncope: 0.06  \n- Asthma: 0.02  \n- COPD: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n\nEvidence: rotational vertigo without presyncope strongly supports BPPV over syncope (LR for BPPV vs syncope ~2–4).\n\n**Question 6:**  \nHow old are you? (Age helps estimate risk of central causes and likelihood of BPPV.)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 59 years old.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (age 59 increases baseline risk of central causes slightly, but positional brief episodes still favor BPPV):\n- Benign paroxysmal positional vertigo (BPPV): 0.80  \n- Situational syncope: 0.08  \n- Asthma: 0.03  \n- COPD: 0.02  \n- Takotsubo cardiomyopathy: 0.02  \n\nEvidence update: older age lowers BPPV slightly (LR central vs peripheral maybe ~0.7–0.9), but still not enough to overtake positional pattern.\n\n**Question 7:**  \nDo you have any history of stroke/TIA, atrial fibrillation, or significant cardiovascular disease?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any history of stroke or TIA, and I’m not aware of having atrial fibrillation or significant cardiovascular disease. I’ve generally been healthy aside from eczema.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.83  \n- Situational syncope: 0.06  \n- Takotsubo cardiomyopathy: 0.03  \n- Asthma: 0.02  \n- COPD: 0.01  \n\nEvidence: no CV history reduces likelihood of cardiogenic causes (LR down for Takotsubo/syncope ~0.5–0.7).\n\n**Question 8:**  \nRight now, do you still feel any dizziness/imbalance, or are you completely back to normal?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I feel completely back to normal now—no spinning and no dizziness or imbalance at the moment.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.86  \n- Situational syncope: 0.06  \n- Takotsubo cardiomyopathy: 0.03  \n- Asthma: 0.02  \n- COPD: 0.01  \n\nEvidence: complete resolution supports benign peripheral vertigo; serious central causes are less likely when symptoms fully resolve quickly and are position-triggered (LR modestly favors BPPV ~1.2–1.5).\n\n**Question 9:**  \nDuring the episode, did you have any chest pain, palpitations, shortness of breath, or sweating?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I didn’t have any chest pain, palpitations, shortness of breath, or sweating—only the spinning sensation with the nausea and vomiting.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.90  \n- Situational syncope: 0.05  \n- Takotsubo cardiomyopathy: 0.02  \n- Asthma: 0.02  \n- COPD: 0.01  \n\nEvidence: absence of cardiopulmonary symptoms further lowers syncope/cardiac causes (LR down for Takotsubo/syncope ~0.5–0.7).\n\n**Question 10:**  \nAny recent new medications, or did you start any new prescription/over-the-counter drug in the last few weeks?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t started any new medications or supplements in the past few weeks—no recent prescription or over-the-counter changes.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.92  \n- Situational syncope: 0.05  \n- Takotsubo cardiomyopathy: 0.02  \n- Asthma: 0.01  \n- COPD: 0.00  \n\nEvidence: no medication trigger supports idiopathic BPPV; keeps other causes low.\n\n**Question 11:**  \nWhen you changed position, do you know which direction triggered it most—turning your head to the right/left, or looking up/rolling onto a specific side?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It was mainly when I turned my head to the right and rolled onto my right side—it definitely seemed to bring the spinning on more, and then it eased after a few minutes.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.95  \n- Situational syncope: 0.03  \n- Takotsubo cardiomyopathy: 0.01  \n- Asthma: 0.01  \n- COPD: 0.00  \n\nEvidence: classic unilateral head/roll positional trigger strongly supports BPPV (LR likely >2).\n\n**Question 12:**  \nHave you had any fever, severe headache, or neck stiffness recently?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any fever, severe headache, or neck stiffness recently.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.96  \n- Situational syncope: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n- Asthma: 0.01  \n- COPD: 0.00  \n\nEvidence: no infectious/meningeal symptoms further reduces central/inflammatory causes.\n\n**Question 13:**  \nDo you have any ongoing risk factors for clotting or cancer (e.g., known malignancy, unexplained weight loss, night sweats), or any history of blood clots?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have any known history of cancer, blood clots, unexplained weight loss, or night sweats—nothing like that has been going on.”",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Benign paroxysmal positional vertigo (BPPV): 0.97  \n- Situational syncope: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n- Acute Mesenteric Ischemia: 0.00  \n- COPD/Asthma: 0.00  \n\nEvidence: no systemic red flags; keeps BPPV dominant.\n\n**Question 14:**  \nHave you had any hearing changes at all in the past few days (even mild), or is it completely normal hearing?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "“No—my hearing has felt completely normal in the past few days, and I haven’t noticed any ringing or ear fullness either.”",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Benign paroxysmal positional vertigo (BPPV), Situational syncope, Takotsubo cardiomyopathy, Asthma, COPD",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Benign paroxysmal positional vertigo",
+    "predicted_set": [
+      "Benign paroxysmal positional vertigo",
+      "Situational syncope",
+      "Takotsubo cardiomyopathy",
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "predicted_raw": [
+      "Benign paroxysmal positional vertigo (BPPV)",
+      "Situational syncope",
+      "Takotsubo cardiomyopathy",
+      "Asthma",
+      "COPD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Benign paroxysmal positional vertigo",
+    "predicted_set_remapped": [
+      "Benign paroxysmal positional vertigo",
+      "Situational syncope",
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 33017,
+      "completion_tokens": 1974
+    },
+    "patient": {
+      "prompt_tokens": 24173,
+      "completion_tokens": 584,
+      "calls": 15
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "case_idx": 5,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Sarcoidosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 53\nSex: Male\nChief Complaint: I have swollen or painful lymph nodes, sensitive pain, and burning pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had swollen and painful lymph nodes, with burning and sensitive pain. I also had episodes where I lost consciousness or had seizures, and I feel significant trouble breathing, plus my eyes are red.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: painful/swollen lymph nodes with burning/sensitive pain; episodes of loss of consciousness/seizure-like activity; significant trouble breathing; red eyes.\nTop candidates (tentative):\n1) Anaphylaxis — can cause respiratory distress and red eyes; however lymph node pain/burning and seizure-like episodes are less typical unless severe systemic reaction or hypoxia.\n2) Pulmonary embolism — can cause sudden severe breathing difficulty and syncope; red eyes and painful lymph nodes are not classic.\n3) Possible NSTEMI / STEMI — can cause dyspnea and syncope; red eyes/lymph node pain not classic.\n4) Pneumonia — can cause dyspnea; seizures/syncope could occur with hypoxia/sepsis; red eyes and lymphadenopathy could fit infection.\n5) Meningitis/encephalitis (not in provided list) — seizures/syncope with systemic illness could occur; but we need more info on fever/neck stiffness and respiratory symptoms.\nMost informative next question: determine whether there are signs of airway/allergic reaction (hives/itching, lip/tongue swelling, wheeze) because that would strongly shift toward anaphylaxis.\n[/REASONING]\nOne question: Did you have any hives or itching, or swelling of your lips/tongue/face, or wheezing right around the time the breathing trouble started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I didn’t have hives or itching, and I didn’t notice swelling of my lips or tongue. I don’t think I had wheezing either when the breathing trouble started.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no hives/itching, no lip/tongue swelling, no clear wheeze; still has painful swollen lymph nodes with burning/sensitive pain; episodes of loss of consciousness/seizure-like activity; significant dyspnea; red eyes.\nTop candidates now:\n1) Pulmonary embolism — dyspnea with syncope is plausible; seizure-like episodes could be from hypoxia; red eyes/lymph node pain still atypical.\n2) Pneumonia / severe respiratory infection — can cause dyspnea and systemic effects leading to syncope/seizures; red eyes could be conjunctival injection; lymphadenopathy could be infectious.\n3) Possible NSTEMI / STEMI — dyspnea + syncope possible; seizure-like episodes less typical but could occur with severe hypoperfusion.\n4) Pericarditis / myocarditis — can cause dyspnea and syncope; lymph node pain not classic.\n5) Anaphylaxis — less likely given absence of hives/angioedema/wheeze.\nMost informative next question: ask about chest pain/pressure and whether symptoms are sudden vs progressive, to discriminate PE/ACS vs infection.\n[/REASONING]\nOne question: Do you have chest pain or pressure (especially worse with breathing in), and did the breathing trouble start suddenly or build up over hours/days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have chest pain or pressure right now. The breathing trouble felt like it came on suddenly, not slowly over days.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden onset dyspnea with episodes of loss of consciousness/seizure-like activity; no chest pain/pressure; no hives/angioedema/wheeze. Red eyes and painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — sudden dyspnea + syncope fits; seizure-like episodes can occur from hypoxia. Lymph node pain/red eyes are not classic but could be from concurrent infection/inflammation.\n2) Possible NSTEMI / STEMI — sudden dyspnea and syncope can occur even without prominent chest pain, but less consistent without chest discomfort.\n3) Pneumonia — usually more progressive, though can be abrupt; syncope/seizures possible if severe/hypoxic. Sudden onset makes this less likely.\n4) Acute pulmonary edema — can be sudden with dyspnea/syncope; would expect cardiac history, orthopnea, frothy sputum.\n5) Spontaneous pneumothorax — sudden dyspnea; would expect pleuritic pain and decreased breath sounds (not mentioned).\nMost informative next question: ask about pleuritic pain and unilateral symptoms (and leg clot risk) to discriminate PE vs pneumothorax vs ACS.\n[/REASONING]\nOne question: Did you have any sharp pain when you breathe in, or do you feel like it’s worse on one side of your chest?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have sharp pain when I breathe in, and it doesn’t feel worse on one side.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea, syncope/seizure-like episodes, no chest pain/pressure, no pleuritic pain, not worse on one side; no hives/angioedema/wheeze; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — still most consistent with sudden dyspnea + syncope; absence of pleuritic pain doesn’t rule it out.\n2) Acute pulmonary edema — sudden dyspnea/syncope possible; would expect signs like pink frothy sputum, orthopnea, known heart disease.\n3) Pneumonia — less likely given sudden onset, but possible if severe.\n4) Possible NSTEMI / STEMI — still possible though less classic without chest pain.\n5) Spontaneous pneumothorax — less likely without pleuritic pain/unilateral worsening.\nMost informative next question: ask about risk factors for blood clots (immobility, recent surgery, prior DVT/PE, estrogen/testosterone, pregnancy/postpartum).\n[/REASONING]\nOne question: Have you had any recent long travel/immobility, surgery, a prior blood clot (DVT/PE), or are you on estrogen (birth control/hormone therapy) or pregnant/postpartum?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No recent long travel or immobilization, and no surgery. I’ve never had a DVT or PE before, and I’m not on estrogen or any hormone therapy.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea + syncope/seizure-like episodes; no pleuritic pain; no unilateral symptoms; no clot risk factors reported; no allergic features; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pneumonia — can cause abrupt severe illness with hypoxia leading to syncope/seizures; lymphadenopathy and red eyes could fit infection/inflammation.\n2) Pulmonary embolism — still possible even without classic risk factors (can occur with unrecognized triggers), but less supported now.\n3) Acute pulmonary edema — sudden dyspnea possible; would need cardiac/volume overload clues (orthopnea, leg swelling, frothy sputum).\n4) Possible NSTEMI / STEMI — sudden dyspnea/syncope possible; still needs cardiac risk/ECG/troponin.\n5) Influenza/URTI/viral infection — could cause severe respiratory compromise, though seizures would suggest hypoxia or CNS involvement.\nMost informative next question: ask about fever and cough/sputum (and whether there’s shortness of breath with coughing) to support pneumonia vs other causes.\n[/REASONING]\nOne question: Do you have a fever, cough, or are you bringing up any sputum (what color)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I have a fever. I don’t have a cough, and I’m not bringing up any sputum.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea with syncope/seizure-like episodes; no chest pain; no pleuritic/unilateral pain; no cough/sputum; no fever; no known clot risk factors; no allergic signs; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — still best fit for sudden dyspnea + syncope without cough/fever; seizure-like episodes could be from hypoxia.\n2) Acute pulmonary edema — sudden dyspnea/syncope possible; would expect orthopnea/PND, leg swelling, or frothy sputum (not yet asked).\n3) Possible NSTEMI / STEMI — sudden dyspnea/syncope can occur without chest pain; needs ECG/troponin.\n4) Bronchospasm/acute asthma exacerbation — can be sudden, but usually wheeze/cough; not reported.\n5) Seizure/neurologic cause with secondary dyspnea — could explain loss of consciousness/seizures, but doesn’t explain red eyes/lymph node pain; still possible.\nMost informative next question: ask about orthopnea/PND or frothy sputum/leg swelling to discriminate pulmonary edema.\n[/REASONING]\nOne question: Can you lie flat comfortably, or do you get much more short of breath when lying down—and have you noticed frothy/pink sputum or leg swelling?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I can’t really lie flat comfortably because my breathing gets worse. I haven’t noticed frothy or pink sputum, and I don’t think I have leg swelling.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea with syncope/seizure-like episodes; worse when lying flat (orthopnea); no cough/sputum, no fever, no pleuritic pain, no unilateral symptoms; no frothy/pink sputum, no leg swelling; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — still high: sudden dyspnea + syncope; orthopnea can occur with severe cardiopulmonary compromise; other infection signs absent.\n2) Acute pulmonary edema — orthopnea supports, but lack of frothy/pink sputum and leg swelling makes it less clear.\n3) Possible NSTEMI / STEMI — can present with dyspnea/syncope and orthopnea without chest pain; needs ECG/troponin.\n4) Bronchospasm/acute asthma exacerbation — can cause orthopnea and sudden dyspnea, but wheeze/cough not reported.\n5) Pneumonia — less likely without cough/fever, but severe atypical pneumonia can occur.\nMost informative next question: ask about wheezing/stridor and any history of asthma/COPD, since bronchospasm can be sudden and cause orthopnea.\n[/REASONING]\nOne question: Have you noticed wheezing, a whistling sound when breathing, or any history of asthma/COPD?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No wheezing or whistling that I’ve noticed. I don’t have a history of asthma or COPD.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea with orthopnea; syncope/seizure-like episodes; no cough/sputum/fever; no pleuritic pain/unilateral symptoms; no wheeze; no leg swelling; no clot risk factors reported; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — still most likely given sudden dyspnea + syncope; orthopnea can occur with severe PE; lack of cough/fever supports non-infectious cause.\n2) Possible NSTEMI / STEMI — dyspnea/syncope/orthopnea without chest pain is possible; needs ECG/troponin.\n3) Acute pulmonary edema — orthopnea supports; would expect cardiac history/HTN/valvular disease (not yet asked).\n4) Acute COPD exacerbation / infection or Bronchospasm — less likely without wheeze/asthma history.\n5) Pneumonia — less likely without cough/fever, but atypical/early disease still possible.\nMost informative next question: ask about cardiac/volume overload history (known heart failure, hypertension, valvular disease) and whether there’s been recent leg swelling/rapid weight gain.\n[/REASONING]\nOne question: Do you have any history of heart failure, coronary disease, valve problems, or high blood pressure—and have you had recent rapid weight gain or swelling?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a known history of heart failure, coronary disease, valve problems, or high blood pressure. I haven’t noticed rapid weight gain or swelling.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea with orthopnea; syncope/seizure-like episodes; no chest pain; no cough/sputum/fever; no wheeze; no leg swelling; no clot risk factors reported; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — still strongest: sudden dyspnea + syncope, orthopnea can occur; lacks infection signs and asthma signs; clot risk factors absent doesn’t exclude PE.\n2) Possible NSTEMI / STEMI — dyspnea/syncope/orthopnea can occur without classic chest pain; needs ECG/troponin.\n3) Acute pulmonary edema — orthopnea supports, but no heart failure/HTN history and no frothy sputum/leg swelling makes it less likely.\n4) Pneumonia — less likely without cough/fever, but severe hypoxic illness can still occur.\n5) Bronchospasm / acute asthma exacerbation — less likely without wheeze/cough/asthma history.\nMost informative next action: ask about oxygenation severity and any recent hemoptysis, and also whether they’re currently able to speak full sentences (but one question at a time). Hemoptysis would discriminate PE.\n[/REASONING]\nOne question: Have you had any coughing up blood (even small streaks) or blood-tinged sputum?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t coughed up any blood or blood-tinged sputum.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: sudden dyspnea with orthopnea; syncope/seizure-like episodes; no chest pain; no pleuritic pain; no cough/sputum/fever; no wheeze/asthma history; no hemoptysis; no leg swelling; no heart failure/HTN history; no clot risk factors reported; red eyes; painful swollen lymph nodes.\nTop candidates:\n1) Pulmonary embolism — still most likely for sudden dyspnea + syncope; hemoptysis absent doesn’t rule out; orthopnea can occur with severe cardiopulmonary compromise.\n2) Possible NSTEMI / STEMI — dyspnea/syncope/orthopnea can occur without prominent chest pain; needs ECG/troponin.\n3) Acute pulmonary edema — orthopnea supports; lack of frothy sputum/leg swelling and no HF history reduces likelihood but doesn’t exclude.\n4) Pneumonia — less likely without cough/fever, but atypical/early/severe infection can present with hypoxia and syncope.\n5) Bronchospasm / acute asthma exacerbation — sudden dyspnea can occur, but absence of wheeze/cough/asthma history makes it less likely.\nGiven the seizure-like episodes, also consider hypoxia-related events, but within provided list the above remain the best matches.\nMost informative next step would be vitals/oxygen saturation",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I’m here and I’m pretty short of breath. I can’t really tell my oxygen level, but I feel like I need to sit up to breathe better.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX]\nPulmonary embolism, Possible NSTEMI / STEMI, Acute pulmonary edema, Pneumonia, Bronchospasm / acute asthma exacerbation",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Pneumonia",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 26453,
+      "completion_tokens": 2931
+    },
+    "patient": {
+      "prompt_tokens": 24700,
+      "completion_tokens": 367
+    }
+  }
+}

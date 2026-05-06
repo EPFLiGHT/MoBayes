@@ -1,0 +1,162 @@
+{
+  "case_idx": 35,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 72\nSex: Male\nChief Complaint: I have burning pain, right tonsil pain, and thyroid cartilage pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having burning pain and pain on the right side of my throat, around the right tonsil and also near the thyroid cartilage. It’s also painful in my palate, and my voice feels hoarse. The pain is about 7 out of 10, and it started pretty quickly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (initial, before more history):**  \n- **Acute laryngitis:** 0.25  \n- **Epiglottitis:** 0.20  \n- **Acute otitis media:** 0.05  \n- **GERD:** 0.10  \n- **Pneumonia:** 0.05  \n(Other possibilities exist but these are the most plausible given acute unilateral throat pain + hoarseness.)\n\n**Question 1 (most discriminating):**  \nDo you have **trouble swallowing** (especially **drooling** or inability to swallow saliva) or **shortness of breath/stridor**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have trouble swallowing and I’m not drooling. I also don’t feel short of breath, and I don’t have any noisy breathing like stridor.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Lack of drooling/stridor and no swallowing difficulty makes **epiglottitis** less likely.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.40  \n- **GERD:** 0.20  \n- **Acute laryngitis/viral pharyngitis spectrum (incl. viral pharyngitis):** 0.10  \n- **Epiglottitis:** 0.05  \n- **Pneumonia:** 0.05  \n\n**Question 2:**  \nDo you have a **fever** (measured or felt), or **chills**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a measured fever, and I don’t have chills that I’ve noticed.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No fever/chills lowers infectious causes (like bacterial pharyngitis/epiglottitis/pneumonia), but doesn’t exclude viral laryngitis.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.50  \n- **GERD:** 0.25  \n- **Viral pharyngitis / URTI:** 0.10  \n- **Pneumonia:** 0.03  \n- **Epiglottitis:** 0.02  \n\n**Question 3:**  \nAny **cough** or **runny/stuffy nose** (URTI symptoms), or is it mainly localized throat pain/hoarseness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly localized throat pain and hoarseness. I don’t have much cough or runny/stuffy nose—at least not that I notice.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Minimal cough/URI symptoms keeps **acute laryngitis** and **GERD-related laryngeal irritation** relatively higher; lowers viral URTI.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.55  \n- **GERD:** 0.30  \n- **Viral pharyngitis / URTI:** 0.05  \n- **Pneumonia:** 0.02  \n- **Epiglottitis:** 0.02  \n\n**Question 4:**  \nAny **heartburn**, **acid taste**, symptoms worse **after meals**, or when **lying down**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really have heartburn or an acid taste. I can’t say it’s clearly worse after meals or when I lie down.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Less classic GERD symptoms lowers GERD a bit.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.60  \n- **Viral pharyngitis / URTI:** 0.10  \n- **GERD:** 0.15  \n- **Pneumonia:** 0.02  \n- **Epiglottitis:** 0.03  \n\n**Question 5 (key for serious ENT causes):**  \nDo you have **ear pain on the same side** (referred otalgia) or **swollen/tender neck glands**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have ear pain on the same side. I’m not sure about swollen or tender neck glands—I haven’t checked closely.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior:** still most consistent with **acute laryngitis** (or localized pharyngitis), with serious causes like epiglottitis less supported by no drooling/stridor/dysphagia.\n\n**Question 6:**  \nHave you noticed **a visible white patch/exudate** on the tonsil, **bad breath**, or **tender swollen nodes** under the jaw?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any white patch on my tonsil. I’m not sure about bad breath, and I don’t know if I have tender swollen nodes under my jaw.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No visible exudate keeps bacterial tonsillitis lower, but we still need node/exudate info.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.62  \n- **Viral pharyngitis:** 0.15  \n- **GERD:** 0.12  \n- **Epiglottitis:** 0.03  \n- **Pneumonia:** 0.03  \n\n**Question 7 (discriminates viral vs laryngeal irritation):**  \nDid your voice change start **after heavy voice use** (shouting/singing), or after **smoke/vaping/irritant exposure**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m a current smoker, so I’ve been around smoke. I don’t know about heavy voice use like shouting or singing—it feels like it just started.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Smoking/irritant exposure increases likelihood of **acute laryngitis** (irritant/viral) and lowers GERD somewhat.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.70  \n- **Viral pharyngitis:** 0.12  \n- **GERD:** 0.08  \n- **Epiglottitis:** 0.03  \n- **Pneumonia:** 0.07  \n\n**Question 8 (important):**  \nAny **skin rash**, **hives**, or **lip/tongue swelling**? (anaphylaxis/allergic causes)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any rash, hives, or lip/tongue swelling.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No rash/hives/lip swelling makes **anaphylaxis** very unlikely.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.72  \n- **Pneumonia:** 0.06  \n- **Viral pharyngitis:** 0.12  \n- **Epiglottitis:** 0.03  \n- **GERD:** 0.07  \n\n**Question 9:**  \nDo you have **any trouble breathing with exertion**, **chest pain**, or **feeling faint**?\n\n(We’re checking for cardiopulmonary causes that can sometimes present with throat discomfort/hoarseness.)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have chest pain, I’m not feeling faint, and I don’t have trouble breathing with exertion.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No cardiopulmonary red flags lowers pneumonia and other cardiopulmonary causes further.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.78  \n- **Viral pharyngitis:** 0.12  \n- **GERD:** 0.05  \n- **Pneumonia:** 0.03  \n- **Epiglottitis:** 0.02  \n\n**Question 10 (to refine):**  \nIs the pain **worse when you talk**, or is it more constant even at rest?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It feels worse when I talk, but it’s also pretty painful even when I’m resting.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Pain worse with talking supports laryngeal inflammation/irritation (acute laryngitis), but resting pain keeps it from being purely voice-strain.\n\n**Posterior:**  \n- **Acute laryngitis:** 0.82  \n- **Viral pharyngitis:** 0.10  \n- **GERD:** 0.05  \n- **Pneumonia:** 0.02  \n- **Epiglottitis:** 0.01  \n\n**Question 11 (final key discriminant):**  \nAny **recent dental infection**, **throat/neck injury**, or **foreign body** sensation (like something stuck) or recent vomiting?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had any dental infection, no throat or neck injury, and I don’t feel like something is stuck. I also haven’t vomited recently.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute laryngitis, Viral pharyngitis, GERD, Pneumonia, Epiglottitis",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "Acute laryngitis",
+    "predicted_set": [
+      "Acute laryngitis",
+      "Viral pharyngitis",
+      "GERD",
+      "Pneumonia",
+      "Epiglottitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20881,
+      "completion_tokens": 1456
+    },
+    "patient": {
+      "prompt_tokens": 17754,
+      "completion_tokens": 403
+    }
+  }
+}

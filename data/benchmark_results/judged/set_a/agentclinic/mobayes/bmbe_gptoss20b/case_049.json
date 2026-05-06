@@ -1,0 +1,334 @@
+{
+  "case_idx": 49,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient presents requesting prenatal care, reporting 2 months of increasing breast tenderness, nausea, a 6.6 lb weight gain, increased urinary frequency, and uncertainty about the date of her last menstrual period. She stopped taking oral contraceptives 6 months ago and has been trying to conceive with her husband since then. She believes she is pregnant and was happy to share this news with her husband last week.",
+    "Symptoms": {
+      "Primary_Symptom": "Increasing breast tenderness",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Weight gain of 6.6 lbs",
+        "Increased urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Stopped oral contraceptives 6 months prior in an attempt to conceive.",
+    "Social_History": "Reports being in a stable relationship and actively trying to conceive with her husband.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with symptoms suggestive of early pregnancy.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 34-year-old woman, and I’m here because I think I might be pregnant. Over the past two months I’ve had increasing breast tenderness, nausea, and about a 6.6 lb weight gain, plus I’ve been urinating more often. I’m also unsure of the date of my last menstrual period—I stopped oral contraceptives six months ago and have been trying to conceive with my husband.",
+      "extracted_features": {
+        "f_nausea_072ff6bd": "yes",
+        "f_weight_gain_87d866e7": "yes",
+        "f_urinary_frequency_e94ed4de": "yes",
+        "f_trying_to_conceive_68840c03": "yes",
+        "f_belief_of_pregnancy_0dfc95df": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pseudocyesis",
+          0.7268154926538144
+        ],
+        [
+          "Chronic kidney failure",
+          0.028300990218021637
+        ],
+        [
+          "Bacillus cereus infection",
+          0.022262137920742175
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01826892932509335
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.016272325027268934
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Have you noticed any swelling in your joints?",
+      "patient_answer": "“No, I haven’t noticed any swelling in my joints. I’m mostly just feeling the breast tenderness, nausea, some weight gain, and needing to urinate more often.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7308482315166459
+        ],
+        [
+          "Chronic kidney failure",
+          0.028458018383026897
+        ],
+        [
+          "Bacillus cereus infection",
+          0.022385659488003876
+        ]
+      ],
+      "entropy": 2.0925635797340583
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Have you noticed any bumps, sores, or unusual growths on your scalp?",
+      "patient_answer": "“No, I haven’t noticed any bumps, sores, or unusual growths on my scalp.” “I’ve mostly just had the breast tenderness, nausea, some weight gain, and increased urinary frequency.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7354159925528782
+        ],
+        [
+          "Chronic kidney failure",
+          0.028635879424393332
+        ],
+        [
+          "Bacillus cereus infection",
+          0.022525568622034992
+        ]
+      ],
+      "entropy": 2.055908432229498
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching or discomfort in your skin lately?",
+      "patient_answer": "“No, I haven’t had any itching or unusual skin discomfort—nothing like that, just the breast tenderness, nausea, some weight gain, and needing to urinate more often.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7583769954846845
+        ],
+        [
+          "Bacillus cereus infection",
+          0.023228857172200645
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019062246020236425
+        ]
+      ],
+      "entropy": 1.915652629941607
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_raising_arms_overhead_d93533c5",
+      "doctor_question": "Do you have any trouble lifting your arms above your head?",
+      "patient_answer": "“No, I don’t have any trouble lifting my arms above my head. I feel like my movement is normal—my main issues have been the breast tenderness, nausea, weight gain, and increased urinary frequency.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7654466516146043
+        ],
+        [
+          "Bacillus cereus infection",
+          0.023445398593520423
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019239945931005573
+        ]
+      ],
+      "entropy": 1.8582234282395051
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_painless_vision_loss_97e17a49",
+      "doctor_question": "Have you noticed any loss of vision that isn’t accompanied by pain?",
+      "patient_answer": "“No, I haven’t noticed any loss of vision or any changes to my vision, and there’s been no pain either. I’m mainly just dealing with the breast tenderness, nausea, some weight gain, and needing to urinate more often.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7697801844792215
+        ],
+        [
+          "Bacillus cereus infection",
+          0.02357813338975312
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019348871795178593
+        ]
+      ],
+      "entropy": 1.820280232662137
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_severe_hyperthermia_b928b55e",
+      "doctor_question": "Have you had a fever that’s been so high it feels like you’re burning up—something above 104°F (40°C) that makes you feel extremely hot or dizzy?",
+      "patient_answer": "“No, I haven’t had a fever above 104°F or felt extremely hot, dizzy, or unwell like that.” “I’m mainly noticing the breast tenderness, nausea, a 6.6 lb weight gain, and increased urinary frequency.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.7733624690565437
+        ],
+        [
+          "Bacillus cereus infection",
+          0.02368785767898161
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.019438914597549956
+        ]
+      ],
+      "entropy": 1.787602037181123
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "Have you been feeling unusually stressed or overwhelmed lately?",
+      "patient_answer": "“No, I haven’t felt unusually stressed or overwhelmed—my main concerns have been the increasing breast tenderness, nausea, the 6.6 lb weight gain, and needing to urinate more often.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6460569789352087
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04258835623385729
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.034949189196394136
+        ]
+      ],
+      "entropy": 2.495354829109378
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_burning_with_urination_ca21e5cd",
+      "doctor_question": "Have you experienced any burning or discomfort when you urinate?",
+      "patient_answer": "“No burning or discomfort when I urinate—just that I’m going more often than usual. I haven’t had any dysuria or flank pain either, and no fever.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6496373068553409
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04282437300307155
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.03514287111911257
+        ]
+      ],
+      "entropy": 2.475694559551176
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_chills_4b723a54",
+      "doctor_question": "Have you been feeling chills lately?",
+      "patient_answer": "“No, I haven’t had any chills. I’m mostly just dealing with the breast tenderness, nausea, some weight gain, and increased urinary frequency.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.6751012128564498
+        ],
+        [
+          "Bacillus cereus infection",
+          0.04090676555977899
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.03252907287429927
+        ]
+      ],
+      "entropy": 2.3489420661811677
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_fixed_breast_mass_c5d3cf9f",
+      "doctor_question": "Have you noticed a lump in your breast that feels firm and hasn’t moved?",
+      "patient_answer": "“I haven’t noticed any specific lump that feels firm and hasn’t moved—I’m mainly just feeling increasing breast tenderness.” “I don’t have any other breast changes besides that soreness.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.677280177273851
+        ],
+        [
+          "Bacillus cereus infection",
+          0.041038796705462434
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.032634064082986684
+        ]
+      ],
+      "entropy": 2.334956045551221
+    }
+  ],
+  "final": {
+    "predicted": "Pseudocyesis",
+    "predicted_top3": [
+      "Pseudocyesis",
+      "Bacillus cereus infection",
+      "Gastric peptic ulcer"
+    ],
+    "confidence": 0.677280177273851,
+    "final_entropy": 2.334956045551221,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pseudocyesis",
+    "predicted_set_remapped": [
+      "Pseudocyesis",
+      "Bacillus cereus infection",
+      "Gastric peptic ulcer"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7436,
+      "completion_tokens": 2018
+    },
+    "patient": {
+      "prompt_tokens": 7316,
+      "completion_tokens": 512,
+      "calls": 11
+    }
+  }
+}

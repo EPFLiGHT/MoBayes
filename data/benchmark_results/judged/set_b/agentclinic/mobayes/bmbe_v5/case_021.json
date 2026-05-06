@@ -1,0 +1,312 @@
+{
+  "case_idx": 21,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Pseudocyesis",
+  "patient_actor_hidden": {
+    "Demographics": "34-year-old female",
+    "History": "The patient reports a 2-month history of symptoms that she believes are indicative of pregnancy, including breast tenderness, nausea, weight gain, and urinary frequency. She has been attempting to conceive for 6 months after discontinuing oral contraceptives. She announces that she believes she is pregnant due to these symptoms.",
+    "Symptoms": {
+      "Primary_Symptom": "Reports of pregnancy symptoms",
+      "Secondary_Symptoms": [
+        "Breast tenderness",
+        "Nausea",
+        "6.6-lb weight gain",
+        "Urinary frequency"
+      ]
+    },
+    "Past_Medical_History": "Has been off oral contraceptives for 6 months. No other significant medical history.",
+    "Social_History": "Married, trying to conceive. Non-smoker. Drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, vomiting, diarrhea, dysuria, or flank pain. Reports increased fatigue."
+  },
+  "objective_for_doctor": "Evaluate a 34-year-old woman requesting prenatal care, with subjective feelings of pregnancy but negative urine β-hCG.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hello, I’m a 34-year-old woman. I’ve been trying to conceive for about 6 months since stopping my oral contraceptives, and over the past 2 months I’ve had breast tenderness, nausea, fatigue, some weight gain, and increased urinary frequency—I feel like it may be pregnancy.”",
+      "extracted_features": {
+        "f_pregnancy_5fa7cc34": "yes",
+        "f_breast_tenderness_c56207ab": "yes",
+        "f_nausea_072ff6bd": "yes",
+        "f_fatigue_5b792cc4": "yes",
+        "f_weight_gain_87d866e7": "yes",
+        "f_frequent_urination_861b9e9c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pseudocyesis",
+          0.18609713032574993
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.04668196231905114
+        ],
+        [
+          "Meigs syndrome",
+          0.04462025427441902
+        ],
+        [
+          "Membranous nephropathy",
+          0.04462025427441902
+        ],
+        [
+          "Silent Thyroiditis",
+          0.04100692782814526
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any twitching, jerking, shaking, or sudden uncontrollable movements.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.1965323091288178
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.04929959872658026
+        ],
+        [
+          "Meigs syndrome",
+          0.047122282816056814
+        ]
+      ],
+      "entropy": 4.905531525983191
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“No—I haven’t noticed any lump in my right breast that doesn’t hurt or that moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.18760368222944887
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.051197008819282706
+        ],
+        [
+          "Membranous nephropathy",
+          0.04893589382539266
+        ]
+      ],
+      "entropy": 4.924077079807874
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No, pressing or gently tapping around my belly button doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.1892706666578855
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.056192757432837324
+        ],
+        [
+          "Membranous nephropathy",
+          0.053711005289310526
+        ]
+      ],
+      "entropy": 4.9019756054324715
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, I haven’t been vomiting recently. I’ve mainly had nausea and increased fatigue, along with breast tenderness, some weight gain, and urinary frequency.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.09784634884678053
+        ],
+        [
+          "Membranous nephropathy",
+          0.07018809984981252
+        ],
+        [
+          "Silent Thyroiditis",
+          0.06450430172886752
+        ]
+      ],
+      "entropy": 5.100219041960999
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in my right breast—nothing new or growing that I can feel.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.09331489898165699
+        ],
+        [
+          "Membranous nephropathy",
+          0.07282217621732939
+        ],
+        [
+          "Silent Thyroiditis",
+          0.06692507187581205
+        ]
+      ],
+      "entropy": 5.094611801773603
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, making your vision seem less clear? (Yes/No)",
+      "patient_answer": "“No, I haven’t noticed cloudy or hazy vision in either of my eyes, and my eyesight hasn’t seemed less clear.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.09442984496960567
+        ],
+        [
+          "Membranous nephropathy",
+          0.08017071224871195
+        ],
+        [
+          "Silent Thyroiditis",
+          0.06772470667363553
+        ]
+      ],
+      "entropy": 5.0209915653850885
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 6 to 12 months, have you lost weight without trying (for example, your clothes feel looser or the number on the scale has gone down)?",
+      "patient_answer": "“No, I haven’t lost weight without trying—I think I’ve gained about 6.6 pounds instead. My clothes haven’t felt looser, and I haven’t noticed any unintentional weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.10815153750914365
+        ],
+        [
+          "Membranous nephropathy",
+          0.084400566347011
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.06889367946745178
+        ]
+      ],
+      "entropy": 4.9904165228709765
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in my right breast that doesn’t hurt—there’s just been breast tenderness overall, not a specific painless lump.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.1015739622339924
+        ],
+        [
+          "Membranous nephropathy",
+          0.0862360506982091
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.0703919309132899
+        ]
+      ],
+      "entropy": 4.990997907579388
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to move around when you touch it (rather than staying fixed in one spot)?",
+      "patient_answer": "“No, I haven’t noticed any specific breast lump or swelling that moves around when I touch it—just general breast tenderness.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.09513170629492775
+        ],
+        [
+          "Membranous nephropathy",
+          0.0878669504668531
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.0717231860312063
+        ]
+      ],
+      "entropy": 4.993747907757117
+    }
+  ],
+  "final": {
+    "predicted": "Pseudocyesis",
+    "predicted_top3": [
+      "Pseudocyesis",
+      "Membranous nephropathy",
+      "Takotsubo cardiomyopathy"
+    ],
+    "confidence": 0.09513170629492775,
+    "final_entropy": 4.993747907757117,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pseudocyesis",
+    "predicted_set_remapped": [
+      "Pseudocyesis",
+      "Membranous nephropathy",
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10914,
+      "completion_tokens": 436
+    },
+    "patient": {
+      "prompt_tokens": 6133,
+      "completion_tokens": 338,
+      "calls": 10
+    }
+  }
+}

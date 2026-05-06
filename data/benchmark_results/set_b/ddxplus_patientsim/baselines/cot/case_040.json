@@ -1,0 +1,92 @@
+{
+  "case_idx": 40,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: Male\nChief Complaint: I have a cough, is your nose or the back of your throat itchy, and severe itching in one or both eyes",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had a cough, and my nose and the back of my throat feel itchy. My eyes also feel very itchy, like in one or both eyes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + itchy nose + itchy throat + very itchy eyes (one or both). This pattern strongly suggests an allergic process (upper airway/ocular itching) rather than infection. However, we still need to determine whether there are red flags (fever, shortness of breath, wheeze, facial swelling) and whether symptoms are seasonal/triggered.\nTop candidates:\n1) Allergic sinusitis — classic itchy nose/throat and itchy eyes; cough can be from post-nasal drip.\n2) URTI / Viral pharyngitis — cough and throat symptoms can occur, but “itchy eyes/nose” is less typical; would expect sore throat, malaise, possibly fever.\n3) Acute laryngitis — cough/hoarseness, but itching eyes/nose points away.\n4) Bronchitis — cough predominant, but itching eyes/nose suggests upper/allergic origin.\n5) Anaphylaxis — must consider if there is any systemic involvement (lip/tongue swelling, hives, wheeze, dizziness), but itching alone without other symptoms is less specific.\nMost informative next question: ask about associated allergic/systemic red flags (wheeze, swelling, hives, trouble breathing).\n[/REASONING]\nDo you have any trouble breathing, wheezing, or swelling of your lips/tongue/face—or any hives/skin rash?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. I don’t have trouble breathing or wheezing, and I haven’t noticed any swelling of my lips or face. I also don’t have hives or a skin rash.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: cough + itchy nose/throat + very itchy eyes; no trouble breathing/wheezing; no lip/face swelling; no hives/rash. This makes anaphylaxis much less likely. Allergic causes rise to the top.\nTop candidates:\n1) Allergic sinusitis — itchy nose/throat and itchy eyes are very characteristic; cough likely from post-nasal drip.\n2) Acute rhinosinusitis — can cause cough/post-nasal drip, but “itchy eyes/nose” is more allergic than infectious; would expect more congestion, facial pressure, possible fever.\n3) URTI / viral pharyngitis — possible cough/throat symptoms, but itchy eyes is less typical; would expect fever/sick contacts.\n4) Acute laryngitis — cough/hoarseness, but itching eyes/nose argues against.\n5) Acute COPD exacerbation/infection or bronchitis — cough could fit, but itching eyes/nose argues against lower-respiratory infection.\nMost informative next question: ask about nasal symptoms typical of allergy vs infection—especially watery runny nose and sneezing, and whether symptoms are seasonal/triggered.\n[/REASONING]\nDo you have a runny nose (especially watery), lots of sneezing, or symptoms that seem to come and go with seasons or exposure to pollen/dust/pets?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a runny nose and I sneeze a lot. It feels like it comes and goes, and it’s usually worse when there’s pollen or dust around.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: itchy nose/throat + very itchy eyes + watery runny nose + lots of sneezing, worse with pollen/dust, intermittent. No wheeze, no swelling, no rash. This is a classic allergic pattern (seasonal/environmental triggers) with ocular involvement.\nTop candidates:\n1) Allergic sinusitis — fits itchy nose/throat, sneezing, watery rhinorrhea, ocular itching; cough likely from post-nasal drip.\n2) Allergic rhinitis (not explicitly listed, but closest in list is Allergic sinusitis) — same reasoning; would be the underlying process.\n3) URTI/viral pharyngitis — less likely because symptoms are triggered by pollen/dust and include prominent itching/itchy eyes.\n4) Acute rhinosinusitis — less likely without fever/persistent facial pain; itching and ocular symptoms favor allergy.\n5) Bronchitis — cough could occur, but the dominant allergic upper/eye symptoms argue against primary bronchitis.\nMost informative next question: ask about fever and facial pain/pressure to help exclude infectious rhinosinusitis.\n[/REASONING]\nDo you have any fever, facial pain/pressure (cheeks/forehead), or thick colored nasal discharge—or is it mostly clear/watery?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No fever. I don’t really have facial pain or pressure. My nasal discharge is mostly clear and watery.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no fever, no facial pain/pressure, clear watery discharge, sneezing, itchy nose/throat, itchy eyes, pollen/dust triggers, intermittent. Strongly points to allergic rhinitis/sinus involvement rather than infection.\nTop candidates:\n1) Allergic sinusitis — best match in provided list: itchy nose/throat, watery rhinorrhea, sneezing, itchy eyes, seasonal triggers; cough likely from post-nasal drip.\n2) Acute rhinosinusitis — less likely: would expect fever, facial pain/pressure, purulent discharge.\n3) URTI / Viral pharyngitis — less likely: itching/itchy eyes and pollen/dust triggers are not typical.\n4) Acute laryngitis — less likely: itching eyes/nose and watery rhinorrhea suggest upper nasal/allergic source.\n5) Bronchitis — less likely: cough is present but the rest of the symptom complex is allergic.\nMost informative next question: ask about duration and whether there are any lower-respiratory symptoms (wheeze, shortness of breath) to ensure no asthma/bronchospasm component.\n[/REASONING]\nHow long has this been going on (days vs weeks), and have you had any wheezing, chest tightness, or shortness of breath?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on for about a week, and I haven’t had any wheezing, chest tightness, or shortness of breath.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 1 week duration; prominent allergic features (itchy eyes/nose/throat, watery runny nose, sneezing, pollen/dust triggers); no fever; no facial pain/pressure; no wheeze/SOB. This is most consistent with an allergic upper airway process causing cough via post-nasal drip.\nTop candidates:\n1) Allergic sinusitis — strongest match: itchy eyes/nose, watery rhinorrhea, sneezing, seasonal/environmental triggers, no infectious signs.\n2) Acute rhinosinusitis — less likely due to absence of fever, facial pain/pressure, and clear watery discharge.\n3) URTI / Viral pharyngitis — less likely because itching and ocular symptoms plus pollen/dust triggers favor allergy.\n4) Acute laryngitis — cough may occur, but itching eyes/nose and watery rhinorrhea point to nasal/allergic etiology.\n5) Bronchitis — cough could occur, but lack of infectious features and prominent allergic rhinitis symptoms makes it less likely.\nMost informative next question would be about hoarseness or sore throat severity, but we already have enough to provide a focused differential.\n[/REASONING]\n[DDX]Allergic sinusitis, Acute rhinosinusitis, URTI, Viral pharyngitis, Acute laryngitis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Allergic sinusitis",
+    "predicted_set": [
+      "Allergic sinusitis",
+      "Acute rhinosinusitis",
+      "URTI",
+      "Viral pharyngitis",
+      "Acute laryngitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7084,
+      "completion_tokens": 1386
+    },
+    "patient": {
+      "prompt_tokens": 5562,
+      "completion_tokens": 177
+    }
+  }
+}

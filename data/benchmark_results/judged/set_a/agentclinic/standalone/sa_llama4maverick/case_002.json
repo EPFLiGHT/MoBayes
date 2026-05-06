@@ -1,0 +1,136 @@
+{
+  "case_idx": 2,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’m here for my annual well-check, but I’ve also noticed a rough, scaly, sandpaper-like patch on the left back of my hand. It doesn’t hurt and there’s no tenderness.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long have you had this rough, scaly patch on the back of your hand?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s been there for a few months now, and it hasn’t been getting painful or very tender.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Has the size or appearance of the patch changed over the time you've noticed it?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’d say it hasn’t changed much in size, but the rough, scaly quality seems about the same as when I first noticed it. It looks fairly consistent on the left back of my hand.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any other similar patches on other parts of your body?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any similar patches anywhere else on my body. It seems to be only on the left back of my hand.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had a lot of sun exposure to your hands, or do you work outdoors?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, I do spend time outdoors quite often, and I’ve been walking and sunbathing for years, including on sunny days where my hands are exposed. I don’t work outdoors professionally, but my hands do get regular sun.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you used any protective measures like sunscreen or clothing to cover your hands when you're outdoors?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I usually don’t use sunscreen specifically on my hands, and I tend to wear short sleeves so they’re often exposed to the sun. I haven’t been covering that area much when I’m outside.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the history of chronic sun exposure and the description of the lesion, I'm starting to lean towards a few specific diagnoses. However, I need a bit more information to be more confident. \n\nHow would you describe the border of the patch - is it well-defined or does it blend in with the surrounding skin?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The border feels pretty well-defined, like the patch has a clear edge against the surrounding skin, and the rough, scaly texture stays pretty consistent within that area. It doesn’t seem to blend into the rest of the hand.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic keratosis, Squamous cell carcinoma, Bowen's disease, Seborrheic keratosis, Keratoacanthoma",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Actinic keratosis",
+    "predicted_set": [
+      "Actinic keratosis",
+      "Squamous cell carcinoma",
+      "Bowen's disease",
+      "Seborrheic keratosis",
+      "Keratoacanthoma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Actinic Keratosis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3154,
+      "completion_tokens": 182
+    },
+    "patient": {
+      "prompt_tokens": 3417,
+      "completion_tokens": 311,
+      "calls": 7
+    }
+  }
+}

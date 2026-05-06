@@ -1,0 +1,124 @@
+{
+  "case_idx": 14,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Chagas",
+  "objective_for_doctor": "A 24-year-old Male patient presents to the clinic. Chief complaint: I have a fever, feeling nauseous or do you feel like vomiting, and a pulse pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and I feel nauseous, like I might vomit. I also have bad pain—sharp and exhausting—around the back of my head, forehead, and left temple, and I’ve been having diarrhea or more frequent stools.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—when did your symptoms start, and do you have a stiff neck, light sensitivity, or confusion? Also, have you measured your temperature and is there any sore throat, cough, or rash?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They started recently, and the pain came on kind of fast (about 1/10 for onset speed). I don’t have a stiff neck, light sensitivity, or confusion. I have a fever, but I don’t have sore throat, cough, or a rash.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick checks—any burning when you urinate, blood in your stool, severe abdominal pain, or recent travel/under-cooked food or sick contacts? Also, is this headache worse when you cough/strain or is it the “worst headache of your life”?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No burning when I urinate, and I don’t have blood in my stool. I’m not having severe abdominal pain. I also haven’t had recent international travel, and I haven’t had under-cooked food or sick contacts that I know of. The headache isn’t worse when I cough or strain, and it’s not the worst headache of my life.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—have you taken any meds (especially NSAIDs/acetaminophen) and have you noticed dehydration signs (very dry mouth, dizziness, decreased urination)? Also, where exactly is the “pulse pain” (left temple only vs whole head), and do you have nasal congestion or tooth/jaw pain on that side?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t taken any meds yet. I don’t think I’m very dehydrated—no very dry mouth or dizziness, and I’m still urinating normally. The “pulse pain” is mainly on the left side (left temple), and I don’t have nasal congestion or tooth/jaw pain on that side.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—do you have any pain or redness in the eye on the left, new vision changes, or a tender scalp when you touch it? Also, have you checked your heart rate/temperature at home, and is the left temple pain worse with chewing?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have pain or redness in the left eye, no new vision changes, and I don’t know about tender scalp when touching it—I haven’t checked closely. I haven’t checked my heart rate at home. The left temple pain doesn’t get worse with chewing.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—when you say the left temple pain, is the scalp/temple tender to touch, and do you have a new jaw ache when chewing or just that temple pain? Also, any recent dental work, skin lesions/blisters, or a one-sided watery eye/runny nose?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s mostly that temple pain; I don’t know if the scalp is tender to touch. I don’t have a new jaw ache with chewing—just the temple pain. No recent dental work, no skin lesions or blisters, and no one-sided watery eye or runny nose.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’d like to check for temporal arteritis and meningitis mimics—how old are you exactly and do you feel worse when you chew/talk; and can you confirm your highest measured temperature and whether the headache is throbbing vs steady?  \nDoctor: REQUEST TEST: CBC_with_diff, CMP, CRP/ESR, and Urinalysis  \nDoctor: REQUEST TEST: COVID/Flu test (given fever) and consider Blood cultures if fever is high or persistent.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m 24 years old. Chewing and talking don’t make it worse—just the temple headache stays there, and it feels sharp and exhausting rather than throbbing. I haven’t measured my temperature at home, so I can’t confirm a highest number.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—since you’re 24 with left temple sharp headache, fever, nausea/diarrhea, and no jaw claudication, vision changes, or meningitis-type symptoms, we should urgently rule out infection first. REQUEST TEST: CBC_with_diff and CRP_ESR; REQUEST TEST: CMP and Urinalysis; REQUEST TEST: COVID_Influenza testing.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor. I’m willing to do those tests—CBC with differential, CRP/ESR, CMP, urinalysis, and COVID/flu testing.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—while the tests are running, I need 1–2 key details: have you had recent severe sore throat or dental infection, and any new rash or exposure to ticks/animals? Also, is your diarrhea watery vs bloody, and how many times in 24 hours?  \nDoctor: If you answer that, I’ll decide next steps; for now, I’m most concerned about an infectious cause given fever + GI symptoms with a left-temple headache.  \n\nDIAGNOSIS READY: Viral syndrome (suspected systemic viral illness) causing febrile headache with GI upset; serious bacterial causes less likely pending CBC/CRP/ESR and COVID/Flu results.\n\n[ABSTAIN] free-text diagnosis 'Viral syndrome (suspected systemic viral illness) causing febrile headache with GI upset; serious bacterial causes less likely pending CBC/CRP/ESR and COVID/Flu results.' did not map to the closed disease set",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5574,
+      "completion_tokens": 631,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 8093,
+      "completion_tokens": 471
+    }
+  }
+}

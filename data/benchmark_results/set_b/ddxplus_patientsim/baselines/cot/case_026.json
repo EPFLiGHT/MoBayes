@@ -1,0 +1,91 @@
+{
+  "case_idx": 26,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have bad chest pain—mostly lower and upper chest on the right side, and it feels heavy and sharp, like a sickening and scary pain. I also get a lot of sweating, I feel short of breath, nauseous like I might vomit, and the pain radiates to my right and left biceps, my right shoulder, and through to my thoracic spine.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe “heavy and sharp” chest pain (right-sided but also upper/lower), radiating to both biceps/right shoulder and through to thoracic spine, with diaphoresis, shortness of breath, and nausea. This pattern raises concern for a cardiopulmonary emergency (ischemia/MI, pulmonary embolism, less likely aortic catastrophe, pneumonia/pleurisy, etc.). From the provided list, the most discriminating next step is to determine whether this is exertional/ischemic-type pain and/or associated with cardiac risk factors, because that would prioritize “Possible NSTEMI / STEMI” and “Unstable angina.”\nTop candidates (provisional):\n1) Possible NSTEMI / STEMI — diaphoresis + nausea + severe chest pain with radiation to arms/shoulder.\n2) Pulmonary embolism — chest pain + shortness of breath + diaphoresis/nausea can fit, especially if pleuritic or sudden.\n3) Unstable angina — similar symptom cluster; radiation possible.\n4) Pneumonia — can cause pleuritic pain and SOB, but radiation pattern and prominent autonomic symptoms are less specific.\n5) Pericarditis — chest pain can be severe, but radiation to arms is less typical; would need positional/pleuritic features.\nMost informative next question: determine timing and triggers (sudden vs gradual, exertional vs",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "When did it start—like how long ago—and was it sudden or gradual? Also, did it happen at rest or during activity/exertion, and does anything make it better or worse (like breathing in deep, moving, or pressing on the area)?",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still need the most discriminating features: onset (sudden vs gradual), duration, and whether it’s exertional vs at rest, plus pleuritic/positional/movement tenderness. These help separate MI/unstable angina (often exertional or at rest, not clearly affected by breathing/movement) from pulmonary embolism (often sudden, may be pleuritic) and pericarditis (often worse lying flat, better leaning forward; pleuritic). Next question should capture onset and triggers.\nTop candidates (provisional):\n1) Possible NSTEMI / STEMI — severe diaphoresis/nausea + arm radiation; onset could be sudden or at rest.\n2) Pulmonary embolism — if sudden onset and worse with deep breath.\n3) Unstable angina — if exertional or occurs at rest with no relief.\n4) Pericarditis — if positional/pleuritic pattern.\n5) Pneumonia/bronchitis — if gradual with cough/fever.\nMost informative next question: ask about onset timing and whether breathing/movement changes pain.\n[/REASONING]\nHow long ago did it start, and was it sudden (seconds–minutes) or gradual (over minutes–hours)? Also, is it happening at rest or with exertion—and does taking a deep breath, moving, or pressing on the chest make it better or worse?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—about 7/10 speed, like within a short time. It’s been there at rest, and it doesn’t really feel better when I take a deep breath or when I move or press on the chest.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: rapid onset (within short time), severe ongoing chest pain at rest, not clearly pleuritic (no change with deep breath) and not reproducible with movement/pressing. With diaphoresis, SOB, nausea, and radiation to arms/shoulder and thoracic spine, this strongly supports an acute coronary syndrome rather than PE/pericarditis/pleurisy. Next most discriminating question: any cardiac risk factors and age/sex, plus associated symptoms like palpitations or syncope. But the single best discriminator from the list is whether there are any features suggesting arrhythmia (PSVT/AF) or whether this is classic ACS. I’ll ask about history of heart disease and risk factors (smoking, diabetes, HTN, high cholesterol) and age.\nTop candidates:\n1) Possible NSTEMI / STEMI — rest pain, severe diaphoresis/nausea, arm radiation; not pleuritic.\n2) Unstable angina — similar but typically less severe; still possible.\n3) Pulmonary embolism — less likely since not pleuritic and not clearly worse with breathing; still possible with rest pain.\n4) Pericarditis — less likely because not positional/pleuritic.\n5) Myocarditis — can mimic ACS; need viral prodrome.\nMost informative next question: age and cardiac risk factors/history of coronary disease.\n[/REASONING]\nHow old",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m 80 years old. I also have diabetes, high blood pressure, high cholesterol, I’m overweight, and I smoke (current smoker, and I’ve smoked before). I’ve also been told I have poor circulation, and I have a family history of early heart disease.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 80-year-old with multiple major CAD risk factors (diabetes, HTN, HLD, overweight, current smoker, poor circulation, family history). Symptoms: rapid onset severe chest pain at rest with diaphoresis, SOB, nausea, and radiation to arms/shoulders and thoracic spine. This is highly concerning for acute coronary syndrome. From the provided list, the most likely is “Possible NSTEMI / STEMI,” with “Unstable angina” next. PE is less likely given classic ACS features and lack of pleuritic/movement component, but still not impossible. Pericarditis/myocarditis less likely without positional/viral features. Next discriminating question (but we’re already quite confident): ask about any prior similar episodes and whether there are palpitations or fainting (to consider arrhythmia), and also whether pain is ongoing now and any time course (e.g., >20 min). However, we can proceed to differential with high confidence for ACS.\nTop candidates:\n1) Possible NSTEMI / STEMI — classic risk profile + rest pain + diaphoresis/nausea + radiation.\n2) Unstable angina — could present similarly, especially if not meeting MI criteria.\n3) Pulmonary embolism — consider if sudden unexplained, but symptoms are more ACS-like here.\n4) Possible NSTEMI / STEMI vs other cardiac causes (e.g., myocarditis",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had heart problems before—yes, I’ve had angina/heart attack concerns in the past. This pain is still going on right now, and it started suddenly and has been heavy and severe since then. I don’t know about palpitations—I haven’t really noticed any irregular heartbeat, and I haven’t fainted.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have strong evidence for acute coronary syndrome: elderly (80) with extensive CAD risk factors and prior angina/MI concerns; current episode is sudden onset, severe/heavy, ongoing at rest, with diaphoresis, SOB, nausea, and radiation to arms/shoulder and thoracic spine. Lack of pleuritic/movement component makes PE/pericarditis less likely. No palpitations/syncope doesn’t exclude ACS. With this, we can provide a confident top differential from the list.\nTop candidates with brief reasoning:\n1) Possible NSTEMI / STEMI — best match for rest pain + autonomic symptoms + radiation + high-risk patient.\n2) Unstable angina — could mimic MI; still plausible if troponins negative.\n3) Pulmonary embolism — less likely due to non-pleuritic/non-reproducible pain and classic ACS radiation, but sudden severe chest pain with SOB keeps it on list.\n4) Pericarditis — less likely without positional/pleuritic features, but severe chest pain can occur.\n5) Myocarditis — can mimic ACS; would need viral prodrome/younger age, but still possible.\nNext action would be immediate ECG/troponins, but per instructions we provide DDX now.\n[/REASONING]\n[DDX] Possible NSTEMI / STEMI, Unstable angina, Pulmonary embolism, Pericard",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Unstable angina",
+      "Pulmonary embolism",
+      "Pericard"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7673,
+      "completion_tokens": 1493
+    },
+    "patient": {
+      "prompt_tokens": 8066,
+      "completion_tokens": 322
+    }
+  }
+}

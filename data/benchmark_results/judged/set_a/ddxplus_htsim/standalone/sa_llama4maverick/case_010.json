@@ -1,0 +1,149 @@
+{
+  "case_idx": 10,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 37\nSex: F\nChief Complaint: nausea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling nauseous and I’ve vomited several times or made several efforts to vomit. I also have severe pain—on a scale of 0–10 it’s 8—starting very suddenly (pace 10). The pain is in my upper chest, belly, and epigastric area, and it radiates to my thoracic spine and the left scapula.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow down the diagnosis, I need to gather more information about the patient's symptoms. Here's my first question: Can you describe the nature of the pain? Is it sharp, dull, burning, or crampy?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s a knife stroke—violent, sickening, heartbreaking, haunting.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "The description of the pain as \"knife stroke\" and \"violent\" suggests a severe, acute condition. The radiation of pain to the thoracic spine and left scapula is also notable. To further investigate, my next question is: Have you experienced any recent trauma or injury that could be related to your current symptoms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "The patient is unsure about recent trauma. Let's focus on other aspects of their condition. My next question is: Are there any specific factors that relieve or exacerbate the pain, such as changes in position, eating, or bowel movements?\nThe response to this question may help identify potential triggers or relieving factors associated with the pain.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The patient is unsure about factors that relieve or exacerbate the pain. Let's try to gather more information about their symptoms. My next question is: Have you experienced any other symptoms such as fever, diarrhea, or difficulty breathing along with the pain and nausea?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The patient is unsure about other symptoms. Let's try a different approach. My next question is: Have you noticed any blood in your vomit or stool?\n \n(This question is aimed at identifying potential gastrointestinal bleeding, which could be relevant to several serious conditions.)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The patient is having difficulty providing specific information about their symptoms. Let's try to focus on a specific aspect of their condition. My next question is: Is the pain constant or does it come and go?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It’s constant.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "The constant nature of the pain suggests a persistent underlying condition. Given the severity and location of the pain, along with the accompanying nausea and vomiting, I'm starting to consider serious diagnoses. My next question is: Does the pain feel like it's tearing or ripping?\n  \n(This question is aimed at assessing the possibility of a condition like aortic dissection, which is a life-threatening emergency.)\n  \n(I will continue to ask questions until I have enough information to provide a differential diagnosis.)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "The patient is still unsure about the specific characteristics of their pain. Given the severity and location of the pain, along with the accompanying nausea and vomiting, I need to consider serious and potentially life-threatening conditions. My next question is: Have you had any history of cardiovascular disease, hypertension, or other significant medical conditions?\n  \n(This information could be crucial in assessing the risk for conditions like aortic dissection or myocardial infarction.)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "The patient's lack of knowledge about their medical history is limiting my ability to assess their condition. Given the severity of the symptoms described, I need to consider potentially life-threatening conditions. My next question is: Are you currently experiencing any difficulty swallowing or shortness of breath?\n\n(This question aims to identify potential esophageal or cardiac involvement.)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "The patient's inability to provide specific information is making it challenging to narrow down the diagnosis. Given the severity of the symptoms and the limitations in gathering more information, I will proceed with caution.\n\n[ABSTAIN] Insufficient information to confidently diagnose.\n \n[POSSIBLE] Aortic dissection, acute myocardial infarction, Boerhaave syndrome, esophageal rupture, acute pancreatitis.",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Aortic dissection",
+      "acute myocardial infarction",
+      "Boerhaave syndrome",
+      "esophageal rupture",
+      "acute pancreatitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Boerhaave"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6197,
+      "completion_tokens": 644
+    },
+    "patient": {}
+  }
+}

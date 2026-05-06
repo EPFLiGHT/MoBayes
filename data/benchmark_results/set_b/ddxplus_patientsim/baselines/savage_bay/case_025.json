@@ -1,0 +1,132 @@
+{
+  "case_idx": 25,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Guillain-Barré syndrome",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 65\nSex: Female\nChief Complaint: I have noticed weakness in your facial muscles and/or eyes, previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face, and foot numbness/tingling",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve noticed weakness in my facial muscles and/or my eyes. I also have tingling and numbness in my feet, and I’ve had weakness in my face and/or limbs before as well.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step. First, I need to know the *pattern* of weakness.\n\n**Question 1 (one at a time):**  \nIs the weakness **sudden (minutes–hours)** or **gradual (days–weeks)** in onset?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It was more gradual—over days, not suddenly within minutes or hours.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Gradual onset over days makes some sudden causes less likely.\n\n**Current posterior (rough initial estimate):**  \n- **Guillain-Barré syndrome**: 35%  \n- **Myasthenia gravis**: 25%  \n- **Anemia**: 10%  \n- **Neurological Diseases (other)**: 15%  \n- **SLE**: 5%  \n- **Other System Diseases (e.g., electrolyte/metabolic)**: 10%\n\n**Update with evidence:** gradual onset over days → favors GBS (often days) and lessens anaphylaxis/stroke-like causes (not in list, but generally sudden).\n\n**Likelihood ratios (conceptual):**  \n- GBS: LR ~2 (gradual days fits)  \n- Myasthenia gravis: LR ~1.2 (can be subacute)  \n- Anemia/other: LR ~1 (non-specific)\n\n**Question 2:**  \nDo you have **trouble moving your eyes or eyelids** that gets **worse with use** and **better with rest** (e.g., droopy eyelids that improve after lying down)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had weakness around my eyes/eyelids, and it seems to get worse when I’m using them and a bit better when I rest.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern (ocular/eyelid weakness that worsens with use and improves with rest) strongly points toward a neuromuscular junction problem.\n\n**Current posterior (updated):**  \n- **Myasthenia gravis**: 70%  \n- **Guillain-Barré syndrome**: 15%  \n- **Anemia**: 5%  \n- **SLE**: 3%  \n- **Neurological Diseases (other)**: 7%\n\n**Likelihood ratios:**  \n- Myasthenia gravis: LR ~4–6 for “worse with use, better with rest”  \n- GBS: LR ~0.7 (GBS is usually not fatigable/ocular in that classic way)\n\n**Question 3:**  \nDo you have **true numbness/tingling** (reduced sensation) in your feet, or is it more **weakness without numbness**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I do have tingling and numbness in my feet. It feels like reduced sensation, not just weakness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Numbness/tingling (sensory symptoms) pushes away from classic myasthenia gravis (which is typically *motor* with no true sensory loss), and toward a peripheral nerve process like **Guillain-Barré syndrome**.\n\n**Current posterior (updated):**  \n- **Guillain-Barré syndrome**: 55%  \n- **Myasthenia gravis**: 30%  \n- **Anemia**: 5%  \n- **SLE**: 5%  \n- **Neurological Diseases (other)**: 5%\n\n**Likelihood ratios (conceptual):**  \n- GBS: LR ~2–3 for “tingling/numbness”  \n- Myasthenia gravis: LR ~0.5 for “true sensory symptoms”\n\n**Question 4:**  \nHave you had **any trouble swallowing**, **choking on liquids**, or **a change in voice** (nasal/hoarse) since this started?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had some trouble swallowing, and sometimes I feel like I choke more easily, especially with liquids. My voice also seems a bit different since it started.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Swallowing difficulty and voice change with facial/ocular symptoms strongly increases concern for a neuromuscular process affecting cranial nerves—this can fit **Guillain-Barré syndrome** (including bulbar involvement) and also **myasthenia gravis** (bulbar MG).\n\n**Current posterior (updated):**  \n- **Guillain-Barré syndrome**: 60%  \n- **Myasthenia gravis**: 35%  \n- **SLE**: 2%  \n- **Neurological Diseases (other)**: 3%\n\n**Likelihood ratios (conceptual):**  \n- GBS: LR ~1.5–2 for bulbar symptoms + gradual days  \n- MG: LR ~1.5–2 for bulbar symptoms + ocular involvement  \n(But the earlier **true numbness/tingling** still favors GBS.)\n\n**Question 5:**  \nDo you have **new trouble breathing** (shortness of breath, can’t take a deep breath, or feeling like your breathing is getting weaker), or have you noticed **worsening weakness over the last 24–48 hours**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed new trouble breathing. But I think the weakness has been getting worse over the last day or two.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Worsening weakness over 24–48 hours raises concern for an evolving neuromuscular weakness (GBS can progress quickly; MG can also worsen, but sensory symptoms still lean GBS).\n\n**Current posterior (updated):**  \n- **Guillain-Barré syndrome**: 65%  \n- **Myasthenia gravis**: 30%  \n- **Anemia**: 2%  \n- **SLE**: 2%  \n- **Neurological Diseases (other)**: 1%\n\n**Likelihood ratios (conceptual):**  \n- GBS: LR ~1.3–1.6 for “worsening over 1–2 days”  \n- MG: LR ~1.1 for “worsening” (less discriminating)\n\n**Question 6:**  \nDid this start after a **recent infection** (e.g., diarrhea/foodborne illness, fever/URI, flu-like illness) in the past **1–4 weeks**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. About a couple of weeks ago I had a stomach bug/diarrhea and I felt sick with it.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "A preceding gastrointestinal illness 1–4 weeks before onset is a classic trigger for **Guillain-Barré syndrome** (often post-infectious, including Campylobacter-related illness).\n\n**Current posterior (updated):**  \n- **Guillain-Barré syndrome**: 80%  \n- **Myasthenia gravis**: 15%  \n- **SLE**: 2%  \n- **Neurological Diseases (other)**: 3%\n\n**Likelihood ratios (conceptual):**  \n- GBS: LR ~2–3 for post-infectious onset  \n- MG: LR ~0.8 (not a typical trigger pattern)\n\n**Question 7:**  \nDo you have **decreased or absent reflexes** (e.g., your knees/ankles feel “less springy” when tested), or has anyone noticed that?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about my reflexes, and nobody has checked them yet.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "No reflex info yet—so we can’t use that discriminator.\n\n**Current posterior (still):**  \n- **Guillain-Barré syndrome**: 78%  \n- **Myasthenia gravis**: 15%  \n- **Anemia**: 2%  \n- **SLE**: 3%  \n- **Neurological Diseases (other)**: 2%\n\n**Question 8:**  \nWhen you try to walk, do you feel **unsteady because of weakness**, or is it more like **loss of balance/sensation** (e.g., worse with eyes closed, like “walking on cotton”)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It feels unsteady because of weakness, but my feet also feel a bit numb/tingly, so it’s not fully just balance.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Guillain-Barré syndrome, Myasthenia gravis, SLE, Anemia, Neurological Diseases (other)",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Guillain-Barré syndrome",
+    "predicted_set": [
+      "Guillain-Barré syndrome",
+      "Myasthenia gravis",
+      "SLE",
+      "Anemia",
+      "Neurological Diseases (other)"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14930,
+      "completion_tokens": 1508
+    },
+    "patient": {
+      "prompt_tokens": 11989,
+      "completion_tokens": 268
+    }
+  }
+}

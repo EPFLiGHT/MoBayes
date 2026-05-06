@@ -1,0 +1,162 @@
+{
+  "case_idx": 12,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 8\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have chest pain on both sides—right and left—and also upper chest pain. It feels like a knife-stab, very violent, and it came on really fast. I’m also having significant trouble breathing, and it hurts more when I breathe in.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down quickly. First, a safety check:\n\n**Question 1 (one at a time):**  \nAre you having **any fever** or **cough** (even mild), or is it mainly sudden chest pain with breathing difficulty?  \n\n*(While you answer, I’m thinking about pleuritic, sudden-onset causes like pulmonary embolism, pneumothorax, pneumonia, and less commonly other emergencies.)*",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No fever, and no cough. It’s mainly sudden chest pain when I breathe and trouble breathing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (rough starting point given sudden pleuritic pain + dyspnea, no fever/cough):\n- **Pulmonary embolism:** 0.30  \n- **Spontaneous pneumothorax:** 0.25  \n- **Acute pulmonary edema:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Pneumonia:** 0.05  \n(others lower)\n\nNext, the most discriminating question for pneumothorax/PE:\n\n**Question 2:**  \nDid this start **after any trigger** like **recent long travel/immobility**, **surgery**, **leg swelling/pain**, **known clotting history**, or **using estrogen/birth control**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No—no recent long travel or immobility, and no surgery. I don’t have leg swelling or pain, and I’m not on any estrogen-type medicine.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no travel/immobility/estrogen/leg symptoms):\n- **Pulmonary embolism:** 0.22  \n- **Spontaneous pneumothorax:** 0.33  \n- **Acute pulmonary edema:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Pneumonia:** 0.03  \n\nNext question to separate pneumothorax vs PE vs cardiac ischemia:\n\n**Question 3:**  \nDo you have **one-sided decreased breath sounds** that you’ve noticed, or does your breathing feel **worse on one side**? (If you’re not sure, tell me if it feels equally bad right/left.)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I feel it on both sides—right and left—and my breathing feels really hard, but I can’t say it’s worse on only one side.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (bilateral symptoms → less classic for pneumothorax):\n- **Pulmonary embolism:** 0.28  \n- **Spontaneous pneumothorax:** 0.22  \n- **Acute pulmonary edema:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.18  \n- **Pneumonia:** 0.02  \n\nNext, a key discriminator for PE vs cardiac ischemia/edema:\n\n**Question 4:**  \nDo you have **any chest pressure/tightness** that’s not just with breathing (or any **sweating, nausea, or feeling faint**)—or is it purely “worse when you inhale”?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s mostly worse when I breathe in. I don’t feel sweaty or nauseous, and I don’t feel like I might faint.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (pleuritic pain pattern, no neurovegetative symptoms):\n- **Pulmonary embolism:** 0.30  \n- **Spontaneous pneumothorax:** 0.25  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Acute pulmonary edema:** 0.10  \n- **Pneumonia:** 0.02  \n\nNext question to distinguish PE from pneumothorax:\n\n**Question 5:**  \nHave you had **any sudden sharp pain plus one-sided “air hunger”** with **coughing up blood** or **a history of blood clots**? (Even small amounts of blood count.)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No coughing up blood, and no history of blood clots.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no hemoptysis, no clot history):\n- **Pulmonary embolism:** 0.26  \n- **Spontaneous pneumothorax:** 0.29  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.12  \n- **Pneumonia:** 0.01  \n\nNext question—pneumothorax often follows lung disease or smoking; PE often follows exertion/leg symptoms.  \n\n**Question 6:**  \nDo you **smoke** (or vape), have known **lung disease** (asthma/COPD), or have you had a **recent viral illness**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No smoking or vaping. I don’t have asthma or COPD, and I haven’t had a recent viral illness.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no smoking/lung disease/viral illness):\n- **Spontaneous pneumothorax:** 0.34  \n- **Pulmonary embolism:** 0.24  \n- **Possible NSTEMI / STEMI:** 0.14  \n- **Acute pulmonary edema:** 0.14  \n- **Pneumonia:** 0.01  \n\nNext question to separate pneumothorax from cardiac causes:\n\n**Question 7:**  \nWhen you take a deep breath, does it feel like you **can’t get air in** (air hunger) with **sudden onset**, or is it more like **heart-related pressure**? Also, do you have **palpitations** or a known fast/irregular heartbeat?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It feels like I can’t get air in—like air hunger—especially with the pain. I don’t know about palpitations, and I don’t know if my heartbeat is fast or irregular.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (air hunger + pleuritic knife-like pain, sudden onset):\n- **Spontaneous pneumothorax:** 0.40  \n- **Pulmonary embolism:** 0.22  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.14  \n- **Pneumonia:** 0.01  \n\nNext discriminator: pneumothorax can be associated with **sudden onset after exertion/trauma**; PE can be associated with **leg symptoms** or **unexplained tachycardia** (we can’t confirm yet).  \n\n**Question 8:**  \nAny **recent trauma** (even minor), heavy lifting/straining, or sudden exertion right before this started?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No—no trauma, no heavy lifting, and nothing special right before it started.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no trauma/exertion):\n- **Spontaneous pneumothorax:** 0.42  \n- **Pulmonary embolism:** 0.24  \n- **Possible NSTEMI / STEMI:** 0.12  \n- **Acute pulmonary edema:** 0.14  \n- **Pneumonia:** 0.01  \n\nNext question: pneumothorax often causes **unilateral** decreased breath sounds, but can feel bilateral; PE often causes **tachycardia** and sometimes syncope. We need one more high-yield symptom.\n\n**Question 9:**  \nDo you have **any history of sudden lung collapse**, connective tissue disease (like Marfan), or very tall/skinny body habitus?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a spontaneous pneumothorax before. I don’t know about Marfan or connective tissue disease, and I don’t know if I’m very tall and skinny.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (prior spontaneous pneumothorax strongly supports recurrence):\n- **Spontaneous pneumothorax:** 0.55  \n- **Pulmonary embolism:** 0.20  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Acute pulmonary edema:** 0.12  \n- **Pneumonia:** 0.03  \n\nNext question to ensure we’re not missing a cardiac cause:\n\n**Question 10:**  \nDo you have **leg swelling**, **new/worsening shortness of breath when lying flat**, or **a history of heart failure**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling. I don’t know about breathing when lying flat, and I don’t have a history of heart failure.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Posterior update (no heart failure/leg swelling):\n- **Spontaneous pneumothorax:** 0.58  \n- **Pulmonary embolism:** 0.18  \n- **Acute pulmonary edema:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Pneumonia:** 0.04  \n\nAt this point, pneumothorax recurrence is leading. I’ll ask one last question to check severity/alternative causes:\n\n**Question 11:**  \nHave you measured your oxygen saturation (SpO₂) or do you feel **confused/very weak** or **blue lips**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my oxygen level. I’m not confused, but I feel very weak from the breathing trouble. I don’t know about blue lips.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Spontaneous pneumothorax, Pulmonary embolism, Possible NSTEMI / STEMI, Acute pulmonary edema, Pneumonia",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "Spontaneous pneumothorax",
+    "predicted_set": [
+      "Spontaneous pneumothorax",
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 21504,
+      "completion_tokens": 1639
+    },
+    "patient": {
+      "prompt_tokens": 19150,
+      "completion_tokens": 386
+    }
+  }
+}

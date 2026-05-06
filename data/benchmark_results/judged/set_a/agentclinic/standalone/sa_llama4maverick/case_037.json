@@ -1,0 +1,135 @@
+{
+  "case_idx": 37,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old woman",
+    "History": "The patient reports feeling extremely fatigued and weak, especially towards the end of the day, to the point of difficulty in self-care. She mentions experiencing these symptoms currently. The patient has been traveling, hiking, and camping recently and notes having had multiple illnesses in the recent past.",
+    "Symptoms": {
+      "Primary_Symptom": "Weakness and fatigue",
+      "Secondary_Symptoms": [
+        "Mild diplopia"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Enjoys outdoor activities such as hiking and camping. No mention of smoking, alcohol, or drug use.",
+    "Review_of_Systems": "Denies fever, weight loss, headache, or any respiratory, gastrointestinal, or urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with weakness and fatigue.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling extremely fatigued and weak, especially toward the end of the day, to the point where it’s hard to take care of myself. I’ve also noticed some mild double vision.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To better understand your condition, can you tell me if your double vision is constant or does it vary throughout the day?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It mostly varies—my double vision seems to be worse later in the day, especially when I’ve been using my eyes and I’m feeling more exhausted. When I rest, it improves somewhat.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "That's a helpful detail. Can you tell me if you've noticed any other symptoms such as difficulty swallowing or speaking?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t noticed any trouble swallowing or speaking. My main issues are the worsening fatigue and weakness later in the day, with the mild double vision improving when I rest.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "To further narrow down the cause, have you experienced any weakness or drooping in your eyelids, known as ptosis?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Now that you mention it, I think my eyelids feel a bit heavy, but I haven’t noticed clear drooping that would stay all day.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The symptom of heavy eyelids, particularly when combined with double vision that worsens with fatigue, is suggestive of a specific condition. To further assess this, can you tell me if you've noticed any improvement in your symptoms after a short period of rest, such as after a nap?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Yes—after a nap or resting for a bit, the double vision improves noticeably and the weakness feels less severe, though it tends to come back when I’m active again later in the day.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The improvement in symptoms after rest is a key characteristic. Can you tell me if there's a family history of similar neurological conditions or autoimmune diseases?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t know of any family members with similar neurological conditions or autoimmune diseases. I’ve also never been told I have an autoimmune problem myself.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The lack of a known family history is noted. Given the pattern of your symptoms worsening with activity and improving with rest, I'm starting to lean towards a specific diagnosis. To confirm, have you ever experienced any significant worsening of your symptoms or any crises that required immediate medical attention?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t had anything like a sudden crisis that sent me to the emergency room, but I do feel like the weakness and double vision can ramp up significantly when I’m active for hours. It’s uncomfortable and limiting, yet it eases when I rest.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myasthenia Gravis, Chronic Fatigue Syndrome, Lambert-Eaton Myasthenic Syndrome, Multiple Sclerosis, Thyroid Eye Disease",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia Gravis",
+    "predicted_set": [
+      "Myasthenia Gravis",
+      "Chronic Fatigue Syndrome",
+      "Lambert-Eaton Myasthenic Syndrome",
+      "Multiple Sclerosis",
+      "Thyroid Eye Disease"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Myasthenia gravis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3308,
+      "completion_tokens": 253
+    },
+    "patient": {
+      "prompt_tokens": 3541,
+      "completion_tokens": 285,
+      "calls": 7
+    }
+  }
+}

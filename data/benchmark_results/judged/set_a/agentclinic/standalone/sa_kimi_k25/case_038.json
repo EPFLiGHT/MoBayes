@@ -1,0 +1,137 @@
+{
+  "case_idx": 38,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m not answering questions—you’re part of them, watching me. I don’t feel normal and I’m too hot; my body won’t cooperate.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you taken any new medications or drugs in the past few days—particularly for mood, anxiety, pain, or sleep—or used any recreational substances like ecstasy, cocaine, or methamphetamine?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve used substances—recently—and I don’t think I took any “medicine,” but everything feels off and too hot. I’m trying not to talk because you don’t feel safe. My body’s not acting right, and I can’t stay alert.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Is your skin wet with sweat, or does it feel dry and hot?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "My skin is very hot and sweaty, and I feel like my body is tense and rigid. I’m not able to stay alert, and I’m too out of it to answer much more.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Are your muscles twitching or jerking involuntarily, or are they continuously stiff and rigid without twitching?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My muscles feel continuously stiff and rigid, not like brief jerks—more like my whole body won’t relax. I’m also really unable to stay alert and I’m too out of it to explain more.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me specifically what substance you used—was it ecstasy/MDMA, cocaine, methamphetamine, or something else?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can’t say exactly what it was—I used recently, but I don’t trust that I can talk about the details. I feel extremely hot and sweaty, my muscles are continuously stiff, and I’m not staying alert. I’m worried I’m being watched, so I’m not comfortable answering further.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I feel extremely hot with heavy sweating, and my body is tense and rigid. I can’t stay alert and I’m too out of it to give details, because I feel like I’m being watched. I haven’t been answering because I don’t feel safe.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the life-threatening nature of your symptoms—severe hyperthermia, continuous muscle rigidity, and altered mental status after recent substance use—I need to provide my assessment now.\n\n[DDX] Serotonin syndrome, Neuroleptic malignant syndrome, Severe sympathomimetic toxicity (cocaine/amphetamines), Malignant hyperthermia, Heat stroke\n\n**Immediate action required:** This presentation with high fever, rigid muscles, and confusion after substance use is a medical emergency consistent with severe serotonin syndrome or another hyperthermic syndrome. You need immediate cooling, IV fluids, and close monitoring to prevent organ failure. Please allow the team to begin treatment immediately.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Serotonin syndrome",
+    "predicted_set": [
+      "Serotonin syndrome",
+      "Neuroleptic malignant syndrome",
+      "Severe sympathomimetic toxicity (cocaine/amphetamines)",
+      "Malignant hyperthermia",
+      "Heat stroke\n\n**Immediate action required:** This presentation with high fever"
+    ],
+    "predicted_raw": [
+      "Serotonin syndrome",
+      "Neuroleptic malignant syndrome",
+      "Severe sympathomimetic toxicity (cocaine/amphetamines)",
+      "Malignant hyperthermia",
+      "Heat stroke\n\n**Immediate action required:** This presentation with high fever"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Neuroleptic Malignant Syndrome",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2729,
+      "completion_tokens": 7409
+    },
+    "patient": {
+      "prompt_tokens": 3025,
+      "completion_tokens": 315,
+      "calls": 6
+    }
+  }
+}

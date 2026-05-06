@@ -1,0 +1,132 @@
+{
+  "case_idx": 48,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 39\nSex: Male\nChief Complaint: I have lightheadedness/near-fainting, a cramp pain, and back of head pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling lightheaded like I might faint, with severe fatigue and trouble breathing. I also have head pain—back of the head and top/forehead—and some cramp-type pain. I’ve also noticed bloody stool.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: lightheaded/presyncope, severe fatigue, dyspnea/trouble breathing, headache (occipital + top/forehead), cramp-type pain, and bloody stool (GI bleeding). This combination raises concern for significant anemia from GI blood loss (causing dyspnea/lightheadedness), and also for serious cardiopulmonary causes that can coexist or mimic (e.g., pulmonary embolism, ACS). Headache could be from anemia/hypoperfusion, but we must also consider other serious causes. With only this information, the most discriminating next step is to determine whether the patient is actively bleeding and how much (and whether there are signs of shock), which would strongly support anemia.\nTop candidates (tentative):\n1) Anemia — bloody stool → blood loss → presyncope, fatigue, dyspnea.\n2) Pulmonary embolism — can cause sudden dyspnea/lightheadedness; headache is less typical but possible with hypoxia.\n3) Possible NSTEMI / STEMI — can cause dyspnea/lightheadedness; GI bleeding could be coincidental or stress-related.\n4) Circulatory Diseases — hypotension/shock states could cause presyncope and dyspnea; GI bleed may be the trigger.\n5) Pulmonary edema — dyspnea prominent, but bloody stool/headache are not typical.\nMost informative next question: quantify the bleeding and hemodynamic",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’ve noticed the bloody stool today. I’m not sure how much blood it is, but it’s noticeable. I feel very weak and lightheaded, like I could pass out, and I’ve been short of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: noticeable bloody stool today, marked weakness/presyncope (“could pass out”), and shortness of breath. This strongly supports clinically significant GI bleeding causing acute blood loss anemia and/or hypovolemia. However, we still must rule out other life threats that can present with dyspnea + presyncope (PE, ACS) and determine severity/shock. The single most discriminating next question is whether they have signs of hemodynamic instability (e.g., black/tarry stool vs bright red, vomiting blood, chest pain, fainting, measured low BP, rapid heart rate). First, I’ll ask about the stool appearance and amount because it helps localize and estimate bleeding severity.\nTop candidates (tentative):\n1) Anemia — acute blood loss from GI bleeding → presyncope, fatigue, dyspnea.\n2) Possible NSTEMI / STEMI — dyspnea/presyncope; GI bleed could be concurrent or from stress/anticoagulation.\n3) Pulmonary embolism — dyspnea/presyncope; GI bleed less typical but possible if on anticoagulation.\n4) Circulatory Diseases — hypovolemia/shock from bleeding → lightheadedness, weakness, dyspnea.\n5) Pulmonary edema — less likely given GI bleeding, but dyspnea could be severe.\nMost informative next question: stool character (bright red vs maroon vs black",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "The stool looked bloody/red—like bright blood in it. I’m not sure if it was black or tarry. I haven’t vomited any blood, but I felt like I might pass out.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bright red blood per rectum (hematochezia), no hematemesis, presyncope/near-syncope, severe weakness, and shortness of breath. Bright red blood suggests lower GI bleeding (e.g., hemorrhoids, diverticular bleed, ischemic colitis, colorectal pathology), but the presyncope/dyspnea suggests significant blood loss or anemia. Still, dyspnea + near-syncope requires checking for shock and also considering PE/ACS, especially if symptoms are disproportionate or if there’s chest pain/palpitations. The most discriminating next question is about vital/clinical instability: have they actually fainted, and do they have chest pain, palpitations, or measured low blood pressure/very fast heart rate? I’ll ask about fainting/chest pain first.\nTop candidates (tentative):\n1) Anemia (acute blood loss) from lower GI bleed — bright red blood + presyncope + dyspnea.\n2) Possible NSTEMI / STEMI — dyspnea/presyncope; GI bleeding may coexist (esp. if on antithrombotics).\n3) Pulmonary embolism — dyspnea/presyncope; GI bleeding could be from anticoagulation or incidental.\n4) Circulatory Diseases (hypovolemia/shock) — near-syncope from bleeding.\n5) Pulmonary edema — less likely without typical",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t fully fainted, but I felt like I was going to. I don’t know my blood pressure. I haven’t noticed chest pain, but my breathing feels really bad and I’m very weak.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bright red blood per rectum today, near-syncope, marked weakness, and significant shortness of breath; no chest pain; no vomiting blood. This remains most consistent with acute blood loss anemia from lower GI bleeding causing presyncope and dyspnea. However, we still must consider other causes of dyspnea/near-syncope (PE, ACS without chest pain, arrhythmia) and also determine bleeding risk factors (anticoagulants/antiplatelets) and associated symptoms (abdominal pain, fever, diarrhea). The single most informative next question is whether they are on blood thinners/antiplatelet meds, because that would strongly increase likelihood of significant bleeding and also raises concern for PE/ACS in the context of anticoagulation.\nTop candidates (tentative):\n1) Anemia — acute blood loss from lower GI bleed (supported by bright red blood + presyncope/dyspnea).\n2) Possible NSTEMI / STEMI — dyspnea/near-syncope can occur without chest pain; GI bleed could be related to antithrombotics.\n3) Pulmonary embolism — dyspnea/near-syncope; could be triggered by hypercoagulable state; anticoagulation status matters.\n4) Circulatory Diseases — hypovolemia from bleeding.\n5) Atrial fibrillation / PSVT — can cause dyspnea/near",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’m taking oral anticoagulants. I haven’t started anything new recently, but I am on them.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bright red blood per rectum, near-syncope, severe weakness and dyspnea, and the patient is on oral anticoagulants. This makes clinically significant GI bleeding causing acute blood loss anemia much more likely, and also increases concern for other anticoagulation-related complications (e.g., PE). The next most discriminating question is the anticoagulant type and timing (e.g., warfarin vs DOAC like apixaban/rivaroxaban; any missed doses; last dose). This helps estimate bleeding severity and also PE risk/likelihood.\nTop candidates (tentative):\n1) Anemia — acute blood loss from lower GI bleed while anticoagulated.\n2) Pulmonary embolism — anticoagulation doesn’t fully exclude PE (missed doses, subtherapeutic levels), and dyspnea/near-syncope fit.\n3) Possible NSTEMI / STEMI — anticoagulation may coexist; dyspnea/near-syncope can occur without chest pain.\n4) Circulatory Diseases — hypovolemia/shock from bleeding.\n5) Atrial fibrillation — can cause dyspnea/presyncope; anticoagulation suggests underlying arrhythmia.\nMost informative next question: Which oral anticoagulant are they taking (name) and when was the last dose / any missed doses? (one question).",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m on an oral anticoagulant, but I can’t remember the exact name right now. My last dose was earlier today, and I haven’t missed any doses that I know of.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bright red hematochezia today, on oral anticoagulant with no missed doses, near-syncope, severe weakness, and dyspnea. This strongly supports acute lower GI bleeding with acute blood loss anemia as the leading diagnosis. Anticoagulation also keeps PE and ACS on the differential, but without chest pain or pleuritic symptoms we can’t prioritize them yet. We still need one discriminating piece: presence of abdominal pain/diarrhea/fever (to suggest specific GI sources like ischemic colitis/infectious colitis) versus isolated bleeding. However, for immediate ED triage, the most discriminating next question would be whether they have black/tarry stool or ongoing heavy bleeding (volume) and whether they have symptoms of severe anemia (palpitations, measured HR). Since we already have bright red, I’ll ask about abdominal pain/diarrhea because it helps distinguish ischemic/infectious causes that may be more urgent.\nTop candidates (tentative):\n1) Anemia — acute blood loss from lower GI bleed (most supported).\n2) Circulatory Diseases — hypovolemia/shock from bleeding contributing to presyncope/dyspnea.\n3) Pulmonary embolism — still possible with dyspnea/near-syncope on anticoagulants (especially if not fully therapeutic).\n4) Possible NSTEMI / STEMI — dyspnea/near-syncope",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I have cramp-type pain, but I haven’t had a fever. I’m not sure about diarrhea—I don’t think I’ve had it.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: bright red blood per rectum today while on oral anticoagulants; near-syncope, severe weakness, and shortness of breath; cramp-type abdominal pain; no fever; no diarrhea that they recall. This continues to point most strongly to acute lower GI bleeding causing acute blood loss anemia/hypovolemia. Crampy pain without fever raises ischemic colitis/diverticular bleed as possibilities, but we can’t confirm source. Dyspnea/near-syncope could be from anemia, but anticoagulation also keeps PE/ACS in play. We need one more discriminating question about severity of bleeding (how many episodes, clots, soaking pads) versus just a small amount—this will help decide whether anemia is likely severe enough to explain dyspnea and presyncope, and whether other causes must be prioritized.\nTop candidates (tentative):\n1) Anemia — acute blood loss from lower GI bleed (supported by hematochezia + presyncope + dyspnea on anticoagulants).\n2) Circulatory Diseases — hypovolemia/shock from bleeding contributing to near-syncope.\n3) Pulmonary embolism — anticoagulated patient still possible; dyspnea/near-syncope.\n4) Possible NSTEMI / STEMI — dyspnea/near-syncope without chest pain possible.\n5) Pneumonia / Acute pulmonary edema — less consistent with",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a few episodes today—more than one. I’d say it’s enough that I noticed it clearly, and it wasn’t just a little streaking. I don’t know how many “pads” it would soak, but it definitely feels like more than a small amount.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: multiple episodes of clearly bloody/bright red stool today while on oral anticoagulants; cramp-type abdominal pain; no fever/diarrhea; near-syncope, severe weakness, and shortness of breath. This is highly concerning for clinically significant acute lower GI bleeding causing acute blood loss anemia and/or hypovolemia. Anticoagulation increases likelihood of substantial bleeding. Dyspnea/near-syncope could be from anemia, but serious cardiopulmonary causes (PE, ACS) must remain on the differential given the symptom severity and anticoagulant use. We have enough to provide a focused top-5 differential.\nTop candidates:\n1) Anemia — acute blood loss from hematochezia explains presyncope, weakness, dyspnea.\n2) Circulatory Diseases — hypovolemia/shock physiology from bleeding contributing to near-syncope.\n3) Pulmonary embolism — dyspnea/near-syncope; anticoagulation doesn’t fully exclude PE (e.g., subtherapeutic/other causes).\n4) Possible NSTEMI / STEMI — dyspnea/near-syncope can occur without chest pain; GI bleed may coexist or be related to antithrombotics.\n5) Pneumonia / Acute pulmonary edema — less likely without pulmonary symptoms like fever/productive cough; still consider if dyspnea is disproportionate to anemia.\nMost informative next step",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’m pretty sure it’s not just a small amount—there have been multiple clear episodes today, and I feel very weak and close to passing out with shortness of breath. I don’t have fever, and I don’t think I’ve had diarrhea.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Anemia, Circulatory Diseases, Pulmonary embolism, Possible NSTEMI / STEMI, Acute pulmonary edema",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [
+      "Anemia",
+      "Circulatory Diseases",
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 19521,
+      "completion_tokens": 2419
+    },
+    "patient": {
+      "prompt_tokens": 18126,
+      "completion_tokens": 405
+    }
+  }
+}

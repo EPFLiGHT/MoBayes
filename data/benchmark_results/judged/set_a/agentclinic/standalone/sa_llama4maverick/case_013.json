@@ -1,0 +1,133 @@
+{
+  "case_idx": 13,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Central retinal artery occlusion",
+  "patient_actor_hidden": {
+    "Demographics": "60-year-old woman",
+    "History": "The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden, painless loss of vision in the right eye",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "Coronary artery disease, hypertension, type 2 diabetes mellitus",
+    "Social_History": "Has difficulty adhering to medication regimen",
+    "Review_of_Systems": "No other systemic symptoms reported"
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden loss of vision in one eye.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: What brings you in today? Patient: I suddenly lost vision in my right eye about half an hour ago while watching TV, and it hasn’t hurt at all.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Was the vision loss sudden and maximal at onset, or did it progress over a few minutes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It was sudden and felt maximal right away—there wasn’t any progression over minutes. It just happened while I was watching TV, and I noticed it immediately.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any other symptoms such as flashes of light, floaters, or a curtain or shadow coming down over your vision in the affected eye?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any flashes of light, new floaters, or a curtain or shadow coming down—just the sudden loss of vision in my right eye.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of hypertension, diabetes, or any cardiovascular diseases?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had hypertension and type 2 diabetes, and I also have coronary artery disease. I’ve had trouble keeping up with my medications regularly.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any weakness, numbness, or difficulty speaking since the vision loss occurred?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any weakness or numbness on either side, and I haven’t had any trouble speaking.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any pain on eye movement in the affected eye?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, there’s no pain when I move my right eye, and it hasn’t hurt at all.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent trauma to your head or eye?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any recent trauma to my head or my eye. I woke up feeling normal and then my right vision suddenly went away while I was watching TV.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "At this point, I have gathered sufficient information to consider a differential diagnosis.\n\n[DDX] Central retinal artery occlusion, retinal detachment (less likely given the absence of flashes, floaters, or curtain/shadow), optic neuritis (less likely given the absence of pain), non-arteritic anterior ischemic optic neuropathy, stroke or transient ischemic attack (though less likely given the lack of other neurological symptoms)\n\nHowever, given the format and the need to strictly follow it, I will reorder them according to likelihood based on the information provided.\n\n[DDX] Central retinal artery occlusion, non-arteritic anterior ischemic optic neuropathy, retinal detachment, optic neuritis, stroke",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Central retinal artery occlusion",
+    "predicted_set": [
+      "Central retinal artery occlusion",
+      "non-arteritic anterior ischemic optic neuropathy",
+      "retinal detachment",
+      "optic neuritis",
+      "stroke"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Central retinal artery occlusion",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Central retinal artery occlusion",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2907,
+      "completion_tokens": 248
+    },
+    "patient": {
+      "prompt_tokens": 3095,
+      "completion_tokens": 233,
+      "calls": 7
+    }
+  }
+}

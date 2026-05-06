@@ -1,0 +1,136 @@
+{
+  "case_idx": 40,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve been having worsening pain in my left great toe, hips, and knees for the past several years—it gets worse with activity and better when I rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe the pain in your left great toe, hips, and knees - is it sharp, dull, aching, or burning?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mostly a deep aching pain in my left great toe, hips, and knees, and it tends to feel worse the more I’m on my feet. It’s not really burning or sharp—more of an ache that improves when I rest.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swelling, redness, or stiffness in the affected joints, particularly in the morning or after periods of rest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve noticed some swelling around the left great toe at times, but not much redness. I do get stiffness after I’ve been sitting or resting, and it usually loosens up after I start moving—especially when I wake up or after a break.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any recent trauma or injury to the affected joints, or have you had any previous surgeries or significant medical conditions that could be related to your symptoms?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Nothing like a specific injury or trauma that I can recall, and I haven’t had any surgeries on those joints. I do have type II diabetes, hypertension, obesity, and I’ve been a smoker for years.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Are you currently taking any medications for your diabetes, hypertension, or other conditions, and have you noticed if any of these medications have affected your joint symptoms?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I take medication for my diabetes and blood pressure, but I haven’t noticed any clear link between starting or changing them and these joint pains. I haven’t had any medications specifically for joint pain, just occasional over-the-counter pain relievers.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any other symptoms such as fever, rash, or other systemic symptoms alongside your joint pain, or have you noticed any patterns or triggers that make your joint pain better or worse besides activity and rest?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No fever or rash, and I don’t feel sick otherwise. It’s mainly worse when I’m active and better with rest, and I also notice the stiffness is worst after sitting or in the morning before I get moving.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned stiffness is worst in the morning and after periods of rest, and it improves with movement - is this stiffness typically less than 60 minutes or does it last longer than that?\nThe goal is to assess for inflammatory vs non-inflammatory causes.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: “It usually eases within about 30 to 45 minutes after I start moving, though it can feel a bit stiff longer if I’ve been sitting for a long time. Once I’m up and going, the ache is still there but the stiffness definitely improves.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Given the patient's symptoms of chronic, activity-related pain and stiffness in multiple joints, particularly the left great toe, hips, and knees, with improvement after rest and morning stiffness lasting less than 60 minutes, along with a history of obesity and other comorbidities, I'm going to provide a differential diagnosis.\n\n[DDX] Osteoarthritis, Gout, Pseudogout, Rheumatoid Arthritis (less likely given the pattern), Spondyloarthritis (less likely given the pattern)\n\nLet's see if I can refine this further, but given the information, these are my top considerations.",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_set": [
+      "Osteoarthritis",
+      "Gout",
+      "Pseudogout",
+      "Rheumatoid Arthritis (less likely given the pattern)",
+      "Spondyloarthritis (less likely given the pattern)\n\nLet's see if I can refine this further"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Osteoarthritis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3661,
+      "completion_tokens": 332
+    },
+    "patient": {
+      "prompt_tokens": 3731,
+      "completion_tokens": 366,
+      "calls": 7
+    }
+  }
+}

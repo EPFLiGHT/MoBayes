@@ -1,0 +1,156 @@
+{
+  "case_idx": 18,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia (CLL)",
+  "patient_actor_hidden": {
+    "Demographics": "75-year-old male",
+    "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+    "Symptoms": {
+      "Primary_Symptom": "No new complaints",
+      "Secondary_Symptoms": [
+        "Occasional knee pain"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, knee osteoarthritis",
+    "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+    "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’m here for my annual blood pressure check. I don’t have any new complaints, just occasional knee pain from osteoarthritis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "What have your recent blood pressure readings been, and have you been taking any blood pressure medications as prescribed?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My recent blood pressure readings have been fairly stable, and I’ve been taking my blood pressure medication as prescribed. I haven’t noticed any new symptoms like chest pain, dizziness, or shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What is your blood pressure reading today, and have you had any severe headaches, vision changes, confusion, or weakness/numbness on one side of your body recently?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My blood pressure reading today is about 130/70. I haven’t had any severe headaches, vision changes, confusion, or any weakness or numbness on one side of my body.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "What specific blood pressure medications are you currently taking, and have there been any recent changes to your medications or dosages?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m currently taking my blood pressure medication daily as prescribed, and there haven’t been any recent changes to the type or dose. I also use occasional acetaminophen for my knee pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "What is the specific name of your blood pressure medication?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I take lisinopril once daily for my blood pressure; I haven’t had any changes in dose recently. I also only use acetaminophen as needed for my knee pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any new swelling in your legs or feet, a persistent dry cough, or changes in your urination patterns?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any new swelling in my legs or feet. I also haven’t had a persistent dry cough, and my urination patterns have been about the same.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve been feeling fine overall, and my occasional knee pain is about the same as usual with acetaminophen as needed. I haven’t had any swelling, cough, or urination changes, and I’m here mainly to make sure my blood pressure stays controlled. What would you like to check next?",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "When was your last blood test to check your kidney function and potassium levels, and do you know those results?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My last blood test for kidney function and potassium was about six months ago, and I was told they were within the normal range. I don’t remember the exact numbers, but my doctor said everything looked okay.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any episodes of facial, lip, or tongue swelling, difficulty swallowing, or hives since starting your lisinopril?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had any facial, lip, or tongue swelling, trouble swallowing, or hives. I’ve been tolerating the lisinopril without any noticeable reactions.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Patient presents for routine annual monitoring with no acute complaints, stable vital signs, and well-controlled chronic conditions; insufficient evidence of acute pathology to formulate an emergency department differential diagnosis.\n\n[POSSIBLE] Essential hypertension (controlled), Osteoarthritis (stable)",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Essential hypertension (controlled)",
+      "Osteoarthritis (stable)"
+    ],
+    "predicted_raw": [
+      "Essential hypertension (controlled)",
+      "Osteoarthritis (stable)"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4840,
+      "completion_tokens": 8434
+    },
+    "patient": {
+      "prompt_tokens": 4997,
+      "completion_tokens": 416,
+      "calls": 9
+    }
+  }
+}

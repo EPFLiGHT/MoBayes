@@ -1,0 +1,358 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Fulminant hepatic failure",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male",
+    "History": "The patient was previously healthy and has been brought to the emergency department due to agitation over the past 24 hours. Family members have noticed a yellowish coloring of his skin and eyes over the past week. The patient has a history of occasional cocaine and ecstasy use, and drinks alcohol socially on weekends. The patient also admits to high-risk sexual behaviors without using appropriate protection.",
+    "Symptoms": {
+      "Primary_Symptom": "Agitation",
+      "Secondary_Symptoms": [
+        "Psychomotor agitation",
+        "Not oriented to time and space",
+        "Jaundice on the skin and mucous membranes",
+        "Epistaxis"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Occasional use of cocaine and ecstasy. Social alcohol consumption (about 20 g on weekends).",
+    "Review_of_Systems": "The patient shows signs of psychomotor agitation and confusion. No other symptoms provided."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with agitation, yellowish coloring of the skin and eyes, and abnormal lab findings.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello—what brings you in today? Could you tell me about yourself and what’s been going on? Patient: I’ve been very agitated and restless for about 24 hours, and I feel confused—I can’t keep track of time or where I am. Also, over the past week my skin and eyes have looked yellow, and I’ve had nosebleeds.",
+      "extracted_features": {
+        "f_agitation_10f6de33": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_jaundice_7519dd8b": "yes",
+        "f_epistaxis_9205eb2c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.2746155097016278
+        ],
+        [
+          "Toxic exposure",
+          0.08592627712955686
+        ],
+        [
+          "Acute lymphoblastic leukemia",
+          0.035860375191746334
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.035860375191746334
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.035860375191746306
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements of your face, arms, legs, or body? (Yes or no)",
+      "patient_answer": "Doctor: Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements of your face, arms, legs, or body? (Yes or no) Patient: Yes, I’ve had some involuntary twitching and jerky movements along with the restlessness.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.2746155097016278
+        ],
+        [
+          "Toxic exposure",
+          0.08592627712955686
+        ],
+        [
+          "Acute lymphoblastic leukemia",
+          0.035860375191746334
+        ]
+      ],
+      "entropy": 4.602680244403076
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "No. I haven’t noticed any lump or swelling in my right breast, and I don’t feel anything moving when I touch my chest.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.2778909276939401
+        ],
+        [
+          "Toxic exposure",
+          0.08695114449567302
+        ],
+        [
+          "Acute myelogenous leukemia",
+          0.036288092177730595
+        ]
+      ],
+      "entropy": 4.578202094674741
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "No, it doesn’t feel tender or painful when you press around my belly button area.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.28306075651525603
+        ],
+        [
+          "Toxic exposure",
+          0.06910310368295039
+        ],
+        [
+          "Schizoaffective disorder",
+          0.03795096358709238
+        ]
+      ],
+      "entropy": 4.58669746156025
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "Patient: I haven’t been vomiting, no.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.15791147927242233
+        ],
+        [
+          "Huntington disease",
+          0.053517490133793394
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.05212455507287962
+        ]
+      ],
+      "entropy": 5.044862014816094
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (even if it comes and goes)?",
+      "patient_answer": "“I haven’t noticed any lump or mass in my right breast, and there’s been no swelling or tenderness when I touch that area.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.15874352484553245
+        ],
+        [
+          "Huntington disease",
+          0.05379947717460228
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.05239920265074127
+        ]
+      ],
+      "entropy": 5.026311640347192
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both eyes** look **cloudy or hazy**, like you’re seeing through a film or mist? (Yes/No)",
+      "patient_answer": "Patient: Yes—I feel like my vision is a bit hazy, like there’s a film over both eyes. It’s been hard to focus while I’m so restless and confused.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.42988075316904883
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.14189812606767382
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.1370519920014985
+        ]
+      ],
+      "entropy": 3.2708568637950903
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past 3 to 6 months, have you lost weight without trying (for example, your clothes fit looser or the scale went down), even though your eating habits haven’t changed?",
+      "patient_answer": "I don’t think I’ve lost weight without trying—my appetite hasn’t really changed, but I’ve felt progressively more restless and confused. I’ve also noticed my skin and eyes turning yellow and I’ve had nosebleeds, and my vision has seemed hazy in both eyes.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.45389629110533397
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.1447084811299176
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.11689669953409171
+        ]
+      ],
+      "entropy": 3.202427359571049
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small or has been there for a while?",
+      "patient_answer": "I haven’t noticed any lump or mass in my right breast, and there hasn’t been any swelling or tenderness when I touch that area.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.4549563555752609
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.14504644449809
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.11716970911856314
+        ]
+      ],
+      "entropy": 3.1903575726718714
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant before, or is there any chance you might be pregnant right now?",
+      "patient_answer": "No, I’ve never been pregnant and there’s no chance of that. I’m a male, so I don’t have any pregnancy-related risks.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.45712134541141336
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.15854868876921602
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.1177272817873214
+        ]
+      ],
+      "entropy": 3.133215555027017
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to move or shift when you touch it, rather than staying fixed in one spot?",
+      "patient_answer": "I haven’t noticed any breast lump or swelling, and nothing feels like it moves or shifts when I touch my chest. I’ve mainly been dealing with the restlessness and confusion, plus the yellowing and nosebleeds.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.45783256892867624
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.1587953706562374
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.11791045068168846
+        ]
+      ],
+      "entropy": 3.1252053298177263
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_avoids_using_right_knee_due_to_pain_e1c64467",
+      "doctor_question": "Do you find yourself avoiding using your right knee because it hurts? (yes/no)",
+      "patient_answer": "“No, I don’t feel like I’m avoiding using my right knee—I haven’t noticed any knee pain or problems with it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fulminant hepatic failure",
+          0.46821740873325013
+        ],
+        [
+          "Congenital Rubella Infection",
+          0.16239726488108852
+        ],
+        [
+          "Primary sclerosing cholangitis",
+          0.11084072817592634
+        ]
+      ],
+      "entropy": 3.0594749743449023
+    }
+  ],
+  "final": {
+    "predicted": "Fulminant hepatic failure",
+    "predicted_top3": [
+      "Fulminant hepatic failure",
+      "Congenital Rubella Infection",
+      "Primary sclerosing cholangitis"
+    ],
+    "confidence": 0.46821740873325013,
+    "final_entropy": 3.0594749743449023,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Fulminant hepatic failure",
+    "predicted_set_remapped": [
+      "Fulminant hepatic failure",
+      "Congenital Rubella Infection",
+      "Primary sclerosing cholangitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12417,
+      "completion_tokens": 460
+    },
+    "patient": {
+      "prompt_tokens": 8791,
+      "completion_tokens": 484,
+      "calls": 12
+    }
+  }
+}

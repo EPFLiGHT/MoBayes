@@ -1,0 +1,74 @@
+{
+  "case_idx": 36,
+  "baseline": "uot",
+  "column": "htsim",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: F\nChief Complaint: loss of consciousness",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been losing consciousness, and I’ve also been coughing up blood, having significant shortness of breath, and sharp pain around my chest. I’m a 17-year-old female with an active cancer, a history of deep vein thrombosis, swelling in the posterior aspect of my right ankle, and I’ve had surgery within the last month and been unable to move or get up for more than 3 consecutive days within the last 4 weeks.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure that is worse with exertion or does not go away** (possible heart-related pain)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My chest pain is sharp, and it’s on the side of the chest (both right and left) and posterior chest wall (both right and left), and it radiates to the scapula (both sides) and posterior chest wall (both sides).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain/pressure that is worse with exertion or does not go away at rest (lasting >10–15 minutes)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. The chest pain I have is sharp, located on the side of the chest (right and left) and posterior chest wall (right and left), and it radiates to the scapula (right and left) and posterior chest wall (right and left).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myocarditis, Pericarditis  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Myocarditis",
+    "predicted_set": [
+      "Myocarditis",
+      "Pericarditis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Myocarditis",
+    "predicted_set_remapped": [
+      "Myocarditis",
+      "Pericarditis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

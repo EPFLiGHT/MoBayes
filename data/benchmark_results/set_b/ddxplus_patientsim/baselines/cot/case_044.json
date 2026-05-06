@@ -1,0 +1,102 @@
+{
+  "case_idx": 44,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 18\nSex: Female\nChief Complaint: I have a cough, burning pain, and forehead pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a cough with burning pain, and I also have pain in my forehead that feels like it’s radiating—like to the right temple and even the back of my head. I’ve also lost my sense of smell and I have greenish/yellow nasal discharge; this started after a cold about two weeks ago.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: cough with burning pain, ~2 weeks after a cold, new forehead pain radiating to right temple/back of head, loss of smell (anosmia), and green/yellow nasal discharge. This pattern strongly suggests a rhinosinusitis process following a viral URI, with possible bacterial sinusitis. Cough may be from post-nasal drip/URTI rather than primary lung disease. Serious alternatives like pneumonia/PE/meningitis are less suggested by the provided history, but we need to screen for red flags.\nTop candidates:\n1) Acute rhinosinusitis — URI followed by persistent/worsening nasal discharge and facial/forehead pain with anosmia.\n2) Allergic sinusitis — can cause anosmia and discharge, but green/yellow purulence and post-viral timing make infectious rhinosinusitis more likely.\n3) URTI / Viral pharyngitis — could explain cough and initial cold, but 2 weeks with purulent discharge and focal facial pain favors sinusitis.\n4) Pneumonia — cough with burning pain could be pulmonary, but no fever, dyspnea, or focal chest symptoms provided yet.\n5) Influenza — usually more systemic and earlier; less consistent with 2-week post-URI localized sinus symptoms.\nMost informative next question: ask about fever and severity/red flags to distinguish uncomplicated sinusitis from more serious infection.\n[/REASONING]\nDo you have a fever (",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes or no? I don’t know—I haven’t checked my temperature. I haven’t noticed any high fever, but I can’t say for sure because I didn’t measure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: 2-week post-cold onset, anosmia, green/yellow discharge, forehead/facial pain radiating to temple/back of head, cough with burning pain. Fever is unknown; we need a clearer red-flag screen beyond just “fever.”\nNext most discriminating: ask about severe headache/red flags such as neck stiffness, confusion, or neurologic symptoms—these would push away from simple acute rhinosinusitis and toward more dangerous causes.\nTop candidates remain acute rhinosinusitis vs allergic sinusitis vs URTI; pneumonia less likely but still possible.\nSingle best next question: any neurologic symptoms or neck stiffness.\n[/REASONING]\nHave you had any neck stiffness, confusion, fainting, or weakness/numbness in your face or arms?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No. I haven’t had neck stiffness, confusion, fainting, or any weakness or numbness in my face or arms.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no neck stiffness/confusion/weakness/numbness. This lowers concern for meningitis/major neurologic catastrophe. Still most consistent with acute rhinosinusitis after URI (purulent discharge + anosmia + facial pain). Need to distinguish from epiglottitis/croup/laryngitis (less likely given anosmia and nasal discharge) and from pneumonia (cough symptom). Next discriminating question: do you have shortness of breath, chest pain, or coughing up phlegm vs mostly throat/post-nasal drip? This helps decide whether cough is from upper airway vs lower respiratory infection.\nTop candidates:\n1) Acute rhinosinusitis — strong match.\n2) URTI/viral pharyngitis — could explain cough but less likely with anosmia + purulent discharge + facial pain.\n3) Pneumonia — still possible if cough is productive with fever/shortness of breath.\n4) Bronchitis — possible but would not explain anosmia/facial pain well.\n5) GERD — burning pain could be reflux, but anosmia/purulent discharge/facial pain argue against.\nMost informative next question: any shortness of breath or chest pain, and is the cough producing sputum?\n[/REASONING]\nDo you have shortness of breath or chest pain, and are you coughing up mucus/phlegm (and if so, what color)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No shortness of breath or chest pain. I am coughing, but I don’t know the exact color of the mucus from my chest—I mostly notice the green/yellow stuff from my nose.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings: no SOB/chest pain; cough present but nasal symptoms dominate (green/yellow discharge, anosmia, forehead/facial pain). This strongly supports acute rhinosinusitis with post-nasal drip causing cough, rather than pneumonia/bronchitis. Next need to check for severity/red flags specific to sinus complications: severe unilateral swelling around eye, vision changes, eye pain, or high fever. Also ask about dental pain/upper tooth pain (can support maxillary sinusitis). Most discriminating next question: any eye/vision symptoms or facial swelling.\nTop candidates:\n1) Acute rhinosinusitis — best fit.\n2) Allergic sinusitis — less likely due to purulent discharge and post-viral timing.\n3) URTI/viral pharyngitis — possible but facial pain + anosmia + purulence favors sinusitis.\n4) GERD — could cause burning but would not explain anosmia/purulent nasal discharge.\n5) Influenza — less likely given localized sinus features and 2-week course.\nSingle best next question: any eye swelling/pain or vision changes.\n[/REASONING]\nAny swelling or pain around your eye (especially one side), or any vision changes/blurred vision?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have any swelling or pain around my eye, and I don’t have any vision changes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow: no neuro red flags, no eye/vision symptoms, persistent ~2 weeks after URI with purulent nasal discharge, anosmia, and facial/forehead pain radiating to temple/back of head; cough likely from post-nasal drip. This makes uncomplicated acute rhinosinusitis most likely. Allergic sinusitis is possible but green/yellow purulence and post-viral course favor infectious acute rhinosinusitis. Need one more discriminating question: duration—has it been >10 days without improvement (or “worsened after initial improvement”)? This helps meet criteria for acute bacterial rhinosinusitis. Next question: did symptoms improve then worsen again, or have they just been steadily bad for the whole 2 weeks?\n[/REASONING]\nDid your symptoms improve at any point after the initial cold, and then get worse again—or have they been steadily getting worse (or not improving) for the full two weeks?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "They’ve mostly been steadily getting worse for the full two weeks. I don’t think they really improved much in between.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: URI ~2 weeks ago, then steadily worsening symptoms without improvement; purulent green/yellow nasal discharge, anosmia, and facial/forehead pain. No eye/vision symptoms, no neuro red flags, no SOB/chest pain. This meets common clinical criteria for acute bacterial rhinosinusitis (persistent >10 days with no improvement, or worsening after initial improvement). Cough is likely secondary to post-nasal drip. Next (optional) would be to ask about severe fever or dental pain, but we’re already confident enough for top diagnoses.\nTop candidates:\n1) Acute rhinosinusitis (likely bacterial) — persistent >10 days, worsening, purulent discharge, anosmia, facial pain.\n2) Allergic sinusitis — can cause anosmia and congestion, but purulent green/yellow discharge and post-viral worsening make infectious more likely.\n3) URTI/viral rhinosinusitis — still possible, but the steadily worsening course for 2 weeks without improvement favors bacterial.\n4) Influenza — less likely because anosmia/purulent discharge and localized facial pain after 2 weeks is more sinus-specific.\n5) GERD — burning pain could be reflux, but anosmia and purulent nasal discharge argue against.\nWe can provide DDX now.\n[/REASONING]\n[DDX] Acute rhinosinusitis, Allergic sinusitis, URTI, Influenza, GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [
+      "Acute rhinosinusitis",
+      "Allergic sinusitis",
+      "URTI",
+      "Influenza",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9156,
+      "completion_tokens": 1509
+    },
+    "patient": {
+      "prompt_tokens": 8634,
+      "completion_tokens": 234
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "case_idx": 9,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Bacillus cereus infection",
+  "patient_actor_hidden": {
+    "Demographics": "20-year-old male college student",
+    "History": "The patient presents with abdominal cramps, nausea, vomiting, and diarrhea that began suddenly 2 hours ago. He reports eating reheated food from the afternoon, approximately 1 hour before symptom onset.",
+    "Symptoms": {
+      "Primary_Symptom": "Abdominal cramps",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known food allergies.",
+    "Social_History": "College student living in dormitories. No recent travel history. Reports being in the middle of exam period and experiencing high stress levels.",
+    "Review_of_Systems": "Denies fever, blood in stool, headache, or any urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with symptoms of acute gastrointestinal illness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hi doctor, I started having sudden abdominal cramps about two hours ago. Along with that, I’ve had nausea, vomiting, and diarrhea since then. I ate reheated food in the afternoon shortly before this began.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Did anyone else who ate the same reheated food get sick too?\nDid anyone else who ate the same reheated food get sick too?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Not that I know of, but I haven’t checked with others I shared the meal with.” “I mostly noticed it after I ate it myself, and it started pretty suddenly about two hours ago.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any fever or blood in your vomit or diarrhea?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any fever, and there’s no blood in my vomit or diarrhea. It’s mostly just the abdominal cramps, nausea, vomiting, and diarrhea since it started.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Where is the abdominal pain/cramping located—diffuse all over, or more in one spot like the right lower abdomen, upper abdomen, or around the belly button?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the cramps feel pretty diffuse all over my abdomen rather than in one specific spot, and they’re kind of crampy with the nausea and diarrhea coming along with them.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Are you able to keep any fluids down, or are you vomiting everything?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Right now I’m still able to keep some fluids down between vomiting episodes, but when I drink too much at once I end up vomiting again.” “I haven’t been able to eat much, but I’m trying sips of water.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Staphylococcal food poisoning, Bacillus cereus food poisoning, viral gastroenteritis, Clostridium perfringens food poisoning, preformed-toxin foodborne illness (unspecified)\n\nThe sudden onset about 2 hours after eating reheated food, with diffuse crampy abdominal pain, nausea, vomiting, and diarrhea, and no fever or blood, is most consistent with a preformed-toxin food poisoning—especially Staph aureus, and also Bacillus cereus.\n\nReasons these are highest:\n- Very short incubation after eating\n- Prominent vomiting and cramps\n- Non-bloody diarrhea\n- No fever\n- Reheated food is a classic clue for toxin-mediated illness\n\nWhat would make me more concerned for something else:\n- Severe localized pain\n- High fever\n- Bloody stool\n- Persistent inability to keep fluids down\n- Signs of dehydration, fainting, confusion\n- Symptoms lasting more than 24–48 hours or worsening\n\nWhat to do now:\n- Small frequent sips of oral fluids; oral rehydration solution is best\n- Avoid large volumes at once\n- Bland foods only after vomiting settles\n- Seek urgent care/ER if you develop dehydration, severe worsening pain, blood, fever, or nonstop vomiting\n\nIf you want, I can also give you a brief home-care plan and warning signs checklist.",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Staphylococcal food poisoning",
+    "predicted_set": [
+      "Staphylococcal food poisoning",
+      "Bacillus cereus food poisoning",
+      "viral gastroenteritis",
+      "Clostridium perfringens food poisoning",
+      "preformed-toxin foodborne illness (unspecified)\n\nThe sudden onset about 2 hours after eating reheated food"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1919,
+      "completion_tokens": 393
+    },
+    "patient": {
+      "prompt_tokens": 2161,
+      "completion_tokens": 225,
+      "calls": 5
+    }
+  }
+}

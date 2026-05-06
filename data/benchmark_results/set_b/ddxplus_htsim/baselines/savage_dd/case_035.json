@@ -1,0 +1,159 @@
+{
+  "case_idx": 35,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: F\nChief Complaint: increased sweating",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significantly increased sweating. I also have pain somewhere related to my reason for consulting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. To narrow this down, I need one key detail first:\n\n**Where is the pain (exact location), and what does it feel like (e.g., chest pressure, burning, sharp, cramping)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My pain is in the lower chest, the right and left sides of the chest, the left breast, and the epigastric area. It feels tedious, heavy, sickening, and scary. The pain radiates to my biceps on both sides, the thyroid cartilage, under the jaw, and the left shoulder.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "That sounds concerning for a cardiopulmonary or serious esophageal cause.\n\n**One question:** Are you having **shortness of breath** right now (or did it start with the pain)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify quickly.\n\n**One question:** Do you notice **any trouble breathing** when the pain is happening (even mild), or are you able to breathe normally?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Let’s focus on another discriminating feature.\n\n**One question:** Do you have **nausea or vomiting** with the pain, or a **sense of impending doom** that comes with it?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I am feeling nauseous or I feel like vomiting.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Given chest/epigastric pain with radiation to jaw/under jaw/shoulder and nausea/diaphoresis, we must consider cardiac ischemia and other serious causes.\n\n**One question:** Did this start **suddenly** (minutes) or **gradually** (hours to days)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—next question can still help.\n\n**One question:** How old are you (approximate is fine), and do you have any history of **heart disease** or **high blood pressure**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m 80, and I have high blood pressure (and I take medications to treat high blood pressure).",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Age 80 + HTN + diaphoresis + nausea + chest/epigastric pain with jaw/shoulder radiation is highly concerning for acute coronary syndrome.\n\n**One question:** Is the pain **worse with exertion** (walking/standing) or **better with rest**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**One question:** When the pain happens, does it feel **pressure/tightness** (like “heavy weight”) rather than a sharp pain that changes with breathing or position?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It feels heavy, tedious, sickening, and scary.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "This is very suggestive of ischemic-type pain (pressure/heaviness) with autonomic symptoms.\n\n**One question:** Are you currently having the pain, and if so, **how long has it been going on** (minutes vs hours)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "I understand—let’s use a different discriminating feature.\n\n**One question:** Have you noticed **sweating/clamminess** and **paleness** or **feeling faint/lightheaded** during the episode?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have had significantly increased sweating.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Given the symptom cluster (elderly, HTN, heavy chest/epigastric pain radiating to jaw/shoulder/biceps, nausea, diaphoresis, scary/faint feeling), this is most consistent with a cardiac emergency.\n\n**One question:** Do you have **any fever** or **cough** right now?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is insufficient to confidently rank among life-threatening causes (ACS/NSTEMI vs pulmonary embolism vs aortic/other esophageal causes) because key discriminators like timing, exertional component, dyspnea, and objective vitals are unknown.\n\n[POSSIBLE] Possible NSTEMI / STEMI, Pulmonary embolism, GERD, Acute pulmonary edema, Pericarditis",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "GERD",
+      "Acute pulmonary edema",
+      "Pericarditis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13933,
+      "completion_tokens": 654
+    },
+    "patient": {}
+  }
+}

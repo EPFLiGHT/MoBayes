@@ -1,0 +1,110 @@
+{
+  "case_idx": 45,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {
+    "AGE": 27,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "nasal congestion",
+    "EVIDENCES_ENG": "['recent contact with a symptomatic person', 'living with 4 or more people', 'daycare attendance or work', 'increased sweating', 'pain', 'productive cough', 'cigarette smoking', 'fever', 'sore throat', 'diffuse muscle pain', 'nasal congestion', 'cough', 'daily exposure to secondhand cigarette smoke']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 27\n- I have been in contact with a person with similar symptoms in the past 2 weeks.\n- I live with 4 or more people.\n- I attend or work in a daycare.\n- I have had significantly increased sweating.\n- I have pain somewhere related to my reason for consulting.\n- I have a cough that produces colored or more abundant sputum than usual.\n- I smoke cigarettes.\n- I have a fever (either felt or measured with a thermometer).\n- I have a sore throat.\n- I have diffuse (widespread) muscle pain.\n- I have nasal congestion or a clear runny nose.\n- I have a cough.\n- I am exposed to secondhand cigarette smoke on a daily basis.\n- On a scale of 0-10, the pain intensity is 4\n- On a scale of 0-10, the pain's location precision is 1\n- On a scale of 0-10, the pace at which the pain appear is 3\n- The pain is:\n* tedious\n* sensitive\n* heavy\n- The pain locations are:\n* top of the head\n* cheek(R)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['URTI', 0.16087749028151022], ['Influenza', 0.15228374428876454], ['Pneumonia', 0.15133759837203056], ['Bronchitis', 0.1433703440032625], ['HIV (initial infection)', 0.11751286437352369], ['Tuberculosis', 0.08081820422262326], ['Bronchiectasis', 0.06890689925245033], ['Chronic rhinosinusitis', 0.05250442259440545], ['Chagas', 0.0384407693629871], ['Acute rhinosinusitis', 0.03394766324844241]]",
+    "PATHOLOGY": "URTI",
+    "INITIAL_EVIDENCE": "rhino_clair",
+    "EVIDENCES": "['contact', 'crowd', 'dayc', 'diaph', 'douleurxx', 'douleurxx_carac_@_pénible', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_une_lourdeur_ou_serrement', 'douleurxx_endroitducorps_@_dessus_de_tête', 'douleurxx_endroitducorps_@_joue_D_', 'douleurxx_intens_@_4', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_1', 'douleurxx_soudain_@_3', 'expecto', 'f17.210', 'fievre', 'gorge_dlr', 'msk_dlr', 'rhino_clair', 'toux', 'trav1_@_N', 'z77.22']",
+    "patient_id": "htsim_1621",
+    "_test_index": 1621,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 27-year-old F patient presents to the clinic. Chief complaint: nasal congestion.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion, a cough with colored or more abundant sputum than usual, a sore throat, fever, and diffuse muscle pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have these symptoms been going on, and do you have any shortness of breath or chest pain?  \nDoctor: Also, is your fever measured (how high), and have you had known sick contacts or tested positive for COVID/flu recently?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Okay—does your sore throat feel mainly scratchy vs severe, and are you having any runny nose or sneezing? Also, have you noticed wheezing, or are you short of breath when walking up stairs?  \nDoctor: And on a scale of 0–10, how bad is the fever/chills and the muscle pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you now—please tell me if you have wheezing and whether your cough is worse at night.  \nDoctor: Also, any history of asthma, pregnancy, or smoking, and do you feel short of breath right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I'm a cigarette smoker, and I’m exposed to secondhand cigarette smoke daily. I don’t know whether I have wheezing, and I don’t know if my cough is worse at night. I don’t know if I feel short of breath right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thanks; I’ll check your vitals and lungs now: do you have a thermometer reading, oxygen saturation if available, and can you tell me if your cough is productive (what color) and whether you have sinus/facial pressure?  \nDoctor: REQUEST TEST: Rapid_COVID_Flu_Antigen_or_PCR; REQUEST TEST: CBC_with_Differential; REQUEST TEST: Chest_X-Ray.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My cough is productive with colored or more abundant sputum than usual. I also have nasal congestion, and I have pain in relation to my reason for consulting, including pain at the top of the head and the right cheek.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—on my lung exam, do you notice any wheeze or crackles (or do you feel breathless when speaking), and do you have facial/sinus tenderness on the right cheek?  \nDoctor: Do you have any severe headache with neck stiffness, rash, or eye pain/vision changes—yes or no?  \nDoctor: REQUEST TEST: Vital_Signs_with_SpO2_and_Temperature; REQUEST TEST: Sinus_assessment (transillumination/TTP); once results are back I’ll decide.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—if you have no neck stiffness/rash/eye pain/vision changes and your lung exam shows no wheeze/crackles (or you’re not significantly breathless), then the top-right cheek/facial tenderness plus fever, myalgias, sore throat, and productive colored sputum most fits an acute viral respiratory infection with likely acute bacterial rhinosinusitis.  \nDIAGNOSIS READY: Acute rhinosinusitis (most consistent with acute bacterial rhinosinusitis) likely following an acute viral URI\n\n[DDX]\n1. Acute rhinosinusitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2722,
+      "completion_tokens": 507,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6095,
+      "completion_tokens": 162,
+      "calls": 6
+    }
+  }
+}

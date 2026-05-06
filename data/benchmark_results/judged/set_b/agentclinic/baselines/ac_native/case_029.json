@@ -1,0 +1,125 @@
+{
+  "case_idx": 29,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Acute myelogenous leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old male",
+    "History": "The patient complains of a 2-month history of generalized fatigue. He mentions no specific triggers but notes that the fatigue has been progressively worsening. He denies any recent infections, significant weight loss, or night sweats.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue",
+      "Secondary_Symptoms": [
+        "Appearance of pale skin",
+        "Presence of multiple pinpoint, red, nonblanching spots on extremities"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known blood disorders or cancer history in the family.",
+    "Social_History": "Retired teacher, lives with his wife. Non-smoker and drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, significant weight loss, night sweats, or recent infections. Mentions occasional mild shortness of breath during exertion."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with generalized fatigue, pallor, and abnormal blood findings.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—I'm going to ask a few questions to understand your fatigue and pallor, starting with: how long have these symptoms been going on, and have you noticed any shortness of breath, dizziness, or palpitations? Doctor: Also, any bleeding (heavy periods, blood in stool/urine, gum/nose bleeding) or recent infections, weight loss, or new medications/supplements?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: My fatigue has been going on for about two months and it’s been gradually getting worse. I do get occasional mild shortness of breath with exertion, but I haven’t had dizziness or palpitations. I haven’t had recent infections or any major bleeding like blood in my stool or urine, though my skin has been looking quite pale."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any history of heavy menstrual bleeding, dietary iron deficiency/vegetarian diet, recent pregnancy, or GI symptoms like heartburn, abdominal pain, or dark/black stools? Doctor: REQUEST TEST: CBC_with_diff_and_Reticulocyte_count; REQUEST TEST: Ferritin,_Serum_Iron,_TIBC; REQUEST TEST: Vitamin_B12_and_Folate.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: - Vital Signs: Temp 36.8°C (98.2°F); BP 135/85 mmHg; HR 82 bpm; RR 14 breaths/min - General Exam: Appears pale - Skin Exam: Multiple pinpoint, red, nonblanching spots (petechiae) on extremities - Abdominal Exam: Significant splenomegaly - CBC: Hemoglobin 8.3 g/dL (low); WBC 81,000/mm3 (elevated); Platelets 35,600/mm3 (low) - Peripheral Smear: Immature cells with large prominent nucleoli; pink elongated needle-shaped cytoplasmic inclusions - Note: Ferritin/Serum Iron/TIBC and Vitamin B12/Folate were requested but are not provided in the available data."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: With Hgb 8.3 and platelets 35,600 plus petechiae and a very high WBC (81,000) showing immature cells with prominent nucleoli and needle-like inclusions, I’m strongly concerned for **acute leukemia** rather than simple iron/B12 deficiency—can you tell me your age and whether you have had fever/infections or bone pain? Doctor: Also, REQUEST TEST: Hematology_flow_cytometry_and_Cytogenetics (± Leukemia_panel) and REQUEST TEST: Bone_marrow_aspirate_with_flow_cytometry. Doctor: If you’ve had any bleeding or fevers worsening recently, say so now—I need that to start urgent precautions.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Vital signs: Temperature 36.8°C (98.2°F); BP 135/85 mmHg; HR 82 bpm; RR 14 breaths/min. General exam: Appears pale. Skin exam: Multiple pinpoint red nonblanching spots (petechiae) on extremities. Abdominal exam: Significant splenomegaly. CBC: Hemoglobin 8.3 g/dL (low); WBC 81,000/mm3 (elevated); Platelets 35,600/mm3 (low). Peripheral blood smear: Immature cells with large prominent nucleoli; pink elongated needle-shaped cytoplasmic inclusions. Ferritin/Serum iron/TIBC and Vitamin B12/Folate: not provided in available data. Hematology flow cytometry/cytogenetics and bone marrow aspirate with flow cytometry: not provided in available data."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I finalize, are you currently having any fevers/chills, recurrent infections, or bone pain (especially back/long bones), and have you noticed any new/worsening bleeding (gums, nose, bruising)? Doctor: Given Hgb 8.3, platelets 35,600 with petechiae, splenomegaly, and a very high WBC (81,000) with immature cells/prominent nucleoli and needle-like cytoplasmic inclusions, I’m most concerned for **acute leukemia**; do you have any lymph node swelling or severe night sweats? Doctor: If you can’t answer, I need those missing urgent hematology tests ASAP—REQUEST TEST: Hematology_flow_cytometry_and_Cytogenetics (± Leukemia_panel) and REQUEST TEST: Bone_marrow_aspirate_with_flow_cytometry.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98.2°F); Blood Pressure 135/85 mmHg; Heart Rate 82 bpm; Respiratory Rate 14 breaths/min. Appears pale. Multiple pinpoint, red, nonblanching petechiae on extremities. Significant splenomegaly. CBC: Hemoglobin 8.3 g/dL (low); WBC 81,000/mm3 (elevated); Platelets 35,600/mm3 (low). Peripheral smear: Immature cells with large prominent nucleoli and pink, elongated, needle-shaped cytoplasmic inclusions. Ferritin/Serum iron/TIBC and Vitamin B12/Folate: not provided. Flow cytometry/cytogenetics and bone marrow aspirate with flow cytometry: not provided."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your profound anemia (Hgb 8.3), low platelets with petechiae, marked leukocytosis (WBC 81,000) with immature cells on smear showing prominent nucleoli and needle-like cytoplasmic inclusions, plus significant splenomegaly, I need to treat this as an emergency for acute leukemia. Are you having any active bleeding right now (gums/nose), fevers, or severe bone/back pain, and what is your age? Doctor: REQUEST TEST: Urgent_Blood_Type_and_Screen; REQUEST TEST: Coagulation_panel (PT/INR, aPTT, fibrinogen, D-dimer) and REQUEST TEST: Comprehensive_Metabolic_Panel (including uric_acid, phosphorus, potassium) to assess complications like DIC and tumor lysis risk.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 36.8°C (98.2°F); Blood Pressure 135/85 mmHg; Heart Rate 82 bpm; Respiratory Rate 14 breaths/min. General: appears pale. Skin: multiple pinpoint red nonblanching petechiae on extremities. Abdomen: significant splenomegaly. CBC: Hemoglobin 8.3 g/dL (low), WBC 81,000/mm3 (elevated), Platelets 35,600/mm3 (low). Peripheral smear: immature cells with large prominent nucleoli and pink elongated needle-shaped cytoplasmic inclusions. Urgent Blood Type/Screen: not provided. Coagulation panel (PT/INR, aPTT, fibrinogen, D-dimer): not provided. Comprehensive metabolic panel (including uric acid, phosphorus, potassium): not provided."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Based on your labs (WBC 81,000 with blasts on smear, Hgb 8.3, platelets 35,600, petechiae, and major splenomegaly), I’m treating this as an **acute leukemia** until proven otherwise—what I need immediately is urgent blood support and confirmatory typing: REQUEST TEST: Urgent_Blood_Type_and_Screen; REQUEST TEST: Coagulation_panel_and_Tumor_Lysis_labs (PT/INR, aPTT, fibrinogen, D-dimer, uric_acid, phosphorus, potassium, creatinine, LDH). Doctor: Also, are you actively bleeding or having fevers/chest pain right now? Doctor: DIAGNOSIS READY: Acute leukemia (likely acute lymphoblastic or acute myeloid leukemia pending flow cytometry/cytogenetics)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Based on your labs (WBC 81,000 with blasts on smear, Hgb 8.3, platelets 35,600, petechiae, and major splenomegaly), I’m treating this as an **acute leukemia** until proven otherwise—what I need immediately is urgent blood support and confirmatory typing: REQUEST TEST: Urgent_Blood_Type_and_Screen; REQUEST TEST: Coagulation_panel_and_Tumor_Lysis_labs (PT/INR, aPTT, fibrinogen, D-dimer, uric_acid, phosphorus, potassium, creatinine, LDH). Doctor: Also, are you actively bleeding or having fevers/chest pain right now? Doctor: DIAGNOSIS READY: Acute leukemia (likely acute lymphoblastic or acute myeloid leukemia pending flow cytometry/cytogenetics)",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 6,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Acute Mesenteric Ischemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5046,
+      "completion_tokens": 882,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 398,
+      "completion_tokens": 74,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 3812,
+      "completion_tokens": 715,
+      "calls": 4
+    },
+    "moderator": {
+      "prompt_tokens": 244,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

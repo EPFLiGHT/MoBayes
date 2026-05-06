@@ -1,0 +1,143 @@
+{
+  "case_idx": 3,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "68-year-old male from California",
+    "History": "The patient comes in for a routine checkup without any specific complaints. He maintains an active lifestyle with jogging and gardening. He has been retired since age 50 and enjoys spending his mornings in the park and afternoons in his garden.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a lesion on the scalp",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "No history of smoking. Drinks alcohol occasionally.",
+    "Review_of_Systems": "Denies any symptoms of fatigue, weight loss, fever, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Perform a routine checkup on a 68-year-old man, assess any dermatological findings, and formulate a diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Hi doctor, I’m here for a routine checkup, but I’ve noticed a lesion on my scalp that I wanted looked at. I otherwise feel fine and haven’t had any other concerning symptoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long have you noticed the scalp lesion, and has it changed in size, color, shape, or started bleeding or crusting?\nHow long have you noticed the scalp lesion, and has it changed in size, color, shape, or started bleeding or crusting?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I think I noticed it about a few months ago, and it doesn’t seem to have grown noticeably. Its color and shape look pretty much the same to me, and it hasn’t been bleeding or crusting.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Is the lesion painful, itchy, tender, or completely asymptomatic?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It isn’t painful or tender, and I’d say it’s not itchy either—basically it’s asymptomatic. I’ve just been keeping an eye on it since I first noticed it a few months ago.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe what it looks and feels like—rough or smooth, flat or raised, and approximately what size and color it is?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It feels a bit rough to the touch and looks slightly raised compared to the surrounding scalp. I’d estimate it’s about the size of a small pea, and it appears light brown to tan in color.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had a lot of sun exposure to your scalp, a history of sunburns, or any personal or family history of skin cancer?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, I spend a fair amount of time outdoors jogging and gardening, so I’d say my scalp gets pretty regular sun exposure, and I’ve had sunburns in the past. I don’t know of any personal history of skin cancer, and there’s no family history that I’m aware of.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have hair thinning or balding in that area, and is this a single lesion or are there multiple similar spots on the scalp or elsewhere?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any hair thinning or balding right around that spot. As far as I can tell, it’s just a single lesion on my scalp, and I don’t have any similar spots elsewhere.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Has anyone looked at it closely and told you whether it seems “stuck on,” wart-like/scaly, or more like a mole?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t had anyone look at it closely yet besides my own checks, so I can’t say for sure if it’s stuck-on or wart-like versus more like a mole—but it does feel a bit rough and slightly raised.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any irregular border, multiple colors, rapid recent change, or a sore that won’t heal?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any irregular border or multiple colors—its edges and color seem pretty consistent. It hasn’t rapidly changed, and it’s not a sore that would bleed or won’t heal; it’s just that slightly rough, raised spot.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Seborrheic keratosis, actinic keratosis, benign melanocytic nevus, pigmented basal cell carcinoma, early squamous cell carcinoma\n\nMost likely this is a benign lesion such as seborrheic keratosis, with actinic keratosis also a strong consideration given the rough texture and sun exposure. Melanoma is less likely based on your history because it sounds symmetric, stable, single-colored, and non-bleeding, but a scalp lesion still deserves in-person inspection because scalp skin cancers can be easy to miss.\n\nI’d recommend a non-urgent skin exam with a primary care clinician or dermatologist, sooner if it starts changing, bleeding, crusting, growing, becoming painful, or developing irregular color/borders.",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Seborrheic keratosis",
+    "predicted_set": [
+      "Seborrheic keratosis",
+      "actinic keratosis",
+      "benign melanocytic nevus",
+      "pigmented basal cell carcinoma",
+      "early squamous cell carcinoma\n\nMost likely this is a benign lesion such as seborrheic keratosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Seborrheic keratosis",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Seborrheic keratosis",
+      "Actinic Keratosis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4365,
+      "completion_tokens": 392
+    },
+    "patient": {
+      "prompt_tokens": 4369,
+      "completion_tokens": 397,
+      "calls": 8
+    }
+  }
+}

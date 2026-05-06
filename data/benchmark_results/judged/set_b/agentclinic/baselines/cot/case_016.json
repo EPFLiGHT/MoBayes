@@ -1,0 +1,162 @@
+{
+  "case_idx": 16,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Acute lymphoblastic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "4-year-old girl",
+    "History": "The patient has been experiencing generalized fatigue and easy bruising for 3 weeks. Over the past week, she has developed a fever and severe leg pain that wakes her up at night.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue and easy bruising",
+      "Secondary_Symptoms": [
+        "Fever",
+        "Severe leg pain that disturbs sleep"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable past medical history.",
+    "Social_History": "Attends preschool. Lives with parents and one younger sibling.",
+    "Review_of_Systems": "Positive for fever, bruising, and bone pain. Denies cough, vomiting, diarrhea, rash, or urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a pediatric patient presenting with a 3-week history of generalized fatigue, easy bruising, fever, and severe leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve been feeling very tired and I get bruises easily, and for the last week I’ve had a fever and really severe pain in my legs that wakes me up at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fatigue, easy bruising, fever for 1 week, and severe leg pain (wakes from sleep). This combination raises concern for a hematologic malignancy (leukemia) or a serious infection/bleeding disorder. Easy bruising suggests thrombocytopenia or coagulopathy; fever and severe pain in legs can occur with leukemia (bone pain) or less commonly other marrow/infectious processes.\nTop candidates:\n1) Acute myelogenous leukemia — can present with fever, fatigue, easy bruising (thrombocytopenia), and bone pain/leg pain.\n2) Acute lymphoblastic leukemia — similar presentation: fever, fatigue, bruising, bone pain.\n3) Essential thrombocythemia — usually causes thrombosis rather than fever/acute severe pain; bruising can occur but the acute febrile picture is less typical.\n4) Hemophilia A — bruising/bleeding, but fever and severe leg pain are less characteristic unless complicated by bleeding/infection.\n5) Toxic exposure — can cause systemic symptoms and bruising, but the “severe leg pain waking at night” with fever still points more toward marrow disease.\nMost informative next question: determine whether there are signs of bleeding or infection beyond bruising (e.g., gum bleeding, nosebleeds, petechiae) and whether there is any lymph node enlargement or weight loss—this helps distinguish leukemia from coagulation",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any other bleeding like nosebleeds, bleeding gums, or tiny red/purple spots on the skin, and have you noticed any swollen lumps in your neck or anywhere else? Patient: I’ve had bruises and some spots on my skin, but I don’t think I’ve had nosebleeds or bleeding gums, and I haven’t noticed any lumps.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fatigue, easy bruising, fever x 1 week, severe leg pain waking at night; skin spots present; no nosebleeds/bleeding gums; no palpable lymph nodes.\nTop candidates:\n1) Acute myelogenous leukemia — fever + fatigue + bruising/petechiae-like spots + bone pain is very compatible even without mucosal bleeding or lymphadenopathy.\n2) Acute lymphoblastic leukemia — similar; can present with bone pain and constitutional symptoms; bruising/petechiae can occur.\n3) Acute mesenteric ischemia — less likely: would cause severe abdominal pain rather than leg pain and bruising.\n4) Hemophilia A — bruising/bleeding disorder but fever and “spots” without a bleeding history is less typical; also would not usually cause fever and bone pain.\n5) Toxic exposure — can cause systemic illness and bruising, but the pattern of severe leg pain waking at night with fever still favors marrow pathology.\nMost informative next question: ask about the skin spots—are they tiny non-blanching red/purple dots (petechiae) or larger bruises only? This discriminates thrombocytopenia (petechiae) from other causes.  \n\nWhat do the spots look like—are they tiny red/purple dots that don’t fade when you press on them (petechiae), or are they just larger bruises?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: They’re tiny red and purple dots, and I think they don’t fade when you press on them, and some are kind of on my legs and arms.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: fever 1 week, fatigue, easy bruising, tiny non-blanching red/purple dots (petechiae) on legs/arms, and severe leg pain waking at night. No mucosal bleeding or lymphadenopathy reported.\nTop candidates:\n1) Acute myelogenous leukemia — petechiae/non-blanching spots strongly suggest thrombocytopenia; fever and bone/leg pain fit marrow failure/malignancy.\n2) Acute lymphoblastic leukemia — same reasoning: fever + thrombocytopenia/petechiae + bone pain.\n3) Acute myelogenous leukemia vs ALL — both remain top; need discriminating features (age, labs/other symptoms).\n4) Disseminated gonococcal infection — can cause fever and skin lesions, but petechiae/non-blanching dots and severe leg “bone” pain are less typical; would expect arthralgias/tenosynovitis and risk factors.\n5) Toxic exposure — can cause thrombocytopenia and petechiae, but severe nocturnal leg pain is more suggestive of marrow involvement.\nMost informative next question: ask about age (and any recent infections/meds), because it helps separate AML vs ALL and other causes.  \n\nHow old is the patient?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How old is the patient? Patient: I’m 4 years old.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 4-year-old with 1 week fever, profound fatigue, severe leg pain waking at night, and petechiae/non-blanching red-purple dots on legs/arms (thrombocytopenia likely). No mucosal bleeding or lymphadenopathy reported.\nTop candidates:\n1) Acute lymphoblastic leukemia — most common leukemia in young children; classic for fever, fatigue, bone pain, and petechiae from thrombocytopenia.\n2) Acute myelogenous leukemia — possible but less common in this age group; can present similarly.\n3) Disseminated gonococcal infection — less likely in a 4-year-old without risk factors; petechiae pattern and bone pain are not typical.\n4) Toxic exposure — could cause thrombocytopenia/petechiae and fever, but severe nocturnal leg pain and age make leukemia more likely.\n5) Chronic Granulomatous Disease — can cause recurrent infections, but petechiae/non-blanching dots with acute bone pain is less characteristic.\nMost informative next question: ask about any recent infections and medications/antibiotics, and specifically whether there’s been any cough/sore throat or other viral symptoms—this can help but the key discriminant is whether there are signs of systemic infection/meningococcemia (which can also cause petechiae).  \n\nHas the fever been accompanied by severe headache, neck stiffness, vomiting, or",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has the fever been accompanied by severe headache, neck stiffness, vomiting, or confusion, or has she had a cough or sore throat? Patient: She hasn’t had a bad headache, neck stiffness, vomiting, or confusion, and I don’t think she’s had a cough or sore throat—just the fever and the severe leg pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 4-year-old with 1 week fever, profound fatigue, severe leg pain waking at night, and petechiae/non-blanching red-purple dots on legs/arms; no headache/neck stiffness/vomiting/confusion; no cough/sore throat.\nTop candidates:\n1) Acute lymphoblastic leukemia — very compatible: age, fever, bone pain, petechiae from thrombocytopenia.\n2) Acute myelogenous leukemia — still possible but less likely than ALL at this age.\n3) Disseminated gonococcal infection — unlikely without risk factors and without typical joint/tenosynovitis pattern.\n4) Toxic exposure — less likely given focal bone pain pattern and lack of exposure history.\n5) Chronic Granulomatous Disease — could predispose to infections, but petechiae/non-blanching dots and bone pain with acute systemic symptoms still point more to leukemia.\nMost informative next question: ask about bleeding severity and other marrow symptoms—specifically, any gum bleeding, blood in urine/stool, or very heavy bruising/bleeding, and any shortness of breath/pallor (anemia).  \n\nAny bleeding besides the petechiae—like gum bleeding, blood in urine/stool, or unusually heavy bleeding from small cuts?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed gum bleeding, blood in my pee or poop, or heavy bleeding from cuts. She just has more bruises and the tiny red-purple spots, and she seems pale and very tired.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 4-year-old with 1 week fever, marked fatigue/pallor, severe leg pain waking at night, petechiae/non-blanching red-purple spots, and easy bruising; no mucosal bleeding, hematuria, melena, or heavy bleeding from cuts.\nTop candidates:\n1) Acute lymphoblastic leukemia — best fit: age, fever, pallor (anemia), bone pain, and petechiae (thrombocytopenia) without other bleeding sources.\n2) Acute myelogenous leukemia — similar but less common in this age; still plausible.\n3) Acute myelogenous/lymphoblastic leukemia with severe thrombocytopenia — already covered above; need not separate.\n4) Disseminated gonococcal infection — can cause fever and rash, but pallor/bone pain with petechiae is less typical; also no mention of arthritis/tenosynovitis.\n5) Toxic exposure — can cause thrombocytopenia/petechiae and fever, but bone pain waking at night and profound pallor still favor leukemia.\nMost informative next question: ask about abdominal symptoms—any abdominal pain, distension, or decreased appetite (can suggest hepatosplenomegaly), which is common in ALL and helps strengthen diagnosis.  \n\nAny abdominal pain or belly swelling, or has her appetite decreased?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has she had any belly pain or belly swelling, or has her appetite decreased lately? Patient: Her appetite is lower than usual, but I don’t think her belly looks swollen.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 4-year-old with 1 week fever, profound fatigue/pallor, decreased appetite, severe leg pain waking at night (bone pain), and petechiae/non-blanching red-purple spots with easy bruising; no mucosal bleeding, no abdominal swelling, no headache/neck stiffness, no cough/sore throat.\nTop candidates:\n1) Acute lymphoblastic leukemia — strongest: age 4, fever, pallor/anemia, decreased appetite, bone pain, petechiae/easy bruising (thrombocytopenia). Lack of lymphadenopathy doesn’t rule it out.\n2) Acute myelogenous leukemia — possible but less common in this age; similar marrow failure picture.\n3) Acute mesenteric ischemia — not consistent (would be abdominal pain out of proportion; petechiae/bruising not typical).\n4) Disseminated gonococcal infection — less likely (would expect joint/tenosynovitis and different rash pattern).\n5) Toxic exposure — could cause thrombocytopenia/petechiae and systemic symptoms, but bone pain + age strongly favor leukemia.\nMost informative next question: ask about lymph node enlargement or easy bruising elsewhere is already; next best discriminant is whether there’s been weight loss/night sweats or frequent infections—but we’re already at high suspicion. I’ll ask about any recent infections or recurrent fevers, and also whether she has",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has she had any weight loss, night sweats, or frequent infections before this, or is this the first time she’s been this sick? Patient: This is the first time she’s been this sick, and I don’t think she’s had weight loss or night sweats.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: first-time illness; 4-year-old; fever 1 week; pallor and marked fatigue; decreased appetite; severe leg/bone pain waking at night; petechiae/non-blanching red-purple dots and easy bruising; no mucosal bleeding; no lymphadenopathy reported; no cough/sore throat; no neuro symptoms.\nTop candidates remain leukemia (ALL most likely). Other serious causes of petechiae + fever include meningococcemia, but the prominent bone pain/pallor and lack of meningitis symptoms make leukemia more likely. Still, meningococcemia must be considered clinically because it’s time-critical; however it wasn’t supported by headache/neck stiffness/confusion.\nMost informative next action: ask about current vital/appearance red flags—specifically whether she looks very ill, has trouble breathing, or has rapidly spreading rash—this helps triage between meningococcemia vs leukemia.  \n\nIs she acting very ill or lethargic right now, and has the rash been spreading quickly over hours?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’m very lethargic and she seems really weak, and the spots can look like they’re getting more noticeable over the last day or so. I don’t think she’s having trouble breathing, but she’s not acting like herself at all.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX]\nAcute lymphoblastic leukemia, Acute myelogenous leukemia, Disseminated gonococcal infection, Acute mesenteric ischemia, Toxic exposure",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_set": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Disseminated Gonococcal Infection",
+      "Acute Mesenteric Ischemia",
+      "Toxic exposure"
+    ],
+    "predicted_raw": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Disseminated gonococcal infection",
+      "Acute mesenteric ischemia",
+      "Toxic exposure"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Disseminated Gonococcal Infection"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 19798,
+      "completion_tokens": 2288
+    },
+    "patient": {
+      "prompt_tokens": 14742,
+      "completion_tokens": 476,
+      "calls": 9
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "case_idx": 7,
+  "baseline": "sa",
+  "column": "htsim",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: M\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency, and I’m having pain (about 6/10). I also have shortness of breath/difficulty breathing in a significant way, feel lightheaded/dizzy or like I’m about to faint, feel nauseous, and I’ve noticed a pink rash with swelling and significant itching (about 7/10), plus lesions larger than 1 cm.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To better understand your condition, can you tell me if the rash and its associated symptoms (itching, swelling, and lesions) appeared before or after the gastrointestinal symptoms (diarrhea, pain, nausea)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "The onset sequence is unclear, but we can still gather more information. Can you describe the nature of the shortness of breath or difficulty breathing you're experiencing - is it constant, or does it change with activity or position?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "We can still try to gather more specific information. Have you experienced any triggers or factors that seem to make your symptoms worse or better?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Let's try a different approach. Have you taken any new medications or eaten any new foods in the past 48 hours that could be related to your symptoms?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have been in contact with or ate something that I have an allergy to.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "The possibility of an allergic reaction is significant given your exposure to something you're allergic to. Considering your symptoms include a rash with itching and swelling, gastrointestinal issues, respiratory distress, and feeling lightheaded, anaphylaxis is a strong consideration. To further clarify, are you experiencing any swelling of your face, lips, tongue, or throat?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have swelling in one or more areas of my body—my forehead and cheek (left).",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "The swelling of your face, particularly when combined with the other symptoms you've described such as the rash, gastrointestinal issues, and respiratory distress, strongly suggests anaphylaxis. Given the severity of this condition and the information provided, I'm going to proceed to provide a differential diagnosis.\n\n[DDX] Anaphylaxis, Allergic reaction, Angioedema, Urticaria, Food allergy reaction\n\nThese diagnoses are considered given the acute onset of symptoms following exposure to an allergen, the presence of multi-system involvement (cutaneous, gastrointestinal, respiratory), and the specific symptoms like facial swelling. Anaphylaxis is the top consideration due to the severity and combination of symptoms.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Allergic reaction",
+      "Angioedema",
+      "Urticaria",
+      "Food allergy reaction\n\nThese diagnoses are considered given the acute onset of symptoms following exposure to an allergen"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Anaphylaxis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2554,
+      "completion_tokens": 352
+    },
+    "patient": {}
+  }
+}

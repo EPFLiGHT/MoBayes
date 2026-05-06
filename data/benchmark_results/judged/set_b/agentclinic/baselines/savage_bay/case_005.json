@@ -1,0 +1,192 @@
+{
+  "case_idx": 5,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Membranous nephropathy",
+  "patient_actor_hidden": {
+    "Demographics": "66-year-old white male",
+    "History": "The patient reports a 10-day history of fatigue and bilateral lower leg swelling. He mentions a weight loss of 3.6 kg (8 lbs) over the past 6 months without trying. He has a history of chronic bronchitis and uses an albuterol inhaler as needed.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower leg swelling",
+        "Unintentional weight loss"
+      ]
+    },
+    "Past_Medical_History": "Chronic bronchitis.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 44 years and drinks one alcoholic beverage daily.",
+    "Review_of_Systems": "The patient denies any recent cough, change in urinary habits, chest pain, dyspnea, or fevers."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, lower leg swelling, and weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: Over the last 10 days I’ve had increasing fatigue and swelling in both of my lower legs. I’ve also had some unintentional weight loss—about 8 pounds over the past 6 months—without trying.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (pre-test priors, broad ED differential for bilateral leg swelling + fatigue + unintentional weight loss):\n- Acute myelogenous leukemia: 0.18  \n- Acute lymphoblastic leukemia: 0.12  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.20  \n- Primary sclerosing cholangitis: 0.02  \n- Fulminant hepatic failure: 0.02  \n- Takotsubo cardiomyopathy: 0.03  \n- Chronic obstructive pulmonary disease (COPD): 0.03  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.34  \n\nTo narrow this down most efficiently: **Do you have shortness of breath, chest pain, or trouble lying flat (orthopnea/PND)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have chest pain or shortness of breath, and I haven’t noticed any trouble lying flat or waking up short of breath. My main issues are the fatigue and the swelling in both lower legs.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no cardiopulmonary symptoms like CHF/PE; shifts away from cardiac causes):\n- Acute myelogenous leukemia: 0.20  \n- Acute lymphoblastic leukemia: 0.14  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.28  \n- Primary sclerosing cholangitis: 0.02  \n- Fulminant hepatic failure: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.25  \n\nNext most discriminating question: **Have you noticed foamy/bubbly urine or decreased urine output?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed foamy or bubbly urine, and I don’t think my urine output has decreased.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no obvious nephrotic symptoms like foamy urine/decreased output; reduces membranous nephropathy likelihood):\n- Acute myelogenous leukemia: 0.22  \n- Acute lymphoblastic leukemia: 0.16  \n- Essential thrombocythemia: 0.06  \n- Membranous nephropathy: 0.18  \n- Primary sclerosing cholangitis: 0.02  \n- Fulminant hepatic failure: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.30  \n\nNext question (high yield): **Have you had any fevers, frequent infections, easy bruising, or bleeding (like nose/gum bleeding or petechiae)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any fevers, frequent infections, or unusual bruising or bleeding like nose or gum bleeding.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no fever/infections/bleeding → lowers leukemia/hematologic malignancy a bit, but doesn’t eliminate):\n- Acute myelogenous leukemia: 0.18  \n- Acute lymphoblastic leukemia: 0.12  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.20  \n- Primary sclerosing cholangitis: 0.02  \n- Fulminant hepatic failure: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.37  \n\nNext discriminating question: **Any yellowing of the eyes/skin (jaundice) or dark urine/light-colored stools?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any yellowing of your eyes or skin (jaundice) or any dark urine or light-colored stools? Patient: No, I haven’t noticed any yellowing, dark urine, or changes in stool color.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no jaundice/dark urine/light stools → lowers hepatobiliary causes):\n- Acute myelogenous leukemia: 0.17  \n- Acute lymphoblastic leukemia: 0.11  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.22  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.40  \n\nNext question (very high yield for nephrotic vs other): **Do you have swelling elsewhere too—especially around your eyes (periorbital edema) or in your hands?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed swelling around my eyes or in my hands—mainly it’s been the swelling in both of my lower legs.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: edema mainly lower extremities, no periorbital/hand edema → slightly less classic nephrotic syndrome):\n- Acute myelogenous leukemia: 0.18  \n- Acute lymphoblastic leukemia: 0.12  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.18  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.41  \n\nNext question (to discriminate hematologic malignancy vs renal): **Have you had any new lumps or swollen lymph nodes (neck, armpits, groin), or persistent bone pain?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any new lumps or swollen lymph nodes, and I don’t have any persistent bone pain—my main problems are the fatigue and the swelling in both lower legs.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no lymphadenopathy/bone pain → lowers leukemia likelihood):\n- Acute myelogenous leukemia: 0.12  \n- Acute lymphoblastic leukemia: 0.08  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.20  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.49  \n\nNext most discriminating question: **Do you have any shortness of breath with walking, reduced exercise tolerance, or do you gain weight quickly over days (suggesting fluid retention)?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any shortness of breath with walking or reduced exercise tolerance, and have you noticed gaining weight quickly over days from fluid retention? Patient: I haven’t noticed shortness of breath with walking, but I have felt more fatigued than usual and the swelling in my legs has been steadily getting worse over these 10 days.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: progressive edema over 10 days; no SOB/orthopnea → less CHF; still supports renal/hepatic/hematologic causes):\n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.07  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.24  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.48  \n\nNext question (high yield for nephrotic vs other): **Have you noticed your urine becoming darker, or any blood in the urine, or burning/pain with urination?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any darkening of my urine, blood in it, or burning or pain when I urinate. My main changes have been the increasing swelling in both of my lower legs and the fatigue.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no hematuria/dysuria; keeps renal causes possible but less suggestive of glomerulonephritis):\n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.07  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.26  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.42  \n\nNext question (to discriminate nephrotic syndrome vs other): **Have you had any new foamy urine (even intermittently) or have you noticed your legs are pitting when you press on the swollen area?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed foamy urine. My leg swelling is definitely there, but I’m not sure if it pits when you press on it.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: no foamy urine; uncertain pitting → slightly reduces classic nephrotic syndrome but still plausible):\n- Acute myelogenous leukemia: 0.11  \n- Acute lymphoblastic leukemia: 0.08  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.22  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.48  \n\nNext question (very discriminating for hematologic malignancy): **Have you had any weight loss plus night sweats, or any new headaches/vision changes?**",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had unintentional weight loss and fatigue, but I don’t think I’ve had night sweats. I also haven’t noticed any new headaches or vision changes.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Updated posterior probabilities (evidence: weight loss + fatigue without night sweats/headache/vision changes → keeps hematologic malignancy possible but not strongly supported):\n- Acute myelogenous leukemia: 0.10  \n- Acute lymphoblastic leukemia: 0.07  \n- Essential thrombocythemia: 0.05  \n- Membranous nephropathy: 0.24  \n- Primary sclerosing cholangitis: 0.01  \n- Fulminant hepatic failure: 0.01  \n- Takotsubo cardiomyopathy: 0.01  \n- COPD: 0.02  \n- Chronic Granulomatous Disease: 0.01  \n- Other/undifferentiated: 0.48  \n\nI’m not confident enough to choose among the top items from your history alone (edema + fatigue + weight loss could still be renal/nephrotic syndrome or a hematologic process, but key discriminators like foamy urine/pitting, infections/bleeding, jaundice, or cardiopulmonary symptoms are missing/unclear).\n\n**Next question (one-at-a-time, very high yield):**  \n**Do you have any recent medication or toxin exposure (new meds in the last few months—especially NSAIDs, antibiotics, or chemotherapy—or heavy alcohol use), or any recent viral illness?**",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t started any new medications recently, and I’m not receiving chemotherapy. I also haven’t had a recent viral illness that I can recall—just my usual chronic bronchitis and then this new fatigue with the leg swelling.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is still insufficient to confidently rank a single diagnosis from the provided list. Bilateral progressive leg edema + fatigue + weight loss could fit several entities (notably membranous nephropathy vs hematologic malignancy), but we lack key discriminators (clear pitting edema/foamy urine/nephrotic features, urinalysis findings, bleeding/infections, jaundice, lymphadenopathy, or cardiopulmonary signs).\n\n[POSSIBLE] Membranous nephropathy, Acute myelogenous leukemia, Acute lymphoblastic leukemia, Essential thrombocythemia, Fulminant hepatic failure",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Membranous nephropathy",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Essential thrombocythemia",
+      "Fulminant hepatic failure"
+    ],
+    "predicted_raw": [
+      "Membranous nephropathy",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Essential thrombocythemia",
+      "Fulminant hepatic failure"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 12,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Membranous nephropathy",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 25603,
+      "completion_tokens": 2284
+    },
+    "patient": {
+      "prompt_tokens": 18627,
+      "completion_tokens": 536,
+      "calls": 12
+    }
+  }
+}

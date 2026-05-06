@@ -1,0 +1,293 @@
+{
+  "case_idx": 28,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Lambert-Eaton Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient reports a 3-month history of chronic cough and progressively worsening difficulty in walking up stairs in his apartment. Interestingly, he notes that his ability to climb stairs improves after he has exercised. Over the last 6 months, he has also experienced a weight loss of 4.6 kg (10.1 lb). The patient has been smoking one pack of cigarettes daily for 35 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Difficulty walking up stairs",
+      "Secondary_Symptoms": [
+        "Chronic cough",
+        "Weight loss of 4.6 kg over 6 months",
+        "Improvement in muscle strength post-exercise"
+      ]
+    },
+    "Past_Medical_History": "No significant previous medical or surgical history reported.",
+    "Social_History": "Smokes one pack of cigarettes daily for 35 years, occasional alcohol consumption.",
+    "Review_of_Systems": {
+      "General": "Weight loss",
+      "Respiratory": "Chronic cough",
+      "Musculoskeletal": "Progressive muscle weakness, improving with exertion",
+      "Neurological": "Sluggish pupil reaction to light"
+    }
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a chronic cough, difficulty walking up stairs which improves after exercise, and significant weight loss.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’ve had a chronic cough for about three months, and over that time I’ve been getting progressively worse at walking up stairs in my apartment. Oddly, if I exercise, my strength improves, and over the last six months I’ve also lost about 10 pounds.",
+      "extracted_features": {
+        "f_cough_1213c62f": "yes",
+        "f_chronic_cough_4933172c": "yes",
+        "f_progressive_gait_difficulty_b203b5af": "yes",
+        "f_leg_weakness_when_climbing_stairs_2199b4b4": "yes",
+        "f_leg_weakness_improves_after_warming_up_a_9c64008f": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_weight_loss_e4a22a46": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Lambert-Eaton Syndrome",
+          0.3824967377815841
+        ],
+        [
+          "Multiple system atrophy",
+          0.1929408323323034
+        ],
+        [
+          "Huntington disease",
+          0.07633957251995611
+        ],
+        [
+          "Histoplasmosis",
+          0.0660783526935465
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.04931671499076813
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden movements that you can’t control? (Yes or no)",
+      "patient_answer": "Patient: No, I haven’t noticed any involuntary twitching or jerking.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lambert-Eaton Syndrome",
+          0.4320511737373452
+        ],
+        [
+          "Multiple system atrophy",
+          0.2003262213440251
+        ],
+        [
+          "Histoplasmosis",
+          0.0686076998203127
+        ]
+      ],
+      "entropy": 3.127126109360776
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "Patient: No, I haven’t noticed any lump in my right breast or anything that moves or shifts when I touch it.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lambert-Eaton Syndrome",
+          0.4350838684488253
+        ],
+        [
+          "Multiple system atrophy",
+          0.2017323702193668
+        ],
+        [
+          "Histoplasmosis",
+          0.06908927751540851
+        ]
+      ],
+      "entropy": 3.1029800134575476
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press gently around your belly button, does it feel tender or painful? (yes/no)",
+      "patient_answer": "Patient: No, when you press gently around my belly button it doesn’t feel tender or painful.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lambert-Eaton Syndrome",
+          0.45725175508105953
+        ],
+        [
+          "Multiple system atrophy",
+          0.2120108030397296
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.054191102122262705
+        ]
+      ],
+      "entropy": 2.987614781752797
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "No, I haven’t been vomiting recently.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lambert-Eaton Syndrome",
+          0.4774293481007556
+        ],
+        [
+          "Multiple system atrophy",
+          0.22136640999361926
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.05658244560375019
+        ]
+      ],
+      "entropy": 2.8308964828195693
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in my right breast, and nothing feels like it’s moving or shifting when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Lambert-Eaton Syndrome",
+          0.47836548808731566
+        ],
+        [
+          "Multiple system atrophy",
+          0.22180046363715972
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.05669339205075379
+        ]
+      ],
+      "entropy": 2.8175517906043694
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Do you notice that the lenses in **both** of your eyes look **cloudy or hazy**, like you’re seeing through a fogged window? (Yes/No)",
+      "patient_answer": "Patient: Yes, my pupils don’t seem to respond normally to light, and the vision through my lenses feels a bit cloudy or hazy.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.33690028815226153
+        ],
+        [
+          "Multiple system atrophy",
+          0.28428496967234207
+        ],
+        [
+          "Lambert-Eaton Syndrome",
+          0.16721678088882116
+        ]
+      ],
+      "entropy": 2.91884689595073
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small?",
+      "patient_answer": "No, I haven’t noticed any lump or mass in my right breast. My main issues have been the ongoing cough, worsening trouble climbing stairs, and some weight loss, and I’ve also noticed my pupils don’t respond normally to light.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.3377677611660134
+        ],
+        [
+          "Multiple system atrophy",
+          0.2850169653045173
+        ],
+        [
+          "Lambert-Eaton Syndrome",
+          0.1676473416510665
+        ]
+      ],
+      "entropy": 2.906551631401471
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant, or is there any chance you could be pregnant right now?",
+      "patient_answer": "Patient: No, I haven’t been pregnant—there’s no possibility of that. I’m mainly dealing with the chronic cough, worsening trouble climbing stairs that improves after exercise, weight loss, and my pupils not responding normally to light.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.34391456964197764
+        ],
+        [
+          "Multiple system atrophy",
+          0.29020379749974956
+        ],
+        [
+          "Lambert-Eaton Syndrome",
+          0.1706982429480886
+        ]
+      ],
+      "entropy": 2.823112923187603
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_top3": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Multiple system atrophy",
+      "Lambert-Eaton Syndrome"
+    ],
+    "confidence": 0.34391456964197764,
+    "final_entropy": 2.823112923187603,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Multiple system atrophy",
+      "Lambert-Eaton Syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10784,
+      "completion_tokens": 423
+    },
+    "patient": {
+      "prompt_tokens": 5599,
+      "completion_tokens": 331,
+      "calls": 9
+    }
+  }
+}

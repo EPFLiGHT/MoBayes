@@ -1,0 +1,172 @@
+{
+  "case_idx": 45,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 56\nSex: Female\nChief Complaint: I have a cough, significant dyspnea, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a cough and I feel very short of breath, and I can hear a wheezing sound when I exhale. I also had a cold in the last two weeks, and my asthma has been acting up again—I’ve had multiple attacks this past year and I was hospitalized for one.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this does sound respiratory and asthma-related. I’ll ask a few focused questions to narrow it down.\n\n**Current posterior (pre-test, based on your wheeze + SOB + asthma history):**\n- **Bronchospasm / acute asthma exacerbation:** 0.55  \n- **Pneumonia:** 0.15  \n- **Acute COPD exacerbation / infection:** 0.05  \n- **Pulmonary embolism:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n(others lower)\n\n**Question 1 (most discriminating):**  \nDo you have a **fever** (≥38°C) or **chills**, or has your sputum become **thick/purulent** (yellow/green) compared with your usual?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a fever or chills right now. My sputum is not really thick or yellow/green—mostly just a cough with mucus, but it hasn’t changed to something purulent.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Update (using your new evidence: no fever/chills; sputum not purulent):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.65 (more likely; infection less supported)  \n- **Pneumonia:** 0.08 (less likely without fever/purulence)  \n- **Acute COPD exacerbation / infection:** 0.03  \n- **Pulmonary embolism:** 0.14 (still possible given SOB; wheeze can occur but less typical)  \n- **Acute pulmonary edema:** 0.04  \n\n**Question 2:**  \nWhen you say “very short of breath,” is it **sudden onset** (minutes to an hour) or **gradual** (over hours to days)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It felt worse more gradually over the last day or so. It wasn’t sudden like within minutes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (gradual worsening):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.72 (more consistent with gradual worsening)  \n- **Pulmonary embolism:** 0.08 (less likely—PE is often more sudden, though not always)  \n- **Pneumonia:** 0.10 (can be gradual even without fever, but less supported so far)  \n- **Acute COPD exacerbation / infection:** 0.03  \n- **Acute pulmonary edema:** 0.07  \n\n**Question 3:**  \nDo you have **chest pain**—and if yes, is it **sharp and worse when you breathe in** (pleuritic) or more **pressure/tightness**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain. It’s mainly the breathing trouble and the wheezing sound when I exhale.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no chest pain):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.78  \n- **Pneumonia:** 0.09  \n- **Pulmonary embolism:** 0.06  \n- **Acute pulmonary edema:** 0.05  \n- **Acute COPD exacerbation / infection:** 0.02  \n\n**Question 4:**  \nHave you noticed **leg swelling or pain** (especially one-sided), or any recent **long travel/immobility**, **surgery**, or **prior blood clot**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t noticed leg swelling or leg pain. I haven’t had any recent surgery, and I don’t have a history of a blood clot.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no DVT/PE risk features):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.83  \n- **Pneumonia:** 0.10  \n- **Pulmonary embolism:** 0.03  \n- **Acute pulmonary edema:** 0.03  \n- **Acute COPD exacerbation / infection:** 0.01  \n\n**Question 5:**  \nDo you have a **history of heart failure** or do you notice **worsening when lying flat** (orthopnea) or **waking up at night short of breath**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No history of heart failure. I haven’t noticed that it gets worse when I lie flat, and I haven’t been waking up at night short of breath.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (less supportive of pulmonary edema/heart failure):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.86  \n- **Pneumonia:** 0.10  \n- **Pulmonary embolism:** 0.02  \n- **Acute pulmonary edema:** 0.01  \n- **Acute COPD exacerbation / infection:** 0.01  \n\n**Question 6:**  \nAre you currently using a **rescue inhaler** (albuterol/salbutamol)? If yes, does it **help**, and how long does the relief last?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I used my rescue inhaler. It helps a bit, but the relief doesn’t last very long—maybe a couple of hours—then the wheezing and shortness of breath come back.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (partial, short-lived response to rescue inhaler):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.90  \n- **Pneumonia:** 0.07  \n- **Pulmonary embolism:** 0.02  \n- **Acute COPD exacerbation / infection:** 0.01  \n- **Acute pulmonary edema:** 0.00  \n\n**Question 7:**  \nDo you have **any upper-airway symptoms** like **throat swelling, trouble swallowing, drooling, or a muffled “hot potato” voice**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have throat swelling or trouble swallowing, and I don’t have drooling or a muffled voice. It’s mainly in my chest—cough, wheeze, and shortness of breath.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (less supportive of upper-airway causes):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.93  \n- **Pneumonia:** 0.06  \n- **Pulmonary embolism:** 0.01  \n- **Acute COPD exacerbation / infection:** 0.00  \n- **Acute pulmonary edema:** 0.00  \n\n**Question 8:**  \nDo you have **any known triggers** this time—like **smoke, dust, pets, exercise, cold air**, or have you been around anyone sick?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I think the cold I had recently probably triggered it. I also live in a big city, so there’s a lot of pollution, and I’ve been around people who were sick. I haven’t noticed smoke or pets as a specific trigger.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (clear asthma trigger pattern):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.95  \n- **Pneumonia:** 0.04  \n- **Pulmonary embolism:** 0.005  \n- **Acute COPD exacerbation / infection:** 0.003  \n- **Acute pulmonary edema:** 0.002  \n\n**Question 9:**  \nAre you able to speak in **full sentences**, or do you have to stop for breath after **a few words**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I have to stop after a few words. I can’t really speak in full sentences right now without getting very short of breath.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (severity):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.97  \n- **Pneumonia:** 0.02  \n- **Pulmonary embolism:** 0.005  \n- **Acute COPD exacerbation / infection:** 0.003  \n- **Acute pulmonary edema:** 0.002  \n\n**Question 10 (important for safety):**  \nDo you have **blue lips/face**, **confusion**, or are you feeling **too breathless to stay awake**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No blue lips or face, and I’m alert and not confused. I’m very short of breath, but I’m awake and able to talk to you.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (still consistent with asthma; no hypoperfusion/altered mental status):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.98  \n- **Pneumonia:** 0.015  \n- **Pulmonary embolism:** 0.003  \n- **Acute COPD exacerbation / infection:** 0.002  \n- **Acute pulmonary edema:** 0.001  \n\nAt this point, the history is strongly most consistent with an **acute asthma exacerbation triggered by a recent viral URI/pollution**, with less support for pneumonia, PE, or pulmonary edema.\n\n**Question 11 (to confirm and guide treatment):**  \nAre you currently on any **controller inhaler** (like an inhaled corticosteroid) or have you run out / been inconsistent recently?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m supposed to use a controller inhaler, but I’ve been inconsistent lately. I still have it, but I haven’t been using it regularly because I’ve been feeling better and then this came back.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (reinforces asthma exacerbation due to poor controller use):**  \n- **Bronchospasm / acute asthma exacerbation:** 0.99  \n- **Pneumonia:** 0.008  \n- **Pulmonary embolism:** 0.001  \n- **Acute COPD exacerbation / infection:** 0.001  \n- **Acute pulmonary edema:** 0.0005  \n\n**Question 12 (final key discriminator):**  \nHave you ever had **anaphylaxis/allergic reactions**—like hives, itching, swelling of lips/tongue, or sudden symptoms after a specific food/medication?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had anaphylaxis or hives, and I don’t have swelling of my lips or tongue. This feels more like my asthma flaring up after the cold and pollution.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bronchospasm / acute asthma exacerbation, Pneumonia, Pulmonary embolism, Acute COPD exacerbation / infection, Acute pulmonary edema",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Bronchospasm / acute asthma exacerbation",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 25092,
+      "completion_tokens": 1691
+    },
+    "patient": {
+      "prompt_tokens": 22228,
+      "completion_tokens": 524
+    }
+  }
+}

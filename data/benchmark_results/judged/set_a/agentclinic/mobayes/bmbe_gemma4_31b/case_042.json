@@ -1,0 +1,313 @@
+{
+  "case_idx": 42,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient has experienced gradual yellow discoloration of the skin and generalized pruritus over the past 2 weeks. He also reports a decreased appetite and a weight loss of 6.3 kg (14 lb). The patient’s stool has been pale, and his urine is very dark. Three years ago, he had an episode of acute upper abdominal pain, which was managed with IV fluids, NSAIDs, and dietary modification. The patient has abstained from alcohol for these three years, after having consumed 1–2 beers daily for 40 years. He has a 50-year history of smoking a pack of cigarettes daily.",
+    "Symptoms": {
+      "Primary_Symptom": "Yellow discoloration of the skin",
+      "Secondary_Symptoms": [
+        "Generalized pruritus",
+        "Decreased appetite",
+        "Weight loss",
+        "Pale stool",
+        "Dark urine"
+      ]
+    },
+    "Past_Medical_History": "Episode of acute upper abdominal pain treated three years ago. History of long-term alcohol consumption and smoking.",
+    "Social_History": "Stopped alcohol consumption three years ago; 50-year history of smoking a pack of cigarettes daily.",
+    "Review_of_Systems": "No additional symptoms were reported."
+  },
+  "objective_for_doctor": "Assess the patient and determine the cause of jaundice, pruritus, weight loss, pale stool, and dark urine.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Over the past two weeks, my skin has gradually turned yellow and I’ve had widespread itching. I’ve also lost my appetite and I’ve dropped about 6.3 kg, with pale stools and very dark urine.”",
+      "extracted_features": {
+        "f_jaundice_7519dd8b": "yes",
+        "f_pruritus_e1e3ae83": "yes",
+        "f_decreased_appetite_87a4f212": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_pale_stools_8d2148d9": "yes",
+        "f_dark_urine_784225c0": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.8971318253533792
+        ],
+        [
+          "Chronic kidney failure",
+          0.038608895902770744
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006628544189595765
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.0051796820716513365
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.0051796820716513365
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "“No, I haven’t noticed any small raised bumps with a central dimple. It’s mostly just diffuse yellowing of my skin and generalized itching.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.8988188499262314
+        ],
+        [
+          "Chronic kidney failure",
+          0.03868149856190951
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.00664100893180428
+        ]
+      ],
+      "entropy": 0.854121797434582
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“No, I’m not having to urinate more often than usual—but my urine has become very dark. I’ve mainly noticed the color change along with the yellowing, itching, pale stools, and weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9093463784950631
+        ],
+        [
+          "Chronic kidney failure",
+          0.028066199931450805
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0067187925822708595
+        ]
+      ],
+      "entropy": 0.8039692754057555
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual strength lately?",
+      "patient_answer": "“I feel generally weaker than usual and just don’t have my normal energy, especially over the last couple of weeks.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9254647336839543
+        ],
+        [
+          "Chronic kidney failure",
+          0.04098267016924837
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.00832438123912356
+        ]
+      ],
+      "entropy": 0.5688487876084684
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“No, I haven’t had any trouble dressing myself, but I have been feeling weaker and less energetic overall. I’m able to dress normally, just not with the same stamina as before.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9262112576313909
+        ],
+        [
+          "Chronic kidney failure",
+          0.041015728743603166
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.008331096081641504
+        ]
+      ],
+      "entropy": 0.5607460909071841
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, sores, or unusual skin lesions appearing along the veins in your arms?",
+      "patient_answer": "“No, I haven’t noticed any rashes, sores, or unusual skin lesions along the veins in my arms—just the diffuse yellowing of my skin and the generalized itching.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9262112576313909
+        ],
+        [
+          "Chronic kidney failure",
+          0.041015728743603166
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.008331096081641504
+        ]
+      ],
+      "entropy": 0.5607460909071841
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain in your calves when you walk that goes away once you stop and rest?",
+      "patient_answer": "“No, I haven’t noticed any calf pain when walking that improves with rest—I haven’t had that kind of leg discomfort.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9262722733832586
+        ],
+        [
+          "Chronic kidney failure",
+          0.041018430724935245
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.0083316449068551
+        ]
+      ],
+      "entropy": 0.5597960998497662
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or opening jars?",
+      "patient_answer": "“No, I haven’t had any specific weakness in my hands—gripping objects and opening jars has been normal for me. My main issues are the gradual yellowing, the widespread itching, dark urine, pale stools, and my reduced appetite with weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9268022097192204
+        ],
+        [
+          "Chronic kidney failure",
+          0.04104189807628528
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.008336411584538704
+        ]
+      ],
+      "entropy": 0.5536819808683977
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_staying_conscious_during_shaking_episode_38ad282a",
+      "doctor_question": "During these shaking episodes, are you able to remain conscious and aware of your surroundings, or do you lose consciousness?",
+      "patient_answer": "“No, I haven’t had any shaking episodes, so I’m not losing consciousness or being unable to stay aware of my surroundings. It’s mainly the gradual yellowing of my skin, generalized itching, dark urine, pale stools, and the decreased appetite with weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9268271717384715
+        ],
+        [
+          "Chronic kidney failure",
+          0.041043003477889986
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.008336636113207577
+        ]
+      ],
+      "entropy": 0.5533165910305872
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_abdominal_pain_f8a79ef3",
+      "doctor_question": "Are you currently experiencing any pain or discomfort in your abdominal area?",
+      "patient_answer": "“I have had some discomfort in my upper abdomen over the past couple of weeks, but it isn’t severe pain—more of a dull, noticeable feeling. I haven’t had any new episodes like the intense upper abdominal pain I had before.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.9826067514774931
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.010350188183490129
+        ],
+        [
+          "Bacillus cereus infection",
+          0.0022385552368560453
+        ]
+      ],
+      "entropy": 0.16205759961534055
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic adenocarcinoma",
+    "predicted_top3": [
+      "Pancreatic adenocarcinoma",
+      "Acalculous cholecystitis",
+      "Bacillus cereus infection"
+    ],
+    "confidence": 0.9826067514774931,
+    "final_entropy": 0.16205759961534055,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Acalculous cholecystitis",
+      "Bacillus cereus infection"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8131,
+      "completion_tokens": 340
+    },
+    "patient": {
+      "prompt_tokens": 6472,
+      "completion_tokens": 424,
+      "calls": 10
+    }
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "case_idx": 22,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Fibroadenoma",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old female at 17-weeks gestation",
+    "History": "The patient reports noticing a painless mass in the right breast three weeks ago, which has not changed in size. She has no additional complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Painless mass in the right breast",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history. This is her first pregnancy.",
+    "Social_History": "Non-smoker, does not consume alcohol. Works as a high school teacher.",
+    "Review_of_Systems": "Denies fever, weight loss, nipple discharge, or changes in skin over the breast."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m 33 and currently 17 weeks pregnant. About three weeks ago I noticed a painless lump in my right breast, and it hasn’t changed in size since then.”",
+      "extracted_features": {
+        "f_pregnancy_5fa7cc34": "yes",
+        "f_right_breast_lump_c4e6e6ca": "yes",
+        "f_breast_mass_present_for_about_three_week_44337362": "yes",
+        "f_first_occurrence_of_breast_lump_87257520": "yes",
+        "f_painless_mobile_right_breast_lump_6b49d2b2": "no",
+        "f_painless_right_breast_mass_a51c0ca9": "yes",
+        "f_mass_stable_in_size_7ad5dee6": "yes",
+        "f_mass_not_tender_to_palpation_d25fb662": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Fibroadenoma",
+          0.8682459346148902
+        ],
+        [
+          "Pseudocyesis",
+          0.02101887626640667
+        ],
+        [
+          "Chronic Granulomatous Disease",
+          0.006880618688106224
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.006880618688106224
+        ],
+        [
+          "Meigs syndrome",
+          0.006880618688106224
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or movements you can’t control? (Yes or no)",
+      "patient_answer": "“No—I haven’t noticed any involuntary twitching, jerking, shaking, or uncontrolled movements.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.871808374823346
+        ],
+        [
+          "Pseudocyesis",
+          0.021105117372713974
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.006908850081650767
+        ]
+      ],
+      "entropy": 1.1977444772324166
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No—when I press or gently tap around my belly button area, it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.884557000088279
+        ],
+        [
+          "Pseudocyesis",
+          0.019683338287448914
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.005473467597500344
+        ]
+      ],
+      "entropy": 1.1007982585283251
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.912901199124264
+        ],
+        [
+          "Pseudocyesis",
+          0.007386930560551713
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.005192382804334009
+        ]
+      ],
+      "entropy": 0.8822685230132018
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (yes or no)?",
+      "patient_answer": "“Yes—I’ve noticed a painless lump or mass in my right breast.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.9908757430262178
+        ],
+        [
+          "Meigs syndrome",
+          0.004038780374920129
+        ],
+        [
+          "Pseudocyesis",
+          0.0013363129757618345
+        ]
+      ],
+      "entropy": 0.10779843378747408
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Do you notice that the lenses in **both eyes** look **cloudy or hazy**, like you’re seeing through a fog? (Yes/No)",
+      "patient_answer": "“No—my vision in both eyes doesn’t look cloudy or hazy, and I’m not seeing through fog.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.9946354527792977
+        ],
+        [
+          "Pseudocyesis",
+          0.001232988771190665
+        ],
+        [
+          "Meigs syndrome",
+          0.0006552088632331458
+        ]
+      ],
+      "entropy": 0.07289878516701766
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "Have you noticed any **unintentional weight loss** recently—meaning you’ve lost weight without trying (for example, over the past few months)?",
+      "patient_answer": "“No, I haven’t had any unintentional weight loss recently—my weight hasn’t dropped without trying.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.9950471483017138
+        ],
+        [
+          "Pseudocyesis",
+          0.0012334991249638696
+        ],
+        [
+          "Meigs syndrome",
+          0.0006025119786280212
+        ]
+      ],
+      "entropy": 0.06741948219670911
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_mobile_breast_mass_0f3e5ba6",
+      "doctor_question": "Have you noticed a breast lump or swelling that seems to move or shift when you touch it (rather than staying fixed in one spot)?",
+      "patient_answer": "“No, when I touch it, the lump feels like it stays in one spot and doesn’t seem to shift or move around.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Fibroadenoma",
+          0.987130771631754
+        ],
+        [
+          "Pseudocyesis",
+          0.0030932054605845396
+        ],
+        [
+          "Meigs syndrome",
+          0.0015108996063652497
+        ]
+      ],
+      "entropy": 0.15819370329098414
+    }
+  ],
+  "final": {
+    "predicted": "Fibroadenoma",
+    "predicted_top3": [
+      "Fibroadenoma",
+      "Pseudocyesis",
+      "Meigs syndrome"
+    ],
+    "confidence": 0.987130771631754,
+    "final_entropy": 0.15819370329098414,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Fibroadenoma",
+    "predicted_set_remapped": [
+      "Fibroadenoma",
+      "Pseudocyesis",
+      "Meigs syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10608,
+      "completion_tokens": 421
+    },
+    "patient": {
+      "prompt_tokens": 3577,
+      "completion_tokens": 195,
+      "calls": 8
+    }
+  }
+}

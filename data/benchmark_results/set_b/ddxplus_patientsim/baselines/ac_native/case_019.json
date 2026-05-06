@@ -1,0 +1,75 @@
+{
+  "case_idx": 19,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchitis",
+  "objective_for_doctor": "A 24-year-old Male patient presents to the clinic. Chief complaint: I have lower chest pain, right side of the chest pain, and upper chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having lower chest pain on the right side and also upper chest pain. It feels like a burning pain, and I’ve had a significant shortness of breath, a cough with more colored sputum than usual, fever, and some nasal congestion/runny nose. I also notice a wheezing sound when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—when did your symptoms start, and have you measured your temperature or noticed any chest pain that worsens with deep breaths or coughing?  \nDoctor: Also, do you smoke or have asthma, and is your shortness of breath worse with activity or when lying flat?  \nDoctor: REQUEST TEST: Chest_X-Ray",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "They started fairly recently, like within a few hours—maybe the onset speed was around 3/10. I haven’t noticed the pain getting worse specifically with deep breaths or coughing.  \n\nI do have COPD, but I don’t have asthma. My shortness of breath is pretty bad overall, and it feels worse with activity; I haven’t noticed it being worse when lying flat.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—does your cough produce thick yellow/green sputum, and how high has your fever been (if you’ve checked it)?  \nDoctor: REQUEST TEST: CBC_with_Differential  \nDoctor: REQUEST TEST: Pulse_Oximetry",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, the cough brings up colored sputum—more than usual, and it looks yellow/green and thicker. I’ve had a fever, but I haven’t measured the exact number at home.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Do you have any chest tightness or low oxygen readings if you’ve checked (and is the wheeze new today), and have you noticed any leg swelling or recent travel/immobility?  \nDoctor: Also, any sore throat or symptoms mainly above the chest (like from a cold), and do you take any inhalers or steroids regularly for your COPD?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have chest tightness along with the pain and the wheezing; I don’t know my oxygen numbers, and I haven’t checked them at home. The wheeze feels new today.  \n\nNo leg swelling, and no recent travel or long immobility. I do have nasal congestion/runny nose and cold-type symptoms, and I use COPD inhalers regularly (but I’m not sure of the exact names).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your rapid onset (hours), fever, productive yellow/green sputum, and new wheezing with COPD, this most strongly suggests an acute infectious COPD exacerbation—likely pneumonia—rather than pulmonary embolism or isolated asthma. I need one more confirmation: REQUEST TEST: Respiratory_Viral_Panel_or_Influenza_COVID_Test.  \nDoctor: While we wait, do you have pleuritic symptoms like clear pain increase with deep breaths, and any blood in your sputum?  \nDoctor: DIAGNOSIS READY: Acute COPD exacerbation with suspected community-acquired pneumonia (infectious lower respiratory tract infection).\n\n[DDX]\n1. Pneumonia",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1936,
+      "completion_tokens": 332,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3324,
+      "completion_tokens": 285
+    }
+  }
+}

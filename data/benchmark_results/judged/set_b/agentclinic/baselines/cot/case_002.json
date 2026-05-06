@@ -1,0 +1,113 @@
+{
+  "case_idx": 2,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Congenital Rubella Infection",
+  "patient_actor_hidden": {
+    "Demographics": "Newborn, female",
+    "History": "The patient is a 3000-g (6.6-lb) female newborn delivered at term to a 23-year-old primigravida mother. The mother reports having had no prenatal care, and immunization records for the newborn are not available.",
+    "Symptoms": {
+      "Primary_Symptom": "Continuous heart murmur",
+      "Secondary_Symptoms": [
+        "Bluish macules on the skin that do not blanch with pressure",
+        "Cloudy lenses in both eyes noticed upon examination",
+        "Failure to pass auditory screening tests"
+      ]
+    },
+    "Past_Medical_History": "Newborn, no past medical history available.",
+    "Social_History": "Mother is a primigravida, no prenatal care received.",
+    "Review_of_Systems": "No additional symptoms noted by the mother."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn with specific findings on physical examination and history provided.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I was born at term, and since then I’ve had a continuous heart murmur. I also have bluish skin macules that don’t fade when pressed, cloudy lenses in both eyes, and I didn’t pass the hearing screen.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: lifelong continuous heart murmur, persistent bluish skin macules that don’t blanch, bilateral cloudy lenses (congenital cataracts), and failed newborn hearing screen.\nTop candidates (from list):\n- Congenital Rubella Infection: classic triad of congenital cataracts, sensorineural deafness, and congenital heart disease; can also have persistent skin findings (e.g., “blueberry muffin” type lesions).\n- Meigs syndrome: unlikely—doesn’t explain congenital cataracts/deafness.\n- Histoplasmosis: unlikely—would not be congenital with cataracts/deafness.\n- Membranous nephropathy / Minimal Change Disease: unlikely—no renal symptoms described.\nMost informative next question: ask about the timing/age of cataracts and whether there are other congenital findings (e.g., “blueberry muffin” rash) to strengthen congenital rubella.\n[/REASONING]\nOne question: When were the cloudy lenses in your eyes first noticed—were they present at birth or within the first few weeks of life?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: They were noticed right from the start, within the first days after I was born, and they’ve looked cloudy in both eyes ever since.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: congenital cataracts present from the first days of life, congenital heart murmur since birth, persistent non-blanching bluish skin macules, and failed hearing screen.\nThis strongly supports a congenital infection syndrome, especially congenital rubella (cataracts + hearing loss + congenital heart disease). The persistent bluish macules fit “blueberry muffin”–type lesions seen in congenital rubella.\nTop candidate:\n- Congenital Rubella Infection: very strong match for congenital cataracts + sensorineural deafness + congenital heart disease; skin lesions can be present.\nOther listed options are much less consistent because they don’t explain the full triad.\nMost informative next question: ask about whether the hearing issue was confirmed as sensorineural (not just conductive) or if there’s any history of maternal rash/illness during pregnancy.\n[/REASONING]\nOne question: Did your mother have a rash/viral illness consistent with rubella during pregnancy (especially in the first trimester), or were you told your hearing loss is sensorineural?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Did your mother have a rash or viral illness consistent with rubella during pregnancy, and were you told your hearing loss was sensorineural rather than conductive? Patient: I don’t know about any mother’s illness or rash. I only know I didn’t pass the hearing screening.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: congenital cataracts from first days of life, congenital heart murmur since birth, persistent non-blanching bluish macules, and failed newborn hearing screen. Maternal rubella history is unknown, but that’s common.\nMost likely diagnosis remains:\n- Congenital Rubella Infection: best fits the combination of congenital cataracts + congenital heart disease + hearing impairment; blueberry muffin–type lesions can occur.\nNeed one more discriminating detail to be confident: the type of heart lesion (e.g., PDA) or whether the skin lesions were described as “blueberry muffin” at birth.\nMost informative next question: Do you know what the heart murmur was attributed to (e.g., patent ductus arteriosus/PDA, pulmonary artery stenosis), or have you had an echocardiogram result?\n[/REASONING]\nOne question: Have you ever had an echocardiogram—if so, what diagnosis did they give for the heart murmur (e.g., PDA)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you ever had an echocardiogram, and if so, what did they say the murmur was caused by? Patient: I haven’t had an echocardiogram yet, and I don’t know what diagnosis they gave for the murmur.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: congenital cataracts (present within days of birth), persistent bluish non-blanching skin macules, congenital heart murmur since birth, and failed newborn hearing screen. Maternal rubella history unknown.\nThis constellation most strongly points to a congenital infection syndrome—among the provided list, Congenital Rubella Infection best matches cataracts + congenital heart disease + hearing loss; “blueberry muffin”–type lesions can present as bluish/purplish macules at birth.\nWe still lack confirmation of the specific cardiac defect and whether hearing loss is sensorineural, but the overall pattern is highly characteristic.\nMost informative next step would be to ask about the skin lesion description (blueberry muffin) or any history of jaundice/splenomegaly, but we have enough to provide a focused top-5 differential from the list.\n[/REASONING]\n[DDX]Congenital Rubella Infection, Histoplasmosis, Meigs syndrome, Membranous nephropathy, Minimal Change Disease",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Congenital Rubella Infection",
+    "predicted_set": [
+      "Congenital Rubella Infection",
+      "Histoplasmosis",
+      "Meigs syndrome",
+      "Membranous nephropathy",
+      "Minimal Change Disease"
+    ],
+    "predicted_raw": [
+      "Congenital Rubella Infection",
+      "Histoplasmosis",
+      "Meigs syndrome",
+      "Membranous nephropathy",
+      "Minimal Change Disease"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Congenital Rubella Infection",
+    "predicted_set_remapped": [
+      "Congenital Rubella Infection",
+      "Histoplasmosis",
+      "Meigs syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4929,
+      "completion_tokens": 871
+    },
+    "patient": {
+      "prompt_tokens": 2859,
+      "completion_tokens": 222,
+      "calls": 4
+    }
+  }
+}

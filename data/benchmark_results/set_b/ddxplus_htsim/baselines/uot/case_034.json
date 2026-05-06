@@ -1,0 +1,65 @@
+{
+  "case_idx": 34,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 23\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood, and I have a sharp pain on my posterior chest wall (left). It’s about a 3/10 in intensity, and the rash is pink with peeling lesions. My cough is worse at night and produces colored or more abundant sputum than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **chest pain/pressure that is worse with exertion or relieved by rest** (suggesting an acute coronary syndrome/angina)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] During the episode, do you have chest pain/pressure that is new, worsening, or occurring at rest (not just with exertion)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have a sharp pain on my posterior chest wall (left) that’s about 3/10 in intensity, and my symptoms are more prominent at night.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Stable angina  ",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Stable angina  ",
+    "predicted_set": [
+      "Stable angina  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "case_idx": 38,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m not answering questions because I think I’m being watched. I feel extremely hot and out of sorts, and I’m hard to wake up at times. My body feels rigid and my behavior doesn’t seem normal.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you recently started, stopped, or changed the dose of any medications, particularly antipsychotics (such as haloperidol, risperidone, or olanzapine) or antidepressants?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t been taking any medications I can think of, but I do have a recent history of using drugs. I feel extremely hot, I’m sometimes hard to wake up, and my muscles feel rigid. I’m not confident I can cooperate with questions because I feel like I’m being watched.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What specific drug or substance did you recently use, and when was your last dose?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t want to talk about specific substances—I’m convinced someone’s watching—but it was recently, within the last day or two. Since then I’ve felt extremely hot, very hard to wake at times, and my muscles have been rigid.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Is your skin noticeably sweaty and damp, or is it dry and flushed?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My skin feels very hot and sweaty, and I’ve been drenched at times—I’m flushed too. I also feel very hard to wake up, and my muscles have been rigid since the last day or two.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any involuntary muscle twitching, jerking, or rhythmic shaking in your limbs, particularly in your legs?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’ve noticed my muscles feel rigid and uncoordinated, but I’m not sure about any twitching or rhythmic shaking in my limbs. I can say I’m very hard to wake at times and I’ve been extremely hot and sweaty since the last day or two.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you notice sudden, involuntary jerking or twitching in your legs, or is the stiffness constant and heavy throughout your muscles?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“It’s more like the stiffness feels constant and heavy through my muscles, not sudden jerking or rhythmic shaking. I’m also very hard to wake at times, and I’ve been extremely hot and sweaty since the last day or two.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Neuroleptic Malignant Syndrome, Serotonin Syndrome, Stimulant/Sympathomimetic Toxicity, Malignant Hyperthermia, Central Nervous System Infection",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_set": [
+      "Neuroleptic Malignant Syndrome",
+      "Serotonin Syndrome",
+      "Stimulant/Sympathomimetic Toxicity",
+      "Malignant Hyperthermia",
+      "Central Nervous System Infection"
+    ],
+    "predicted_raw": [
+      "Neuroleptic Malignant Syndrome",
+      "Serotonin Syndrome",
+      "Stimulant/Sympathomimetic Toxicity",
+      "Malignant Hyperthermia",
+      "Central Nervous System Infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2802,
+      "completion_tokens": 12057
+    },
+    "patient": {
+      "prompt_tokens": 3081,
+      "completion_tokens": 316,
+      "calls": 6
+    }
+  }
+}

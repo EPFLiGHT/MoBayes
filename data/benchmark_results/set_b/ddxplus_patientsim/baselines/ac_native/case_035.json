@@ -1,0 +1,85 @@
+{
+  "case_idx": 35,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute laryngitis",
+  "objective_for_doctor": "A 72-year-old Male patient presents to the clinic. Chief complaint: I have burning pain, right tonsil pain, and thyroid cartilage pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have burning pain in my throat, mostly on the right side, with right tonsil pain and pain around the thyroid cartilage area. I also have pain in the palate and some hoarseness. It’s about 7 out of 10, and it started pretty fast.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let me ask a few quick questions to pinpoint this: do you have fever or swollen neck glands, and is swallowing (especially liquids) very painful?  \nDoctor: Also, any cough, runny nose, recent cold/sore throat exposure, or noticeable bad breath/white patches on the right tonsil?  \nDoctor: Lastly, does the hoarseness come with breathing trouble, ear pain on the right, or a lump sensation that’s worsening?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever or swollen neck glands—I haven’t noticed that. Swallowing is painful, especially liquids.  \n\nI don’t have a cough or runny nose, and I haven’t noticed bad breath or white patches on the right tonsil. My hoarseness is there, but I’m not having breathing trouble; I do have right-sided ear pain, and the lump sensation is not really getting worse.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the sudden, severe one-sided throat pain with painful swallowing (especially liquids), hoarseness, and right ear pain (referred otalgia), I’d like to quickly assess for a red-flag airway issue: have you had any drooling, inability to handle saliva, trismus (can’t open your mouth well), or muffled “hot potato” voice?  \nDoctor: REQUEST TEST: CT_Head_and_Neck_with_Contrast (to rule out deep space infection/abscess or mass) and REQUEST TEST: CBC_with_Differential + CRP (inflammation/infection).  \nDoctor: If you say “no” to those red flags, I’ll proceed to a working diagnosis—but answer that first.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had drooling or trouble handling my saliva. I can open my mouth okay—no trismus—and my voice sounds hoarse, but I don’t think it’s the muffled “hot potato” kind.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—no drooling, no trismus, and no “hot potato” voice makes a deep peritonsillar/retropharyngeal abscess less likely, but the abrupt, severe unilateral throat pain with referred right ear pain still concerns me for a significant local infection or, less commonly, malignancy-related lesion; do you notice a visible swelling or asymmetry of the right tonsil/uvula, and do you have trouble swallowing to the point of refusing food?  \nDoctor: Also, have you had recent dental infections, gum/tooth pain, or a history of neck radiation/smoking?  \nDoctor: If you answer those, I’ll decide next steps; for now, I’m ordering a focused evaluation—REQUEST TEST: ENT_Pharyngeal_Laryngoscopy.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any visible swelling or that the uvula looks pushed to one side. I am having trouble swallowing, but I’m still able to eat a little—I wouldn’t say I’m refusing food completely.  \n\nI haven’t had any recent dental infections or gum/tooth pain that I know of. And I have been smoking cigarettes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given the sudden severe **right-sided** throat pain with **odynophagia (worse with liquids)**, **referred right ear pain**, **hoarseness**, and smoking history, the top concern is **an acute right tonsillar/pharyngeal infection (e.g., peritonsillitis/early abscess)** or less likely a **structural lesion**; I’m ordering a direct look to decide safely: REQUEST TEST: ENT_Pharyngeal_Laryngoscopy and please also get imaging: REQUEST TEST: CT_Head_and_Neck_with_Contrast.  \nDoctor: While you’re waiting, do you have any ability to breathe comfortably right now (no shortness of breath/stridor), and are you able to drink small sips without choking?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can breathe comfortably right now—no shortness of breath or noisy breathing. I can take small sips, but it hurts a lot when I swallow and it’s hard, but I’m not choking.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Good—no airway distress, and you can take small sips. With sudden severe unilateral (right) throat/tonsil pain, painful swallowing (esp. liquids), referred right ear pain, hoarseness, and cigarette smoking, the most likely cause is **acute right tonsillitis/peritonsillitis (early deep infection)**; I also want to exclude a developing abscess or other lesion on the CT and laryngoscopy.  \nDIAGNOSIS READY: Acute right peritonsillitis (severe unilateral tonsillitis/early deep infection)\n\n[ABSTAIN] free-text diagnosis 'Acute right peritonsillitis (severe unilateral tonsillitis/early deep infection)' did not map to the closed disease set",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3363,
+      "completion_tokens": 710,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 4777,
+      "completion_tokens": 315
+    }
+  }
+}

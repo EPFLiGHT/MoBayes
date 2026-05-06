@@ -1,0 +1,99 @@
+{
+  "case_idx": 26,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Larygospasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 51\nSex: F\nChief Complaint: stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having stridor—a high pitched sound when breathing in. I also have asthma (or have used a bronchodilator in the past) and I’m diagnosed with gastroesophageal reflux.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: stridor (suggests upper airway obstruction), history of asthma/bronchodilator use, and GERD.\nTop candidates (tentative):\n1) Epiglottitis — stridor strongly suggests upper airway obstruction; often severe, may have fever/sore throat.\n2) Croup — can cause stridor; more common in children but can occur in adults.\n3) Acute laryngitis — can cause airway irritation/stridor, usually with hoarseness and viral symptoms.\n4) GERD (laryngopharyngeal reflux) — can contribute to laryngeal irritation/stridor, especially if symptoms worsen when lying down.\n5) Anaphylaxis — can cause upper airway swelling/stridor, but would usually have hives, wheeze, hypotension, or rapid onset after exposure.\nMost discriminating next question: whether there are signs of systemic allergy/rapid onset, which would strongly point toward anaphylaxis.\n[/REASONING]\nDid this stridor start suddenly (minutes to a few hours), especially after a new food/medication/insect sting, and do you have any hives, lip/tongue swelling, or trouble swallowing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have stridor + asthma history + GERD, but no timing/exposure/allergy details yet.\nCandidates remain: epiglottitis, croup, acute laryngitis, GERD-related laryngeal irritation, anaphylaxis.\nMost discriminating next action: determine onset timing and progression—sudden onset suggests anaphylaxis/foreign body; gradual suggests infection/inflammation/GERD.\n[/REASONING]\nHow quickly did the stridor begin—suddenly within minutes to hours, or gradually over days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have limited history: stridor present, asthma/bronchodilator history, GERD. Timing is unknown, which prevents narrowing between anaphylaxis/foreign body vs infection/inflammation.\nTop candidates still: epiglottitis, acute laryngitis, croup, GERD-related laryngeal irritation, anaphylaxis.\nMost informative next question: look for infectious/upper-airway “red flags” (fever, severe sore throat, drooling, muffled voice), which would support epiglottitis.\n[/REASONING]\nDo you have a fever, severe sore throat, drooling, or a “muffled”/hot-potato voice?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient discriminating features: stridor is the key symptom, but we lack onset timing and infectious/allergic signs.\nGiven uncertainty, we can’t confidently rank diagnoses.\nMost informative next question: ask about ability to handle secretions and swallowing—drooling or dysphagia strongly supports epiglottitis/upper airway obstruction.\n[/REASONING]\nAre you able to swallow normally and handle your saliva (no drooling), or is swallowing difficult/painful?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack the most discriminating details for upper-airway causes (epiglottitis/foreign body/anaphylaxis): onset timing, fever/severe sore throat, drooling/dysphagia, and voice changes.\nWith repeated “don’t know,” evidence is insufficient to confidently produce a top-5 differential.\nNext best step would be to ask about hoarseness/voice change, which can help separate laryngitis/GERD from epiglottitis, but we’re approaching the limit.\n[/REASONING]\nDo you have hoarseness or a change in your voice?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators for stridor etiologies (onset timing, fever/severe sore throat/drooling or dysphagia, voice change/hoarseness, and allergic exposure signs like hives/lip/tongue swelling) are all unknown, so I can’t confidently rank a top-5 differential from the provided list.\n\n[POSSIBLE] Epiglottitis, Acute laryngitis, Anaphylaxis, Acute COPD exacerbation / infection, GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Epiglottitis",
+      "Acute laryngitis",
+      "Anaphylaxis",
+      "Acute COPD exacerbation / infection",
+      "GERD"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7346,
+      "completion_tokens": 848
+    },
+    "patient": {}
+  }
+}

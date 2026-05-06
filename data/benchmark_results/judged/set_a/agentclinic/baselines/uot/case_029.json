@@ -1,0 +1,103 @@
+{
+  "case_idx": 29,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Frontotemporal Dementia",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient's family reports a gradual change in behavior starting a few months ago, which includes inappropriate laughing, using foul language, and occasionally grabbing people without warning. Recently, the patient's memory has also notably deteriorated, leading to difficulty in caring for himself.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in behavior including inappropriate actions",
+      "Secondary_Symptoms": [
+        "Worsening memory",
+        "Trouble taking care of personal needs",
+        "Word finding difficulty",
+        "Inappropriateness in social situations"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or psychiatric history. No history of alcohol or substance abuse.",
+    "Social_History": "Recently retired, lives with a spouse. Non-smoker, drinks alcohol socially. No history of legal or financial issues.",
+    "Review_of_Systems": "Denies headache, visual changes, seizures, muscle weakness, or other neurological symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with changes in behavior and memory over the past few months.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello. What brings you in today? Patient: I’ve been having trouble with my behavior and memory lately—people tell me I act inappropriately and I’ve also been forgetting things and struggling to take care of myself.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] In the past month, have you experienced a sudden onset of hallucinations or delusions that lasted at least 1 day but less than 1 month, and you do not have a prior history of psychosis?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: In the past month, have you experienced a sudden onset of hallucinations or delusions that lasted at least 1 day but less than 1 month? Patient: I don’t think I’ve had hallucinations or delusions; it’s more that my behavior has changed and I’ve been forgetting things, and I sometimes struggle to manage my daily needs.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you been experiencing symptoms that are not explained by any medical test results, and you are not intentionally producing or faking the symptoms?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you been experiencing symptoms that are not explained by any medical test results, and you are not intentionally producing or faking the symptoms? Patient: I haven’t been tested recently, but I’m not faking anything—this has been happening to me for months. My main problems are the memory worsening and my behavior seeming out of place to others.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you been experiencing symptoms that are intentionally produced or feigned (for example, to assume the sick role or to gain attention), rather than from a genuine medical condition?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not intentionally producing or feigning anything—I’m not doing this to get attention or special treatment. It feels more like I’m genuinely having trouble with my memory and behaving differently than I used to.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Frontotemporal Dementia  , Pseudocyesis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Frontotemporal Dementia  ",
+    "predicted_set": [
+      "Frontotemporal Dementia  ",
+      "Pseudocyesis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Frontotemporal Dementia",
+    "predicted_set_remapped": [
+      "Frontotemporal Dementia",
+      "Pseudocyesis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1933,
+      "completion_tokens": 250,
+      "calls": 4
+    }
+  }
+}

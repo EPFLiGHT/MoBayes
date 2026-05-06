@@ -1,0 +1,80 @@
+{
+  "case_idx": 36,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "35-year-old female",
+    "History": "The patient reports a 1-month history of experiencing double vision (diplopia), difficulty in climbing stairs, and weakness when trying to brush her hair. She notes that these symptoms tend to worsen after physical activity but improve significantly after a few hours of rest.",
+    "Symptoms": {
+      "Primary_Symptom": "Double vision",
+      "Secondary_Symptoms": [
+        "Difficulty climbing stairs",
+        "Weakness in upper limbs",
+        "Improvement of symptoms after rest"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Non-smoker, drinks wine occasionally. Works as a graphic designer.",
+    "Review_of_Systems": "Patient denies experiencing any chest pain, palpitations, shortness of breath, or recent infections."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with double vision, difficulty climbing stairs, and upper limb weakness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about a month I’ve had double vision, along with trouble climbing stairs and weakness in my upper limbs when I try to brush my hair. It gets worse with activity and improves a lot after a few hours of rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing 'Myasthenia gravis  '?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure of the cause, but yes—the weakness and double vision get worse with activity and I feel much better after resting for a few hours. I don’t have any recent infections or other major symptoms like chest pain or shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myasthenia gravis  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis  ",
+    "predicted_set": [
+      "Myasthenia gravis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 688,
+      "completion_tokens": 122,
+      "calls": 2
+    }
+  }
+}

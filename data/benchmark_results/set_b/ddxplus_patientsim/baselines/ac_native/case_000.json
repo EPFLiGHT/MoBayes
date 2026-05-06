@@ -1,0 +1,95 @@
+{
+  "case_idx": 0,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Larygospasm",
+  "objective_for_doctor": "A 42-year-old Male patient presents to the clinic. Chief complaint: I have stridor.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I’m having stridor—like a harsh, noisy sound when I breathe. This started while I’ve been recovering from a cold in the last two weeks, and I also have gastroesophageal reflux.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When did the stridor start (sudden vs gradual), and is it worse when breathing in (inspiratory) or out (expiratory)?  \nDoctor: Do you have fever, sore throat/hoarseness, trouble swallowing, drooling, or any choking feeling?  \nDoctor: Any history of smoking, allergies/asthma, recent vomiting/regurgitation, or exposure to smoke/irritants?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The stridor started… I’m not sure if it was sudden or gradual, but it’s happening now. It seems worse when I breathe in (inspiratory).\n\nI don’t have fever, and I don’t have sore throat/hoarseness, trouble swallowing, drooling, or a choking feeling.\n\nI smoke is not me, but I’m around secondhand smoke daily. I do have gastroesophageal reflux, and I’ve had a cold in the last 2 weeks. No recent vomiting or regurgitation that I can recall.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since it’s inspiratory stridor without fever/hoarseness and with GERD, I’m concerned about upper-airway obstruction (e.g., laryngeal edema/spasm, vocal cord dysfunction/paresis, or reflux-related laryngitis).  \nDoctor: Any weight loss, persistent symptoms >3–4 weeks, prior neck surgery/intubation, or feeling like your voice changes or you can’t control breathing during episodes?  \nDoctor: Also, can you tell me your current breathing status—are you in distress, and have you had any noisy breathing at rest or waking at night?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have weight loss, and this hasn’t been going on for more than a few weeks. I’ve never had neck surgery or been intubated.\n\nMy voice feels normal—no clear voice change—and I can breathe, but during the episodes it feels like it’s harder to get air in.\n\nRight now I’m not in severe distress, but I do hear the noisy breathing at rest. I haven’t noticed waking up at night because of it.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given inspiratory stridor at rest after a recent cold, I want to check for laryngeal edema or vocal cord dysfunction—can you tell me if you get episodes triggered by exertion, strong smells, cold air, or talking, and whether you can speak in full sentences during episodes?  \nDoctor: REQUEST TEST: Flexible_nasopharyngolaryngoscopy (urgent, to visualize vocal cords/upper airway).",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—sometimes it’s triggered by talking and cold air, and strong smells can make it worse too. Exertion can also trigger it a bit.\n\nDuring an episode, I can still speak in full sentences, but I feel like I’m working harder to breathe in.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This pattern—recurrent inspiratory stridor triggered by cold air, talking, and irritants, with ability to speak in full sentences—fits best with laryngeal hypersensitivity/vocal cord dysfunction related to reflux. I’m going to confirm by looking at vocal cord motion: **REQUEST TEST: Flexible_nasopharyngolaryngoscopy** (to assess for paradoxical vocal fold motion and laryngeal irritation).  \nDoctor: While we await that, do you have any history of anxiety/panic symptoms during episodes or improvement when you breathe through pursed lips/slowly?  \nDoctor: Also, have you ever had asthma diagnosed, or do you have wheezing mainly on exhale rather than inspiratory noise?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really feel panic during the episodes, but I do get a bit worried because it feels hard to pull air in.\n\nWhen I slow my breathing, it can feel a little better. I haven’t been told I have asthma, and I don’t mainly have wheezing on exhale.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given inspiratory stridor at rest with triggers like cold air/talking/irritants, minimal panic, and partial relief with slow breathing, I’m most concerned for paradoxical vocal fold motion (vocal cord dysfunction) likely worsened by GERD.  \nDoctor: REQUEST TEST: Flexible_nasopharyngolaryngoscopy (to visualize vocal fold motion during symptoms) and consider REQUEST TEST: Spirometry_with_flow-volume_loop (to look for variable extrathoracic obstruction).  \nDoctor: Once I’ve confirmed on scope, the diagnosis is vocal cord dysfunction with laryngopharyngeal reflux—do you have any sudden aspiration/choking events (especially with liquids) or recent new medications (e.g., ACE inhibitors) that could affect the airway?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had sudden aspiration or choking events with liquids. And I don’t take any new medications like ACE inhibitors that I’m aware of.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your inspiratory stridor at rest, triggers (talking, cold air, strong smells), minimal fever/hoarseness/swallowing symptoms, and partial relief with slow breathing plus known GERD, the most likely cause is paradoxical vocal fold motion (vocal cord dysfunction) related to laryngopharyngeal reflux.  \nDoctor: I still want to visually confirm vocal fold movement—REQUEST TEST: Flexible_nasopharyngolaryngoscopy (look for paradoxical adduction/abnormal motion) and, if available, during a provocation/episode.  \nDoctor: DIAGNOSIS READY: Paradoxical vocal fold motion (Vocal cord dysfunction) secondary to laryngopharyngeal reflux (GERD-related laryngeal hypersensitivity).\n\n[DDX]\n1. GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4426,
+      "completion_tokens": 783,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 5341,
+      "completion_tokens": 416
+    }
+  }
+}

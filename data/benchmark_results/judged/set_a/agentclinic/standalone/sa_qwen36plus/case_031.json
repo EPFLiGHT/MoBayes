@@ -1,0 +1,166 @@
+{
+  "case_idx": 31,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "38-year-old woman",
+    "History": "The patient presents to the urgent care clinic complaining of epigastric discomfort and cramping pain for the past 2 hours. She reports experiencing similar pain episodes in the past, mostly post-meals, which often subside several hours after eating. This has led her to avoid eating, resulting in weight loss over the past couple of months. She has a habit of smoking and drinks alcohol occasionally. Her past medical history is insignificant except for chronic knee pain, for which she takes over-the-counter painkillers.",
+    "Symptoms": {
+      "Primary_Symptom": "Epigastric discomfort and cramping pain",
+      "Secondary_Symptoms": [
+        "Pain subsides hours after eating",
+        "Weight loss",
+        "Avoidance of eating",
+        "Smoking",
+        "Occasional alcohol consumption"
+      ]
+    },
+    "Past_Medical_History": "Chronic knee pain treated with over-the-counter painkillers. No other significant medical history.",
+    "Social_History": "Smoker, occasional alcohol drinker.",
+    "Review_of_Systems": "Patient denies any changes in bowel or urinary habits, no nausea or vomiting reported."
+  },
+  "objective_for_doctor": "Assess and manage a patient presenting with epigastric discomfort and cramping pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been having epigastric discomfort and cramping pain for the past two hours. This feels similar to episodes I’ve had before—mostly after meals—and it usually settles several hours after I eat, but I’ve started avoiding eating and I’ve lost some weight over the last couple months.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any black, tarry stools or vomited blood during these episodes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any black tarry stools, and I haven’t vomited any blood.” “I also haven’t had nausea or vomiting with these episodes.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of smoking, cardiovascular disease, or regular use of NSAIDs (like ibuprofen or aspirin)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Yeah, I smoke,” and “I don’t have any cardiovascular disease that I know of.” “I do take over-the-counter painkillers like ibuprofen or similar sometimes for my knee pain, but not constantly.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Does the pain radiate to your back or right shoulder?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: “It doesn’t really radiate to my back or right shoulder—it’s mostly centered in my upper abdomen.” “I’d say it feels worse after eating, and then it gradually eases after a few hours.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 38 years old.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do antacids or acid-reducing medications (like omeprazole or famotidine) relieve your pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: “Antacids sometimes help a bit, but the pain still comes back, and I haven’t been on any regular acid-reducing medicine like omeprazole.” “When I eat, it tends to get worse before it gradually eases over a few hours.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Do you consume alcohol regularly?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I drink alcohol only occasionally, not regularly. When I do, I don’t notice a clear pattern linking it to these episodes.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Does the pain specifically worsen after eating fatty or greasy foods, or does it tend to occur with any type of meal?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“It seems to happen with meals in general, not specifically fatty or greasy ones. It’s mostly post-meal epigastric discomfort that gradually eases after a few hours.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Do you experience early satiety, where you feel uncomfortably full after eating only a small amount of food?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“Not really early satiety—I can usually eat more than a small amount, but the discomfort ramps up after I start eating, so I end up avoiding meals.” “I mostly notice the pain and cramping in my upper abdomen after eating, and then it eases over a few hours.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Gastric ulcer, NSAID-induced gastritis, Functional dyspepsia, Biliary colic, Chronic pancreatitis",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Gastric ulcer",
+    "predicted_set": [
+      "Gastric ulcer",
+      "NSAID-induced gastritis",
+      "Functional dyspepsia",
+      "Biliary colic",
+      "Chronic pancreatitis"
+    ],
+    "predicted_raw": [
+      "Gastric ulcer",
+      "NSAID-induced gastritis",
+      "Functional dyspepsia",
+      "Biliary colic",
+      "Chronic pancreatitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Gastric peptic ulcer",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Gastric peptic ulcer",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4852,
+      "completion_tokens": 24904
+    },
+    "patient": {
+      "prompt_tokens": 5590,
+      "completion_tokens": 414,
+      "calls": 9
+    }
+  }
+}

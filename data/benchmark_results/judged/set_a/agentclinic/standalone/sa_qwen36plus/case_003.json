@@ -1,0 +1,133 @@
+{
+  "case_idx": 3,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "68-year-old male from California",
+    "History": "The patient comes in for a routine checkup without any specific complaints. He maintains an active lifestyle with jogging and gardening. He has been retired since age 50 and enjoys spending his mornings in the park and afternoons in his garden.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a lesion on the scalp",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "No history of smoking. Drinks alcohol occasionally.",
+    "Review_of_Systems": "Denies any symptoms of fatigue, weight loss, fever, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Perform a routine checkup on a 68-year-old man, assess any dermatological findings, and formulate a diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Good morning, doctor. I’m here for a routine checkup, and I’ve noticed a lesion on my scalp that I wanted you to take a look at. I don’t have any other symptoms or general concerns.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long has the lesion been present, and has it changed in size, shape, or color since you first noticed it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I first noticed the lesion a few months ago, and I think it has gradually changed—its size and color seem a bit different than when it started, though it isn’t rapidly growing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Does the lesion bleed easily, crust over, or cause any itching or tenderness?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor—it hasn’t been bleeding, and I don’t recall it crusting over. I also haven’t noticed any itching or tenderness around it.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe its appearance in more detail, specifically its approximate size, exact color(s), whether the borders are smooth or irregular, and if it's flat or raised above the skin?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I’d estimate it’s about the size of a small pea to a dime, with a reddish-brown color and slightly darker patches. The borders feel a bit irregular rather than perfectly smooth, and it seems mostly flat with a mild raised area in the center.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "What is your age?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I’m 68 years old. I’m generally active and otherwise feel fine, aside from wanting you to look at the scalp lesion I mentioned.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a personal or family history of skin cancer, or a history of significant cumulative sun exposure or severe sunburns?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I don’t have any personal history of skin cancer that I know of, and I’m not aware of a family history either. I’ve had plenty of sun exposure over the years through outdoor activities, but I don’t recall any severe sunburns.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Does the surface of the lesion feel rough and scaly, smooth and pearly, or waxy and \"stuck-on\" to the skin?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I’d say the surface feels somewhat rough and a bit scaly, not smooth or pearly, and it doesn’t feel waxy or like it’s stuck on.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Squamous cell carcinoma, Actinic keratosis, Basal cell carcinoma, Melanoma, Seborrheic keratosis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Squamous cell carcinoma",
+    "predicted_set": [
+      "Squamous cell carcinoma",
+      "Actinic keratosis",
+      "Basal cell carcinoma",
+      "Melanoma",
+      "Seborrheic keratosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3263,
+      "completion_tokens": 14455
+    },
+    "patient": {
+      "prompt_tokens": 3283,
+      "completion_tokens": 310,
+      "calls": 7
+    }
+  }
+}

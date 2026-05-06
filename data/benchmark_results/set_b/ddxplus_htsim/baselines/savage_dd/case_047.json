@@ -1,0 +1,119 @@
+{
+  "case_idx": 47,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a fever, and I’ve been coughing up blood. I also have a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’m going to ask a few focused questions to narrow this down.\n\n**First question:** How long has this been going on (hours/days/weeks)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question:\n\n**When did you first notice the blood in your cough (roughly how many hours or days ago)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question:\n\n**Is the blood bright red, dark/“rusty,” or more like clots?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question (this helps separate lung infection vs heart/PE vs other causes):\n\n**About how much blood is it—just streaks in the sputum, teaspoons, or more than that?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I understand—let’s switch to a question that doesn’t require estimating the amount.\n\n**Do you have shortness of breath or chest pain right now?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I do have pain (intensity 7/10) related to my reason for consulting, and I’ve also had a fever, cough, and coughing up blood.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more key question to localize the chest pain pattern.\n\n**Is the chest pain worse when you take a deep breath or when you cough (pleuritic), or is it more pressure-like?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question:\n\n**Have you had any recent leg swelling or pain (especially one-sided), or any recent long travel/surgery/immobility?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I don’t have enough discriminating details yet (timing, amount/character of blood, and whether there’s pleuritic pain or risk factors). With fever + hemoptysis, serious causes like pneumonia or pulmonary embolism are possible, but I can’t rank confidently.\n\n[ABSTAIN] Insufficient history to confidently narrow the cause of fever with hemoptysis (key discriminators like pleuritic vs pressure pain, hemoptysis amount/character, and PE risk factors are unknown).  \n[POSSIBLE] Pneumonia, Pulmonary embolism, Acute COPD exacerbation / infection, Influenza, Tuberculosis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Influenza",
+      "Tuberculosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7451,
+      "completion_tokens": 401
+    },
+    "patient": {}
+  }
+}

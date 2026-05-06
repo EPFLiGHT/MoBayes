@@ -1,0 +1,132 @@
+{
+  "case_idx": 2,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 52\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and right posterior chest wall pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having severe chest pain—both on the right and the left sides—and also pain in the right posterior chest wall. It feels like a knife-stab, sharp pain, and it gets worse when I breathe in. I’m also very short of breath, and my left calf is swollen. I even lost consciousness.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (pre-test, rough):**  \n- **Pulmonary embolism:** 0.35  \n- **Possible NSTEMI / STEMI:** 0.20  \n- **Spontaneous pneumothorax:** 0.15  \n- **Acute pulmonary edema:** 0.10  \n- **Anaphylaxis:** 0.05  \n(others lower)\n\nThis presentation is concerning for **life-threatening causes** (especially PE, pneumothorax, and acute coronary syndrome). I’ll ask one focused question at a time.\n\n**Question 1:** When you lost consciousness, did it happen **suddenly** (like fainting) or after **severe coughing/straining**, and did you have **new wheezing/itching/hives or swelling of lips/tongue** around that time?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It happened suddenly—I just blacked out. I didn’t have new wheezing, itching, hives, or swelling of my lips or tongue around that time.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.50 (LR for PE vs ACS/pneumothorax increases because sudden syncope without allergic features fits PE)  \n- **Possible NSTEMI / STEMI:** 0.18  \n- **Spontaneous pneumothorax:** 0.15  \n- **Acute pulmonary edema:** 0.08  \n- **Anaphylaxis:** 0.01  \n\n**Question 2:** Do you have **any fever or cough**, or did the shortness of breath start **suddenly** (minutes) versus **gradually** (hours–days)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No fever and no cough. The shortness of breath and the chest pain felt like they started suddenly, within minutes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.62 (sudden onset pleuritic pain + dyspnea + unilateral calf swelling strongly increases PE)  \n- **Possible NSTEMI / STEMI:** 0.12 (ACS can be sudden, but pleuritic “knife-stab” + calf swelling shifts away)  \n- **Spontaneous pneumothorax:** 0.16 (can be sudden pleuritic pain + dyspnea, but calf swelling/syncope makes PE more likely)  \n- **Acute pulmonary edema:** 0.05  \n- **Anaphylaxis:** 0.01  \n\n**Question 3:** Is your chest pain **worse with a deep breath** (pleuritic) and do you feel **one-sided** breath sounds reduced, or any **sudden “can’t catch breath”** sensation? (Just yes/no for each if you can.)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the pain is worse when I take a deep breath. I’m not sure about breath sounds being reduced on one side, but I do feel like I can’t catch my breath suddenly.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.58 (pleuritic pain supports PE; syncope also)  \n- **Spontaneous pneumothorax:** 0.25 (sudden “can’t catch breath” + pleuritic sharp pain supports)  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Acute pulmonary edema:** 0.05  \n- **Anaphylaxis:** 0.01  \n\n**Question 4:** Do you have **any history of lung disease** (COPD/asthma), **recent trauma**, **recent heavy lifting**, or **smoking**, or have you ever had a pneumothorax before?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No lung disease that I know of. No recent trauma or heavy lifting. I’m not sure about smoking history, and I’ve never had a pneumothorax before.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.60  \n- **Spontaneous pneumothorax:** 0.22  \n- **Possible NSTEMI / STEMI:** 0.09  \n- **Acute pulmonary edema:** 0.06  \n- **Acute COPD exacerbation / infection:** 0.01  \n\n**Question 5:** Any **recent risk factors for clot**: long travel/immobility, recent surgery, pregnancy/postpartum, estrogen therapy (birth control), or known cancer? (Yes/No to any of these.)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have an active cancer, I had surgery within the last month, and I also had recent travel.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.75 (active cancer + surgery <1 month + travel + pleuritic pain + dyspnea + syncope + calf swelling)  \n- **Spontaneous pneumothorax:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.08  \n- **Acute pulmonary edema:** 0.03  \n- **Anaphylaxis:** 0.02  \n\n**Question 6:** Do you have **hemoptysis** (coughing up blood) or **leg pain** in the swollen calf (tenderness/warmth), or is the calf swelling painless?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I’m not coughing up blood. The left calf is swollen and it feels painful/tender.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.82  \n- **Spontaneous pneumothorax:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.05  \n- **Acute pulmonary edema:** 0.02  \n- **Anaphylaxis:** 0.01  \n\n**Question 7:** Do you have **any leg redness/warmth** and is the calf swelling **one-sided only** (left only)? (Yes/No)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the left calf looks red/warm, and the swelling is only on the left side.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.88 (LR increases with unilateral tender red/warm calf = DVT)  \n- **Spontaneous pneumothorax:** 0.07  \n- **Possible NSTEMI / STEMI:** 0.03  \n- **Acute pulmonary edema:** 0.01  \n- **Anaphylaxis:** 0.01  \n\n**Question 8:** Are you currently having **ongoing chest pain** and do you feel **lightheaded** right now, or is it improving? (Yes/No for ongoing + lightheadedness)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I still have ongoing chest pain. And yes, I feel lightheaded right now.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**  \n- **Pulmonary embolism:** 0.90  \n- **Spontaneous pneumothorax:** 0.06  \n- **Possible NSTEMI / STEMI:** 0.03  \n- **Acute pulmonary edema:** 0.01  \n- **Anaphylaxis:** 0.00  \n\nI’m sufficiently confident to provide the differential.\n\n[DDX] Pulmonary embolism, Spontaneous pneumothorax, Possible NSTEMI / STEMI, Acute pulmonary edema, Anaphylaxis",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Spontaneous pneumothorax",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14345,
+      "completion_tokens": 1279
+    },
+    "patient": {
+      "prompt_tokens": 13295,
+      "completion_tokens": 303
+    }
+  }
+}

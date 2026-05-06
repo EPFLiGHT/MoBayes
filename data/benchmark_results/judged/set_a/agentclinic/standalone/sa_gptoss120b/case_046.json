@@ -1,0 +1,143 @@
+{
+  "case_idx": 46,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about a week I’ve had left-sided chest pain along with a productive cough bringing up purulent sputum, and I’ve been feeling short of breath. I also had fever and malaise, and I was recently told I had influenza but I didn’t follow the treatment plan.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe the character of the chest pain—does it feel sharp, pressure‑like, burning, or something else, and does it worsen with deep breathing or coughing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The pain feels sharp, and it gets worse when I take a deep breath or cough.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "What does the sputum look like (color, consistency), and have you noticed any blood mixed in with it?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The sputum is thick and purulent, kind of yellow-green in color, and I haven’t noticed any blood mixed in it. It comes up with my cough and makes the shortness of breath feel worse.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent travel, prolonged immobilization (such as long flights or bed rest), or a history of blood clots that might increase your risk for a pulmonary embolism?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any recent travel, long flights, or been immobilized, and I don’t have any known history of blood clots.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you smoke cigarettes or use any other tobacco products, and if so, how many pack‑years would you estimate",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t smoke cigarettes or use any other tobacco products. I’ve never had pack‑years to estimate.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you measured your temperature at any point, and if so, what was the highest reading you recall?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—my temperature has been elevated; the highest reading I remember was about **101.5°F (38.6°C)**. It’s been coming with fever and malaise over the past week.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Do you notice that the shortness of breath gets worse when you lie flat or when you’re active, and have you had any swelling, pain, or redness in your legs?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My shortness of breath feels worse when I’m active, and it’s also harder to breathe when I lie flat. I haven’t noticed any swelling, pain, or redness in my legs.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bacterial pneumonia (post‑influenza Staphylococcus aureus infection), typical community‑acquired pneumonia (Streptococcus pneumoniae), parapneumonic pleural effusion/empyema, pulmonary embolism, acute bronchitis",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Bacterial pneumonia (post‑influenza Staphylococcus aureus infection)",
+    "predicted_set": [
+      "Bacterial pneumonia (post‑influenza Staphylococcus aureus infection)",
+      "typical community‑acquired pneumonia (Streptococcus pneumoniae)",
+      "parapneumonic pleural effusion/empyema",
+      "pulmonary embolism",
+      "acute bronchitis"
+    ],
+    "predicted_raw": [
+      "Bacterial pneumonia (post‑influenza Staphylococcus aureus infection)",
+      "typical community‑acquired pneumonia (Streptococcus pneumoniae)",
+      "parapneumonic pleural effusion/empyema",
+      "pulmonary embolism",
+      "acute bronchitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3745,
+      "completion_tokens": 1628
+    },
+    "patient": {
+      "prompt_tokens": 3698,
+      "completion_tokens": 296,
+      "calls": 7
+    }
+  }
+}

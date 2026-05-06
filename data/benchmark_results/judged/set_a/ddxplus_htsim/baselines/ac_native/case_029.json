@@ -1,0 +1,169 @@
+{
+  "case_idx": 29,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {
+    "AGE": 26,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "exertional symptoms",
+    "EVIDENCES_ENG": "['pain', 'shortness of breath', 'palpitations', 'general fatigue or discomfort', 'symptoms worse when lying down and alleviated while sitting up', 'exertional symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 26\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- My heart is beating fast (racing), irregularly (missing a beat), or I feel palpitations.\n- I have noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in my general well-being related to my consultation today.\n- My symptoms are worse when lying down and alleviated while sitting up.\n- I have symptoms that are increased with physical exertion but alleviated with rest.\n- On a scale of 0-10, the pain intensity is 8\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 1\n- The pain is:\n* sensitive\n* a knife stroke\n- The pain locations are:\n* lower chest\n* breast(R)\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Unstable angina', 0.09245718904970789], ['Myocarditis', 0.09028580166232937], ['Acute pulmonary edema', 0.08986805217966518], ['Panic attack', 0.08583828880461807], ['Stable angina', 0.08430363525030428], ['Pericarditis', 0.07993659458630736], ['Possible NSTEMI / STEMI', 0.07737921786410108], ['GERD', 0.07291791276268716], ['Boerhaave', 0.06745360663111274], ['PSVT', 0.05835195648855016], ['Scombroid food poisoning', 0.03948920281075196], ['Acute dystonic reactions', 0.03948920281075196], ['Myasthenia gravis', 0.03948920281075196], ['Guillain-Barré syndrome', 0.03336753187951718], ['Sarcoidosis', 0.032338397899204764], ['Atrial fibrillation', 0.017034206509638977], ['Pulmonary embolism', 0.0]]",
+    "PATHOLOGY": "Myocarditis",
+    "INITIAL_EVIDENCE": "ww_effort",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_endroitducorps_@_bas_du_thorax', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_intens_@_8', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_1', 'dyspn', 'palpit', 'rds_deg', 'trav1_@_N', 'ww_dd', 'ww_effort']",
+    "patient_id": "htsim_1044",
+    "_test_index": 1044,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 26-year-old F patient presents to the clinic. Chief complaint: exertional symptoms.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having shortness of breath or difficulty breathing in a significant way, especially with physical exertion, and it gets worse when I lie down but improves when I sit up. I also feel my heart beating fast with palpitations.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—these symptoms (exertional dyspnea, worse lying down, improves sitting up, plus palpitations) suggest possible heart or lung causes; I’ll ask a few targeted questions.  \nDoctor: Do you also have chest pain, coughing (especially with frothy/pink sputum), wheezing, fever, leg swelling, or waking up short of breath at night?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—chest pain, and it’s in my lower chest/right breast. The pain is 8/10, feels sensitive like a knife stroke, and it doesn’t radiate anywhere. I also have shortness of breath especially with physical exertion.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about cardiac causes like a pulmonary embolism or pericarditis—do you have any recent long travel/immobility, recent surgery, history of clots, or are you on estrogen-containing birth control?  \nDoctor: Also, is the chest pain worse when you take a deep breath, and have you noticed fainting, new one-sided leg swelling, or coughing blood?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Okay—while you think about that, can you tell me: when you press on your lower right chest/breast area, does the pain get significantly worse (tender to touch), and do you notice any new rash or pain with arm/shoulder movement?  \nDoctor: Also, on a scale 0–10, how bad is the shortness of breath at rest vs with exertion, and do you have any fever, sore throat, or recent viral illness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my pain is sensitive and it’s related to my lower chest/right breast. I don’t know about the rest vs exertion severity for shortness of breath, and I don’t know about any fever, sore throat, or recent viral illness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’d like to clarify severity and risk: on a 0–10 scale how bad is your shortness of breath with exertion, and is there any swelling/pain in one leg or recent hormone/estrogen birth control use?  \nDoctor: REQUEST TEST: ECG  \nDoctor: REQUEST TEST: Chest_X-Ray",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask one more key question: do you ever feel lightheaded or actually faint during the episodes, and do you have any new cough or coughing up blood?  \nDoctor: REQUEST TEST: D-dimer  \nDoctor: REQUEST TEST: Troponin",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about potentially serious causes of chest pain with exertional dyspnea (including pulmonary embolism and heart inflammation), and I need your vitals and history quickly—what are your current oxygen saturation (SpO₂), heart rate, blood pressure, and temperature? Also, are you on estrogen-containing birth control or could you be pregnant?  \nDoctor: If you don’t know, I’ll proceed as high-risk—REQUEST TEST: CT_Pulmonary_Angiography (or V/Q scan if contrast not possible).",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially life-threatening while we clarify—do you have any known history of blood clots or clotting disorders, and can you confirm whether you are currently on estrogen birth control or could be pregnant?  \nDoctor: REQUEST TEST: CT_Pulmonary_Angiography  \nDoctor: REQUEST TEST: Basic_Metabolic_Panel + CBC + Pregnancy_test_beta_hCG",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to do one quick check: can you tell me your current vitals (SpO₂, HR, BP, temperature) and whether you can walk a few steps without worsening shortness of breath?  \nDoctor: Also, are you currently on any estrogen-containing birth control or pregnant (even “not sure” is okay)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: You’ve said “I don’t know” to the key risk and severity details, but your symptoms (sudden/worsening exertional shortness of breath + palpitations + positional change) with severe focal chest pain could still be a pulmonary embolism or another acute cardiopulmonary problem—do you have your current oxygen saturation (SpO₂) and heart rate right now?  \nDoctor: REQUEST TEST: Repeat_Vitals_(SpO2_HR_BP_Temp)  \nDoctor: REQUEST TEST: CT_Pulmonary_Angiography (if not already obtained)",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t confirm key risk factors or vitals, I have to treat this as potentially life‑threatening acute cardiopulmonary disease; I’m going to order urgent imaging and labs now—REQUEST TEST: CT_Pulmonary_Angiography (or V/Q scan if contrast not possible), REQUEST TEST: ECG, REQUEST TEST: Troponin, REQUEST TEST: D-dimer, REQUEST TEST: CBC + CMP + Pregnancy_test_beta_hCG, and REQUEST TEST: Repeat_Vitals_(SpO2_HR_BP_Temp).  \nDoctor: While those are pending, are you currently short of breath at rest or only with exertion, and do you have any leg swelling or pain today?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given “don’t know” on vitals/risk and severe chest pain with exertional dyspnea/palpitations, I’m prioritizing life-threatening causes—this most strongly fits pulmonary embolism until proven otherwise.  \nDoctor: DIAGNOSIS READY: Pulmonary embolism (acute PE), pending urgent CT pulmonary angiography/VQ, ECG, troponin, D-dimer, and pregnancy test.\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8488,
+      "completion_tokens": 1027,
+      "calls": 11
+    },
+    "patient": {
+      "prompt_tokens": 14542,
+      "completion_tokens": 223,
+      "calls": 11
+    }
+  }
+}

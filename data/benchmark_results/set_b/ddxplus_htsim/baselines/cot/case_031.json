@@ -1,0 +1,89 @@
+{
+  "case_idx": 31,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Pancreatic neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: M\nChief Complaint: involuntary weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had involuntary weight loss over the last 3 months. I also have pain in the epigastric area (pain intensity 2/10) that feels sensitive and cramp-like, and it radiates to the thoracic spine. I also have yellow-colored skin lesions/redness, with itching severity 4/10, and the lesions are larger than 1 cm. I have diabetes and I smoke cigarettes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 3 months of involuntary weight loss; epigastric pain radiating to thoracic spine (cramp-like, mild 2/10); “yellow-colored skin lesions/redness,” itching 4/10, and lesions >1 cm; history of diabetes and active smoking.\n\nTop candidates (tentative):\n1) Pancreatic neoplasm — Smoking + diabetes + weight loss + epigastric pain radiating to back are concerning for pancreatic cancer; pruritic skin changes could be paraneoplastic (e.g., cholestasis-related pruritus), though the description “yellow lesions” needs clarification.\n2) GERD — Epigastric discomfort can occur, but weight loss and radiating back pain are red flags; skin findings are not typical.\n3) Acute pulmonary edema / pneumonia / PE etc. — Not well supported by current GI/skin symptoms.\n4) Anemia — Can cause weight loss, but doesn’t explain the specific pruritic yellow/red lesions.\n5) SLE or other systemic inflammatory disease — Possible for skin findings, but the smoking/diabetes + weight loss + epigastric/back pain pattern points more toward malignancy.\n\nMost informative next question: determine whether the “yellow” is actually jaundice (yellowing of eyes/skin) and whether there are symptoms of cholestasis (dark urine, pale stools), which would strongly support pancreaticobiliary obstruction",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: involuntary weight loss (3 months), epigastric cramp-like pain radiating to thoracic spine, and pruritic skin lesions >1 cm described as “yellow-colored skin lesions/redness.” Diabetes + smoking.\n\nMost discriminating gap: whether this is true jaundice/cholestasis (yellowing of eyes/skin) vs primary skin lesions (rash/plaques) or something like xanthomas.\n\nTop candidates (still tentative):\n1) Pancreatic neoplasm — Weight loss + epigastric pain radiating to back; pruritus can occur with cholestasis from biliary obstruction.\n2) GERD — Could explain epigastric pain but not weight loss or pruritic “yellow” lesions.\n3) Anemia — Could explain weight loss but not the skin findings.\n4) SLE — Could explain rash/itching, but epigastric pain radiating to back and smoking/diabetes make malignancy more likely.\n5) Other System Diseases / Circulatory Diseases — less likely without more specifics.\n\nSingle most informative next question: ask about cholestasis symptoms (dark urine/pale stools) and eye yellowing.\n\nNext question (one at a time):\nHave you noticed dark urine and/or pale (clay-colored) stools, or yellowing of the whites of your eyes?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill unclear: whether “yellow-colored” refers to jaundice/cholestasis vs actual skin lesions (e.g., plaques/xanthomas). Current evidence: weight loss + epigastric pain radiating to thoracic spine + pruritus + lesions >1 cm + smoking/diabetes.\n\nMost discriminating next step: characterize the skin lesions—are they raised plaques, do they look like yellow fatty bumps, and where are they located? This helps separate cholestasis/xanthomas (paraneoplastic/biliary obstruction) from primary dermatologic/inflammatory causes.\n\nTop candidates (tentative):\n1) Pancreatic neoplasm — best fit for weight loss + epigastric/back pain; pruritus could be cholestasis-related.\n2) GERD — epigastric pain only; doesn’t explain weight loss/skin lesions.\n3) SLE/other systemic inflammatory — could explain pruritic rash but less consistent with radiating epigastric pain and smoking risk.\n4) Anemia — weight loss possible; skin lesions not typical.\n5) Other System Diseases — broad.\n\nNext question (one at a time):\nWhere exactly are the skin lesions located (e.g., face, trunk, hands/feet, around joints), and are they raised plaques or flat spots?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have limited lesion characterization (patient doesn’t know details), and cholestasis symptoms are also unknown. Remaining strong signals: 3 months involuntary weight loss + epigastric pain radiating to thoracic spine + pruritus with “yellow-colored” lesions >1 cm + diabetes + smoking.\n\nGiven the uncertainty, we can’t confidently narrow to a single diagnosis, but malignancy causing biliary obstruction (pancreaticobiliary) remains the most concerning. However, without jaundice/cholestasis confirmation or lesion morphology, alternative causes (primary rash disorders, anemia, inflammatory disease) can’t be excluded.\n\nMost informative next question: assess for red-flag GI symptoms that would support pancreaticobiliary malignancy (progressive dyspepsia, vomiting, GI bleeding, stool changes) and also check for systemic infection.\n\nNext question (one at a time):\nHave you had any vomiting, black/tarry stools, or blood in your stool?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key details are still missing: the patient can’t confirm whether the “yellow-colored” findings represent jaundice/cholestasis (which would strongly point to pancreaticobiliary obstruction), and they can’t describe the skin lesions’ morphology/location. Without these discriminators, the evidence is insufficient to confidently rank a single diagnosis.\n\n[POSSIBLE] Pancreatic neoplasm, GERD, Anemia, SLE, Infectious & Parasitic Diseases",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pancreatic neoplasm",
+      "GERD",
+      "Anemia",
+      "SLE",
+      "Infectious & Parasitic Diseases"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7041,
+      "completion_tokens": 1159
+    },
+    "patient": {}
+  }
+}

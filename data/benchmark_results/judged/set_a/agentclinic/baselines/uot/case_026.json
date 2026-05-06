@@ -1,0 +1,81 @@
+{
+  "case_idx": 26,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Femoropopliteal artery stenosis",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient reports a 6-week history of tingling pain in the sole of his right foot, which worsens when he raises it above chest level during exercises. He mentions that he began exercising regularly 2 months ago and experiences right calf cramps with the use of the treadmill's incline feature, necessitating frequent breaks. The pain subsides completely after a few minutes of resting. He adds an 8-year history of type 2 diabetes mellitus.",
+    "Symptoms": {
+      "Primary_Symptom": "Tingling pain in the sole of the right foot upon elevation",
+      "Secondary_Symptoms": [
+        "Right calf cramps with exercise",
+        "Pain disappears with rest"
+      ]
+    },
+    "Past_Medical_History": "Type 2 diabetes mellitus for 8 years.",
+    "Social_History": "Smokes two packs of cigarettes daily for 34 years.",
+    "Review_of_Systems": "No other significant symptoms reported."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with tingling pain in the sole of the right foot, especially upon elevation and during exercise, with a significant history of type 2 diabetes mellitus and smoking.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: What brings you in today? Patient: For the past six weeks I’ve had a tingling pain in the sole of my right foot, especially when I raise it above chest level during exercises. When I use the treadmill incline, I also get right calf cramps and I have to stop often, but the pain goes away completely after a few minutes of rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **femoropopliteal artery stenosis**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure—my main issue is the tingling in the sole of my right foot when I raise it during exercise, and I get right calf cramps with treadmill incline that stop me, but the symptoms fully ease after a few minutes of rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Femoropopliteal artery stenosis, Syringomyelia  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Femoropopliteal artery stenosis",
+    "predicted_set": [
+      "Femoropopliteal artery stenosis",
+      "Syringomyelia  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Femoropopliteal artery stenosis",
+    "predicted_set_remapped": [
+      "Femoropopliteal artery stenosis",
+      "Syringomyelia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 763,
+      "completion_tokens": 134,
+      "calls": 2
+    }
+  }
+}

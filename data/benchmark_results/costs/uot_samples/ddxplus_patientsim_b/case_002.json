@@ -1,0 +1,94 @@
+{
+  "case_idx": 2,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 52\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and right posterior chest wall pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have severe chest pain on both sides—more like a sharp “knife-stroke” pain—and also pain in the right posterior chest wall. I’m very short of breath, I get pain when I breathe in (pleuritic), and my left calf is swollen.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **sudden onset pleuritic chest pain** (worse with breathing) or **sudden shortness of breath**?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my chest pain is sudden and it’s worse when I breathe in. I’m also suddenly very short of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have sudden, sharp chest pain that is worse when you breathe in (pleuritic pain) and/or sudden shortness of breath?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes. It’s sudden sharp pain and it gets worse with breathing in, and I’m also suddenly very short of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pulmonary embolism**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the cause—I’m not diagnosed with anything yet. But I do have severe pleuritic chest pain, sudden shortness of breath, and my left calf is swollen.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **pulmonary embolism**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can’t say what exact diagnosis it is. I’m just telling you my symptoms: sudden sharp chest pain worse with breathing, sudden shortness of breath, and swelling in my left calf, plus I had surgery within the last month and I have active cancer.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute pulmonary edema, Pulmonary neoplasm  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute pulmonary edema",
+    "predicted_set": [
+      "Acute pulmonary edema",
+      "Pulmonary neoplasm"
+    ],
+    "predicted_raw": [
+      "Acute pulmonary edema",
+      "Pulmonary neoplasm  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6801,
+      "completion_tokens": 7058,
+      "total_tokens": 13859
+    },
+    "patient": {
+      "prompt_tokens": 4177,
+      "completion_tokens": 215
+    }
+  }
+}

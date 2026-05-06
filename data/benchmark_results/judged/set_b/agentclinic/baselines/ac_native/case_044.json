@@ -1,0 +1,126 @@
+{
+  "case_idx": 44,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Situational syncope",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient was brought to the emergency department after an episode of loss of consciousness that occurred 1 hour ago, immediately after micturating. His wife found him unconscious on the bathroom floor. He regained consciousness after about 30 seconds without any confusion or amnesia for the event. No history of urinary incontinence during the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Episode of loss of consciousness",
+      "Secondary_Symptoms": [
+        "Regained consciousness quickly without confusion",
+        "No urinary incontinence",
+        "No bite marks or injuries"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. Not on any regular medications.",
+    "Social_History": "Non-smoker. Drinks alcohol socially. Works as a high school teacher. No recent travel or sick contacts.",
+    "Review_of_Systems": "Denies chest pain, palpitations, fevers, headaches, seizures, recent illnesses, or any other neurological symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with an episode of loss of consciousness.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let’s start with basics: how old are you, and when did you last faint (date/time) and how long were you unconscious? Patient: Doctor: What were you doing right before you passed out—did you stand up suddenly, exercise, feel pain/heat, or notice dizziness, chest pain, palpitations, or shortness of breath?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 53, and I passed out about an hour ago right after I finished urinating. I don’t remember any dizziness or chest symptoms, and I was only out for around 30 seconds before I came back without confusion."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—did anyone witness it, and did you have any shaking/jerking, tongue biting, or loss of bladder/bowel control during the episode? Also, how is your blood pressure usually and do you feel lightheaded when standing now? Doctor: REQUEST TEST: Orthostatic_vital_signs + 12-lead_ECG + fingerstick_glucose.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Orthostatic vital signs: not provided. 12-lead ECG: No abnormalities. Fingerstick glucose: Within normal limits."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Next: was it a typical “vasovagal/after-urination” faint—any sweating, nausea, or feeling your vision narrow right before you passed out? Also, do you have heart history (prior MI/arrhythmia), stroke/TIA, or take meds like beta-blockers, antihypertensives, or tamsulosin? Doctor: REQUEST TEST: Orthostatic_vital_signs (supine + standing BP/HR at 1 and 3 minutes) + Serum_electrolytes_renal_panel (Na/K/Cr) + CBC + Troponin + Urinalysis.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Orthostatic vital signs (supine + standing BP/HR at 1 and 3 minutes): not provided. Serum electrolytes/renal panel (Na/K/Cr): Within normal limits. CBC: not provided. Troponin: not provided. Urinalysis: not provided."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m missing key details—did you have sweating/nausea/blurred vision right before fainting, and did you feel lightheaded on standing afterward? Also, any recent dehydration, vomiting/diarrhea, fever, or new meds (especially tamsulosin/alpha-blockers or BP meds)? Doctor: Were you able to avoid injury when you fell, and have you had similar episodes before—or any known heart disease despite the normal ECG and glucose?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "patient",
+      "content": "Patient: I didn’t notice sweating, nausea, or blurred vision, and I didn’t feel lightheaded afterward—I'm usually fine on standing. I didn’t have vomiting/diarrhea or fever, I’m not on any meds, and I’m only socially drinking alcohol. This was the first time it’s ever happened, and I don’t know of any heart disease."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: Thanks—one quick check: any current symptoms now (chest pain, palpitations, shortness of breath, headache, weakness/numbness, or confusion), and did you fall/strike your head or have persistent dizziness? Also, do you have a strong family history of sudden cardiac death or fainting?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "patient",
+      "content": "Patient: Right now I feel back to normal—no chest pain, palpitations, shortness of breath, headache, weakness/numbness, or confusion. I didn’t hit my head as far as I know, and I haven’t had persistent dizziness since. I don’t know of a strong family history of sudden cardiac death or fainting."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Based on what you told me—fainting occurred immediately after urinating, lasted ~30 seconds, quick recovery, no confusion, no seizure-like activity, no chest symptoms, and normal ECG/glucose—my leading concern is a reflex (vasovagal) syncope triggered by urination; I still need to be sure there’s no hidden cardiac cause. Doctor: REQUEST TEST: Orthostatic_vital_signs (supine/standing) + High_sensitivity_Troponin repeat in 1–3 hours + Echocardiogram (if any abnormality on exam) + CBC + Urinalysis. Doctor: If your vitals remain stable and troponins repeat negative with an unremarkable exam, I’ll be comfortable diagnosing vasovagal syncope due to micturition. DIAGNOSIS READY: Micturition (situational) vasovagal syncope—reflex syncope after urination (30-second loss of consciousness with rapid recovery, no post-ictal confusion or seizure features, normal ECG and glucose).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Based on what you told me—fainting occurred immediately after urinating, lasted ~30 seconds, quick recovery, no confusion, no seizure-like activity, no chest symptoms, and normal ECG/glucose—my leading concern is a reflex (vasovagal) syncope triggered by urination; I still need to be sure there’s no hidden cardiac cause. Doctor: REQUEST TEST: Orthostatic_vital_signs (supine/standing) + High_sensitivity_Troponin repeat in 1–3 hours + Echocardiogram (if any abnormality on exam) + CBC + Urinalysis. Doctor: If your vitals remain stable and troponins repeat negative with an unremarkable exam, I’ll be comfortable diagnosing vasovagal syncope due to micturition. DIAGNOSIS READY: Micturition (situational) vasovagal syncope—reflex syncope after urination (30-second loss of consciousness with rapid recovery, no post-ictal confusion or seizure features, normal ECG and glucose).",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 6,
+    "predicted_remapped": "Situational syncope",
+    "predicted_set_remapped": [
+      "Situational syncope",
+      "Asthma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3327,
+      "completion_tokens": 692,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 1851,
+      "completion_tokens": 205,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 1065,
+      "completion_tokens": 97,
+      "calls": 2
+    },
+    "moderator": {
+      "prompt_tokens": 281,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

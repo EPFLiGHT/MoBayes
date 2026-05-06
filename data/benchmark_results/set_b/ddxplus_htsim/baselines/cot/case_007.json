@@ -1,0 +1,79 @@
+{
+  "case_idx": 7,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 55\nSex: M\nChief Complaint: stridor",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a high pitched sound when breathing in, and I’ve been having difficulty breathing in a significant way. I also have lesions/redness on my skin with severe itching and swelling in my face (forehead and cheeks).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: (1) inspiratory high-pitched sound (stridor) with significant difficulty breathing in—suggests upper airway obstruction. (2) facial swelling with severe itching and redness—suggests an allergic process (e.g., anaphylaxis or allergic reaction). Need to determine timing/severity and whether there are airway/anaphylaxis features (throat tightness, voice change, hives elsewhere, hypotension, GI symptoms).\nTop candidates:\n1) Anaphylaxis — facial swelling + severe itching/swelling strongly supports; can cause airway edema leading to stridor and inspiratory difficulty.\n2) Acute laryngitis — can cause hoarseness and upper airway symptoms, but facial swelling/itching is less typical.\n3) Epiglottitis — can cause stridor and severe inspiratory difficulty, but itching/facial swelling is not typical.\n4) Acute dystonic reactions — can cause laryngeal spasm/stridor, but facial swelling/itching points more to allergy.\n5) Allergic sinusitis / acute rhinosinusitis — can cause facial redness/swelling/itching, but would not usually cause true stridor with significant inspiratory distress.\nMost informative next question: ask about onset and whether there are systemic anaphylaxis signs (throat tightness/voice change, hives elsewhere, dizziness/fainting, vomiting/diarrhea).\n[/REASONING]\nDo you have",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have swelling in my face (forehead and cheeks) and lesions/redness on my skin with severe itching. I also have high pitched sound when breathing in (stridor) and significant difficulty breathing in. I’m also feeling nauseous / like vomiting. I lost consciousness.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: facial swelling (forehead/cheeks) + diffuse itchy erythematous lesions, nausea/impending vomiting, and loss of consciousness, plus inspiratory stridor and significant difficulty breathing. This is a classic high-risk anaphylaxis picture with airway edema causing stridor.\nTop candidates:\n1) Anaphylaxis — strongly supported by multi-system involvement (skin + airway + GI symptoms) and syncope/LOC.\n2) Epiglottitis — can cause stridor and respiratory distress, but would not explain itchy rash/face swelling and syncope in this pattern.\n3) Acute dystonic reactions — can cause stridor, but typically not with itchy rash/face swelling and GI symptoms.\n4) Panic attack — can cause dyspnea/stridor-like sensations, but would not cause facial swelling/itching rash and true stridor with LOC.\n5) Acute pulmonary edema — can cause respiratory distress, but stridor and itchy facial rash are not typical; LOC could occur but rash/itching argues against.\nMost informative next question (to guide immediate management and likely trigger): what exposure preceded this—any new food, medication (especially antibiotics/NSAIDs), insect sting, or allergen within the last few hours?\n[/REASONING]\nWhat new exposure happened in the last few hours before this started—new food, medication (including antibiotics/NSAIDs), insect sting, or anything you’re allergic to",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nI have been in contact with or ate something that I have an allergy to.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: high-risk anaphylaxis—itchy erythematous lesions + facial swelling + nausea/impending vomiting + stridor/inspiratory difficulty + loss of consciousness. Trigger is unclear but exposure to an allergen is reported.\nTop candidates:\n1) Anaphylaxis — best fit; airway edema can cause stridor; GI symptoms and syncope/LOC are typical.\n2) Epiglottitis — stridor/resp distress, but itching/rash/face swelling and anaphylaxis-type skin findings are not typical.\n3) Acute dystonic reactions — can cause laryngeal symptoms/stridor, but rash/itching/face swelling and GI symptoms are less consistent.\n4) Panic attack — unlikely given objective stridor and syncope.\n5) Acute pulmonary edema — unlikely given itchy rash/face swelling and stridor.\nMost informative next question: is there any known history of severe allergies/previous anaphylaxis, and do they have an epinephrine auto-injector available right now?\n[/REASONING]\nDo you have a history of anaphylaxis or severe allergic reactions, and do you have an epinephrine auto-injector available right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—because I have a known severe food allergy.\n\nI don’t know whether I have a history of anaphylaxis, or whether I have an epinephrine auto-injector available right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: known severe food allergy + current multi-system reaction (skin itching/rash, facial swelling) + airway involvement (stridor, significant inspiratory difficulty) + GI symptoms (nausea/vomiting) + syncope/LOC. This is essentially diagnostic for anaphylaxis with impending/ongoing airway compromise.\nTop candidates:\n1) Anaphylaxis — overwhelmingly supported by skin + airway + GI + hypotension/LOC pattern.\n2) Epiglottitis — can cause stridor/resp distress but lacks itchy rash/face swelling and allergy history.\n3) Acute dystonic reaction — can cause stridor but not itchy rash/face swelling and GI symptoms.\n4) Acute laryngitis — unlikely to cause stridor severe enough for LOC and rash.\n5) Pulmonary embolism — can cause dyspnea/LOC but not stridor or itchy rash/face swelling.\nMost informative next action is not a question but immediate treatment/triage; however per instructions we must provide differential once confident. I’m confident enough to give [DDX].\n[/REASONING]\n[DDX] Anaphylaxis, Epiglottitis, Acute dystonic reactions, Acute laryngitis, Pulmonary embolism",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Epiglottitis",
+      "Acute dystonic reactions",
+      "Acute laryngitis",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5169,
+      "completion_tokens": 1107
+    },
+    "patient": {}
+  }
+}

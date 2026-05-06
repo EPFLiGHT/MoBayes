@@ -1,0 +1,139 @@
+{
+  "case_idx": 19,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Ebola",
+  "patient_actor_hidden": {
+    "AGE": 21,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "cough",
+    "EVIDENCES_ENG": "['confusion', 'recent contact with a symptomatic person', 'diarrhea', 'shortness of breath', 'recent contact with someone infected with the ebola virus', 'fatigue', 'sore throat', 'diffuse muscle pain', 'unusual bleeding or bruising', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 21\n- I have felt confused or disorientated lately.\n- I have been in contact with a person with similar symptoms in the past 2 weeks.\n- I have had diarrhea or an increase in stool frequency.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- In the last month, I have been in contact with someone infected with the Ebola virus.\n- I constantly feel fatigued or I have non-restful sleep.\n- I have a sore throat.\n- I have diffuse (widespread) muscle pain.\n- I have noticed unusual bleeding or bruising related to my consultation today.\n- I have a cough.\n- I have traveled out of the country to West Africa in the last 4 weeks.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Ebola', 0.16611898852678356], ['Myocarditis', 0.09599719493747834], ['Anemia', 0.09344634826466988], ['Guillain-Barré syndrome', 0.08541540552355698], ['Bronchospasm / acute asthma exacerbation', 0.08288939297596713], ['Bronchitis', 0.08197295897980948], ['Atrial fibrillation', 0.08158715812728576], ['Acute pulmonary edema', 0.06515554426593248], ['Bronchiectasis', 0.06446127964756435], ['Acute dystonic reactions', 0.060150415212942544], ['Myasthenia gravis', 0.060150415212942544], ['PSVT', 0.032130230565690164], ['Pancreatic neoplasm', 0.027846770951546692], ['Pneumonia', 0.00267789680783005]]",
+    "PATHOLOGY": "Ebola",
+    "INITIAL_EVIDENCE": "toux",
+    "EVIDENCES": "['confusion', 'contact', 'diarrhee', 'dyspn', 'ebolacase', 'fatig_mod', 'gorge_dlr', 'msk_dlr', 'rds_sg', 'toux', 'trav1_@_AfriqO']",
+    "patient_id": "htsim_0685",
+    "_test_index": 685,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 21-year-old M patient presents to the clinic. Chief complaint: cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, along with a sore throat, diffuse muscle pain, and I’ve been feeling confused and constantly fatigued with non-restful sleep. I’ve also had diarrhea/increased stool frequency and shortness of breath or difficulty breathing in a significant way. I’ve noticed unusual bleeding or bruising too.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you tell me how long you’ve had these symptoms, whether you have fever, and if the cough is dry or produces phlegm/blood?  \nDoctor: Also, any recent new medications, sick contacts/travel, and do you have a rash or swollen lymph nodes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever.\n\nI can’t tell whether the cough is dry or if it produces phlegm or blood.\n\nI have been in contact with a person with similar symptoms in the past 2 weeks.\n\nIn the last month, I’ve been in contact with someone infected with the Ebola virus.\n\nI traveled out of the country to West Africa in the last 4 weeks.\n\nI don’t know about any rash or swollen lymph nodes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your recent West Africa travel and close contact with someone ill, I need to know: do you have any vomiting, severe headache, black/tarry stools, or blood in vomit/diarrhea?  \nDoctor: Also, have you had recent high fevers, worsening weakness, or any nose/gum bleeding since symptoms began?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about vomiting or blood in vomit/diarrhea, or black/tarry stools.\n\nI don’t know about severe headache.\n\nI have noticed unusual bleeding or bruising related to my consultation today, and I constantly feel fatigued with non-restful sleep.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a possible viral hemorrhagic illness given your West Africa exposure, recent sick contact, and unusual bleeding/bruising—right now I need to ask: have you had a **measured fever ≥38°C** at any point, and are you having **profuse diarrhea** or **vomiting**, or difficulty staying awake?  \nDoctor: REQUEST TEST: CBC_with_differential_and_platelets  \nDoctor: REQUEST TEST: CMP_and_LFTs  \nDoctor: REQUEST TEST: Coagulation_panel_INR_PTT_and_fibrinogen  \nDoctor: REQUEST TEST: Ebola/Marburg_PCR_or_Viral_Hemorrhagic_Fever_panel (with appropriate biosafety/notify public health)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’ve had a measured fever ≥38°C.\n\nI don’t know about profuse diarrhea or vomiting, and I don’t know about difficulty staying awake.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to quickly estimate: do you feel hot/sweaty with chills, and have you had **any** episodes of vomiting or **watery** diarrhea today/last 24 hours? Also, when you say bleeding/bruising—where is it (nose, gums, urine, stool, skin spots), and is it actively oozing?  \nDoctor: Given the West Africa travel + possible viral hemorrhagic illness, I’m also going to examine you now: can I check your vitals (temp, BP, HR, oxygen sat) and look for petechiae/sclera bleeding?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I feel hot/sweaty with chills.\n\nI don’t know about any episodes of vomiting or watery diarrhea today/last 24 hours.\n\nI don’t know where the bleeding/bruising is from or whether it’s actively oozing.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you now—please let me take your temperature, blood pressure, heart rate, and oxygen saturation, and I’ll look for petechiae/purpura, gum/nose bleeding, and any bleeding from IV sites.  \nDoctor: While you’re being checked, I need one more key answer: are you currently able to drink/urinate normally, and do you have any severe shortness of breath (can you speak full sentences) or chest pain?  \nDoctor: If you’re unable to share answers reliably, we’ll treat this as a suspected viral hemorrhagic illness and proceed with the remaining emergency tests/containment.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’m able to drink/urinate normally.\n\nI have shortness of breath or difficulty breathing in a significant way.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given your West Africa travel, significant breathing difficulty, and unexplained bruising/bleeding, I need to act as a suspected viral hemorrhagic illness and a potentially severe respiratory infection; can you confirm if your oxygen saturation is low (if measured) and whether you can speak full sentences without stopping for breath?  \nDoctor: REQUEST TEST: Pulse_Oximetry_and_Arterial_or_Venous_Gas  \nDoctor: REQUEST TEST: Chest_X-Ray  \nDoctor: REQUEST TEST: Blood_cultures_and_Rapid_influenza_COVID_testing (as clinically available)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if my oxygen saturation is low, and I can’t say whether I can speak full sentences without stopping for breath. I do have shortness of breath or difficulty breathing in a significant way.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as **suspected severe respiratory infection with possible viral hemorrhagic illness** due to West Africa exposure and unexplained bleeding/bruising—do you have any **measured oxygen sat** or can you estimate your breathlessness compared with normal (can you walk across the room without stopping)?  \nDoctor: REQUEST TEST: Respiratory_virus_panel_and_SARS_CoV_2_PCR (plus repeat oxygen saturation)  \nDoctor: REQUEST TEST: Urinalysis_and_Type_and_Screen (look for hematuria/need for transfusion)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to make a decision because you can’t reliably report vitals/bleeding, and you have West Africa travel + possible viral hemorrhagic illness and significant shortness of breath—right now you need emergency isolation and supportive care; can we proceed with immediate transport for vitals monitoring and repeat pulse-ox?  \nDoctor: DIAGNOSIS READY: Suspected Viral Hemorrhagic Fever (e.g., Ebola/Marburg) vs severe acute respiratory infection with hemorrhagic complication—requires immediate isolation, full hemorrhage workup (CBC/CMP/coags), and Ebola/Marburg testing plus chest evaluation.\n\n[DDX]\n1. Ebola",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Ebola",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Ebola",
+    "predicted_set_remapped": [
+      "Ebola",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6574,
+      "completion_tokens": 943,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 10157,
+      "completion_tokens": 400,
+      "calls": 8
+    }
+  }
+}

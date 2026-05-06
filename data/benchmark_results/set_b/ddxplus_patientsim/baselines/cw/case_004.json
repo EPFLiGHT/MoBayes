@@ -1,0 +1,92 @@
+{
+  "case_idx": 4,
+  "baseline": "cw",
+  "column": "patientsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Female\nChief Complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and swelling in one or more areas of your body",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I think I’m having a severe allergic reaction. I was in contact with or ate something I’m allergic to, and then I got lightheaded/near-fainting, felt very nauseous, had diarrhea, and my skin started to turn pink with a lot of itching and swelling around my face/forehead and some areas around my neck and arms. I also feel like my breathing is affected—there’s some noisy breathing/stridor.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. **One question:** Do you have any **lip/tongue swelling** or **throat tightness/voice change** right now?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my mouth area feels swollen, and my throat feels tight. My voice feels different too, like it’s not normal, and I’m having that noisy breathing/stridor feeling.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "That sounds concerning for an airway-threatening allergic reaction. **One question:** Have you taken any medication since it started—especially **epinephrine (EpiPen)**, antihistamines (Benadryl), or steroids?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t taken any medication yet, including no EpiPen, no Benadryl, and no steroids.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** When did this start (how many minutes/hours ago), and is it getting worse quickly?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—within about 5 minutes. And yes, it feels like it’s getting worse quickly since then.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "This is very high-risk. **One question:** Do you have any **hives/welts** all over, or is it mainly facial/neck/arms?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly facial/neck and also my arms. I do have pink skin redness/lesions and swelling, and it’s itchy a lot.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Given your rapid onset, itching/swelling, throat tightness, voice change, and stridor/near-fainting, this is most consistent with anaphylaxis with airway involvement.  \n\n[DDX] Anaphylaxis, Acute dystonic reactions, Acute laryngitis, Epiglottitis, Panic attack",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Acute dystonic reactions",
+      "Acute laryngitis",
+      "Epiglottitis",
+      "Panic attack"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4360,
+      "completion_tokens": 219
+    },
+    "patient": {
+      "prompt_tokens": 5557,
+      "completion_tokens": 223
+    }
+  }
+}

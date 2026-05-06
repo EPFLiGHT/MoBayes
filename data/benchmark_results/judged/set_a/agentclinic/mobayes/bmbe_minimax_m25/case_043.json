@@ -1,0 +1,447 @@
+{
+  "case_idx": 43,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "kb_dir": "data/agentclinic_50_v2",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Lately I’ve been dealing with persistent fatigue and my sleep hasn’t been good. I’ve also lost some weight without trying, and I’ve noticed my skin looking a bit yellow. I’ve been eating vegetarian recently hoping it would help, but I haven’t felt much improvement.”",
+      "extracted_features": {},
+      "top5_posterior": [
+        [
+          "Vitiligo",
+          0.03225806451612903
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.03225806451612903
+        ],
+        [
+          "Actinic Keratosis",
+          0.03225806451612903
+        ],
+        [
+          "Adhesive capsulitis",
+          0.03225806451612903
+        ],
+        [
+          "Autosomal dominant polycystic kidney disease",
+          0.03225806451612903
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_c31b8292",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any unusual spots, rashes, or changes in your skin, such as new growths, patches that are itchy or painful, or any areas that look different from the rest of your skin?",
+      "patient_answer": "“I haven’t noticed any rashes, spots, or new itchy or painful areas, but my skin does look more yellow than usual. The yellowing seems more noticeable recently, and it’s unlike anything I’ve had before.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pseudocyesis",
+          0.037875358382375136
+        ],
+        [
+          "Gastric peptic ulcer",
+          0.037573562698053425
+        ],
+        [
+          "Myasthenia gravis",
+          0.037573562698053425
+        ]
+      ],
+      "entropy": 4.90450891157058
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_pain_relieved_by_eating_7fef6d04",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand your symptoms.\n\nWhen you have pain, does eating or having a meal seem to help relieve it? Or does eating make no difference or possibly worsen it?",
+      "patient_answer": "“Eating doesn’t really help the fatigue or any discomfort—I can’t say meals make it better or worse. I’ve mainly just noticed I feel worn out and my sleep quality is poor, along with the yellowing of my skin and the weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Adhesive capsulitis",
+          0.03910819376699278
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.03910819376699278
+        ],
+        [
+          "Central retinal artery occlusion",
+          0.03910819376699278
+        ]
+      ],
+      "entropy": 4.905370329408013
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your urinary health.\n\nHave you noticed that you need to urinate more frequently than usual lately?",
+      "patient_answer": "“I haven’t noticed urinating more frequently than usual, and I haven’t had any new urinary symptoms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Central retinal artery occlusion",
+          0.040234392139276966
+        ],
+        [
+          "Adhesive capsulitis",
+          0.040234392139276966
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.039593206607176946
+        ]
+      ],
+      "entropy": 4.904785161502408
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_scaly_skin_lesion_0df32c21",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any patches of rough, flaky, or scaly skin on your body?",
+      "patient_answer": "“I haven’t noticed any rough, flaky, or scaly patches—no rash-like areas. The main skin change is the yellowish color that seems to be getting more noticeable.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Central retinal artery occlusion",
+          0.043370455532659426
+        ],
+        [
+          "Adhesive capsulitis",
+          0.04293675097733283
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.04267929289468877
+        ]
+      ],
+      "entropy": 4.841860654483795
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_hip_pain_b43bcb14",
+      "doctor_question": "Hello, I'm here to help with your assessment today.\n\nAre you currently experiencing any pain in your hip or around your hip area?",
+      "patient_answer": "“No, I’m not having pain in my hip or around that area. It’s mostly been the ongoing fatigue with poor sleep, plus the noticeable yellowing of my skin and the weight loss.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Central retinal artery occlusion",
+          0.04516496138363507
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.04453354694570779
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.044445201042860025
+        ]
+      ],
+      "entropy": 4.833060127172117
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_history_of_hypertension_eece7e3a",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your medical history.\n\nHave you ever been diagnosed with high blood pressure, also known as hypertension?",
+      "patient_answer": "“No, I’ve never been told I have high blood pressure or hypertension. My past medical history has been pretty unremarkable.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.05541925117787018
+        ],
+        [
+          "Pseudocyesis",
+          0.05135645016729573
+        ],
+        [
+          "Phyllodes tumor",
+          0.04924598470276284
+        ]
+      ],
+      "entropy": 4.81398386328807
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_weight_gain_87d866e7",
+      "doctor_question": "\"Have you noticed any recent weight gain?\"",
+      "patient_answer": "“No, I haven’t had any weight gain—I’ve been losing weight over the past month without trying. It seems to be happening alongside the fatigue and the new yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.0545128020941822
+        ],
+        [
+          "Pseudocyesis",
+          0.05051645312283546
+        ],
+        [
+          "Phyllodes tumor",
+          0.047398775550461486
+        ]
+      ],
+      "entropy": 4.792753538355072
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\nHave you noticed any swelling in your joints? This could be in areas like your knees, fingers, elbows, or other joints.",
+      "patient_answer": "“No, I haven’t noticed any swelling in my joints—in my knees, fingers, elbows, or anywhere else. It’s mainly the persistent fatigue, poor sleep quality, the unintentional weight loss, and the new yellowing of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Brief Psychotic Disorder",
+          0.056235503799394314
+        ],
+        [
+          "Pseudocyesis",
+          0.051591734447018575
+        ],
+        [
+          "Phyllodes tumor",
+          0.04889666133744913
+        ]
+      ],
+      "entropy": 4.7751947350499
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling.\n\nAre you currently experiencing generalized weakness or overall fatigue where you feel like your whole body lacks strength, even if you've rested?",
+      "patient_answer": "“Yes, it’s generalized—I feel worn out and lack strength all over, even when I’ve tried to rest. It’s been persistent for a while, and my sleep quality doesn’t seem to make it better.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.12560917849698977
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.11689031879954824
+        ],
+        [
+          "Pneumonia",
+          0.08253347511892205
+        ]
+      ],
+      "entropy": 4.359855384106873
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_difficulty_with_overhead_activities_0bce27ab",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand how you're feeling today.\n\nDo you have any difficulty with activities that require you to raise your arms above your head, such as reaching for items on high shelves, washing your hair, or putting things in overhead cabinets?",
+      "patient_answer": "“No, I haven’t noticed any trouble raising my arms above my head or with overhead activities like washing my hair or reaching into cabinets. It’s mostly just a general worn-out feeling, poor sleep, the unintentional weight loss, and the new yellowish color in my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.09313721181427793
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.08633189160927453
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.08567230648106236
+        ]
+      ],
+      "entropy": 4.45341446947653
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_left_leg_pain_8e4e7cc3",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling today.\n\nAre you currently experiencing any pain or discomfort in your left leg?",
+      "patient_answer": "“No, I’m not experiencing any pain or discomfort in my left leg. It’s mainly the persistent fatigue with poor sleep quality, along with the unintentional weight loss and the yellowish color of my skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.09710206238600372
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.09092547891998971
+        ],
+        [
+          "Myasthenia gravis",
+          0.08531708142544775
+        ]
+      ],
+      "entropy": 4.4260672663826135
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_household_chickenpox_exposure_864132a9",
+      "doctor_question": "Hi there! I'd like to ask you a quick question about your household situation.\n\nHas anyone in your household recently had chickenpox, or been around someone with chickenpox?\n\nTake your time to think about it. It's okay if you're not sure – just let me know what comes to mind.",
+      "patient_answer": "“No—no one in my household has had chickenpox recently, and I haven’t been around anyone with it that I’m aware of.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.09737818330050782
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.09118403600697832
+        ],
+        [
+          "Myasthenia gravis",
+          0.0855596903872674
+        ]
+      ],
+      "entropy": 4.42590268359638
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_thigh_redness_55d64fbd",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help assess your condition.\n\nAre you noticing any redness on your thigh? This could be on either one or both sides, and might appear as a pinkish or reddish area on the skin.",
+      "patient_answer": "“No, I haven’t noticed any redness on my thighs—either side. The only noticeable skin change has been the yellowish color, which feels like it’s been getting more prominent.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.1003671015159656
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.09398283155791971
+        ],
+        [
+          "Myasthenia gravis",
+          0.08818585272096231
+        ]
+      ],
+      "entropy": 4.38772991132289
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_jaundice_7519dd8b",
+      "doctor_question": "Hello, I'd like to ask you a few questions to get a better understanding of your symptoms.\n\nHave you noticed any yellowing of your skin or the whites of your eyes recently? This can sometimes be a sign of jaundice, which is related to liver function.",
+      "patient_answer": "“Yes—I’ve noticed my skin looks more yellow than usual, and I think my eyes look yellow too. It’s been getting more noticeable over the last few weeks, and I’m also still dealing with the fatigue, poor sleep, and weight loss.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.5190317736014228
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.11504518696669286
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.08926905198542286
+        ]
+      ],
+      "entropy": 2.8452234434209203
+    },
+    {
+      "turn": 15,
+      "kind": "qa",
+      "feature_id": "f_postprandial_abdominal_pain_59058822",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your symptoms.\n\nDo you ever experience abdominal pain or discomfort that starts or gets worse after you eat a meal?",
+      "patient_answer": "“No, I haven’t had any abdominal pain or discomfort, and eating doesn’t seem to change anything—my main issues are the fatigue, poor sleep, the unintentional weight loss, and the yellowing of my skin and eyes.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pancreatic adenocarcinoma",
+          0.48286009886939596
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.10921358660596908
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08063724057145329
+        ]
+      ],
+      "entropy": 3.0497263390970852
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic adenocarcinoma",
+    "predicted_top3": [
+      "Pancreatic adenocarcinoma",
+      "Neuroleptic Malignant Syndrome",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.48286009886939596,
+    "final_entropy": 3.0497263390970852,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Neuroleptic Malignant Syndrome",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8076,
+      "completion_tokens": 3458
+    },
+    "patient": {
+      "prompt_tokens": 14503,
+      "completion_tokens": 717,
+      "calls": 16
+    }
+  }
+}

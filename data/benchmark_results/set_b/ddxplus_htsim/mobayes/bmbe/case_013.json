@@ -1,0 +1,146 @@
+{
+  "case_idx": 13,
+  "baseline": "bmbe",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: M\nChief Complaint: nasal congestion",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I have nasal congestion, and I also have a cough with colored or more abundant sputum than usual. I smoke cigarettes, and I have COPD. I’ve noticed wheezing when I exhale too. I also have some pain—intensity 3/10—with a sensitive, burning quality, located in the lower chest and the right side of my chest, plus my pharynx and left breast.",
+      "extracted_features": {
+        "f_e_181": "yes",
+        "f_e_201": "yes",
+        "f_e_77": "yes",
+        "f_e_214": "yes",
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_55": "yes",
+        "f_e_55_v_148": "yes",
+        "f_e_55_v_160": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_54_v_161": "yes",
+        "f_e_56": "3",
+        "f_ant_e_79": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Bronchitis",
+          0.9563001109839511
+        ],
+        [
+          "Viral pharyngitis",
+          0.014238681734324568
+        ],
+        [
+          "Pneumonia",
+          0.009047610206969772
+        ],
+        [
+          "GERD",
+          0.0028488527828484235
+        ],
+        [
+          "Acute laryngitis",
+          0.002829770843922658
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_197",
+      "doctor_question": "Do you feel any pain somewhere in your upper middle abdomen (the area just below your breastbone)?",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.9563001109839511
+        ],
+        [
+          "Viral pharyngitis",
+          0.014238681734324568
+        ],
+        [
+          "Pneumonia",
+          0.009047610206969772
+        ]
+      ],
+      "entropy": 0.40847021362774927
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_123",
+      "doctor_question": "Do you have chronic obstructive pulmonary disease (COPD)? (Yes or no)",
+      "patient_answer": "Yes, I have COPD.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.987940483212298
+        ],
+        [
+          "Pneumonia",
+          0.00876277648465522
+        ],
+        [
+          "Acute COPD exacerbation / infection",
+          0.0017129696459005999
+        ]
+      ],
+      "entropy": 0.11223757052009938
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_70",
+      "doctor_question": "To check this: **Do you consider yourself significantly overweight compared to other people of the same height?** (Yes/No)",
+      "patient_answer": "I don’t know.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.987940483212298
+        ],
+        [
+          "Pneumonia",
+          0.00876277648465522
+        ],
+        [
+          "Acute COPD exacerbation / infection",
+          0.0017129696459005999
+        ]
+      ],
+      "entropy": 0.11223757052009938
+    }
+  ],
+  "final": {
+    "predicted": "Bronchitis",
+    "predicted_top3": [
+      "Bronchitis",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection"
+    ],
+    "confidence": 0.987940483212298,
+    "final_entropy": 0.11223757052009938,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11259,
+      "completion_tokens": 452
+    },
+    "patient": {}
+  }
+}

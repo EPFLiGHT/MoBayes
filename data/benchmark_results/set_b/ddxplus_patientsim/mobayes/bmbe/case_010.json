@@ -1,0 +1,195 @@
+{
+  "case_idx": 10,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Localized edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: Female\nChief Complaint: I have swelling in one or more areas of your body, swelling (right ankle), and swelling (left ankle)",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’m a 57-year-old woman, and I’ve been having swelling in my legs—both ankles, the right outer side of my right foot, and also swelling in both thighs. It started kind of fairly quickly, and I feel pain/tugging related to it, around 4 out of 10, mostly localized around 2 out of 10.",
+      "extracted_features": {
+        "f_e_53": "yes",
+        "f_e_59": "2",
+        "f_e_56": "4",
+        "f_e_58": "2",
+        "f_e_152_v_34": "yes",
+        "f_e_152_v_35": "yes",
+        "f_e_152_v_43": "yes",
+        "f_e_152_v_51": "yes",
+        "f_e_152_v_52": "yes",
+        "f_e_151": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Localized edema",
+          0.9225593356152506
+        ],
+        [
+          "Acute pulmonary edema",
+          0.04327799061726399
+        ],
+        [
+          "Anaphylaxis",
+          0.003743770814642212
+        ],
+        [
+          "Pulmonary embolism",
+          0.003445462383196618
+        ],
+        [
+          "Pericarditis",
+          0.000820348186475385
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_66",
+      "doctor_question": "Are you experiencing shortness of breath or difficulty breathing in a significant way right now? (yes/no)",
+      "patient_answer": "No. I’m not having shortness of breath or significant trouble breathing right now.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Localized edema",
+          0.9701731760030953
+        ],
+        [
+          "Acute pulmonary edema",
+          0.01001255060482378
+        ],
+        [
+          "Anaphylaxis",
+          0.0016141655190223916
+        ]
+      ],
+      "entropy": 0.3206717885169451
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_152_v_72",
+      "doctor_question": "Sure—where is the swelling located? Is it on the **top (dorsal side) of your right foot**?",
+      "patient_answer": "No. The swelling on my right foot is on the **right lateral side**, not on the top/dorsal side.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Localized edema",
+          0.882091874684045
+        ],
+        [
+          "Acute pulmonary edema",
+          0.03958051556439318
+        ],
+        [
+          "Anaphylaxis",
+          0.006380941876927174
+        ]
+      ],
+      "entropy": 1.0259498287963476
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_137",
+      "doctor_question": "Have you ever had surgery to remove lymph nodes?",
+      "patient_answer": "Yes, I’ve had surgery to remove lymph nodes.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Localized edema",
+          0.9964947312352405
+        ],
+        [
+          "Acute pulmonary edema",
+          0.0011766817980454814
+        ],
+        [
+          "Anaphylaxis",
+          0.00018969783626873523
+        ]
+      ],
+      "entropy": 0.04858069549991548
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_ant_e_197",
+      "doctor_question": "Do you have a known kidney problem that causes your body to lose protein in the urine (so you can’t retain proteins properly)?",
+      "patient_answer": "No, I don’t have a known kidney problem like that.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Localized edema",
+          0.9897600620590821
+        ],
+        [
+          "Acute pulmonary edema",
+          0.003437439294050807
+        ],
+        [
+          "Anaphylaxis",
+          0.0005541640887703797
+        ]
+      ],
+      "entropy": 0.12603156884329253
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_ant_e_126",
+      "doctor_question": "Do you have liver cirrhosis (scarring of the liver) that a doctor has diagnosed?",
+      "patient_answer": "Yes, I’ve been diagnosed with liver cirrhosis.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Localized edema",
+          0.9996958020027894
+        ],
+        [
+          "Acute pulmonary edema",
+          0.0001021160630870773
+        ],
+        [
+          "Anaphylaxis",
+          1.6462561287237204e-05
+        ]
+      ],
+      "entropy": 0.0052894221334535765
+    }
+  ],
+  "final": {
+    "predicted": "Localized edema",
+    "predicted_top3": [
+      "Localized edema",
+      "Acute pulmonary edema",
+      "Anaphylaxis"
+    ],
+    "confidence": 0.9996958020027894,
+    "final_entropy": 0.0052894221334535765,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10417,
+      "completion_tokens": 296
+    },
+    "patient": {
+      "prompt_tokens": 5106,
+      "completion_tokens": 173
+    }
+  }
+}

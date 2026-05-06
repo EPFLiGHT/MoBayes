@@ -1,0 +1,137 @@
+{
+  "case_idx": 23,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Ewing sarcoma",
+  "patient_actor_hidden": {
+    "Demographics": "13-year-old boy",
+    "History": "The patient has been experiencing left leg pain progressively getting worse over 2 months, now interfering with sleep. Symptoms did not improve with ibuprofen. Noted trauma to the leg with a baseball hit one week before the onset of symptoms, which caused redness and swelling.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive left leg pain",
+      "Secondary_Symptoms": [
+        "Interference with sleep",
+        "History of trauma to the leg",
+        "Redness and swelling following trauma"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. First episode of such symptoms.",
+    "Social_History": "The patient is a middle school student. No relevant social history.",
+    "Review_of_Systems": "Denies fever, weight loss, or any recent illnesses."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive left leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Hi doctor. I’ve had worsening pain in my left leg for about two months, and it’s now bad enough that it keeps me from sleeping. A week before it started, a baseball hit my leg and caused redness and swelling, and ibuprofen hasn’t helped.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 13 years old.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any fevers, unexplained weight loss, or unusual fatigue over the past two months?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any fevers, unexplained weight loss, or unusual fatigue over the past two months. I’ve just had the progressively worsening left leg pain and the redness and swelling that started after the baseball hit.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Can you tell me exactly where on the leg the pain is located (for example, the thigh, shin, knee, or ankle)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mostly in the area just below the knee down toward the shin on my left leg. It feels deeper than a surface bruise and the soreness has been steadily getting worse.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed a firm, palpable lump or mass in that area?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, there feels like a firm, tender area/mass just below the knee in the shin area, and it seems to be getting more noticeable as the pain worsens.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any warmth, prominent veins, or skin discoloration over the painful area?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Yeah, the area feels warm compared to the rest, and the skin looks a bit red over it since the injury. I haven’t noticed any unusually prominent veins.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "When you touch the firm area, does it feel like it is attached directly to the bone, or does it seem to move independently under the skin?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, when I touch it, it feels like it’s attached right to the bone—like it doesn’t really move under the skin—and it’s really tender when I press.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteosarcoma, Ewing sarcoma, Chronic osteomyelitis (Brodie abscess), Aneurysmal bone cyst, Myositis ossificans",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Osteosarcoma",
+    "predicted_set": [
+      "Osteosarcoma",
+      "Ewing sarcoma",
+      "Chronic osteomyelitis (Brodie abscess)",
+      "Aneurysmal bone cyst",
+      "Myositis ossificans"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Ewing sarcoma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3031,
+      "completion_tokens": 13413
+    },
+    "patient": {
+      "prompt_tokens": 3275,
+      "completion_tokens": 271,
+      "calls": 7
+    }
+  }
+}

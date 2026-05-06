@@ -1,0 +1,82 @@
+{
+  "case_idx": 2,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 52\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and right posterior chest wall pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have very sharp, knife-stroke chest pain on both sides—more on the right—and also right posterior chest wall pain that feels like it radiates to my back and toward my left scapula. I also have significant trouble breathing, the pain is worse when I breathe in, and my left calf is swollen.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: pleuritic, sharp “knife-stroke” chest pain (worse with inspiration), right-predominant with posterior chest wall pain radiating toward back/left scapula, significant dyspnea, and unilateral left calf swelling (suggests DVT). This combination strongly raises concern for pulmonary embolism (pleuritic pain + dyspnea + leg swelling). Other serious causes to consider include pneumothorax and pneumonia/pleurisy, but the calf swelling is particularly discriminating for PE.\nTop candidates:\n1) Pulmonary embolism — pleuritic pleuritic chest pain + dyspnea + unilateral leg swelling.\n2) Spontaneous pneumothorax — sharp pleuritic pain and dyspnea; calf swelling could be incidental but is less typical.\n3) Pneumonia — pleuritic pain and dyspnea possible; would expect fever/cough.\n4) Acute pulmonary edema — dyspnea prominent; pain is usually not “knife-stroke” pleuritic; leg swelling could be from heart failure but calf swelling is more DVT-like.\n5) Possible NSTEMI / STEMI — chest pain and dyspnea can occur, but pleuritic quality and calf swelling make PE more likely.\nMost informative next question: assess for sudden onset and vital/PE risk features—specifically, whether symptoms started suddenly and whether there are risk factors for clot.\n[/",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The pain started pretty suddenly—like a quick onset (about 1/10 for how fast it began). I also had surgery within the last month, and I have an active cancer, and I’ve had a deep vein thrombosis before. My left calf is swollen too.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: sudden onset pleuritic “knife-stroke” chest pain, significant dyspnea, worse with inspiration, unilateral left calf swelling, plus major PE risk factors (active cancer, recent surgery, prior DVT). This makes pulmonary embolism the leading diagnosis by far.\nTop candidates:\n1) Pulmonary embolism — classic: sudden pleuritic chest pain + dyspnea + unilateral leg swelling + strong risk factors (cancer, recent surgery, prior DVT).\n2) Spontaneous pneumothorax — can cause sudden pleuritic pain and dyspnea, but does not explain calf swelling/risk factors for clot.\n3) Pneumonia — pleuritic pain possible, but sudden onset and leg swelling/risk factors point away.\n4) Possible NSTEMI / STEMI — can cause sudden chest pain and dyspnea, but pleuritic nature and leg swelling/risk factors favor PE.\n5) Acute pulmonary edema — dyspnea possible, but pleuritic “knife-stroke” pain and unilateral calf swelling are less consistent.\nSingle most informative next question: ask about vital instability/oxygenation symptoms—specifically syncope, severe lightheadedness, or hemoptysis (helps gauge severity and alternative diagnoses).\n[/REASONING]\nDo you have any fainting/near-fainting, or have you coughed up blood (hemoptysis)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I actually lost consciousness. I haven’t coughed up any blood.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey updates: syncope/losing consciousness with sudden pleuritic chest pain + dyspnea + unilateral leg swelling + major PE risk factors (active cancer, recent surgery, prior DVT). This is highly concerning for a high-risk or massive pulmonary embolism.\nTop candidates:\n1) Pulmonary embolism — most consistent: sudden onset pleuritic pain, dyspnea, unilateral leg swelling, strong risk factors, and syncope.\n2) Possible NSTEMI / STEMI — syncope and chest pain can occur, but pleuritic “worse with breathing” and calf swelling/risk factors still favor PE.\n3) Spontaneous pneumothorax — can cause sudden dyspnea and pleuritic pain; syncope possible if severe, but calf swelling and clot risk factors favor PE.\n4) Acute pulmonary edema — dyspnea and syncope possible, but pleuritic pain and unilateral calf swelling are less typical.\n5) Pericarditis — pleuritic-type pain can occur, but syncope + unilateral leg swelling strongly point away.\nMost informative next question: ask about current oxygenation/respiratory status—specifically, do they have severe shortness of breath at rest or any measured low oxygen saturation?\n[/REASONING]\nRight now, how bad is your shortness of breath—are you struggling to breathe even at rest, and do you know your oxygen saturation (SpO₂",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My breathing is really bad—I’m struggling even at rest. I don’t know my oxygen saturation, but it feels very severe.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pulmonary embolism, Possible NSTEMI / STEMI, Spontaneous pneumothorax, Acute pulmonary edema, Pneumonia",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Spontaneous pneumothorax",
+      "Acute pulmonary edema",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5274,
+      "completion_tokens": 932
+    },
+    "patient": {
+      "prompt_tokens": 4888,
+      "completion_tokens": 178
+    }
+  }
+}

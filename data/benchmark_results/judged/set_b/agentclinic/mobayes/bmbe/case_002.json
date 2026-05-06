@@ -1,0 +1,150 @@
+{
+  "case_idx": 2,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Congenital Rubella Infection",
+  "patient_actor_hidden": {
+    "Demographics": "Newborn, female",
+    "History": "The patient is a 3000-g (6.6-lb) female newborn delivered at term to a 23-year-old primigravida mother. The mother reports having had no prenatal care, and immunization records for the newborn are not available.",
+    "Symptoms": {
+      "Primary_Symptom": "Continuous heart murmur",
+      "Secondary_Symptoms": [
+        "Bluish macules on the skin that do not blanch with pressure",
+        "Cloudy lenses in both eyes noticed upon examination",
+        "Failure to pass auditory screening tests"
+      ]
+    },
+    "Past_Medical_History": "Newborn, no past medical history available.",
+    "Social_History": "Mother is a primigravida, no prenatal care received.",
+    "Review_of_Systems": "No additional symptoms noted by the mother."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn with specific findings on physical examination and history provided.",
+  "kb_dir": "data/cases/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m a newborn girl, and I’ve been noticed to have a continuous heart murmur. I also have bluish macules on my skin that don’t blanch, cloudy lenses in both eyes, and I failed my hearing screening.”",
+      "extracted_features": {
+        "f_petechiae_a2e2f8f5": "yes",
+        "f_rash_d84642aa": "yes",
+        "f_right_eye_blurred_vision_e1b3ac55": "yes",
+        "f_skin_lesion_0967b116": "yes",
+        "f_purpuric_skin_lesion_0f807732": "yes",
+        "f_chest_pain_27a0380f": "no",
+        "f_shortness_of_breath_02802ea3": "no",
+        "f_wheezing_725d7130": "no",
+        "f_cough_1213c62f": "no",
+        "f_decreased_feeding_e74fa5f4": "no",
+        "f_delayed_menarche_9cbccf0f": "no",
+        "f_vaginal_bleeding_7c6d5a5a": "no",
+        "f_pregnancy_5fa7cc34": "no"
+      },
+      "top5_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.34954414252140736
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.10749238879602306
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.08416375167028739
+        ],
+        [
+          "Erythema Toxicum",
+          0.06407631910771786
+        ],
+        [
+          "Bed bug bite",
+          0.056543612477698145
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_skin_excoriations_65bc0a02",
+      "doctor_question": "Have you noticed any skin excoriations—like areas where the skin is scratched, rubbed raw, or has small open spots—anywhere on your body? (Yes or no)",
+      "patient_answer": "“No, I haven’t been noticed to have any scratched or rubbed-raw areas or small open spots on my skin—just the bluish macules that don’t blanch.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.36092298895602487
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.1156649621438951
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.08507401823652917
+        ]
+      ],
+      "entropy": 3.7033132087113656
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_apnea_episodes_a1c0e66c",
+      "doctor_question": "Have you noticed any episodes where you stop breathing or you have pauses in breathing during sleep (for example, someone says you stop, or you wake up gasping)?",
+      "patient_answer": "“No, I haven’t been noticed to stop breathing or have pauses during sleep, and I don’t wake up gasping.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Steven-Johnson syndrome",
+          0.3623130549723834
+        ],
+        [
+          "Disseminated Gonococcal Infection",
+          0.11611043649182923
+        ],
+        [
+          "Pyoderma gangrenosum",
+          0.08540167401142931
+        ]
+      ],
+      "entropy": 3.6933420583119605
+    }
+  ],
+  "final": {
+    "predicted": "Steven-Johnson syndrome",
+    "predicted_top3": [
+      "Steven-Johnson syndrome",
+      "Disseminated Gonococcal Infection",
+      "Pyoderma gangrenosum"
+    ],
+    "confidence": 0.3623130549723834,
+    "final_entropy": 3.6933420583119605,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Steven-Johnson syndrome",
+    "predicted_set_remapped": [
+      "Steven-Johnson syndrome",
+      "Disseminated Gonococcal Infection",
+      "Pyoderma gangrenosum"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3557,
+      "completion_tokens": 374
+    },
+    "patient": {
+      "prompt_tokens": 1193,
+      "completion_tokens": 116,
+      "calls": 3
+    }
+  }
+}

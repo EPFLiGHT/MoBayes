@@ -1,0 +1,167 @@
+{
+  "case_idx": 47,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache starting three days after undergoing an open cholecystectomy. She has a history of an abdominal hysterectomy 16 years ago. She has been smoking one pack of cigarettes daily for 17 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Right-sided chest pain that increases on inspiration",
+      "Secondary_Symptoms": [
+        "Productive cough for the last 12 hours",
+        "Fever",
+        "Chills",
+        "Headache"
+      ]
+    },
+    "Past_Medical_History": {
+      "Surgeries": [
+        "Open cholecystectomy three days prior",
+        "Abdominal hysterectomy 16 years ago"
+      ],
+      "Chronic_Conditions": [
+        "None reported"
+      ],
+      "Medications": [
+        "None reported"
+      ]
+    },
+    "Social_History": {
+      "Smoking_Status": "Current smoker, one pack daily for 17 years",
+      "Alcohol_Use": "Not specified",
+      "Occupation": "Not specified",
+      "Activities": "Not specified"
+    },
+    "Review_of_Systems": {
+      "Respiratory": "Productive cough",
+      "Cardiovascular": "No reported abnormalities",
+      "Gastrointestinal": "Surgical site below right ribcage, otherwise unremarkable",
+      "Musculoskeletal": "No reported abnormalities",
+      "Neurological": "No reported abnormalities"
+    }
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with postoperative fever, chest pain that increases on inspiration, and a productive cough, and determine the correct diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had fever and chills with a headache, and my right-sided chest pain gets worse when I take a deep breath. I also have a productive cough that started about 12 hours ago, and this began a few days after my open cholecystectomy.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you for that information. To help narrow this down, what color and consistency is the sputum, and have you noticed any blood in it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the sputum is yellowish and thick, and I haven’t noticed any blood in it.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any shortness of breath at rest?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m not short of breath when I’m resting, but the pain makes it uncomfortable to take a deep breath. I do feel a bit more winded when I move around.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swelling, warmth, redness, or tenderness in either of your legs, particularly in the calves?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t noticed any swelling, warmth, redness, or tenderness in either leg, and my calves don’t feel painful.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had your oxygen saturation level checked recently, and if so, what was the reading?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, my oxygen saturation hasn’t been checked yet, so I don’t know the reading. I can breathe okay at rest, but moving around makes me feel more winded.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Since your surgery, have you been able to get out of bed and walk regularly, or have you been mostly confined to bed?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve been mostly getting out of bed and walking around some, but I haven’t been very active overall since the surgery.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any episodes of vomiting, choking, or suspected aspiration since your surgery, particularly when taking oral medications or pain relievers?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any vomiting, choking, or anything that made me suspect aspiration since the surgery. I’ve been taking my oral pain meds and other medications without any coughing or choking right after.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Postoperative pneumonia, Atelectasis, Pulmonary embolism, Subphrenic abscess, Surgical site infection",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Postoperative pneumonia",
+    "predicted_set": [
+      "Postoperative pneumonia",
+      "Atelectasis",
+      "Pulmonary embolism",
+      "Subphrenic abscess",
+      "Surgical site infection"
+    ],
+    "predicted_raw": [
+      "Postoperative pneumonia",
+      "Atelectasis",
+      "Pulmonary embolism",
+      "Subphrenic abscess",
+      "Surgical site infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3163,
+      "completion_tokens": 15031
+    },
+    "patient": {
+      "prompt_tokens": 4169,
+      "completion_tokens": 274,
+      "calls": 7
+    }
+  }
+}

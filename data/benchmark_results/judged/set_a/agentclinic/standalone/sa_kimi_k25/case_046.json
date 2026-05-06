@@ -1,0 +1,153 @@
+{
+  "case_idx": 46,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For about a week I’ve had left-sided chest pain along with a productive cough bringing up purulent sputum, and I’ve been feeling short of breath. I also had fever and malaise, and I was recently diagnosed with influenza but didn’t follow the treatment plan.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Is the chest pain sharp and stabbing, and does it get worse when you take a deep breath or cough? Or is it a pressure-like, squeezing sensation?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s more sharp and stabbing on the left side, and it feels worse when I take a deep breath or cough. It’s not really a pressure-like, squeezing sensation.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any blood in your sputum, or is it strictly yellow or green-tinged?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any blood in my sputum; it’s been mainly yellow-green and purulent.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any swelling, pain, or tenderness in your calves or legs, particularly on one side, or have you been mostly bedridden over the past week?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any swelling, pain, or tenderness in your calves or legs, particularly on one side, or have you been mostly bedridden over the past week? Patient: No, I haven’t noticed any calf or leg swelling or tenderness, and I haven’t been bedridden—I’ve been up and about though I’ve felt pretty weak.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "How high has your fever been, and are you able to speak in full sentences without getting short of breath, or do you find yourself breathing faster than usual?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My fever has been around 102°F, and I do get short of breath when I talk for too long, though I can still speak in short sentences; my breathing feels faster than usual.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have any chronic medical conditions such as asthma, COPD, diabetes, heart disease, or a weakened immune system?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any chronic medical conditions that I’m aware of—no asthma, COPD, diabetes, heart disease, or known immune problems. I’m generally healthy otherwise.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Does the chest pain get better when you sit up and lean forward, or does it worsen when you lie down flat on your back?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It seems to get a bit worse when I lie flat, and it’s a little better if I sit up and lean forward.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Does the chest pain radiate to your left shoulder, neck, or upper back between your shoulder blades, or does it stay localized to the left side of your chest?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It stays mostly localized to the left side of my chest; I don’t really feel it radiating to my shoulder, neck, or between my shoulder blades. However, it does get worse with deep breaths and coughing.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Community-acquired pneumonia (bacterial superinfection post-influenza) with pleuritis, Parapneumonic effusion/Empyema, Acute pericarditis (post-viral), Viral pleuritis (influenza-related), Pulmonary embolism",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Community-acquired pneumonia (bacterial superinfection post-influenza) with pleuritis",
+    "predicted_set": [
+      "Community-acquired pneumonia (bacterial superinfection post-influenza) with pleuritis",
+      "Parapneumonic effusion/Empyema",
+      "Acute pericarditis (post-viral)",
+      "Viral pleuritis (influenza-related)",
+      "Pulmonary embolism"
+    ],
+    "predicted_raw": [
+      "Community-acquired pneumonia (bacterial superinfection post-influenza) with pleuritis",
+      "Parapneumonic effusion/Empyema",
+      "Acute pericarditis (post-viral)",
+      "Viral pleuritis (influenza-related)",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Pneumonia",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4419,
+      "completion_tokens": 8237
+    },
+    "patient": {
+      "prompt_tokens": 4642,
+      "completion_tokens": 381,
+      "calls": 8
+    }
+  }
+}

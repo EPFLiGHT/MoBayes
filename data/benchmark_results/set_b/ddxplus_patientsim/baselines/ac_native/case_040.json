@@ -1,0 +1,85 @@
+{
+  "case_idx": 40,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "objective_for_doctor": "A 9-year-old Male patient presents to the clinic. Chief complaint: I have a cough, is your nose or the back of your throat itchy, and severe itching in one or both eyes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a cough, and my nose and the back of my throat feel itchy. My eyes also itch a lot—like really severe itching in one or both eyes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—how long has the cough and the itchy nose/throat/eyes been going on, and is it worse at certain times outdoors or around dust/pets?  \nDoctor: Do you have sneezing, a runny or stuffy nose, or watery eyes, and is there wheezing or shortness of breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The symptoms have been going on for a few days now, and they seem worse when I’m outdoors. I also notice it more around dust. I do have sneezing and my nose feels runny/stuffy, and my eyes are watery from the itching. I don’t have wheezing or shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—does the cough stay mostly dry or become phlegmy, and do you have fever or any facial pain (sinus pain) or sick contacts?  \nDoctor: Also, are the eye symptoms both sides with redness and lots of tearing, and have you had similar episodes before (like seasonal allergies)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "My cough is mostly dry. I don’t have fever, and I don’t have facial pain. I don’t know of any sick contacts.  \n\nMy eye itching is severe and happens in one or both eyes, and they can be red with a lot of tearing. I’ve had similar episodes before, like seasonal allergies.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Got it—are the symptoms noticeably better with antihistamines (like cetirizine/loratadine) or when you’re indoors, and do you have any eczema or asthma history?  \nDoctor: On exam, I’ll look for nasal inflammation (swollen turbinates), clear/white nasal discharge, and conjunctival redness with watery tearing—do you have any thick yellow/green eye discharge or painful vision?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They get better when I’m indoors, and antihistamines help a bit. I don’t have eczema that I know of. I don’t have asthma myself, but my family has asthma.  \n\nI don’t have thick yellow/green eye discharge. My eyes are itchy and watery, but I don’t have painful vision.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: From what you’ve told me—itchy nose/throat plus severe itchy red watery eyes that are worse outdoors and improve indoors/with antihistamines, and no fever or thick yellow/green discharge—this sounds like allergic rhinitis with allergic conjunctivitis; does anyone in your home have cats/dogs or do you notice symptoms after mowing/grass or during pollen season?  \nDoctor: I can also check your eyes for conjunctival redness and tearing and look in your nose for swollen turbinates with clear drainage; do you have light sensitivity, eye pain, or blurry vision at all?  \nDoctor: If you want to confirm, we could consider REQUEST TEST: Allergy_testing_(skin_prick_or_specific_IgE) but clinically it already fits—how old were your prior “seasonal allergy” episodes and do you get them at roughly the same time each year?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "We don’t have cats or dogs at home. I do notice it more outdoors, and sometimes after being around dust.  \n\nI don’t have light sensitivity, eye pain, or blurry vision.  \n\nMy seasonal allergy episodes usually happen around the same time each year, and I’ve had them for a couple of years already.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Your pattern—itchy runny/stuffy nose and throat plus severe itchy red watery eyes, worse outdoors/dust and better indoors/antihistamines, with no fever or thick discharge—fits allergic rhinitis with allergic conjunctivitis. I’ll confirm on exam: swollen nasal turbinates with clear drainage and conjunctival injection with tearing, and no signs of bacterial infection.  \n\nDoctor: DIAGNOSIS READY: Allergic rhinitis with allergic conjunctivitis (seasonal/environmental allergies).\n\n[ABSTAIN] free-text diagnosis 'Allergic rhinitis with allergic conjunctivitis (seasonal/environmental allergies).' did not map to the closed disease set",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2783,
+      "completion_tokens": 515,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 3774,
+      "completion_tokens": 312
+    }
+  }
+}

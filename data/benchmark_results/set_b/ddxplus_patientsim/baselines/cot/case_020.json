@@ -1,0 +1,92 @@
+{
+  "case_idx": 20,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 4\nSex: Male\nChief Complaint: I have significant dyspnea, nasal congestion or a clear runny nose, and noticed that you produce more saliva than usual",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "My breathing is really hard right now, and I have a stuffy nose or clear runny nose. My saliva seems more than usual, and I make a noisy sound when I breathe (stridor)—it’s worse at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: acute/worsening breathing difficulty with noisy breathing described as stridor, worse at night, plus prominent nasal symptoms (stuffy or clear runny nose) and increased saliva.\n\nTop candidates (not yet fully discriminating):\n1) Epiglottitis — stridor + increased drooling/saliva strongly suggests upper airway obstruction; can worsen quickly and may be worse when supine/night.\n2) Croup — stridor (often worse at night) with URI symptoms and increased secretions can fit, especially in children, but can occur in adults.\n3) Larygospasm — noisy upper-airway breathing with secretions; may be triggered by reflux/irritation, but nasal symptoms are less typical.\n4) Acute laryngitis — can cause hoarseness and sometimes noisy breathing, but stridor + drooling is less classic.\n5) Anaphylaxis — can cause upper airway symptoms/stridor, but nasal runny/stuffy alone doesn’t explain drooling/stridor without other allergic features.\n\nMost informative next question: determine age and whether there’s fever/toxic appearance, which helps separate epiglottitis vs croup.\n[/REASONING]\nHow old is the patient, and do they have a fever or look very ill/toxic?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "He is 4 years old. I don’t think I have a fever, and I don’t look “very ill” or toxic—just very short of breath and the noisy breathing is scary, especially at night.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 4-year-old with acute breathing difficulty, stridor worse at night, URI symptoms (stuffy/clear runny nose), and increased drooling/saliva; no fever and not toxic.\n\nTop candidates:\n1) Croup — age fits; stridor worse at night and URI symptoms fit; drooling can occur from discomfort/secretions, though classic croup usually has hoarseness and “barky” cough.\n2) Epiglottitis — drooling + stridor is concerning, but age can fit and absence of fever/toxic appearance makes it somewhat less likely (still possible early).\n3) Laryngeal obstruction from other causes (e.g., foreign body) — stridor can occur; nasal symptoms would be less typical.\n4) Acute laryngitis — can cause noisy breathing/hoarseness but true stridor and drooling are less typical.\n5) Anaphylaxis — less likely without itching/hives, known trigger, or wheeze.\n\nMost informative next question: ask about cough/voice quality—“barky” cough and hoarseness strongly support croup; absence and sudden onset after choking would push toward foreign body/epiglottitis.\n[/REASONING]\nDoes he have a cough—especially a “barking” cough—and is his voice hoarse?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "He does have a cough, and it sounds kind of harsh—like a barking cough. His voice also sounds a bit hoarse.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 4-year-old with harsh barking cough, hoarseness, stridor worse at night, URI symptoms, and increased saliva. No fever/toxic appearance.\n\nTop candidates:\n1) Acute laryngitis/croup (best fit is croup) — classic triad: barking cough + hoarseness + inspiratory stridor, often worse at night; age 6 months–3 years but can occur at 4; URI symptoms support.\n2) Epiglottitis — drooling/stridor can fit, but barking cough/hoarseness pattern is more typical of croup; lack of fever/toxic appearance lowers likelihood but doesn’t eliminate.\n3) Acute laryngitis — hoarseness and noisy breathing possible, but “barking cough” and stridor are more croup-like.\n4) Foreign body aspiration — can cause stridor, but usually more sudden onset and less “barking” URI prodrome.\n5) Anaphylaxis — would expect hives/itching, wheeze, or clear trigger; less supported.\n\nMost informative next question: ask about onset and progression (gradual over hours vs sudden), and any choking episode—helps rule out foreign body and supports croup.\n[/REASONING]\nDid this start gradually over a day or two, or did it come on suddenly (for example, right after eating/playing with something small or a choking episode)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It started gradually over the last day or so. There wasn’t any choking or eating something small right before it began.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 4-year-old, gradual onset over 1 day, barking harsh cough, hoarseness, inspiratory stridor worse at night, URI symptoms, increased saliva; no choking; no fever/toxic appearance.\n\nTop candidates:\n1) Acute laryngitis / croup (most likely: croup) — gradual onset with URI prodrome, barking cough + hoarseness + stridor; worse at night fits well.\n2) Epiglottitis — drooling + stridor is concerning, but typically more abrupt onset, higher fever/toxic appearance; barking cough/hoarseness pattern less classic.\n3) Acute laryngitis — can cause hoarseness and noisy breathing, but “barking cough” and stridor worse at night more strongly suggest croup.\n4) Bronchospasm/acute asthma exacerbation — would cause wheeze rather than stridor; less likely.\n5) Anaphylaxis — would expect hives/itching, wheeze, or clear trigger; less likely.\n\nMost informative next question: ask about breathing pattern—does he have difficulty mainly when inhaling (inspiratory stridor) and is he able to speak/cry normally? Also ask about drooling severity (can help separate epiglottitis).\n[/REASONING]\nIs the noisy sound mainly when he breathes in (inhaling), and is he drooling a lot or having trouble swallowing?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—the noisy sound is mainly when he breathes in. He’s not really having trouble swallowing, but his saliva is definitely more than usual.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: 4-year-old with gradual URI onset, harsh barking cough, hoarseness, inspiratory stridor worse at night, increased saliva but no trouble swallowing.\n\nTop candidates:\n1) Acute laryngitis / croup — inspiratory stridor + barking cough + hoarseness + URI prodrome + worse at night strongly supports croup.\n2) Epiglottitis — drooling/increased saliva + inspiratory stridor could fit, but lack of dysphagia and no toxic appearance/fever makes it less likely; still important to consider because it’s high-risk.\n3) Acute laryngitis — could explain hoarseness and noisy breathing, but barking cough/typical croup pattern favors croup.\n4) Foreign body aspiration — less likely due to gradual onset and barking/URI symptoms.\n5) Anaphylaxis — less likely without hives/trigger/wheeze.\n\nGiven the strong croup pattern, I’m confident enough for a top-5 differential, while noting epiglottitis as a key dangerous alternative.\n[/REASONING]\n[DDX] Acute laryngitis / croup, Epiglottitis, Acute laryngitis, Anaphylaxis, Foreign body aspiration",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Acute laryngitis / croup",
+    "predicted_set": [
+      "Acute laryngitis / croup",
+      "Epiglottitis",
+      "Acute laryngitis",
+      "Anaphylaxis",
+      "Foreign body aspiration"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7137,
+      "completion_tokens": 1403
+    },
+    "patient": {
+      "prompt_tokens": 5461,
+      "completion_tokens": 186
+    }
+  }
+}

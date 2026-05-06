@@ -1,0 +1,142 @@
+{
+  "case_idx": 6,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 10\nSex: Male\nChief Complaint: I have a cough that produces colored or more abundant sputum than usual, a cough, and significant dyspnea",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a cough for a while, and it’s bringing up colored mucus more than usual. I also feel like I can’t breathe well—my breathing feels very hard right now.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. I need to narrow this down quickly.\n\n**One question:** How long has the cough been going on (days, weeks, or months)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on for weeks, not just days.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **One question:** Do you have a fever or chills, or has your temperature been elevated?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’ve had a fever—no chills that I can remember, and I haven’t checked my temperature.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** When you say colored mucus—what color is it (yellow/green/brown/rusty/bloody)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s usually yellow or green, and sometimes it seems darker than normal. I haven’t noticed any blood.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **One question:** Do you have wheezing or a history of asthma/COPD, or is it more of a tight/chesty feeling?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had asthma before, and I’ve needed a bronchodilator in the past. Right now it feels very hard to breathe, and my chest feels tight.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this raises concern for an asthma/COPD-type process. **One question:** Are you currently able to speak full sentences, or are you short of breath even at rest?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m short of breath even at rest. I can’t really speak full sentences without needing to pause to breathe.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m concerned—shortness of breath at rest needs urgent evaluation. **One question:** Have you used your rescue inhaler (like albuterol) today, and did it help?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I used my rescue inhaler today, but it didn’t really help much.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **One question:** Do you have any chest pain (especially sharp pain with breathing) or any leg swelling/pain, or did you notice sudden worsening?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain like sharp pain with breathing. I haven’t noticed leg swelling or leg pain, and it didn’t feel sudden—it’s been getting bad over time.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **One question:** Any recent viral symptoms (sore throat, runny nose), or have you had sick contacts?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a sore throat or runny nose, and I don’t know of any sick contacts.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Given weeks of productive cough with yellow/green sputum and now severe dyspnea at rest with poor response to rescue inhaler, I’m still not fully certain of the single cause, but the leading possibilities are infectious lower respiratory disease with an asthma exacerbation, or pneumonia/bronchitis; other serious causes like pulmonary embolism are less supported by your answers so far.\n\n**One question (most discriminating):** Have you measured your oxygen saturation (SpO₂) or heart rate, or do you feel faint/lightheaded?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t measured my oxygen or heart rate. I don’t feel faint or lightheaded.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t safely finalize a single diagnosis without vitals and lung exam, but your presentation is concerning for a serious respiratory process.\n\n**[ABSTAIN]** — Insufficient objective data (no SpO₂/HR, no exam, and no clear discriminators like fever, wheeze pattern, or imaging findings) to confidently rank one diagnosis over others.\n\n[POSSIBLE] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Bronchospasm / acute asthma exacerbation, Pulmonary embolism",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10666,
+      "completion_tokens": 498
+    },
+    "patient": {
+      "prompt_tokens": 8006,
+      "completion_tokens": 280
+    }
+  }
+}

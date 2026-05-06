@@ -1,0 +1,189 @@
+{
+  "case_idx": 3,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 32\nSex: M\nChief Complaint: irritability",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been more irritable or my mood has been very unstable recently. I also have pain that’s sharp and sensitive, with intensity 8/10, and it’s in both ears (right and left).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need to focus on the ear pain pattern and associated symptoms.\n\n**Current posterior (pre-test, rough):**\n- Acute otitis media: 25%\n- Acute laryngitis: 5%\n- Viral pharyngitis / URTI: 15%\n- Allergic sinusitis / acute rhinosinusitis: 15%\n- Panic attack / Mental & Behavioural: 10%\n(Other causes remain possible but less likely with what you’ve said so far.)\n\n**Question 1 (one at a time):**  \nDo you have **fever** (≥38°C) or have you felt **chills**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify with a more direct question.\n\n**Current posterior (unchanged; fever/chills unknown):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 2:**  \nHave you had **any cold/flu symptoms** recently—like **runny nose, sore throat, cough, or congestion**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—let’s switch to a high-yield ear-specific discriminator.\n\n**Current posterior (still limited by missing key symptoms):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 3:**  \nDo you have **any ear symptoms** like **hearing loss, ear fullness, or ear drainage** (fluid/pus/blood)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Since you’re unsure about many associated symptoms, I’ll ask the most discriminating question for ear pain.\n\n**Current posterior (unchanged):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 4:**  \nDoes the pain get worse when you **pull on the outer ear** or **press the area in front of the ear canal** (the tragus)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. With “bilateral sharp ear pain 8/10” and very limited symptom details, I can’t confidently distinguish among the main causes yet.\n\n**Current posterior (still):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 5:**  \nAny **jaw pain** or does it hurt more when you **chew** or **open your mouth**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "At this point, the history is too non-specific (many “I don’t know” answers), so I can’t safely narrow to a single diagnosis.\n\n**Current posterior (still broad):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 6:**  \nAre you having **any trouble breathing, drooling, or muffled “hot potato” voice**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m still missing key discriminating features, so I can’t confidently produce a top-5 differential.\n\n**Current posterior (broad, unchanged):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 7:**  \nAny **rash**, **hives**, or **swelling of lips/face/tongue**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Given the repeated “I don’t know,” I can’t gather enough evidence to narrow the diagnosis safely.\n\n**Current posterior (broad, unchanged):**\n- Acute otitis media: 25%\n- Acute rhinosinusitis / allergic sinusitis: 15%\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n\n**Question 8:**  \nDo you have **any ear pain on one side more than the other**, or is it truly **equal both ears**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It’s equal in both ears.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “bilateral equal ear pain”):**\n- Acute otitis media: 30% (bilateral can occur)\n- Acute rhinosinusitis / allergic sinusitis: 20% (referred otalgia via eustachian tube dysfunction)\n- Viral pharyngitis / URTI: 15%\n- Acute laryngitis: 5%\n- Panic attack / Mental & Behavioural: 10%\n(Other causes remain possible but not enough data yet.)\n\n**Question 9:**  \nDo you have **nasal congestion, runny nose, or facial pressure** (around cheeks/forehead)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged; still limited):**\n- Acute otitis media: 30%\n- Acute rhinosinusitis / allergic sinusitis: 20%\n- Viral pharyngitis / URTI: 15%\n- Panic attack / Mental & Behavioural: 10%\n- Acute laryngitis: 5%\n\n**Question 10:**  \nAny **sore throat** or **pain when swallowing**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still limited):**\n- Acute otitis media: 30%\n- Acute rhinosinusitis / allergic sinusitis: 20%\n- Viral pharyngitis / URTI: 15%\n- Panic attack / Mental & Behavioural: 10%\n- Acute laryngitis: 5%\n\n**Question 11:**  \nHave you noticed **hearing loss** or **ringing** in either ear?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still limited):**\n- Acute otitis media: 30%\n- Acute rhinosinusitis / allergic sinusitis: 20%\n- Viral pharyngitis / URTI: 15%\n- Panic attack / Mental & Behavioural: 10%\n- Acute laryngitis: 5%\n\nI still don’t have enough discriminating information (fever, URI symptoms, ear exam clues like drainage/hearing loss, or triggers like chewing/jaw pain) to confidently narrow further.\n\n**Question 12:**  \nDid this start **suddenly today/overnight**, or has it been going on for **days to weeks**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (unchanged; still insufficient):**\n- Acute otitis media: 30%\n- Acute rhinosinusitis / allergic sinusitis: 20%\n- Viral pharyngitis / URTI: 15%\n- Panic attack / Mental & Behavioural: 10%\n- Acute laryngitis: 5%\n\nWith “I don’t know” to most symptom-discriminators, I can’t safely narrow to a confident top diagnosis.\n\n**Question 13:**  \nAny **recent swimming/water exposure** to the ears, or **use of earbuds/ear cleaning**?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still insufficient):**\n- Acute otitis media: 30%\n- Acute rhinosinusitis / allergic sinusitis: 20%\n- Viral pharyngitis / URTI: 15%\n- Panic attack / Mental & Behavioural: 10%\n- Acute laryngitis: 5%\n\nI still can’t confidently distinguish among these (or rule out more serious causes) because key red-flag and exam-correlating history is missing.\n\n**Question 14:**  \nAny **severe headache, neck stiffness, or new neurologic symptoms** (weakness, confusion, fainting)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient discriminating history: patient is unable to confirm key associated symptoms (fever/URI symptoms, ear drainage/hearing loss, triggers like jaw chewing, and red flags), so I can’t confidently narrow the cause of bilateral severe otalgia.\n\n[POSSIBLE] Acute otitis media, Acute rhinosinusitis, Allergic sinusitis, Viral pharyngitis, Panic attack",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Allergic sinusitis",
+      "Viral pharyngitis",
+      "Panic attack"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 26342,
+      "completion_tokens": 1773
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "case_idx": 43,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I've been dealing with persistent fatigue and my sleep quality is poor. I’ve also lost weight without trying over the past month, and I’ve noticed some yellowing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned fatigue, poor sleep quality, unintentional weight loss, and yellowing. Can you tell me more about this yellowing - where exactly are you noticing it, and has it been getting worse?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“It’s been mostly noticeable in my eyes and a bit in my skin, and it seems to be getting gradually worse over the last few weeks.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "The yellowing you're describing, also known as jaundice, is visible in your eyes and skin, and it's worsening over time. Are you experiencing any abdominal pain or discomfort?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not having any abdominal pain or discomfort. I haven’t noticed any fever either, and my bowel habits seem unchanged.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "You don't have abdominal pain, fever, or changes in bowel habits. Have you noticed any changes in your urine or stool color, such as dark urine or pale stools?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—my urine has been darker than usual, and my stools seem lighter than they used to be. I haven’t had any significant changes in bowel frequency, though.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "The dark urine and light stools are significant findings accompanying your jaundice. Have you traveled recently or been exposed to anyone who's been ill?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t traveled recently, and I don’t recall being around anyone who’s been sick. I do smoke about a pack a day and have around five alcoholic drinks daily.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Your significant smoking and alcohol consumption are relevant factors. Given your history of substantial alcohol use, there's a concern for liver disease. Have you ever been diagnosed with or suspected to have liver problems or hepatitis in the past?\nThe response should continue with the next question as per the guidelines. Here is the revised response:\n\n Your significant smoking and alcohol consumption are relevant factors. Have you ever been diagnosed with or suspected to have liver problems or hepatitis in the past?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve never been diagnosed with hepatitis or any liver condition before, and I don’t recall anyone telling me I had abnormal liver tests. I do have these new symptoms—fatigue, poor sleep, weight loss, and the yellowing with darker urine and lighter stools.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "You're a significant smoker and drinker with new onset jaundice, weight loss, and other symptoms, but no known history of liver disease. Are you taking any new medications or supplements that could be related to your symptoms?\n \nRevised to: \n You're a significant smoker and drinker with new onset jaundice, weight loss, and other symptoms. Are you taking any new medications or supplements?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t started any new prescription medications. I’ve only tried sticking with a vegetarian diet, and I’m not taking any supplements or over-the-counter remedies regularly.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "So, you've recently changed your diet to vegetarian but aren't taking any supplements or new medications. Given your significant alcohol use and smoking history, I'm concerned about potential liver pathology or other related issues. Have you experienced any changes in your mental status or noticed any confusion, drowsiness, or difficulty concentrating?\n\n Revised to: \n Given your alcohol use and smoking history, I'm concerned about potential liver pathology. Have you experienced any changes in your mental status or noticed any confusion?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t noticed any confusion or difficulty concentrating, and no unusual drowsiness.” “I mostly just feel very tired, my sleep is poor, and the yellowing keeps getting worse.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Alcoholic hepatitis, pancreatic cancer, cholangiocarcinoma, hepatitis (other causes), cirrhosis \n\nRevised to follow the exact format:\n[DDX] Alcoholic hepatitis, pancreatic cancer, cholangiocarcinoma, cirrhosis, hepatitis",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Alcoholic hepatitis",
+    "predicted_set": [
+      "Alcoholic hepatitis",
+      "pancreatic cancer",
+      "cholangiocarcinoma",
+      "cirrhosis",
+      "hepatitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Pancreatic adenocarcinoma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4594,
+      "completion_tokens": 467
+    },
+    "patient": {
+      "prompt_tokens": 4720,
+      "completion_tokens": 329,
+      "calls": 8
+    }
+  }
+}

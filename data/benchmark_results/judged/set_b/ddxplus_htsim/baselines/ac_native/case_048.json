@@ -1,0 +1,149 @@
+{
+  "case_idx": 48,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Whooping cough",
+  "patient_actor_hidden": {
+    "AGE": 70,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "vomiting after coughing",
+    "EVIDENCES_ENG": "['contact with pertussis (whooping cough)', 'obesity', 'wheezing during inhalation', 'asthma or bronchodilator use', 'vomiting after coughing', 'vaccination status']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 70\n- I have been in contact with someone who has had pertussis (whooping cough).\n- I am significantly overweight compared to people of the same height as I.\n- I wheeze while inhaling or my breathing is noisy after coughing spells.\n- I have asthma or have used a bronchodilator in the past.\n- I vomited after coughing.\n- My vaccinations are up to date.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.5295150093660963], ['Whooping cough', 0.4704849906339037]]",
+    "PATHOLOGY": "Whooping cough",
+    "INITIAL_EVIDENCE": "posttus_emesis",
+    "EVIDENCES": "['cont_coq', 'e66', 'insp_siffla', 'j45', 'posttus_emesis', 'trav1_@_N', 'vaccination']",
+    "patient_id": "htsim_1729",
+    "_test_index": 1729,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 70-year-old M patient presents to the clinic. Chief complaint: vomiting after coughing.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had vomiting after coughing, and I’ve also been in contact with someone who had pertussis. I wheeze while inhaling or have noisy breathing after coughing spells, and I have asthma or have used a bronchodilator in the past.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’d like to clarify a few details: how long has this been going on, and do you have any fever or blood in the vomit?  \nDoctor: Also, during the coughing spells, do you ever hear a “whoop” or feel like you can’t catch your breath afterward?  \nDoctor: Finally, how old are you when you first developed asthma, and are you on any current inhalers or antibiotics?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how long it’s been going on. I don’t know about fever, or whether there’s blood in the vomit.  \n\nI don’t know if there’s a “whoop” during the coughing spells, or if I can’t catch my breath afterward.  \n\nI don’t know how old I was when I first developed asthma. I’m up to date on my vaccinations.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand—since you can’t confirm fever, blood, or a “whoop,” I need to check severity: do you currently have shortness of breath between coughing spells, and have you had any weight loss or coughing that’s getting worse over weeks?  \nDoctor: REQUEST TEST: Pertussis PCR / Nasopharyngeal swab.  \nDoctor: REQUEST TEST: Chest_X-Ray.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have shortness of breath between coughing spells.\n\nI don’t know about any weight loss.\n\nI don’t know if the coughing is getting worse over weeks.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about pertussis given the sick contact and post-tussive vomiting—do you have any history of seizures, apnea, or choking/near-fainting during the cough?  \nDoctor: Also, are you currently on any inhaled steroids or just rescue bronchodilator, and are you still wheezing right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about any history of seizures, apnea, or choking/near-fainting during the cough.\n\nI don’t know whether I’m on any inhaled steroids versus just a rescue bronchodilator.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’d like to check one more thing—do you have a runny nose or sore throat at the start of this illness, and are the cough attacks triggered by activity or at night?  \nDoctor: Also, please tell me: is your breathing currently improved with a bronchodilator, or does it stay difficult even after using it?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a runny nose or sore throat at the start of this illness, and I don’t know if the cough attacks are triggered by activity or at night.\n\nI don’t know whether my breathing is improved with a bronchodilator or if it stays difficult even after using it.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this is a likely acute infectious cough syndrome with post-tussive vomiting; can you do a quick check right now—are you coughing up any mucus or is it mostly dry, and do you have any chest pain when you breathe in?  \nDoctor: Also, what is your current oxygen level (if you have a pulse oximeter) and do you feel faint or confused during coughing spells?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’m coughing up any mucus or if it’s mostly dry.\n\nI don’t know if I have chest pain when I breathe in.\n\nI don’t know my current oxygen level.\n\nI don’t know if I feel faint or confused during coughing spells.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the pertussis exposure, coughing-associated post‑tussive vomiting, and noisy/wheezy breathing, I’m treating this as probable pertussis until proven otherwise—do you have any ability to get to urgent care/ER today for isolation and start antibiotics promptly?  \nDoctor: While you arrange that, I recommend we proceed with the tests we already requested—REQUEST TEST: Pertussis PCR / Nasopharyngeal swab and REQUEST TEST: Chest_X-Ray.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t get key severity details from you yet—so I need a safety check: right now, are you having trouble breathing at rest, blue lips, or unable to keep fluids down for more than 8 hours?  \nDoctor: If yes to any, you should go to the ER now; if no, tell me whether you’ve started any coughing suppressant, and confirm your current medications and allergies.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’m having trouble breathing at rest, blue lips, or if I’m unable to keep fluids down for more than 8 hours.\n\nI don’t know whether I’ve started any coughing suppressant.\n\nI don’t know my current medications or allergies.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to answer for safety: are you breathing comfortably right now, and can you keep fluids down today (yes/no)?  \nDoctor: If you can’t, or if breathing is hard at rest, I want you to go to the ER immediately and tell them this is a suspected pertussis exposure—if you can, I’ll treat this as probable pertussis while awaiting your swab and chest X-ray.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’m breathing comfortably right now, and I don’t know if I can keep fluids down today.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re unsure about breathing comfortably and whether you can keep fluids down, I need you to go to the ER/urgent care now for evaluation of suspected pertussis and to check vitals and oxygenation; do not wait for test results.  \nDoctor: In the ER, you should request isolation precautions and start/consider antibiotics right away; when you’re able, tell them your coughing started when (even approximate), any fever, and whether you have “whooping” or breathlessness after spells.  \nDoctor: DIAGNOSIS READY: Suspected pertussis (pertussis infection vs pertussis-like illness) with post-tussive vomiting—needs urgent confirmation with PCR and chest evaluation.\n\n[ABSTAIN] free-text diagnosis 'Suspected pertussis (pertussis infection vs pertussis-like illness) with post-tussive vomiting—needs urgent confirmation with PCR and chest evaluation.' did not map to the closed disease set",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7106,
+      "completion_tokens": 843,
+      "calls": 9
+    },
+    "patient": {
+      "prompt_tokens": 10525,
+      "completion_tokens": 439,
+      "calls": 9
+    }
+  }
+}

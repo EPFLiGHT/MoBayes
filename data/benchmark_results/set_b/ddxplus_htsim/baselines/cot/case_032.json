@@ -1,0 +1,129 @@
+{
+  "case_idx": 32,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Panic attack",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 21\nSex: M\nChief Complaint: choking/suffocating sensation",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I feel like I’m choking or suffocating, and I’m having shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: acute, significant sensation of choking/suffocating with marked shortness of breath/difficulty breathing. This is a broad presentation that could be airway-related (laryngeal edema/epiglottitis/anaphylaxis), bronchospasm/asthma, pulmonary embolism, pneumonia, acute pulmonary edema, or panic/anxiety—need discriminating features.\nTop candidates (tentative):\n1) Anaphylaxis — can cause sudden “throat closing”/airway symptoms with dyspnea.\n2) Bronchospasm / acute asthma exacerbation — common cause of acute dyspnea with choking sensation.\n3) Pulmonary embolism — can present with sudden significant dyspnea.\n4) Acute pulmonary edema — can cause acute severe dyspnea.\n5) Panic attack — can cause choking sensation and dyspnea, but we must rule out life threats first.\nMost informative next question: determine whether there are allergic/anaphylactic features (rash, hives, swelling, new exposure).\n[/REASONING]\nDo you have any swelling of your lips/tongue/face or hives/itching, or did this start soon after eating a new food, taking a new medication, or being stung?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: no lip/tongue/face swelling, no hives/itching, and no clear allergic trigger mentioned. This makes anaphylaxis less likely, though not fully excluded.\nNow we should pivot to airway/upper airway vs bronchospasm vs cardiopulmonary causes.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — choking sensation can occur; often with wheeze, chest tightness, and history of asthma.\n2) Pulmonary embolism — sudden dyspnea; may have pleuritic chest pain, tachycardia, risk factors (recent travel, surgery, leg swelling).\n3) Acute pulmonary edema — often with orthopnea, frothy sputum, history of heart disease.\n4) Pneumonia — usually more gradual with fever/cough, but can be acute.\n5) Panic attack — possible if no objective respiratory/cardiac signs, but we must assess for wheeze/fever/chest pain and risk factors.\nMost discriminating next question: do you have wheezing or a history of asthma/COPD?\n[/REASONING]\nDo you have wheezing (a whistling sound) or a history of asthma or COPD?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have asthma or have used a bronchodilator in the past.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: history of asthma/bronchodilator use + current choking/suffocation and significant dyspnea. This strongly raises bronchospasm/acute asthma exacerbation.\nStill need to rule out other serious causes (PE, pneumonia, acute pulmonary edema), but asthma becomes top.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — fits history; choking sensation common; often improves with bronchodilator.\n2) Pneumonia — can trigger asthma-like symptoms; look for fever/cough.\n3) Pulmonary embolism — sudden dyspnea; less likely if wheeze prominent, but still possible.\n4) Acute pulmonary edema — usually with orthopnea, edema, heart disease.\n5) Panic attack — if no objective respiratory findings, but asthma history makes it less likely.\nMost informative next question: did symptoms start after an exposure/trigger (viral illness, smoke, cold air, exercise, allergens), and do you have cough or fever?\n[/REASONING]\nDid this start after a trigger like a cold/viral illness, smoke/cold air/exercise/allergens—and do you have cough or fever?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history; no known trigger; no info yet on cough/fever. “I don’t know” limits discrimination.\nNext we should assess for infectious symptoms and severity/response to bronchodilator.\nTop candidates remain:\n1) Bronchospasm / acute asthma exacerbation\n2) Pneumonia (esp if fever/cough)\n3) Pulmonary embolism (if sudden unexplained dyspnea, pleuritic pain, risk factors)\n4) Acute pulmonary edema (if orthopnea, edema)\n5) Panic attack (if hyperventilation, tingling, no objective findings)\nMost informative next question: do you have a cough and/or fever right now?\n[/REASONING]\nDo you have a cough or fever right now?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history; choking/suffocation with significant dyspnea; still no clear trigger or associated symptoms (cough/fever unknown).\nWe need a high-yield discriminating feature: chest pain/pleuritic pain and leg swelling/risk factors for PE vs wheeze/response to bronchodilator.\nMost informative next question: Are you having chest pain (especially sharp pain worse with breathing) or have you noticed leg swelling/pain?\n[/REASONING]\nAre you having chest pain—especially sharp pain that’s worse when you breathe—or any leg swelling/pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I have pain somewhere related to my reason for consulting, and the pain intensity is 2/10. It’s a cramp, and the pain is on the side of the chest (R and L) and around the breast (R and L). It doesn’t radiate anywhere.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: chest pain 2/10, crampy, bilateral side-of-chest around breasts, no radiation. Not clearly pleuritic or unilateral. This lowers (but doesn’t eliminate) PE and ACS. Still need to clarify wheeze and response to bronchodilator, and rule out pneumonia/heart failure.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — still most likely given asthma history and choking/suffocation.\n2) Panic attack — can cause chest discomfort and dyspnea; need hyperventilation symptoms and lack of objective findings.\n3) Pneumonia — would expect fever/cough; unknown.\n4) Acute pulmonary edema — would expect orthopnea, edema; ask about lying flat and swelling.\n5) Pulmonary embolism — less likely with bilateral low-intensity non-pleuritic pain, but still possible; ask about risk factors (recent travel/surgery, prior clots, hemoptysis).\nMost informative next question: Are you wheezing right now or has your breathing improved after using your rescue inhaler?\n[/REASONING]\nAre you wheezing right now, and if you’ve used a rescue inhaler (albuterol), did it help?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I have asthma or have used a bronchodilator in the past. I don’t know whether I’m wheezing right now, or whether my breathing improved after using a rescue inhaler.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history; cannot confirm wheeze or response to bronchodilator; no allergic symptoms; chest pain is low intensity and bilateral/crampy.\nEvidence is insufficient to confidently exclude PE, pneumonia, or cardiac causes, but asthma/bronchospasm remains most plausible.\nWe need one more discriminating question: orthopnea/leg swelling (pulmonary edema/heart failure) or hemoptysis/risk factors (PE).\nMost informative next question: Can you breathe comfortably when lying flat, or do you feel worse lying down? Any leg swelling?\n[/REASONING]\nCan you breathe comfortably when lying flat, or do you feel worse lying down—and have you noticed any leg swelling?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: significant dyspnea with “choking/suffocating” sensation; asthma history; no known allergy symptoms; low-intensity bilateral crampy chest pain; multiple key discriminators (wheeze/response, cough/fever, orthopnea/leg swelling, PE risk factors) are unknown.\nWith these uncertainties, I can’t confidently rank a top 5 without risking missed serious diagnoses (PE, pneumonia, acute pulmonary edema, ACS).\nMost informative next question: Do you have any risk factors for blood clots—recent long travel/immobility, recent surgery, pregnancy/postpartum, prior DVT/PE, or coughing up blood?\n[/REASONING]\nDo you have any risk factors for blood clots—recent long travel/immobility, recent surgery, pregnancy/postpartum, prior DVT/PE, or coughing up blood?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: asthma history + acute severe dyspnea with choking/suffocating sensation; no known allergic features; chest pain is low intensity, bilateral, crampy, non-radiating; multiple discriminators (wheeze/bronchodilator response, cough/fever, orthopnea/leg swelling, PE risk factors) are unknown.\nBecause these key features are missing, I cannot confidently produce a reliable ranked top-5 differential without a meaningful risk of missing serious causes (e.g., pulmonary embolism, pneumonia, acute pulmonary edema/ACS).\nNext best step would be to ask about objective respiratory distress markers (e.g., ability to speak in full sentences, current oxygen saturation if available), but I’m at the limit of questions.\n[/REASONING]\n[ABSTAIN] Insufficient discriminating information (wheeze/bronchodilator response, cough/fever, orthopnea/leg swelling, PE risk factors) to confidently rank diagnoses.\n[POSSIBLE] Bronchospasm / acute asthma exacerbation, Pulmonary embolism, Pneumonia, Acute pulmonary edema, Possible NSTEMI / STEMI",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15614,
+      "completion_tokens": 1890
+    },
+    "patient": {}
+  }
+}

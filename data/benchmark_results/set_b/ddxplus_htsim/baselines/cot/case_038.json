@@ -1,0 +1,119 @@
+{
+  "case_idx": 38,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 23\nSex: F\nChief Complaint: shortness of breath",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significant shortness of breath or difficulty breathing. I’m also consulting because I have high blood pressure, and I have lesions with redness on my skin that I believe are related to this condition.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: significant shortness of breath/difficulty breathing; history of high blood pressure; red skin lesions the patient thinks are related.\nTop candidates (not yet discriminated):\n1) Pulmonary embolism — can present with sudden significant dyspnea; may coexist with other systemic findings.\n2) Acute pulmonary edema — can cause marked dyspnea, often with hypertension; skin findings could be unrelated or from fluid/vascular issues.\n3) Acute COPD exacerbation / infection — dyspnea with possible systemic symptoms; hypertension/skin lesions may be coincidental.\n4) Anaphylaxis — dyspnea with skin redness/lesions (urticaria) possible; would expect itching/hives and possibly throat symptoms.\n5) Possible NSTEMI / STEMI or Unstable angina — severe dyspnea can be cardiac; hypertension is a risk factor; skin lesions could be unrelated.\nMost informative next question: determine whether the skin lesions are hives/itchy and whether there are allergic features, which would strongly shift toward anaphylaxis.\n[/REASONING]\nOne question: Are the red skin lesions **itchy hives (raised welts that come and go)**, and did the breathing difficulty start **suddenly** after an exposure (food/medication/sting)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSo far: significant dyspnea; hypertension; red skin lesions but **not** itchy hives/raised welts and no clear sudden allergic trigger.\nThis makes anaphylaxis less likely.\nTop candidates now:\n1) Pulmonary embolism — sudden or acute dyspnea; hypertension can occur; skin lesions may be unrelated.\n2) Acute pulmonary edema — dyspnea with hypertension; skin lesions could be from vascular/other causes.\n3) Possible NSTEMI / STEMI or Unstable angina — dyspnea as anginal equivalent; hypertension risk.\n4) Acute COPD exacerbation / infection — dyspnea; would expect cough/sputum/wheeze.\n5) Acute pulmonary edema vs pneumonia — need to clarify cough/fever and whether symptoms are worse lying flat.\nMost informative next question: ask about chest pain/pressure and whether symptoms are worse with exertion or lying flat to discriminate cardiac causes (pulmonary edema/ACS) vs PE.\n[/REASONING]\nOne question: Do you have **chest pain/pressure** (or pain spreading to arm/jaw/back), and is your breathing **worse when lying flat** or with exertion?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. \n\nI also have pain somewhere related to my reason for consulting. The pain is sensitive and sharp, with intensity 5/10, and the location precision is 10/10. The pain appears at a pace of 6/10, and it is in the back of the neck, both ankles, the right knee, and the left shoulder. The pain radiates to nowhere.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: significant dyspnea; hypertension; red skin lesions; pain is sharp/sensitive 5/10, very well localized, in multiple joints/areas (back of neck, both ankles, right knee, left shoulder), no radiation.\nThis pattern sounds more musculoskeletal/neuropathic than classic cardiac chest pain, but dyspnea remains concerning.\nTop candidates:\n1) Pulmonary embolism — dyspnea can be prominent; skin lesions could be unrelated; pain elsewhere could be coincidental.\n2) Acute pulmonary edema — hypertension-associated dyspnea; would expect orthopnea and often cough/foam.\n3) Possible NSTEMI / STEMI or Unstable angina — less supported without chest pressure, but “don’t know” about chest pain/orthopnea keeps it possible.\n4) Pneumonia / influenza — dyspnea with systemic symptoms; need fever/cough.\n5) Bronchospasm / acute asthma exacerbation — dyspnea with wheeze; need cough/wheeze history.\nMost informative next question: clarify respiratory symptoms—do you have a **cough** (dry or with sputum) or **fever/chills**?\n[/REASONING]\nOne question: Do you have a **cough** or **fever/chills** along with the shortness of breath?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nSo far: dyspnea + hypertension; skin redness lesions; unclear chest/respiratory symptoms; pain is sharp and very localized in neck/shoulder/knee/ankles (not typical for PE/ACS but could coexist).\nWe still need discriminators for respiratory/cardiac causes.\nTop candidates remain:\n1) Pulmonary embolism — dyspnea without clear infectious symptoms; hypertension can coexist.\n2) Acute pulmonary edema — hypertension-associated; would expect orthopnea/leg swelling.\n3) Possible NSTEMI / STEMI or Unstable angina — dyspnea as anginal equivalent; need risk factors and associated symptoms.\n4) Pneumonia / influenza — need fever/cough.\n5) Bronchospasm / acute asthma exacerbation — need wheeze/known asthma.\nMost informative next question: ask about **orthopnea** and **leg swelling** to support pulmonary edema/heart failure.\n[/REASONING]\nOne question: Have you noticed your breathing is **worse when lying flat**, and/or do you have **swelling in your legs/ankles**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.\n\nI do have pain in my ankles (right and left) and my right knee, but I’m not sure if that means swelling.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: dyspnea; hypertension; ankle/knee pain (unclear swelling); skin redness lesions; unclear cough/fever/chest pain/orthopnea.\nThis keeps pulmonary edema/heart failure vs PE vs ACS vs infection on the table, but we lack key discriminators.\nNext most informative: assess for unilateral leg swelling/tenderness (DVT/PE) and any history of recent immobility/surgery/travel.\nTop candidates:\n1) Pulmonary embolism — dyspnea; ankle pain could be DVT-related though not confirmed.\n2) Acute pulmonary edema — dyspnea + hypertension; leg pain could be unrelated.\n3) Possible NSTEMI / STEMI — dyspnea; need risk/associated symptoms.\n4) Pneumonia/influenza — need fever/cough.\n5) Bronchospasm/asthma — need wheeze.\nMost informative next question: ask about **recent immobilization or risk factors for clot**.\n[/REASONING]\nOne question: In the past **4 weeks**, have you had **long travel**, **recent surgery**, **bed rest/immobility**, or a **prior blood clot**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill: dyspnea + hypertension; skin redness lesions; multi-site pain (ankles/knee/neck/shoulder) with uncertain swelling; no clear allergic/infectious/cardiac symptom details.\nWe cannot confidently narrow to PE vs pulmonary edema vs ACS vs infection.\nNeed one high-yield discriminator: wheeze/asthma/COPD history or smoking, because bronchospasm/asthma/COPD exacerbation can cause dyspnea and may coexist with hypertension.\nTop candidates (tentative):\n1) Bronchospasm / acute asthma exacerbation — would be supported by wheeze, prior asthma, triggers.\n2) Acute COPD exacerbation / infection — supported by smoking/COPD history, cough/sputum.\n3) Pulmonary embolism — still possible without other clues.\n4) Acute pulmonary edema — still possible given hypertension.\n5) Possible NSTEMI / STEMI — still possible.\nMost informative next question: ask about wheezing and known lung disease.\n[/REASONING]\nOne question: Do you have a history of **asthma or COPD**, and have you noticed **wheezing** or a “whistling” sound when breathing?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have insufficient discriminating symptom history: dyspnea + hypertension; red skin lesions; multi-site pain; but unknown cough/fever/chest pain/wheeze/orthopnea/leg swelling and unknown clot risk.\nWith this level of uncertainty, I cannot responsibly rank a top 5 with confidence.\nMost informative next single question to reduce risk of missing a life-threatening cause: ask about **sudden onset** and **oxygenation** (if available) or **hemoptysis**.\n[/REASONING]\nOne question: Did the shortness of breath start **suddenly** (minutes to hours), and have you had **coughing up blood (hemoptysis)**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I still don’t have enough discriminating information (e.g., sudden vs gradual onset, cough/fever/hemoptysis, wheeze/asthma history, orthopnea/leg swelling, chest pain/ACS symptoms, or clot risk factors) to confidently narrow the differential for significant dyspnea with hypertension and skin redness.\n\n[POSSIBLE] Pulmonary embolism, Acute pulmonary edema, Possible NSTEMI / STEMI, Bronchospasm / acute asthma exacerbation, Pneumonia",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Acute pulmonary edema",
+      "Possible NSTEMI / STEMI",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 14295,
+      "completion_tokens": 1805
+    },
+    "patient": {}
+  }
+}

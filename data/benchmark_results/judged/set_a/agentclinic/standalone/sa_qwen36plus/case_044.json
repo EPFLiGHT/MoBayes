@@ -1,0 +1,154 @@
+{
+  "case_idx": 44,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Phyllodes tumor",
+  "patient_actor_hidden": {
+    "Demographics": "48-year-old woman",
+    "History": "The patient noticed a mass in her left breast 4 weeks ago, which has rapidly increased in size. She denies any recent trauma or infections. No history of similar complaints in the past.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a left breast mass",
+      "Secondary_Symptoms": [
+        "Rapid increase in size of the mass",
+        "No skin or nipple changes",
+        "No pain associated with the mass"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. No family history of breast cancer.",
+    "Social_History": "Non-smoker, moderate alcohol use. Elementary school teacher.",
+    "Review_of_Systems": "Denies fever, weight loss, night sweats, or changes in appetite."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I noticed a mass in my left breast about four weeks ago, and it’s been rapidly getting bigger. It isn’t painful, and I haven’t noticed any skin or nipple changes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To help narrow this down, could you tell me your age and whether you are currently pregnant, breastfeeding, or postmenopausal?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 48 years old, and I’m postmenopausal—I’m not pregnant or breastfeeding. I noticed the mass started about four weeks ago and has been rapidly increasing in size. It’s not painful, and I haven’t seen any skin or nipple changes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a personal or family history of breast or ovarian cancer?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have a personal history of breast or ovarian cancer, and there’s no family history of breast cancer that I know of.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Does the mass feel hard and fixed to the surrounding tissue, or soft and freely movable?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels fairly firm, and it doesn’t seem very freely movable—it feels like it’s more fixed to the surrounding area.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swollen or firm lumps in your left armpit or above your left collarbone?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any swollen or firm lumps in my left armpit or above my left collarbone.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any unexplained weight loss, fever, or drenching night sweats recently?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any unexplained weight loss, fever, or drenching night sweats. My appetite has been normal, and I feel well otherwise.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any recent trauma to the left breast, or any prior breast surgeries, biopsies, or injections in that area?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any recent trauma to my left breast, and I don’t have any history of breast surgery, biopsies, or injections in that area.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Are you currently taking any hormone replacement therapy (HRT) or other medications?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not taking any hormone replacement therapy, and I don’t take any regular medications. If I’ve taken anything recently, it’s only occasional over-the-counter pain relievers, but nothing ongoing.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Invasive ductal carcinoma, Phyllodes tumor, Invasive lobular carcinoma, Fat necrosis, Primary breast lymphoma",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Invasive ductal carcinoma",
+    "predicted_set": [
+      "Invasive ductal carcinoma",
+      "Phyllodes tumor",
+      "Invasive lobular carcinoma",
+      "Fat necrosis",
+      "Primary breast lymphoma"
+    ],
+    "predicted_raw": [
+      "Invasive ductal carcinoma",
+      "Phyllodes tumor",
+      "Invasive lobular carcinoma",
+      "Fat necrosis",
+      "Primary breast lymphoma"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Phyllodes tumor",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3942,
+      "completion_tokens": 14340
+    },
+    "patient": {
+      "prompt_tokens": 4131,
+      "completion_tokens": 325,
+      "calls": 8
+    }
+  }
+}

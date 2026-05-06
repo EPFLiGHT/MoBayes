@@ -1,0 +1,117 @@
+{
+  "case_idx": 7,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Disseminated Gonococcal Infection",
+  "patient_actor_hidden": {
+    "Demographics": "17-year-old male",
+    "History": "The patient presents with a 3-day history of pain in his left wrist, which worsened this morning accompanied by chills and malaise. He recounts having a self-resolving left knee pain the previous week. Reports recent return from a camping trip in Minnesota. Sexually active with one female partner. No history of trauma to the wrist.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left wrist",
+      "Secondary_Symptoms": [
+        "Chills",
+        "Malaise",
+        "Painless violaceous vesiculopustular lesions on both wrists and hands",
+        "Swelling and erythema of the left wrist",
+        "Severe tenderness to palpation and passive movement of the left wrist"
+      ]
+    },
+    "Past_Medical_History": "Otherwise healthy with no significant past medical history.",
+    "Social_History": "Admits to being sexually active with one female partner who uses a diaphragm for contraception. Recently went on a camping trip to Minnesota.",
+    "Review_of_Systems": "Denies trauma to the wrist, reports a history of knee pain that resolved on its own. No other systemic symptoms mentioned."
+  },
+  "objective_for_doctor": "Assess and diagnose the young patient presenting with wrist pain, fever, and skin lesions.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how old are you, and when did the wrist pain, fever, and skin lesions start? Doctor: Where exactly are the lesions (face/torso/limbs/genitals), and do they look like blisters/ulcers with any crusting or are they just red bumps? Doctor: Have you had any recent injury, insect/tick bite, new meds, or contact with someone with a similar rash?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 17, and the left wrist pain started about 3 days ago and got much worse this morning; I’ve had chills and feeling unwell since then. The lesions are on both wrists and hands—painless, purplish bumps that look like vesicles/pustules, without any crusting or sores elsewhere. I didn’t have any injury or new medications, and I can’t say I had a tick bite, but I did just come back from camping in Minnesota."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: On a scale of 0–10, how bad is the wrist pain, and can you move your wrist/fingers normally or is it swollen/hot? Any numbness, redness tracking up the arm, or swollen lymph nodes/armpits? Also, have you had sore throat, cough, or mouth/eye symptoms, and are you taking anything for the fever?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "“It’s about a 9 out of 10, and the wrist is swollen and very tender—moving it hurts a lot, but I can still wiggle my fingers; there’s no numbness. I haven’t noticed redness streaking up my arm or swollen lymph nodes in my armpits, and I haven’t had sore throat, cough, or any mouth or eye symptoms. I’ve only been resting and haven’t taken any fever medicine yet.”"
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a severe infectious process on the wrists—could you tell me if the skin over the swollen area is warm, and whether you have any darkening/necrotic-looking centers in the purplish vesicles? Also, have you had a headache or stiff neck, and do you feel any joint pain beyond the left wrist?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "It feels warm over the swollen left wrist, and the purplish bumps don’t have any dark or necrotic centers that I can see. I haven’t had a headache or stiff neck, and the only major joint pain is the left wrist—other than the knee pain from last week that went away."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m going to request a few urgent tests—REQUEST TEST: CBC_with_diff, CRP_ESR, blood_cultures_before_antibiotics, and REQUEST TEST: Left_wrist_ultrasound_or_MRI_for_abscess_and_cellulitis (plus consider a skin swab/PCR for HSV/VZV and monkeypox if available). Doctor: While we wait, did you have any similar rash lesions elsewhere besides both wrists/hands (especially on face/genitals), and is there any tingling/burning pain in the area or only tenderness?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "measurement",
+      "content": "RESULTS: - Vital Signs: Temp 37.7°C (99.9°F); BP 120/80 mmHg; HR 80 bpm; RR 14/min - Skin Exam: Painless violaceous vesiculopustular lesions on dorsum of both wrists/hands; 2 lesions on left palm - Musculoskeletal Exam: Left wrist swelling, erythema, severe tenderness to palpation and passive movement - CBC: WBC 15,000 /μL (elevated); Hemoglobin 14 g/dL; Platelets 300,000 /μL - Left Wrist Joint Aspiration: Synovial WBC >50,000 /μL (markedly elevated); Gram stain: gram-negative diplococci seen - Blood Cultures: Pending - STI Screen: Gonorrhea positive; Chlamydia negative; HIV negative"
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: With the Gram stain showing gram-negative diplococci in the wrist joint fluid plus synovial WBC >50,000 and high peripheral WBC, I’m most concerned about **gonococcal septic arthritis** (disseminated gonococcal infection) causing the violaceous vesiculopustular hand/wrist lesions. Do you have any urethral discharge, pelvic/testicular pain, abnormal vaginal bleeding/discharge, or recent new sexual partners (and have your lesions ever been biopsied or tested by PCR)? Doctor: REQUEST TEST: GC/CT NAAT from any genital/cervical samples available (if not already), and REQUEST TEST: HIV already done—now also REQUEST TEST: repeat/confirm NAAT from lesion swab for Neisseria gonorrhoeae (if available) and do a full joint exam to check for other joints. Doctor: DIAGNOSIS READY: **Disseminated gonococcal infection causing gonococcal septic arthritis of the left wrist with vesiculopustular/violaceous lesions**",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: With the Gram stain showing gram-negative diplococci in the wrist joint fluid plus synovial WBC >50,000 and high peripheral WBC, I’m most concerned about **gonococcal septic arthritis** (disseminated gonococcal infection) causing the violaceous vesiculopustular hand/wrist lesions. Do you have any urethral discharge, pelvic/testicular pain, abnormal vaginal bleeding/discharge, or recent new sexual partners (and have your lesions ever been biopsied or tested by PCR)? Doctor: REQUEST TEST: GC/CT NAAT from any genital/cervical samples available (if not already), and REQUEST TEST: HIV already done—now also REQUEST TEST: repeat/confirm NAAT from lesion swab for Neisseria gonorrhoeae (if available) and do a full joint exam to check for other joints. Doctor: DIAGNOSIS READY: **Disseminated gonococcal infection causing gonococcal septic arthritis of the left wrist with vesiculopustular/violaceous lesions**",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 5,
+    "predicted_remapped": "Disseminated Gonococcal Infection",
+    "predicted_set_remapped": [
+      "Disseminated Gonococcal Infection",
+      "Pseudomonas keratitis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2862,
+      "completion_tokens": 593,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 1896,
+      "completion_tokens": 265,
+      "calls": 3
+    },
+    "measurement": {
+      "prompt_tokens": 718,
+      "completion_tokens": 185,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 284,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

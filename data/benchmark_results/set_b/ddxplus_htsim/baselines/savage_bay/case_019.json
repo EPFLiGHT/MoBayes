@@ -1,0 +1,159 @@
+{
+  "case_idx": 19,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Ebola",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 21\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, a sore throat, and I’ve been feeling shortness of breath or difficulty breathing in a significant way.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To narrow this down, I need one key discriminating detail first.\n\n**Current posterior (broad, based only on cough + sore throat + significant dyspnea):**\n- Pneumonia: 0.20  \n- Bronchitis: 0.15  \n- Influenza: 0.15  \n- URTI (viral): 0.15  \n- Bronchospasm / acute asthma exacerbation: 0.10  \n(others lower for now)\n\n**Question 1 (one at a time):**  \nDo you have a **fever** (measured or felt), and if so how high?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (updated: fever unknown → less weight to febrile infections):**\n- Pneumonia: 0.18  \n- Bronchitis: 0.14  \n- Influenza: 0.14  \n- URTI (viral): 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.12  \n\n**Question 2:**  \nHave you noticed **wheezing** (a whistling sound when breathing), or do you have a history of **asthma/COPD**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (still uncertain about wheeze/asthma):**\n- Pneumonia: 0.18  \n- Bronchitis: 0.14  \n- Influenza: 0.14  \n- URTI (viral): 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.12  \n\n**Question 3:**  \nWhen you say “shortness of breath,” is it **worse when lying flat** or do you wake up **gasping at night**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (no orthopnea/PND info yet):**\n- Pneumonia: 0.18  \n- Bronchitis: 0.14  \n- Influenza: 0.14  \n- URTI (viral): 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.12  \n\n**Question 4:**  \nDo you have **chest pain**—especially pain that’s sharp and worse with **deep breaths**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (still broad):**\n- Pneumonia: 0.18  \n- Bronchitis: 0.14  \n- Influenza: 0.14  \n- URTI (viral): 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.12  \n\n**Question 5:**  \nIs your cough **dry** or are you bringing up **phlegm/sputum**? If sputum, what color (clear/white/yellow-green/bloody)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (still broad due to missing key respiratory features):**\n- Pneumonia: 0.18  \n- Bronchitis: 0.14  \n- Influenza: 0.14  \n- URTI (viral): 0.16  \n- Bronchospasm / acute asthma exacerbation: 0.12  \n\n**Question 6:**  \nAny **known exposure** to someone with a contagious respiratory illness (flu/COVID/“strep”), or have you had **recent travel** or a **sick contact**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. In the past 2 weeks I’ve been in contact with a person with similar symptoms, and in the last 4 weeks I’ve traveled out of the country to West Africa. Also, in the last month, I’ve been in contact with someone infected with the Ebola virus.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (new high-impact exposures):**\n- Pneumonia: 0.12  \n- Bronchitis: 0.10  \n- Influenza: 0.10  \n- URTI (viral): 0.12  \n- **Ebola (not previously in top set; now rises): 0.26**  \n(others collectively 0.30)\n\nLikelihood reasoning (rough): West Africa travel + known Ebola contact markedly increases probability of **Ebola** compared with routine viral URTI/flu.\n\n**Question 7:**  \nHave you had **fever** (even if you’re not sure of the number), **chills**, or **sweats** in the last few days?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (fever still unknown; Ebola remains elevated due to exposure):**\n- Ebola: 0.30  \n- Pneumonia: 0.14  \n- Influenza: 0.10  \n- URTI (viral): 0.12  \n- Bronchitis: 0.10  \n(others 0.24)\n\nNext question should discriminate Ebola vs more common respiratory infections.\n\n**Question 8:**  \nHave you had **vomiting or diarrhea**, or **severe weakness/body aches** (not just sore throat/cough)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve had diarrhea or an increase in stool frequency, and I have diffuse (widespread) muscle pain. I constantly feel fatigued or have non-restful sleep.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (GI symptoms + diffuse myalgias/fatigue strongly support Ebola over routine URTI/bronchitis):**\n- Ebola: 0.62  \n- Pneumonia: 0.10  \n- Influenza: 0.08  \n- URTI (viral): 0.06  \n- Bronchitis: 0.04  \n(others 0.10)\n\nLikelihood reasoning (qualitative): diarrhea + profound fatigue/myalgias after West Africa travel and Ebola contact makes Ebola far more likely than typical respiratory infections.\n\n**Question 9:**  \nAny **bleeding** (gum/nose bleeding, blood in stool/vomit, easy bruising) or a **rash**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve noticed unusual bleeding or bruising related to my consultation today.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (bleeding/bruising increases Ebola probability further):**\n- Ebola: 0.78  \n- Pneumonia: 0.06  \n- Influenza: 0.04  \n- URTI (viral): 0.03  \n- Bronchitis: 0.02  \n(others 0.07)\n\nAt this point, evidence is quite strong for Ebola given: West Africa travel, Ebola contact, diarrhea, diffuse myalgias/fatigue, and bleeding/bruising.\n\n**Question 10:**  \nHow long ago did your symptoms start (roughly how many days), and are they **getting worse quickly**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (time course unknown; still strong):**\n- Ebola: 0.78  \n- Pneumonia: 0.06  \n- Influenza: 0.04  \n- URTI (viral): 0.03  \n- Bronchitis: 0.02  \n(others 0.07)\n\n**Question 11:**  \nAre you currently **able to drink/keep fluids down**, or have you had **vomiting**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior (still strong for Ebola; hydration/ability to drink unknown):**\n- Ebola: 0.78  \n- Pneumonia: 0.06  \n- Influenza: 0.04  \n- URTI (viral): 0.03  \n- Bronchitis: 0.02  \n(others 0.07)\n\nI have enough to provide a focused differential given the high-risk exposure pattern and bleeding/GI/systemic symptoms.\n\n[DDX] Ebola, Pneumonia, Influenza, URTI (viral), Bronchitis",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "Ebola",
+    "predicted_set": [
+      "Ebola",
+      "Pneumonia",
+      "Influenza",
+      "URTI (viral)",
+      "Bronchitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 18731,
+      "completion_tokens": 1457
+    },
+    "patient": {}
+  }
+}

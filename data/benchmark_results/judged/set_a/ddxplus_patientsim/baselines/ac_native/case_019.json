@@ -1,0 +1,104 @@
+{
+  "case_idx": 19,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "GERD",
+  "objective_for_doctor": "A 51-year-old Female patient presents to the clinic. Chief complaint: I have upper chest pain, a cough, and burning pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having upper chest pain with a cough and a burning feeling. It also feels like burning and pain in my epigastric area, and it gets worse after eating—I also feel like I can’t lie flat comfortably.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did this start, and do you have any shortness of breath, fever, or cough with phlegm/blood?  \nDoctor: On a 0–10 scale how severe is the burning, and does anything besides food (like antacids or sitting upright) relieve it?  \nDoctor: REQUEST TEST: ECG and Chest_X-Ray; REQUEST TEST: CBC and CMP; REQUEST TEST: Troponin (to rule out heart causes).",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—maybe within about 5 out of 10 for how quickly it came on. I do have a cough, but I don’t have phlegm or blood that I’ve noticed, and I don’t have a fever.  \n\nThe burning is about a 5/10 and it doesn’t really get better unless I stay upright; sitting up helps more than lying flat, and eating makes it worse. I haven’t tried antacids yet today, so I’m not sure if they would help.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any nausea/vomiting, trouble swallowing, recent heavy lifting or trauma, and is the chest pain worse with deep breaths or pressing on the chest? Also, do you have a history of GERD/ulcers, high cholesterol, smoking, or blood clots?  \nDoctor: REQUEST TEST: D-dimer (if risk factors or pleuritic features), and consider Lipase/Amylase if epigastric pain is prominent.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t feel nauseous or like I’m going to vomit, and I don’t have trouble swallowing. I haven’t had any heavy lifting or trauma. The pain feels worse when I lie down, but I’m not sure about deep breaths or if it changes when someone presses on my chest.  \n\nI do have a history of acid reflux/heartburn and a hiatal hernia. I’m not sure about high cholesterol, and I don’t smoke. I don’t know about blood clots history.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your history of GERD/hiatal hernia and symptoms worse after eating and when lying flat, do you feel a sour/bitter taste or hoarseness, and have you tried an antacid or H2 blocker like famotidine and did it help?  \nDoctor: Also, any leg swelling/pain, recent long travel/surgery, or prior blood clots—and is the pain strictly burning/acid-like or is there pressure/heaviness too?  \nDoctor: REQUEST TEST: Troponin trend (repeat in 2–3 hours) if not already resulted, and REQUEST TEST: Upper_endoscopy or H. pylori test only if labs/imaging don’t explain symptoms—otherwise I’ll treat presumptively.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I sometimes get a sour or bitter taste in my mouth, and my throat feels a bit hoarse sometimes. I haven’t taken an antacid or famotidine today, so I can’t say if it helped.  \n\nI don’t have leg swelling or leg pain, and I haven’t had any long travel or surgery recently that I can think of. The pain feels like burning/acid, and it’s also like a sickening pain in my upper chest and epigastric area—more burning than pressure.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your burning upper chest/epigastric pain that worsens after eating and when lying flat, plus sour/bitter taste and hoarseness with known GERD/hiatal hernia, I’m most concerned for reflux/GERD or reflux esophagitis (and possibly a mild gastritis).  \nDoctor: I want you to try immediate symptom control—can you tell me: do you have severe difficulty swallowing, black/tarry stools, or vomiting blood, and have you had heartburn before this episode that feels similar?  \nDoctor: If none of those “alarm” signs are present, I’ll proceed with GERD treatment and review your ECG/CXR and troponin results to ensure this isn’t cardiac.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No— I don’t have trouble swallowing like it’s hard to get food down, and I haven’t noticed black or tarry stools or vomiting blood.  \n\nYes, I’ve had heartburn before, and this feels pretty similar to those episodes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given no alarm symptoms (no dysphagia, GI bleeding, or hematemesis) and a history of GERD/hiatal hernia with burning chest/epigastric pain worse after meals and when lying flat, this is most consistent with reflux esophagitis.  \nDoctor: I want to confirm your safety—any new shortness of breath, sweating, or exertional chest pressure, and have your ECG/CXR/troponin results come back yet?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have new shortness of breath, and I haven’t been sweating. It mostly feels like burning and acid in my chest/upper stomach, and it’s worse after eating and when I lie down.  \n\nI haven’t seen the ECG/CXR/troponin results yet, so I’m not sure if they’re back.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m reassured by the lack of exertional pressure, sweating, and shortness of breath, and the strong reflux pattern (worse after meals and when lying flat with sour/bitter taste and prior GERD/hiatal hernia); until your ECG/troponin and CXR return, I still want to treat this as reflux.  \nDoctor: Start promptly with famotidine 20 mg now (or a PPI such as omeprazole 20–40 mg), avoid lying down for 2–3 hours after eating, and use antacids for breakthrough; if pain rapidly worsens, you develop dysphagia, GI bleeding (black stools/vomit blood), or persistent symptoms despite 1–2 weeks of therapy, we’ll escalate to endoscopy.  \n\nDIAGNOSIS READY: GERD with reflux esophagitis (likely gastritis/hiatal hernia–related)\n\n[DDX]\n1. GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "GERD",
+    "predicted_set_remapped": [
+      "GERD",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4720,
+      "completion_tokens": 799,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6702,
+      "completion_tokens": 501
+    }
+  }
+}

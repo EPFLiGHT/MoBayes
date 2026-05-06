@@ -1,0 +1,192 @@
+{
+  "case_idx": 23,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 12\nSex: Male\nChief Complaint: I have a fever, burning pain, and right tonsil pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a fever and really bad throat pain—burning pain with pain in both tonsils, and my palate/pharynx hurts too. It feels very strong, like 9 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’ll ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, rough):**\n- **Acute laryngitis / viral pharyngitis**: 25%\n- **Epiglottitis**: 20%\n- **Pneumonia (atypical/aspiration presenting as throat pain)**: 5%\n- **Anaphylaxis**: 5%\n- **Acute otitis media / sinusitis-related throat pain**: 5%\n- **Other (e.g., GERD, croup, URTI)**: 35%\n\n**Question 1 (most discriminating):**  \nDo you have **trouble breathing, drooling, or muffled “hot potato” voice**, or is it hard to swallow your saliva?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have trouble breathing or drooling. I can swallow okay, but my throat and tonsils hurt a lot. I don’t think I have a “hot potato” voice.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—no drooling/muffled voice and no breathing trouble makes **epiglottitis** less likely.\n\n**Updated posterior:**\n- **Acute laryngitis / viral pharyngitis**: 35%\n- **Epiglottitis**: 8%\n- **Pneumonia (atypical/aspiration)**: 5%\n- **Anaphylaxis**: 2%\n- **Acute otitis media / sinusitis-related throat pain**: 8%\n- **Other (e.g., URTI, croup, GERD, etc.)**: 42%\n\n**Question 2:**  \nDo you have **cough** (yes/no)? If yes, is it **dry or productive**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion and a clear runny nose. I don’t think I have a cough right now.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Nasal congestion + clear rhinorrhea with no cough shifts toward a **viral upper respiratory infection** rather than epiglottitis or pneumonia.\n\n**Updated posterior:**\n- **Acute laryngitis / viral pharyngitis**: 45%\n- **Acute rhinosinusitis / URTI**: 20%\n- **Acute dystonic reactions / other**: 1%\n- **Epiglottitis**: 5%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 26%\n\n**Question 3:**  \nDo you have **any white patches/pus on the tonsils** or **swollen/tender neck glands** (lymph nodes) under the jaw?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about white patches or pus on my tonsils. But I do feel sore in my throat/tonsil area. I can’t tell about swollen neck glands.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—uncertain exudate/lymphadenopathy keeps **viral pharyngitis** still leading, but we should check for **strep features**.\n\n**Updated posterior:**\n- **Acute laryngitis / viral pharyngitis**: 50%\n- **Acute rhinosinusitis / URTI**: 20%\n- **Pneumonia**: 2%\n- **Epiglottitis**: 5%\n- **Anaphylaxis**: 1%\n- **Other (including possible bacterial tonsillitis/strep-like illness)**: 22%\n\n**Question 4 (high-yield for strep):**  \nHave you had **known exposure to someone with strep throat**, or do you have **no cough** plus **fever** (you already have fever)—any **rash** (e.g., sandpaper-like) or **abdominal pain**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve been around someone with similar symptoms in the past couple weeks. I don’t know about any rash, and I don’t have stomach pain.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Exposure + fever + severe throat pain keeps **bacterial pharyngitis (strep-like)** on the table, though we still need more discriminators.\n\n**Updated posterior:**\n- **Acute laryngitis / viral pharyngitis**: 40%\n- **Possible bacterial tonsillitis / URTI**: 35%\n- **Acute rhinosinusitis / URTI**: 15%\n- **Epiglottitis**: 5%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 2%\n\n**Question 5:**  \nDo you have **tender swelling in the front of your neck** (under the jaw/along the sides), or is it mainly just throat pain?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s mainly throat pain. I’m not sure about swelling or tenderness in the front of my neck.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—no clear anterior neck swelling/tenderness makes deep neck infection less likely, but we still can’t separate viral vs strep well yet.\n\n**Updated posterior:**\n- **Acute laryngitis / viral pharyngitis**: 42%\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 33%\n- **Acute rhinosinusitis / URTI**: 15%\n- **Epiglottitis**: 5%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 2%\n\n**Question 6:**  \nHow old are you, and how long has this been going on (hours/days)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I’m 12 years old. It started pretty fast today—like within the last day—and it’s been getting worse.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Rapid onset over ~1 day in a 12-year-old with severe throat pain increases likelihood of **acute bacterial tonsillitis/pharyngitis (strep)** compared with many viral URTIs.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 45%\n- **Acute laryngitis / viral pharyngitis**: 35%\n- **Acute rhinosinusitis / URTI**: 10%\n- **Epiglottitis**: 5%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 2%\n\n**Question 7:**  \nDo you have **difficulty opening your mouth** (trismus) or **muffled voice** (not just pain), or is it normal?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I can open my mouth, but it hurts a lot. I don’t think my voice is muffled—mostly it just hurts.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Pain with normal mouth opening and no muffled voice makes peritonsillar/deep space infection less likely, but strep/tonsillitis still plausible.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 48%\n- **Acute laryngitis / viral pharyngitis**: 32%\n- **Epiglottitis**: 4%\n- **Acute rhinosinusitis / URTI**: 10%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 3%\n\n**Question 8:**  \nAny **one-sided** worse throat pain or **uvula** feels pushed to one side (or “swollen tonsil” on one side)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It’s more on the right side, like my right tonsil hurts more, but both sides hurt. I don’t know about the uvula being pushed.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Right-sided predominance slightly raises concern for **peritonsillar tonsillitis**, but since both sides hurt and no trismus/muffled voice, it’s not definitive.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 50%\n- **Acute laryngitis / viral pharyngitis**: 28%\n- **Acute rhinosinusitis / URTI**: 10%\n- **Epiglottitis**: 4%\n- **Peritonsillar/deep infection spectrum (not in list explicitly)**: 3%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 2%\n\n**Question 9:**  \nDo you have **no cough** (you said none earlier) and **fever**—what’s your highest temperature, and do you have **headache** or **body aches**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "My highest temperature was about 102°F. I do have headache and I feel achy too.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Fever 102°F + headache/aches supports an infectious pharyngitis/URTI; still doesn’t fully separate viral vs strep, but it keeps bacterial on top.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 52%\n- **Acute laryngitis / viral pharyngitis**: 30%\n- **Acute rhinosinusitis / URTI**: 8%\n- **Epiglottitis**: 4%\n- **Peritonsillar/deep infection spectrum**: 3%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 0%\n\n**Question 10:**  \nDo you have **tender swollen lymph nodes** in the front of your neck (under the jaw) or along the sides? (You can say “yes/no/unsure.”)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure. I feel sore around my throat, but I can’t tell if the neck glands are swollen. I’d say unsure.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Unsure lymphadenopathy keeps strep probability similar.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 53%\n- **Acute laryngitis / viral pharyngitis**: 29%\n- **Acute rhinosinusitis / URTI**: 8%\n- **Epiglottitis**: 4%\n- **Peritonsillar/deep infection spectrum**: 3%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n- **Other**: 0%\n\n**Question 11 (key):**  \nDo you have **any trouble swallowing** (pain is okay, but is it hard to swallow food/liquids), or is swallowing normal?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Swallowing feels painful, but I can swallow food and liquids. I don’t think it’s hard to swallow.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Painful swallowing without true dysphagia fits uncomplicated tonsillitis/pharyngitis.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 54%\n- **Acute laryngitis / viral pharyngitis**: 28%\n- **Acute rhinosinusitis / URTI**: 8%\n- **Epiglottitis**: 4%\n- **Peritonsillar/deep infection spectrum**: 3%\n- **Pneumonia**: 2%\n- **Anaphylaxis**: 1%\n\n**Question 12:**  \nAny **cough at all** (even mild), or is it truly absent?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a cough. It’s mostly the fever and throat/tonsil pain with a clear runny nose and congestion.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "No cough + fever + severe throat pain keeps **strep-like tonsillitis** high, but the clear runny nose/congestion points viral too.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 50%\n- **Acute laryngitis / viral pharyngitis**: 35%\n- **Acute rhinosinusitis / URTI**: 10%\n- **Epiglottitis**: 3%\n- **Peritonsillar/deep infection spectrum**: 1%\n- **Pneumonia**: 1%\n- **Anaphylaxis**: 0%\n\n**Question 13:**  \nDo you have **a rash** anywhere (especially fine/sandpaper on the trunk/neck), or **red/swollen tonsils** you can see in a mirror?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a rash. I haven’t looked closely in a mirror, but my tonsils hurt a lot.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "We still lack exudate/tonsillar appearance and rash—so we can’t be definitive, but strep-like illness remains most likely.\n\n**Updated posterior:**\n- **Possible bacterial tonsillitis / URTI (strep-like)**: 48%\n- **Acute laryngitis / viral pharyngitis**: 40%\n- **Acute rhinosinusitis / URTI**: 8%\n- **Epiglottitis**: 3%\n- **Peritonsillar/deep infection spectrum**: 1%\n\n**Question 14:**  \nHave you had **similar episodes before**, and do you have **any known immune problems** or chronic conditions (e.g., asthma, immunosuppression)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had similar sore throats before, but this one is much worse. I do have immune problems—I'm immunosuppressed.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible bacterial tonsillitis / URTI (strep-like), Acute laryngitis / viral pharyngitis, Acute rhinosinusitis / URTI, Epiglottitis, Pneumonia",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Possible bacterial tonsillitis / URTI (strep-like)",
+    "predicted_set": [
+      "Possible bacterial tonsillitis / URTI (strep-like)",
+      "Acute laryngitis / viral pharyngitis",
+      "Acute rhinosinusitis / URTI",
+      "Epiglottitis",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 33883,
+      "completion_tokens": 2426
+    },
+    "patient": {
+      "prompt_tokens": 30724,
+      "completion_tokens": 477
+    }
+  }
+}

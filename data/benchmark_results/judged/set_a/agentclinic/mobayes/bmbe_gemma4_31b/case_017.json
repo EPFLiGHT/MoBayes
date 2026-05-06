@@ -1,0 +1,310 @@
+{
+  "case_idx": 17,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient reports a 6-month history of fatigue and an unintentional weight loss of 5 kg (11 lb) despite maintaining a good appetite. He denies any recent changes in his diet or physical activity. He takes no medications and does not smoke or use illicit drugs.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "5 kg unintentional weight loss over 6 months",
+        "Good appetite"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. Patient denies any chronic illnesses or prior hospitalizations.",
+    "Social_History": "Retired engineer; denies tobacco use or illicit drug use. Drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, night sweats, changes in bowel or bladder habits, recent infections, or bleeding disorders."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, unintentional weight loss, and abnormal physical examination findings.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Could you tell me about yourself and what's been going on? Patient: I’ve been feeling very fatigued for about six months, and I’ve lost around 5 kilograms without trying, even though my appetite is still good. I don’t have fevers or night sweats, and I haven’t noticed any changes in my bowel or bladder habits.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_decreased_appetite_87a4f212": "no",
+        "f_fever_6c156205": "no",
+        "f_night_sweats_0316b006": "no",
+        "f_diarrhea_29117dc0": "no"
+      },
+      "top5_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12997957920584333
+        ],
+        [
+          "Chronic kidney failure",
+          0.09995502843174883
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.09015010281061132
+        ],
+        [
+          "Myasthenia gravis",
+          0.06937560362520472
+        ],
+        [
+          "Ewing sarcoma",
+          0.05445816020600693
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "I haven’t noticed any small, raised skin bumps with a central indentation. I haven’t had any new skin changes that stood out, and I don’t recall anything like that on my body.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.13183607086262963
+        ],
+        [
+          "Chronic kidney failure",
+          0.10138268097125665
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.0914377121008467
+        ]
+      ],
+      "entropy": 4.470958848179162
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "Patient: No, I haven’t noticed needing to urinate more often than usual. My main issues are the persistent fatigue and the unintentional 5 kg weight loss over the past six months, with a normal appetite.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.13729379280661966
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.09522303128227942
+        ],
+        [
+          "Chronic kidney failure",
+          0.07571877466365802
+        ]
+      ],
+      "entropy": 4.495342438013104
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual strength lately?",
+      "patient_answer": "I have felt generally weak and less able to do things that I used to manage, and my usual energy just hasn’t returned over the past six months. I’d say it’s more than just being tired—it feels like my strength and stamina are lower than normal.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease",
+          0.1897729285241586
+        ],
+        [
+          "Chronic kidney failure",
+          0.16847947978918748
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.1476724003532814
+        ]
+      ],
+      "entropy": 3.395328930949705
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“I can dress myself as usual, but it feels more effortful and takes longer than it used to because I get tired and weaker. I haven’t had trouble with coordination or anything like that—just overall low stamina.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2596431523947389
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.1558826298322282
+        ],
+        [
+          "Chronic kidney failure",
+          0.13839183800634094
+        ]
+      ],
+      "entropy": 3.2903769864239383
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "I haven’t noticed any rashes, bumps, or sores along the veins in my arms. I don’t have any specific skin changes that seem to follow the vein lines.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2596431523947389
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.1558826298322282
+        ],
+        [
+          "Chronic kidney failure",
+          0.13839183800634097
+        ]
+      ],
+      "entropy": 3.2903769864239383
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "I haven’t noticed any particular itchiness on my skin. My main ongoing problems are the fatigue and the unintentional 5 kg weight loss over the last six months, without appetite changes.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.29844611582521563
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.17917886518077522
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08325206122990086
+        ]
+      ],
+      "entropy": 3.269096814546636
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calf muscles when you walk that goes away once you stop and rest?",
+      "patient_answer": "Patient: No, I don’t get calf pain or cramping when I walk, and it doesn’t improve with rest because I don’t have that kind of leg discomfort. My problem is more general fatigue and reduced stamina overall.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.29899800349094263
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.17951020340368626
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08340601125070138
+        ]
+      ],
+      "entropy": 3.256332343844823
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-colored recently?",
+      "patient_answer": "“I haven’t noticed my stools becoming unusually pale, light, or clay-colored. My bowel habits have felt pretty normal overall.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3094053839403772
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.18575850927718732
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08630916806352662
+        ]
+      ],
+      "entropy": 3.2304307180532863
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or opening jars?",
+      "patient_answer": "I haven’t noticed any specific weakness in my hands or trouble gripping objects, opening jars, or using my hands—my main issue is feeling generally weaker and having less stamina overall. I haven’t had coordination problems either, just persistent low energy for months.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.23110023757863407
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.21194978738878203
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.09847844866945045
+        ]
+      ],
+      "entropy": 3.3614598880459337
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Chronic obstructive pulmonary disease",
+      "Chronic lymphocytic leukemia (CLL)"
+    ],
+    "confidence": 0.23110023757863407,
+    "final_entropy": 3.3614598880459337,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Chronic obstructive pulmonary disease",
+      "Chronic lymphocytic leukemia (CLL)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10853,
+      "completion_tokens": 349
+    },
+    "patient": {
+      "prompt_tokens": 6307,
+      "completion_tokens": 488,
+      "calls": 10
+    }
+  }
+}

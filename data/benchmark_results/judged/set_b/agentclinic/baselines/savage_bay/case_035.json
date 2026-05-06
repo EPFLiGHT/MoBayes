@@ -1,0 +1,162 @@
+{
+  "case_idx": 35,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Takotsubo cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "43-year-old woman",
+    "History": "The patient has been brought to the emergency department by her brother due to severe chest pain. She is grieving the recent loss of her husband in a car accident and is still in a state of shock over the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe chest pain",
+      "Secondary_Symptoms": [
+        "Shortness of breath",
+        "Emotional distress"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Non-smoker. No history of alcohol or drug abuse. Recently widowed.",
+    "Review_of_Systems": "Denies recent illness, fever, or cough."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with severe chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: My chest pain is severe, and I’m feeling short of breath. I’m also very emotionally distressed since my husband recently died in a car accident.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, very rough):\n- Takotsubo cardiomyopathy: 0.20  \n- Acute Mesenteric Ischemia: 0.01  \n- Cardiac contusion: 0.01  \n- Hypertrophic cardiomyopathy: 0.05  \n- Asthma: 0.10  \n(Other causes collectively: 0.63)\n\nTo narrow this down quickly and safely: **Is the chest pain happening right now, and when did it start (minutes/hours/days ago)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, the chest pain is happening right now—it started a few hours ago, and it has been getting steadily worse. I’m also short of breath at the same time.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “ongoing severe chest pain + dyspnea starting a few hours ago”):\n- Takotsubo cardiomyopathy: 0.30  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.01  \n- Hypertrophic cardiomyopathy: 0.05  \n- Asthma: 0.08  \n- Other/undifferentiated serious causes: 0.56\n\nNext most discriminating question: **Does the chest pain feel like pressure/tightness in the center of the chest, or is it sharp/pleuritic (worse with breathing) or tearing (radiating to the back)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does your chest pain feel like pressure or tightness in the center, or is it sharp and worse with breathing, or tearing and radiating to the back? Patient: It feels like a heavy pressure in the center of my chest, not sharp, and it isn’t worse when I breathe.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “central heavy pressure, not pleuritic”):\n- Takotsubo cardiomyopathy: 0.38  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.01  \n- Hypertrophic cardiomyopathy: 0.06  \n- Asthma: 0.03  \n- Other/undifferentiated serious causes: 0.52\n\nNext discriminating question: **Do you have any sweating, nausea/vomiting, or pain spreading to your left arm, jaw, or back?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve been sweating some and I feel nauseated, but the pain isn’t really spreading to my left arm or jaw or straight through to my back.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “diaphoresis + nausea with central pressure”):\n- Takotsubo cardiomyopathy: 0.45  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.01  \n- Hypertrophic cardiomyopathy: 0.05  \n- Asthma: 0.02  \n- Other/undifferentiated serious causes: 0.47\n\nNext most discriminating question: **When you say short of breath—are you having trouble lying flat, or waking up at night gasping (orthopnea/PND)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I can’t really lie flat—it makes my breathing feel worse—and I feel like I’m struggling to catch my breath even when I’m sitting up.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “worse lying flat/orthopnea + dyspnea”):\n- Takotsubo cardiomyopathy: 0.55  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.02  \n- Hypertrophic cardiomyopathy: 0.06  \n- Asthma: 0.03  \n- Other/undifferentiated serious causes: 0.34\n\nNext discriminating question: **Have you noticed any leg swelling or pain, or have you had recent long travel/immobility?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any leg swelling or pain, or have you had recent long travel/immobility? Patient: No leg swelling or leg pain, and I haven’t had any long travel or periods of being immobile.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “no leg swelling/pain; no recent immobility”):\n- Takotsubo cardiomyopathy: 0.58  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.02  \n- Hypertrophic cardiomyopathy: 0.06  \n- Asthma: 0.03  \n- Other/undifferentiated serious causes: 0.31\n\nNext discriminating question: **Do you have a history of heart disease, high blood pressure, diabetes, high cholesterol, or smoking?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have a history of heart disease, high blood pressure, diabetes, high cholesterol, or smoking? Patient: I don’t have any known history of heart disease, high blood pressure, diabetes, or high cholesterol, and I don’t smoke.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “no known cardiac risk factors”):\n- Takotsubo cardiomyopathy: 0.62  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.02  \n- Hypertrophic cardiomyopathy: 0.06  \n- Asthma: 0.03  \n- Other/undifferentiated serious causes: 0.27\n\nNext discriminating question: **Did this chest pain start shortly after a major emotional stress (like the grief from your husband’s death), or did it begin independently?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it started shortly after the grief of my husband’s death, and I’ve been in an intense shock since the accident. It didn’t feel like it began independently.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated for “major emotional stress preceding symptoms”):\n- Takotsubo cardiomyopathy: 0.78  \n- Acute Mesenteric Ischemia: 0.00  \n- Cardiac contusion: 0.01  \n- Hypertrophic cardiomyopathy: 0.05  \n- Asthma: 0.02  \n- Other/undifferentiated serious causes: 0.14\n\nNext discriminating question (to ensure we’re not missing a respiratory cause): **Do you have wheezing or a cough/fever?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No wheezing, cough, or fever—I just have the severe central pressure, shortness of breath that gets worse lying flat, and I feel very nauseated and sweaty.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Takotsubo cardiomyopathy, Asthma, Hypertrophic cardiomyopathy, Cardiac contusion, Acute Mesenteric Ischemia",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Takotsubo cardiomyopathy",
+    "predicted_set": [
+      "Takotsubo cardiomyopathy",
+      "Asthma",
+      "Hypertrophic cardiomyopathy",
+      "Cardiac contusion",
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Takotsubo cardiomyopathy",
+      "Asthma",
+      "Hypertrophic cardiomyopathy",
+      "Cardiac contusion",
+      "Acute Mesenteric Ischemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Takotsubo cardiomyopathy",
+    "predicted_set_remapped": [
+      "Takotsubo cardiomyopathy",
+      "Asthma",
+      "Hypertrophic cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13950,
+      "completion_tokens": 1050
+    },
+    "patient": {
+      "prompt_tokens": 8611,
+      "completion_tokens": 412,
+      "calls": 9
+    }
+  }
+}

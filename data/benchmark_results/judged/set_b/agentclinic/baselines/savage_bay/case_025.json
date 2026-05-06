@@ -1,0 +1,144 @@
+{
+  "case_idx": 25,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Huntington disease",
+  "patient_actor_hidden": {
+    "Demographics": "42-year-old female",
+    "History": "The patient has been experiencing irritability, restlessness, and auditory hallucinations for the past year. Over the past month, the patient has also developed difficulty swallowing. She has a 2-year history of depression, and was terminated from her job 6 months ago due to performance issues linked to forgetfulness. Family history includes the patient's father committing suicide at the age of 50. The patient has smoked one pack of cigarettes daily for the past 20 years and has a history of cocaine use for 8 years but quit 1 year ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Hearing voices, irritability, and restlessness",
+      "Secondary_Symptoms": [
+        "Difficulty swallowing",
+        "Memory issues",
+        "Involuntary movements",
+        "Poor articulation"
+      ]
+    },
+    "Past_Medical_History": "Depression for 2 years.",
+    "Social_History": "Current smoker, past cocaine use (ceased 1 year ago).",
+    "Review_of_Systems": "Patient exhibits confusion, and is oriented to person and place only."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with abnormal behavior, difficulty swallowing, and involuntary movements.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“I’ve been hearing voices for about a year, and I feel very irritable and restless. In the last month I’ve also had trouble swallowing, and I notice my memory and speech aren’t as clear as before.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors; limited info):\n- Schizoaffective disorder: 0.25  \n- Schizotypal personality disorder: 0.20  \n- Borderline personality disorder: 0.10  \n- Progressive multifocal leukoencephalopathy: 0.10  \n- Huntington disease: 0.10  \n(others combined: 0.25)\n\nNew evidence: “hearing voices for ~1 year” (psychosis) + “irritable/restless” (agitation) + “in last month trouble swallowing” + “memory/speech not as clear.”\n- For psychotic disorders (schizoaffective/schizotypal/BPD): trouble swallowing and new cognitive/speech change are *less typical* → LR < 1.\n- For neurodegenerative/infectious CNS causes (Huntington disease, Progressive multifocal leukoencephalopathy): new dysphagia + speech/cognitive decline are *more supportive* → LR > 1.\n\nTo discriminate best, I need one key detail:\n\n**Question 1 (one at a time):**  \nDo the voices ever tell the patient to harm themselves or someone else (command hallucinations)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Sometimes the voices feel threatening, and they make me worry I might act on them, but I don’t clearly remember specific instructions to hurt anyone.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after Q1 evidence; command specificity absent):\n- Schizoaffective disorder: 0.22  \n- Schizotypal personality disorder: 0.18  \n- Borderline personality disorder: 0.08  \n- Progressive multifocal leukoencephalopathy: 0.16  \n- Huntington disease: 0.16  \n(others combined: 0.20)\n\nUpdate reasoning:\n- “Threatening voices” without clear commands slightly favors primary psychotic disorders, but the *threat + fear of acting* keeps neuro causes on the table because of concurrent neurologic symptoms (dysphagia, speech/memory change).\n- No clear instructions lowers likelihood of acute command-driven psychosis but doesn’t strongly separate these.\n\n**Question 2:**  \nHave you noticed any new involuntary movements—like jerking, fidgeting, or trouble coordinating movements (chorea), or a change in walking?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“About a month ago I started noticing involuntary movements—like jerks and fidgeting at times—and my coordination feels off, especially when I’m walking or trying to speak clearly.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Schizoaffective disorder: 0.15  \n- Schizotypal personality disorder: 0.12  \n- Borderline personality disorder: 0.05  \n- Progressive multifocal leukoencephalopathy: 0.18  \n- Huntington disease: 0.50  \n\nUpdate (key evidence: involuntary jerks/fidgeting + coordination/walking/speech worsening):\n- Huntington disease strongly matches chorea + progressive speech/cognitive changes + behavioral/psychiatric symptoms (voices/irritability can occur).\n- PML can cause neurologic deficits and cognitive/speech issues, but classic involuntary choreiform movements are less typical; also PML often has focal deficits and immunosuppression context.\n- Primary personality/psychotic disorders don’t usually cause new chorea/coordination decline.\n\n**Question 3:**  \nDo you have a history of immunosuppression (e.g., HIV/AIDS, chemotherapy, transplant meds, long-term steroids), or have you been told you’re immunocompromised?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t have HIV or any transplant or cancer treatment, and I’m not on long-term steroids that I know of—but I do have ongoing depression and I’ve been smoking heavily.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Huntington disease: 0.62  \n- Progressive multifocal leukoencephalopathy: 0.12  \n- Schizoaffective disorder: 0.14  \n- Schizotypal personality disorder: 0.08  \n- Borderline personality disorder: 0.04  \n\nUpdate:\n- Lack of known immunosuppression decreases PML likelihood (LR < 1).\n- Smoking/heavy tobacco doesn’t specifically point to any of these, but can correlate with neurovascular risk; still, the chorea + progressive speech/dysphagia pattern keeps Huntington highest.\n\n**Question 4:**  \nHave any of your close relatives (parent, sibling, grandparent) had similar symptoms—especially abnormal movements, trouble speaking/swallowing, or a progressive mental/behavior change?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Not that I know of—no one in my family had movements or speech/swallowing problems like this; I only know my father died by suicide at 50, but I don’t know of a similar illness before that.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Huntington disease: 0.66  \n- Schizoaffective disorder: 0.12  \n- Progressive multifocal leukoencephalopathy: 0.10  \n- Schizotypal personality disorder: 0.07  \n- Borderline personality disorder: 0.05  \n\nUpdate:\n- No family history reduces Huntington probability somewhat (LR < 1), but doesn’t rule it out (de novo mutation, unrecognized family symptoms).\n- Father suicide at 50 is nonspecific but could be consistent with psychiatric manifestations in Huntington.\n\n**Question 5:**  \nHow old are you now?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“I’m 42 years old.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Huntington disease: 0.70  \n- Schizoaffective disorder: 0.10  \n- Progressive multifocal leukoencephalopathy: 0.08  \n- Schizotypal personality disorder: 0.07  \n- Borderline personality disorder: 0.05  \n\nUpdate:\n- Age 42 fits typical adult-onset Huntington (often 30–50). Primary psychotic/personality disorders don’t explain new chorea/coordination decline and dysphagia as well as Huntington does.\n\n**Question 6 (final key discriminator):**  \nWhen you try to move or speak, do you notice your movements are getting progressively worse over weeks to months, and does anyone else see “dance-like” jerking or facial grimacing that you can’t control?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“I feel like the jerks and my coordination have been getting worse over the last few weeks, and people have noticed I make awkward facial expressions and movements I can’t seem to control, especially when I’m trying to talk or walk.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Huntington disease, Progressive multifocal leukoencephalopathy, Schizoaffective disorder, Schizotypal personality disorder, Borderline personality disorder",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Huntington disease",
+    "predicted_set": [
+      "Huntington disease",
+      "Progressive multifocal leukoencephalopathy",
+      "Schizoaffective disorder",
+      "Schizotypal personality disorder",
+      "Borderline personality disorder"
+    ],
+    "predicted_raw": [
+      "Huntington disease",
+      "Progressive multifocal leukoencephalopathy",
+      "Schizoaffective disorder",
+      "Schizotypal personality disorder",
+      "Borderline personality disorder"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Huntington disease",
+    "predicted_set_remapped": [
+      "Huntington disease",
+      "Progressive multifocal leukoencephalopathy",
+      "Schizoaffective disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10972,
+      "completion_tokens": 1155
+    },
+    "patient": {
+      "prompt_tokens": 7509,
+      "completion_tokens": 271,
+      "calls": 7
+    }
+  }
+}

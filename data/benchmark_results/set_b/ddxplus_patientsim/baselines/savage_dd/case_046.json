@@ -1,0 +1,142 @@
+{
+  "case_idx": 46,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Panic attack",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 11\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and lightheadedness/near-fainting",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have chest pain on both sides—right and left—with some sharp, cramp-like pain in my right breast area. I also feel really short of breath, lightheaded like I might faint, and I get palpitations and nausea; my hands and legs felt numb/tingly and even around my mouth, and I feel kind of detached from myself or my surroundings.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re feeling this way. To narrow this down safely, I need one key detail:\n\n**When did the chest pain and shortness of breath start (exact time or how many hours ago)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—like within about 5 minutes. I think it began around an hour ago (about 1 hour).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question—this helps separate heart/lung causes from anxiety or other issues:\n\n**Does the chest pain get worse with breathing in (deep inspiration) or with coughing/movement, or is it more constant regardless of position?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I think it feels worse when I breathe in deeply, like it changes with my breathing. It’s not really better or worse just from moving around—it’s mostly tied to taking a deep breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. Next question—this is important for ruling in/out dangerous causes like pulmonary embolism or pneumonia:\n\n**Do you have a fever, cough, or any recent infection symptoms (sore throat, runny nose, or flu-like illness)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No fever and no cough. I haven’t had sore throat or runny nose either, and I don’t feel like I’ve had a recent flu-like illness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question—this helps assess pulmonary embolism risk:\n\n**Have you had any leg swelling or pain (especially one-sided), recent long travel, recent surgery, or are you on estrogen/birth control or pregnant/postpartum?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling and no leg pain. I haven’t had any recent long travel or surgery, and I’m not on birth control or anything like that—I’m 11, so no.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—age helps. Next question—still important for PE/heart causes:\n\n**Have you had any fainting or near-fainting episodes, and do you feel your heart racing right now (and if so, is it regular or irregular)?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had near-fainting / lightheadedness today. My heart is racing with palpitations, but I can’t say if it’s regular or irregular—it just feels fast.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the sudden onset within minutes, pleuritic (worse with deep breath) chest pain, shortness of breath, near-syncope, palpitations, and perioral/hand/leg tingling with a “detached” feeling, I’m concerned about potentially serious cardiopulmonary causes (especially **pulmonary embolism** or a **tachyarrhythmia**) but also need to consider anxiety/hyperventilation.\n\n**Next question (most discriminating):**  \n**Have you had any recent injury/trauma to the chest, or does pressing on your chest wall reproduce the pain?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No recent injury or trauma to my chest. I haven’t noticed that pressing on my chest wall makes it better or worse.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question—this helps distinguish PE/pleurisy from other causes:\n\n**Do you have any history of asthma/COPD, wheezing, or do you hear/feel tightness in your chest?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I have asthma, and sometimes I use a bronchodilator. I don’t think I’m wheezing right now, but I do feel tight in my chest.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question—this will help separate asthma exacerbation/bronchospasm from PE/other causes:\n\n**When you use your bronchodilator, does it improve your shortness of breath or chest tightness at all?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t tried it yet for this episode, so I don’t know if it would help.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. Next question—this is key for asthma vs other causes:\n\n**Do you have any audible wheeze, or are you able to speak in full sentences right now (or do you have to stop for breath)?**",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about wheezing, but I’m having significant shortness of breath. I can’t really speak in full sentences right now—I have to stop to breathe.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Evidence is insufficient to confidently rank a single diagnosis yet because severe dyspnea with pleuritic chest pain could be from asthma/bronchospasm, pulmonary embolism, pneumonia, or a tachyarrhythmia, and we still need objective vitals/exam (wheeze, oxygen saturation, heart rhythm) and key risk factors.\n\n[POSSIBLE] Pulmonary embolism, Bronchospasm / acute asthma exacerbation, Pneumonia, Possible NSTEMI / STEMI, PSVT",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pulmonary embolism",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Possible NSTEMI / STEMI",
+      "PSVT"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12487,
+      "completion_tokens": 644
+    },
+    "patient": {
+      "prompt_tokens": 12658,
+      "completion_tokens": 399
+    }
+  }
+}

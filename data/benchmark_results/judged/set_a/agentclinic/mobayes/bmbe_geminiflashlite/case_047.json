@@ -1,0 +1,334 @@
+{
+  "case_idx": 47,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "57-year-old obese female",
+    "History": "The patient reports experiencing fever, chills, and a headache starting three days after undergoing an open cholecystectomy. She has a history of an abdominal hysterectomy 16 years ago. She has been smoking one pack of cigarettes daily for 17 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Right-sided chest pain that increases on inspiration",
+      "Secondary_Symptoms": [
+        "Productive cough for the last 12 hours",
+        "Fever",
+        "Chills",
+        "Headache"
+      ]
+    },
+    "Past_Medical_History": {
+      "Surgeries": [
+        "Open cholecystectomy three days prior",
+        "Abdominal hysterectomy 16 years ago"
+      ],
+      "Chronic_Conditions": [
+        "None reported"
+      ],
+      "Medications": [
+        "None reported"
+      ]
+    },
+    "Social_History": {
+      "Smoking_Status": "Current smoker, one pack daily for 17 years",
+      "Alcohol_Use": "Not specified",
+      "Occupation": "Not specified",
+      "Activities": "Not specified"
+    },
+    "Review_of_Systems": {
+      "Respiratory": "Productive cough",
+      "Cardiovascular": "No reported abnormalities",
+      "Gastrointestinal": "Surgical site below right ribcage, otherwise unremarkable",
+      "Musculoskeletal": "No reported abnormalities",
+      "Neurological": "No reported abnormalities"
+    }
+  },
+  "objective_for_doctor": "Evaluate the patient presenting with postoperative fever, chest pain that increases on inspiration, and a productive cough, and determine the correct diagnosis.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, about three days after my open gallbladder surgery, I started having fever and chills along with a headache. I also developed right-sided chest pain that gets worse when I take a deep breath, and I’ve had a productive cough for about the last 12 hours.”",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_chills_4b723a54": "yes",
+        "f_chest_pain_27a0380f": "yes",
+        "f_pleuritic_chest_pain_b80fdbc8": "yes",
+        "f_productive_cough_f91866cd": "yes",
+        "f_headache_380f4309": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pneumonia",
+          0.8708188219322965
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01657783690196716
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.012624887790282893
+        ],
+        [
+          "Somatization disorder",
+          0.012494625842369336
+        ],
+        [
+          "Factitious disorder",
+          0.011560150184179241
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you experienced any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "“No, I haven’t had any changes in my vision—no blurriness, blind spots, or loss of sight. It’s mainly the fever and chills with the headache, plus the right chest pain that worsens when I breathe in and the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8736652040499596
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01663202367115365
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.012666153842346432
+        ]
+      ],
+      "entropy": 1.092033111976696
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Doctor, yes—I currently smoke about one pack a day, and I’ve been smoking for around 17 years.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.940130515110657
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.0309162606928434
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.01353212627571854
+        ]
+      ],
+      "entropy": 0.47417168779509566
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t really had nausea or any vomiting—my main issues are the fever and chills with the headache, and the right-sided chest pain that’s worse with deep breaths along with the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9413195354327242
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.03783433098258797
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006021884840946564
+        ]
+      ],
+      "entropy": 0.45169081978687536
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lumps or masses in my breast area, and I haven’t had any breast pain either. My symptoms have been mainly the fever and chills with the headache, and the right-sided chest pain that hurts more when I take a deep breath, along with the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9414287714612483
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.03783872149176453
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006022583654430718
+        ]
+      ],
+      "entropy": 0.4501894718357495
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can sometimes be linked to how we are feeling emotionally. To help me get a clearer picture of your overall well-being, have you been experiencing a significant amount of psychological stress lately?",
+      "patient_answer": "“No, doctor—I haven’t noticed any significant psychological stress lately. My main concern is the fever and chills with the headache, and the right-sided chest pain that gets worse when I breathe in along with the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9430080213109979
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.037902196071087
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006032686558250627
+        ]
+      ],
+      "entropy": 0.43188351106312534
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "To help me better understand your current symptoms, have you noticed any changes in the color of your urine, specifically if it has appeared darker than usual?",
+      "patient_answer": "“No, doctor—my urine hasn’t seemed darker than usual, and I haven’t noticed any change in its color. It’s mainly the fever and chills with the headache, plus the right-sided chest pain that gets worse when I breathe in and the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9440428126382896
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.037943787301377006
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006039306408336387
+        ]
+      ],
+      "entropy": 0.42137343130167304
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, doctor—I haven’t noticed any breast mass at all, so there’s nothing growing or changing in size. My main concern is still the fever and chills with the headache, and the right-sided chest pain that worsens when I take a deep breath along with the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9440783838705468
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.037945217011187554
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.006039533967476763
+        ]
+      ],
+      "entropy": 0.4207994282383607
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "Hello. I'm here to help you understand what might be going on with your health today. To get started, could you please tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, doctor—I don’t have any pain in my wrist. My discomfort is mainly the fever and chills with the headache, along with the right-sided chest pain that gets worse when I take a deep breath and the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9441777238904564
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.03794920977140509
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.00604016947342079
+        ]
+      ],
+      "entropy": 0.41948521671692784
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or marks, running along the path of your veins?",
+      "patient_answer": "“No, doctor. I haven’t noticed any rashes, bumps, or marks along the path of my veins on my arms—just the fever and chills, the headache, and the right-sided chest pain that’s worse with deep breaths with the productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9441777238904564
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.03794920977140509
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.00604016947342079
+        ]
+      ],
+      "entropy": 0.41948521671692784
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_top3": [
+      "Pneumonia",
+      "Chronic obstructive pulmonary disease",
+      "Acalculous cholecystitis"
+    ],
+    "confidence": 0.9441777238904564,
+    "final_entropy": 0.41948521671692784,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Chronic obstructive pulmonary disease",
+      "Acalculous cholecystitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6666,
+      "completion_tokens": 524
+    },
+    "patient": {
+      "prompt_tokens": 7944,
+      "completion_tokens": 519,
+      "calls": 10
+    }
+  }
+}

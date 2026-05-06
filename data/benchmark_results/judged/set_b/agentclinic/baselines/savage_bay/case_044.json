@@ -1,0 +1,113 @@
+{
+  "case_idx": 44,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Situational syncope",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient was brought to the emergency department after an episode of loss of consciousness that occurred 1 hour ago, immediately after micturating. His wife found him unconscious on the bathroom floor. He regained consciousness after about 30 seconds without any confusion or amnesia for the event. No history of urinary incontinence during the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Episode of loss of consciousness",
+      "Secondary_Symptoms": [
+        "Regained consciousness quickly without confusion",
+        "No urinary incontinence",
+        "No bite marks or injuries"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. Not on any regular medications.",
+    "Social_History": "Non-smoker. Drinks alcohol socially. Works as a high school teacher. No recent travel or sick contacts.",
+    "Review_of_Systems": "Denies chest pain, palpitations, fevers, headaches, seizures, recent illnesses, or any other neurological symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with an episode of loss of consciousness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I passed out about an hour ago right after urinating in the bathroom, and I was unconscious for roughly 30 seconds. My wife found me on the floor, and when I came to, I was quickly alert with no confusion and no incontinence.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (pre-test):\n- Situational syncope: 0.35  \n- Cardiac contusion: 0.05  \n- Takotsubo cardiomyopathy: 0.05  \n- Asthma: 0.02  \n- COPD: 0.02  \n- Hemophilia A: 0.01  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute lymphoblastic leukemia: 0.01  \n- Acute myelogenous leukemia: 0.01  \n- Essential thrombocythemia: 0.01  \n(remaining probability spread across other listed conditions)\n\nThis sounds like **situational syncope** (micturition-triggered). To update probabilities, I need one key discriminator:\n\n**Question 1 (one at a time):**  \nBefore you passed out, did you have **chest pain, palpitations, or shortness of breath**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I didn’t have any chest pain, palpitations, or shortness of breath before I passed out.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q1: no chest pain/palpitations/SOB):\n- Situational syncope: 0.55  \n- Cardiac contusion: 0.02  \n- Takotsubo cardiomyopathy: 0.03  \n- Asthma: 0.01  \n- COPD: 0.01  \n- Hemophilia A: 0.01  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute lymphoblastic leukemia: 0.01  \n- Acute myelogenous leukemia: 0.01  \n- Essential thrombocythemia: 0.01  \n(remaining spread thinly across others)\n\nNext discriminator:\n\n**Question 2:**  \nWhen you stood up/started urinating, did you feel **lightheaded, sweaty, nauseated, or like your vision was going dark** right before you fainted?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you stood up/started urinating, did you feel lightheaded, sweaty, nauseated, or like your vision was going dark right before you fainted? Patient: Yes—right before it happened I felt lightheaded and my vision seemed to dim, and I felt a bit sweaty, but I didn’t have chest pain or palpitations.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q2: prodrome of lightheadedness/vision dimming/sweating):\n- Situational syncope: 0.78  \n- Cardiac contusion: 0.01  \n- Takotsubo cardiomyopathy: 0.02  \n- Asthma: 0.01  \n- COPD: 0.01  \n- Hemophilia A: 0.01  \n- Acute Mesenteric Ischemia: 0.01  \n- Acute lymphoblastic leukemia: 0.01  \n- Acute myelogenous leukemia: 0.01  \n- Essential thrombocythemia: 0.01  \n(remaining spread thinly across others)\n\nThis pattern strongly supports **reflex (vasovagal) situational syncope** triggered by micturition.\n\nOne more high-yield question to ensure it wasn’t seizure or another cause:\n\n**Question 3:**  \nDid anyone notice **jerking movements, tongue biting, or a prolonged period of confusion** after you regained consciousness?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: After you came to, did you have any jerking movements, tongue biting, or prolonged confusion? Patient: No—there were no jerking movements or tongue biting, and I was back to normal quickly with no confusion.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior probabilities (after Q3: no seizure features, rapid return to baseline):\n- Situational syncope: 0.90  \n- Takotsubo cardiomyopathy: 0.03  \n- Cardiac contusion: 0.02  \n- Asthma: 0.01  \n- COPD: 0.01  \n(remaining spread thinly across others)\n\nGiven the classic trigger (micturition), prodrome (lightheaded/vision dim/sweaty), brief LOC (~30 sec), rapid recovery, and no seizure or cardiopulmonary symptoms, the most likely diagnosis is **situational syncope**.\n\n[DDX] Situational syncope, Takotsubo cardiomyopathy, Cardiac contusion, Acute Mesenteric Ischemia, Asthma",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Situational syncope",
+    "predicted_set": [
+      "Situational syncope",
+      "Takotsubo cardiomyopathy",
+      "Cardiac contusion",
+      "Acute Mesenteric Ischemia",
+      "Asthma"
+    ],
+    "predicted_raw": [
+      "Situational syncope",
+      "Takotsubo cardiomyopathy",
+      "Cardiac contusion",
+      "Acute Mesenteric Ischemia",
+      "Asthma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Situational syncope",
+    "predicted_set_remapped": [
+      "Situational syncope",
+      "Takotsubo cardiomyopathy",
+      "Cardiac contusion"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4909,
+      "completion_tokens": 760
+    },
+    "patient": {
+      "prompt_tokens": 2863,
+      "completion_tokens": 228,
+      "calls": 4
+    }
+  }
+}

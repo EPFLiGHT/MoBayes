@@ -1,0 +1,79 @@
+{
+  "case_idx": 16,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and forehead pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and really sensitive pain, especially in my forehead. I also have a sore throat and nasal congestion/clear runny nose, and the pain is on both my temples and my left cheek.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) and body aches (general flu-like symptoms)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever. I also feel flu-like and achy all over, with the pain being very sensitive.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have fever (≥38°C) with sudden onset of symptoms (starting within the last 7 days)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it started pretty suddenly within the last week. It came on fast.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) with new ear pain or ear discharge?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have new ear pain or any ear discharge.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute rhinosinusitis  , Influenza",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis  ",
+    "predicted_set": [
+      "Acute rhinosinusitis  ",
+      "Influenza"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2624,
+      "completion_tokens": 113
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "case_idx": 4,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old woman",
+    "History": "The patient reports a 2-month history of insidious onset left shoulder pain, worsening with extreme ranges of motion and activity. Pain disrupts sleep, and there's noted difficulty with activities of daily living like brushing hair and dressing. No history of shoulder trauma, neck pain, arm/hand weakness, numbness, or paresthesias. The patient has type 2 diabetes mellitus, treated with metformin and glipizide.",
+    "Symptoms": {
+      "Primary_Symptom": "Chronic left shoulder pain",
+      "Secondary_Symptoms": [
+        "Pain at extremes of motion",
+        "Difficulty sleeping on the affected side",
+        "Difficulty with brushing hair and dressing",
+        "No numbness or weakness"
+      ]
+    },
+    "Past_Medical_History": "Type 2 diabetes mellitus",
+    "Social_History": "No relevant social history provided",
+    "Review_of_Systems": "Denies neck pain, arm/hand weakness, numbness, or paresthesias."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with chronic left shoulder pain without a history of trauma.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had insidious pain in my left shoulder for about two months, and it’s been getting worse, especially at the extremes of motion and when I’m active. It’s disrupting my sleep and makes daily tasks like brushing my hair and dressing difficult.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Did you have any injury or specific event that started the shoulder pain, or did it come on gradually without trauma?\nDid you have any injury or specific event that started the shoulder pain, or did it come on gradually without trauma?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It came on gradually without any injury or specific event. It started mildly and has steadily worsened over the past two months.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Which movements are most limited or painful: reaching overhead, reaching behind your back, rotating your arm outward, or all of these?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s especially painful when I reach overhead and when I reach behind my back, and rotating my arm outward is also quite limited. Overall, it’s all of those movements that hurt the most, but overhead and behind-the-back are the worst.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have shoulder weakness, numbness/tingling, neck pain, or pain shooting down past the elbow?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I don’t have any numbness or tingling, and I’m not experiencing arm or hand weakness. I also don’t have neck pain or any pain that shoots down past the elbow.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have diabetes, thyroid disease, or any prior shoulder problems or surgery?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have type 2 diabetes, and I take metformin and glipizide. I don’t have any known thyroid disease, and I haven’t had any prior shoulder problems or surgery.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Adhesive capsulitis, rotator cuff tendinopathy/impingement, glenohumeral osteoarthritis, rotator cuff tear, subacromial bursitis\n\nMost likely is adhesive capsulitis because of the gradual onset, progressive pain over months, marked limitation in multiple planes including external rotation and reaching behind the back, night pain, functional difficulty with dressing/hair care, and diabetes as a strong risk factor.",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Adhesive capsulitis",
+    "predicted_set": [
+      "Adhesive capsulitis",
+      "rotator cuff tendinopathy/impingement",
+      "glenohumeral osteoarthritis",
+      "rotator cuff tear",
+      "subacromial bursitis\n\nMost likely is adhesive capsulitis because of the gradual onset"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Adhesive capsulitis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Adhesive capsulitis",
+      "Unknown",
+      "Osteoarthritis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2004,
+      "completion_tokens": 225
+    },
+    "patient": {
+      "prompt_tokens": 2463,
+      "completion_tokens": 221,
+      "calls": 5
+    }
+  }
+}

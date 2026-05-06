@@ -1,0 +1,223 @@
+{
+  "case_idx": 9,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Meigs syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old nulliparous woman",
+    "History": "The patient reports experiencing shortness of breath and noticeable increase in abdominal size over the past month. She denies any significant medical history, previous surgeries, or use of medications.",
+    "Symptoms": {
+      "Primary_Symptom": "Shortness of breath",
+      "Secondary_Symptoms": [
+        "Increased abdominal girth",
+        "Fatigue",
+        "No significant weight loss or gain"
+      ]
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "Non-smoker, does not consume alcohol regularly. Works as a high school teacher.",
+    "Review_of_Systems": "Denies fever, night sweats, chest pain, or swelling in the legs. She has not noticed any changes in bowel or urinary habits."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with shortness of breath, increased abdominal girth, and a large ovarian mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve been getting short of breath, and in the past month my abdomen has noticeably increased in size. I also feel more fatigued than usual, but I haven’t had chest pain, fever, or leg swelling.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given limited info):\n- Acute Mesenteric Ischemia: 5%\n- Takotsubo cardiomyopathy: 10%\n- Fulminant hepatic failure: 10%\n- Acute myelogenous leukemia: 10%\n- Acute lymphoblastic leukemia: 10%\n- Other (not yet specified): 55%\n\nEvidence so far:\n- **Dyspnea + progressive abdominal distension over 1 month** → raises concern for **ascites/abdominal fluid or malignancy/hematologic disease** causing dyspnea from pressure, anemia, or systemic effects.\n  - Likelihood ratio (LR) for “malignancy/hematologic or hepatic/serosal process” vs benign causes: ~2.0\n  - This increases the posterior for leukemia/fulminant hepatic failure and decreases “acute mesenteric ischemia” (which usually has severe pain).\n\n**Question 1 (one at a time):**  \nWhen you say your abdomen has increased in size, is it **painful** (especially severe or crampy), or is it **painless/just distended**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: When you say your abdomen has increased in size, is it painful—especially crampy or severe—or is it mostly painless and just distended? Patient: It’s mostly painless; it just feels more distended and tight than usual.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated after “mostly painless distension”):\n- Acute Mesenteric Ischemia: 1% (LR ~0.2 vs earlier)\n- Takotsubo cardiomyopathy: 8%\n- Fulminant hepatic failure: 15%\n- Acute myelogenous leukemia: 14%\n- Acute lymphoblastic leukemia: 14%\n- Other: 48%\n\nEvidence:\n- **Painless distension** lowers likelihood of **acute mesenteric ischemia** (typically severe pain out of proportion).\n  - LR for “painless distension” favoring non-ischemic causes vs ischemia: ~0.2\n\n**Question 2:**  \nHave you noticed **yellowing of your eyes/skin (jaundice)** or **dark urine**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed yellowing of your eyes or skin (jaundice) or dark-colored urine? Patient: No, I haven’t noticed any yellowing, and my urine looks normal to me.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “no jaundice/dark urine”):\n- Acute Mesenteric Ischemia: 1%  \n- Takotsubo cardiomyopathy: 10%  \n- Fulminant hepatic failure: 8%  \n- Acute myelogenous leukemia: 15%  \n- Acute lymphoblastic leukemia: 15%  \n- Other: 51%\n\nEvidence:\n- **No jaundice/dark urine** makes significant hepatocellular failure/marked cholestasis less likely.\n  - LR for “no jaundice” against fulminant hepatic failure: ~0.5\n\n**Question 3:**  \nHave you had **unintentional weight loss**, **night sweats**, or **easy bruising/bleeding** (like gum bleeding, nosebleeds, or lots of bruises)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any unintentional weight loss or night sweats, and I haven’t noticed easy bruising or bleeding like gum bleeding, nosebleeds, or frequent bruises.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute Mesenteric Ischemia: 1%  \n- Takotsubo cardiomyopathy: 10%  \n- Fulminant hepatic failure: 7%  \n- Acute myelogenous leukemia: 12%  \n- Acute lymphoblastic leukemia: 12%  \n- Other: 58%\n\nEvidence:\n- **No B symptoms and no bleeding/bruising** lowers likelihood of leukemia somewhat.\n  - LR for “no easy bruising/bleeding” vs leukemia: ~0.7\n\n**Question 4:**  \nHave you had **any vomiting**, **black/tarry stools**, or **blood in stool**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any vomiting, black/tarry stools, or blood in your stool? Patient: No, I haven’t had vomiting, and I haven’t noticed black stools or any blood in my stool.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute Mesenteric Ischemia: 1%  \n- Takotsubo cardiomyopathy: 12%  \n- Fulminant hepatic failure: 6%  \n- Acute myelogenous leukemia: 11%  \n- Acute lymphoblastic leukemia: 11%  \n- Other: 59%\n\nEvidence:\n- **No GI bleeding** makes leukemia with bleeding and ischemic bowel less likely (but doesn’t explain ascites).\n  - LR for “no melena/hematochezia” vs GI catastrophe: ~0.8\n\n**Question 5:**  \nDo you feel **short of breath when lying flat** (needing extra pillows) or is it **worse with exertion**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you feel short of breath when lying flat (needing extra pillows) or is it worse with exertion? Patient: It’s mostly worse with exertion; I don’t notice it getting much worse when I lie flat.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute Mesenteric Ischemia: 1%  \n- Takotsubo cardiomyopathy: 15%  \n- Fulminant hepatic failure: 6%  \n- Acute myelogenous leukemia: 10%  \n- Acute lymphoblastic leukemia: 10%  \n- Other: 58%\n\nEvidence:\n- **Dyspnea worse with exertion** fits more with **cardiac dysfunction/anemia** than with isolated ascites/orthopnea.\n  - LR for “exertional dyspnea” favoring cardiac causes vs others: ~1.5\n\n**Question 6:**  \nHave you noticed **swelling in your legs**, **new irregular/fast heartbeat**, or **lightheadedness/fainting**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed swelling in your legs, a new irregular or very fast heartbeat, or lightheadedness/fainting? Patient: No, I haven’t noticed leg swelling, and I don’t think my heartbeat has been irregular or unusually fast; I also haven’t felt faint.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute Mesenteric Ischemia: 1%  \n- Takotsubo cardiomyopathy: 18%  \n- Fulminant hepatic failure: 5%  \n- Acute myelogenous leukemia: 9%  \n- Acute lymphoblastic leukemia: 9%  \n- Other: 57%\n\nEvidence:\n- **No leg swelling/arrhythmia/lightheadedness** lowers likelihood of overt heart failure/arrhythmia, but doesn’t rule out stress cardiomyopathy or anemia-related dyspnea.\n  - LR for “no leg swelling” against cardiogenic dyspnea: ~0.8\n\n**Question 7:**  \nHave you had a **recent major stressor** (emotional upset, severe pain, illness, surgery) in the days to weeks before symptoms started?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had a recent major stressor—emotional upset, severe pain, recent illness, or any surgery—in the days to weeks before your symptoms started? Patient: Yes, I had a significant stressful situation at work about a month ago, around the time this started. Doctor: Any recent viral or other infection, or have you taken any new medications or supplements during that period?",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “significant stressor”):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 28%\n- Fulminant hepatic failure: 5%\n- Acute myelogenous leukemia: 7%\n- Acute lymphoblastic leukemia: 7%\n- Other: 51%\n\nEvidence:\n- **Recent major stressor** increases likelihood of **Takotsubo cardiomyopathy**.\n  - Likelihood ratio for “stress preceding symptoms” favoring Takotsubo vs other causes: ~2.0\n\n**Question 8:**  \nHave you had any **viral-like illness** (sore throat, fever, cough, GI bug) in the last month, or any **new medications** (including chemo, antibiotics, steroids) or supplements?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any viral-like illness (sore throat, fever, cough, a “stomach bug”) in the last month, or started any new medications, antibiotics, steroids, chemo, or supplements? Patient: No—no fever, cough, or stomach bug, and I haven’t started any new medications or supplements.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “no viral illness/new meds”):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 30%\n- Fulminant hepatic failure: 5%\n- Acute myelogenous leukemia: 7%\n- Acute lymphoblastic leukemia: 7%\n- Other: 49%\n\nEvidence:\n- **No infection/meds** slightly lowers leukemia/fulminant hepatic failure triggers, and doesn’t explain ascites; keeps Takotsubo relatively higher.\n  - LR for “no infection/meds” against leukemia/fulminant hepatic failure: ~0.8\n\n**Question 9:**  \nWhen your abdomen feels distended, do you notice **early fullness when eating** or **loss of appetite**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—I get full quickly when I eat, and I’ve had less appetite because my stomach feels tight.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “early satiety”):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 26%\n- Fulminant hepatic failure: 5%\n- Acute myelogenous leukemia: 9%\n- Acute lymphoblastic leukemia: 9%\n- Other: 50%\n\nEvidence:\n- **Early satiety + abdominal distension** suggests intra-abdominal fluid/mass effect (e.g., ascites, hepatosplenomegaly, malignancy), which can coexist with systemic illness and anemia.\n  - LR for “early satiety” favoring malignancy/serosal process vs cardiac-only: ~1.3\n  - This slightly reduces Takotsubo relative to “other” causes.\n\n**Question 10:**  \nHave you noticed **feeling unusually cold**, **pale skin**, or **shortness of breath with minimal activity** that could suggest **anemia**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed feeling unusually cold, pale skin, or shortness of breath with minimal activity that could suggest anemia? Patient: Yes—I've been feeling more easily winded with minimal activity and I think I look paler than usual, and I do feel colder than others around me.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after “pallor/coldness/easily winded”):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 18%\n- Fulminant hepatic failure: 4%\n- Acute myelogenous leukemia: 16%\n- Acute lymphoblastic leukemia: 16%\n- Other: 45%\n\nEvidence:\n- **Anemia symptoms (pallor, cold intolerance, exertional dyspnea)** increase likelihood of **hematologic malignancy** (leukemia) causing marrow failure/anemia.\n  - LR for “anemia symptoms” favoring leukemia vs Takotsubo/other: ~1.8\n\n**Question 11:**  \nHave you had **frequent infections** (sore throat, fevers), **unusual bruising**, or **tiny red/purple spots on the skin** (petechiae) recently?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had frequent infections, but I have noticed a few small bruises and tiny red-purple spots on my skin.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after petechiae/bruising):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 10%\n- Fulminant hepatic failure: 4%\n- Acute myelogenous leukemia: 22%\n- Acute lymphoblastic leukemia: 22%\n- Other: 41%\n\nEvidence:\n- **Petechiae/tiny red-purple spots + bruising** strongly supports **thrombocytopenia**, common in **acute leukemia**.\n  - LR for “petechiae/bruising” favoring acute leukemia vs others: ~2.5\n\n**Question 12:**  \nHave you had **bone pain** (back, hips, long bones) or **headaches/vision changes**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had bone pain—like back, hips, or long-bone aches—or headaches or any vision changes? Patient: I’ve been having some aching in my lower back and hips, but no significant headaches or vision changes.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after bone/hip aching):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 7%\n- Fulminant hepatic failure: 3%\n- Acute myelogenous leukemia: 28%\n- Acute lymphoblastic leukemia: 24%\n- Other: 37%\n\nEvidence:\n- **Bone pain** can reflect marrow infiltration in leukemia.\n  - LR for “bone pain” favoring acute leukemia vs non-leukemia: ~1.5\n\n**Question 13:**  \nDo you have **swollen lymph nodes** (neck/armpit/groin lumps) or **feeling of fullness under the left ribs** (possible splenomegaly)?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any swollen lymph nodes in your neck, armpits, or groin, or feeling of fullness under your left ribs (as if your spleen is enlarged)? Patient: I’ve felt some fullness on the left side under my ribs, but I haven’t noticed any clear lumps in my neck or armpits.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (after left upper quadrant fullness):\n- Acute Mesenteric Ischemia: 1%\n- Takotsubo cardiomyopathy: 6%\n- Fulminant hepatic failure: 3%\n- Acute myelogenous leukemia: 30%\n- Acute lymphoblastic leukemia: 26%\n- Other: 34%\n\nEvidence:\n- **Splenomegaly symptoms (left rib fullness)** increase likelihood of hematologic malignancy (including acute leukemia) and can contribute to abdominal distension/early satiety.\n  - LR for “left upper quadrant fullness/splenomegaly” favoring acute leukemia vs others: ~1.4\n\n**Question 14:**  \nHave you had any **nosebleeds**, **gum bleeding**, or **blood in urine** (or very heavy menstrual bleeding if applicable)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any nosebleeds, gum bleeding, blood in your urine, or unusually heavy menstrual bleeding? Patient: I haven’t had nosebleeds or gum bleeding, and I don’t think there’s blood in my urine, but my periods have felt heavier than usual lately.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute myelogenous leukemia, Acute lymphoblastic leukemia, Takotsubo cardiomyopathy, Fulminant hepatic failure, Acute Mesenteric Ischemia",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Acute myelogenous leukemia",
+    "predicted_set": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Takotsubo cardiomyopathy",
+      "Fulminant hepatic failure",
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Takotsubo cardiomyopathy",
+      "Fulminant hepatic failure",
+      "Acute Mesenteric Ischemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Acute myelogenous leukemia",
+    "predicted_set_remapped": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 37115,
+      "completion_tokens": 2436
+    },
+    "patient": {
+      "prompt_tokens": 27824,
+      "completion_tokens": 833,
+      "calls": 15
+    }
+  }
+}

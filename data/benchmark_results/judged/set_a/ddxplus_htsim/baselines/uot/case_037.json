@@ -1,0 +1,74 @@
+{
+  "case_idx": 37,
+  "baseline": "uot",
+  "column": "htsim",
+  "ground_truth": "Pulmonary neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 45\nSex: M\nChief Complaint: involuntary weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had involuntary weight loss over the last 3 months, and I’ve also been coughing. I’ve been coughing up blood, and I have pain in my posterior chest wall on the right and left.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever or infectious symptoms** (e.g., fever, chills, productive cough, known exposure) suggesting an acute infection?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I do have a cough and I’ve been coughing up blood, and I’m exposed to secondhand cigarette smoke daily. I’m also a smoker (and a former smoker).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a persistent cough lasting more than 2 weeks?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pneumonia  , Tuberculosis",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia  ",
+    "predicted_set": [
+      "Pneumonia  ",
+      "Tuberculosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Tuberculosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

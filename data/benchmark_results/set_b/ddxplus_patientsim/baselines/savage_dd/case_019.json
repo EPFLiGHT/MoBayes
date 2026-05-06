@@ -1,0 +1,122 @@
+{
+  "case_idx": 19,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain in my chest—mostly lower, on the right side, and also upper chest. It feels burning, and I’ve also had significant trouble breathing, a cough with more colored sputum than usual, fever, nasal congestion/runny nose, and I hear wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with this. I’ll ask a few focused questions to narrow it down.\n\n**First question:** When did these symptoms start (how many hours/days ago), and has the breathing difficulty been getting steadily worse since then?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty recently—about 3/10 in speed, but I’d say around the last day or so. My breathing difficulty feels like it’s been getting a bit worse since it began.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Next question (one at a time):** Do you have any **chest pain that gets worse with deep breaths or coughing**, or is it more constant regardless of breathing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s related to my coughing and breathing—when I cough or take a deep breath it feels worse, not totally constant.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this helps.\n\n**Next question:** Have you noticed **any swelling or pain in one leg** (calf/thigh), or have you had any recent **long travel/immobility** or **recent surgery**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have swelling or pain in one leg. And I haven’t had recent travel or any surgery.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Next question:** Do you have a history of **asthma or COPD**, or have you ever needed inhalers/nebulizers before?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have COPD. I’ve had wheezing before, and I’ve used inhalers before, but today the wheezing is worse when I exhale.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Next question:** Have you been using your **rescue inhaler** (or nebulizer) today—if so, did it help, and for how long?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t used my rescue inhaler/nebulizer today yet. I haven’t tried it so I can’t say if it helped.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Next question:** Do you have a **measured fever** (what temperature), and is the colored sputum **yellow/green** or **rusty/bloody**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, but I don’t have the exact temperature. The sputum is colored—yellow/green, not rusty or bloody.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Next question:** Any **known heart history** (atrial fibrillation, coronary disease), or do you have **palpitations** or a sense of irregular heartbeat?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No known heart problems, and I don’t feel palpitations or an irregular heartbeat.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Bronchospasm / acute asthma exacerbation, Pulmonary embolism",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8603,
+      "completion_tokens": 337
+    },
+    "patient": {
+      "prompt_tokens": 7489,
+      "completion_tokens": 282
+    }
+  }
+}

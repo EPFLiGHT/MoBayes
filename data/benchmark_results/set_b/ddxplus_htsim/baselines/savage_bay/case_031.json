@@ -1,0 +1,169 @@
+{
+  "case_idx": 31,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Pancreatic neoplasm",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 30\nSex: M\nChief Complaint: involuntary weight loss",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had involuntary weight loss over the last 3 months, and I also have some skin lesions/redness that I think are related to the condition I’m consulting for.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I need a few focused details to narrow this down.\n\n**Current posterior (pre-test, based on weight loss + skin lesions):**\n- **Pulmonary neoplasm**: 0.25  \n- **Pancreatic neoplasm**: 0.20  \n- **SLE**: 0.15  \n- **Sarcoidosis**: 0.10  \n- **Anemia**: 0.10  \n(Other causes like TB/infection/other systemic disease remain possible but less likely without more specifics.)\n\n**Question 1 (one at a time):**  \nCan you describe the skin lesions/redness—are they **itchy or painful**, and do they look like **a rash (flat/red patches), raised bumps, ulcers, or a specific pattern (e.g., around eyes/cheeks, sun-exposed areas, or widespread)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—there is rash itching (severity 4 out of 10). The lesions are larger than 1 cm, and the rash color is yellow. I don’t have rash swelling (0 out of 10), and the pain caused by the rash is 0 out of 10.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—itchy, larger-than-1 cm lesions, yellow-colored, no swelling, no pain.\n\n**Update (Bayesian):**  \nYellow, pruritic, larger lesions raise concern for systemic inflammatory/autoimmune or infectious etiologies, and make some purely cardiac/respiratory causes less likely. Still, malignancy-related paraneoplastic rash remains possible.\n\n**Posterior after this evidence (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n(Anemia and other causes drop somewhat.)\n\n**Question 2 (one at a time):**  \nAre the skin lesions **on sun-exposed areas** (face/neck/hands), or **more on the trunk/limbs**, or **around the eyes**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Update:** If you’re unsure about distribution, that evidence can’t strongly shift probabilities, so we’ll keep the current ranking.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 3 (one at a time):**  \nDo the lesions look **ring-shaped** (like a circle), **scaly**, or **crusted/oozing**, or are they more like **flat red patches**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Update:** Lack of morphology detail limits discrimination, so posterior probabilities stay similar.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 4 (one at a time):**  \nHave you had **fever** or **night sweats** in the last 3 months?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Update:** Unknown fever/night sweats doesn’t help; keep broad differential.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 5 (one at a time):**  \nAny **shortness of breath, cough, or chest pain** during this 3-month period?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Update:** Still insufficient symptom detail to narrow respiratory vs non-respiratory causes.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 6 (one at a time):**  \nHave you noticed **swollen lymph nodes** (lumps in neck, armpits, or groin), or **unexplained fatigue**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "No worries.\n\n**Update:** Still limited history; we can’t confidently discriminate between autoimmune/inflammatory vs malignancy vs TB.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 7 (one at a time):**  \nDo you have any **mouth ulcers**, **hair loss**, or **joint pains/swelling**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Update:** With key discriminators (oral ulcers, arthritis, alopecia) unknown, we can’t confirm SLE.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 8 (one at a time):**  \nAny **unintentional fevers**, **chills**, or **coughing up blood**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Update:** Still too many unknowns; we can’t safely narrow further.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 9 (one at a time):**  \nHave you had any **recent new medications** (including antibiotics, anti-seizure meds, or supplements) in the last 3 months?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Update:** Medication history unknown doesn’t help; we’ll keep broad differential.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 10 (one at a time):**  \nDo you have any **swelling of the face/lips**, **trouble breathing**, or **hives** that come and go within hours?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Update:** Still no discriminating evidence for anaphylaxis/acute allergic causes.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 11 (one at a time):**  \nHave you had **any change in bowel habits** (diarrhea/constipation), **abdominal pain**, or **yellowing of the eyes/skin (jaundice)**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Update:** GI/hepatobiliary symptoms unknown—can’t shift pancreatic vs other causes.\n\n**Current posterior (approximate):**\n- **SLE**: 0.22  \n- **Sarcoidosis**: 0.18  \n- **Pulmonary neoplasm**: 0.18  \n- **Pancreatic neoplasm**: 0.15  \n- **TB**: 0.10  \n\n**Question 12 (one at a time):**  \nDo you have any **shortness of breath when lying flat**, **leg swelling**, or **sudden worsening breathing**?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "With so many “don’t know” responses, we’re missing the key discriminators (respiratory, cardiac, autoimmune, infectious, GI). I can’t responsibly narrow to a confident set.\n\n**[ABSTAIN]** Insufficient discriminating history (most symptom specifics are unknown), so posterior probabilities can’t be meaningfully updated to a confident diagnosis.  \n\n**[POSSIBLE]** SLE, Sarcoidosis, Pulmonary neoplasm, Pancreatic neoplasm, Tuberculosis",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** SLE",
+      "Sarcoidosis",
+      "Pulmonary neoplasm",
+      "Pancreatic neoplasm",
+      "Tuberculosis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23797,
+      "completion_tokens": 1815
+    },
+    "patient": {}
+  }
+}

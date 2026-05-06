@@ -1,0 +1,90 @@
+{
+  "case_idx": 8,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {
+    "AGE": 83,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "fatigue",
+    "EVIDENCES_ENG": "['poor diet', 'history of anemia', 'family history of anemia', 'pain', 'dizziness/lightheadedness', 'extreme fatigue', 'fatigue', 'chronic kidney failure', 'tarry stools', 'new oral anticoagulants (noacs)']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 83\n- I have a poor diet.\n- I have been diagnosed with anemia.\n- Some of my family members have been diagnosed with anemia.\n- I have pain somewhere related to my reason for consulting.\n- I feel lightheaded and dizzy or I feel like I am about to faint.\n- I am so tired that I am unable to do my usual activities or I am stuck in my bed all day long.\n- I constantly feel fatigued or I have non-restful sleep.\n- I have chronic kidney failure.\n- I have recently had stools that were black (like coal).\n- I am taking any new oral anticoagulants (NOACs).\n- On a scale of 0-10, the pain intensity is 4\n- On a scale of 0-10, the pain's location precision is 4\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The pain is:\n* sensitive\n* exhausting\n- The pain locations are:\n* back of head\n* forehead\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Anemia', 0.47387856714240645], ['Cluster headache', 0.27178315650711915], ['Chagas', 0.2543382763504744]]",
+    "PATHOLOGY": "Anemia",
+    "INITIAL_EVIDENCE": "fatig_mod",
+    "EVIDENCES": "['Mauv_aliment', 'atcd_anem', 'atcd_fam_anem', 'douleurxx', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_épuisante', 'douleurxx_endroitducorps_@_arrière_de_tête', 'douleurxx_endroitducorps_@_front', 'douleurxx_intens_@_4', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_4', 'douleurxx_soudain_@_5', 'faible', 'fatig_ext', 'fatig_mod', 'irc', 'melena', 'naco', 'trav1_@_N']",
+    "patient_id": "htsim_0289",
+    "_test_index": 289,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 83-year-old F patient presents to the clinic. Chief complaint: fatigue.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling extremely tired—I’m unable to do my usual activities or I’m stuck in my bed all day long. I also feel lightheaded and dizzy or like I’m about to faint.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thanks for coming in. A few quick questions: how long has this extreme fatigue and near-fainting been going on, and have you had any chest pain, shortness of breath, black/bloody stools, or recent falls?  \nDoctor: Also, do you have any known heart problems, take blood pressure/heart or diuretic meds, and have you noticed fever, cough, or weight loss?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on long enough that I’m unable to do my usual activities and I’m stuck in my bed all day long. I also feel lightheaded and dizzy or like I’m about to faint.\n\nI’ve recently had stools that were black (like coal). I don’t know how long that’s been going on.\n\nI haven’t told the doctor about chest pain or shortness of breath, or any fever, cough, or weight loss. I don’t know about recent falls.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—black “coal-like” stools suggest possible gastrointestinal bleeding, which can cause severe anemia and near-fainting; I need to know: have you had palpitations, shortness of breath with minimal exertion, or ever been told you’re anemic?  \nDoctor: REQUEST TEST: CBC_with_diff, CMP, Iron_studies, PT/INR, aPTT, and Type_and_Screen  \nDoctor: REQUEST TEST: Orthostatic_vital_signs + EKG",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I’ve been diagnosed with anemia.\n\nI don’t know about palpitations or shortness of breath with minimal exertion.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given severe fatigue, near-syncope, and recent black “coal-like” stools plus known anemia, I’m concerned for an upper GI bleed causing acute blood loss—right now: do you have ongoing dizziness when standing, any vomiting blood or coffee-ground material, and are you on aspirin/warfarin/clopidogrel/NSAIDs?  \nDoctor: REQUEST TEST: Stool_guaiac (if not already), Urgent repeat Hemoglobin/hematocrit, Lactate (if unstable), and consider Helicobacter_Pylori_testing; do you feel weak enough to be unable to sit up or do you have chest pressure?  \nDoctor: If you can answer quickly, tell me your current blood pressure/heart rate if you’ve checked them today, and whether you’ve had tarry stools daily or intermittently.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my current blood pressure or heart rate—I haven’t checked them today.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thank you; we need to check vitals immediately for safety: can you tell me if you’re having chest pressure, shortness of breath, or fainting right now, and do you take aspirin/warfarin/clopidogrel or any NSAIDs (ibuprofen/naproxen)?  \nDoctor: REQUEST TEST: Vital_signs_now (BP/HR/O2 sat) and repeat CBC_now; if vitals are unstable, also REQUEST TEST: Serial_Hemoglobins + Telemetry.  \nDoctor: If you confirm black tarry stools and blood thinners/NSAID use isn’t the issue, we’ll still treat this as an upper GI bleed until proven otherwise—are you currently on any blood thinners or do you have any history of ulcers/known stomach bleeding?  \nDoctor: DIAGNOSIS READY: Upper gastrointestinal bleeding causing acute blood-loss anemia (melena) with near-syncope.\n\n[DDX]\n1. Anemia",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1990,
+      "completion_tokens": 569,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 4063,
+      "completion_tokens": 195,
+      "calls": 4
+    }
+  }
+}

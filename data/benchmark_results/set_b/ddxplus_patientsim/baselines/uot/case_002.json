@@ -1,0 +1,89 @@
+{
+  "case_idx": 2,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 52\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and right posterior chest wall pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have severe chest pain on both sides—sharp, like a knife-stab feeling—and pain in the right back side of my chest. I also feel very short of breath, and I have left calf swelling; I even lost consciousness.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **wheezing or a history of asthma/COPD with shortness of breath that improves after bronchodilator**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have wheezing, and I don’t have a history of asthma or COPD. My shortness of breath doesn’t feel like it improves after any inhaler or bronchodilator.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain or pressure that is worse with exertion or does not go away at rest (lasting >10 minutes)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "The chest pain is very sharp and stabbing, and it doesn’t really go away. I can’t say it gets worse specifically with exertion, but it’s been persistent and severe even at rest, lasting more than 10 minutes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have shortness of breath that is sudden or out of proportion to exertion (especially with pleuritic chest pain)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my shortness of breath feels sudden and is out of proportion to what I’m doing. It also comes with pleuritic chest pain, like it hurts more when I breathe in.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently experiencing chest pain or pressure that is worse with exertion and/or does not go away with rest?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’m still having the chest pain now. It’s sharp and stabbing and doesn’t really go away even when I’m resting.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] NSTEMI  , STEMI",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "NSTEMI  ",
+    "predicted_set": [
+      "NSTEMI  ",
+      "STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4260,
+      "completion_tokens": 222
+    }
+  }
+}

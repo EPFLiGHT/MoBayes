@@ -1,0 +1,86 @@
+{
+  "case_idx": 9,
+  "baseline": "cot",
+  "column": "patientsim_v1",
+  "ground_truth": "Cluster headache",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 63\nSex: Female\nChief Complaint: I have haunting pain, a knife stroke pain, and tugging pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have very bad head pain—like a knife-stroke, tugging, violent, sharp pain. It’s on my forehead, left cheek, and right temple, and it started really fast (about 10/10). The intensity is around 7/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden-onset, very severe “knife-stroke/tugging/violent/sharp” head pain localized to forehead/left cheek/right temple; onset was rapid (seconds to minutes) with peak ~10/10, currently ~7/10. This pattern raises concern for primary headache syndromes (e.g., cluster headache) but also secondary causes of sudden severe head pain (e.g., meningitis/SAH) depending on associated symptoms. From the provided disease list, cluster headache is a notable match; others would depend on red flags (fever, neck stiffness, neuro deficits, visual symptoms, autonomic features).\nTop candidates (provisional):\n1) Cluster headache — can be extremely severe, sudden, unilateral/temporal; often involves temple/face pain and may have autonomic symptoms (tearing, nasal congestion).\n2) Panic attack — can cause intense distress and head pain, but “knife-stroke” facial/temple pain with rapid onset is less specific; would need anxiety symptoms and lack of neurologic/meningeal red flags.\n3) Acute dystonic reactions — can cause sudden head/neck pain/spasm, but usually includes abnormal muscle contractions/neck deviation.\n4) Pericarditis / myocarditis / cardiopulmonary causes — unlikely to present as focal facial/temple “knife” pain; would need chest symptoms.\n5) Other System Diseases / Neurological Diseases — broad",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it started really suddenly and fast—like it hit in seconds to minutes and the pain became very intense right away. It’s mainly in my forehead, left cheek, and right temple, and it feels like knife-stroke/tugging, violent, sharp pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: Sudden onset (seconds–minutes) with maximal intensity immediately; severe sharp “knife-stroke/tugging/violent” pain in forehead/left cheek/right temple. This strongly suggests a primary trigeminal-autonomic headache pattern (cluster headache) or a trigeminal neuralgia–type process, but we need discriminators (autonomic symptoms like tearing/nasal congestion, and whether it’s brief attacks vs continuous).\nTop candidates:\n1) Cluster headache — very severe unilateral temporal/facial pain; often sudden; may involve forehead/temple and can have autonomic features (tearing, red eye, nasal congestion, rhinorrhea, ptosis).\n2) Panic attack — can cause sudden intense symptoms, but the very focal facial/temple pain pattern is less typical; would need prominent anxiety/palpitations/tingling and absence of autonomic headache features.\n3) Acute dystonic reactions — sudden painful head/neck muscle spasm; would expect visible neck deviation/spasm or abnormal posture.\n4) Acute laryngitis/epiglottitis/croup — not consistent with facial/temple pain.\n5) Possible NSTEMI / STEMI / unstable angina — not consistent with focal facial pain; would need chest pain/diaphoresis.\nMost informative next question: ask about autonomic/cluster features.\n[/REASONING]\nDo you have any eye or nose symptoms on the same",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have any eye or nose symptoms like tearing/red eye or a runny/stuffy nose on the same side.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Sudden maximal facial/temple pain without ipsilateral tearing/red eye or runny/stuffy nose. That makes classic cluster headache less likely, but cluster can still occur without obvious autonomic symptoms; we should pivot to other sudden severe headache causes and trigeminal neuralgia vs secondary causes.\nTop candidates:\n1) Cluster headache — still possible but less supported without autonomic features.\n2) Panic attack — still possible if symptoms like palpitations, shortness of breath, fear, tingling; but we need to confirm.\n3) Acute dystonic reactions — if there’s neck/jaw muscle spasm or abnormal movements.\n4) Acute pulmonary edema / cardiopulmonary — unlikely without respiratory symptoms.\n5) Possible NSTEMI / STEMI / unstable angina — unlikely without chest symptoms.\nMost informative next question: determine duration/attack pattern (seconds vs minutes vs hours) and whether it’s triggered by touch/chewing (trigeminal neuralgia pattern).\n[/REASONING]\nHow long does each episode last—seconds, minutes, or hours—and is it triggered by touching your face, chewing, or brushing your teeth?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "The pain comes in episodes that start very fast. Each episode lasts a few minutes, and it can be triggered by touching my face or chewing, like it hits more when I move that area.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Recurrent episodes with very fast onset, lasting a few minutes; triggered by touching the face and chewing; sharp “knife-stroke/tugging” facial/temple pain. This is classic for trigeminal neuralgia (tic douloureux). Need to ask about any persistent baseline pain, neuro deficits, fever/meningismus, or immunosuppression to consider secondary causes (e.g., CNS lesion, MS, infection). From the list, closest is “Acute dystonic reactions” (less fitting) but trigeminal neuralgia isn’t explicitly listed; we’ll map to available options: cluster headache is less triggerable by touch/chewing; acute dystonic reactions don’t match trigger pattern; GERD/others irrelevant. We can still provide differential including cluster headache and acute dystonic reactions, and serious secondary headache causes (meningitis/SAH) but duration/triggering argues against those.\nMost informative next question: any neurologic symptoms (weakness, numbness, facial droop, vision changes) or persistent numbness between attacks?\n[/REASONING]\nBetween the sharp attacks, do you have any numbness, weakness, facial droop, or other neurologic symptoms—or is it completely normal between episodes?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Between the attacks I feel normal—no numbness, no weakness, no facial droop, and no vision problems.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: Paroxysmal, seconds-to-minutes, very sharp unilateral facial/temple pain triggered by touch/chewing; normal neurologic exam between attacks. This strongly supports trigeminal neuralgia (classic triggerable, brief electric/knife-like facial pain with normal baseline). In the provided list, the closest match is “Acute dystonic reactions” (but that typically involves visible muscle spasm and not touch/chewing-triggered brief neuralgic pain). Cluster headache is less likely because it’s usually not triggered by touch/chewing and often has autonomic eye/nose symptoms. Secondary causes (stroke, mass, meningitis) are less likely given normal between attacks and no neuro deficits, but still must be considered clinically.\nGiven the mismatch with the provided disease list, I will abstain from forcing an incorrect list item and instead give the best candidate diagnoses.\nTop candidates:\n- Trigeminal neuralgia (best fit; not explicitly in list)\n- Cluster headache (possible but less likely due to touch/chewing triggers and no autonomic symptoms)\n- Acute dystonic reactions (less likely; would expect abnormal movements/neck/jaw spasm)\n- Panic attack (unlikely given focal triggerable facial pain and normal between episodes)\n- Possible NSTEMI/unstable angina (unlikely without chest symptoms)\nNext action not needed; we have enough pattern information.\n[/REASONING]\n[ABSTAIN]",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7290,
+      "completion_tokens": 1406
+    },
+    "patient": {
+      "prompt_tokens": 6303,
+      "completion_tokens": 217
+    }
+  }
+}

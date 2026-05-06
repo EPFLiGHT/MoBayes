@@ -1,0 +1,221 @@
+{
+  "case_idx": 42,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Multiple system atrophy",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old male",
+    "History": "The patient has been experiencing a gradual difficulty in walking over the past 3 months, requiring wheelchair assistance for the last month. Additionally, there is a history of urinary incontinence for 1 year and recent onset of speech slurring making communication challenging.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive difficulty walking",
+      "Secondary_Symptoms": [
+        "Urinary incontinence",
+        "Slurred speech",
+        "Rigidity in limbs",
+        "Mild hand tremor",
+        "Orthostatic hypotension"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable. No known chronic diseases.",
+    "Social_History": "Occasionally consumes alcohol. Non-smoker. Works as a bank clerk.",
+    "Review_of_Systems": "Denies recent infections, fever, weight loss, vision changes or seizures."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive difficulty walking, urinary incontinence, and speech difficulties.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor, over the past three months I’ve had gradually worsening difficulty walking, and for the past month I’ve needed a wheelchair. I also have urinary incontinence for about a year and new slurred speech that makes it hard to communicate, along with stiffness in my limbs, mild hand tremor, and dizziness when I stand.",
+      "extracted_features": {
+        "f_urinary_incontinence_d51fa8e3": "yes",
+        "f_dizziness_d46bbf33": "yes",
+        "f_unsteady_gait_b79befe8": "yes",
+        "f_progressive_gait_difficulty_b203b5af": "yes",
+        "f_functional_decline_0b73539a": "yes",
+        "f_poor_articulation_882d7063": "yes",
+        "f_tremor_816a876b": "yes",
+        "f_stiffness_086e8b52": "yes",
+        "f_rigidity_7ab8fa13": "yes",
+        "f_impaired_coordination_fd7a6941": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Multiple system atrophy",
+          0.5738184385760697
+        ],
+        [
+          "Parkinson disease",
+          0.3543250467710158
+        ],
+        [
+          "Huntington disease",
+          0.034815508899575014
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.018457096844693138
+        ],
+        [
+          "Lambert-Eaton Syndrome",
+          0.010893656623261373
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "I would say no—I haven’t noticed any uncontrollable twitching, jerking, or involuntary movements that I can’t stop, though I do have a mild hand tremor.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Multiple system atrophy",
+          0.7565828494888591
+        ],
+        [
+          "Parkinson disease",
+          0.18481829290342155
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.02433578634855691
+        ]
+      ],
+      "entropy": 1.143907360139427
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt and feels like it moves when you touch it**? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any lump or swelling in my right breast.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Multiple system atrophy",
+          0.7568073663044447
+        ],
+        [
+          "Parkinson disease",
+          0.18487313794070026
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.02434300802065725
+        ]
+      ],
+      "entropy": 1.141232081370403
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No, pressing or tapping around my belly button doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Multiple system atrophy",
+          0.759419377341616
+        ],
+        [
+          "Parkinson disease",
+          0.18551120080620273
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.022453123427271883
+        ]
+      ],
+      "entropy": 1.1196812430772778
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Multiple system atrophy",
+          0.7655723099030584
+        ],
+        [
+          "Parkinson disease",
+          0.18701424107882314
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.017660307561299885
+        ]
+      ],
+      "entropy": 1.06795920617438
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, I haven’t noticed any lump or mass in my right breast—no new or growing area that I can feel.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Multiple system atrophy",
+          0.7655962841781595
+        ],
+        [
+          "Parkinson disease",
+          0.18702009752217336
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.017660860602555922
+        ]
+      ],
+      "entropy": 1.0675081634774024
+    }
+  ],
+  "final": {
+    "predicted": "Multiple system atrophy",
+    "predicted_top3": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Progressive multifocal leukoencephalopathy"
+    ],
+    "confidence": 0.7655962841781595,
+    "final_entropy": 1.0675081634774024,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Multiple system atrophy",
+    "predicted_set_remapped": [
+      "Multiple system atrophy",
+      "Parkinson disease",
+      "Progressive multifocal leukoencephalopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10361,
+      "completion_tokens": 374
+    },
+    "patient": {
+      "prompt_tokens": 2915,
+      "completion_tokens": 186,
+      "calls": 6
+    }
+  }
+}

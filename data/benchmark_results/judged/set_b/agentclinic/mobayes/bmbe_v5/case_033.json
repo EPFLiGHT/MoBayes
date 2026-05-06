@@ -1,0 +1,127 @@
+{
+  "case_idx": 33,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Progressive multifocal leukoencephalopathy",
+  "patient_actor_hidden": {
+    "Demographics": "44-year-old male",
+    "History": "The patient's daughter reports a 1-week history of right leg weakness, unsteady gait, and multiple falls. Over the past 6 months, the patient has been increasingly forgetful, losing his way on familiar routes and facing difficulties operating simple kitchen appliances. He has also been paranoid, agitated, and restless recently.",
+    "Symptoms": {
+      "Primary_Symptom": "Right leg weakness and unsteady gait",
+      "Secondary_Symptoms": [
+        "Forgetfulness",
+        "Paranoid and agitated behavior",
+        "Difficulty in using kitchen appliances"
+      ]
+    },
+    "Past_Medical_History": "Known history of HIV, hypertension, and type 2 diabetes mellitus. Noncompliance with medications for over 2 years.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "The patient is somnolent and slightly confused, oriented to person but not to place or time. Mild lymphadenopathy is noted."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with right leg weakness, unsteady gait, multiple falls, forgetfulness, and paranoid behavior.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Over the past week my right leg has felt weak and my walking has been unsteady—I’ve fallen a few times. For months before that, I’ve been more forgetful, gotten lost on familiar routes, trouble using simple things in the kitchen, and recently I’ve felt paranoid and restless.”",
+      "extracted_features": {
+        "f_right_leg_weakness_40c0b9c9": "yes",
+        "f_unsteady_gait_b79befe8": "yes",
+        "f_impaired_coordination_fd7a6941": "yes",
+        "f_fractures_after_minor_trauma_9dcefc97": "no",
+        "f_early_forgetfulness_a2fd907b": "yes",
+        "f_memory_impairment_402f40c9": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_functional_decline_0b73539a": "yes",
+        "f_agitation_10f6de33": "yes",
+        "f_irritability_59eb7ace": "yes",
+        "f_anxiety_history_2aeb613e": "yes",
+        "f_progressive_gait_difficulty_b203b5af": "yes",
+        "f_difficulty_concentrating_997cc4a5": "yes",
+        "f_cognitive_decline_879a9972": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Huntington disease",
+          0.39390643106171525
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.3505119198009156
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.1286988844562337
+        ],
+        [
+          "Parkinson disease",
+          0.07610643152883954
+        ],
+        [
+          "Toxic exposure",
+          0.016092604433455938
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden uncontrollable movements that you can’t stop? (Yes or no)",
+      "patient_answer": "“No, I haven’t noticed any twitching, jerking, shaking, or sudden movements I couldn’t control.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.5555112649295089
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.20396932617842556
+        ],
+        [
+          "Huntington disease",
+          0.10976445877356479
+        ]
+      ],
+      "entropy": 2.08105840442356
+    }
+  ],
+  "final": {
+    "predicted": "Progressive multifocal leukoencephalopathy",
+    "predicted_top3": [
+      "Progressive multifocal leukoencephalopathy",
+      "Fulminant hepatic failure",
+      "Huntington disease"
+    ],
+    "confidence": 0.5555112649295089,
+    "final_entropy": 2.08105840442356,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Progressive multifocal leukoencephalopathy",
+    "predicted_set_remapped": [
+      "Progressive multifocal leukoencephalopathy",
+      "Fulminant hepatic failure",
+      "Huntington disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9806,
+      "completion_tokens": 347
+    },
+    "patient": {
+      "prompt_tokens": 784,
+      "completion_tokens": 89,
+      "calls": 2
+    }
+  }
+}

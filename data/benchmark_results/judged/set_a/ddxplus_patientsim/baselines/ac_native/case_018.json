@@ -1,0 +1,84 @@
+{
+  "case_idx": 18,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Epiglottitis",
+  "objective_for_doctor": "A 8-year-old Male patient presents to the clinic. Chief complaint: I have a fever, pain that improves when you lean forward, and a knife stroke pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I have a fever and my throat hurts a lot—like a sharp “knife-stroke” pain in my tonsils and the back of my mouth. It gets better when I lean forward, but it hurts to swallow, my voice is hoarse, and I’m having trouble breathing. Also, I’m making more saliva than usual.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you tell me when these symptoms started and whether you have any drooling, muffled “hot potato” voice, or trouble opening your mouth?  \nDoctor: Also, do you have a cough, runny nose, or any one-sided throat swelling?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—like within a few hours. Yes, I’m drooling more than usual. My voice is hoarse, but I don’t know if it’s “hot potato”—it just sounds different. I can open my mouth, but the throat pain is very bad.\n\nI don’t have a cough or runny nose. I also don’t know about one-sided swelling—I feel pain on both sides of my tonsils.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a deep throat infection—could you check if swallowing is impossible (can you manage liquids), and do you have a high fever/does breathing feel worse when lying flat?  \nDoctor: Also, do you have any neck swelling or stiffness, and has your temperature been measured (number)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I can swallow liquids, but it’s really hard and it hurts a lot—so it feels almost impossible because of the pain. My breathing feels very bad, but I’m not sure about whether it gets worse when I lie flat.\n\nI don’t know about neck swelling or stiffness. My temperature has been measured, but I don’t have the number with me.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your throat and neck now—can you sit up, open wide, and stick your tongue out; also, is your breathing noisy (like a high-pitched sound) or are you struggling to swallow your own saliva?  \nDoctor: While we do that, I need a quick answer: do you have a rash or severe headache/neck stiffness, and can you report your highest measured temperature number if you can find it?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I can sit up and open wide. I can stick my tongue out, and I’m struggling because it hurts, but I’ll try.\n\nMy breathing feels hard and fast, and I am swallowing my saliva a lot because I feel like I can’t keep up. No rash that I know of, and I don’t know about severe headache or neck stiffness. I don’t have the highest temperature number with me.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Your drooling, very fast onset sore throat with “knife-stroke” pain that improves leaning forward, hoarseness, and worsening breathing/stridor raise concern for a deep neck infection (especially peritonsillar/parapharyngeal abscess); I’m going to request urgent tests to confirm and guide treatment—REQUEST TEST: CBC_with_diff; REQUEST TEST: Neck_CT_with_contrast_or_neck_ultrasound.  \nDoctor: While we wait, can you tell me if your breathing is noisy/high-pitched (stridor) and whether the uvula or tonsil area looks shifted to one side on your exam (even if it’s hard to tell)?  \nDoctor: If you’re having significant breathing difficulty, you need immediate ER care—stay sitting upright and don’t eat or drink.  \nDoctor: DIAGNOSIS READY: Suspected deep neck space infection—peritonsillar/parapharyngeal abscess (needs urgent imaging and IV antibiotics)\n\n[ABSTAIN] free-text diagnosis 'Suspected deep neck space infection—peritonsillar/parapharyngeal abscess (needs urgent imaging and IV antibiotics)' did not map to the closed disease set",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2056,
+      "completion_tokens": 427,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3539,
+      "completion_tokens": 327
+    }
+  }
+}

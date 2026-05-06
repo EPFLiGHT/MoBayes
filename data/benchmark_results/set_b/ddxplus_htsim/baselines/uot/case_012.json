@@ -1,0 +1,96 @@
+{
+  "case_idx": 12,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiolitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: F\nChief Complaint: expiratory wheezing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have expiratory wheezing, shortness of breath, and a fever. I also have nasal congestion or a clear runny nose.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) or chills?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a high fever (≥ 38.5°C) with a new cough or sore throat starting within the last 7 days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have a fever (≥38°C) and cough?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever (≥38°C).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **wheezing** (or a history of asthma/COPD with wheeze) during the illness?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have noticed wheezing when I exhale.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever or chills (suggesting an infection)?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection, Bronchitis  ",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Bronchitis  "
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {}
+  }
+}

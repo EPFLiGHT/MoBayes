@@ -1,0 +1,84 @@
+{
+  "case_idx": 16,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Cluster headache",
+  "objective_for_doctor": "A 8-year-old Female patient presents to the clinic. Chief complaint: I have a knife stroke pain, tugging pain, and violent pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a really bad headache pain—like a knife stroke, tugging, and violent sharp pain. It’s mostly in my forehead and around my temples (right and left), and I also feel it in my right cheek; my pain is about 8/10 and started very fast. I also have a clear runny nose or nasal congestion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when the pain started very fast, did you also have nausea/vomiting, light or sound sensitivity, or tearing/redness of your eye on either side?  \nDoctor: Any fever, stiff neck, weakness/numbness, rash, or has she had any recent head injury or new medicines?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have nausea or vomiting, and I don’t think I have light or sound sensitivity. I also haven’t noticed tearing or redness of my eye.  \n\nNo fever, no stiff neck, no weakness or numbness, and no rash. No recent head injury, and I’m not sure about any new medicines.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few targeted questions—does she have one-sided facial pain with nasal congestion and/or a droopy eyelid or smaller pupil on that same side, and does it come in repeated attacks lasting 15–180 minutes? Also, is there any dental pain or pain worse when chewing?  \nDoctor: REQUEST TEST: Vital_signs_and_neuro_exam (including eye exam: pupils, tearing/redness)  \nDoctor: If you can, tell me whether the runny nose/congestion and facial pain are mainly on the same side each time, and how long each “knife-like” episode lasts.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I think it’s on the same side—right cheek and right temple feel worse with the nasal congestion, and the episodes come in repeated attacks. Each knife-like episode lasts maybe around 30–60 minutes, and it happens again after a while.  \n\nI don’t have dental pain, and I don’t think it’s worse when chewing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on one-sided temple/cheek pain with congestion, repeated attacks lasting 30–60 minutes, and no nausea/vomiting or red tearing eye, I want to check for headaches that “hit” with restlessness—does she feel unable to lie still or pace during the attacks? Also, does she have any nighttime awakenings or pain with exercise/cough?  \nDoctor: REQUEST TEST: CBC_and_inflammatory_markers (to rule out infection)  \nDoctor: REQUEST TEST: Sinus_evaluation (exam +/- consider CT_or_MRI_or_Xray_sinuses depending on findings)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, during the attacks I feel really restless—like I can’t stay still and I need to pace. I don’t know about nighttime awakenings, and I don’t think it’s worse with exercise or coughing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This pattern—severe, unilateral “knife-like” temple/cheek pain in attacks lasting ~30–60 minutes, with restlessness, and accompanying ipsilateral nasal congestion—fits best with cluster headache (trigeminal autonomic–type).  \nDoctor: DIAGNOSIS READY: Cluster headache (trigeminal autonomic cephalalgia type)\n\n[DDX]\n1. Cluster headache",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Cluster headache",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Cluster headache",
+    "predicted_set_remapped": [
+      "Cluster headache",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2107,
+      "completion_tokens": 404,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3369,
+      "completion_tokens": 261
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "case_idx": 4,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Female\nChief Complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and swelling in one or more areas of your body",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I had a severe allergic reaction. I ate or came into contact with something I’m allergic to, and then I got lightheaded/near-fainting, felt very nauseous, had diarrhea, and my face and neck started swelling with a pink itchy rash (including around my mouth/throat area) and some breathing trouble with a noisy sound.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, based on your description):  \n- Anaphylaxis: 0.70  \n- Anaphylaxis vs other causes (e.g., Panic attack): 0.10  \n- Acute dystonic reactions: 0.05  \n- Acute laryngitis/epiglottitis: 0.05  \n- GERD: 0.05  \n\nEvidence so far: **rapid onset after exposure + multi-system symptoms (GI + skin swelling/rash + near-syncope + breathing trouble/noisy sound)** strongly favors anaphylaxis. Likelihood ratio for anaphylaxis given this pattern is very high (≈10–30).\n\n**Question 1 (one-at-a-time):**  \nDid you have **hives/itchy raised welts** all over (or just facial/neck swelling), and did the symptoms start **within minutes to 1 hour** after the exposure?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my skin got a pink, very itchy rash, and there were raised areas/welts, not only just swelling in my face and neck. It started very fast, within minutes after I had the exposure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):  \n- **Anaphylaxis: 0.92**  \n- Acute laryngitis/epiglottitis: 0.03  \n- Acute dystonic reactions: 0.02  \n- Panic attack: 0.02  \n- GERD: 0.01  \n\nEvidence: **generalized itchy urticarial rash + rapid onset (minutes) + airway symptoms + near-fainting**.  \nLikelihood ratio for anaphylaxis with this combination is extremely strong (≈20–50), pushing anaphylaxis to dominate.\n\n**Question 2:**  \nRight now (or at the worst point), did you have **any measurable breathing compromise** such as **wheezing**, **throat tightness**, **hoarse voice**, or **trouble swallowing**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I felt my throat/upper airway was tight and it was hard to breathe, and I had a noisy sound when breathing. My voice felt affected and I was also having trouble swallowing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):  \n- **Anaphylaxis: 0.97**  \n- Epiglottitis/other upper airway infection: 0.01  \n- Acute dystonic reactions: 0.01  \n- Panic attack: 0.01  \n\nEvidence: **throat tightness + hoarse/voice change + dysphagia + noisy breathing** is classic for **upper airway involvement** in anaphylaxis. Likelihood ratio for anaphylaxis vs infection given rapid onset is very high (≈10–20).\n\n**Question 3:**  \nDid you ever have **vomiting**, **abdominal cramping**, or **a drop in blood pressure**/feeling like you might pass out when standing? (Even “yes, I nearly fainted” counts.)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I had strong nausea and felt like I might vomit, with crampy stomach/epigastric pain and diarrhea. I also got lightheaded/near-fainted, like my blood pressure might drop when I stood up.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):  \n- **Anaphylaxis: 0.995**  \n- Panic attack: 0.002  \n- GERD: 0.001  \n- Acute dystonic reactions: 0.001  \n\nEvidence: **GI symptoms (cramps/diarrhea), near-syncope/orthostasis** plus **urticarial rash + airway symptoms** makes anaphylaxis overwhelmingly likely. Likelihood ratio for anaphylaxis with multi-system involvement is very large (≈5–20).\n\n**Question 4:**  \nDo you have any history of **asthma**, and did you have **wheezing** (chest tightness with whistling) or was the noise mainly from the throat/upper airway?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a history of asthma. The noise felt more like it was from my throat/upper airway (tight throat, trouble swallowing, noisy breathing), not really chest wheezing.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated):  \n- **Anaphylaxis: 0.997**  \n- Epiglottitis/other upper airway infection: 0.002  \n- Bronchospasm/acute asthma exacerbation: 0.0005  \n- Panic attack: 0.0005  \n\nEvidence: **no asthma history + upper-airway predominant symptoms + rapid onset after exposure** strongly supports anaphylaxis over asthma/epiglottitis.\n\n**Question 5:**  \nWhat was the suspected trigger (food, medication, insect sting, latex, etc.), and how long after exposure did symptoms start—**minutes** or longer?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It was a food trigger—something I’m allergic to. Symptoms started within minutes after I ate or came into contact with it.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Anaphylaxis, Acute laryngitis, Acute pulmonary edema, Bronchospasm / acute asthma exacerbation, Panic attack",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Acute laryngitis",
+      "Acute pulmonary edema",
+      "Bronchospasm / acute asthma exacerbation",
+      "Panic attack"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8298,
+      "completion_tokens": 841
+    },
+    "patient": {
+      "prompt_tokens": 8899,
+      "completion_tokens": 287
+    }
+  }
+}

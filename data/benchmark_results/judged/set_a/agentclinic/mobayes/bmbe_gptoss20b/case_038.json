@@ -1,0 +1,268 @@
+{
+  "case_idx": 38,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Neuroleptic Malignant Syndrome",
+  "patient_actor_hidden": {
+    "Demographics": "22-year-old male",
+    "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status",
+      "Secondary_Symptoms": [
+        "Paranoia",
+        "Attempted assault",
+        "Somnolence",
+        "Non-responsive",
+        "Autonomic dysregulation",
+        "Muscle rigidity"
+      ]
+    },
+    "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+    "Social_History": "Recently started college. Known history of substance use.",
+    "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+  },
+  "objective_for_doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I don’t know why I’m here—I feel like I’m being watched, so I can’t talk about it. I’m very sleepy and not able to respond properly, and my body feels stiff with worsening sweating and other body changes. I don’t want to be touched or interfered with.",
+      "extracted_features": {
+        "f_drowsiness_420d2bd9": "yes",
+        "f_altered_mental_status_f460088f": "yes",
+        "f_confusion_c52e29d9": "yes",
+        "f_muscle_rigidity_710ca10d": "yes",
+        "f_profuse_sweating_8ae10c5c": "yes",
+        "f_paranoia_a9786791": "yes",
+        "f_agitation_10f6de33": "yes",
+        "f_anxiety_d3af37c0": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8792196467228565
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08838004717180524
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.010623099264030997
+        ],
+        [
+          "Factitious disorder",
+          0.0023113936360695114
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.002165782571508865
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Have you noticed any swelling in your joints?",
+      "patient_answer": "“No, I haven’t noticed any joint swelling, but my muscles feel stiff and I’m sweating a lot. I’m too out of it to answer much else, and I don’t want anyone touching me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8796134995990031
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08841963766082846
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.010627857959101485
+        ]
+      ],
+      "entropy": 0.755338711670099
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Have you noticed any bumps, sores, or unusual growths on your scalp?",
+      "patient_answer": "“No, I haven’t noticed any bumps, sores, or unusual growths on my scalp. I’m just really out of it and sweating a lot, and my muscles feel stiff—please don’t touch me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8800548065191264
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08846399827829542
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.010633190013765923
+        ]
+      ],
+      "entropy": 0.7499017824863665
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itching or discomfort in your skin lately?",
+      "patient_answer": "“No, I’m not itching—my skin just feels hot and I’m sweating a lot. I feel very stiff and out of it, and I don’t want anyone touching or interfering with me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.8816270039490128
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.08862203715235227
+        ],
+        [
+          "Frontotemporal Dementia",
+          0.010652185960253923
+        ]
+      ],
+      "entropy": 0.7319609812144153
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_raising_arms_overhead_d93533c5",
+      "doctor_question": "Do you have any trouble raising your arms above your head?",
+      "patient_answer": "“I can’t really raise my arms over my head—I feel very stiff and my body won’t cooperate.” “I’m very sleepy and I’m sweating a lot, and I don’t want to be touched or examined.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9779165875362518
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.014043023339534534
+        ],
+        [
+          "Adhesive capsulitis",
+          0.002103244113279176
+        ]
+      ],
+      "entropy": 0.20166925760774343
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_painless_vision_loss_97e17a49",
+      "doctor_question": "Have you noticed any loss of vision that isn’t accompanied by pain?",
+      "patient_answer": "“No, I haven’t noticed any vision loss or anything like that—my main issue is that I’m really sleepy, my body feels stiff, and I’m sweating a lot. Please don’t touch me, and I don’t want to be interfered with.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9779839925165152
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.014043991284779667
+        ],
+        [
+          "Adhesive capsulitis",
+          0.002103389083852078
+        ]
+      ],
+      "entropy": 0.20065502818975187
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_severe_hyperthermia_b928b55e",
+      "doctor_question": "Have you been feeling an extremely high fever—so hot that it feels like you’re burning or that your body temperature is above 104°F (40°C)?",
+      "patient_answer": "“I don’t know the number, but I feel extremely hot—like I’m burning—and I’ve been sweating a lot. Please don’t touch me; I’m very sleepy, stiff, and not able to respond much.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9947472329679008
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.003350735344504197
+        ],
+        [
+          "Adhesive capsulitis",
+          0.00050184452578988
+        ]
+      ],
+      "entropy": 0.05879767915736391
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "Have you been feeling unusually stressed or overwhelmed lately?",
+      "patient_answer": "“I feel overwhelmed and on edge because I think I’m being watched, so I won’t talk much. I’m very sleepy and my muscles feel stiff, and I’m sweating a lot. Please don’t touch me—I don’t want to be interfered with.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.9919561586187355
+        ],
+        [
+          "Brief Psychotic Disorder",
+          0.00598257862937124
+        ],
+        [
+          "Adhesive capsulitis",
+          0.000500436444081502
+        ]
+      ],
+      "entropy": 0.08134074375022196
+    }
+  ],
+  "final": {
+    "predicted": "Neuroleptic Malignant Syndrome",
+    "predicted_top3": [
+      "Neuroleptic Malignant Syndrome",
+      "Brief Psychotic Disorder",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.9919561586187355,
+    "final_entropy": 0.08134074375022196,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Neuroleptic Malignant Syndrome",
+    "predicted_set_remapped": [
+      "Neuroleptic Malignant Syndrome",
+      "Brief Psychotic Disorder",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8192,
+      "completion_tokens": 2636
+    },
+    "patient": {
+      "prompt_tokens": 4357,
+      "completion_tokens": 404,
+      "calls": 8
+    }
+  }
+}

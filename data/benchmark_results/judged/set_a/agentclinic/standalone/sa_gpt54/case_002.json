@@ -1,0 +1,116 @@
+{
+  "case_idx": 2,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for my annual checkup, and I’ve also noticed a rough, scaly, sandpaper-like plaque on the back of my left hand. It hasn’t been painful or tender.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long has that rough, scaly plaque on the back of your left hand been there?\nHow long has that rough, scaly plaque on the back of your left hand been there?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I first noticed it about a few months ago, and it hasn’t hurt or felt tender.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Has it changed over time—such as getting larger, thicker, bleeding, crusting, or not healing?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It seems to have slowly gotten a bit more noticeable and slightly thicker, but it hasn’t been bleeding or crusting, and it doesn’t seem to fully go away. It’s still not painful or tender.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you spend a lot of time in the sun, or have you had significant sun exposure over the years?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I do spend time outdoors and I’ve enjoyed sunbathing over the years, so I think I’ve had fairly significant sun exposure. I don’t use tobacco or alcohol, and I’ve mostly kept to my regular diet and walking.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any prior skin cancers or precancerous spots treated before, or any history of immunosuppression?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any prior skin cancers or precancerous spots treated, and I’m not immunosuppressed. I take metformin for my diabetes and losartan for my blood pressure, and I don’t take any other regular medications that would weaken my immune system.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic keratosis, squamous cell carcinoma in situ (Bowen disease), early cutaneous squamous cell carcinoma, seborrheic keratosis, superficial basal cell carcinoma\n\nMost likely this is **actinic keratosis** given the rough “sandpaper-like,” slowly thickening, non-tender plaque on a **sun-exposed area** with significant cumulative sun exposure.\n\nFeatures supporting this:\n- Rough, scaly texture\n- Dorsum of the hand is a classic sun-exposed site\n- Slow development over months\n- No pain or tenderness\n- Significant chronic sun exposure\n\nWhy the others remain on the differential:\n- **SCC in situ / early SCC**: can present as a persistent scaly plaque and is important not to miss\n- **Seborrheic keratosis**: can be scaly/thickened, though usually has a more “stuck-on” look\n- **Superficial BCC**: less likely on the dorsal hand and less classically sandpapery, but persistent plaques can vary\n\nThis lesion should be examined in person, and if it looks typical, treatment such as **cryotherapy** may be considered. If it has any concerning features on exam—induration, marked hyperkeratosis, ulceration, rapid growth, or diagnostic uncertainty—it may need **biopsy** to rule out SCC.",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Actinic keratosis",
+    "predicted_set": [
+      "Actinic keratosis",
+      "squamous cell carcinoma in situ (Bowen disease)",
+      "early cutaneous squamous cell carcinoma",
+      "seborrheic keratosis",
+      "superficial basal cell carcinoma\n\nMost likely this is **actinic keratosis** given the rough “sandpaper-like"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Actinic Keratosis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1999,
+      "completion_tokens": 413
+    },
+    "patient": {
+      "prompt_tokens": 2257,
+      "completion_tokens": 244,
+      "calls": 5
+    }
+  }
+}

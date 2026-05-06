@@ -1,0 +1,172 @@
+{
+  "case_idx": 29,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 77\nSex: Male\nChief Complaint: I have significant dyspnea and your heart is beating very irregularly or in a disorganized pattern",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have significant trouble breathing, and it feels like my heart is beating very irregularly, like disorganized. I have severe COPD, diabetes, I’m overweight, and I have high blood pressure and a known heart defect.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, based on your history only):**\n- **Pulmonary embolism:** 20%\n- **Atrial fibrillation:** 20%\n- **Acute COPD exacerbation / infection:** 25%\n- **Acute pulmonary edema:** 15%\n- **Possible NSTEMI / STEMI:** 20%\n\n**Question 1 (most discriminating):**  \nWhen did the breathing trouble and the “irregular heartbeat” start—**suddenly (minutes to hours)** or **gradually (over days)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly—within a few hours. I noticed the breathing got much worse and my heart felt very irregular right away, not gradually over days.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with new evidence (sudden onset within hours):**  \nSudden dyspnea + sudden onset of irregular rhythm increases likelihood of **pulmonary embolism, atrial fibrillation with rapid ventricular response, acute pulmonary edema, and acute coronary syndromes**; it makes slow infectious COPD flares less likely.\n\n**Posterior now:**\n- **Pulmonary embolism:** 30%\n- **Atrial fibrillation:** 25%\n- **Acute pulmonary edema:** 20%\n- **Possible NSTEMI / STEMI:** 15%\n- **Acute COPD exacerbation / infection:** 10%\n\n**Question 2:**  \nDo you have **chest pain**—and if yes, is it **pressure/tightness** or **sharp/pleuritic** (worse when you take a deep breath or cough)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain. I mainly feel the shortness of breath and that my heartbeat is very irregular.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No chest pain shifts away from acute coronary syndrome somewhat, and keeps PE/AF/pulmonary edema higher.\n\n**Posterior now:**\n- **Pulmonary embolism:** 33%\n- **Atrial fibrillation:** 28%\n- **Acute pulmonary edema:** 22%\n- **Possible NSTEMI / STEMI:** 7%\n- **Acute COPD exacerbation / infection:** 10%\n\n**Question 3:**  \nDo you have **new/worsening leg swelling or pain** (especially one-sided), or any **recent long travel / being bedridden / surgery** in the last few weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have new leg swelling or leg pain that I’m aware of. And I haven’t had recent long travel or been bedridden, and no recent surgery.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No leg swelling/pain and no recent immobilization lowers PE somewhat, but doesn’t rule it out (PE can occur without these).\n\n**Posterior now:**\n- **Pulmonary embolism:** 25%\n- **Atrial fibrillation:** 30%\n- **Acute pulmonary edema:** 25%\n- **Possible NSTEMI / STEMI:** 10%\n- **Acute COPD exacerbation / infection:** 10%\n\n**Question 4:**  \nWhen you feel short of breath, do you also have **wheezing** or a **cough with increased sputum** (more than usual for your COPD)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I do have COPD, but today it’s mostly the severe shortness of breath and I’m not sure about wheezing or a cough with more sputum than usual. I haven’t noticed a big change in sputum.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Less evidence for COPD flare (no clear increased sputum/wheezing), so PE/AF/pulmonary edema remain more likely.\n\n**Posterior now:**\n- **Atrial fibrillation:** 33%\n- **Acute pulmonary edema:** 27%\n- **Pulmonary embolism:** 22%\n- **Acute COPD exacerbation / infection:** 10%\n- **Possible NSTEMI / STEMI:** 8%\n\n**Question 5:**  \nHave you noticed **worsening when lying flat** (needing extra pillows) or **waking up at night gasping**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel worse when I lie flat, and I’ve needed more pillows tonight. I also woke up a couple times feeling like I was gasping.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Orthopnea and paroxysmal nocturnal dyspnea strongly support **acute pulmonary edema/heart failure** over PE and COPD.\n\n**Posterior now:**\n- **Acute pulmonary edema:** 55%\n- **Atrial fibrillation:** 25%\n- **Pulmonary embolism:** 10%\n- **Acute COPD exacerbation / infection:** 7%\n- **Possible NSTEMI / STEMI:** 3%\n\n**Question 6 (to refine):**  \nDo you have **frothy sputum** or **pink, foamy mucus**, or have you been coughing up anything like that?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed frothy or pink, foamy mucus. It’s mostly just the feeling of not being able to breathe.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Absence of pink/frothy sputum slightly lowers pulmonary edema, but orthopnea/PnD still keeps it highest.\n\n**Posterior now:**\n- **Acute pulmonary edema:** 50%\n- **Atrial fibrillation:** 25%\n- **Pulmonary embolism:** 12%\n- **Acute COPD exacerbation / infection:** 8%\n- **Possible NSTEMI / STEMI:** 5%\n\n**Question 7 (key discriminator):**  \nDo you have a **history of heart failure** or were you ever told your heart defect causes fluid buildup? (And if you know—do you take a diuretic like furosemide/Lasix?)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been told I have a heart defect, and I’ve had heart problems before. I don’t clearly remember being told I have heart failure, but I do take medications for my heart and blood pressure—I'm not sure if one of them is a diuretic like Lasix.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Known cardiac defect + prior heart problems increases likelihood of **acute pulmonary edema/heart failure** as the driver of sudden dyspnea, and also makes **atrial fibrillation** more plausible.\n\n**Posterior now:**\n- **Acute pulmonary edema:** 58%\n- **Atrial fibrillation:** 27%\n- **Pulmonary embolism:** 8%\n- **Acute COPD exacerbation / infection:** 5%\n- **Possible NSTEMI / STEMI:** 2%\n\n**Question 8 (to confirm AF vs primary edema):**  \nWhen you feel the irregular heartbeat, is it **very fast** (racing) or just irregular but not that fast?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It feels very fast and irregular—like it’s racing and also not in a steady rhythm.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** “Racing and irregular” strongly supports **atrial fibrillation with rapid ventricular response**, which can also precipitate/worsen pulmonary edema.\n\n**Posterior now:**\n- **Atrial fibrillation:** 50%\n- **Acute pulmonary edema:** 35%\n- **Pulmonary embolism:** 7%\n- **Acute COPD exacerbation / infection:** 6%\n- **Possible NSTEMI / STEMI:** 2%\n\n**Question 9:**  \nDo you have **lightheadedness, fainting, or severe sweating** with this episode?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been feeling lightheaded, but I haven’t fainted. I’m not sure about severe sweating—I haven’t noticed it a lot.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** Lightheadedness can occur with rapid AF and/or hypoxia; it doesn’t strongly separate from pulmonary edema.\n\n**Posterior now:**\n- **Atrial fibrillation:** 52%\n- **Acute pulmonary edema:** 33%\n- **Pulmonary embolism:** 7%\n- **Acute COPD exacerbation / infection:** 6%\n- **Possible NSTEMI / STEMI:** 2%\n\n**Question 10:**  \nDo you have **fever** or **new cough** (even if sputum hasn’t changed)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No fever. I don’t have a new cough—mostly it’s just the shortness of breath.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No fever/new cough makes infection/COPD exacerbation less likely.\n\n**Posterior now:**\n- **Atrial fibrillation:** 55%\n- **Acute pulmonary edema:** 30%\n- **Pulmonary embolism:** 8%\n- **Acute COPD exacerbation / infection:** 5%\n- **Possible NSTEMI / STEMI:** 2%\n\n**Question 11 (to check PE alternative):**  \nAny **coughing blood (hemoptysis)** or **pleuritic pain** (sharp pain worse with deep breaths)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No coughing blood. And I don’t have sharp pain that gets worse with deep breaths.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** No hemoptysis/pleuritic pain lowers PE likelihood further.\n\n**Posterior now:**\n- **Atrial fibrillation:** 58%\n- **Acute pulmonary edema:** 32%\n- **Pulmonary embolism:** 5%\n- **Acute COPD exacerbation / infection:** 3%\n- **Possible NSTEMI / STEMI:** 2%\n\n**Question 12 (final discriminator):**  \nDo you have **swelling in your legs/ankles** or have you gained weight quickly over the last week?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have noticeable swelling in my legs or ankles, and I haven’t gained weight quickly over the last week.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**[DDX]** Atrial fibrillation, Acute pulmonary edema, Pulmonary embolism, Acute COPD exacerbation / infection, Possible NSTEMI / STEMI",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "** Atrial fibrillation",
+    "predicted_set": [
+      "** Atrial fibrillation",
+      "Acute pulmonary edema",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 24445,
+      "completion_tokens": 1642
+    },
+    "patient": {
+      "prompt_tokens": 20295,
+      "completion_tokens": 445
+    }
+  }
+}

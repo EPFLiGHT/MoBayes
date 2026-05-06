@@ -1,0 +1,123 @@
+{
+  "case_idx": 2,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Congenital Rubella Infection",
+  "patient_actor_hidden": {
+    "Demographics": "Newborn, female",
+    "History": "The patient is a 3000-g (6.6-lb) female newborn delivered at term to a 23-year-old primigravida mother. The mother reports having had no prenatal care, and immunization records for the newborn are not available.",
+    "Symptoms": {
+      "Primary_Symptom": "Continuous heart murmur",
+      "Secondary_Symptoms": [
+        "Bluish macules on the skin that do not blanch with pressure",
+        "Cloudy lenses in both eyes noticed upon examination",
+        "Failure to pass auditory screening tests"
+      ]
+    },
+    "Past_Medical_History": "Newborn, no past medical history available.",
+    "Social_History": "Mother is a primigravida, no prenatal care received.",
+    "Review_of_Systems": "No additional symptoms noted by the mother."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn with specific findings on physical examination and history provided.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I have a continuous heart murmur, bluish skin macules that don’t blanch, cloudy lenses in both eyes, and I didn’t pass my hearing screening.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—I'll ask focused questions to narrow this down.\n\n**Current posterior (pre-test, based on your key findings):**\n- **Congenital Rubella Infection:** 0.45  \n- **Hemophilia A:** 0.10  \n- **Histoplasmosis:** 0.05  \n- **Takotsubo cardiomyopathy:** 0.05  \n- **Hypertrophic cardiomyopathy:** 0.05  \n(Other causes remain possible but less likely with this cluster.)\n\n**Question 1 (most discriminating):**  \nWere these findings present **since birth or early infancy**, and do you know if the mother had **rubella (German measles) or was not vaccinated** during pregnancy?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I was born with the murmur and the bluish non-blanching spots, and my mother didn’t have prenatal care and her vaccination records weren’t available.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** congenital murmur + non-blanching bluish macules since birth + maternal lack of prenatal care/vaccine history.\n\n**Updated posterior:**\n- **Congenital Rubella Infection:** 0.80  \n- **Hemophilia A:** 0.05  \n- **Histoplasmosis:** 0.03  \n- **Hypertrophic cardiomyopathy:** 0.02  \n- **Takotsubo cardiomyopathy:** 0.02  \n(others collectively 0.08)\n\n**Question 2 (next most discriminating):**  \nDo you have any history of **developmental delay** or **seizures**, or was there any mention of **“congenital cataracts”** or **heart defects** on prior exams?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any developmental delay or seizures, and have you been told about congenital cataracts or any specific heart defects before? Patient: I haven’t had any seizures or delay that I’m aware of, but my eyes were noted to have cloudy lenses, and I’ve been told I have a continuous heart murmur.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** cloudy lenses (congenital cataracts) + continuous murmur + no seizures/delay.\n\n**Updated posterior:**\n- **Congenital Rubella Infection:** 0.90  \n- **Hemophilia A:** 0.03  \n- **Histoplasmosis:** 0.02  \n- **Hypertrophic cardiomyopathy:** 0.02  \n- **Takotsubo cardiomyopathy:** 0.01  \n\n**Question 3 (to confirm the classic triad):**  \nHas anyone told you about **hearing loss** being **sensorineural** (not just wax/ear infection), or have you had **recurrent ear infections**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Has anyone told you that your hearing loss is sensorineural, or have you had recurrent ear infections? Patient: They said I didn’t pass the hearing screening, but I don’t know if it was sensorineural, and I haven’t been told about recurrent ear infections.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**New evidence:** hearing screening failure without recurrent ear infection history; sensorineural status unknown.\n\n**Updated posterior:**\n- **Congenital Rubella Infection:** 0.93  \n- **Hemophilia A:** 0.02  \n- **Histoplasmosis:** 0.02  \n- **Hypertrophic cardiomyopathy:** 0.02  \n- **Takotsubo cardiomyopathy:** 0.01  \n\n**Question 4 (final key discriminator):**  \nDo you have any **enlarged lymph nodes** or a history of **rash that was present at birth**, and do you have any **bone/joint problems** (e.g., “blueberry muffin”–type rash or skeletal issues)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any enlarged lymph nodes or a rash that was present right at birth, and have you had any bone or joint problems since then? Patient: I don’t know about lymph nodes, but the bluish spots were there from birth, and I haven’t been told of any bone or joint problems.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Congenital Rubella Infection, Hemophilia A, Histoplasmosis, Hypertrophic cardiomyopathy, Takotsubo cardiomyopathy",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Congenital Rubella Infection",
+    "predicted_set": [
+      "Congenital Rubella Infection",
+      "Hemophilia A",
+      "Histoplasmosis",
+      "Hypertrophic cardiomyopathy",
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "Congenital Rubella Infection",
+      "Hemophilia A",
+      "Histoplasmosis",
+      "Hypertrophic cardiomyopathy",
+      "Takotsubo cardiomyopathy"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Congenital Rubella Infection",
+    "predicted_set_remapped": [
+      "Congenital Rubella Infection",
+      "Hemophilia A",
+      "Histoplasmosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6321,
+      "completion_tokens": 647
+    },
+    "patient": {
+      "prompt_tokens": 3558,
+      "completion_tokens": 292,
+      "calls": 5
+    }
+  }
+}

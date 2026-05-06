@@ -1,0 +1,139 @@
+{
+  "case_idx": 44,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 0\nSex: M\nChief Complaint: fever",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, and I also have a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down. First, a quick Bayesian snapshot based on your symptoms (fever + cough).\n\n**Current posterior (pre-test, rough):**\n- Pneumonia: 35%\n- Influenza: 20%\n- Acute COPD exacerbation / infection: 10%\n- Bronchitis: 10%\n- URTI (viral): 25%\n\n**Question 1 (most discriminating):**  \nDo you have **shortness of breath** or **chest pain**, and if yes, is it worse with breathing or coughing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify the breathing symptoms.\n\n**Current posterior (unchanged, since we don’t have the key info yet):**\n- Pneumonia: 35%\n- Influenza: 20%\n- URTI (viral): 25%\n- Acute COPD exacerbation / infection: 10%\n- Bronchitis: 10%\n\n**Question 2:**  \nDo you have **any trouble breathing** (even mild), such as feeling winded when walking or talking?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—let’s use another high-yield discriminator.\n\n**Current posterior (still):**\n- Pneumonia: 35%\n- Influenza: 20%\n- URTI (viral): 25%\n- Acute COPD exacerbation / infection: 10%\n- Bronchitis: 10%\n\n**Question 3:**  \nHave you measured your temperature? If yes, what’s the highest number (e.g., 38.0°C vs 39.5°C)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever. I don’t know the highest temperature number.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Since we don’t have the exact degree, we can’t strongly separate mild viral illness from bacterial pneumonia, but we can still ask about duration and associated symptoms.\n\n**Current posterior (slightly updated, but still broad):**\n- Pneumonia: 33%\n- Influenza: 22%\n- URTI (viral): 25%\n- Bronchitis: 10%\n- Acute COPD exacerbation / infection: 10%\n\n**Question 4:**  \nHow long have you been sick—**hours/days vs more than a week**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—then we’ll focus on another discriminating feature: sputum and severity.\n\n**Current posterior (still broad):**\n- Pneumonia: 33%\n- Influenza: 22%\n- URTI (viral): 25%\n- Bronchitis: 10%\n- Acute COPD exacerbation / infection: 10%\n\n**Question 5:**  \nAre you coughing up **phlegm/sputum**? If yes, what color (clear/white, yellow-green, or bloody)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—next question targets a common “serious” discriminator.\n\n**Current posterior (unchanged):**\n- Pneumonia: 33%\n- Influenza: 22%\n- URTI (viral): 25%\n- Bronchitis: 10%\n- Acute COPD exacerbation / infection: 10%\n\n**Question 6:**  \nDo you have **chest pain** (especially sharp pain when you breathe in) or **coughing up blood**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s move to risk factors that shift probabilities.\n\n**Current posterior (still broad):**\n- Pneumonia: 33%\n- Influenza: 22%\n- URTI (viral): 25%\n- Bronchitis: 10%\n- Acute COPD exacerbation / infection: 10%\n\n**Question 7:**  \nDo you have any history of **COPD/asthma**, or do you smoke?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. We’ll use another high-yield discriminator that doesn’t require past history.\n\n**Current posterior (still broad):**\n- Pneumonia: 33%\n- Influenza: 22%\n- URTI (viral): 25%\n- Bronchitis: 10%\n- Acute COPD exacerbation / infection: 10%\n\n**Question 8:**  \nAny **sore throat, runny nose, or body aches** (more “flu-like”), or is it mainly cough + fever?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "We’re still missing key discriminators (duration, breathing difficulty, sputum, exposures). I need one more targeted question to avoid guessing.\n\n**Current posterior (still broad):**\n- Pneumonia: 33%\n- Influenza: 22%\n- URTI (viral): 25%\n- Bronchitis: 10%\n- Acute COPD exacerbation / infection: 10%\n\n**Question 9:**  \nHave you had **recent sick contacts** or a **known outbreak** (e.g., flu/COVID/viral illness), or did this start suddenly with chills?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "At this point, the history is too non-specific (“fever + cough” only, and most discriminating details are unknown). I can’t confidently rank diagnoses without key features (breathing difficulty, duration, sputum, chest pain/hemoptysis, exposures, comorbidities).\n\n**[ABSTAIN]** Insufficient discriminating history to confidently differentiate pneumonia vs influenza vs other respiratory infections.  \n**[POSSIBLE]** Pneumonia, Influenza, URTI (viral), Bronchitis, Acute COPD exacerbation / infection",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Pneumonia",
+      "Influenza",
+      "URTI (viral)",
+      "Bronchitis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13170,
+      "completion_tokens": 1076
+    },
+    "patient": {}
+  }
+}

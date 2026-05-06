@@ -1,0 +1,174 @@
+{
+  "case_idx": 41,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Parkinson disease",
+  "patient_actor_hidden": {
+    "Demographics": "70-year-old man accompanied by his wife",
+    "History": "The patient first noticed the tremor in his left hand 1 year ago, which has been progressively worsening. Recently, he has faced difficulty in performing tasks that require steadiness, such as reading. His wife has observed a decline in his memory, taking note of his forgetfulness in paying bills, a task she has since had to assume.",
+    "Symptoms": {
+      "Primary_Symptom": "Resting tremor worse on the left hand",
+      "Secondary_Symptoms": [
+        "Soft speech",
+        "Reduced facial expressions",
+        "Memory decline",
+        "Difficulty in managing finances"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, medicated with aspirin and amlodipine. Family history of schizophrenia in his mother. No other significant medical or psychiatric history.",
+    "Social_History": "Drinks 1-2 beers nightly and is a former cigar smoker.",
+    "Review_of_Systems": "Denies any other systemic complaints. Specifically, no urinary symptoms, no significant changes in bowel habits, no reported falls or dizziness."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with hand tremors and recent memory issues.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, about a year ago I started noticing a tremor in my left hand, and it’s been slowly getting worse. Lately I’ve had trouble with steadiness for things like reading, and my wife says my memory isn’t as good—I’ve been forgetting things like paying bills and I feel my speech is a bit softer with less facial expression.”",
+      "extracted_features": {
+        "f_tremor_816a876b": "yes",
+        "f_left_hand_resting_tremor_94943b24": "yes",
+        "f_unilateral_left_hand_rest_tremor_ac5ce9fb": "yes",
+        "f_progressive_tremor_over_1_year_dc5c8220": "yes",
+        "f_gradual_symptom_onset_over_about_one_yea_f001f470": "yes",
+        "f_impaired_coordination_fd7a6941": "yes",
+        "f_difficulty_reading_46e9a873": "yes",
+        "f_memory_impairment_402f40c9": "yes",
+        "f_early_forgetfulness_a2fd907b": "yes",
+        "f_mild_forgetfulness_with_difficulty_manag_6d3d910e": "yes",
+        "f_soft_speech_cc0f1efa": "yes",
+        "f_reduced_facial_expression_cabf843c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Parkinson disease",
+          0.7570692810896743
+        ],
+        [
+          "Huntington disease",
+          0.15446459065994908
+        ],
+        [
+          "Multiple system atrophy",
+          0.02767443008193797
+        ],
+        [
+          "Fulminant hepatic failure",
+          0.013857945741421454
+        ],
+        [
+          "Progressive multifocal leukoencephalopathy",
+          0.012398492704573586
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—such as twitching, jerking, shaking, or sudden uncontrollable movements of your face, arms, or legs? (Yes or no)",
+      "patient_answer": "“No, doctor—nothing like sudden involuntary jerking or twitching of my face, arms, or legs. It’s mainly the tremor in my left hand that’s been gradually worsening.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Parkinson disease",
+          0.7182007334476916
+        ],
+        [
+          "Multiple system atrophy",
+          0.06636327302586283
+        ],
+        [
+          "Huntington disease",
+          0.06512633509519072
+        ]
+      ],
+      "entropy": 1.8307444824555852
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt and feels like it moves or shifts when you touch it**? (Yes or no)",
+      "patient_answer": "“No, doctor—I've not noticed any lump or changes in my breast or chest area, and nothing that moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Parkinson disease",
+          0.7198150714979243
+        ],
+        [
+          "Multiple system atrophy",
+          0.06651244129010189
+        ],
+        [
+          "Huntington disease",
+          0.06527272302814598
+        ]
+      ],
+      "entropy": 1.8193248086435836
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes or no)",
+      "patient_answer": "“No, doctor—when I press around my belly button area, it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Parkinson disease",
+          0.7327117556385011
+        ],
+        [
+          "Multiple system atrophy",
+          0.06770412229360194
+        ],
+        [
+          "Huntington disease",
+          0.06644219241718999
+        ]
+      ],
+      "entropy": 1.737699871063186
+    }
+  ],
+  "final": {
+    "predicted": "Parkinson disease",
+    "predicted_top3": [
+      "Parkinson disease",
+      "Multiple system atrophy",
+      "Huntington disease"
+    ],
+    "confidence": 0.7327117556385011,
+    "final_entropy": 1.737699871063186,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Parkinson disease",
+    "predicted_set_remapped": [
+      "Parkinson disease",
+      "Multiple system atrophy",
+      "Huntington disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10100,
+      "completion_tokens": 419
+    },
+    "patient": {
+      "prompt_tokens": 2007,
+      "completion_tokens": 173,
+      "calls": 4
+    }
+  }
+}

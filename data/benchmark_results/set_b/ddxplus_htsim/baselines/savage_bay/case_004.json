@@ -1,0 +1,169 @@
+{
+  "case_idx": 4,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Acute pulmonary edema",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 40\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having significant shortness of breath and severe chest pain—my pain is a 9 out of 10. I’ve also had fluid in my lungs, heart failure, and swelling (especially in my calves).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’m going to ask a few focused questions to narrow down the cause of your severe chest pain and shortness of breath.\n\n**Current best candidates (pre-test priors):**\n- **Possible NSTEMI / STEMI:** 25%\n- **Pulmonary embolism:** 25%\n- **Acute pulmonary edema:** 20%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n- (Other causes remain possible but less likely so far.)\n\n**Question 1 (most discriminating):**  \nWhen did your symptoms start—**minutes/hours** ago, or **days/weeks** ago?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started with a pace of 3 (on a 0–10 scale).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Just to clarify: when you say “started with a pace of 3,” do you mean **the pain began at 3/10 and then worsened to 9/10**, or do you mean **something else** (like a breathing rate or walking pace)?\n\n**Current best candidates (pre-test priors, updated):**\n- **Possible NSTEMI / STEMI:** 25%\n- **Pulmonary embolism:** 25%\n- **Acute pulmonary edema:** 20%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 2 (one-at-a-time):**  \nHow long ago did the **severe chest pain (9/10)** begin—**within the last hour, within 6 hours, within 24 hours, or more than 24 hours ago**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It began at a pace of 3 and then worsened to the 9/10 pain. I don’t know exactly how long ago the 9/10 chest pain began (within the last hour / within 6 hours / within 24 hours / more than 24 hours).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll treat it as **unknown onset time** for now.\n\n**Current best candidates (pre-test priors, still):**\n- **Possible NSTEMI / STEMI:** 25%\n- **Pulmonary embolism:** 25%\n- **Acute pulmonary edema:** 20%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 3 (high-yield):**  \nDoes the chest pain feel **pressure/tightness** (like “an elephant on the chest”), **sharp/pleuritic** (worse with a deep breath), or **burning**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My chest pain is tugging and heavy.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—“tugging/heavy” sounds more like **pressure/heaviness**, which raises concern for cardiac ischemia.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 40%\n- **Pulmonary embolism:** 20%\n- **Acute pulmonary edema:** 20%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n(Reasoning: pressure/heaviness increases likelihood of ACS vs PE/airway causes.)\n\n**Question 4 (discriminating):**  \nDo you have **shortness of breath at rest**, and is it **worse when lying flat** (needing extra pillows or waking up gasping)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I'm experiencing significant shortness of breath or difficulty breathing in a significant way. I don’t know about whether it’s worse when lying flat or at rest.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Significant SOB with chest pressure keeps **ACS and pulmonary edema** high.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 40%\n- **Acute pulmonary edema:** 25%\n- **Pulmonary embolism:** 15%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 5 (very discriminating):**  \nHave you noticed **frothy/pink-tinged sputum** or coughing up foam?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No problem.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 40%\n- **Acute pulmonary edema:** 25%\n- **Pulmonary embolism:** 15%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 6 (key for PE vs cardiac):**  \nHave you had **any recent leg swelling that is one-sided**, or **pain in one calf**, or any **recent long travel/immobility/surgery**, or **prior blood clots**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have swelling in my calf (right and left), and I’ve had swelling in one or more areas of my body.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—bilateral calf swelling can fit **heart failure/fluid overload**, but we still need to know whether it’s **true DVT (one-sided, painful)** vs generalized edema.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 40%\n- **Acute pulmonary edema:** 30%\n- **Pulmonary embolism:** 15%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 7 (to separate DVT/PE):**  \nIs the calf swelling **more on one side** (right *much* more than left), and is there **calf pain/tenderness** when you press the calf or when you walk?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have swelling in my calf on the right and on the left.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—**bilateral** swelling makes classic **DVT** less likely than **systemic fluid overload/heart failure**, though PE can still occur.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 45%\n- **Acute pulmonary edema:** 30%\n- **Pulmonary embolism:** 10%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 8 (very discriminating):**  \nDo you have **fever, cough, or recent cold/flu symptoms**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Current best candidates (posterior estimates, unchanged):**\n- **Possible NSTEMI / STEMI:** 45%\n- **Acute pulmonary edema:** 30%\n- **Pulmonary embolism:** 10%\n- **Acute COPD exacerbation / infection:** 10%\n- **Atrial fibrillation:** 5%\n\n**Question 9 (important):**  \nHave you had **known heart disease** (heart failure, prior heart attack, valve disease) or are you on **diuretics** (water pills) or **blood thinners**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have heart failure, and I have had a heart attack or I have angina (chest pain).",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "That strongly increases likelihood of **acute coronary syndrome** and **worsening heart failure/pulmonary edema**.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 55%\n- **Acute pulmonary edema:** 30%\n- **Pulmonary embolism:** 5%\n- **Acute COPD exacerbation / infection:** 5%\n- **Atrial fibrillation:** 5%\n\n**Question 10 (to distinguish pulmonary edema vs ACS/PE):**  \nDo you have **wheezing**, **a cough**, or **pink frothy sputum**? (Even if you’re not sure, tell me if you have any cough at all.)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t have any cough information.  \n\nBut I have had fluid in my lungs, significant shortness of breath or difficulty breathing, and heart failure. I’ve also had swelling in my calves (right and left).",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Given **known heart failure + fluid in lungs + severe SOB + heavy chest pressure**, pulmonary edema from decompensated heart failure and/or acute coronary syndrome are most likely.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 60%\n- **Acute pulmonary edema:** 35%\n- **Pulmonary embolism:** 3%\n- **Acute COPD exacerbation / infection:** 1%\n- **Atrial fibrillation:** 1%\n\n**Question 11 (high yield, to refine ACS vs pulmonary edema):**  \nDoes the chest pain **worsen with exertion** or **improve with rest**, and does it **radiate** to your **arm, jaw, back, or shoulder**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "It radiates to my biceps (right and left), chin, scapula (right), and triceps (left). I don’t know whether it worsens with exertion or improves with rest.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "That radiation pattern (jaw/chin/scapula/arms) is very concerning for **acute coronary syndrome**.\n\n**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 75%\n- **Acute pulmonary edema:** 20%\n- **Pulmonary embolism:** 3%\n- **Acute COPD exacerbation / infection:** 1%\n- **Atrial fibrillation:** 1%\n\n**Question 12 (to see if it’s specifically STEMI vs NSTEMI/unstable angina):**  \nHave you had **new sweating**, **nausea/vomiting**, or **feeling faint** with this episode?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I have significant shortness of breath or difficulty breathing in a significant way, fluid in my lungs, heart failure, and swelling in my calves (right and left).",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Current best candidates (posterior estimates):**\n- **Possible NSTEMI / STEMI:** 78%\n- **Acute pulmonary edema:** 20%\n- **Pulmonary embolism:** 1%\n- **Acute COPD exacerbation / infection:** 1%\n- **Atrial fibrillation:** 0.5%\n\nAt this point, the evidence is strong enough that we should treat this as **life-threatening ACS with possible cardiogenic pulmonary edema**.\n\n**[DDX] Possible NSTEMI / STEMI, Acute pulmonary edema, Pulmonary embolism, Acute COPD exacerbation / infection, Atrial fibrillation**",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Atrial fibrillation**"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 24506,
+      "completion_tokens": 1862
+    },
+    "patient": {}
+  }
+}

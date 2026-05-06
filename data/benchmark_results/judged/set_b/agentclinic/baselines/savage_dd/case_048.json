@@ -1,0 +1,155 @@
+{
+  "case_idx": 48,
+  "baseline": "savage_dd",
+  "column": "ac_set2",
+  "ground_truth": "Pyoderma gangrenosum",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old woman",
+    "History": "The patient reports a skin lesion on her right leg that has been present for 1 month. The lesion began as a small red spot and has increased in size. She recalls an ant bite at the site before the lesion developed. She has a history of anterior uveitis treated with corticosteroids 8 months ago, as well as Crohn's disease, type 2 diabetes mellitus, and hypertension.",
+    "Symptoms": {
+      "Primary_Symptom": "Painful ulcerative lesion on the right leg",
+      "Secondary_Symptoms": [
+        "Lesion has a central necrotic base and purplish irregular borders",
+        "History of ant bite at the site of the lesion",
+        "Pitting pedal edema of the lower extremities",
+        "Dilated tortuous veins in both lower legs"
+      ]
+    },
+    "Past_Medical_History": [
+      "Crohn's disease",
+      "Type 2 diabetes mellitus",
+      "Hypertension",
+      "Treated for anterior uveitis 8 months ago"
+    ],
+    "Current_Medications": [
+      "Insulin",
+      "Mesalamine",
+      "Enalapril",
+      "Aspirin"
+    ],
+    "Social_History": "Recently returned from a visit to Wisconsin 2 months ago.",
+    "Review_of_Systems": "No additional systemic symptoms mentioned."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a painful, ulcerative skin lesion on her leg.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“It’s a painful sore on my right leg that started as a small red spot about a month ago and has been getting bigger. I remember an ant bite at the spot, and now it has a central dark/necrotic area with irregular purplish borders.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. One question to narrow this down:\n\n**Do you have fever, spreading redness/warmth around the sore, or any swollen/tender lymph nodes in the groin?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t had any fever, and I don’t think the redness is spreading beyond the sore. I haven’t noticed any swollen or tender lymph nodes in my groin either.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Next question:\n\n**Is the sore still actively enlarging (new dark/necrotic tissue or expanding purple border), or has it been stable for the past week or so?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“It has been actively enlarging—there’s been new dark/necrotic tissue and the purple border seems to be expanding over the last week or so.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question:\n\n**Any numbness or severe pain out of proportion to what it looks like, or is it mainly tender/painful at the surface?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mainly very tender and painful at the surface, not really numb, and the pain doesn’t feel out of proportion to how it looks.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you noticed any blistering, skin peeling, or drainage (pus, clear fluid, or blood) from the sore?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“I haven’t noticed any blistering, peeling, or drainage—no pus, clear fluid, or blood. It’s just a painful ulcer with a dark center and expanding purplish borders.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Do you have any history of immune problems or blood disorders (e.g., leukemia), or are you on steroids/chemotherapy, or do you have diabetes?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“I do have type 2 diabetes, and I also have Crohn’s disease. I was treated with corticosteroids for anterior uveitis about 8 months ago, but I’m not on chemo or anything like that right now.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Is the ulcer located on the lower leg/ankle area, and do you have any similar sores elsewhere or any recent skin trauma besides the ant bite?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“It’s on my right lower leg, kind of near the ankle area, and I don’t have any similar sores anywhere else. Besides the ant bite, I haven’t had any other skin trauma that I can recall.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**[DDX]** Acute Mesenteric Ischemia, Steven-Johnson syndrome, Pyoderma gangrenosum, Histoplasmosis, Toxic exposure",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acute Mesenteric Ischemia",
+    "predicted_set": [
+      "Acute Mesenteric Ischemia",
+      "Steven-Johnson syndrome",
+      "Pyoderma gangrenosum",
+      "Histoplasmosis",
+      "Toxic exposure"
+    ],
+    "predicted_raw": [
+      "** Acute Mesenteric Ischemia",
+      "Steven-Johnson syndrome",
+      "Pyoderma gangrenosum",
+      "Histoplasmosis",
+      "Toxic exposure"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Acute Mesenteric Ischemia",
+    "predicted_set_remapped": [
+      "Acute Mesenteric Ischemia",
+      "Steven-Johnson syndrome",
+      "Pyoderma gangrenosum"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7440,
+      "completion_tokens": 276
+    },
+    "patient": {
+      "prompt_tokens": 4485,
+      "completion_tokens": 302,
+      "calls": 7
+    }
+  }
+}

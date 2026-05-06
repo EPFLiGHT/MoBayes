@@ -1,0 +1,152 @@
+{
+  "case_idx": 1,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 16\nSex: Male\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have pain in my lower chest, mostly on the left side, and also upper chest pain. It feels like a knife-stab type pain, and I also get out of breath with minimal effort—sometimes I need to sit up (orthopnea).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, rough):**\n- **Possible NSTEMI / STEMI:** 0.28  \n- **Pulmonary embolism:** 0.22  \n- **Acute pulmonary edema:** 0.18  \n- **Pneumonia:** 0.12  \n- **Acute COPD exacerbation / infection:** 0.10  \n(others combined 0.10)\n\n**Evidence so far:** “knife-stab” chest pain + **dyspnea with minimal effort** + **sometimes needing to sit up (orthopnea)** increases likelihood of cardiopulmonary causes (MI/PE/pulmonary edema), but we need key discriminators.\n\n**Question 1 (most discriminating):**  \nWhen did this start, and is it **constant or coming in episodes**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started recently, but the pain isn’t like it suddenly hit me—more like it’s been there and comes on in a way that feels slow. It’s not totally constant; it can come in episodes.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (after “recent onset, gradual/episodic”):**\n- **Possible NSTEMI / STEMI:** 0.30  \n- **Pulmonary embolism:** 0.24  \n- **Acute pulmonary edema:** 0.14  \n- **Pneumonia:** 0.10  \n- **Acute COPD exacerbation / infection:** 0.08  \n(others 0.14)\n\nGradual/episodic onset slightly favors **MI/PE** over sudden catastrophic causes, but orthopnea still keeps **pulmonary edema/heart failure** on the list.\n\n**Question 2:**  \nDoes the pain **worsen with breathing in (pleuritic)** or with **movement/pressing on the chest (reproducible tenderness)**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It feels worse when I breathe in, like it catches, but I’m not sure it’s more tender when someone presses on my chest.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (pleuritic component):**\n- **Pulmonary embolism:** 0.34  \n- **Possible NSTEMI / STEMI:** 0.26  \n- **Acute pulmonary edema:** 0.12  \n- **Pneumonia:** 0.14  \n- **Acute COPD exacerbation / infection:** 0.06  \n(others 0.08)\n\nPleuritic “worse with deep breath” increases likelihood of **PE** and **pneumonia** (and less so MI/pulmonary edema).\n\n**Question 3 (high-yield for PE):**  \nHave you had any **recent leg swelling/pain**, especially one-sided, or **recent travel/immobility/surgery** in the last 4–6 weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No one-sided leg swelling or leg pain that I’ve noticed. And I haven’t had recent travel or anything like surgery or long immobility.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no leg symptoms, no recent immobility):**\n- **Pulmonary embolism:** 0.28  \n- **Possible NSTEMI / STEMI:** 0.30  \n- **Pneumonia:** 0.16  \n- **Acute pulmonary edema:** 0.12  \n- **Acute COPD exacerbation / infection:** 0.06  \n(others 0.08)\n\nThis reduces PE likelihood somewhat, but orthopnea + dyspnea still keeps cardiac causes high.\n\n**Question 4:**  \nDo you have **fever, cough, or any sputum** (or did you recently have a respiratory infection)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I did recently have a viral infection. I don’t think I have a fever right now, and I don’t have much of a cough or sputum—mostly it’s the chest pain and breathing trouble.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (recent viral infection, minimal cough/sputum, no current fever):**\n- **Possible NSTEMI / STEMI:** 0.32  \n- **Pulmonary embolism:** 0.25  \n- **Pneumonia:** 0.10  \n- **Acute pulmonary edema:** 0.18  \n- **Acute COPD exacerbation / infection:** 0.05  \n(others 0.10)\n\nViral illness keeps infection possibilities in play, but lack of cough/sputum/fever makes **pneumonia** less likely. Orthopnea keeps **pulmonary edema/heart failure** and **MI** up.\n\n**Question 5 (to separate MI vs pulmonary edema vs PE):**  \nDo you have **palpitations** or a history of **heart rhythm problems** (like atrial fibrillation), or does your pulse feel irregular?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t feel palpitations, and I don’t have any known rhythm problems. My pulse doesn’t feel irregular to me.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no palpitations/known arrhythmia):**\n- **Possible NSTEMI / STEMI:** 0.36  \n- **Acute pulmonary edema:** 0.22  \n- **Pulmonary embolism:** 0.20  \n- **Pneumonia:** 0.08  \n- **Acute COPD exacerbation / infection:** 0.04  \n(others 0.10)\n\nStill, we need one more key discriminator: whether there are **heart-failure signs** (leg swelling, weight gain) or **PE risk features** (hemoptysis, recent clotting history).\n\n**Question 6:**  \nAny **leg swelling**, **rapid weight gain**, or **wheezing**/frothy sputum? Also any **coughing up blood (hemoptysis)**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or rapid weight gain. I don’t have wheezing or frothy sputum, and I’m not coughing up blood.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (no leg swelling/weight gain/hemoptysis; no wheeze):**\n- **Possible NSTEMI / STEMI:** 0.40  \n- **Pulmonary embolism:** 0.18  \n- **Acute pulmonary edema:** 0.18  \n- **Pneumonia:** 0.07  \n- **Acute COPD exacerbation / infection:** 0.03  \n(others 0.14)\n\nAt this point, **MI/NSTEMI** remains most likely, but we still must consider **PE** and **pulmonary edema** because orthopnea can occur with both cardiac and some pulmonary causes.\n\n**Question 7 (very discriminating):**  \nIs the chest pain **worse with exertion** and **better with rest**, and does it **radiate** to your arm, jaw, back, or shoulder?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when I try to do anything, it gets worse, and when I rest it’s a bit better. It doesn’t really radiate anywhere else.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (exertional worsening, rest improves; non-radiating):**\n- **Possible NSTEMI / STEMI:** 0.52  \n- **Acute pulmonary edema:** 0.14  \n- **Pulmonary embolism:** 0.14  \n- **Pneumonia:** 0.06  \n- **Acute COPD exacerbation / infection:** 0.03  \n(others 0.11)\n\nThis pattern strongly favors **acute coronary syndrome** over PE/pulmonary edema, though we still can’t exclude them without vitals/ECG/troponin.\n\n**Question 8 (to refine ACS):**  \nDo you have any **risk factors** for heart disease—age >40, smoking, diabetes, high blood pressure, high cholesterol, or a strong family history?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I’m 16, so I’m not over 40. I don’t smoke, and I don’t have diabetes or high blood pressure that I know of. Family history is unknown to me.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (young age, fewer traditional ACS risks):**\n- **Possible NSTEMI / STEMI:** 0.34  \n- **Acute pulmonary edema:** 0.18  \n- **Pulmonary embolism:** 0.18  \n- **Pneumonia:** 0.07  \n- **Acute COPD exacerbation / infection:** 0.03  \n(others 0.20)\n\nYoung age lowers ACS probability, but doesn’t eliminate it (myocarditis/pericarditis can mimic ACS; PE can occur without classic risks). We need to distinguish **pericarditis/myocarditis** vs **PE** vs **pulmonary causes**.\n\n**Question 9:**  \nDoes the pain change with **lying flat vs sitting up** (worse lying down, better sitting up), or is it **worse when you cough**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "It’s worse when I lie flat and better when I sit up. And it also gets worse if I cough or take a deep breath.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (positional + pleuritic features):**\n- **Acute pulmonary edema:** 0.10  \n- **Pulmonary embolism:** 0.26  \n- **Possible NSTEMI / STEMI:** 0.22  \n- **Pericarditis:** 0.24  \n- **Pneumonia:** 0.08  \n\nPositional pain worse lying flat and better sitting up strongly suggests **pericarditis** (and pleuritic worsening with deep breath/cough keeps PE in play). ACS is still possible but less classic given the positional component.\n\n**Question 10 (key for pericarditis):**  \nHave you had **recent viral illness** (you mentioned viral infection) and is the pain **sharp and reproducible** when you press on the chest or when you move your torso?\n\n(Also, if you can: any **feeling of fever/chills** with the viral illness?)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I recently had a viral infection. The pain feels sharp, and it does get worse when I move my torso and when I take a deep breath/ cough—but I’m not sure if it’s specifically reproducible when someone presses on my chest. I don’t feel feverish or have chills right now.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute pulmonary edema, Pulmonary embolism, Pericarditis, Possible NSTEMI / STEMI, Pneumonia",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "Acute pulmonary edema",
+    "predicted_set": [
+      "Acute pulmonary edema",
+      "Pulmonary embolism",
+      "Pericarditis",
+      "Possible NSTEMI / STEMI",
+      "Pneumonia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 20793,
+      "completion_tokens": 1794
+    },
+    "patient": {
+      "prompt_tokens": 18147,
+      "completion_tokens": 446
+    }
+  }
+}

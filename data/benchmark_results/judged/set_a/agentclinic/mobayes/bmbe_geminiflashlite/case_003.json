@@ -1,0 +1,307 @@
+{
+  "case_idx": 3,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "68-year-old male from California",
+    "History": "The patient comes in for a routine checkup without any specific complaints. He maintains an active lifestyle with jogging and gardening. He has been retired since age 50 and enjoys spending his mornings in the park and afternoons in his garden.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a lesion on the scalp",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "No history of smoking. Drinks alcohol occasionally.",
+    "Review_of_Systems": "Denies any symptoms of fatigue, weight loss, fever, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Perform a routine checkup on a 68-year-old man, assess any dermatological findings, and formulate a diagnosis.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor—I'm here for a routine checkup, and I noticed a lesion on my scalp. I’ve otherwise felt well, staying active with jogging and gardening, and I haven’t had any fatigue, weight loss, or fever.”",
+      "extracted_features": {
+        "f_fever_6c156205": "no",
+        "f_fatigue_5b792cc4": "no",
+        "f_unintentional_weight_loss_7cb722ab": "no",
+        "f_skin_lesions_c31b8292": "yes",
+        "f_scalp_lesion_db458449": "yes",
+        "f_gardening_6bcd6637": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Actinic Keratosis",
+          0.17347446532383842
+        ],
+        [
+          "Psoriatic arthritis",
+          0.159196731552329
+        ],
+        [
+          "Seborrheic keratosis",
+          0.14552804796268126
+        ],
+        [
+          "Vitiligo",
+          0.11281905786795085
+        ],
+        [
+          "Molluscum contagiosum",
+          0.0691471644997118
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in your eyesight, such as blurriness, dark spots, or any loss of vision?",
+      "patient_answer": "“I haven’t noticed any changes in my eyesight—no blurriness, dark spots, or any loss of vision.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.17644513558101613
+        ],
+        [
+          "Psoriatic arthritis",
+          0.16192290219986244
+        ],
+        [
+          "Seborrheic keratosis",
+          0.14802014870419866
+        ]
+      ],
+      "entropy": 3.8276652005674485
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“Hi doctor—no, I don’t smoke and I don’t have a history of smoking. I only drink alcohol occasionally.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.18211103956368185
+        ],
+        [
+          "Psoriatic arthritis",
+          0.16712247663662974
+        ],
+        [
+          "Seborrheic keratosis",
+          0.15277328597429818
+        ]
+      ],
+      "entropy": 3.7178040749092434
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“Doctor, I haven’t had any nausea or stomach upset—I’m feeling well overall and this scalp lesion is the only thing that’s been on my mind.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.18847635776800759
+        ],
+        [
+          "Psoriatic arthritis",
+          0.17296390033854184
+        ],
+        [
+          "Seborrheic keratosis",
+          0.15811316312110238
+        ]
+      ],
+      "entropy": 3.6099982989277595
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lumps or masses in the breast area, and I haven’t had any pain there. Overall I feel well, and the only concern I’ve had is the lesion on my scalp.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.19095771420757862
+        ],
+        [
+          "Psoriatic arthritis",
+          0.17524102991065846
+        ],
+        [
+          "Seborrheic keratosis",
+          0.16019477760122944
+        ]
+      ],
+      "entropy": 3.5709930741756626
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling emotionally. Lately, have you been experiencing a significant amount of stress or feeling under a lot of pressure?",
+      "patient_answer": "“Doctor, I wouldn’t say I’ve been under significant stress—I feel pretty well day to day. I’ve been keeping active with jogging and gardening, and this scalp lesion is the only thing that’s really bothered me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.19768126157661509
+        ],
+        [
+          "Psoriatic arthritis",
+          0.1814111988954121
+        ],
+        [
+          "Seborrheic keratosis",
+          0.16583517385305774
+        ]
+      ],
+      "entropy": 3.458649994275037
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your symptoms, have you noticed if your urine has been darker than usual lately?",
+      "patient_answer": "“No, doctor—I haven’t noticed my urine being darker than usual. My appetite and energy have felt normal, and I’ve really only had the scalp lesion as the main concern.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.19904407863549545
+        ],
+        [
+          "Psoriatic arthritis",
+          0.18266184994121587
+        ],
+        [
+          "Seborrheic keratosis",
+          0.16697844358983926
+        ]
+      ],
+      "entropy": 3.4339575983146258
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, have you noticed if the mass has been growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, doctor—I haven’t noticed any mass in my breast area at all, so there hasn’t been any growth or rapid change. My only concern remains the lesion on my scalp.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.19993243123587057
+        ],
+        [
+          "Psoriatic arthritis",
+          0.1834770871012309
+        ],
+        [
+          "Seborrheic keratosis",
+          0.16772368421988718
+        ]
+      ],
+      "entropy": 3.4101414297120782
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, could you tell me if you are currently having any pain in your wrist?",
+      "patient_answer": "“No, doctor—I’m not having any pain in my wrist. My only concern has been the lesion on my scalp, and otherwise I feel fine.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.21630980916223969
+        ],
+        [
+          "Seborrheic keratosis",
+          0.18146269667870862
+        ],
+        [
+          "Vitiligo",
+          0.14067700875586212
+        ]
+      ],
+      "entropy": 3.4490635474437203
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what’s going on, could you please check your arms for me? Have you noticed any skin lesions, such as rashes, bumps, or discoloration, running along the path of your veins?",
+      "patient_answer": "“Doctor, when I check my arms, I haven’t noticed any rashes, bumps, or discoloration along the veins—nothing like that stands out to me.” “My only noticeable concern is the lesion on my scalp.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Actinic Keratosis",
+          0.21630980916223963
+        ],
+        [
+          "Seborrheic keratosis",
+          0.1814626966787086
+        ],
+        [
+          "Vitiligo",
+          0.1406770087558621
+        ]
+      ],
+      "entropy": 3.4490635474437203
+    }
+  ],
+  "final": {
+    "predicted": "Actinic Keratosis",
+    "predicted_top3": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis",
+      "Vitiligo"
+    ],
+    "confidence": 0.21630980916223963,
+    "final_entropy": 3.4490635474437203,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Actinic Keratosis",
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Seborrheic keratosis",
+      "Vitiligo"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8640,
+      "completion_tokens": 512
+    },
+    "patient": {
+      "prompt_tokens": 5969,
+      "completion_tokens": 398,
+      "calls": 10
+    }
+  }
+}

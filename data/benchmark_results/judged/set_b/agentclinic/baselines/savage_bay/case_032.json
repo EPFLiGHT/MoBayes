@@ -1,0 +1,221 @@
+{
+  "case_idx": 32,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Chronic obstructive pulmonary disease (COPD)",
+  "patient_actor_hidden": {
+    "Demographics": "79-year-old male",
+    "History": "The patient reports experiencing shortness of breath with moderate exertion and a slightly productive cough for the past few months. He mentions a long history of heavy smoking, approximately 25 years.",
+    "Symptoms": {
+      "Primary_Symptom": "Shortness of breath with moderate exertion",
+      "Secondary_Symptoms": [
+        "Slightly productive cough"
+      ]
+    },
+    "Past_Medical_History": "The patient has been a heavy smoker for 25 years.",
+    "Social_History": "Retired, lives alone, has a 25-year history of heavy smoking.",
+    "Review_of_Systems": "Denies chest pain, fever, night sweats, or weight loss."
+  },
+  "objective_for_doctor": "Assess and diagnose the elderly patient presenting with shortness of breath and a productive cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I've been having shortness of breath with moderate exertion for the past few months, along with a slightly productive cough. I’ve also had a long history of heavy smoking over the years.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, rough priors given chronic exertional dyspnea + smoker):\n- COPD: 0.55  \n- Asthma: 0.10  \n- Acute lymphoblastic leukemia: 0.03  \n- Acute myelogenous leukemia: 0.03  \n- Takotsubo cardiomyopathy: 0.02  \n(others collectively 0.29)\n\nEvidence: chronic shortness of breath with heavy smoking → supports COPD strongly.\n- Likelihood ratio (LR) for COPD vs non-COPD: ~3.0  \nUpdated posterior:\n- COPD: 0.70  \n- Asthma: 0.07  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n(others 0.18)\n\n**Question 1 (one at a time):**  \nDo you have wheezing or a history of “attacks” that improve with inhalers (e.g., albuterol), or is it more steadily progressive?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s been pretty steady and gradual for the past few months, and I don’t really get wheezing or episodes that suddenly improve with an inhaler like albuterol. It’s mainly the breathlessness with exertion that’s been worsening.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.70  \n- Asthma: 0.07  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n(others 0.18)\n\nEvidence: steady gradual progression without wheezing/episodic reversibility → increases likelihood of COPD (and decreases asthma).\n- LR for COPD vs asthma given “steady progressive, no episodic reversibility”: ~2.0  \nUpdated posterior:\n- COPD: 0.78  \n- Asthma: 0.04  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n(others 0.13)\n\n**Question 2:**  \nDo you have any chest pain, leg swelling, or waking up at night short of breath (orthopnea/PND)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any chest pain, leg swelling, or waking up at night short of breath (orthopnea/PND)? Patient: No, I don’t have chest pain, I haven’t noticed any leg swelling, and I haven’t been waking up at night short of breath.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.78  \n- Asthma: 0.04  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Takotsubo cardiomyopathy: 0.01  \n(others 0.13)\n\nEvidence: no chest pain, no leg swelling, no orthopnea/PND → argues against primary cardiac causes (including Takotsubo) and against heart failure.\n- LR for “no orthopnea/PND/leg swelling” to support COPD vs cardiac: ~1.5  \nUpdated posterior:\n- COPD: 0.82  \n- Asthma: 0.04  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Takotsubo cardiomyopathy: 0.005  \n(others 0.095)\n\n**Question 3:**  \nDo you have fever, night sweats, or unintentional weight loss?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have fever, night sweats, or unintentional weight loss? Patient: No—I haven’t had any fever, night sweats, or weight loss. My main issue has been the gradual breathlessness with some slight productive cough.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.82  \n- Asthma: 0.04  \n- Acute lymphoblastic leukemia: 0.02  \n- Acute myelogenous leukemia: 0.02  \n- Takotsubo cardiomyopathy: 0.005  \n(others 0.095)\n\nEvidence: no systemic “B symptoms” (fever/night sweats/weight loss) → lowers likelihood of malignancy (ALL/AML) and some infections.\n- LR for COPD vs malignancy given no B symptoms: ~1.5  \nUpdated posterior:\n- COPD: 0.86  \n- Asthma: 0.04  \n- Acute lymphoblastic leukemia: 0.015  \n- Acute myelogenous leukemia: 0.015  \n- Takotsubo cardiomyopathy: 0.003  \n(others 0.07)\n\n**Question 4:**  \nHow old are you, and roughly how many pack-years of smoking have you had?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How old are you, and roughly how many pack-years of smoking have you had? Patient: I’m 79 years old, and I’ve been a heavy smoker for about 25 years.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.86  \n- Asthma: 0.04  \n- Acute lymphoblastic leukemia: 0.015  \n- Acute myelogenous leukemia: 0.015  \n- Takotsubo cardiomyopathy: 0.003  \n(others 0.07)\n\nEvidence: older age + significant smoking history strongly supports COPD and makes asthma less likely.\n- LR for COPD given age 79 + ~25 pack-years: ~1.3  \nUpdated posterior:\n- COPD: 0.90  \n- Asthma: 0.03  \n- Acute lymphoblastic leukemia: 0.010  \n- Acute myelogenous leukemia: 0.010  \n- Takotsubo cardiomyopathy: 0.002  \n(others 0.045)\n\n**Question 5:**  \nIs the cough producing clear/white sputum, yellow/green, or blood?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s mostly clear to whitish sputum, and I haven’t noticed any blood in it. I don’t think it’s yellow or green either.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.90  \n- Asthma: 0.03  \n- Acute lymphoblastic leukemia: 0.010  \n- Acute myelogenous leukemia: 0.010  \n- Takotsubo cardiomyopathy: 0.002  \n(others 0.045)\n\nEvidence: clear/whitish sputum and no hemoptysis → supports chronic bronchitis/COPD and argues against acute bacterial infection and against malignancy/hemorrhage.\n- LR for COPD vs non-COPD given clear/whitish sputum, no blood: ~1.2  \nUpdated posterior:\n- COPD: 0.92  \n- Asthma: 0.025  \n- Acute lymphoblastic leukemia: 0.008  \n- Acute myelogenous leukemia: 0.008  \n- Takotsubo cardiomyopathy: 0.002  \n(others 0.035)\n\n**Question 6:**  \nDo you get short of breath at rest, or only with exertion—and has it progressed to limiting basic activities (walking across a room)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s mostly with exertion rather than at rest, but it has been getting worse enough that even walking short distances leaves me winded. Over the past few months, I’ve had to slow down and take breaks more often.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.92  \n- Asthma: 0.025  \n- Acute lymphoblastic leukemia: 0.008  \n- Acute myelogenous leukemia: 0.008  \n- Takotsubo cardiomyopathy: 0.002  \n(others 0.035)\n\nEvidence: worsening exertional dyspnea limiting walking → strengthens chronic obstructive process severity (still less suggestive of acute cardiac syndrome given no chest pain/orthopnea/PND).\n- LR for COPD given progressive exertional limitation: ~1.3  \nUpdated posterior:\n- COPD: 0.95  \n- Asthma: 0.02  \n- Acute lymphoblastic leukemia: 0.006  \n- Acute myelogenous leukemia: 0.006  \n- Takotsubo cardiomyopathy: 0.001  \n(others 0.017)\n\n**Question 7:**  \nHave you ever been told you have low oxygen levels, or do you have a history of frequent “chest infections”/bronchitis exacerbations?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t been told my oxygen was low, but I do get occasional chest “bronchitis”-type episodes that set me back, especially when I catch a cold. I’m not sure how often they count as true flare-ups, though.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.95  \n- Asthma: 0.02  \n- Acute lymphoblastic leukemia: 0.006  \n- Acute myelogenous leukemia: 0.006  \n- Takotsubo cardiomyopathy: 0.001  \n(others 0.017)\n\nEvidence: recurrent bronchitis-type setbacks with colds → supports COPD exacerbations (and less consistent with asthma without episodic reversibility).\n- LR for COPD given “cold-triggered bronchitis-type episodes”: ~1.5  \nUpdated posterior:\n- COPD: 0.97  \n- Asthma: 0.015  \n- Acute lymphoblastic leukemia: 0.004  \n- Acute myelogenous leukemia: 0.004  \n- Takotsubo cardiomyopathy: 0.0008  \n(others 0.0062)\n\n**Question 8:**  \nDo you have any history of heart disease (prior heart attack, stents), or have you ever had an echocardiogram?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t recall having any heart attack, stents, or a known heart disease diagnosis. I’ve had basic checkups before, but I’m not sure I’ve ever had an echocardiogram.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.97  \n- Asthma: 0.015  \n- Acute lymphoblastic leukemia: 0.004  \n- Acute myelogenous leukemia: 0.004  \n- Takotsubo cardiomyopathy: 0.0008  \n(others 0.0062)\n\nEvidence: no known heart disease and no prior cardiac symptoms → further reduces likelihood of cardiomyopathy causes.\n- LR for “no known heart disease” to support COPD vs cardiomyopathy: ~1.2  \nUpdated posterior:\n- COPD: 0.98  \n- Asthma: 0.012  \n- Acute lymphoblastic leukemia: 0.003  \n- Acute myelogenous leukemia: 0.003  \n- Takotsubo cardiomyopathy: 0.0006  \n(others 0.0014)\n\n**Question 9:**  \nHave you noticed any wheezing sounds, chest tightness, or symptoms that are worse at night or early morning?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t really notice wheezing or chest tightness, and my breathing feels about the same through the day rather than noticeably worse at night or early morning. It’s mostly the exertion that brings it on and gradually seems to be worsening.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.98  \n- Asthma: 0.012  \n- Acute lymphoblastic leukemia: 0.003  \n- Acute myelogenous leukemia: 0.003  \n- Takotsubo cardiomyopathy: 0.0006  \n(others 0.0014)\n\nEvidence: absence of wheeze/tightness and no diurnal/night variation → further argues against asthma.\n- LR for COPD vs asthma given “no wheeze/tightness, no night/early morning variation”: ~1.5  \nUpdated posterior:\n- COPD: 0.99  \n- Asthma: 0.008  \n- Acute lymphoblastic leukemia: 0.002  \n- Acute myelogenous leukemia: 0.002  \n- Takotsubo cardiomyopathy: 0.0003  \n(others 0.0007)\n\n**Question 10:**  \nAny history of blood clots (DVT/PE), recent long travel/immobility, or sudden worsening episodes?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have a history of blood clots, and I haven’t had any recent long travel or long periods of immobility. I also haven’t had sudden, dramatic worsening episodes—it's been gradual over the past few months.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.99  \n- Asthma: 0.008  \n- Acute lymphoblastic leukemia: 0.002  \n- Acute myelogenous leukemia: 0.002  \n- Takotsubo cardiomyopathy: 0.0003  \n(others 0.0007)\n\nEvidence: no PE/DVT history and gradual course → makes thromboembolic or acute cardiomyopathy less likely.\n- LR for COPD vs thromboembolism given gradual exertional decline: ~2.0  \nUpdated posterior:\n- COPD: 0.995  \n- Asthma: 0.004  \n- Acute lymphoblastic leukemia: 0.001  \n- Acute myelogenous leukemia: 0.001  \n- Takotsubo cardiomyopathy: 0.0002  \n(others 0.0008)\n\n**Question 11:**  \nHave you had any unintentional weight loss, fatigue, easy bruising/bleeding, or frequent infections beyond the colds/bronchitis episodes?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any unintentional weight loss, unusual fatigue, or easy bruising or bleeding, and beyond the occasional colds/“bronchitis”-type setbacks, I don’t think I’ve had frequent infections.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.995  \n- Asthma: 0.004  \n- Acute lymphoblastic leukemia: 0.001  \n- Acute myelogenous leukemia: 0.001  \n- Takotsubo cardiomyopathy: 0.0002  \n(others 0.0008)\n\nEvidence: no weight loss, bruising/bleeding, or frequent infections → further lowers leukemia/infection-related causes.\n- LR for COPD vs leukemia given no systemic features: ~1.2  \nUpdated posterior:\n- COPD: 0.996  \n- Asthma: 0.003  \n- Acute lymphoblastic leukemia: 0.0008  \n- Acute myelogenous leukemia: 0.0008  \n- Takotsubo cardiomyopathy: 0.00015  \n(others 0.00025)\n\n**Question 12:**  \nDo you have any history of using inhalers or oxygen, and have you ever had spirometry (breathing test) or been told you have emphysema/chronic bronchitis?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve used an inhaler only on and off in the past, but it hasn’t made a big difference for me, and I haven’t needed oxygen. I don’t recall having spirometry or being told I specifically have emphysema or chronic bronchitis.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.996  \n- Asthma: 0.003  \n- Acute lymphoblastic leukemia: 0.0008  \n- Acute myelogenous leukemia: 0.0008  \n- Takotsubo cardiomyopathy: 0.00015  \n(others 0.00025)\n\nEvidence: minimal response to inhaler and no known emphysema diagnosis doesn’t change much; still consistent with COPD (especially if inhaler was not optimized or adherence/technique issues).\n- LR for COPD given “inhaler on/off, minimal benefit”: ~1.1  \nUpdated posterior:\n- COPD: 0.997  \n- Asthma: 0.0025  \n- Acute lymphoblastic leukemia: 0.0007  \n- Acute myelogenous leukemia: 0.0007  \n- Takotsubo cardiomyopathy: 0.00012  \n(others 0.0000)\n\n**Question 13:**  \nWhen you exert yourself, do you ever feel lightheaded, faint, or have palpitations?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t usually feel lightheaded or faint, and I haven’t noticed palpitations with exertion. It’s mainly the gradual breathlessness that limits me.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- COPD: 0.997  \n- Asthma: 0.0025  \n- Acute lymphoblastic leukemia: 0.0007  \n- Acute myelogenous leukemia: 0.0007  \n- Takotsubo cardiomyopathy: 0.00012  \n(others ~0.0000)\n\nEvidence: no presyncope/palpitations → further reduces arrhythmia/cardiac causes.\n- LR for COPD vs cardiogenic causes given no palpitations/presyncope: ~1.2  \nUpdated posterior:\n- COPD: 0.998  \n- Asthma: 0.002  \n- Acute lymphoblastic leukemia: 0.0006  \n- Acute myelogenous leukemia: 0.0006  \n- Takotsubo cardiomyopathy: 0.0001  \n(others ~0.0000)\n\n**Question 14:**  \nHave you had any recent chest imaging (chest X-ray or CT), and if so did it show emphysema, infiltrates, or a mass?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had any recent chest X-ray or CT that I know of, and no one has told me about emphysema, a lung infection, or a mass.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] COPD, Asthma, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Takotsubo cardiomyopathy",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "COPD",
+      "Asthma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Takotsubo cardiomyopathy"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 41047,
+      "completion_tokens": 3041
+    },
+    "patient": {
+      "prompt_tokens": 31568,
+      "completion_tokens": 757,
+      "calls": 15
+    }
+  }
+}

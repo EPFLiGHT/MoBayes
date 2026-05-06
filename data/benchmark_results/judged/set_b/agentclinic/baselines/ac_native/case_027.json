@@ -1,0 +1,103 @@
+{
+  "case_idx": 27,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Asthma",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old female",
+    "History": "The patient reports a 1-month history of episodic cough and shortness of breath. The cough is nonproductive and worsens when climbing stairs and at night. She experienced fever, sore throat, and nasal congestion 8 weeks ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodic cough and shortness of breath",
+      "Secondary_Symptoms": [
+        "Cough worsens with exertion and at night",
+        "History of recent upper respiratory tract infection symptoms such as fever, sore throat, and nasal congestion"
+      ]
+    },
+    "Past_Medical_History": "10-year history of hypertension, currently managed with enalapril. History of smoking half a pack of cigarettes daily for 16 years.",
+    "Social_History": "Smoker, half a pack of cigarettes daily for 16 years.",
+    "Review_of_Systems": "Denies chest pain or palpitations."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with episodic cough and shortness of breath.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, how old are you, and how long have you had episodes of cough and shortness of breath? Patient: Doctor: Any wheezing, chest tightness, fever, or recent cold/flu exposure during the episodes?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "I’m 59 years old, and I’ve had the episodes of cough and shortness of breath for about a month. I don’t notice wheezing or chest tightness, but the cough gets worse when I climb stairs and at night. I did have a few weeks back a fever, sore throat, and nasal congestion before this started."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Do you bring up any phlegm—what color (clear/white/yellow/green/bloody)—and how often do the episodes happen (daily vs only with exertion)? Doctor: Also, do you have any history of smoking or asthma/COPD, and have you been tested for COVID or had any recent sick contacts?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: I don’t bring up any phlegm—it's a nonproductive cough—and the episodes come and go, happening more with exertion like climbing stairs, and worse at night. I’ve smoked about half a pack a day for 16 years, and I don’t have a known history of asthma or COPD. I haven’t had COVID testing that I remember, and I don’t know of any specific sick contacts."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Any leg swelling/pain, sudden onset vs gradually worsening, or chest pain with the shortness of breath—also do you have heartburn/reflux or feel worse when lying flat? Doctor: Given age, smoking history, nonproductive cough worse at night/exertion after a viral illness, I’d like to check for lung or cardiac causes and asthma/COPD—REQUEST TEST: Chest_X-Ray, REQUEST TEST: Spirometry_with_Bronchodilator, REQUEST TEST: ECG, REQUEST TEST: Pulse_Oximetry (rest & with exertion).",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Pulse 78/min; Respirations 18/min; Blood Pressure 145/95 mm Hg; Oxygen Saturation 96% on room air. Respiratory exam: No visible abnormalities; no tactile fremitus; resonant percussion; diffuse end-expiratory wheezes. Chest X-ray: No abnormalities. Spirometry: FEV1/FVC ratio 65%; FEV1 60% (no bronchodilator response data provided)."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Thank you—your diffuse end‑expiratory wheezes, smoking history, and spirometry showing an obstructive pattern (low FEV1 and FEV1/FVC 65%) with symptoms worse on exertion and at night point to obstructive airway disease; with no bronchodilator response data, I’ll consider COPD vs asthma-COPD overlap. Doctor: I have one more key question: have you ever had a strong response to an inhaler (albuterol), and do you have frequent similar episodes or chronic day-to-day cough between attacks? Doctor: **DIAGNOSIS READY: COPD with acute exacerbation triggered by a recent viral upper respiratory infection (likely chronic bronchitis/obstructive airway disease).**",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Thank you—your diffuse end‑expiratory wheezes, smoking history, and spirometry showing an obstructive pattern (low FEV1 and FEV1/FVC 65%) with symptoms worse on exertion and at night point to obstructive airway disease; with no bronchodilator response data, I’ll consider COPD vs asthma-COPD overlap. Doctor: I have one more key question: have you ever had a strong response to an inhaler (albuterol), and do you have frequent similar episodes or chronic day-to-day cough between attacks? Doctor: **DIAGNOSIS READY: COPD with acute exacerbation triggered by a recent viral upper respiratory infection (likely chronic bronchitis/obstructive airway disease).**",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Chronic obstructive pulmonary disease (COPD)",
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Asthma",
+      "Acute Mesenteric Ischemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1703,
+      "completion_tokens": 408,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 887,
+      "completion_tokens": 161,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 490,
+      "completion_tokens": 96,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 212,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

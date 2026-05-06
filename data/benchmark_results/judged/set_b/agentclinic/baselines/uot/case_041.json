@@ -1,0 +1,116 @@
+{
+  "case_idx": 41,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Parkinson disease",
+  "patient_actor_hidden": {
+    "Demographics": "70-year-old man accompanied by his wife",
+    "History": "The patient first noticed the tremor in his left hand 1 year ago, which has been progressively worsening. Recently, he has faced difficulty in performing tasks that require steadiness, such as reading. His wife has observed a decline in his memory, taking note of his forgetfulness in paying bills, a task she has since had to assume.",
+    "Symptoms": {
+      "Primary_Symptom": "Resting tremor worse on the left hand",
+      "Secondary_Symptoms": [
+        "Soft speech",
+        "Reduced facial expressions",
+        "Memory decline",
+        "Difficulty in managing finances"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, medicated with aspirin and amlodipine. Family history of schizophrenia in his mother. No other significant medical or psychiatric history.",
+    "Social_History": "Drinks 1-2 beers nightly and is a former cigar smoker.",
+    "Review_of_Systems": "Denies any other systemic complaints. Specifically, no urinary symptoms, no significant changes in bowel habits, no reported falls or dizziness."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with hand tremors and recent memory issues.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve noticed a tremor in my left hand for about a year, and it’s been getting worse. Lately it’s also made it hard to do steady tasks like reading, and my wife says I’ve become more forgetful with things like paying bills.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have muscle weakness that improves after brief exercise (post-exertional improvement)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—after I move around briefly I don’t notice any improvement in weakness, and I haven’t had muscle weakness like that.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have involuntary movements (chorea) or progressive loss of coordination with a strong family history?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I don’t have any involuntary flailing movements like chorea, and I haven’t noticed rapidly worsening loss of coordination. My mother had schizophrenia, but that doesn’t match what I’m experiencing.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a blood-related condition with abnormal platelet counts (e.g., history of high platelets or clotting/bleeding issues)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I don’t have any history of abnormal platelet counts, unusual clotting, or bleeding issues. I haven’t been told I have high platelets or any related blood disorder.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a progressive movement disorder with prominent tremor and/or rigidity (parkinsonism) that started gradually?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, doctor—the tremor in my left hand started gradually about a year ago and has been progressively worse, and my movements feel more slowed with a softer voice and less facial expression lately.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Parkinson disease  ",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Parkinson disease",
+    "predicted_set": [
+      "Parkinson disease"
+    ],
+    "predicted_raw": [
+      "Parkinson disease  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Parkinson disease",
+    "predicted_set_remapped": [
+      "Parkinson disease",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2556,
+      "completion_tokens": 234,
+      "calls": 5
+    }
+  }
+}

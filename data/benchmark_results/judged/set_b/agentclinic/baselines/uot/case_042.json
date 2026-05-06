@@ -1,0 +1,98 @@
+{
+  "case_idx": 42,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Multiple system atrophy",
+  "patient_actor_hidden": {
+    "Demographics": "54-year-old male",
+    "History": "The patient has been experiencing a gradual difficulty in walking over the past 3 months, requiring wheelchair assistance for the last month. Additionally, there is a history of urinary incontinence for 1 year and recent onset of speech slurring making communication challenging.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive difficulty walking",
+      "Secondary_Symptoms": [
+        "Urinary incontinence",
+        "Slurred speech",
+        "Rigidity in limbs",
+        "Mild hand tremor",
+        "Orthostatic hypotension"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable. No known chronic diseases.",
+    "Social_History": "Occasionally consumes alcohol. Non-smoker. Works as a bank clerk.",
+    "Review_of_Systems": "Denies recent infections, fever, weight loss, vision changes or seizures."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with progressive difficulty walking, urinary incontinence, and speech difficulties.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Over the last three months I’ve been gradually finding it harder to walk, and in the past month I’ve needed a wheelchair. About a year ago I started having urinary incontinence, and more recently my speech has become slurred, with stiffness in my limbs and some tremor in my hands.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you experienced involuntary muscle jerks or abnormal movements (e.g., chorea) that are not typical of Parkinsonism?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Not really—no jerks or abnormal flailing movements like chorea that I can recall, it’s mainly stiffness/rigidity and a hand tremor. I haven’t noticed any other unusual involuntary movements beyond that.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **autonomic dysfunction** (e.g., severe orthostatic hypotension, urinary retention/incontinence, or marked constipation)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Yes—I've had urinary incontinence for about a year, and I also get lightheaded with standing consistent with orthostatic symptoms.” “I wouldn’t say I have severe constipation, but I do have trouble controlling my bladder.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Lambert-Eaton Syndrome  , Multiple system atrophy",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Lambert-Eaton Syndrome",
+    "predicted_set": [
+      "Lambert-Eaton Syndrome",
+      "Multiple system atrophy"
+    ],
+    "predicted_raw": [
+      "Lambert-Eaton Syndrome  ",
+      "Multiple system atrophy"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3,
+    "predicted_remapped": "Lambert-Eaton Syndrome",
+    "predicted_set_remapped": [
+      "Lambert-Eaton Syndrome",
+      "Multiple system atrophy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1212,
+      "completion_tokens": 162,
+      "calls": 3
+    }
+  }
+}

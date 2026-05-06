@@ -1,0 +1,99 @@
+{
+  "case_idx": 30,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: palpitations",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having palpitations—my heart feels like it’s beating fast and irregularly (missing a beat), and I also feel slightly dizzy or lightheaded. I also have pain in the back of my head.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: palpitations described as fast and irregular with “missing a beat,” associated with mild dizziness/lightheadedness, plus pain in the back of the head. This raises concern for an arrhythmia (e.g., atrial fibrillation/PSVT) and possibly ischemia, but the head pain could also be unrelated (tension, migraine) or could reflect a more serious process if severe.\nTop candidates (tentative):\n1) Atrial fibrillation — irregular “missing beats” + palpitations; dizziness can occur.\n2) PSVT — sudden fast palpitations with lightheadedness; rhythm can feel irregular but is often more regular.\n3) Possible NSTEMI / STEMI — palpitations + dizziness can be cardiac ischemia; head pain could be nonspecific.\n4) Panic attack — palpitations with lightheadedness; head pain can occur, but we need triggers/psych symptoms.\n5) Pericarditis / myocarditis — can cause palpitations and dizziness, but we need chest pain/viral prodrome.\nMost informative next question: determine whether there is chest pain/pressure or shortness of breath, which would prioritize ischemia/PE/other cardiopulmonary causes.\n[/REASONING]\nDo you have any chest pain or pressure, or shortness of breath along with the palpitations?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have palpitations (fast, irregular, “missing beats”) with mild dizziness/lightheadedness and back-of-head pain. Chest pain/shortness of breath is unknown, which limits prioritization of ischemia/PE/other cardiopulmonary causes.\nTop candidates remain:\n1) Atrial fibrillation — irregularity + missing beats.\n2) PSVT — possible if episodes are sudden and fast.\n3) Possible NSTEMI / STEMI — must rule out if any chest discomfort or exertional symptoms.\n4) Panic attack — if no cardiopulmonary symptoms and symptoms are episodic with anxiety.\n5) Pericarditis / myocarditis — if preceded by viral illness and with chest pain.\nMost informative next question: ask about onset pattern—sudden vs gradual and duration—because PSVT and AF differ and it helps triage urgency.\n[/REASONING]\nDid the palpitations start suddenly (like a switch) or gradually, and how long has this been going on?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have limited history: palpitations described as fast and irregular with “missing a beat,” plus mild dizziness/lightheadedness and back-of-head pain. Onset/duration and associated cardiopulmonary symptoms are unknown, so we can’t confidently distinguish AF vs PSVT vs other causes.\nTop candidates (still):\n1) Atrial fibrillation — irregularity/missed beats fit.\n2) PSVT — can cause fast palpitations with lightheadedness, but “irregular” is less typical.\n3) Possible NSTEMI / STEMI — palpitations + dizziness could be ischemia.\n4) Panic attack — can mimic arrhythmia, but we need anxiety/trigger pattern.\n5) Pericarditis / myocarditis — would need viral symptoms/chest pain.\nMost informative next question: ask about whether the episode is ongoing right now vs comes and goes, because that affects likelihood of AF/PSVT and urgency.\n[/REASONING]\nAre you feeling the palpitations right now, or did they come and go (episodes that start/stop)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They come and go (episodes that start/stop).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we know symptoms are episodic (start/stop). That supports paroxysmal arrhythmia (AF with intermittent episodes or PSVT) more than constant causes. Still need to know heart rate (very fast vs just “irregular”), and any triggers (caffeine, alcohol, stress), and red flags (syncope, chest pain, SOB).\nTop candidates:\n1) Atrial fibrillation (paroxysmal) — irregular “missing beats,” episodic; dizziness can occur.\n2) PSVT — episodic sudden palpitations with lightheadedness; often feels very fast and may be regular (but patient may perceive irregularity).\n3) Possible NSTEMI / STEMI — can present with palpitations/dizziness, but usually not clearly episodic without other symptoms; still must consider.\n4) Panic attack — episodic palpitations/lightheadedness; needs anxiety symptoms and absence of cardiopulmonary red flags.\n5) Pulmonary embolism — can cause palpitations/dizziness, but typically with SOB/pleuritic pain; we don’t have that info.\nMost informative next question: ask about how fast it feels during episodes (e.g., “very fast like racing” vs “not that fast”), because that helps separate PSVT (very fast) from AF (often fast but can vary).\n[/REASONING]\nDuring an episode, does it feel like your heart is racing extremely fast",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack key discriminators: actual heart rate perception and associated symptoms. With episodic palpitations + lightheadedness + irregular “missing beats,” arrhythmia remains most likely, but we can’t rank confidently between AF vs PSVT vs other serious causes.\nTop candidates (most plausible given irregular/missed beats + episodic):\n1) Atrial fibrillation — irregularity/missed beats; paroxysmal episodes; dizziness possible.\n2) PSVT — episodic palpitations with lightheadedness; patient may misperceive rhythm as irregular.\n3) Possible NSTEMI / STEMI — palpitations + dizziness could be ischemia; need chest symptoms/exertional link.\n4) Panic attack — episodic palpitations/lightheadedness; needs anxiety/trigger and absence of cardiopulmonary red flags.\n5) Pulmonary embolism — palpitations/dizziness possible; needs SOB/pleuritic pain/leg swelling.\nMost informative next question: ask about any fainting or near-fainting (syncope/near-syncope), which would raise urgency for arrhythmia/ischemia/PE.\n[/REASONING]\nHave you ever actually fainted or felt like you were about to pass out during these episodes?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are still missing (actual heart rate during episodes, chest pain/shortness of breath, syncope/near-syncope, and onset/duration). With only “episodic palpitations,” “irregular/missing a beat,” and mild lightheadedness, I can’t confidently rank the most likely diagnosis or exclude serious causes.\n[POSSIBLE] Atrial fibrillation, PSVT, Possible NSTEMI / STEMI, Panic attack, Pulmonary embolism",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Atrial fibrillation",
+      "PSVT",
+      "Possible NSTEMI / STEMI",
+      "Panic attack",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8722,
+      "completion_tokens": 1401
+    },
+    "patient": {}
+  }
+}

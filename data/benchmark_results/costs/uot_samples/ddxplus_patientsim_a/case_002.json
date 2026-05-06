@@ -1,0 +1,130 @@
+{
+  "case_idx": 2,
+  "baseline": "uot",
+  "column": "patientsim",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 37\nSex: Female\nChief Complaint: I have a fever, a cough, and sensitive pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a fever and a cough, and my throat feels really sore and sensitive. I also have pain in both tonsils and my palate/pharynx area, and my voice feels hoarse.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) or chills?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have a fever. I don’t know about chills, but I’ve definitely had fever.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever (≥38°C) with cough or breathing difficulty (e.g., shortness of breath, wheezing, or chest symptoms)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—fever with my cough. I don’t have any breathing difficulty like shortness of breath or wheezing that I’m aware of.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Influenza**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if it’s influenza specifically. I just know I’ve had a fever and cough, and I had a cold in the last couple of weeks.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **URTI (upper respiratory tract infection)**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I think so. I had a cold in the last 2 weeks, and now I have fever, cough, hoarseness, and a very sore throat.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acute laryngitis**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "My voice has been hoarse, and my throat feels very painful and sensitive. I’m not sure what the exact name is, but it feels like it’s in my voice/throat area.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Acute laryngitis**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, my voice is hoarse and my throat/voice area hurts a lot, so it feels like acute laryngitis, but I’m not 100% sure of the medical term.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Croup**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t think so. I don’t have a barking cough or breathing problems.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute laryngitis, Acute otitis media, Acute rhinosinusitis, Epiglottitis, Viral pharyngitis  ",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Acute laryngitis",
+    "predicted_set": [
+      "Acute laryngitis",
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Epiglottitis",
+      "Viral pharyngitis"
+    ],
+    "predicted_raw": [
+      "Acute laryngitis",
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Epiglottitis",
+      "Viral pharyngitis  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12881,
+      "completion_tokens": 11977,
+      "total_tokens": 24858
+    },
+    "patient": {
+      "prompt_tokens": 6353,
+      "completion_tokens": 282
+    }
+  }
+}

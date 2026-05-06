@@ -1,0 +1,129 @@
+{
+  "case_idx": 1,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Acute dystonic reactions",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 79\nSex: F\nChief Complaint: laryngospasm",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having laryngospasm, with episodes where I feel like I was suffocating for a very short time—like I can’t breathe or speak. I also have significant shortness of breath or difficulty breathing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. To narrow this down:\n\n**One question:** During these episodes, do you have **stridor** (a high-pitched sound when breathing in) or is it more like **wheezing** (musical sound when breathing out)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s clarify another key feature.\n\n**One question:** Do the episodes happen **suddenly and peak within seconds**, and how long do they last (e.g., **<1 minute**, **1–5 minutes**, **>5 minutes**)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**One question:** Are you able to **breathe normally between episodes**, or is the shortness of breath **constant** even when you’re not having the “can’t breathe/speak” moments?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**One question:** Have you noticed any **trigger**—for example **lying down**, **after eating**, **exercise**, **cold air**, **allergens**, or **a recent infection**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s focus on safety-critical causes.\n\n**One question:** During the episodes, do you have **any swelling of the lips/tongue/face**, **hives/itching**, or **vomiting/diarrhea**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**One question:** Have you had **chest pain/pressure**, **fainting**, or **palpitations** at any point (even if not during the episodes)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I hear you—let’s try something more concrete.\n\n**One question:** How old is the patient, and do you have a history of **asthma/COPD** or **smoking**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one last targeted question, because it helps separate upper-airway causes from lung/heart causes.\n\n**One question:** Have you had **fever**, **sore throat**, **drooling**, or **pain when swallowing**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] You’re unable to provide key discriminating details (timing of episodes, whether there’s stridor vs wheeze, triggers, and associated allergic/infectious/cardiac symptoms), so I can’t confidently narrow to a specific diagnosis from the provided list.\n\n[POSSIBLE] Larygospasm, Anaphylaxis, Bronchospasm / acute asthma exacerbation, Acute COPD exacerbation / infection, Epiglottitis",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Larygospasm",
+      "Anaphylaxis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute COPD exacerbation / infection",
+      "Epiglottitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9274,
+      "completion_tokens": 499
+    },
+    "patient": {}
+  }
+}

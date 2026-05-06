@@ -1,0 +1,109 @@
+{
+  "case_idx": 19,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having lower chest pain on the right side and also upper chest pain—it feels kind of burning. I also have significant trouble breathing, a cough with more colored sputum than usual, fever, nasal congestion/runny nose, and I notice wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever with sore throat/upper respiratory symptoms** (e.g., cough, runny nose, sore throat) consistent with an infection?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have a fever, plus nasal congestion/clear runny nose, and I’ve been coughing. I don’t know about a sore throat—I haven’t noticed that.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever** (or chills) and **sore throat** (pain when swallowing)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have fever. I don’t have sore throat or pain when swallowing that I’ve noticed.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have wheezing or shortness of breath (especially with known COPD/asthma) that is worse than usual?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my breathing is significantly hard, and I notice wheezing when I exhale. It feels worse than usual.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a sudden worsening of shortness of breath (especially if you already have COPD) over the last few days?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s been getting worse over the last few days. I can’t say it was sudden in minutes, but it definitely feels like it’s worsening.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a productive cough (phlegm/mucus)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’m coughing up sputum/mucus, and it’s more than usual and has colored phlegm.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **fever** (temperature ≥ 38°C) along with **cough**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have fever and I also have a cough.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Bronchitis, Pneumonia  ",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Bronchitis",
+    "predicted_set": [
+      "Bronchitis",
+      "Pneumonia  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 5942,
+      "completion_tokens": 229
+    }
+  }
+}

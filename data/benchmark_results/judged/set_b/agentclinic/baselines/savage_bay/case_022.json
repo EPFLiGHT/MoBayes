@@ -1,0 +1,129 @@
+{
+  "case_idx": 22,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Fibroadenoma",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old female at 17-weeks gestation",
+    "History": "The patient reports noticing a painless mass in the right breast three weeks ago, which has not changed in size. She has no additional complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Painless mass in the right breast",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history. This is her first pregnancy.",
+    "Social_History": "Non-smoker, does not consume alcohol. Works as a high school teacher.",
+    "Review_of_Systems": "Denies fever, weight loss, nipple discharge, or changes in skin over the breast."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I noticed a painless mass in my right breast about three weeks ago, and it hasn’t changed in size. I’m currently 17 weeks pregnant, and I don’t have any other symptoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test, broad):  \n- Fibroadenoma: 0.45  \n- Acute myelogenous leukemia: 0.05  \n- Acute lymphoblastic leukemia: 0.05  \n- Meigs syndrome: 0.02  \n- Malignancy-related causes (not in list): 0.43  \n\nThis is a painless, stable breast mass in a young pregnant patient—most consistent with a benign process, especially fibroadenoma. To discriminate, I need one key feature:\n\n**Question 1 (one at a time):**  \nDoes the mass feel **mobile and rubbery**, or is it **fixed/hard** to the surrounding tissue?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels mobile and kind of rubbery, not fixed to the surrounding tissue.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Fibroadenoma: 0.72  \n- Acute myelogenous leukemia: 0.03  \n- Acute lymphoblastic leukemia: 0.03  \n- Meigs syndrome: 0.01  \n- Malignancy-related causes (not in list): 0.21  \n\nEvidence: mobile/rubbery strongly favors fibroadenoma over malignant/fixed lesions. Likelihood ratio (LR) for fibroadenoma vs malignancy is roughly ~5.\n\n**Question 2:**  \nApproximately how big is the mass (in cm or “pea/grape/coin” size)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s about 2 centimeters, kind of grape-sized.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Fibroadenoma: 0.78  \n- Acute myelogenous leukemia: 0.03  \n- Acute lymphoblastic leukemia: 0.03  \n- Meigs syndrome: 0.01  \n- Malignancy-related causes (not in list): 0.15  \n\nEvidence: ~2 cm is very compatible with fibroadenoma (common size range), and less typical for aggressive malignancy. LR modestly favors fibroadenoma (~1.3).\n\n**Question 3:**  \nAny **skin changes** over the mass (dimpling, redness, “orange peel”) or **nipple changes** (inversion, discharge, bleeding)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No—there haven’t been any skin changes like dimpling or redness, and I haven’t noticed any nipple inversion, discharge, or bleeding.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Fibroadenoma: 0.82  \n- Acute myelogenous leukemia: 0.03  \n- Acute lymphoblastic leukemia: 0.03  \n- Meigs syndrome: 0.01  \n- Malignancy-related causes (not in list): 0.11  \n\nEvidence: absence of skin/nipple changes decreases likelihood of breast carcinoma. LR for “no skin/nipple changes” vs malignancy is roughly ~0.7 (slight shift toward benign).\n\n**Question 4:**  \nDo you have **any swollen lymph nodes** in the armpit (axilla) on that side, or have you noticed any tenderness?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swollen lumps in my right armpit, and there’s been no tenderness there.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Fibroadenoma: 0.85  \n- Acute myelogenous leukemia: 0.02  \n- Acute lymphoblastic leukemia: 0.02  \n- Meigs syndrome: 0.01  \n- Malignancy-related causes (not in list): 0.10  \n\nEvidence: no axillary nodes/tenderness further supports benign. LR ~0.8 for malignancy vs benign.\n\n**Question 5:**  \nHave you ever had a similar breast lump before, or is this the **first** one?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: This is the first time I’ve noticed a lump like this.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:  \n- Fibroadenoma: 0.83  \n- Acute myelogenous leukemia: 0.03  \n- Acute lymphoblastic leukemia: 0.03  \n- Meigs syndrome: 0.01  \n- Malignancy-related causes (not in list): 0.10  \n\nEvidence: first-time presentation doesn’t strongly distinguish; fibroadenoma can be first noticed during pregnancy due to hormonal changes.\n\nAt this point, the history strongly supports a benign mobile rubbery breast mass in a young pregnant patient, most consistent with **fibroadenoma**. I don’t have enough to confidently rank other listed diagnoses above it, and the leukemia options are low without systemic symptoms (fever, bruising/bleeding, weight loss, night sweats).\n\n[DDX] Fibroadenoma, Acute myelogenous leukemia, Acute lymphoblastic leukemia, Meigs syndrome, Acute Mesenteric Ischemia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Fibroadenoma",
+    "predicted_set": [
+      "Fibroadenoma",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Meigs syndrome",
+      "Acute Mesenteric Ischemia"
+    ],
+    "predicted_raw": [
+      "Fibroadenoma",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Meigs syndrome",
+      "Acute Mesenteric Ischemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Fibroadenoma",
+    "predicted_set_remapped": [
+      "Fibroadenoma",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7549,
+      "completion_tokens": 869
+    },
+    "patient": {
+      "prompt_tokens": 4175,
+      "completion_tokens": 178,
+      "calls": 6
+    }
+  }
+}

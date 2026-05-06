@@ -1,0 +1,155 @@
+{
+  "case_idx": 38,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "SLE",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 54\nSex: M\nChief Complaint: shortness of breath",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m having shortness of breath or difficulty breathing in a significant way. I also have lesions and red problems on my skin that I believe are related to what I’m consulting for, including red lesions on my cheek (left) and my nose. I have painful mouth ulcers or sores, and I have pain rated 6/10 that feels sharp. The pain is in the back of my neck, both shoulders, and both ankles, and it doesn’t radiate anywhere.",
+      "extracted_features": {
+        "f_e_66": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "red",
+        "f_e_206": "yes",
+        "f_e_53": "yes",
+        "f_e_56": "6",
+        "f_e_54_v_192": "yes",
+        "f_e_57_v_123": "no",
+        "f_e_133_v_26": "yes",
+        "f_e_133_v_34": "yes",
+        "f_e_133_v_35": "yes",
+        "f_e_133_v_32": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Anaphylaxis",
+          0.671737689867257
+        ],
+        [
+          "SLE",
+          0.14313086996082472
+        ],
+        [
+          "Scombroid food poisoning",
+          0.12787964189148432
+        ],
+        [
+          "Pneumonia",
+          0.014438444540154305
+        ],
+        [
+          "Pulmonary embolism",
+          0.006153753847607037
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_151",
+      "doctor_question": "Have you noticed any swelling in one or more areas of your body?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "SLE",
+          0.4271111827127694
+        ],
+        [
+          "Scombroid food poisoning",
+          0.38160059467329854
+        ],
+        [
+          "Pneumonia",
+          0.04308519277334028
+        ]
+      ],
+      "entropy": 2.3031376243540898
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_92",
+      "doctor_question": "Have you noticed your cheeks suddenly turning red or flushing?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "SLE",
+          0.6822519940122423
+        ],
+        [
+          "Pneumonia",
+          0.06882273251501649
+        ],
+        [
+          "Anaphylaxis",
+          0.0640385094411219
+        ]
+      ],
+      "entropy": 2.241805718297898
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Have you noticed if the lesions on your skin are peeling off?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "SLE",
+          0.8646691423610133
+        ],
+        [
+          "Anaphylaxis",
+          0.08116080791628867
+        ],
+        [
+          "Scombroid food poisoning",
+          0.015450696318691766
+        ]
+      ],
+      "entropy": 0.8674154267423936
+    }
+  ],
+  "final": {
+    "predicted": "SLE",
+    "predicted_top3": [
+      "SLE",
+      "Anaphylaxis",
+      "Scombroid food poisoning"
+    ],
+    "confidence": 0.8646691423610133,
+    "final_entropy": 0.8674154267423936,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "SLE",
+    "predicted_set_remapped": [
+      "SLE",
+      "Anaphylaxis",
+      "Scombroid food poisoning"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11559,
+      "completion_tokens": 300
+    },
+    "patient": {}
+  }
+}

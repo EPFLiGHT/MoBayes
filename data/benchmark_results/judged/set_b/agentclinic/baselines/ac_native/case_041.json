@@ -1,0 +1,94 @@
+{
+  "case_idx": 41,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Parkinson disease",
+  "patient_actor_hidden": {
+    "Demographics": "70-year-old man accompanied by his wife",
+    "History": "The patient first noticed the tremor in his left hand 1 year ago, which has been progressively worsening. Recently, he has faced difficulty in performing tasks that require steadiness, such as reading. His wife has observed a decline in his memory, taking note of his forgetfulness in paying bills, a task she has since had to assume.",
+    "Symptoms": {
+      "Primary_Symptom": "Resting tremor worse on the left hand",
+      "Secondary_Symptoms": [
+        "Soft speech",
+        "Reduced facial expressions",
+        "Memory decline",
+        "Difficulty in managing finances"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, medicated with aspirin and amlodipine. Family history of schizophrenia in his mother. No other significant medical or psychiatric history.",
+    "Social_History": "Drinks 1-2 beers nightly and is a former cigar smoker.",
+    "Review_of_Systems": "Denies any other systemic complaints. Specifically, no urinary symptoms, no significant changes in bowel habits, no reported falls or dizziness."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with hand tremors and recent memory issues.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: Hello—I'm Dr. Agent. To understand your hand tremor and recent memory issues, when did the tremor start and is it worse at rest or when you use your hands? Doctor: Also, have you noticed any new stiffness, slowed movements, changes in sleep (acting out dreams), or reduced sense of smell?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: The tremor in my left hand started about a year ago, and it seems worse when I’m resting rather than when I’m using it. Lately I’ve also felt some stiffness and that my movements are a bit slower, and my wife says my memory has been slipping with simple tasks like paying bills."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you. Do you also notice a shuffling gait or falls, trouble swallowing/soft voice, or constipation, and have you ever started any medications that can cause tremor (e.g., antipsychotics, metoclopramide, valproate, lithium)? Doctor: REQUEST TEST: Neurology evaluation with basic labs (CBC, CMP, TSH, B12), and consider DAT-SPECT or brain MRI if needed.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Blood Pressure 140/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 16 breaths/min; Temperature 36.7°C (98.06°F); Facial expression reduced; Speech soft and monotonous; Left hand resting tremor present (worsened by emotional stress/concentration); Mild rigidity on bilateral upper extremity manipulation. CBC: WBC 7,500/µL; Hemoglobin 14 g/dL; Platelets 230,000/µL. Thyroid: TSH 2.5 mIU/L; Free T4 1.2 ng/dL. Brain MRI: no acute abnormalities; mild age-appropriate cerebral atrophy."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Given your resting “pill-rolling” left-hand tremor, soft/monotonous speech, reduced facial expression, mild rigidity, and mild memory/functional decline with MRI showing no acute cause, my leading concern is Parkinson’s disease rather than an essential tremor. Doctor: REQUEST TEST: Dopamine transporter (DAT-SPECT) scan (or repeat/confirm with a skilled movement-disorders neurology exam and consider a levodopa response trial). Doctor: REQUEST TEST: Medication review and screen for red flags; also consider cognitive testing (MoCA) to better characterize the memory issues. DIAGNOSIS READY: Parkinson’s disease (likely with mild cognitive impairment)",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Given your resting “pill-rolling” left-hand tremor, soft/monotonous speech, reduced facial expression, mild rigidity, and mild memory/functional decline with MRI showing no acute cause, my leading concern is Parkinson’s disease rather than an essential tremor. Doctor: REQUEST TEST: Dopamine transporter (DAT-SPECT) scan (or repeat/confirm with a skilled movement-disorders neurology exam and consider a levodopa response trial). Doctor: REQUEST TEST: Medication review and screen for red flags; also consider cognitive testing (MoCA) to better characterize the memory issues. DIAGNOSIS READY: Parkinson’s disease (likely with mild cognitive impairment)",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 3,
+    "predicted_remapped": "Parkinson disease",
+    "predicted_set_remapped": [
+      "Parkinson disease",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1101,
+      "completion_tokens": 309,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 417,
+      "completion_tokens": 67,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 458,
+      "completion_tokens": 145,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 198,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "case_idx": 33,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Progressive multifocal leukoencephalopathy",
+  "patient_actor_hidden": {
+    "Demographics": "44-year-old male",
+    "History": "The patient's daughter reports a 1-week history of right leg weakness, unsteady gait, and multiple falls. Over the past 6 months, the patient has been increasingly forgetful, losing his way on familiar routes and facing difficulties operating simple kitchen appliances. He has also been paranoid, agitated, and restless recently.",
+    "Symptoms": {
+      "Primary_Symptom": "Right leg weakness and unsteady gait",
+      "Secondary_Symptoms": [
+        "Forgetfulness",
+        "Paranoid and agitated behavior",
+        "Difficulty in using kitchen appliances"
+      ]
+    },
+    "Past_Medical_History": "Known history of HIV, hypertension, and type 2 diabetes mellitus. Noncompliance with medications for over 2 years.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "The patient is somnolent and slightly confused, oriented to person but not to place or time. Mild lymphadenopathy is noted."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with right leg weakness, unsteady gait, multiple falls, forgetfulness, and paranoid behavior.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let me understand what’s going on. When did the right leg weakness and unsteady walking start, and did it come on suddenly or gradually?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It started about a week ago and it seemed to come on fairly suddenly—I've been stumbling more and had several falls. I notice my right leg doesn’t feel steady when I walk."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Any recent head injury, new numbness/tingling, severe headache, vision changes, or trouble speaking/swallowing? Doctor: Also, have the forgetfulness and paranoid behavior started around the same time as the leg symptoms, or were they there beforehand?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: No recent head injury, and I haven’t noticed numbness or tingling, but I have been more confused lately with some trouble getting my words right at times. The forgetfulness and paranoid, agitated behavior seemed to ramp up around the last several months, and the walking problems started about a week ago."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—thank you. I’m concerned about a possible neurological or vascular process superimposed on a longer psychiatric/cognitive change; first, do you have fever, new severe headache, or any recent weakness elsewhere (arm/face), and have you noticed urinary urgency or incontinence? Doctor: Also, REQUEST TEST: MRI_Brain_with_DWI Doctor: And REQUEST TEST: CT_Angiography_or_MRA_Head_and_Neck",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.2 °C (99.0 °F); Blood Pressure 152/68 mm Hg; Heart Rate 98/min; Respiratory Rate 14/min. Neurological exam: Somnolent, slightly confused (oriented to person, not place/time); right lower extremity weakness with normal tone; unsteady gait; no other focal deficits noted. Labs: Hemoglobin 9.2 g/dL; Leukocyte count 3,600/mm³; Platelets 140,000/mm³; CD4+ count 56/µL; HIV viral load >100,000 copies/mL; Serum cryptococcal antigen negative; Toxoplasma gondii IgG positive. Imaging (MRI Brain): Disseminated, nonenhancing white matter lesions with no mass effect. Requested tests (MRI_Brain_with_DWI; CT_Angiography_or_MRA_Head_and_Neck): NORMAL READINGS"
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given the new abrupt right-leg weakness/unsteady gait plus confusion and word-finding difficulty, and the MRI showing disseminated nonenhancing white-matter lesions without mass effect, along with advanced untreated HIV (CD4 56, high viral load) and only mild systemic signs, I’m most concerned for **HIV-associated progressive multifocal leukoencephalopathy (PML)**. Doctor: DIAGNOSIS READY: Progressive multifocal leukoencephalopathy (PML) in the setting of advanced HIV infection",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: I’m Dr. Agent—given the new abrupt right-leg weakness/unsteady gait plus confusion and word-finding difficulty, and the MRI showing disseminated nonenhancing white-matter lesions without mass effect, along with advanced untreated HIV (CD4 56, high viral load) and only mild systemic signs, I’m most concerned for **HIV-associated progressive multifocal leukoencephalopathy (PML)**. Doctor: DIAGNOSIS READY: Progressive multifocal leukoencephalopathy (PML) in the setting of advanced HIV infection",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Progressive multifocal leukoencephalopathy",
+    "predicted_set_remapped": [
+      "Progressive multifocal leukoencephalopathy",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1603,
+      "completion_tokens": 315,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 816,
+      "completion_tokens": 109,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 542,
+      "completion_tokens": 200,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 181,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

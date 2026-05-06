@@ -1,0 +1,71 @@
+{
+  "case_idx": 0,
+  "baseline": "uot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: F\nChief Complaint: productive cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have a productive cough, with colored or more abundant sputum than usual, and I’ve been having significant shortness of breath/difficulty breathing, along with wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure that is worse with exertion or breathing** (suggesting a cardiac cause such as angina/MI/pericarditis) ?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have chest pain that is worse with exertion and improves with rest (typical angina pattern)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myocarditis  , Pericarditis",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Myocarditis",
+    "predicted_set": [
+      "Myocarditis",
+      "Pericarditis"
+    ],
+    "predicted_raw": [
+      "Myocarditis  ",
+      "Pericarditis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10060,
+      "completion_tokens": 17153,
+      "total_tokens": 27213
+    },
+    "patient": {}
+  }
+}

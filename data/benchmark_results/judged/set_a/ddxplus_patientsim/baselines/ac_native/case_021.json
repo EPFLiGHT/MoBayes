@@ -1,0 +1,104 @@
+{
+  "case_idx": 21,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "HIV (initial infection)",
+  "objective_for_doctor": "A 7-year-old Female patient presents to the clinic. Chief complaint: I have a fever, feeling nauseous or do you feel like vomiting, and swollen or painful lymph nodes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and I feel nauseous like I might vomit. I also have painful swollen lymph nodes, a sore throat, and I feel very tired with muscle aches. I’ve noticed some pale skin/redness spots that are bigger than 1 cm, and they’re on my mouth area (lower gum) and my inner cheeks and labia majora.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—can you tell me when the fever started (how many days ago) and whether you have a cough or trouble breathing? Also, do you have any white patches/pus on your tonsils or mouth ulcers?  \nDoctor: I’m going to check your throat, mouth, and lymph nodes now—please open wide, and I’ll examine your lower gum/inner cheeks and the swollen tender nodes.",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My fever started about 6 days ago. I don’t have a cough or trouble breathing. I also haven’t noticed any white patches or pus on my tonsils, and I don’t have mouth ulcers.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll check your throat and glands more closely—do the lymph nodes hurt mainly under your jaw (cervical) or also in the groin/armpits, and are the painful areas on your mouth like raw red spots (not just rash)? Also, have you had any exposure to someone with mono/“kissing disease” or received any new medicines in the last 2–3 weeks?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "The painful swollen lymph nodes are mainly in my neck/under my jaw, and I don’t feel them in my groin or armpits. The spots in my mouth area feel sore/raw, not just a normal rash. I haven’t been around someone with mono/“kissing disease,” and I haven’t started any new medicines in the last couple weeks.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you. I’m going to ask—how high has the fever been (highest temperature), and are there any itchy hives elsewhere on the skin or is it mostly the mouth/gum/labial area? Also, can you tell me whether you have red “sandpaper-like” rash on the body or only these localized spots?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "My highest temperature was 39°C (102.2°F). I don’t have itchy hives elsewhere—mostly it’s the pale/red spots around my mouth/lower gum and inner cheeks and also my labia. I don’t have a sandpaper-like red rash on the rest of my body.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a few possibilities—scarlet fever, strep-related illness, or infectious mononucleosis—so I need to clarify: have you had a rapid strep test/throat culture, and does the sore throat seem severe with swollen tonsils but no cough?  \nDoctor: Also, did the pale/red “spots” on the lower gum/inner cheeks look like small white-to-red ulcerated areas (like “canker” lesions) rather than a diffuse rash, and are your labia tender but without crusting or blisters?  \nDoctor: REQUEST TEST: Rapid_Strep_Test and CBC_with_diff, and if available REQUEST TEST: EBV_Monospot_or_EBV_serology",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t had a rapid strep test or throat culture yet. My sore throat feels pretty bad, and I don’t have a cough.  \n\nThe spots around my lower gum and inner cheeks look like small sore/raw areas that are white-to-red, not like a spread-out rash. My labia feel tender, and I don’t have crusting or blisters.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since she has 6 days of high fever, sore throat, tender cervical nodes, and “sandpaper-negative” body with no cough, this still strongly suggests streptococcal infection with possible atypical mucosal findings. I need one more check: are her tonsils enlarged with exudate (white coating), and is there any liver/spleen swelling or belly pain (left upper) suggesting mono?  \n\nDoctor: If no, I’ll proceed with treating presumed strep/scarlet-spectrum illness and consider EBV less likely; if yes, we’ll pivot toward EBV and avoid amoxicillin.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I don’t think my tonsils have a white coating or exudate—at least I haven’t noticed that. I also don’t have belly pain, and I don’t feel any swelling in my belly or left upper side.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on 6 days of 39°C fever, severe sore throat, tender cervical (under-jaw) lymph nodes, and lack of cough plus no exudative tonsils, the most likely cause is streptococcal pharyngitis/scarlet-fever spectrum—even without a classic “sandpaper” rash.  \nDoctor: While the requested Rapid_Strep_Test and CBC_with_diff come back, I recommend starting empiric treatment for GAS if clinically indicated and doing careful hydration/fever control.  \nDoctor: DIAGNOSIS READY: Streptococcal pharyngitis (GAS) / scarlet-fever spectrum with prominent mucosal involvement\n\n[ABSTAIN] free-text diagnosis 'Streptococcal pharyngitis (GAS) / scarlet-fever spectrum with prominent mucosal involvement' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4093,
+      "completion_tokens": 672,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 7941,
+      "completion_tokens": 397
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "case_idx": 24,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Keratoacanthoma",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old white man",
+    "History": "The patient presents for an annual examination and mentions noticing a pink bump on his forehead that has developed over the last month. He reports significant sun exposure throughout his life, including episodes of blistering sunburns.",
+    "Symptoms": {
+      "Primary_Symptom": "Pink bump on the forehead",
+      "Secondary_Symptoms": [
+        "Rapid development over the last month"
+      ]
+    },
+    "Past_Medical_History": "History of extensive sun exposure and multiple blistering sunburns. No significant past dermatological diagnoses.",
+    "Social_History": "Retired, spends a lot of time outdoors. Non-smoker and drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, weight loss, night sweats, or changes in appetite. No other skin lesions noted."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the dermatological lesion observed on the patient's forehead.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’ll start with a few questions to narrow this down—when did the forehead lesion first appear, and is it getting bigger or changing shape? Doctor: Does it itch, hurt, bleed/crust, or form a scab, and have you had any similar spots elsewhere or a history of skin cancer/sunburn?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: “It first showed up about a month ago, and it’s definitely getting bigger and seems to be changing shape as it grows. It doesn’t really itch, but it’s tender at times; I haven’t noticed heavy bleeding, though it does form a crust/scab.”"
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you—next, can you describe the color and surface (red vs skin-colored vs dark/brown, and is it smooth/pearly, scaly, or ulcerated), and about how big is it (in mm/cm)? Also, have you noticed a central “dimple”/ulcer or rolled/perl-like border?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "“It’s pink to skin-colored, kind of smooth but also slightly scaly, and it’s gotten to about a little over 1 cm. I do think there’s a small central dimple/ulcer-like spot, and there seems to be a slightly raised, more rolled edge around it.”"
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: Based on “pink/skin-colored,” enlarging over ~1 month, central dimple/ulcer, and a slightly rolled/raised border, I’m concerned for **basal cell carcinoma**—can you tell me if it developed where you get lots of sun, and whether you’ve ever had a prior skin cancer or significant sunburn? REQUEST TEST: Skin_biopsy_of_lesion (preferably shave or punch biopsy)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Skin biopsy — Exophytic nodule with central invagination filled with keratin. Microscopy shows keratinocyte atypia, minimal."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Given the biopsy showing an exophytic nodule with central invagination packed with keratin and keratinocyte atypia (minimal atypia), plus your clinical description of a centrally “dimpled” lesion with a rolled edge, I’m thinking this is most consistent with **cutaneous squamous cell carcinoma, well-differentiated (keratinizing), presenting as a keratoacanthoma-like lesion**. Doctor: DIAGNOSIS READY: Well-differentiated keratinizing cutaneous squamous cell carcinoma (keratoacanthoma-like) of the forehead",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Given the biopsy showing an exophytic nodule with central invagination packed with keratin and keratinocyte atypia (minimal atypia), plus your clinical description of a centrally “dimpled” lesion with a rolled edge, I’m thinking this is most consistent with **cutaneous squamous cell carcinoma, well-differentiated (keratinizing), presenting as a keratoacanthoma-like lesion**. Doctor: DIAGNOSIS READY: Well-differentiated keratinizing cutaneous squamous cell carcinoma (keratoacanthoma-like) of the forehead",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1559,
+      "completion_tokens": 363,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 852,
+      "completion_tokens": 123,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 411,
+      "completion_tokens": 34,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 184,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

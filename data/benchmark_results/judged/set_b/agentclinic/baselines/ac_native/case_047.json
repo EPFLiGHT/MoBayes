@@ -1,0 +1,93 @@
+{
+  "case_idx": 47,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Benign paroxysmal positional vertigo",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old male",
+    "History": "The patient presents to the emergency department with a sudden-onset sensation that the room is spinning, leading to several episodes of nausea and vomiting. The symptoms started as he was going to bed and lasted for approximately 3 minutes. He mentions that he has never experienced anything like this before and currently feels at his baseline.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden-onset sensation of the room spinning",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Dizziness"
+      ]
+    },
+    "Past_Medical_History": "The patient is otherwise healthy with only a history of eczema. No prior episodes of similar nature.",
+    "Social_History": "No significant social history provided.",
+    "Review_of_Systems": "Denies headaches, hearing loss, tinnitus, loss of consciousness or neurological deficits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden-onset symptoms of vertigo.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: Let’s start—when did your sudden vertigo begin, and is it spinning (true vertigo) or more lightheadedness? Doctor: Also, do you have nausea/vomiting, new hearing loss or ringing in one ear, or headache?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: It started just as I was going to bed, and it felt like the room was actually spinning for about 3 minutes. During that time I had nausea and vomited a few times, but I don’t have hearing loss, ringing in my ears, or a headache."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Did the vertigo come in brief episodes (seconds to minutes) or was it continuous for hours/days, and does turning your head worsen it? Doctor: Do you feel unable to walk straight or have any numbness/weakness, trouble speaking, or double vision? REQUEST TEST: Bedside_neurologic_exam (finger-to-nose, gait, nystagmus, test of skew)",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Vital signs stable (T 97.7°F/36.5°C, BP 134/85 mmHg, HR 85 bpm, RR 13/min, SpO2 98% on room air). Bedside neurologic findings: Healthy man with normal gait. Nystagmus present (physiologic), with severe symptoms and notable nystagmus when head is turned to the left and laid back; cranial nerve exam unremarkable. No information provided for finger-to-nose or test of skew, and no numbness/weakness, speech difficulty, or double vision reported in available data. Dix-Hallpike is positive, reproducing vertigo and nystagmus with left head turn and laid back position."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: The vertigo was brief but intense with clear room-spinning, nausea/vomiting, and a **positive Dix-Hallpike** reproducing symptoms with **directional nystagmus** when you turn your head left and lay back—this pattern strongly fits a peripheral positional cause. I’m going to diagnose this as **benign paroxysmal positional vertigo (BPPV), likely left posterior canal**. DIAGNOSIS READY: Benign paroxysmal positional vertigo (BPPV), left posterior canal.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: The vertigo was brief but intense with clear room-spinning, nausea/vomiting, and a **positive Dix-Hallpike** reproducing symptoms with **directional nystagmus** when you turn your head left and lay back—this pattern strongly fits a peripheral positional cause. I’m going to diagnose this as **benign paroxysmal positional vertigo (BPPV), likely left posterior canal**. DIAGNOSIS READY: Benign paroxysmal positional vertigo (BPPV), left posterior canal.",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 3,
+    "predicted_remapped": "Benign paroxysmal positional vertigo",
+    "predicted_set_remapped": [
+      "Benign paroxysmal positional vertigo",
+      "Situational syncope",
+      "Asthma"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1065,
+      "completion_tokens": 263,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 358,
+      "completion_tokens": 60,
+      "calls": 1
+    },
+    "measurement": {
+      "prompt_tokens": 446,
+      "completion_tokens": 158,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 181,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

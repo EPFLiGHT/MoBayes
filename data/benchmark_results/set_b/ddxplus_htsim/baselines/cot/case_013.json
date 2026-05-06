@@ -1,0 +1,129 @@
+{
+  "case_idx": 13,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: M\nChief Complaint: nasal congestion",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have nasal congestion and a cough with colored or more abundant sputum than usual. I also have wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: nasal congestion + cough with increased/colored sputum, and expiratory wheezing. This suggests an infectious/airway process with lower-airway involvement (bronchitis/pneumonia/COPD/asthma-like bronchospasm). Need to discriminate: (1) presence of fever/pleuritic pain/shortness of breath (pneumonia), (2) history of COPD/asthma and severity (COPD exacerbation vs acute asthma/bronchospasm), (3) duration and upper-respiratory symptoms (URTI/viral bronchitis), (4) smoking/age and baseline lung disease.\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — wheeze + increased sputum; often infectious trigger.\n2) Bronchitis — productive cough with colored sputum and wheeze can occur.\n3) Pneumonia — colored sputum can occur; need fever, focal findings, or significant SOB/pleuritic pain.\n4) Bronchospasm / acute asthma exacerbation — wheeze on exhalation; need history of asthma/allergies and episodic pattern.\n5) Influenza — can cause congestion, cough, wheeze; need systemic symptoms (fever, myalgias).\nMost informative next question: determine whether there is fever/systemic illness and how long symptoms have been going on to separate pneumonia/influenza",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: nasal congestion, cough with increased/colored sputum, expiratory wheezing. We lack key discriminators: fever/systemic symptoms, duration, and baseline lung history. The most informative single next question is symptom duration, because it helps separate viral URTI/bronchitis (often shorter) from pneumonia/COPD exacerbation (can be more persistent or worsening).\nTop candidates (still provisional):\n1) Acute COPD exacerbation / infection (needs COPD history and worsening course)\n2) Bronchitis (productive cough + wheeze; often infectious)\n3) Pneumonia (needs fever, focal symptoms, longer/worsening course)\n4) Bronchospasm / acute asthma exacerbation (needs asthma history/episodic pattern)\n5) Influenza (needs systemic symptoms; often abrupt onset)\nNext question: How long have these symptoms been going on (hours/days), and are they getting worse, better, or about the same?  \n\nWhat’s the timeline?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill limited: nasal congestion + productive cough with colored/increased sputum + expiratory wheeze. We don’t have duration, fever/systemic symptoms, or baseline lung disease. We must ask a question that can be answered even if they don’t know exact timing—e.g., whether symptoms started suddenly vs gradually, or whether they’re worse with exertion/at rest.\nMost discriminating next question: Do you have shortness of breath at rest or with minimal activity (and is it worse than usual)? This helps separate pneumonia/COPD exacerbation/PE from simple bronchitis/URTI.\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — wheeze + increased sputum; would often have SOB.\n2) Pneumonia — often SOB, sometimes fever.\n3) Bronchitis — may have wheeze but usually less severe SOB.\n4) Bronchospasm / acute asthma exacerbation — SOB/wheeze, often episodic.\n5) Influenza — may have SOB but usually systemic symptoms.\nNext question: Are you short of breath—at rest or just when walking around?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack discriminators that the patient can answer without knowing timing: severity/associated symptoms. Next most useful is whether there’s chest pain—especially pleuritic pain (pneumonia) or cardiac-type pain (ACS) or none (more likely bronchitis/viral). Also ask about hemoptysis. But one question at a time: chest pain is high-yield.\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection\n2) Bronchitis\n3) Pneumonia\n4) Bronchospasm / acute asthma exacerbation\n5) Influenza\nNext question: Do you have any chest pain (especially sharp pain when you take a deep breath) or coughing up blood?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I have pain related to my reason for consulting. It’s in my lower chest and the side of my chest (right), and also in my pharynx and breast (left). The pain is sensitive and burning, and it has a pain intensity of 3/10 and location precision of 6/10. The pain doesn’t radiate anywhere.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: productive cough with increased/colored sputum + expiratory wheeze. Pain is “sensitive and burning,” lower chest and right side, plus pharynx and left breast; no radiation. Burning quality and pharyngeal involvement could fit GERD/viral irritation, but lower chest pleuritic-type pain is still possible for pneumonia/bronchitis. Need to discriminate pleuritic vs musculoskeletal/GERD and assess respiratory severity.\nTop candidates:\n1) Bronchitis — productive cough + wheeze; chest discomfort can be from airway inflammation/cough; burning/sensitive pain may be from irritation.\n2) Acute COPD exacerbation / infection — wheeze + increased sputum; chest discomfort possible; needs COPD history.\n3) Pneumonia — can cause pleuritic chest pain and wheeze; need fever and focal symptoms.\n4) GERD — burning pain and pharyngeal symptoms; can coexist with cough/wheeze but would not fully explain colored sputum.\n5) Acute pulmonary edema — less likely without orthopnea/leg swelling; wheeze possible but sputum color less typical.\nMost informative next question: Is the chest pain worse when you take a deep breath or cough (pleuritic/pleuritic-like), or is it more related to meals/lying down (reflux-like)?  \n\nNext question (one at a time): Is the chest pain",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Is the chest pain worse when you take a deep breath or cough?",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe need the answer to determine pleuritic component. However the patient asked the question back; no response yet. I must request the direct answer: worse with deep breath/cough vs reflux-related.\nMost informative next action: clarify whether pain is pleuritic (worse with deep breath/cough) or reflux-related (worse with meals/lying down).\nNext question: When you take a deep breath or cough, does the chest pain get noticeably worse? (Yes/No)  \n\n(One question.)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still can’t determine pleuritic vs reflux-related. We need another high-yield discriminator that the patient might be able to answer: presence of fever/chills or measured temperature. This helps separate pneumonia/influenza from bronchitis/GERD. Ask one question.\nTop candidates remain:\n1) Bronchitis\n2) Acute COPD exacerbation / infection\n3) Pneumonia\n4) GERD\n5) Influenza\nNext question: Have you had a fever or chills (or has your temperature been elevated)?  \n\n(One question.)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill insufficient: no fever info, no duration, no SOB severity, no pleuritic confirmation. We can’t safely narrow to a specific diagnosis. Next discriminating question that may be answerable: do they have known COPD or asthma history, or do they use inhalers? This would strongly shift toward COPD exacerbation/bronchospasm.\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — needs COPD history.\n2) Bronchospasm / acute asthma exacerbation — needs asthma history.\n3) Bronchitis — can occur without baseline disease.\n4) Pneumonia — would need systemic/focal signs.\n5) GERD — would need reflux pattern.\nNext question: Do you have a history of asthma or COPD, or do you use an inhaler (e.g., albuterol) regularly?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I have chronic obstructive pulmonary disease (COPD).",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have a major discriminator: known COPD. With COPD + expiratory wheeze + increased/colored sputum, the leading diagnosis is an acute COPD exacerbation likely triggered by infection. Pneumonia remains possible but less likely without fever/pleuritic confirmation; still in top differential. GERD could contribute to burning pain/pharyngeal symptoms but would not fully explain wheeze and sputum change.\nTop candidates:\n1) Acute COPD exacerbation / infection — COPD history + wheeze + increased/colored sputum strongly supports.\n2) Pneumonia — COPD patients can develop pneumonia; colored sputum and chest discomfort/wheeze could be present.\n3) Bronchitis — infectious airway inflammation can trigger COPD exacerbation.\n4) Bronchospasm / acute asthma exacerbation — less likely given COPD diagnosis (unless overlap).\n5) GERD — burning/pharyngeal symptoms could coexist, but less likely as primary cause of wheeze/sputum change.\nMost informative next question would be whether there are systemic signs or worsening dyspnea, but we have enough for a reasonable [DDX] given COPD exacerbation probability.\n\nProceed to final differential. [/REASONING]\n[DDX] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Bronchospasm / acute asthma exacerbation, GERD",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "GERD"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15755,
+      "completion_tokens": 1900
+    },
+    "patient": {}
+  }
+}

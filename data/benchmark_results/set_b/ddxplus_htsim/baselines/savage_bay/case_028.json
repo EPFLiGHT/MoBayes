@@ -1,0 +1,109 @@
+{
+  "case_idx": 28,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 67\nSex: M\nChief Complaint: jaw pain or weakness",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Jaw pain or weakness, double vision, and difficulty articulating words/speaking.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.  \n\n**Current posterior (pre-test, rough):**  \n- **Myasthenia gravis:** 0.35  \n- **Acute dystonic reactions:** 0.15  \n- **Guillain-Barré syndrome:** 0.15  \n- **Stroke/TIA (not in list):** 0.25  \n- **Anemia:** 0.10  \n\n**Question 1 (most discriminating):**  \nWhen did these symptoms start, and are they **sudden (minutes–hours)** or **gradual (hours–days)**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s anchor timing another way.\n\n**Current posterior (still rough):**  \n- **Myasthenia gravis:** 0.35  \n- **Guillain-Barré syndrome:** 0.15  \n- **Acute dystonic reactions:** 0.15  \n- **Stroke/TIA (not in list):** 0.25  \n- **Anemia:** 0.10  \n\n**Question 2:**  \nAre the symptoms **worse with use** (e.g., talking/chewing makes it worse, and rest helps), or are they **progressively worsening regardless of activity**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. We’ll use symptom pattern questions that don’t require knowing timing.\n\n**Current posterior (rough, unchanged):**  \n- **Myasthenia gravis:** 0.35  \n- **Guillain-Barré syndrome:** 0.15  \n- **Acute dystonic reactions:** 0.15  \n- **Stroke/TIA (not in list):** 0.25  \n- **Anemia:** 0.10  \n\n**Question 3:**  \nDo they have **any facial droop**, **one-sided weakness/numbness**, or **trouble understanding speech** (not just speaking)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I previously, or I currently, have any weakness/paralysis in one or more of my limbs or in my face. I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. Since they’re unsure, we’ll ask a more direct yes/no about what they *can* observe.\n\n**Current posterior (still rough):**  \n- **Myasthenia gravis:** 0.35  \n- **Guillain-Barré syndrome:** 0.15  \n- **Acute dystonic reactions:** 0.15  \n- **Stroke/TIA:** 0.25  \n- **Anemia:** 0.10  \n\n**Question 4:**  \nIs the **double vision** present **all the time**, or does it **come and go** (especially later in the day or after using the eyes)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s focus on a high-yield discriminant that doesn’t require timing.\n\n**Current posterior (unchanged, rough):**  \n- **Myasthenia gravis:** 0.35  \n- **Stroke/TIA:** 0.25  \n- **Guillain-Barré syndrome:** 0.15  \n- **Acute dystonic reactions:** 0.15  \n- **Anemia:** 0.10  \n\n**Question 5:**  \nAny **new trouble swallowing** (choking on liquids/food), **shortness of breath**, or **weakness of the neck** (head feels hard to hold up)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given the uncertainty, I need one more key discriminant.\n\n**Current posterior (still rough):**  \n- **Myasthenia gravis:** 0.35  \n- **Stroke/TIA:** 0.25  \n- **Guillain-Barré syndrome:** 0.15  \n- **Acute dystonic reactions:** 0.15  \n- **Anemia:** 0.10  \n\n**Question 6:**  \nHave you noticed **new numbness/tingling** or **back pain** along with the weakness, or is it mainly **fatigable weakness** affecting speaking/chewing/eyes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t confidently narrow further because the patient can’t provide timing or pattern details, and those are crucial to distinguish **myasthenia gravis** from **stroke/TIA** and **Guillain-Barré**.\n\n**[ABSTAIN]** — Insufficient history (timing, fatigability, focal neuro deficits, swallowing/respiratory involvement) to confidently rank diagnoses.\n\n**[POSSIBLE]** Myasthenia gravis, Possible NSTEMI / STEMI, Guillain-Barré syndrome, Acute dystonic reactions, Anemia",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "** Myasthenia gravis",
+      "Possible NSTEMI / STEMI",
+      "Guillain-Barré syndrome",
+      "Acute dystonic reactions",
+      "Anemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8621,
+      "completion_tokens": 923
+    },
+    "patient": {}
+  }
+}

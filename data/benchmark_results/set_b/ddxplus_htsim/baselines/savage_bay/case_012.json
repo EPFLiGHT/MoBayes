@@ -1,0 +1,179 @@
+{
+  "case_idx": 12,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiolitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 1\nSex: F\nChief Complaint: expiratory wheezing",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have expiratory wheezing, and I’ve been having shortness of breath or difficulty breathing in a significant way. I also have a fever and nasal congestion with a clear runny nose.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down. First, I’ll estimate current probabilities based on your symptoms (wheezing + dyspnea + fever + clear rhinorrhea/nasal congestion).\n\n**Current posterior (pre-test → initial):**\n- **Bronchospasm / acute asthma exacerbation:** 0.30  \n- **Acute COPD exacerbation / infection:** 0.15  \n- **Pneumonia:** 0.15  \n- **Influenza:** 0.15  \n- **URTI (viral):** 0.25  \n\n**Question 1 (most discriminating):**  \nDo you have a history of **asthma or COPD** (or have you ever been told you have “wheezing/asthma”)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my mother has asthma.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** family history of asthma increases likelihood of asthma/bronchospasm.\n\n**Likelihood ratio (approx):** asthma family history → wheeze/dyspnea: LR ~1.3  \n**Updated posterior:**\n- **Bronchospasm / acute asthma exacerbation:** 0.39  \n- **Acute COPD exacerbation / infection:** 0.10  \n- **Pneumonia:** 0.13  \n- **Influenza:** 0.13  \n- **URTI (viral):** 0.25  \n\n**Question 2:**  \nWhen did the symptoms start (hours/days), and are they **sudden** or **gradual**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** “don’t know onset” is non-informative, so I’ll keep the same distribution.\n\n**Current posterior (unchanged):**\n- **Bronchospasm / acute asthma exacerbation:** 0.39  \n- **Pneumonia:** 0.13  \n- **Influenza:** 0.13  \n- **Acute COPD exacerbation / infection:** 0.10  \n- **URTI (viral):** 0.25  \n\n**Question 3 (high-yield):**  \nDo you have **chest pain** (especially sharp pain that worsens with breathing) or **cough with phlegm**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** unknown chest pain/cough is non-informative.\n\n**Current posterior (unchanged):**\n- **Bronchospasm / acute asthma exacerbation:** 0.39  \n- **URTI (viral):** 0.25  \n- **Pneumonia:** 0.13  \n- **Influenza:** 0.13  \n- **Acute COPD exacerbation / infection:** 0.10  \n\n**Question 4:**  \nAre you having **a dry cough** or **a productive cough** (bringing up mucus/phlegm)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** cough type unknown → no meaningful shift.\n\n**Current posterior (unchanged):**\n- **Bronchospasm / acute asthma exacerbation:** 0.39  \n- **URTI (viral):** 0.25  \n- **Pneumonia:** 0.13  \n- **Influenza:** 0.13  \n- **Acute COPD exacerbation / infection:** 0.10  \n\n**Question 5 (very discriminating):**  \nHave you measured your temperature—if so, what’s the **highest fever** (e.g., 38°C/100.4°F, 39°C/102.2°F)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have a fever (either felt or measured with a thermometer). I also have nasal congestion or a clear runny nose.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence:** fever + clear rhinorrhea/nasal congestion supports viral URI/influenza more than isolated asthma, but asthma can be triggered by viral infection.\n\n**Likelihood ratio (approx):** viral symptoms (fever + clear runny nose) → asthma exacerbation: LR ~0.8; → pneumonia: LR ~0.7; → influenza/viral URTI: LR ~1.5  \n**Updated posterior:**\n- **Bronchospasm / acute asthma exacerbation:** 0.33  \n- **URTI (viral):** 0.33  \n- **Influenza:** 0.18  \n- **Pneumonia:** 0.09  \n- **Acute COPD exacerbation / infection:** 0.07  \n\n**Question 6 (to separate viral URI vs influenza vs pneumonia):**  \nDo you have **significant sore throat** or **body aches** (muscle aches), or is it mainly nasal symptoms?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have nasal congestion or a clear runny nose.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** still mainly nasal symptoms; sore throat/body aches unknown → slight support for URTI/viral over pneumonia.\n\n**Current posterior (approx):**\n- **Bronchospasm / acute asthma exacerbation:** 0.30  \n- **URTI (viral):** 0.37  \n- **Influenza:** 0.18  \n- **Pneumonia:** 0.08  \n- **Acute COPD exacerbation / infection:** 0.07  \n\n**Question 7 (key for pneumonia):**  \nAre you having **shortness of breath at rest** or **rapid breathing**, or have you noticed **worsening** over hours to a day?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I am experiencing shortness of breath or difficulty breathing in a significant way, and I’ve noticed a wheezing sound when I exhale.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** wheezing + significant dyspnea shifts toward bronchospasm/asthma; pneumonia less likely without productive cough/pleuritic pain (still unknown).\n\n**Likelihood ratio (approx):** wheeze → asthma/bronchospasm LR ~3; pneumonia LR ~0.7; viral URI LR ~1.2  \n**Updated posterior:**\n- **Bronchospasm / acute asthma exacerbation:** 0.62  \n- **URTI (viral):** 0.22  \n- **Influenza:** 0.09  \n- **Pneumonia:** 0.04  \n- **Acute COPD exacerbation / infection:** 0.03  \n\n**Question 8 (to confirm asthma vs other causes of wheeze):**  \nDo you have **any history of anaphylaxis/allergies** or did this start after **new exposure** (food, medication, insect sting), with **hives/itching** or **lip/tongue swelling**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** unknown allergy/anaphylaxis features → no change.\n\n**Current posterior:**\n- **Bronchospasm / acute asthma exacerbation:** 0.62  \n- **URTI (viral):** 0.22  \n- **Influenza:** 0.09  \n- **Pneumonia:** 0.04  \n- **Acute COPD exacerbation / infection:** 0.03  \n\n**Question 9 (very discriminating):**  \nHave you ever had **similar episodes** before, and do they improve with a **rescue inhaler** (like albuterol/salbutamol) or with **sitting upright/breathing treatments**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. But I’ve been experiencing shortness of breath or difficulty breathing in a significant way, and I’ve noticed a wheezing sound when I exhale.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** still consistent with bronchospasm; no new discriminating info.\n\n**Current posterior:**\n- **Bronchospasm / acute asthma exacerbation:** 0.60  \n- **URTI (viral):** 0.22  \n- **Influenza:** 0.09  \n- **Pneumonia:** 0.05  \n- **Acute COPD exacerbation / infection:** 0.04  \n\n**Question 10 (to rule out dangerous alternatives like PE/pneumothorax/heart):**  \nDo you have **chest pain** or does the breathing feel **sudden and severe**, especially if it started abruptly?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** chest pain/sudden onset unknown → no change.\n\n**Current posterior:**\n- **Bronchospasm / acute asthma exacerbation:** 0.60  \n- **URTI (viral):** 0.22  \n- **Influenza:** 0.09  \n- **Pneumonia:** 0.05  \n- **Acute COPD exacerbation / infection:** 0.04  \n\n**Question 11 (to separate influenza vs generic viral URI):**  \nHave you had **high fever** (e.g., ≥39°C/102.2°F) or **prominent body aches**?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I do have a fever (either felt or measured with a thermometer). I also have nasal congestion or a clear runny nose.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** fever present but severity unknown; still supports viral illness trigger. No strong shift.\n\n**Current posterior (approx):**\n- **Bronchospasm / acute asthma exacerbation:** 0.58  \n- **URTI (viral):** 0.25  \n- **Influenza:** 0.10  \n- **Pneumonia:** 0.05  \n- **Acute COPD exacerbation / infection:** 0.02  \n\n**Question 12 (to check severity/need for escalation):**  \nAre you able to **speak full sentences**, or do you have to stop to breathe after a few words?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I am experiencing shortness of breath or difficulty breathing in a significant way. I’ve also noticed a wheezing sound when I exhale.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Update:** severity unknown; wheeze + significant dyspnea keeps bronchospasm high, but we still can’t exclude pneumonia or other serious causes.\n\n**Current posterior (approx):**\n- **Bronchospasm / acute asthma exacerbation:** 0.55  \n- **URTI (viral):** 0.25  \n- **Influenza:** 0.10  \n- **Pneumonia:** 0.07  \n- **Acute COPD exacerbation / infection:** 0.03  \n\nI’m not confident enough to finalize because we still lack key discriminators (cough character/productive vs not, measured vitals, ability to speak, response to bronchodilator, and any chest pain/PE risk).\n\n**Question 13 (most important next):**  \nHave you used any **inhaler** (albuterol/salbutamol) or any breathing treatment today—if yes, did it **help**?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are missing (vitals/oxygen level, cough quality/productivity, chest pain/pleuritic symptoms, ability to speak, and whether symptoms improve with bronchodilator), so I can’t confidently rank the causes of wheeze + fever/dyspnea.\n\n[POSSIBLE] Bronchospasm / acute asthma exacerbation, URTI (viral), Influenza, Pneumonia, Acute COPD exacerbation / infection",
+      "turn": 14
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "URTI (viral)",
+      "Influenza",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 14
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27122,
+      "completion_tokens": 2105
+    },
+    "patient": {}
+  }
+}

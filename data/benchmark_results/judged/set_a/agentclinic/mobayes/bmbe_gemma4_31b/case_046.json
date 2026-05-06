@@ -1,0 +1,310 @@
+{
+  "case_idx": 46,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor, I’m a 30-year-old male. For the past week I’ve had left-sided chest pain along with a productive cough that brings up purulent sputum and I’ve been feeling short of breath, with some fever and overall malaise.”",
+      "extracted_features": {
+        "f_fever_6c156205": "yes",
+        "f_fatigue_5b792cc4": "yes",
+        "f_chest_pain_27a0380f": "yes",
+        "f_shortness_of_breath_02802ea3": "yes",
+        "f_productive_cough_f91866cd": "yes",
+        "f_purulent_sputum_6a31ba34": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pneumonia",
+          0.789098609265163
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.15050370501403068
+        ],
+        [
+          "Somatization disorder",
+          0.010990187806537445
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.007168377198189664
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.005812306920309187
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "“No, doctor—I haven’t noticed any small raised bumps on my skin or any little indentations in the centers. I mainly have left-sided chest pain, a productive purulent cough, and shortness of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.7895082268409028
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.1505818308174016
+        ],
+        [
+          "Somatization disorder",
+          0.010995892764109774
+        ]
+      ],
+      "entropy": 1.1686970907372676
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“No doctor, I haven’t noticed needing to urinate more often than usual. My main issues are the left-sided chest pain, the productive cough with purulent sputum, and feeling short of breath with fever and malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.7908227205818679
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.15083254242164232
+        ],
+        [
+          "Somatization disorder",
+          0.011014200403882674
+        ]
+      ],
+      "entropy": 1.1567522978166296
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking your usual strength lately?",
+      "patient_answer": "“Doctor, yes—I’ve been feeling generally weak and less like myself, with malaise since the symptoms started about a week ago.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8360924712932061
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12819878426996334
+        ],
+        [
+          "Somatization disorder",
+          0.009361422136188126
+        ]
+      ],
+      "entropy": 0.8786858219802162
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself lately?",
+      "patient_answer": "“No doctor, I haven’t had trouble dressing myself—I can dress normally, though I feel weak and tired. The main problems are the left-sided chest pain, the purulent productive cough, and shortness of breath with fever.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8378155867770105
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12846299106259093
+        ],
+        [
+          "Somatization disorder",
+          0.009380715231135322
+        ]
+      ],
+      "entropy": 0.862822974196568
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores appearing specifically along the veins in your arms?",
+      "patient_answer": "“No, doctor—I haven’t noticed any rashes, bumps, or sores along the veins in my arms. My symptoms have been mainly the left-sided chest pain, the productive cough with purulent sputum, and shortness of breath with fever and malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8378155867770105
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12846299106259093
+        ],
+        [
+          "Somatization disorder",
+          0.009380715231135322
+        ]
+      ],
+      "entropy": 0.862822974196568
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "“No doctor, I haven’t had any itchiness on my skin. My main symptoms are still the left-sided chest pain, productive cough with purulent sputum, shortness of breath, plus fever and malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8405443678019374
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12888139742545823
+        ],
+        [
+          "Somatization disorder",
+          0.009411268395968933
+        ]
+      ],
+      "entropy": 0.8373787467958502
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calves when you walk that goes away once you stop and rest?",
+      "patient_answer": "“No, doctor—I haven’t had any calf pain or cramping when I walk, and it doesn’t go away with rest because it hasn’t been happening. My main concern is the left-sided chest pain, the productive purulent cough, shortness of breath, and fever with malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8405726047683395
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.1288857270240236
+        ],
+        [
+          "Somatization disorder",
+          0.009411584554972171
+        ]
+      ],
+      "entropy": 0.8368709561901575
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-like in appearance?",
+      "patient_answer": "“No, doctor—I haven’t noticed my stools becoming pale, light-colored, or clay-like. My main symptoms have been the left-sided chest pain, purulent productive cough, shortness of breath, and fever with malaise.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8409719366433724
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12894695692700345
+        ],
+        [
+          "Somatization disorder",
+          0.00941605572817726
+        ]
+      ],
+      "entropy": 0.8322225965277541
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or a tendency to drop things more often than usual?",
+      "patient_answer": "“No, doctor—I've not noticed any weakness in my hands or trouble gripping things, and I haven’t been dropping objects more than usual. My weakness is more general from the fever and malaise with the chest pain and productive cough.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.8420485254867097
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.12911203122872628
+        ],
+        [
+          "Somatization disorder",
+          0.009428109900383836
+        ]
+      ],
+      "entropy": 0.8210768811375524
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_top3": [
+      "Pneumonia",
+      "Chronic obstructive pulmonary disease",
+      "Somatization disorder"
+    ],
+    "confidence": 0.8420485254867097,
+    "final_entropy": 0.8210768811375524,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Chronic obstructive pulmonary disease",
+      "Somatization disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6807,
+      "completion_tokens": 356
+    },
+    "patient": {
+      "prompt_tokens": 6014,
+      "completion_tokens": 494,
+      "calls": 10
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "case_idx": 3,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "68-year-old male from California",
+    "History": "The patient comes in for a routine checkup without any specific complaints. He maintains an active lifestyle with jogging and gardening. He has been retired since age 50 and enjoys spending his mornings in the park and afternoons in his garden.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a lesion on the scalp",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "No history of smoking. Drinks alcohol occasionally.",
+    "Review_of_Systems": "Denies any symptoms of fatigue, weight loss, fever, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Perform a routine checkup on a 68-year-old man, assess any dermatological findings, and formulate a diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for a routine checkup, but I’ve noticed a lesion on my scalp. It hasn’t been causing any other symptoms so far.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How long have you had this scalp lesion, and have you noticed any changes in its size or appearance since you first saw it?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I noticed the lesion a little while ago, and I think it’s been fairly stable, though I’ve seen some change in how it looks over time. It hasn’t caused pain or other symptoms.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Can you describe the lesion’s appearance—its size, color, shape, and whether the surface is smooth, scaly, or ulcerated?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s on my scalp and I’d say it’s a small, raised spot that’s somewhat irregular; the color looks pinkish to light brown, and the surface can be a bit scaly rather than smooth. I haven’t noticed any open ulcer or bleeding.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Have you noticed any itching, tenderness, bleeding, or crusting over the lesion, especially after it’s been touched or rubbed?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t had itching or tenderness, and it hasn’t been bleeding or crusting, even when I accidentally touch or rub it.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: May I ask how old you are and whether you have any significant sun‑exposure history (e.g., outdoor work, frequent tanning, history of severe sunburns)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 68, and I’ve spent a fair amount of time outdoors over the years—mostly jogging and gardening in California. I didn’t smoke, and I’d say I’ve had typical sun exposure, with the occasional sunburn but nothing extreme.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Have you ever had any previous skin cancers or precancerous lesions (such as actinic keratoses) diagnosed on your scalp or elsewhere?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t been told I’ve had any skin cancers or precancerous lesions before, either on my scalp or elsewhere. I’m mainly here because of this new-ish lesion I noticed during my routine activities.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Approximately how large is the lesion (you can estimate in centimeters or compare it to a coin",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’d estimate it’s about 0.5 to 1 centimeter across, roughly smaller than a dime. It’s definitely noticeable, but I haven’t measured it exactly.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How would you describe the edges of the lesion—are they well‑defined and smooth, or more blurred and irregular?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The edges are more irregular than smooth; they look a bit blurred and not perfectly well-defined. It doesn’t have a crisp, clean border like a typical mole.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When you gently run your fingertip over the lesion, does it feel rough or “sandpaper‑like,” and does any of the surface scale off easily when you scrape it?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, when I gently touch it the surface feels a bit rough, and it seems like it could flake if I scrape lightly, though it hasn’t caused bleeding or pain.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic keratosis, Squamous cell carcinoma, Basal cell carcinoma, Seborrheic keratosis, Lentigo maligna melanoma",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Actinic keratosis",
+    "predicted_set": [
+      "Actinic keratosis",
+      "Squamous cell carcinoma",
+      "Basal cell carcinoma",
+      "Seborrheic keratosis",
+      "Lentigo maligna melanoma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Actinic Keratosis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Actinic Keratosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5691,
+      "completion_tokens": 2588
+    },
+    "patient": {
+      "prompt_tokens": 5187,
+      "completion_tokens": 412,
+      "calls": 9
+    }
+  }
+}

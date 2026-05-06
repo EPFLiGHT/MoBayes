@@ -1,0 +1,162 @@
+{
+  "case_idx": 15,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Boerhaave",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 53\nSex: Female\nChief Complaint: I have lower chest pain, upper chest pain, and feeling nauseous or do you feel like vomiting",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have really bad pain in my lower chest and upper chest, and also in my epigastric area. It feels heartbreaking and violent, like a sickening pain, and it goes to my thoracic spine and to my left scapula. I also feel nauseous and I’ve been vomiting repeatedly.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I’m going to ask a few focused questions to narrow down what could cause this kind of severe chest/epigastric pain with vomiting.\n\n**Current posterior (pre-test, rough):**\n- **Possible NSTEMI / STEMI:** 0.30  \n- **Unstable angina:** 0.10  \n- **GERD:** 0.15  \n- **Pulmonary embolism:** 0.10  \n- **Pericarditis:** 0.05  \n(Other causes like pneumonia/boerhaave are possible but less likely at this moment.)\n\n**Question 1 (high-yield):**  \nDid this pain start **suddenly** (seconds to minutes), and is it **constant** or does it come and go?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly, like within minutes. It’s been pretty constant—really strong pain that doesn’t really go away.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “sudden onset within minutes” + “constant severe pain” (rough likelihood ratios):**\n- **Possible NSTEMI / STEMI:** 0.45 (LR+ ~2.0)\n- **Unstable angina:** 0.12 (LR+ ~1.2)\n- **GERD:** 0.08 (LR- ~0.5)\n- **Pulmonary embolism:** 0.12 (LR+ ~1.2)\n- **Pericarditis:** 0.08 (LR+ ~1.5)\n- **Boerhaave (esophageal rupture):** 0.15 (LR+ ~1.5) *(vomiting raises this possibility)*\n\n**Question 2 (very discriminating):**  \nBefore the vomiting started, did you have **forceful retching/straining** or a **sudden “tearing” pain** right after vomiting?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I started feeling very nauseous and then I kept vomiting repeatedly, and the pain got really intense around that time. It felt like a sudden strong worsening right after I was retching/vomiting.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “pain worsened suddenly with repeated vomiting/retching”**  \n- **Boerhaave (esophageal rupture):** 0.40  \n- **Possible NSTEMI / STEMI:** 0.25  \n- **Pulmonary embolism:** 0.10  \n- **Pericarditis:** 0.08  \n- **GERD:** 0.07  \n- **Unstable angina:** 0.10  \n\n(Reasoning: the retching-associated sudden worsening and violent chest/epigastric pain with radiation to back/scapula increases concern for **esophageal rupture**, which is time-critical.)\n\n**Question 3 (critical):**  \nDo you have **trouble breathing**, **shortness of breath**, or **a new cough**, especially after the vomiting started?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m having trouble breathing—like I can’t get a full breath—and I feel more short of breath since the vomiting started. I don’t know about a new cough; I haven’t noticed one.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “shortness of breath after vomiting”**  \n- **Boerhaave (esophageal rupture):** 0.55  \n- **Possible NSTEMI / STEMI:** 0.20  \n- **Pulmonary embolism:** 0.08  \n- **Pericarditis:** 0.05  \n- **GERD:** 0.05  \n- **Unstable angina:** 0.07  \n\n(Shortness of breath after retching strongly supports a complication like **esophageal rupture with mediastinal/pleural involvement**, though ACS and PE remain important.)\n\n**Question 4 (to assess severity/ACS):**  \nDo you have **sweating**, **feeling faint/lightheaded**, or **a sense of impending doom** with the pain?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel sweaty and a bit lightheaded, and it’s like I’m getting a sense of something really bad.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “sweaty, lightheaded, sense of something really bad”**  \n- **Boerhaave (esophageal rupture):** 0.50  \n- **Possible NSTEMI / STEMI:** 0.30  \n- **Pulmonary embolism:** 0.08  \n- **Pericarditis:** 0.05  \n- **Unstable angina:** 0.04  \n- **GERD:** 0.03  \n\n(These autonomic symptoms increase ACS/PE likelihood, but the vomiting/retching-associated sudden worsening keeps Boerhaave high.)\n\n**Question 5 (key discriminator):**  \nHave you had **fever**, **chills**, or do you notice **pain that gets worse when swallowing**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I have fever or chills. And I haven’t noticed pain specifically when swallowing.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “no fever/chills” + “no odynophagia”**  \n- **Boerhaave (esophageal rupture):** 0.45  \n- **Possible NSTEMI / STEMI:** 0.35  \n- **Pulmonary embolism:** 0.10  \n- **Pericarditis:** 0.05  \n- **Unstable angina:** 0.03  \n- **GERD:** 0.02  \n\n(Absence of fever doesn’t rule out Boerhaave early; ACS still competes strongly given diaphoresis/lightheadedness and severe constant chest/epigastric pain.)\n\n**Question 6 (very high yield):**  \nDoes the pain **worsen with movement or deep breathing**, or is it **more pressure-like/heavy** rather than sharp/burning?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It gets worse when I take a deep breath, and it also hurts more when I move. It feels sharp and intense, not just like pressure.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “worse with deep breath” + “sharp” + “worse with movement”**  \n- **Boerhaave (esophageal rupture):** 0.40  \n- **Possible NSTEMI / STEMI:** 0.25  \n- **Pulmonary embolism:** 0.20  \n- **Pericarditis:** 0.10  \n- **Unstable angina:** 0.03  \n- **GERD:** 0.02  \n\n(Pleuritic/musculoskeletal-type worsening raises PE/pericarditis, but retching-associated sudden severe pain keeps Boerhaave high.)\n\n**Question 7 (discriminator for PE):**  \nAny **leg swelling/pain** (especially one-sided), or have you had **recent long travel/immobility**, **surgery**, or **known clotting history**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or leg pain. I haven’t had recent long travel, surgery, or any known clotting history.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “no leg swelling/pain” + “no recent travel/surgery/clot history”**  \n- **Boerhaave (esophageal rupture):** 0.45  \n- **Possible NSTEMI / STEMI:** 0.30  \n- **Pulmonary embolism:** 0.10  \n- **Pericarditis:** 0.10  \n- **Unstable angina:** 0.03  \n- **GERD:** 0.02  \n\n**Question 8 (ACS discriminator):**  \nDo you have **risk factors** for heart disease (age >40, smoking, diabetes, high BP, high cholesterol, family history), or any prior heart problems?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my medical history well. I’m 53, but I don’t know about smoking, diabetes, high blood pressure, cholesterol, or family history. I haven’t been told I had heart problems before.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “age 53, unknown cardiac risk factors”**  \n- **Boerhaave (esophageal rupture):** 0.45  \n- **Possible NSTEMI / STEMI:** 0.32  \n- **Pulmonary embolism:** 0.10  \n- **Pericarditis:** 0.10  \n- **Unstable angina:** 0.02  \n- **GERD:** 0.01  \n\n**Question 9 (important for PE/pericarditis):**  \nWhen you take a deep breath, is the pain **sharp and stabbing** (pleuritic), and does it **change with lying flat vs leaning forward**?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s sharp and stabbing when I take a deep breath. I haven’t noticed a clear change with lying flat or leaning forward.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “sharp stabbing pleuritic pain with deep breath”**  \n- **Boerhaave (esophageal rupture):** 0.40  \n- **Possible NSTEMI / STEMI:** 0.25  \n- **Pulmonary embolism:** 0.20  \n- **Pericarditis:** 0.10  \n- **Unstable angina:** 0.03  \n- **GERD:** 0.02  \n\n**Question 10 (helps PE vs others):**  \nDo you have **coughing up blood** or a **new fast heart rate** that you can feel?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No coughing up blood. I don’t know about a fast heart rate—I haven’t really checked, but I feel very unwell and my chest feels like it’s pounding.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior after “no hemoptysis” + “pounding/unwell”**  \n- **Boerhaave (esophageal rupture):** 0.38  \n- **Possible NSTEMI / STEMI:** 0.27  \n- **Pulmonary embolism:** 0.22  \n- **Pericarditis:** 0.10  \n- **Unstable angina:** 0.02  \n- **GERD:** 0.01  \n\nAt this point, the history is still most concerning for **Boerhaave** (violent retching → sudden severe chest/epigastric pain radiating to back/scapula + dyspnea/pleuritic component). ACS and PE must be ruled out immediately.\n\n**Question 11 (critical for Boerhaave):**  \nHave you had any **recent heavy alcohol use**, **a large meal**, or **any known vomiting illness** before this started?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I’ve had heavy alcohol use, and I think I had a large meal before this started. I don’t know about a vomiting illness—this mainly started with nausea that turned into repeated vomiting.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Boerhaave, Possible NSTEMI / STEMI, Pulmonary embolism, Pericarditis, GERD",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "Boerhaave",
+    "predicted_set": [
+      "Boerhaave",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Pericarditis",
+      "GERD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23862,
+      "completion_tokens": 1885
+    },
+    "patient": {
+      "prompt_tokens": 21236,
+      "completion_tokens": 454
+    }
+  }
+}

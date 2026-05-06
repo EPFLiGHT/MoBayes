@@ -1,0 +1,153 @@
+{
+  "case_idx": 47,
+  "baseline": "savage_dd",
+  "column": "ac_set2",
+  "ground_truth": "Benign paroxysmal positional vertigo",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old male",
+    "History": "The patient presents to the emergency department with a sudden-onset sensation that the room is spinning, leading to several episodes of nausea and vomiting. The symptoms started as he was going to bed and lasted for approximately 3 minutes. He mentions that he has never experienced anything like this before and currently feels at his baseline.",
+    "Symptoms": {
+      "Primary_Symptom": "Sudden-onset sensation of the room spinning",
+      "Secondary_Symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Dizziness"
+      ]
+    },
+    "Past_Medical_History": "The patient is otherwise healthy with only a history of eczema. No prior episodes of similar nature.",
+    "Social_History": "No significant social history provided.",
+    "Review_of_Systems": "Denies headaches, hearing loss, tinnitus, loss of consciousness or neurological deficits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with sudden-onset symptoms of vertigo.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I had a sudden spinning sensation when I was going to bed, and I felt nauseated with several episodes of vomiting for about three minutes. After that, I’m back to feeling like myself.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you went through that. **One question at a time**:\n\nWhen the spinning sensation happened, did it feel like the room was spinning/you were rotating (true vertigo), or was it more like lightheadedness/near-fainting?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it felt like the room was actually spinning/rotating in place—definitely true vertigo—not like I was going to faint.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—true vertigo. **Next question**:\n\nDid you notice that the vertigo was triggered or made much worse by **turning your head or rolling over in bed** (for example, looking up, turning to one side, or getting into bed)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, yes—it seemed clearly triggered when I moved or rolled over in bed, especially with turning my head.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That pattern is helpful. **Next question**:\n\nHow long did the vertigo last each time—**seconds (like <1 minute)**, **minutes**, or **hours**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it lasted about three minutes total and then fully stopped.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question**:\n\nDid you have **any hearing symptoms** during or around the episode—new hearing loss, ringing in the ear (tinnitus), or a feeling of ear fullness?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I did not notice any new hearing loss, ringing in my ear, or any ear fullness during or around the episode.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **Next question**:\n\nWas there **any headache**, weakness/numbness on one side, trouble speaking, double vision, or trouble walking during the episode?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I didn’t have any headache, weakness or numbness, trouble speaking, double vision, or trouble walking during the episode.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **Next question**:\n\nHave you had **similar brief spinning episodes** before, or is this the first time?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, this was the first time I’ve ever had anything like this.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question**:\n\nDo you have any **recent viral illness** (cold/flu), or did you have a **new severe ear infection** in the past few weeks?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any recent cold or flu symptoms, and I don’t have any new severe ear infection that I’m aware of.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Given your answers (true vertigo, clearly positional/triggered by head movement/rolling in bed, brief ~3 minutes, no hearing symptoms, no neuro deficits, first episode), I’m most concerned for a benign positional cause.\n\n[DDX] Benign paroxysmal positional vertigo, Asthma, COPD, Situational syncope, Takotsubo cardiomyopathy",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Benign paroxysmal positional vertigo",
+    "predicted_set": [
+      "Benign paroxysmal positional vertigo",
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)",
+      "Situational syncope",
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "Benign paroxysmal positional vertigo",
+      "Asthma",
+      "COPD",
+      "Situational syncope",
+      "Takotsubo cardiomyopathy"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Benign paroxysmal positional vertigo",
+    "predicted_set_remapped": [
+      "Benign paroxysmal positional vertigo",
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8564,
+      "completion_tokens": 383
+    },
+    "patient": {
+      "prompt_tokens": 4577,
+      "completion_tokens": 235,
+      "calls": 8
+    }
+  }
+}

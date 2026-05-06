@@ -1,0 +1,107 @@
+{
+  "case_idx": 14,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Primary sclerosing cholangitis",
+  "patient_actor_hidden": {
+    "Demographics": "32-year-old male",
+    "History": "The patient reports a 2-month history of increasing generalized fatigue and severe pruritus. He has known hypertension and was diagnosed with ulcerative colitis 5 years ago. He mentions being sexually active with 2 female partners and inconsistent condom use.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue and severe pruritus",
+      "Secondary_Symptoms": [
+        "Scleral icterus",
+        "Multiple scratch marks on trunk and extremities"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Ulcerative Colitis",
+    "Current_Medications": [
+      "Lisinopril",
+      "Rectal Mesalamine"
+    ],
+    "Social_History": "Sexually active with inconsistent condom use",
+    "Review_of_Systems": "Denies fever, diarrhea, joint pain, or recent travel."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with generalized fatigue, severe pruritus, and abnormal liver function tests.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’ll start with key questions—1) How old are you, and when did the fatigue and severe itching begin? Doctor: 2) Is the itching worse at night or after bathing, and do you have jaundice (yellow eyes/skin) or dark urine/light stools?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: I’m 32, and the fatigue and severe itching started about two months ago and have been getting worse. The itching is pretty constant and worse at night, and yes I have yellow eyes with dark urine."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks—given the 2-month worsening fatigue, severe nocturnal pruritus, and jaundice with dark urine, this sounds like cholestatic liver disease (possibly primary biliary cholangitis, primary sclerosing cholangitis, or an obstructive process). Have you had any fever/chills, right-upper-quadrant pain, weight loss, or pale/greasy stools (steatorrhea)? Doctor: REQUEST TEST: Liver_panel (AST/ALT, ALP, GGT, total/direct bilirubin) + CBC + PT/INR Doctor: REQUEST TEST: Viral_hepatitis_panel (HAV IgM, HBsAg, anti-HBc IgM, HCV Ab/RNA) + autoimmune_cholestasis (AMA, ANA, ASMA, IgM levels) Doctor: REQUEST TEST: Abdominal_ultrasound (biliary dilation/obstruction) and consider MRCP if ultrasound is non-diagnostic.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.3°C (99.1°F); Blood pressure 130/84 mmHg; Heart rate 86 bpm; Respiratory rate normal; General: No acute distress; Skin: Scleral icterus; multiple scratch marks on trunk/extremities. CBC/Blood work: Hemoglobin 11.5 g/dL; Leukocyte count 7500/mm3; Platelets 280,000/mm3. Liver panel/bilirubin: Total bilirubin 1.5 mg/dL; Direct bilirubin 0.9 mg/dL; Alkaline phosphatase 460 U/L; AST 75 U/L; ALT 78 U/L. Autoimmune markers: ANA negative; Antimitochondrial antibodies negative. Imaging (Abdominal ultrasound): Thickening of the bile ducts and focal bile duct dilatation. Abdominal exam: No distension; normal bowel sounds"
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: With cholestatic labs (high ALP, direct hyperbilirubinemia), jaundice, nocturnal pruritus, negative AMA and ANA, and ultrasound showing bile-duct thickening with focal duct dilatation, this most strongly suggests a primary sclerosing cholangitis–type process rather than primary biliary cholangitis. Doctor: Have you been diagnosed with inflammatory bowel disease (especially ulcerative colitis), and do you have any history of recurrent cholangitis or similar episodes (fever, RUQ pain, elevated WBC)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Doctor: Have you been diagnosed with inflammatory bowel disease—especially ulcerative colitis—and do you have any history of recurrent cholangitis or similar episodes like fever, right upper quadrant pain, or elevated white counts? Patient: Yes, I have ulcerative colitis, and I don’t recall any fever or right upper quadrant pain—my white count has been normal as far as I know. I just feel steadily fatigued with the severe itching and the yellow eyes/dark urine."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: Given ulcerative colitis plus a cholestatic pattern (very high ALP, direct hyperbilirubinemia) and ultrasound showing bile-duct thickening with focal dilatation, the leading diagnosis is primary sclerosing cholangitis. Doctor: To confirm, I’d request **REQUEST TEST: MRCP** (to look for multifocal strictures/dilations “beading”) and **REQUEST TEST: serum IgG/IgG4** before deciding the treatment pathway. Doctor: DIAGNOSIS READY: Primary sclerosing cholangitis (PSC) associated with ulcerative colitis, causing obstructive cholestasis (with pruritus and jaundice).",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: Given ulcerative colitis plus a cholestatic pattern (very high ALP, direct hyperbilirubinemia) and ultrasound showing bile-duct thickening with focal dilatation, the leading diagnosis is primary sclerosing cholangitis. Doctor: To confirm, I’d request **REQUEST TEST: MRCP** (to look for multifocal strictures/dilations “beading”) and **REQUEST TEST: serum IgG/IgG4** before deciding the treatment pathway. Doctor: DIAGNOSIS READY: Primary sclerosing cholangitis (PSC) associated with ulcerative colitis, causing obstructive cholestasis (with pruritus and jaundice).",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Primary sclerosing cholangitis",
+    "predicted_set_remapped": [
+      "Primary sclerosing cholangitis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2126,
+      "completion_tokens": 529,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 1075,
+      "completion_tokens": 148,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 642,
+      "completion_tokens": 200,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 207,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "case_idx": 40,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Osteoarthritis",
+  "patient_actor_hidden": {
+    "Demographics": "69-year-old male",
+    "History": "The patient presents with pain in his left great toe, hips, and knees that worsens with activity and improves with rest. He reports that the symptoms have progressively gotten worse over the past several years.",
+    "Symptoms": {
+      "Primary_Symptom": "Pain in the left great toe, hips, and knees",
+      "Secondary_Symptoms": [
+        "Symptoms worsen with activity",
+        "Symptoms improve with rest"
+      ]
+    },
+    "Past_Medical_History": "Obesity, type II diabetes mellitus, smoking history, hypertension.",
+    "Social_History": "Drinks roughly ten beers per day. Recent travel history to Bangkok with unprotected sex.",
+    "Review_of_Systems": "Patient did not report any other systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient who presents with chronic joint pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve been having pain in my left great toe, as well as in my hips and knees. It gets worse when I’m active and feels better when I rest, and it’s been slowly progressing over the last few years.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and do you experience any stiffness",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m 69 years old, and I do notice some stiffness that’s particularly noticeable after I’ve been inactive, but it tends to improve once I start moving.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "How long does the stiffness typically last when you first wake up in the morning?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the stiffness after waking usually lasts about 30 minutes, then I start to feel better once I’m up and moving.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any swelling, redness, or warmth in these",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the left great toe sometimes looks a bit swollen, but I haven’t noticed much redness or significant warmth. I mostly feel deep aching pain that worsens with activity and eases with rest.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever had sudden, severe attacks of pain",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had sudden, severe attacks that come out of nowhere; it’s more of a gradual, deep aching pain that builds over time, mainly triggered by activity and relieved by rest.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "first metatarsophalangeal",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, yes—I’ve noticed the stiffness is worst around my left great toe area, especially at the start of moving, and it gradually eases; the overall pain in the hips and knees follows the same pattern of worsening with activity and improving with rest.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteoarthritis, G",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Osteoarthritis",
+    "predicted_set": [
+      "Osteoarthritis",
+      "G"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Osteoarthritis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Osteoarthritis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2173,
+      "completion_tokens": 1695
+    },
+    "patient": {
+      "prompt_tokens": 2553,
+      "completion_tokens": 264,
+      "calls": 6
+    }
+  }
+}

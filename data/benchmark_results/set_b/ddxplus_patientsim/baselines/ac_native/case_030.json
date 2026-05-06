@@ -1,0 +1,95 @@
+{
+  "case_idx": 30,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Scombroid food poisoning",
+  "objective_for_doctor": "A 17-year-old Female patient presents to the clinic. Chief complaint: I have feeling nauseous or do you feel like vomiting, significant dyspnea, and did your cheeks suddenly turn red.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’m feeling really nauseous and like I might vomit, and I’m having significant trouble breathing. My cheeks suddenly turned pink/red, and I have a rash with itching (about 6/10) on different areas, including my right biceps, around my mouth, on my throat/thyroid cartilage area, and both my right and left ankles.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: Let’s quickly clarify—did this start suddenly within minutes to an hour after a new food/medication (especially NSAIDs like ibuprofen), insect sting, or latex exposure, and do you have wheezing/voice hoarseness or lip/tongue swelling?  \nDr. Agent: Also, are you feeling lightheaded/faint, and have you taken anything so far (antihistamine/epinephrine)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly after I ate something—dark-fleshed fish or Swiss cheese—right before the reaction. I don’t know about wheezing or voice hoarseness, and I haven’t noticed lip or tongue swelling. I feel a bit nauseous but I’m not lightheaded/faint, and I haven’t taken anything yet.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Do you have any hives or raised welts that move around, and how quickly did the rash and breathing symptoms start after eating (minutes vs >1 hour)?  \nDoctor: Also—any stomach cramps/diarrhea, fever, or new medications/supplements in the last week?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s a rash with pink redness and some spots are bigger than 1 cm, but I can’t say if they “move around.” It started within minutes to an hour after eating the dark-fleshed fish or Swiss cheese. I don’t have fever, and I don’t have diarrhea or stomach cramps that I can tell; I also haven’t started any new medications or supplements in the last week.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This sounds like a possible **anaphylaxis or acute allergic reaction** triggered by that food—did you have **any lip/eyelid swelling**, **throat tightness**, **wheezing or coughing**, or **faster heartbeat**?  \nDoctor: If you have a pulse oximeter, what is your **current SpO₂**—and do you feel worse when lying down?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed lip or eyelid swelling, and I haven’t noticed throat tightness, wheezing, or coughing. I don’t have a pulse oximeter, and I can’t say about a faster heartbeat or worse when lying down—I just feel very short of breath and nauseous.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This is still concerning for a food-triggered severe allergic reaction—right now I need to know: can you speak in full sentences, and do you have any visible swelling of the throat/neck or a “tight” voice?  \nDoctor: Also, do you have any history of asthma or previous anaphylaxis, and are you currently on any beta-blocker medications (for heart problems)?  \nDoctor: REQUEST TEST: Pulse_Oximetry_now + Vital_Signs (HR/BP/RR/Temp)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can speak in full sentences, and I don’t feel like my voice is tight or hoarse. I don’t know about visible throat/neck swelling from the outside, but I do have rash redness around my throat/thyroid cartilage area. I don’t have a history of asthma or previous anaphylaxis that I know of, and I’m not on any beta-blocker medications. I’m not able to do pulse oximetry or my own vitals right now.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given onset within minutes to an hour after food plus dyspnea and diffuse itchy rash near the throat, I’m treating this as **high-risk anaphylaxis even without wheeze/hoarseness**—do you have an epinephrine auto-injector available at home or with you?  \nDoctor: Also, are you having any **worsening** shortness of breath, **lightheadedness**, or vomiting/abdominal cramping right now?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have an epinephrine auto-injector with me. Right now my shortness of breath feels significant, but I don’t feel lightheaded/faint, and I’m not vomiting or having strong abdominal cramping that I can tell.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m concerned for **anaphylaxis** triggered by food (rapid onset within minutes–1 hour, itchy rash with throat/neck involvement, significant dyspnea) even though you don’t feel faint or have vomiting. Do you have someone who can take you **to the ER/Call emergency services now**, and can you do a quick check for any **lip/tongue swelling** or **voice change** at this moment?  \nDr. Agent: Also, if you can access it, are you willing to take an over-the-counter antihistamine **(cetirizine/loratadine)** while waiting—but **you need emergency care urgently because you don’t have epinephrine**.\n\nDIAGNOSIS READY: High-risk food-triggered anaphylaxis (acute systemic allergic reaction) — requires immediate emergency treatment.\n\n[DDX]\n1. Anaphylaxis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4179,
+      "completion_tokens": 628,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6457,
+      "completion_tokens": 456
+    }
+  }
+}

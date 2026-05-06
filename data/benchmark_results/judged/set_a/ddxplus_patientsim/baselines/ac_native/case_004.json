@@ -1,0 +1,84 @@
+{
+  "case_idx": 4,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Acute pulmonary edema",
+  "objective_for_doctor": "A 18-year-old Male patient presents to the clinic. Chief complaint: I have lower chest pain, bouts of choking or shortness of breath that wake you up at night, and swelling in one or more areas of your body.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have lower chest pain, and I get bouts of choking or shortness of breath that wake me up at night. I also have swelling in my legs—my left ankle and both calves/tibias—and I feel short of breath with activity and when I lie flat.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—these symptoms sound concerning for a breathing/circulation problem (possibly fluid in the lungs or heart/lung blockage). When you wake up choking, do you also have chest pressure or palpitations, and have you had fever or cough?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have fever or a cough that I can say for sure. When I wake up choking, I also feel my chest pain/pressure, and I get really short of breath—I'm not sure about palpitations, but the breathing feels like it cuts off.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—nighttime choking with chest pressure and shortness of breath plus leg swelling and worse breathing when lying flat strongly suggests heart-related fluid overload. Do you have any history of blood clots, recent long travel/surgery, known heart disease, or do you have one leg that’s more swollen than the other?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have any recent long travel. I don’t know about blood clots history. My swelling is in the legs on both sides, but it feels worse on the left—like my left ankle is most noticeable. I do have known heart failure.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Known heart failure makes this most consistent with worsening fluid overload/heart-failure exacerbation causing pulmonary congestion and orthopnea; to rule out a clot or other acute causes, do you have any new rapid weight gain, and what is your current oxygen level if you’ve checked?  \nDoctor: REQUEST TEST: BNP/NT-proBNP and Basic_Metabolic_Panel (kidney/electrolytes)  \nDoctor: REQUEST TEST: Chest_X-Ray and ECG",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t checked my oxygen level. I can’t say about rapid weight gain either—I haven’t been weighing myself closely. I do have the shortness of breath that gets worse when I lie flat, and my legs are swelling.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given known heart failure plus orthopnea (worse lying flat), nighttime choking with chest pressure, and bilateral leg swelling, this is very likely an acute heart-failure exacerbation with pulmonary congestion; do you currently have fewer urinations than usual or very high blood pressure?  \nDoctor: REQUEST TEST: Troponin and D-dimer (if available) / Venous_Doppler of lower extremities  \nDoctor: DIAGNOSIS READY: Acute decompensated congestive heart failure with volume overload (pulmonary congestion causing orthopnea/paroxysmal nocturnal dyspnea)\n\n[ABSTAIN] free-text diagnosis 'Acute decompensated congestive heart failure with volume overload (pulmonary congestion causing orthopnea/paroxysmal nocturnal dyspnea)' did not map to the closed disease set",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1867,
+      "completion_tokens": 350,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 4005,
+      "completion_tokens": 224
+    }
+  }
+}

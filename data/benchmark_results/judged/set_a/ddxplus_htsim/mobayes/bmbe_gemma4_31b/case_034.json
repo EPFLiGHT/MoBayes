@@ -1,0 +1,155 @@
+{
+  "case_idx": 34,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: F\nChief Complaint: cough",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve been coughing up blood, and I’ve also had a cough with colored or more abundant sputum than usual. I’ve been feeling shortness of breath in a significant way, and I think I’ve had a fever. I also have pain when I breathe in deeply on the side of my chest and posterior chest wall (R and L), and it’s sharp/knife-stroke pain.",
+      "extracted_features": {
+        "f_e_45": "yes",
+        "f_e_77": "yes",
+        "f_e_66": "yes",
+        "f_e_91": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_55": "yes",
+        "f_e_55_v_56": "yes",
+        "f_e_55_v_170": "yes",
+        "f_e_220": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_201": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pneumonia",
+          0.8837983815964728
+        ],
+        [
+          "Pulmonary embolism",
+          0.06014862332466257
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.046001487431227735
+        ],
+        [
+          "Bronchitis",
+          0.005245562612409324
+        ],
+        [
+          "Pulmonary neoplasm",
+          0.0010838660762244607
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_129",
+      "doctor_question": "Have you noticed any lesions, redness, or other skin changes that you feel might be related to the symptoms you're experiencing?",
+      "patient_answer": "Yes. I have lesions, redness, or problems on my skin that I believe are related to the condition I’m consulting for. The rash is pink, it has swelling, and the lesions peel off.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9972175409896371
+        ],
+        [
+          "Pulmonary embolism",
+          0.0013573517104066922
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.0010380985331783436
+        ]
+      ],
+      "entropy": 0.03292841705548326
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Have you noticed if the lesions on your skin are peeling off?",
+      "patient_answer": "Yes. The lesions peel off.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9999436350420234
+        ],
+        [
+          "Pulmonary embolism",
+          2.7496208149582788e-05
+        ],
+        [
+          "Spontaneous rib fracture",
+          2.1029017850867826e-05
+        ]
+      ],
+      "entropy": 0.0009842264599069263
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "Could you tell me about the size of the lesion (or lesions)? Would you say they are larger than 1 centimeter in diameter?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.9999987229478189
+        ],
+        [
+          "Pulmonary embolism",
+          5.555095544139063e-07
+        ],
+        [
+          "Spontaneous rib fracture",
+          4.24852047691344e-07
+        ]
+      ],
+      "entropy": 2.9773524892015175e-05
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_top3": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Spontaneous rib fracture"
+    ],
+    "confidence": 0.9999987229478189,
+    "final_entropy": 2.9773524892015175e-05,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Spontaneous rib fracture"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11588,
+      "completion_tokens": 317
+    },
+    "patient": {}
+  }
+}

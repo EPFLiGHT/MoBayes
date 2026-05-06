@@ -1,0 +1,119 @@
+{
+  "case_idx": 3,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 32\nSex: M\nChief Complaint: irritability",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m more irritable with very unstable mood recently. I also have sharp, sensitive pain in both ears (right and left), and the pain intensity is about 8 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I’ll ask a few focused questions to narrow this down.\n\n**Question 1 (one at a time):**  \nDo you have **any fever** (measured or felt) or have you had **recent cold/flu symptoms** (runny nose, sore throat, cough)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s clarify.\n\n**Question 2:**  \nHave you noticed **any ear discharge** (fluid/pus) from either ear, or **hearing loss** in either ear?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Question 3:**  \nDoes the ear pain get **worse when you pull on the outer ear** (pinna) or when you **press the small flap in front of the ear** (tragus)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—let’s try a more specific one.\n\n**Question 4:**  \nIs the pain **worse when you chew or open your mouth**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Question 5:**  \nDo you have **sore throat, trouble swallowing, or a muffled “hot potato” voice**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Question 6:**  \nAny **shortness of breath, wheezing, or chest tightness** right now?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to pause and ask one last key question that helps separate several serious causes of ear pain.\n\n**Question 7:**  \nHave you had **new facial weakness, numbness, or severe headache/neck stiffness**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating clinical features (fever/URI symptoms, ear exam clues like tragus/pinna tenderness or discharge/hearing loss, and red flags like throat/voice changes or neurologic symptoms). “Irritable with unstable mood” is nonspecific and doesn’t reliably point to a single diagnosis from the provided list.\n\n[POSSIBLE] Acute otitis media, Acute laryngitis, Epiglottitis, Panic attack, Acute dystonic reactions",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute otitis media",
+      "Acute laryngitis",
+      "Epiglottitis",
+      "Panic attack",
+      "Acute dystonic reactions"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7787,
+      "completion_tokens": 410
+    },
+    "patient": {}
+  }
+}

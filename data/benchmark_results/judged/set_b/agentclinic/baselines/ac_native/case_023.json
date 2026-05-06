@@ -1,0 +1,104 @@
+{
+  "case_idx": 23,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Bed bug bite",
+  "patient_actor_hidden": {
+    "Demographics": "47-year-old male",
+    "History": "The patient presents with intense itching of his right thigh region for the past few days. He also mentions the recent formation of ‘red bumps’ in the same area. The patient has recently attended a business conference in Miami. He has a past medical history of hypertension, diabetes type 2, and hyperlipidemia. The patient’s medication regimen includes enalapril, metformin, and atorvastatin. He denies any history of smoking or drinking.",
+    "Symptoms": {
+      "Primary_Symptom": "Intense itching on the right thigh",
+      "Secondary_Symptoms": [
+        "Recent appearance of ‘red bumps’",
+        "Itching also present on the left leg and right forearm",
+        "Excoriations over the affected regions"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, Diabetes Type 2, Hyperlipidemia. Medications: Enalapril, Metformin, Atorvastatin.",
+    "Social_History": "Non-smoker, does not consume alcohol. Recently traveled to Miami for a business conference.",
+    "Review_of_Systems": "Denies fever, weight loss, recent illnesses, or other skin conditions."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with intense itching and development of 'red bumps' on the thigh and other parts of the body.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did the intense itching and “red bumps” first start, and have they been getting worse or spreading quickly? Patient: Doctor: Also, are the bumps clustered (like in a line or patch), and do you see any blisters, oozing, or crusting? Patient:",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: The intense itching and the red bumps started about a few days ago, and they’ve gradually been getting worse and spreading a bit to my left leg and right forearm. Patient: The bumps seem clustered in patches, and I don’t really see blisters or oozing—mostly just red bumps with scratching marks from excoriations."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thank you—are you having any fever, shortness of breath, or swelling of your lips/face, and did you recently start any new medication, use a new soap/detergent/cream, or have possible insect/plant exposure (e.g., yard work)? Doctor: Also, are the bumps ring-shaped or do they follow a “linear” pattern, and have any family members/close contacts developed an itchy rash?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Patient: No fever or breathing problems, and I haven’t noticed any swelling of my lips or face. Patient: I haven’t started any new medications or used new soaps/detergents or creams, and I did some light contact with plants outdoors but no major yard work; the bumps aren’t ring-shaped and don’t follow a clear line. Patient: I don’t think anyone close to me has developed a similar itchy rash."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since there’s intense itch with patchy clustered red bumps spreading to thigh and forearm, do you see any tiny blisters or do any areas look like “hives” that come and go within 24 hours? Also, have you noticed similar itching at night or in the wrists/finger webs suggesting scabies? Doctor: REQUEST TEST: Skin_exam_with_diagnostics (dermatologic evaluation for scabies/dermatitis/viral exanthem; consider dermoscopy), and if possible request a KOH test or Tzanck/skin scraping if blisters or fungal features are suspected.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37°C (98.6°F); Blood Pressure 130/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 14 breaths/min. Skin exam: linear line with 3 red papules along medial right thigh; small rows of bumps on left leg and right forearm with excoriations from significant scratching. Diagnostic testing: Skin scraping—no evidence of mites or eggs, ruling out scabies. Complete Blood Count: WBC 7,000 /μL (normal), Hemoglobin 14 g/dL, Platelets 300,000 /μL. (No tiny blisters or hives described in available data; no KOH or Tzanck results provided.)"
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: With a negative scabies scraping and a predominantly itchy, patchy/linear distribution that’s worsening, this most fits **allergic/irritant contact dermatitis** (often from plant exposure) or **an arthropod-bite hypersensitivity**—can you confirm whether the rash is burning more than it is painful, and whether new areas appear within 24–48 hours of each exposure? Doctor: Also, do you see any small clustered pustules/“tapioca-like” vesicles, or any involvement of the palms/soles, since those would push me toward a different diagnosis? Doctor: If those don’t apply, I’m ready to treat as contact dermatitis: **topical mid–high potency steroid** to the affected areas (e.g., triamcinolone 0.1% or similar), **oral antihistamine** for itch, and avoidance—DIAGNOSIS READY: Allergic contact dermatitis (plant/irritant exposure) vs insect bite hypersensitivity; primary diagnosis—contact dermatitis.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: With a negative scabies scraping and a predominantly itchy, patchy/linear distribution that’s worsening, this most fits **allergic/irritant contact dermatitis** (often from plant exposure) or **an arthropod-bite hypersensitivity**—can you confirm whether the rash is burning more than it is painful, and whether new areas appear within 24–48 hours of each exposure? Doctor: Also, do you see any small clustered pustules/“tapioca-like” vesicles, or any involvement of the palms/soles, since those would push me toward a different diagnosis? Doctor: If those don’t apply, I’m ready to treat as contact dermatitis: **topical mid–high potency steroid** to the affected areas (e.g., triamcinolone 0.1% or similar), **oral antihistamine** for itch, and avoidance—DIAGNOSIS READY: Allergic contact dermatitis (plant/irritant exposure) vs insect bite hypersensitivity; primary diagnosis—contact dermatitis.",
+    "diagnosis_provided": true,
+    "moderator_correct": false,
+    "top1_hit": false,
+    "top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 4,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1891,
+      "completion_tokens": 515,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 1037,
+      "completion_tokens": 164,
+      "calls": 2
+    },
+    "measurement": {
+      "prompt_tokens": 554,
+      "completion_tokens": 149,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 274,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

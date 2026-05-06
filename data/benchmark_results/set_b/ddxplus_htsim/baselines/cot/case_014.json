@@ -1,0 +1,99 @@
+{
+  "case_idx": 14,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchospasm / acute asthma exacerbation",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 59\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having a cough, and I’ve also had shortness of breath or difficulty breathing in a significant way. I’ve had asthma attacks—two or more—in the past year, and I was hospitalized for an asthma attack in the past year. I also had a cold in the last 2 weeks, and I have chronic sinusitis.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough + significant shortness of breath, history of ≥2 asthma attacks and hospitalization in the past year, recent cold (last 2 weeks), and chronic sinusitis. This strongly suggests an asthma-triggering respiratory infection and/or upper-airway inflammation leading to an acute exacerbation.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — fits prior severe asthma with recent URI trigger; SOB and cough are classic.\n2) Pneumonia — can follow a viral URI and cause cough/SOB; would be more likely if fever, pleuritic pain, focal lung findings, or worsening after initial improvement.\n3) Acute COPD exacerbation / infection — less likely unless patient has COPD history/smoking; asthma history points away.\n4) Influenza — URI symptoms with cough/SOB; would expect systemic symptoms (fever, myalgias).\n5) Acute laryngitis / croup / epiglottitis — less likely given adult asthma history and lack of prominent voice/stridor/drooling features (not yet assessed).\nMost informative next question: determine whether this is primarily wheezing/bronchospasm vs pneumonia/other causes by asking about wheeze and response to bronchodilator.\n[/REASONING]\nDo you have wheezing right now (a whistling sound when you breathe), and does your rescue inhaler (albuterol/salbutamol) help your breathing",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My breathing has been significantly difficult, and I’ve had a cough, but I don’t know whether I have wheezing right now. I do have asthma and I’ve used a bronchodilator in the past.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: significant SOB + cough; known asthma with recent URI (2 weeks) and chronic sinusitis; prior severe asthma attacks/hospitalization in past year. Wheeze status unknown; bronchodilator use history but not response yet.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — most consistent with asthma + URI trigger + significant SOB/cough; wheeze may or may not be noticed by patient.\n2) Pneumonia — still possible after URI; would look for fever, chest pain, sputum, focal worsening.\n3) Influenza — possible if prominent fever/myalgias.\n4) Pulmonary embolism — less likely given asthma history/URI trigger, but SOB can be severe; would need pleuritic pain, hemoptysis, risk factors.\n5) Acute pulmonary edema / myocarditis / ACS — less likely without chest pain/edema symptoms, but need to screen for cardiac features.\nMost informative next question: ask about fever and sputum characteristics to separate pneumonia/influenza from asthma.\n[/REASONING]\nHave you had a fever (measured or felt), and if so what’s the highest temperature? Also, is your cough producing phlegm—what color (clear/white/yellow/green/bloody)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My cough has been a symptom, and I had a cold in the last 2 weeks, but I don’t know about a fever or what color phlegm is (if any).",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: significant SOB + cough; asthma with prior severe exacerbations/hospitalization; recent URI; chronic sinusitis; fever and sputum characteristics unknown.\nTop candidates:\n1) Bronchospasm / acute asthma exacerbation — still most likely given asthma severity and URI trigger; fever/sputum may be absent.\n2) Pneumonia — still possible but fever/sputum not assessed.\n3) Influenza — possible but fever/myalgias not assessed.\n4) Pulmonary embolism — less likely but SOB “significant” warrants screening for red flags.\n5) Acute pulmonary edema / Possible NSTEMI / STEMI — less likely but need chest pain/leg swelling/orthopnea screening.\nMost informative next question: assess for chest pain/pleuritic pain and hemoptysis to screen for PE/ACS/pneumonia complications.\n[/REASONING]\nDo you have chest pain—especially sharp pain that’s worse when you breathe in—or any coughing up blood?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings remain: significant SOB + cough; asthma with prior severe exacerbations/hospitalization; recent URI; chronic sinusitis; chest pain/hemoptysis unknown.\nBecause key discriminators (wheeze, fever/sputum, chest pain/pleuritic pain, hemoptysis) are still unknown, we need one high-yield question that can quickly identify a dangerous alternative to asthma.\nNext most informative: ask about leg swelling/pain or recent immobility/travel/surgery—this helps assess pulmonary embolism risk.\n[/REASONING]\nHave you had any recent leg swelling or pain (especially one-sided), or any recent long travel, surgery, or being bedridden?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: significant SOB + cough; asthma with recent URI trigger; chronic sinusitis; severity concerning but key red-flag discriminators (fever/sputum, wheeze, chest pain/hemoptysis, PE risk factors) are unknown.\nAt this point, evidence is insufficient to confidently rank beyond asthma exacerbation vs infection (pneumonia/influenza) vs less common but serious causes (PE, ACS). We need one question that can rapidly distinguish asthma exacerbation from other causes by asking about ability to speak and response to bronchodilator.\nNext most informative: ask whether they can speak full sentences and whether albuterol improves symptoms—this is highly discriminating for asthma severity and helps decide if this is primarily bronchospasm.\n[/REASONING]\nCan you speak in full sentences right now, and have you tried your rescue inhaler (albuterol) today—if yes, did it help at all?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I haven’t told myself whether I can speak in full sentences right now, and I don’t know whether albuterol helped today.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminators are still unknown (wheeze/bronchodilator response, fever/sputum, chest pain/hemoptysis, and PE/ACS risk factors). With only “cough + significant SOB” plus asthma history and recent URI/chronic sinusitis, I can’t confidently narrow to a top 5 with enough certainty.\n\n[POSSIBLE] Bronchospasm / acute asthma exacerbation, Pneumonia, Influenza, Pulmonary embolism, Acute pulmonary edema",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Bronchospasm / acute asthma exacerbation",
+      "Pneumonia",
+      "Influenza",
+      "Pulmonary embolism",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9132,
+      "completion_tokens": 1238
+    },
+    "patient": {}
+  }
+}

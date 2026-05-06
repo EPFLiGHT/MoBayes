@@ -1,0 +1,109 @@
+{
+  "case_idx": 30,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 26\nSex: M\nChief Complaint: palpitations",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having palpitations and my heart feels like it’s beating fast, irregularly (sometimes missing a beat). I’m also slightly dizzy or lightheaded, and I have pain in the back of my head.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, based on palpitations + lightheadedness):**\n- **Atrial fibrillation:** 0.30  \n- **PSVT:** 0.25  \n- **Possible NSTEMI / STEMI:** 0.15  \n- **Unstable angina:** 0.10  \n- **Pulmonary embolism:** 0.10  \n(others lower)\n\n**Question 1 (most discriminating):**  \nWhen did this start, and is it **constant** or does it come in **episodes**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure when it started. It seems to come in episodes rather than being constant.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (episodes vs constant):**\n- **Atrial fibrillation:** 0.20  \n- **PSVT:** 0.35  \n- **Possible NSTEMI / STEMI:** 0.10  \n- **Unstable angina:** 0.08  \n- **Pulmonary embolism:** 0.12  \n\n**Question 2:**  \nDuring an episode, about how long does it last—**seconds, minutes, or longer than 30 minutes**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Minutes.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (minutes):**\n- **Atrial fibrillation:** 0.22  \n- **PSVT:** 0.42  \n- **Possible NSTEMI / STEMI:** 0.08  \n- **Unstable angina:** 0.07  \n- **Pulmonary embolism:** 0.11  \n\n**Question 3:**  \nDo you notice the heart rhythm is **very fast and regular** during the episodes, or **irregularly irregular**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It feels irregularly—like it’s missing a beat, rather than very fast and fully regular.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (irregularly irregular):**\n- **Atrial fibrillation:** 0.45  \n- **PSVT:** 0.20  \n- **Possible NSTEMI / STEMI:** 0.07  \n- **Unstable angina:** 0.06  \n- **Pulmonary embolism:** 0.22  \n\n**Question 4:**  \nDo you have **chest pain/pressure** or **shortness of breath** during the episodes? (Yes/No, and which one.)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain/pressure and no shortness of breath during the episodes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no chest pain/pressure, no SOB):**\n- **Atrial fibrillation:** 0.52  \n- **Pulmonary embolism:** 0.12  \n- **PSVT:** 0.20  \n- **Possible NSTEMI / STEMI:** 0.05  \n- **Unstable angina:** 0.06  \n\n**Question 5:**  \nHave you had any **fever, recent infection, or new cough** in the past week or two?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (unknown infection/cough):** no strong change  \n- **Atrial fibrillation:** 0.50  \n- **PSVT:** 0.20  \n- **Pulmonary embolism:** 0.12  \n- **Possible NSTEMI / STEMI:** 0.05  \n- **Unstable angina:** 0.06  \n\nI need one more key discriminating detail:\n\n**Question 6:** During episodes, do you feel **fainting/near-fainting** or have you actually **passed out**? (Yes/No)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t fainted or passed out.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Posterior update (no syncope):**\n- **Atrial fibrillation:** 0.52  \n- **PSVT:** 0.22  \n- **Pulmonary embolism:** 0.10  \n- **Possible NSTEMI / STEMI:** 0.06  \n- **Unstable angina:** 0.10  \n\nAt this point, the strongest match is **atrial fibrillation** (palpitations described as irregularly irregular with lightheadedness, episodic). I can’t fully exclude PE or ischemia without vitals/ECG and risk factors, but the history favors AF.\n\n[DDX] Atrial fibrillation, PSVT, Pulmonary embolism, Unstable angina, Possible NSTEMI / STEMI",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Atrial fibrillation",
+    "predicted_set": [
+      "Atrial fibrillation",
+      "PSVT",
+      "Pulmonary embolism",
+      "Unstable angina",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8443,
+      "completion_tokens": 835
+    },
+    "patient": {}
+  }
+}

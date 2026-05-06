@@ -1,0 +1,104 @@
+{
+  "case_idx": 8,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Pericarditis",
+  "objective_for_doctor": "A 50-year-old Female patient presents to the clinic. Chief complaint: I have lower chest pain, upper chest pain, and right posterior chest wall radiating pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having lower and upper chest pain, and it also feels like a knife-stroke sharp pain that radiates to my right posterior chest wall and also to my thoracic spine. I’ve also had palpitations, orthopnea, and the pain gets worse with deep breathing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few quick questions to figure out what’s causing this sharp, pleuritic chest pain—are you short of breath at rest, and do you have fever or cough?  \nDoctor: Also, when did this start, is it constant or comes in waves, and have you had any leg swelling or recent long travel/surgery?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not short of breath at rest. I don’t have a fever or cough.  \nIt started pretty fast—like within minutes—and the pain is very intense; it’s sharp and pleuritic, and it feels like it comes in quickly rather than slowly. I haven’t had leg swelling, and I haven’t had recent long travel or surgery.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a potentially serious cause of pleuritic chest pain that began suddenly—can you tell me if your heart rate is irregular/very fast right now, and whether you have any dizziness/fainting, sweating, or pain spreading to your arm/jaw?  \nDoctor: Also, do you have any history of blood clots, smoking, or recent new estrogen/hormone use?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "My heart feels like it’s beating irregularly and I’ve had palpitations. I don’t feel dizzy or like I might faint, and I’m not having sweating that I notice.  \nI don’t have pain spreading to my arm or jaw. I also don’t have a history of blood clots, I don’t smoke, and I haven’t started any new estrogen or hormone use.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need 2 quick details—do you have any one-sided leg calf pain or swelling, and is the chest pain worse with coughing or with pressing on the chest wall?  \nDoctor: Also, please check your oxygen saturation if you can, and tell me your blood pressure/heart rate from any recent vitals.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have one-sided calf pain or leg swelling.  \nThe chest pain is worse with deep breathing/pleuritic, and I don’t know if it’s worse with coughing specifically or with pressing on the chest wall—I haven’t really tried pressing to check.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given sudden-onset, very intense *pleuritic* chest pain with palpitations and irregular feeling, I want to rule out pulmonary embolism and other acute causes—REQUEST TEST: D-dimer, CBC, CMP, troponin, and an ECG.  \nDoctor: Also REQUEST TEST: CT_Pulmonary_Angiography (or V/Q scan if needed) and chest X-ray; can you tell me your current oxygen saturation and heart rate from a pulse ox, if available?  \nDoctor: While we wait, is the pain truly sharp only on inhalation or does it also occur at rest, and do you have risk factors like recent infection, cancer, or prolonged immobility even without travel?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a pulse ox or recent vitals I can check right now.  \n\nThe pain is sharp and worse with inhalation, and I can still have it at rest too—it’s not only when I’m breathing in. I did recently have a viral infection, but no cancer and no prolonged immobility that I can think of.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I want to prioritize ruling out a life-threatening cause given the *sudden*, very sharp pleuritic pain with palpitations—REQUEST TEST: Repeat vitals (SpO₂, HR, BP), ECG, troponin, CBC, CMP, and D-dimer.  \nDoctor: If D-dimer is positive or suspicion stays high, I’ll proceed urgently—REQUEST TEST: CT Pulmonary Angiography (or V/Q scan) and chest X-ray—and while we wait, is the pain ever relieved by rest/holding your breath, and do you feel any faintness or new shortness of breath developing?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I can’t provide repeat vitals (no SpO₂/BP/HR reading available right now).  \n\nThe pain doesn’t really go away completely with rest or holding my breath—it stays very intense, and I don’t feel faint. I’m not noticing new shortness of breath developing beyond the orthopnea I already mentioned.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m very concerned about a pulmonary embolism or other acute cardiopulmonary emergency given the sudden onset, very intense pleuritic pain, and palpitations—REQUEST TEST: urgent ECG, serial troponin, CBC, CMP, D-dimer, and chest X-ray.  \nDoctor: REQUEST TEST: CT_Pulmonary_Angiography (or V/Q scan if CTA not possible); meanwhile, I want to reassess for red flags—do you have any new leg symptoms now, and can you check/estimate your current heart rate (even a smartwatch reading)?  \nDoctor: DIAGNOSIS READY: Acute pulmonary embolism (PE) — requires immediate confirmation with CT pulmonary angiography/V-Q and urgent management due to high-risk presentation.\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4066,
+      "completion_tokens": 673,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6150,
+      "completion_tokens": 423
+    }
+  }
+}

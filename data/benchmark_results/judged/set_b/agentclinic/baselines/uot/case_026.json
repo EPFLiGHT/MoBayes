@@ -1,0 +1,136 @@
+{
+  "case_idx": 26,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Hirschsprung disease",
+  "patient_actor_hidden": {
+    "Demographics": "8-month-old boy",
+    "History": "The patient has been very fussy and has shown decreased interest in feeding for the past few days. His mother reports that despite the feeding difficulties, she believes the child has been gaining weight. There were no complications during birth at 39 weeks of gestation.",
+    "Symptoms": {
+      "Primary_Symptom": "Crying, especially intense with abdominal palpation",
+      "Secondary_Symptoms": [
+        "Distended abdomen",
+        "Decreased feeding",
+        "Weight gain despite decreased feeding"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical or surgical history. Delivered vaginally at 39 weeks without complications.",
+    "Social_History": "First child to young parents, no history of similar illness in the family.",
+    "Review_of_Systems": "No episodes of fever, vomiting, or diarrhea. The baby has not had any known illnesses since birth."
+  },
+  "objective_for_doctor": "Diagnose the underlying condition based on clinical presentation and examination findings in an 8-month-old boy with feeding difficulties and abdominal distension.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: He’s been very fussy for the past few days, crying especially when his belly is touched, and he’s not as interested in feeding. His abdomen looks distended, but my baby still seems to be gaining weight.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **wheezing/shortness of breath with chronic airflow limitation** (COPD/asthma-type symptoms)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have wheezing or shortness of breath with chronic airflow limitation? Patient: I haven’t noticed any wheezing or trouble breathing—he’s mostly just very fussy, cries a lot when his belly is touched, and is feeding less with a distended abdomen.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **involuntary movements or progressive loss of coordination** (e.g., chorea, worsening motor control)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have involuntary movements or progressive loss of coordination (e.g., chorea or worsening motor control)? Patient: I haven’t noticed any unusual jerking movements or loss of coordination—he mainly just seems very uncomfortable and cries a lot, especially when his belly is touched.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have a fever and a new widespread skin rash with blistering/skin peeling (e.g., mucosal involvement)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have a fever and a new widespread skin rash with blistering or skin peeling (e.g., mucosal involvement)? Patient: No, he hasn’t had a fever, and I haven’t seen any rash, blistering, or peeling of his skin.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a fever and a widespread rash that started soon after birth (or within the first few weeks of life)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, he hasn’t had any fever and I haven’t seen a rash at all, either soon after birth or anytime since.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have fever and respiratory symptoms (cough, shortness of breath) with possible lung involvement?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, he hasn’t had any cough or trouble breathing—he’s mostly just very uncomfortable, crying a lot when his belly is touched, with a distended abdomen and less interest in feeding.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have painful skin ulcers/sores that are rapidly worsening (often with blistering or open wounds)?  ",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have painful skin ulcers or sores that are rapidly worsening (often with blistering or open wounds)? Patient: No, there are no sores, blisters, or ulcers on his skin—he’s just very uncomfortable and cries a lot when his belly is touched, with a distended abdomen and decreased feeding.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pyoderma gangrenosum  , Steven-Johnson syndrome",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Pyoderma gangrenosum",
+    "predicted_set": [
+      "Pyoderma gangrenosum",
+      "Steven-Johnson syndrome"
+    ],
+    "predicted_raw": [
+      "Pyoderma gangrenosum  ",
+      "Steven-Johnson syndrome"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pyoderma gangrenosum",
+    "predicted_set_remapped": [
+      "Pyoderma gangrenosum",
+      "Steven-Johnson syndrome"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4017,
+      "completion_tokens": 391,
+      "calls": 7
+    }
+  }
+}

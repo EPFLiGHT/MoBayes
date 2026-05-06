@@ -1,0 +1,122 @@
+{
+  "case_idx": 8,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Perforated gastric peptic ulcer",
+  "patient_actor_hidden": {
+    "Demographics": "55-year-old male",
+    "History": "The patient is brought in by his wife due to experiencing severe abdominal pain for the past hour. The patient is in too much discomfort to provide detailed information. His wife reports that he has a history of peptic ulcer disease, which has been treated with antacids without significant improvement. She mentions that he has vomited several times in the last few hours, with the vomit being brown/red in color.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe abdominal pain",
+      "Secondary_Symptoms": [
+        "Repeated vomiting",
+        "Brown/red-colored vomitus"
+      ]
+    },
+    "Past_Medical_History": "Known history of peptic ulcer disease, treated with antacids.",
+    "Social_History": "Not provided.",
+    "Review_of_Systems": "Unable to provide due to the patient's condition."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with acute, severe abdominal pain, with a background of peptic ulcer disease.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: My stomach hurts terribly—it's been about an hour—and I've been vomiting several times, with the vomit looking brown/red. My wife says I have a history of ulcer disease and antacids haven’t helped much.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: sudden severe abdominal pain for ~1 hour with multiple episodes of vomiting; vomit described as brown/red (possible blood). History of ulcer disease; antacids not helping. This raises concern for an upper GI bleed and/or perforation/acute surgical abdomen, but we need discriminating details (pain location, peritoneal signs, hemodynamic status, and whether there’s melena/hematemesis).\nTop candidates from the list:\n1) Perforated gastric peptic ulcer — severe sudden epigastric pain with vomiting; ulcer history; could have blood in vomit if bleeding accompanies.\n2) Fulminant hepatic failure — can cause vomiting and GI bleeding, but typically has jaundice/encephalopathy; we don’t have those yet.\n3) Acute Mesenteric Ischemia — can cause severe abdominal pain with vomiting; however vomiting “brown/red” suggests blood, and pain is often out of proportion; we need risk factors and exam.\n4) Acute myelogenous leukemia / Acute lymphoblastic leukemia — can cause GI bleeding/anemia, but usually not abrupt severe pain within 1 hour without other symptoms.\n5) Takotsubo cardiomyopathy — can present with chest/epigastric pain and vomiting, but blood in vomit is less typical.\nMost informative next question: determine pain location and character (epigastric vs diffuse) and whether there are peritoneal",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Where exactly is the pain—centered in your upper abdomen (epigastric) or more spread out—and does it feel sharp/tearing or crampy? Also, have you noticed any black/tarry stools or only vomiting?",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: sudden severe abdominal pain (~1 hour), multiple vomiting episodes, vomit brown/red; ulcer history; antacids ineffective. We asked about pain location/character and melena. Need the patient’s answers to distinguish perforated peptic ulcer (often sudden epigastric pain, possible peritoneal signs, may have hematemesis) vs acute mesenteric ischemia (often diffuse severe pain, may have bloody diarrhea later) vs other causes.\nTop candidates:\n1) Perforated gastric peptic ulcer — ulcer history + abrupt severe epigastric pain + possible hematemesis.\n2) Acute Mesenteric Ischemia — severe pain with vomiting; blood may appear later; needs risk factors and exam.\n3) Fulminant hepatic failure — can cause vomiting/bleeding; would expect jaundice/encephalopathy; melena possible.\n4) Takotsubo cardiomyopathy — epigastric pain/vomiting; blood in vomit less likely.\n5) Acute leukemia — GI bleeding possible but pain onset within 1 hour less typical.\nMost informative next action: ask about hemodynamic/neurologic severity—specifically dizziness/fainting and whether they feel weak or sweaty (shock) and any fever. But one question at a time: ask about black tarry stools (melena) vs none, since that’s discriminating for GI bleed source.\nNext question should be",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The pain is right in the middle of my upper belly, like a severe, constant hurt. I haven’t noticed any black or tarry stool—only the vomiting with that brown/red color.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: severe constant epigastric pain, vomiting with brown/red material, no melena. Ulcer history. This strongly supports an upper GI source (hematemesis) and raises concern for perforated gastric peptic ulcer or severe bleeding ulcer. Acute mesenteric ischemia is still possible but less supported without diffuse pain or later bloody diarrhea. Need to assess for peritonitis/perforation and hemodynamic instability.\nTop candidates:\n1) Perforated gastric peptic ulcer — classic: sudden severe epigastric pain; ulcer history; can have vomiting/hematemesis; perforation often causes worsening pain and peritoneal signs.\n2) Perforated gastric peptic ulcer (bleeding ulcer without perforation) vs just bleeding ulcer — but we’re constrained to list; still “perforated gastric peptic ulcer” is closest serious match.\n3) Acute Mesenteric Ischemia — severe pain + vomiting; but pain is localized epigastric rather than diffuse, and no diarrhea yet.\n4) Fulminant hepatic failure — can cause vomiting/bleeding but would expect jaundice/encephalopathy.\n5) Takotsubo cardiomyopathy — epigastric pain/vomiting; blood in vomit less typical.\nMost informative next question: ask about peritoneal/perforation symptoms—specifically whether pain worsens with movement or breathing, and whether they feel rigid abdomen",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does the pain get noticeably worse when you move, cough, or take a deep breath—and is your belly hard or rigid? Also, have you felt faint, sweaty, or very weak since the pain started?",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: severe constant epigastric pain + vomiting brown/red; no melena. Now need peritoneal signs (worse with movement/deep breath, rigid abdomen) and shock symptoms (faint/sweaty/weak). These discriminate perforation/peritonitis (rigid abdomen, pleuritic/peritoneal pain) and severe bleeding/shock.\nTop candidates:\n1) Perforated gastric peptic ulcer — would expect peritoneal signs/rigidity and severe epigastric pain.\n2) Acute Mesenteric Ischemia — can cause severe pain and shock, but peritoneal signs are less classic early; pain often diffuse.\n3) Fulminant hepatic failure — can cause weakness/sweating if ill, but peritoneal signs less likely.\n4) Takotsubo cardiomyopathy — can cause epigastric pain and weakness, but rigidity/peritoneal signs not expected.\n5) Acute leukemia — bleeding/anemia symptoms possible, but acute peritoneal pain less likely.\nMost informative next action: wait for patient’s answers to peritoneal signs and faintness. Since we must ask one question at a time, the next question should be the peritoneal sign component first (movement/cough/deep breath) or rigidity; but we already asked both in one message—however the patient hasn’t answered yet. I should now ask them to answer specifically about rigidity/peritoneal signs",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Does the pain get noticeably worse when you move, cough, or take a deep breath—and is your belly hard or rigid? Also, have you felt faint, sweaty, or very weak since the pain started?",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have the patient’s answers about peritoneal signs (worsening with movement/cough/deep breath, rigidity) or hemodynamic symptoms (faint/sweaty/very weak). Those are key to distinguish perforated gastric peptic ulcer/peritonitis from other causes of severe epigastric pain with hematemesis-like emesis.  \n[POSSIBLE] Perforated gastric peptic ulcer, Acute Mesenteric Ischemia, Fulminant hepatic failure, Takotsubo cardiomyopathy, Acute myelogenous leukemia",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia",
+      "Fulminant hepatic failure",
+      "Takotsubo cardiomyopathy",
+      "Acute myelogenous leukemia"
+    ],
+    "predicted_raw": [
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia",
+      "Fulminant hepatic failure",
+      "Takotsubo cardiomyopathy",
+      "Acute myelogenous leukemia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Perforated gastric peptic ulcer",
+      "Acute Mesenteric Ischemia",
+      "Fulminant hepatic failure"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7649,
+      "completion_tokens": 1322
+    },
+    "patient": {
+      "prompt_tokens": 5070,
+      "completion_tokens": 257,
+      "calls": 5
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "case_idx": 3,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 32\nSex: M\nChief Complaint: irritability",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been very irritable and my mood has been unstable recently. I also have sharp, sensitive pain with an intensity of 8/10, mainly in both ears (right and left), with about 8/10 location precision and a pace of 5/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: mood instability/irritability; sharp, very sensitive bilateral ear pain (8/10) with high location precision (8/10) and moderate pace (5/10). No other symptoms provided yet (fever, sore throat, cough, breathing issues, neurologic symptoms, discharge, hearing loss, trauma).\nTop candidates (tentative):\n1) Acute otitis media — ear pain can be severe; often unilateral but can be bilateral, especially with viral illness; would be supported by fever, recent URI, ear fullness, decreased hearing, or tympanic membrane findings.\n2) Acute laryngitis / viral pharyngitis / URTI — can cause referred ear pain via Eustachian tube dysfunction; would be supported by sore throat, cough, nasal symptoms.\n3) Acute dystonic reactions — can cause painful sensations and agitation/irritability, but “ear pain” specifically is less typical; would be supported by sudden abnormal neck/jaw movements or muscle spasms.\n4) Panic attack — can cause irritability/anxiety and “sharp” discomfort, but true ear pain is less typical; would be supported by episodes with palpitations, dyspnea, fear, tingling.\n5) Anemia — can cause irritability but not focal sharp ear pain; unlikely without fatigue/pallor.\nMost informative next question: determine whether there are infectious/URI features and ear-specific findings (fever,",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.  \n\nBut I have sharp, sensitive pain in both ears (right and left), with intensity 8/10 and location precision 8/10, and my mood has been very unstable and irritable recently. I also traveled out of the country to North America within the last 4 weeks.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe bilateral ear pain (8/10) with very focal “where it is” precision (8/10) and moderate “pace” (5/10); significant irritability/mood instability; recent international travel to North America within 4 weeks. No fever/URI/cough/sore throat/hearing changes/discharge yet.\nTop candidates (still tentative):\n1) Acute otitis media — most consistent with severe ear pain; bilateral can occur with viral URIs/Eustachian tube dysfunction; would be supported by fever, recent cold, ear fullness, decreased hearing, or abnormal tympanic membranes.\n2) URTI/viral pharyngitis/acute rhinosinusitis with referred otalgia — ear pain can be referred from throat/nasal inflammation; supported by sore throat, nasal congestion, cough.\n3) Influenza — can cause ear pain and systemic irritability; supported by high fever, myalgias, cough.\n4) Panic attack — could explain mood instability/irritability plus “sharp” discomfort, but bilateral true ear pain is less typical; supported by episodic symptoms with palpitations, shortness of breath, fear.\n5) Ebola/HIV initial infection — travel raises concern, but ear pain alone is not typical; would require systemic symptoms (fever, rash, GI symptoms, severe malaise, lymphadenopathy).\nMost informative next question: ask about fever/systemic illness to separate",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: severe bilateral ear pain (8/10) and mood instability/irritability; travel to North America 4 weeks ago. Patient can’t provide more detail (“I don’t know”).\nTo narrow safely, the single most discriminating next step is to determine whether there are systemic infectious red flags (fever, chills, rash, severe malaise), because that would shift the differential toward acute infection (influenza/pneumonia/other) and away from isolated anxiety/dystonia.\nMost informative next question: ask about fever/chills.\n  \n[/REASONING]\nDo you have a fever or chills (measured temperature or feeling “hot/cold”) since the ear pain started?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN]The history is too nonspecific: we only have severe bilateral ear pain (8/10) and mood irritability, plus travel 4 weeks ago. We lack key discriminators (fever/chills, URI symptoms, ear discharge/hearing loss, neurologic symptoms, rash, chest symptoms, or timing/episodic pattern), so I can’t confidently narrow to a specific diagnosis.\n\n[POSSIBLE]Acute otitis media, URTI, Influenza, Panic attack, Anaphylaxis",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute otitis media",
+      "URTI",
+      "Influenza",
+      "Panic attack",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 4
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5066,
+      "completion_tokens": 862
+    },
+    "patient": {}
+  }
+}

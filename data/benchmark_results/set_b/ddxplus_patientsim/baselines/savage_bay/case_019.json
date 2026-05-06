@@ -1,0 +1,172 @@
+{
+  "case_idx": 19,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had lower chest pain on the right side and also upper chest pain—mostly a burning feeling. I also have significant trouble breathing, a cough with colored or more sputum than usual, fever, nasal congestion/runny nose, and I notice wheezing when I breathe out.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down step-by-step.\n\n**Current posterior (pre-test, based on your symptoms: fever + cough/sputum change + wheeze + chest pain/burning):**\n- **Pneumonia:** 0.30  \n- **Acute COPD exacerbation / infection:** 0.20  \n- **Bronchitis:** 0.15  \n- **Bronchospasm / acute asthma exacerbation:** 0.15  \n- **Influenza:** 0.10  \n(others lower)\n\n**Question 1 (high-yield):**  \nDo you have **any history of asthma or COPD**, or are you a **smoker**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I have chronic obstructive pulmonary disease (COPD). I don’t have asthma that I know of, and I’m not sure about smoking—I can’t say for sure right now.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—COPD increases the likelihood of an infectious trigger causing an exacerbation.\n\n**Updated posterior:**\n- **Acute COPD exacerbation / infection:** 0.45  \n- **Pneumonia:** 0.25  \n- **Bronchitis:** 0.10  \n- **Bronchospasm / acute asthma exacerbation:** 0.05  \n- **Influenza:** 0.10  \n\n**Question 2 (to separate pneumonia vs COPD exacerbation):**  \nHave you had **pleuritic pain**—does the chest pain get **worse when you take a deep breath** or when you cough?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it seems worse when I take a deep breath and also when I cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That pleuritic pattern (worse with deep breath/cough) shifts probability toward **pneumonia/pleurisy** rather than uncomplicated COPD flare.\n\n**Updated posterior:**\n- **Pneumonia:** 0.45  \n- **Acute COPD exacerbation / infection:** 0.35  \n- **Bronchitis:** 0.08  \n- **Influenza:** 0.07  \n- **Bronchospasm / acute asthma exacerbation:** 0.05  \n\n**Question 3 (key discriminator):**  \nDo you have **any new swelling or pain in one leg**, or have you had **recent long travel/immobility**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have new swelling or pain in one leg, and I haven’t had recent long travel or been very immobile.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Good—this makes **pulmonary embolism** less likely (though not zero).\n\n**Updated posterior (renormalized among remaining):**\n- **Pneumonia:** 0.48  \n- **Acute COPD exacerbation / infection:** 0.36  \n- **Bronchitis:** 0.08  \n- **Influenza:** 0.07  \n- **Bronchospasm / acute asthma exacerbation:** 0.01  \n\n**Question 4 (to distinguish pneumonia vs viral infection):**  \nHow high has your **fever** been (roughly), and how many **days** have symptoms been going on?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "My fever has been around 101 to 103°F, and the symptoms have been going on for about 3 days.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**\n- **Pneumonia:** 0.55  \n- **Acute COPD exacerbation / infection:** 0.33  \n- **Bronchitis:** 0.06  \n- **Influenza:** 0.05  \n- **Bronchospasm / acute asthma exacerbation:** 0.01  \n\n(High fever + 3-day course + pleuritic pain + COPD makes bacterial pneumonia vs COPD-triggered infection most likely.)\n\n**Question 5 (to further separate pneumonia from COPD exacerbation):**  \nDo you have **chills/rigors** or feel **very ill/weak**, and is your sputum **thick and yellow/green** (vs just increased)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had chills and I feel pretty weak/ill. And my sputum is thick and more colored than usual—yellow/green.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**\n- **Pneumonia:** 0.70  \n- **Acute COPD exacerbation / infection:** 0.25  \n- **Bronchitis:** 0.03  \n- **Influenza:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.00  \n\nAt this point, pneumonia is strongly favored, with COPD exacerbation likely as the underlying driver.\n\n**Question 6 (safety/triage discriminator):**  \nAre you having **any blue lips**, **confusion**, or **can’t speak full sentences** because of shortness of breath?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No blue lips or confusion. I can speak, but I can’t really do full sentences easily because my breathing feels very hard.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (still pneumonia-dominant):**\n- **Pneumonia:** 0.68  \n- **Acute COPD exacerbation / infection:** 0.27  \n- **Bronchitis:** 0.03  \n- **Influenza:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.00  \n\n**Question 7 (to check for severity/alternative):**  \nHave you noticed **sudden onset** of symptoms (within minutes to an hour), or has it been **gradual over 1–3 days** like you described?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s been gradual over about 3 days, not sudden.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (slightly more consistent with infection):**\n- **Pneumonia:** 0.70  \n- **Acute COPD exacerbation / infection:** 0.25  \n- **Bronchitis:** 0.03  \n- **Influenza:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.00  \n\n**Question 8 (to refine):**  \nDo you have **any history of heart disease** or **pain/pressure in the center of your chest** (not just burning/pleuritic on the right)?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "No heart disease. And it’s more burning and on the right side/upper and lower areas—not really a pressure in the center of my chest.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**\n- **Pneumonia:** 0.72  \n- **Acute COPD exacerbation / infection:** 0.23  \n- **Bronchitis:** 0.03  \n- **Influenza:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.00  \n\n**Question 9 (important to rule out other serious causes):**  \nAny **vomiting** or **severe tearing pain** after forceful vomiting, or did this start after an episode of retching?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No vomiting, and no tearing pain after vomiting or retching.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior (still pneumonia most likely):**\n- **Pneumonia:** 0.73  \n- **Acute COPD exacerbation / infection:** 0.22  \n- **Bronchitis:** 0.03  \n- **Influenza:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.00  \n\n**Question 10 (to check for alternative respiratory emergencies):**  \nHave you had any **sudden sharp chest pain** with **marked worsening breathing** or **one-sided decreased breath sounds** that you’ve noticed? (Even if you’re not sure.)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No, it hasn’t felt sudden sharp like that. It’s more been getting worse over the last 3 days, with my breathing getting progressively harder.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**\n- **Pneumonia:** 0.74  \n- **Acute COPD exacerbation / infection:** 0.21  \n- **Bronchitis:** 0.03  \n- **Influenza:** 0.02  \n- **Pulmonary embolism:** 0.00  \n\n**Question 11 (to distinguish pneumonia vs influenza/viral):**  \nHave you had **body aches** or **headache** that are prominent, or is it mostly chest symptoms/fever?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I’ve had body aches or a bad headache—mostly it’s the chest symptoms with fever and the cough.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Updated posterior:**\n- **Pneumonia:** 0.78  \n- **Acute COPD exacerbation / infection:** 0.18  \n- **Bronchitis:** 0.02  \n- **Influenza:** 0.02  \n- **Bronchospasm / acute asthma exacerbation:** 0.00  \n\n**Question 12 (final key discriminator):**  \nDo you have **any known recent exposure** to someone with **pneumonia/flu**, or have you had **a similar episode before** that was diagnosed as pneumonia?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know of any recent exposure to someone with pneumonia or flu. And I haven’t had a similar episode that was diagnosed as pneumonia before.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pneumonia, Acute COPD exacerbation / infection, Bronchitis, Influenza, Bronchospasm / acute asthma exacerbation",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [
+      "Pneumonia",
+      "Acute COPD exacerbation / infection",
+      "Bronchitis",
+      "Influenza",
+      "Bronchospasm / acute asthma exacerbation"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 23911,
+      "completion_tokens": 1602
+    },
+    "patient": {
+      "prompt_tokens": 21608,
+      "completion_tokens": 405
+    }
+  }
+}

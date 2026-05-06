@@ -1,0 +1,318 @@
+{
+  "case_idx": 24,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Factitious disorder",
+  "patient_actor_hidden": {
+    "Demographics": "26-year-old female nurse",
+    "History": "The patient reports a 2-month history of persistent fatigue and several episodes of lower abdominal pain. Despite being on sick leave for 2 weeks, symptoms have not improved. She expresses a concern that she might have cancer and requests a diagnostic laparoscopy. She was diagnosed with peptic ulcer disease 6 months ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower abdominal pain",
+        "High stress levels",
+        "Concerns of having cancer"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with peptic ulcer disease 6 months prior, currently taking omeprazole.",
+    "Social_History": "Works as a nurse, has been under a lot of stress at work.",
+    "Review_of_Systems": {
+      "General": "Appearance of fatigue and paleness",
+      "Skin": "Numerous crusts along the left arm veins",
+      "Cardiovascular": "Grade 2/6 systolic ejection murmur along the right-upper sternal border",
+      "Gastrointestinal": "No abdominal abnormalities on examination",
+      "Musculoskeletal": "Generalized weakness of the proximal muscles",
+      "Psychiatric": "Tiredness and depressed mood"
+    }
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with fatigue, episodes of lower abdominal pain, and a self-stated high cancer concern.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today—could you tell me about yourself and what’s been going on? Patient: I’m a 26-year-old nurse, and over the past two months I’ve had persistent fatigue with paleness and weakness, plus several episodes of lower abdominal pain. I’ve been off work for two weeks but I haven’t improved, and with my stress levels and worries about cancer, I’m requesting further evaluation, possibly a diagnostic laparoscopy.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_generalized_weakness_46c7373c": "yes",
+        "f_abdominal_pain_f8a79ef3": "yes",
+        "f_lower_abdominal_pain_d711aaf0": "yes",
+        "f_psychological_stress_391732fb": "yes",
+        "f_belief_of_serious_illness_84d3ba93": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Somatization disorder",
+          0.5195168601234093
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08678227275298327
+        ],
+        [
+          "Pancreatic adenocarcinoma",
+          0.06749009016921663
+        ],
+        [
+          "Factitious disorder",
+          0.05858564821985218
+        ],
+        [
+          "Chronic kidney failure",
+          0.030202459588789653
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_umbilicated_papules_7a51b1ef",
+      "doctor_question": "Do you have any small, raised bumps on your skin that have a tiny indentation or a \"dimple\" in the center?",
+      "patient_answer": "Patient: Yes, I’ve noticed numerous crusts along the left arm veins, but I’m not sure about any small raised bumps with a central dimple. I don’t recall any such skin lesions besides the crusting.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.48137110895550733
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08041024667199347
+        ],
+        [
+          "Molluscum contagiosum",
+          0.07587294895004705
+        ]
+      ],
+      "entropy": 3.083351756600808
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "Have you noticed that you need to urinate more often than usual?",
+      "patient_answer": "“Now that you mention it, I don’t think I’ve been needing to urinate more often than usual.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.4866072351668301
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.08128491113029827
+        ],
+        [
+          "Molluscum contagiosum",
+          0.07669825883952033
+        ]
+      ],
+      "entropy": 3.05670828988255
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_dressing_b97792b9",
+      "doctor_question": "Have you been experiencing any difficulty with dressing yourself or putting on your clothes lately?",
+      "patient_answer": "I haven’t had trouble dressing myself or putting on clothes, but I do feel generalized weakness—especially in my proximal muscles—like getting up from a chair or lifting things takes more effort than before. My fatigue and pale look have been worrying me the most.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.3333303683603442
+        ],
+        [
+          "Myasthenia gravis",
+          0.24842452364025533
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.055680901168497665
+        ]
+      ],
+      "entropy": 3.259143682843289
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Have you noticed any rashes, bumps, or sores on your skin specifically following the path of the veins in your arms?",
+      "patient_answer": "“Following the path of my left arm veins, I’ve had numerous crusts, but I haven’t noticed any specific small raised bumps with a central dimple or any sores beyond the crusting.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.3333303683603442
+        ],
+        [
+          "Myasthenia gravis",
+          0.24842452364025533
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.055680901168497665
+        ]
+      ],
+      "entropy": 3.259143682843289
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_pruritus_e1e3ae83",
+      "doctor_question": "Have you been experiencing any itchiness on your skin?",
+      "patient_answer": "“Not particularly—there hasn’t been much itchiness, just the crusting along the left arm veins and overall fatigue with paleness and proximal weakness.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.34564085959471524
+        ],
+        [
+          "Myasthenia gravis",
+          0.25759928901107837
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.057737297197243714
+        ]
+      ],
+      "entropy": 3.184536040338417
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_calf_pain_with_walking_relieved_by_rest_511c6259",
+      "doctor_question": "Do you experience any pain or cramping in your calf muscles when you walk that goes away once you stop and rest?",
+      "patient_answer": "Patient: No, I haven’t had any calf pain or cramping when I walk, and it goes away with rest. My main issue is ongoing fatigue with paleness and weakness, along with those intermittent lower abdominal pain episodes.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.34621241813835135
+        ],
+        [
+          "Myasthenia gravis",
+          0.25802526027686423
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.05783277273083146
+        ]
+      ],
+      "entropy": 3.172715335684289
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_pale_stools_8d2148d9",
+      "doctor_question": "Have you noticed if your stools have become unusually pale, light-colored, or clay-colored recently?",
+      "patient_answer": "Patient: “I haven’t noticed my stools becoming pale, light, or clay-colored—nothing like that, and no specific GI changes besides the intermittent lower abdominal pain.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Somatization disorder",
+          0.35175681690413324
+        ],
+        [
+          "Myasthenia gravis",
+          0.26215739089861423
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.058758932328094746
+        ]
+      ],
+      "entropy": 3.1345245636113064
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_reduced_grip_strength_37c19df8",
+      "doctor_question": "Have you noticed any weakness in your hands, such as difficulty gripping objects or opening jars?",
+      "patient_answer": "“I haven’t noticed weakness in my hands specifically—gripping and opening jars feels about the same—but I do feel more generalized weakness, especially in my proximal muscles, like getting up from a chair takes more effort than before.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.7490511352585825
+        ],
+        [
+          "Syringomyelia",
+          0.11606292290827919
+        ],
+        [
+          "Somatization disorder",
+          0.06554737531837153
+        ]
+      ],
+      "entropy": 1.4783389962142517
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_staying_conscious_during_shaking_episode_38ad282a",
+      "doctor_question": "During these shaking episodes, are you able to remain conscious and aware of your surroundings, or do you lose consciousness?",
+      "patient_answer": "“I remain conscious and aware during the episodes—I don’t lose consciousness or black out, and I’m still able to recognize my surroundings.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.7459023367946862
+        ],
+        [
+          "Syringomyelia",
+          0.11557502730787707
+        ],
+        [
+          "Somatization disorder",
+          0.06527183274857934
+        ]
+      ],
+      "entropy": 1.5096481823678503
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Somatization disorder"
+    ],
+    "confidence": 0.7459023367946862,
+    "final_entropy": 1.5096481823678503,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Somatization disorder"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9501,
+      "completion_tokens": 391
+    },
+    "patient": {
+      "prompt_tokens": 7183,
+      "completion_tokens": 470,
+      "calls": 10
+    }
+  }
+}

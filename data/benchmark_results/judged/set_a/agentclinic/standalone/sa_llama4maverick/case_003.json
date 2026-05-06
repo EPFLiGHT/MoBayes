@@ -1,0 +1,133 @@
+{
+  "case_idx": 3,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "68-year-old male from California",
+    "History": "The patient comes in for a routine checkup without any specific complaints. He maintains an active lifestyle with jogging and gardening. He has been retired since age 50 and enjoys spending his mornings in the park and afternoons in his garden.",
+    "Symptoms": {
+      "Primary_Symptom": "Presence of a lesion on the scalp",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history.",
+    "Social_History": "No history of smoking. Drinks alcohol occasionally.",
+    "Review_of_Systems": "Denies any symptoms of fatigue, weight loss, fever, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Perform a routine checkup on a 68-year-old man, assess any dermatological findings, and formulate a diagnosis.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here for a routine checkup, but I also noticed a lesion on my scalp. It hasn’t been causing any other problems that I’m aware of.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Can you describe the lesion on your scalp, including its size, shape, color, and whether it's painful or itchy?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: The lesion is on my scalp and I’d say it’s a small, raised spot—rougher than the surrounding skin—with a reddish-brown color. It isn’t painful and I don’t think it’s itchy; it just looks different from the rest of my scalp.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any changes in the lesion since you first noticed it, such as growth in size, change in color, or bleeding?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I first noticed it a while back and it doesn’t seem to have grown much, but the color does look a bit more reddish-brown than before. I haven’t seen any bleeding or crusting, and it’s stayed non-painful and non-itchy.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "You mentioned it's been there for a while; can you estimate how long you've had this lesion on your scalp, roughly?\n   (e.g., weeks, months, years)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’d say I’ve had it for several months, maybe around half a year, though I can’t pin down the exact start. It hasn’t gotten significantly bigger, just looks a little more reddish-brown than it did at first.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any significant sun exposure to your scalp over the past few years, or do you have a history of skin cancers or excessive sun damage?\n  \n(I will rephrase) Do you have a history of frequent sun exposure or skin cancer?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I do spend time outdoors pretty regularly—especially in the mornings at the park and while gardening—but I’m not sure I’d call it excessive. I don’t have any personal history of skin cancer, and I don’t recall being told I had significant sun damage.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "To better assess the lesion, I'd like to know more about your skin type and whether you have a family history of skin cancer or conditions like melanoma. Are you fair-skinned or prone to burning easily in the sun, and is there a history of skin cancer in your family?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m fair-skinned and I do tend to burn more easily than I’d like when I’m out in the sun. I don’t know of any skin cancer or melanoma in my family.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given your fair skin, history of regular sun exposure, and the description of the lesion, I'd like to examine it more closely. However, for now, I'll continue with the interview. Have you noticed any other similar lesions on your body, or any other skin changes that concern you?\n  \n(I will rephrase) Are there any other skin lesions or changes you've noticed elsewhere on your body?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any other similar lesions elsewhere on my body, and nothing else seems particularly concerning to me right now. I’ve just been focused on that scalp spot because it looks different from the surrounding skin.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "With the information gathered, I'm going to take a closer look at the possible causes. \n\n[DDX] Seborrheic keratosis, actinic keratosis, basal cell carcinoma, squamous cell carcinoma, melanoma\n\n(I will provide the differential diagnosis directly as the information is sufficient for a reasonable assessment)",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Seborrheic keratosis",
+    "predicted_set": [
+      "Seborrheic keratosis",
+      "actinic keratosis",
+      "basal cell carcinoma",
+      "squamous cell carcinoma",
+      "melanoma\n\n(I will provide the differential diagnosis directly as the information is sufficient for a reasonable assessment)"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Seborrheic keratosis",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Seborrheic keratosis",
+      "Actinic Keratosis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3859,
+      "completion_tokens": 338
+    },
+    "patient": {
+      "prompt_tokens": 3813,
+      "completion_tokens": 374,
+      "calls": 7
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "case_idx": 42,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Male\nChief Complaint: I have upper chest radiating pain, a cough, and haunting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having upper chest pain that radiates, plus a cough. It feels like a sharp/knife-stab and tugging, and I also get epigastric pain and heartburn/acid reflux—it's worse after I eat.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—I'll ask a few focused questions to narrow this down.\n\n**Current posterior (pre-test, rough):**\n- GERD: 0.35  \n- Pneumonia: 0.20  \n- Possible NSTEMI / STEMI: 0.15  \n- Pulmonary embolism: 0.10  \n- Bronchitis: 0.10  \n(others lower)\n\n**Question 1 (most discriminating):**  \nIs the chest pain **worse with deep breathing or coughing**, or is it mainly **burning/pressure related to meals or lying down**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s more like burning/acid and gets worse after I eat. It also gets worse with the cough sometimes, but the meal/lying-down part is the main thing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** Pain mainly **worse after eating and when lying down**, burning/acid quality → favors **GERD** over lung/heart causes.\n\n**Likelihood ratios (approx):**\n- GERD: LR +5\n- Pneumonia/bronchitis: LR 0.5\n- Possible NSTEMI/STEMI: LR 0.3\n- Pulmonary embolism: LR 0.2\n\n**Updated posterior:**\n- GERD: 0.70  \n- Pneumonia: 0.08  \n- Possible NSTEMI / STEMI: 0.06  \n- Pulmonary embolism: 0.03  \n- Bronchitis: 0.13  \n\n**Question 2:**  \nDo you have **fever** or **shortness of breath** (at rest or with minimal activity)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No fever. I don’t feel short of breath at rest or with small activity—mostly it’s the pain and the cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No fever and no significant shortness of breath → lowers pneumonia/PE/ACS likelihood.\n\n**Likelihood ratios (approx):**\n- Pneumonia: LR 0.3 (less likely without fever/SOB)\n- Pulmonary embolism: LR 0.4 (less likely without SOB)\n- Possible NSTEMI/STEMI: LR 0.5 (still possible but less supported)\n- GERD: LR 1.2 (consistent)\n\n**Updated posterior:**\n- GERD: 0.78  \n- Bronchitis: 0.10  \n- Possible NSTEMI / STEMI: 0.04  \n- Pneumonia: 0.03  \n- Pulmonary embolism: 0.03  \n\n**Question 3:**  \nWhen you cough, do you bring up **any phlegm**? If yes, what color (clear/white/yellow/green/bloody)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I cough up phlegm sometimes. It’s usually clear to white, not really yellow/green, and no blood.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** Clear/white sputum, no blood, no fever → supports **bronchitis/viral URI** but still overall GERD-driven symptoms.\n\n**Likelihood ratios (approx):**\n- GERD: LR 1.0 (doesn’t strongly confirm pneumonia)\n- Bronchitis: LR 2.0 (compatible with non-purulent sputum)\n- Pneumonia: LR 0.4 (less likely without fever/purulence)\n- PE/ACS: LR 0.8\n\n**Updated posterior:**\n- GERD: 0.70  \n- Bronchitis: 0.22  \n- Possible NSTEMI / STEMI: 0.03  \n- Pneumonia: 0.03  \n- Pulmonary embolism: 0.02  \n\n**Question 4:**  \nHow old are you, and do you have **any cardiac risk factors** (smoking, diabetes, high blood pressure, high cholesterol, prior heart disease, strong family history)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 17. I do smoke cigarettes, but I don’t have diabetes or high blood pressure that I know of, and no known heart disease. Family history is unknown.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** Age 17 makes ACS/PE less likely; smoking can increase bronchitis risk and also GERD.  \n**Likelihood ratios (approx):**\n- Possible NSTEMI / STEMI: LR 0.2 (very low at 17)\n- Pulmonary embolism: LR 0.3 (still possible but less likely)\n- Bronchitis: LR 1.5\n- GERD: LR 1.0\n\n**Updated posterior:**\n- GERD: 0.62  \n- Bronchitis: 0.33  \n- Possible NSTEMI / STEMI: 0.02  \n- Pulmonary embolism: 0.02  \n- Pneumonia: 0.01  \n\n**Question 5:**  \nAny **sore throat, runny nose, or recent cold symptoms** in the last week?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough, but I don’t really have a sore throat or runny nose. No recent cold symptoms that I can remember.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No URI symptoms → makes viral bronchitis/URTI somewhat less likely, but cough still present.\n\n**Likelihood ratios (approx):**\n- GERD: LR 1.2\n- Bronchitis: LR 0.8\n- Pneumonia: LR 0.6\n- PE/ACS: unchanged low\n\n**Updated posterior:**\n- GERD: 0.68  \n- Bronchitis: 0.26  \n- Pneumonia: 0.03  \n- Possible NSTEMI / STEMI: 0.02  \n- Pulmonary embolism: 0.01  \n\n**Question 6:**  \nDo you have **any red flags**: trouble swallowing, drooling, vomiting blood, black/tarry stools, or unintentional weight loss?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No trouble swallowing or drooling. I haven’t vomited blood, and I don’t have black/tarry stools or any unintentional weight loss.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No GI bleeding/red flags → still consistent with GERD.\n\n**Likelihood ratios (approx):**\n- GERD: LR 1.3\n- Bronchitis: LR 0.9\n- Pneumonia/PE/ACS: minimal change\n\n**Updated posterior:**\n- GERD: 0.72  \n- Bronchitis: 0.22  \n- Pneumonia: 0.03  \n- Possible NSTEMI / STEMI: 0.02  \n- Pulmonary embolism: 0.01  \n\n**Question 7:**  \nIs the pain **reproducible** if you press on your chest wall or move your torso/arm (i.e., does it change with palpation or movement)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it feels sensitive when I press on the chest area, and it can change with movement/torso.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** Pain reproducible with palpation/movement → supports **musculoskeletal chest wall pain** (not in your symptom list explicitly, but closest in our list is less direct). This lowers GERD and cardiopulmonary causes.\n\n**Likelihood ratios (approx):**\n- GERD: LR 0.6\n- Bronchitis: LR 0.7\n- Possible NSTEMI / STEMI: LR 0.2\n- Pulmonary embolism: LR 0.2\n- Pneumonia: LR 0.5\n\n**Updated posterior:**\n- GERD: 0.55  \n- Bronchitis: 0.18  \n- Pneumonia: 0.02  \n- Possible NSTEMI / STEMI: 0.01  \n- Pulmonary embolism: 0.01  \n\n**Question 8:**  \nDo you have **any wheezing** or history of asthma, or does the cough come in fits/with tightness?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a history of asthma. I don’t really notice wheezing, and the cough isn’t in tight/fits—more like coughing with the pain.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No asthma history, no wheeze/tightness → lowers acute asthma/bronchospasm.\n\n**Likelihood ratios (approx):**\n- GERD: LR 0.9\n- Bronchitis: LR 1.1\n- Bronchospasm/acute asthma exacerbation: LR 0.2\n- Pneumonia: LR 0.7\n\n**Updated posterior:**\n- GERD: 0.50  \n- Bronchitis: 0.22  \n- Pneumonia: 0.02  \n- Bronchospasm / acute asthma exacerbation: ~0.01  \n- Possible NSTEMI / STEMI: 0.01  \n- Pulmonary embolism: 0.01  \n\n**Question 9:**  \nHave you had **recent heavy lifting/strain**, new exercise, or any injury to the chest/ribs?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "Not really. I haven’t had heavy lifting or a chest injury that I can think of.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No clear strain/injury → musculoskeletal still possible but less supported.\n\n**Likelihood ratios (approx):**\n- GERD: LR 1.1\n- Bronchitis: LR 1.0\n- Pneumonia: LR 0.8\n- Possible NSTEMI/STEMI: LR 0.2\n- Pulmonary embolism: LR 0.3\n\n**Updated posterior:**\n- GERD: 0.52  \n- Bronchitis: 0.22  \n- Pneumonia: 0.02  \n- Possible NSTEMI / STEMI: 0.01  \n- Pulmonary embolism: 0.01  \n\n**Question 10:**  \nWhen you lie down, do you get **sour taste in your mouth** or **regurgitation**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when I lie down I get a sour taste and it feels like acid comes up.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** Sour taste/regurgitation when lying down → strongly supports **GERD**.\n\n**Likelihood ratios (approx):**\n- GERD: LR 6\n- Bronchitis: LR 0.3\n- Pneumonia: LR 0.2\n- Possible NSTEMI/STEMI: LR 0.2\n- Pulmonary embolism: LR 0.2\n\n**Updated posterior:**\n- GERD: 0.86  \n- Bronchitis: 0.08  \n- Pneumonia: 0.01  \n- Possible NSTEMI / STEMI: 0.02  \n- Pulmonary embolism: 0.03  \n\n**Question 11:**  \nAny **palpitations**, dizziness, or fainting with the pain?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No palpitations, no dizziness, and I haven’t fainted.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No palpitations/dizziness/syncope → lowers ACS/arrhythmia.\n\n**Likelihood ratios (approx):**\n- Possible NSTEMI / STEMI: LR 0.4\n- Pulmonary embolism: LR 0.6\n- GERD: LR 1.0\n\n**Updated posterior:**\n- GERD: 0.88  \n- Bronchitis: 0.07  \n- Possible NSTEMI / STEMI: 0.01  \n- Pulmonary embolism: 0.02  \n- Pneumonia: 0.01  \n\n**Question 12:**  \nDo you have **any shortness of breath when walking**, or does your oxygen feel normal? (Even mild exertional dyspnea?)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have shortness of breath when walking. My breathing feels normal.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "**Evidence:** No exertional dyspnea → further lowers PE/pneumonia/ACS.\n\n**Likelihood ratios (approx):**\n- Pulmonary embolism: LR 0.5\n- Pneumonia: LR 0.6\n- Possible NSTEMI/STEMI: LR 0.7\n- GERD: LR 1.0\n\n**Updated posterior:**\n- GERD: 0.90  \n- Bronchitis: 0.06  \n- Possible NSTEMI / STEMI: 0.01  \n- Pulmonary embolism: 0.01  \n- Pneumonia: 0.01  \n\nI’m now confident enough to provide a differential.\n\n[DDX] GERD, Bronchitis, Possible NSTEMI / STEMI, Pulmonary embolism, Pneumonia",
+      "turn": 13
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [
+      "GERD",
+      "Bronchitis",
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Pneumonia"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 13
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 27148,
+      "completion_tokens": 2282
+    },
+    "patient": {
+      "prompt_tokens": 24547,
+      "completion_tokens": 404
+    }
+  }
+}

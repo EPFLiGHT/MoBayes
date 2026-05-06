@@ -1,0 +1,152 @@
+{
+  "case_idx": 12,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 8\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have strong chest pain—on the right side, left side, and upper chest. It feels like a knife-stab, really violent pain, and I’m also having a lot of trouble breathing, especially when I move.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through that. I need to narrow this down quickly.\n\n**One question:** When did this chest pain start (exactly how long ago), and is it constant or coming in waves?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started really fast—about 9/10 speed, like it came on suddenly. The pain is very strong at 8/10 and it feels pretty constant, not just in waves.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Does the pain get worse with **deep breaths** or **coughing** (pleuritic), or is it mainly worse with **movement/pressing on the chest wall**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it gets worse with deep breaths—it's pleuritic. I don’t know about coughing, but it also feels worse when I move.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Do you have **any fever**, **cough**, or **coughing up blood**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No fever. I don’t have a cough, and I’m not coughing up any blood.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Any **recent risk factors for blood clots**—for example, recent long travel/immobility, recent surgery, leg swelling or pain (especially one-sided), or are you on estrogen/birth control or pregnant?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "No recent travel or long sitting. I don’t have surgery. I don’t have leg swelling or leg pain, and I’m not on any estrogen/birth control or anything like that.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** How old are you, and do you have any history of **heart or lung disease** (like asthma/COPD, prior clots, atrial fibrillation, coronary disease)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m 8 years old. I don’t have heart problems that I know of, but I’ve had a spontaneous pneumothorax before.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** When you had the pneumothorax before, did it feel similar—and do you have **one-sided decreased breath sounds** or have you noticed the breathing is worse on one side?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It feels very similar to before. I feel like my breathing is worse on one side, but I’m not sure which side exactly.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Have you noticed **sudden worsening of shortness of breath** right when the pain started, and are you having any **blue lips**, fainting, or feeling like you might pass out?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "My breathing got worse right when the pain started. I don’t think my lips are blue, and I haven’t fainted or felt like I would pass out.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Do you have any **asthma/COPD history** or wheezing right now (a whistling sound), or is it mainly “can’t get enough air” without wheeze?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have asthma or COPD, and I’m not wheezing. It’s more like I can’t get enough air.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Any **sore throat, trouble swallowing, drooling, muffled voice, or stridor** (a high-pitched sound when breathing in)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No sore throat, no trouble swallowing, no drooling, and no muffled voice. I don’t hear a stridor sound.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** Any **recent infection symptoms** like runny nose/sinus pressure, or a recent viral illness (URTI), or is this completely isolated?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have runny nose or sinus pressure. This feels isolated—no recent viral illness.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history strongly suggests a pleuritic, sudden onset process (e.g., pneumothorax given prior spontaneous pneumothorax), but with limited exam/vitals and no imaging/oxygenation data, I can’t confidently rank the top 5 diagnoses yet.\n\n[POSSIBLE] Spontaneous pneumothorax, Pulmonary embolism, Pneumonia, Acute pulmonary edema, Acute COPD exacerbation / infection",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Spontaneous pneumothorax",
+      "Pulmonary embolism",
+      "Pneumonia",
+      "Acute pulmonary edema",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13013,
+      "completion_tokens": 519
+    },
+    "patient": {
+      "prompt_tokens": 11256,
+      "completion_tokens": 371
+    }
+  }
+}

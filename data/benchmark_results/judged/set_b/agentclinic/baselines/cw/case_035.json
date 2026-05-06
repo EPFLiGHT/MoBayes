@@ -1,0 +1,142 @@
+{
+  "case_idx": 35,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Takotsubo cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "43-year-old woman",
+    "History": "The patient has been brought to the emergency department by her brother due to severe chest pain. She is grieving the recent loss of her husband in a car accident and is still in a state of shock over the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe chest pain",
+      "Secondary_Symptoms": [
+        "Shortness of breath",
+        "Emotional distress"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Non-smoker. No history of alcohol or drug abuse. Recently widowed.",
+    "Review_of_Systems": "Denies recent illness, fever, or cough."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with severe chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’m having severe chest pain, and I’m also feeling short of breath and very distressed since my husband recently died in a car accident. My brother brought me here because the pain is so intense.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. First question: **When did the chest pain start (exactly how long ago), and is it constant or coming in waves?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started about 2 hours ago, and it feels constant rather than coming and going. I can’t seem to get comfortable, and the pain is very intense along with my shortness of breath.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you. **On a scale of 0–10, how severe is the chest pain?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“It’s about a 9 out of 10—I don’t think I can bear it much longer. The shortness of breath feels like it’s getting worse, and I’m very scared because the pain won’t let up.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more focused question. **Does the chest pain feel like pressure/tightness, or is it sharp/pleuritic (worse with deep breaths or coughing)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“It feels like a heavy pressure and tightness in the center of my chest, and it’s making it hard to breathe deeply—so I think it gets worse when I try to take a full breath.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask about a key risk feature. **Do you have any history of heart disease, high blood pressure, diabetes, high cholesterol, smoking, or blood clots?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any history of heart disease, high blood pressure, diabetes, or high cholesterol, and I’ve never smoked. I also don’t know of any blood clot history in me.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask about another discriminating feature. **Are you having any symptoms like sweating, nausea/vomiting, fainting, or pain spreading to your left arm, jaw, neck, or back?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“I feel really scared, and I’ve been sweating some, but I haven’t had nausea or vomiting or fainting. The pain is mainly in the center of my chest and I don’t think it’s spread to my left arm, jaw, neck, or back.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask about the breathing-related pattern. **Do you have a cough, coughing up blood, or recent leg swelling/pain (especially one-sided)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a cough or coughing up blood, and I haven’t noticed any leg swelling or leg pain—my main problem is the heavy, tight chest pain and worsening shortness of breath.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating information (e.g., vitals, exam findings, ECG/oxygenation, or key risk factors) to confidently narrow to a specific diagnosis.  \n[POSSIBLE] Takotsubo cardiomyopathy, Acute Mesenteric Ischemia, Acute myelogenous leukemia, Acute lymphoblastic leukemia, Toxic exposure",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Takotsubo cardiomyopathy",
+      "Acute Mesenteric Ischemia",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Toxic exposure"
+    ],
+    "predicted_raw": [
+      "Takotsubo cardiomyopathy",
+      "Acute Mesenteric Ischemia",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Toxic exposure"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Takotsubo cardiomyopathy",
+      "Acute Mesenteric Ischemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6841,
+      "completion_tokens": 310
+    },
+    "patient": {
+      "prompt_tokens": 3686,
+      "completion_tokens": 342,
+      "calls": 7
+    }
+  }
+}

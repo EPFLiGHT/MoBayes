@@ -1,0 +1,104 @@
+{
+  "case_idx": 6,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Allergic sinusitis",
+  "objective_for_doctor": "A 41-year-old Male patient presents to the clinic. Chief complaint: I have a cough, is your nose or the back of your throat itchy, and nasal congestion or a clear runny nose.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough, and my nose and the back of my throat feel itchy. I also have nasal congestion with a clear runny nose.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Dr. Agent: I’m going to narrow this down—do you have fever, shortness of breath, or wheezing?  \nDr. Agent: How long has the cough and runny/itchy nose been going on, and do you have known seasonal allergies or eye itching/watery eyes?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have fever, and I’m not short of breath or wheezing. The cough and the runny/itchy nose have been going on for about a few days. I do have allergies—my family has a history of allergies/hay fever/eczema, and I’m more likely to have allergies, but I don’t remember having itchy/watery eyes specifically.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any sore throat, sneezing, or symptoms worse at night or with exposure to dust/pollen? Also, is the cough dry or productive (and if productive, what color)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a sore throat. I do have itchy nose and throat, and the cough is mostly dry. It seems a bit worse when I’m around dust or pollen, and it’s not really productive.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Do you have any known asthma or prior episodes of similar symptoms, and are you experiencing trouble swallowing, facial pain/pressure, or headaches (more suggestive of sinus infection)?  \nDoctor: Also—have you tried any antihistamine (like cetirizine/loratadine) or a nasal steroid spray, and did it help?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have asthma myself, but my family has asthma. I’m not having trouble swallowing, and I don’t really have facial pain/pressure or headaches. I haven’t tried cetirizine/loratadine or a nasal steroid spray yet.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This pattern sounds most like an allergic rhinitis/post-nasal drip causing a dry cough—can you tell me: do you have sneezing or watery/itchy eyes, and is your cough worse when you lie down?  \nDoctor: Also, any symptoms of COVID/flu (significant body aches, chills) or recent sick contacts?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I do have itchy nose and throat, and I’ve been coughing more when I lie down. I don’t know about sneezing or watery/itchy eyes—I haven’t really noticed them. I don’t have body aches or chills, and I don’t know of any recent sick contacts.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the itchy nose/throat, clear runny nose, and cough that’s worse when you lie down, this strongly suggests allergic rhinitis with post-nasal drip rather than flu/COVID—any red flags like high fever, chest pain, or coughing up blood?  \nDoctor: To confirm and guide treatment, do you have any history of asthma symptoms (prior wheeze or nighttime chest tightness), and would you agree to try an antihistamine and saline/nasal steroid next?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No red flags—I don’t have a high fever, chest pain, or coughing up blood. I haven’t had wheezing or nighttime chest tightness myself, and yes, I’m okay trying an antihistamine and saline/nasal steroid next.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Sounds consistent with allergic rhinitis with post-nasal drip—do you have any thick yellow/green nasal discharge or bad tooth pain (to rule sinus infection), and would you like me to recommend a trial of cetirizine/loratadine plus saline rinse and an intranasal steroid?  \nDoctor: I don’t think you need antibiotics or chest imaging right now given your few-day course, itchy eyes/throat/nose, clear runny drainage, and dry cough worse when lying down—DIAGNOSIS READY: Allergic rhinitis with post-nasal drip (upper-airway cough syndrome)\n\n[ABSTAIN] free-text diagnosis 'Allergic rhinitis with post-nasal drip (upper-airway cough syndrome)' did not map to the closed disease set",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3366,
+      "completion_tokens": 486,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 4681,
+      "completion_tokens": 333
+    }
+  }
+}

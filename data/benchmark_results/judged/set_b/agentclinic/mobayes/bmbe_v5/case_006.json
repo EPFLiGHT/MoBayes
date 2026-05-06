@@ -1,0 +1,311 @@
+{
+  "case_idx": 6,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Essential thrombocythemia",
+  "patient_actor_hidden": {
+    "Demographics": "53-year-old male",
+    "History": "The patient has a 3-week history of fatigue, difficulty to concentrate, and dyspnea on exertion. He also experiences dizziness and digital pain that improves with cold. He has a long history of smoking.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue and difficulty to concentrate",
+      "Secondary_Symptoms": [
+        "Dyspnea on exertion",
+        "Dizziness",
+        "Digital pain that improves with cold"
+      ]
+    },
+    "Past_Medical_History": "Hypertension, currently managed with enalapril.",
+    "Social_History": "Smokes half a pack of cigarettes a day since he was 20.",
+    "Review_of_Systems": "The patient denies any recent infections, bleeding disorders, or significant weight loss."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with fatigue, difficulty to concentrate, and abnormal blood findings.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, over the past three weeks I’ve been feeling significant fatigue and trouble concentrating, along with shortness of breath when I exert myself. I’ve also had dizziness and pain in my fingers or toes that improves when I’m exposed to cold.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_difficulty_concentrating_997cc4a5": "yes",
+        "f_shortness_of_breath_02802ea3": "yes",
+        "f_dizziness_d46bbf33": "yes",
+        "f_finger_pain_improved_with_cold_1411d050": "yes",
+        "f_symptoms_improve_when_outside_in_cold_ai_b511c4a2": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.10215335629427315
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.1002671165315196
+        ],
+        [
+          "Toxic exposure",
+          0.1002671165315196
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.06477433191859228
+        ],
+        [
+          "Steven-Johnson syndrome",
+          0.04527762357437752
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden movements that you can’t control? (Yes or no)",
+      "patient_answer": "Doctor, no—I haven’t noticed any twitching, jerking, shaking, or sudden involuntary movements.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1075451362400244
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.1055593384197128
+        ],
+        [
+          "Toxic exposure",
+          0.09702929087064512
+        ]
+      ],
+      "entropy": 4.79294587161621
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves a bit under the skin** when you touch it? (Yes or no)",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump in my right breast, and I haven’t felt anything moving under the skin.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.10928538854938011
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.09859937998314508
+        ],
+        [
+          "Toxic exposure",
+          0.09859937998314508
+        ]
+      ],
+      "entropy": 4.790889150268704
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or gently tap around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“Doctor, when I press or gently tap around my belly button area, it doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.10957814098722261
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.10755480417131515
+        ],
+        [
+          "Toxic exposure",
+          0.07713526359760986
+        ]
+      ],
+      "entropy": 4.780737555068566
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“Doctor, no—I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.1296755387256426
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.12728110778109117
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.08945449440182293
+        ]
+      ],
+      "entropy": 4.681507974302936
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No doctor, I haven’t noticed any lump or mass in my right breast.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.13072465504934014
+        ],
+        [
+          "Impaired erythropoietin production",
+          0.12831085239741363
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.09017820969329064
+        ]
+      ],
+      "entropy": 4.659411764759438
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, like you’re seeing through a fogged window? (Yes/No)",
+      "patient_answer": "“No doctor, I haven’t noticed that my eyes look cloudy or hazy—my vision seems the same to me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Impaired erythropoietin production",
+          0.14553588700188147
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.102284144253875
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.07638343643049886
+        ]
+      ],
+      "entropy": 4.650783476568927
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_unintentional_weight_loss_7cb722ab",
+      "doctor_question": "In the past few months, have you lost weight without trying (for example, your clothes fit looser or the scale went down), even though you didn’t change your diet or exercise?",
+      "patient_answer": "“Doctor, no—I haven’t lost weight without trying, and my clothes haven’t noticeably fit looser.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Impaired erythropoietin production",
+          0.15525677396101553
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.10911608532687528
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.06357649920750706
+        ]
+      ],
+      "entropy": 4.611499936175457
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_painless_right_breast_mass_a51c0ca9",
+      "doctor_question": "Have you noticed a **lump or mass in your right breast that doesn’t hurt** (painless), even if it’s small or you only feel it sometimes?",
+      "patient_answer": "“No doctor, I haven’t noticed any lump or mass in my right breast, and I don’t feel any painless area there—only the fatigue, trouble concentrating, breathlessness with exertion, dizziness, and finger/toe pain that improves with cold.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Impaired erythropoietin production",
+          0.14514069914415653
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.11097399788060203
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.06465901216282233
+        ]
+      ],
+      "entropy": 4.625171130951577
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_pregnancy_5fa7cc34",
+      "doctor_question": "Have you been pregnant recently, or is there any chance you could be pregnant right now?",
+      "patient_answer": "“Doctor, I’m not pregnant, and there’s no chance of that—I’m a man. My main issues have been fatigue and trouble concentrating for the past three weeks, plus breathlessness on exertion, dizziness, and finger/toe pain that improves with cold.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Impaired erythropoietin production",
+          0.15541491389191595
+        ],
+        [
+          "Hypertrophic cardiomyopathy",
+          0.10922722772506806
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.06923609206016391
+        ]
+      ],
+      "entropy": 4.566257738544541
+    }
+  ],
+  "final": {
+    "predicted": "Impaired erythropoietin production",
+    "predicted_top3": [
+      "Impaired erythropoietin production",
+      "Hypertrophic cardiomyopathy",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "confidence": 0.15541491389191595,
+    "final_entropy": 4.566257738544541,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Impaired erythropoietin production",
+    "predicted_set_remapped": [
+      "Impaired erythropoietin production",
+      "Hypertrophic cardiomyopathy",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11493,
+      "completion_tokens": 466
+    },
+    "patient": {
+      "prompt_tokens": 5601,
+      "completion_tokens": 328,
+      "calls": 10
+    }
+  }
+}

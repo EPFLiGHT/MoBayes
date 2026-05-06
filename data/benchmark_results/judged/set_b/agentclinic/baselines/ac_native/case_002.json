@@ -1,0 +1,137 @@
+{
+  "case_idx": 2,
+  "baseline": "ac_native",
+  "column": "ac_set2",
+  "ground_truth": "Congenital Rubella Infection",
+  "patient_actor_hidden": {
+    "Demographics": "Newborn, female",
+    "History": "The patient is a 3000-g (6.6-lb) female newborn delivered at term to a 23-year-old primigravida mother. The mother reports having had no prenatal care, and immunization records for the newborn are not available.",
+    "Symptoms": {
+      "Primary_Symptom": "Continuous heart murmur",
+      "Secondary_Symptoms": [
+        "Bluish macules on the skin that do not blanch with pressure",
+        "Cloudy lenses in both eyes noticed upon examination",
+        "Failure to pass auditory screening tests"
+      ]
+    },
+    "Past_Medical_History": "Newborn, no past medical history available.",
+    "Social_History": "Mother is a primigravida, no prenatal care received.",
+    "Review_of_Systems": "No additional symptoms noted by the mother."
+  },
+  "objective_for_doctor": "Assess and diagnose the newborn with specific findings on physical examination and history provided.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—newborn history is all I have so far, so I need to start by asking: Was your baby born full-term or preterm, and what was the gestational age? Doctor: Also, how many hours old is the baby now?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "patient",
+      "content": "Patient: She was born full-term at about 40 weeks, and she is now around 12 hours old."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: Thanks. Did the baby have any breathing difficulty or low oxygen since birth (e.g., fast breathing, grunting, cyanosis), and what is her current temperature? Doctor: Also, when did feeding start and how has she been feeding—any poor latch, vomiting, or lethargy?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 2,
+      "role": "patient",
+      "content": "Doctor: Did the baby have any breathing difficulty or low oxygen since birth (e.g., fast breathing, grunting, cyanosis), and what is her current temperature? Patient: She hasn’t seemed to have trouble breathing, but I was noted to have bluish macules that don’t blanch with pressure; I don’t have the temperature reading. Doctor: Also, when did feeding start and how has she been feeding—any poor latch, vomiting, or lethargy? Patient: Feeding started soon after birth and she seems to take feeds without vomiting or obvious lethargy, but I’m not sure about any latch details."
+    },
+    {
+      "turn": 3,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—those bluish macules that don’t blanch sound like a vascular pattern; can you tell me the exact location (e.g., back/buttocks/arms/legs vs face/hands/feet) and whether the baby’s lips or tongue are ever blue? Doctor: Also, can you confirm whether there’s any widespread rash, petechiae/purpura, or jaundice (yellowing of skin/eyes)?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 3,
+      "role": "patient",
+      "content": "Patient: The bluish macules have been on my skin on the body/extremities rather than my face, and my lips and tongue haven’t been described as blue. I haven’t been told about any widespread rash, petechiae or purpura, and there’s no mention of jaundice."
+    },
+    {
+      "turn": 4,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—next, are the bluish macules present since birth and do they worsen with crying/cold, and do they resolve when you warm the baby? Also, are the baby’s pulses/limbs symmetric in color and temperature, or is there one side/certain limb that’s consistently more blue? Doctor: Finally, has anyone measured oxygen saturation (SpO₂) or performed a “pre- and post-ductal” saturation screen?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 4,
+      "role": "patient",
+      "content": "Patient: The bluish macules were noticed right around birth, and I don’t know if they worsen with crying or cold, but they don’t seem to change when I’m warmed. I haven’t been told that one side or a particular limb is more blue than the others, and I’m not aware of any oxygen saturation measurements or pre-/post-ductal screening being done."
+    },
+    {
+      "turn": 5,
+      "role": "doctor",
+      "content": "Doctor: “Those non-blanching bluish macules present at birth on the trunk/extremities, without cyanotic lips/tongue or respiratory symptoms, sound most like **hyperpigmented birthmarks**—but I want to be precise: do you see them as flat ‘bruise-like’ spots (petechiae/purpura), and roughly how large are the lesions (pinpoint vs larger than 5 mm)?” Doctor: “Second, any history of maternal bleeding, placental insufficiency, meconium/cord issues, or difficult delivery (vacuum/forceps/trauma), and any family history of a bleeding disorder?”",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 5,
+      "role": "patient",
+      "content": "Doctor: Are those bluish spots flat bruise-like petechiae/purpura, and are they mostly tiny (pinpoint) or larger than 5 mm? Also, do you know anything about the mother’s bleeding during pregnancy or delivery, placental problems, meconium in the fluid, cord issues, or whether the delivery was traumatic (vacuum/forceps)? Any known family history of bleeding disorders? Patient: I don’t have information on the mother’s bleeding, placental or cord issues, or family bleeding history, and I’m not sure if the spots are pinpoint versus larger than 5 mm. I was told the bluish macules are non-blanching and on my body and extremities."
+    },
+    {
+      "turn": 6,
+      "role": "doctor",
+      "content": "Doctor: Given non-blanching bluish macules present at birth on the trunk/extremities, without respiratory distress or blue lips/tongue, the leading concern is **petechiae/purpura from neonatal thrombocytopenia or a bleeding disorder** rather than benign birthmarks—but we must confirm size (pinpoint vs >5 mm) and rule out infection. REQUEST TEST: CBC with platelet count + peripheral smear; REQUEST TEST: CRP; REQUEST TEST: Coagulation studies (PT/INR, aPTT); REQUEST TEST: Blood culture. Doctor: While we wait, has she had any new bleeding (oozing from heel/IV site, gum bleeding), and is her overall activity normal for age?",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 6,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 37.0°C (98.6°F); Heart rate 140 bpm; Respiratory rate 40 breaths/min. Continuous “machinery” murmur present. Several bluish macules on skin/extremities that do not blanch. Slit-lamp: cloudy lenses in both eyes (congenital cataracts). Failed auditory screening; bilateral sensorineural hearing loss. TORCH screen: Rubella IgM positive; others negative. Echocardiogram: Patent ductus arteriosus. (CBC/platelet count with peripheral smear, CRP, PT/INR, aPTT, blood culture: NOT PROVIDED—NORMAL READINGS.)"
+    },
+    {
+      "turn": 7,
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given the congenital cataracts, bilateral sensorineural hearing loss, and a positive Rubella IgM with a newborn rash described as non-blanching bluish macules, along with a PDA and machinery murmur, this strongly fits **congenital rubella syndrome** rather than isolated bruising. Doctor: DIAGNOSIS READY: Congenital rubella syndrome (rubella embryopathy) with cataracts, sensorineural deafness, PDA, and rubella-associated rash/possible thrombocytopenic petechiae.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: I’m Dr. Agent—given the congenital cataracts, bilateral sensorineural hearing loss, and a positive Rubella IgM with a newborn rash described as non-blanching bluish macules, along with a PDA and machinery murmur, this strongly fits **congenital rubella syndrome** rather than isolated bruising. Doctor: DIAGNOSIS READY: Congenital rubella syndrome (rubella embryopathy) with cataracts, sensorineural deafness, PDA, and rubella-associated rash/possible thrombocytopenic petechiae.",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 7,
+    "predicted_remapped": "Congenital Rubella Infection",
+    "predicted_set_remapped": [
+      "Congenital Rubella Infection",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4839,
+      "completion_tokens": 738,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 3307,
+      "completion_tokens": 455,
+      "calls": 5
+    },
+    "measurement": {
+      "prompt_tokens": 876,
+      "completion_tokens": 141,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 181,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

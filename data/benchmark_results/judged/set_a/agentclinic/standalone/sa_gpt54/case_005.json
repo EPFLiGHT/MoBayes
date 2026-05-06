@@ -1,0 +1,118 @@
+{
+  "case_idx": 5,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Adhesive capsulitis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.",
+    "Symptoms": {
+      "Primary_Symptom": "Stiffness in the arm",
+      "Secondary_Symptoms": [
+        "Difficulty combing hair",
+        "Trouble reaching high objects",
+        "Decreased range of motion in shoulder",
+        "Arm strength 4/5"
+      ]
+    },
+    "Past_Medical_History": "Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.",
+    "Social_History": "Sedentary lifestyle, predominately staying indoors and watching television.",
+    "Review_of_Systems": "Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the past few months, I’ve had stiffness in my arm and my shoulder feels like it doesn’t move as far anymore. It’s also been hard to comb my hair and reach things on high shelves.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Did this start after any injury, fall, or overuse, or did it come on gradually without a clear trigger?\nDid this start after any injury, fall, or overuse, or did it come on gradually without a clear trigger?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It came on gradually without any injury or fall, and I can’t recall any specific overuse that started it.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Is the problem mainly in one shoulder, and do you also have pain there—especially at night or when lying on that side?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s mainly in one shoulder, and it does feel sore at times, especially when I lie on it at night. I wouldn’t say there’s a sharp pain, but the stiffness and reduced range of motion are definitely worse then.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have trouble with both actively moving the shoulder yourself and when someone else tries to move it for you, or is it only weak/painful when you try to move it yourself?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels stiff and limited when I try to move it myself, and it still seems pretty limited even when someone else tries to move it for me. It’s more stiffness and reduced range than just weakness or pain with movement.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have diabetes, thyroid disease, or have you had recent shoulder immobilization or surgery?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I have type 2 diabetes. I don’t have known thyroid disease, and I haven’t had any shoulder surgery or immobilization.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Adhesive capsulitis (frozen shoulder), glenohumeral osteoarthritis, rotator cuff tear/tendinopathy, subacromial impingement/bursitis, cervical radiculopathy",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Adhesive capsulitis (frozen shoulder)",
+    "predicted_set": [
+      "Adhesive capsulitis (frozen shoulder)",
+      "glenohumeral osteoarthritis",
+      "rotator cuff tear/tendinopathy",
+      "subacromial impingement/bursitis",
+      "cervical radiculopathy"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Adhesive capsulitis",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Adhesive capsulitis",
+      "Osteoarthritis",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2087,
+      "completion_tokens": 199
+    },
+    "patient": {
+      "prompt_tokens": 2412,
+      "completion_tokens": 227,
+      "calls": 5
+    }
+  }
+}

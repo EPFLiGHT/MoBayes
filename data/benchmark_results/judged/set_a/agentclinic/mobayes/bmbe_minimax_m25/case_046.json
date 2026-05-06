@@ -1,0 +1,310 @@
+{
+  "case_idx": 46,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {
+    "Demographics": "30-year-old male",
+    "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+    "Symptoms": {
+      "Primary_Symptom": "Left chest pain",
+      "Secondary_Symptoms": [
+        "Productive cough with purulent sputum",
+        "Shortness of breath"
+      ]
+    },
+    "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+    "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+    "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+  },
+  "objective_for_doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+  "kb_dir": "data/agentclinic_50_v2",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“I’m a 30-year-old man, and for the past week I’ve had left-sided chest pain along with a cough that brings up purulent sputum. I’ve also been feeling feverish and very unwell, and I’m short of breath.”",
+      "extracted_features": {
+        "f_chest_pain_27a0380f": "yes",
+        "f_productive_cough_f91866cd": "yes",
+        "f_purulent_sputum_6a31ba34": "yes",
+        "f_fever_6c156205": "yes",
+        "f_malaise_fdf6c8b3": "yes",
+        "f_shortness_of_breath_02802ea3": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Pneumonia",
+          0.6148551673622101
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08578071337659189
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.07103192770545062
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.0679530103628361
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.02418561622007863
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_c31b8292",
+      "doctor_question": "Hello, thank you for sharing that information with me today.\n\nI'd like to ask you a quick question about your skin. Have you noticed any new spots, patches, or changes on your skin recently? This could include anything from a new mole, a rash, a bump, or any area that looks different from the rest of your skin.",
+      "patient_answer": "“I haven’t noticed any new spots, rashes, or skin changes—no new bumps or patches that look different from before.” “Most of my concern has been the left-sided chest pain, the purulent cough, and feeling feverish and short of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6276107392312574
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08756029027947033
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.07250553142050256
+        ]
+      ],
+      "entropy": 2.2546922678713703
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_pain_relieved_by_eating_7fef6d04",
+      "doctor_question": "# Patient Question\n\n**\"When you have this pain, does eating something help make it feel better?\"**\n\nI want to understand if food brings you any relief when you're experiencing the discomfort. Some people find that having a meal or a snack helps ease their pain, while others don't notice any difference. Does eating seem to help you at all?",
+      "patient_answer": "“Eating doesn’t really make the left-sided chest pain better or worse for me. The discomfort feels pretty much the same regardless of meals.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6339058183828725
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08772819028352127
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.07264456338328343
+        ]
+      ],
+      "entropy": 2.2181361850591372
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_urinary_frequency_e94ed4de",
+      "doctor_question": "**Question:**\n\n\"Have you noticed that you're needing to urinate more often than usual recently?\"\n\nThis question allows the patient to answer yes or no, and gives them space to describe any patterns or concerns they may have about changes in their urinary habits.",
+      "patient_answer": "“No— I haven’t noticed needing to urinate more often than usual.” “My main issues have been the left-sided chest pain, purulent cough, feeling feverish, and being short of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6384791622828088
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.0883611095157648
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.07392297716000176
+        ]
+      ],
+      "entropy": 2.1956166384656783
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_scaly_skin_lesion_0df32c21",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your skin to help with the assessment.\n\nHave you noticed any rough, scaly, or flaky patches on your skin recently?",
+      "patient_answer": "“No, I haven’t noticed any rough, scaly, or flaky patches on my skin. I’ve mainly been dealing with the left chest pain, coughing up purulent sputum, feeling feverish, and shortness of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6424928396411785
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08891657476126448
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.07438767984290459
+        ]
+      ],
+      "entropy": 2.158138124783426
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_hip_pain_b43bcb14",
+      "doctor_question": "Hello, I'd like to ask you a few questions to better understand what you're experiencing.\n\nAre you currently feeling any pain in your hip area? If so, could you describe where it hurts and what it feels like?",
+      "patient_answer": "“No, I’m not feeling any pain in my hip area. My pain is mainly on the left side of my chest, and it’s been going on for about a week along with the cough and shortness of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6512235101188347
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08557307973896913
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.07616011611415963
+        ]
+      ],
+      "entropy": 2.1146538328623756
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_history_of_hypertension_eece7e3a",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your medical history to help with your assessment today.\n\nHave you ever been diagnosed with high blood pressure, also known as hypertension?",
+      "patient_answer": "“No, I’ve never been diagnosed with high blood pressure, and I’m not aware of having hypertension.” “My health history has mostly been limited to the recent influenza I didn’t follow through with.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6614171157576493
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.08014014874972973
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.0682314607367892
+        ]
+      ],
+      "entropy": 2.0785064055423934
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_weight_gain_87d866e7",
+      "doctor_question": "Hello! I'd like to ask you a few questions to help with your assessment today.\n\nHave you noticed any recent weight gain — for example, have your clothes been fitting tighter, or have you stepped on a scale and seen an increase?",
+      "patient_answer": "“No, I haven’t noticed any recent weight gain—my clothes fit the same and I haven’t seen any scale increase. My main symptoms are still the left-sided chest pain, feverish feeling, the purulent cough, and being short of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6696210129736782
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.07621694597775613
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.0676822601747053
+        ]
+      ],
+      "entropy": 2.0362506948878982
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_joint_swelling_5216d247",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help understand your symptoms better.\n\nHave you noticed any swelling in your joints? This could be in areas like your knees, elbows, wrists, fingers, or any other joints.",
+      "patient_answer": "“No, I haven’t noticed any swelling in my joints—no trouble with my knees, elbows, wrists, fingers, or anything else.” “The main things I’ve been dealing with are the left-sided chest pain, feverish feeling, a cough with purulent sputum, and shortness of breath.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.6752311997197287
+        ],
+        [
+          "Chronic obstructive pulmonary disease",
+          0.07454983805496303
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.06701599037556971
+        ]
+      ],
+      "entropy": 2.003790693899523
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_generalized_weakness_46c7373c",
+      "doctor_question": "Have you been feeling generally weak or lacking in energy lately? This can include feeling tired all over, having difficulty with activities that you normally do with ease, or just not feeling like yourself strength-wise.",
+      "patient_answer": "“I have been feeling pretty weak and run down, like I don’t have my usual energy, and I just feel generally unwell.” “I haven’t been able to do my normal activities comfortably.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.7182090479451623
+        ],
+        [
+          "Neuroleptic Malignant Syndrome",
+          0.11066448148669157
+        ],
+        [
+          "Takotsubo cardiomyopathy",
+          0.045540956329250995
+        ]
+      ],
+      "entropy": 1.6868769893510616
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_top3": [
+      "Pneumonia",
+      "Neuroleptic Malignant Syndrome",
+      "Takotsubo cardiomyopathy"
+    ],
+    "confidence": 0.7182090479451623,
+    "final_entropy": 1.6868769893510616,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Neuroleptic Malignant Syndrome",
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6382,
+      "completion_tokens": 2706
+    },
+    "patient": {
+      "prompt_tokens": 7588,
+      "completion_tokens": 489,
+      "calls": 10
+    }
+  }
+}

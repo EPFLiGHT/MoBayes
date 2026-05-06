@@ -1,0 +1,132 @@
+{
+  "case_idx": 35,
+  "baseline": "cot",
+  "column": "ac_set2",
+  "ground_truth": "Takotsubo cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "43-year-old woman",
+    "History": "The patient has been brought to the emergency department by her brother due to severe chest pain. She is grieving the recent loss of her husband in a car accident and is still in a state of shock over the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe chest pain",
+      "Secondary_Symptoms": [
+        "Shortness of breath",
+        "Emotional distress"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Non-smoker. No history of alcohol or drug abuse. Recently widowed.",
+    "Review_of_Systems": "Denies recent illness, fever, or cough."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with severe chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’m here because I have severe chest pain, and I’m short of breath. I’ve also been extremely distressed since my husband died in a car accident, and I feel like I’m still in shock.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: severe chest pain + shortness of breath. Emotional distress after a recent traumatic event (husband’s death), “still in shock.” This combination raises concern for a potentially life-threatening cardiopulmonary cause (e.g., acute coronary syndrome, pulmonary embolism, aortic pathology) but also could be consistent with stress-induced cardiomyopathy. From the provided disease list, the most relevant match is Takotsubo cardiomyopathy (often triggered by acute emotional stress) and possibly Situational syncope (though syncope isn’t mentioned). However, we don’t yet have discriminating details (onset, character, triggers, vitals, ECG/troponin, radiation, exertional component).\nMost likely candidates from the list:\n1) Takotsubo cardiomyopathy — acute emotional trigger + chest pain/SOB.\n2) Asthma/COPD — can cause SOB/chest tightness, but “severe chest pain” and acute emotional trigger are less specific.\n3) Cardiac contusion — usually trauma-related; not suggested.\n4) Acute lymphoblastic leukemia / Acute myelogenous leukemia — can present with chest symptoms via anemia/infection, but no systemic symptoms given.\n5) Toxic exposure — could cause cardiopulmonary symptoms, but no exposure history yet.\nMost informative next question: character and timing of the chest pain (sudden vs gradual, duration, exertional vs at rest,",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: How would you describe the chest pain—does it feel sudden or gradual, what’s its exact duration, and is it worse with movement or breathing? Also, did it start at rest, and have you noticed sweating, nausea, or fainting?",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still need discriminating features for chest pain. The most informative next step is to characterize pain pattern (pleuritic vs pressure-like), timing (sudden onset), triggers (rest vs exertion), and associated autonomic symptoms (sweating/nausea/syncope). This helps separate ACS/PE/aortic pathology from stress cardiomyopathy and pulmonary causes.\nTop candidates to consider based on current info:\n- Takotsubo cardiomyopathy: acute emotional trigger; chest pain/SOB; often mimics ACS.\n- Acute Mesenteric Ischemia is unlikely (no abdominal pain).\n- Asthma/COPD: SOB may fit, but severe chest pain and emotional trigger less specific.\n- Toxic exposure: possible but no exposure details.\n- Cardiac contusion: no trauma history.\nMost informative next question: pain quality and whether it’s pleuritic (worse with breathing) vs pressure-like, and exact onset/duration.\n\nWhat I’ll ask one question at a time:\n1) Is the pain pressure/tightness (like “an elephant on the chest”) or is it sharp and worse when you take a deep breath?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels like a heavy pressure in the center of my chest, not something sharp—though taking a deep breath does make it a bit worse. It started suddenly while I was at rest, and I’ve felt very sweaty and nauseated, like I might faint.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings now: sudden onset at rest; heavy central pressure; worsened somewhat by deep breath (can be pleuritic component but still pressure-like); severe chest pain with diaphoresis, nausea, near-fainting. This pattern strongly suggests an acute cardiopulmonary emergency such as ACS (MI/unstable angina), pulmonary embolism, or less commonly aortic pathology. The emotional stress could point toward Takotsubo cardiomyopathy, which often presents like ACS with pressure pain and autonomic symptoms, but we still need discriminators (age, risk factors, ECG/troponin, leg symptoms, hemoptysis, neuro deficits).\nTop candidates from list:\n1) Takotsubo cardiomyopathy — emotional trigger + ACS-like presentation (pressure, diaphoresis, nausea).\n2) Takotsubo vs Acute coronary syndrome (not in list) — but we must map to closest list item; Takotsubo is the closest cardiac mimic.\n3) Toxic exposure — could cause chest pain/SOB but no exposure details.\n4) Asthma/COPD — less likely with pressure + diaphoresis/near-syncope.\n5) Cardiac contusion — no trauma history.\nMost informative next question: any leg swelling/pain or recent immobility/flight/estrogen use/hemoptysis to assess pulmonary embolism (and also ask about tearing pain radiating to back for aortic dissection",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about any leg swelling or pain, and I haven’t had any bleeding from my lungs; I did have little sleep and felt mostly on the couch since the accident, but no long travel. The pain is more in the center and I haven’t noticed it tearing to my back.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: sudden central heavy pressure at rest, worsened by deep breath somewhat, diaphoresis, nausea, near-fainting; no hemoptysis; no leg symptoms reported; no long travel; no tearing to back (argues against aortic dissection). Emotional trigger is present (husband’s death). Still need to distinguish Takotsubo cardiomyopathy vs acute coronary syndrome vs pulmonary embolism. PE is less supported without leg symptoms/hemoptysis/immobility/long travel, but not excluded. ACS vs Takotsubo: need age/risk factors and whether pain is exertional/typical, plus any prior cardiac history; also ask about palpitations or recent infection.\nMost informative next question: How old are you, and do you have history of heart disease, high blood pressure, diabetes, high cholesterol, smoking, or family history of early heart disease? (Age/risk factors strongly shift likelihood toward ACS vs Takotsubo.) \n\nOne question at a time:\n1) What is your age, and do you have any of those heart risk factors (HTN/diabetes/high cholesterol/smoking/known heart disease/family history)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 43 years old, and I don’t have any known heart disease, high blood pressure, diabetes, or high cholesterol. I don’t smoke, and there’s no family history of early heart problems that I know of.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow: 43 years old, no known traditional CAD risk factors, sudden pressure chest pain at rest with diaphoresis/nausea/near-syncope; emotional trigger present. This makes classic ACS less likely but still possible (nontraditional risk, undiagnosed disease). Takotsubo becomes relatively more likely given emotional stress and ACS-like presentation in a lower-risk patient. PE still possible but less supported; asthma less likely.\nFrom list, best match remains Takotsubo cardiomyopathy.\nNeed one more discriminating question: any recent severe illness/infection, or stimulant/cocaine/amphetamine use, or new medications? Also ask about palpitations/irregular heartbeat or whether pain started after emotional stress immediately.\nMost informative next question: Did the chest pain begin right after the stressful event/thoughts (within minutes-hours), or did it come later independently?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It started a little while after I realized what happened, but still close to the shock—within a couple of hours—and I didn’t take any stimulants or new medications. I don’t remember any irregular heartbeat.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: onset within ~2 hours of acute emotional realization; no stimulant/med changes; no known arrhythmia symptoms. This temporal relationship strongly supports stress-induced cardiomyopathy (Takotsubo), though ACS/MI remains a critical alternative until ECG/troponin are checked. PE remains less likely without risk factors/hemoptysis/leg symptoms, but still not excluded. Asthma/COPD unlikely with diaphoresis/near-syncope and pressure pain.\nGiven the evidence, we can provide a top-5 differential from the provided list, with Takotsubo highest.\nNeed final output now (confidence is reasonable for Takotsubo vs others, though we can’t rule out ACS/PE without tests; but Takotsubo is the closest list item capturing the stress-triggered ACS mimic).\n\n[DDX]\nTakotsubo cardiomyopathy, Acute myelogenous leukemia, Toxic exposure, Acute Mesenteric Ischemia, Asthma",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Takotsubo cardiomyopathy",
+    "predicted_set": [
+      "Takotsubo cardiomyopathy",
+      "Acute myelogenous leukemia",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia",
+      "Asthma"
+    ],
+    "predicted_raw": [
+      "Takotsubo cardiomyopathy",
+      "Acute myelogenous leukemia",
+      "Toxic exposure",
+      "Acute Mesenteric Ischemia",
+      "Asthma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Takotsubo cardiomyopathy",
+    "predicted_set_remapped": [
+      "Takotsubo cardiomyopathy",
+      "Acute myelogenous leukemia",
+      "Toxic exposure"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9893,
+      "completion_tokens": 1478
+    },
+    "patient": {
+      "prompt_tokens": 6536,
+      "completion_tokens": 337,
+      "calls": 6
+    }
+  }
+}

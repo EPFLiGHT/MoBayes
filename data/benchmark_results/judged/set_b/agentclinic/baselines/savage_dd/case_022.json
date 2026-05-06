@@ -1,0 +1,139 @@
+{
+  "case_idx": 22,
+  "baseline": "savage_dd",
+  "column": "ac_set2",
+  "ground_truth": "Fibroadenoma",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old female at 17-weeks gestation",
+    "History": "The patient reports noticing a painless mass in the right breast three weeks ago, which has not changed in size. She has no additional complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Painless mass in the right breast",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "No significant medical history. This is her first pregnancy.",
+    "Social_History": "Non-smoker, does not consume alcohol. Works as a high school teacher.",
+    "Review_of_Systems": "Denies fever, weight loss, nipple discharge, or changes in skin over the breast."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with a breast mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I noticed a painless lump/mass in my right breast about three weeks ago, and it hasn’t changed since then. I’m currently 17 weeks pregnant, and I don’t have any other symptoms.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—one question at a time.\n\n**Is the lump something you can feel clearly with your fingers, and is it **mobile** (moves under the skin) or **fixed** (feels stuck in place)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I can feel it clearly with my fingers, and it seems mobile—it moves a little under the skin rather than feeling stuck.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Does the lump feel firm or rubbery, and roughly how big is it (e.g., pea, grape, walnut, larger)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels more firm than soft, and the size is about like a grape—maybe a little larger than a pea. I’d describe it as rubbery/firm rather than hard like bone, and it hasn’t grown over these three weeks.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Do you notice any skin changes over the lump (dimpling, redness, warmth, “orange peel” texture), or any nipple changes/discharge (especially bloody)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No, I haven’t noticed any skin redness, warmth, dimpling, or any “orange peel” texture. Also, there’s been no nipple discharge or nipple changes, and no bleeding.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Okay.\n\n**Do you have any enlarged or tender lymph nodes in the armpit on that side (or have you noticed swelling there)?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed any swelling or tenderness in my right armpit, and I don’t feel any enlarged lumps there.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Is there any family history of breast cancer (especially in a first-degree relative), or any personal history of breast lumps/biopsies?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: No—there’s no family history of breast cancer in my close relatives, and I haven’t had any prior breast lumps, biopsies, or surgeries.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—one more key question.\n\n**Have you had any recent infections, skin lesions, or trauma to the right breast (or are you breastfeeding already)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t had any recent infections or skin lesions on my right breast, and I don’t recall any trauma to that area. I’m not breastfeeding yet—I’m still pregnant.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Fibroadenoma, Acute lymphoblastic leukemia, Acute myelogenous leukemia, Histoplasmosis, Membranous nephropathy",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Fibroadenoma",
+    "predicted_set": [
+      "Fibroadenoma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Histoplasmosis",
+      "Membranous nephropathy"
+    ],
+    "predicted_raw": [
+      "Fibroadenoma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Histoplasmosis",
+      "Membranous nephropathy"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Fibroadenoma",
+    "predicted_set_remapped": [
+      "Fibroadenoma",
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7448,
+      "completion_tokens": 261
+    },
+    "patient": {
+      "prompt_tokens": 3636,
+      "completion_tokens": 300,
+      "calls": 7
+    }
+  }
+}

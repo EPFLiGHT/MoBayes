@@ -1,0 +1,81 @@
+{
+  "case_idx": 12,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Hemorrhoids",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old female",
+    "History": "The patient reports a 2-week history of rectal bleeding occurring daily with bowel movements. She denies any pain with defecation and does not present with any other complaints.",
+    "Symptoms": {
+      "Primary_Symptom": "Rectal bleeding daily with bowel movements",
+      "Secondary_Symptoms": [
+        "No pain with defecation"
+      ]
+    },
+    "Past_Medical_History": "The patient's past medical history is unremarkable except for 5 normal vaginal deliveries.",
+    "Social_History": "Information not specified.",
+    "Review_of_Systems": "The patient denies any changes in bowel habits, abdominal pain, weight loss, or other systemic symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with rectal bleeding and a palpable rectal mass.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, what brings you in today? Patient: For about the last two weeks, I’ve had rectal bleeding every day when I have a bowel movement, and it isn’t painful. I haven’t noticed any other symptoms like changes in my bowel habits or abdominal pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing 'Hemorrhoids  '?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m not sure it’s hemorrhoids—I've had daily rectal bleeding for about two weeks with bowel movements, but I haven’t had any pain with defecation. I don’t think I’ve noticed changes in bowel habits or abdominal discomfort either.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hemorrhoids  ",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Hemorrhoids",
+    "predicted_set": [
+      "Hemorrhoids"
+    ],
+    "predicted_raw": [
+      "Hemorrhoids  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Hemorrhoids",
+    "predicted_set_remapped": [
+      "Hemorrhoids"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 635,
+      "completion_tokens": 117,
+      "calls": 2
+    }
+  }
+}

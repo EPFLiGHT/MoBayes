@@ -1,0 +1,104 @@
+{
+  "case_idx": 49,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "GERD",
+  "objective_for_doctor": "A 65-year-old Female patient presents to the clinic. Chief complaint: I have upper chest radiating pain, haunting pain, and sensitive pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having upper chest pain that feels like a haunting, sensitive, burning kind of pain, and it can be really sickening. It also comes with heartburn/acid reflux and gets worse after eating, and it sometimes radiates.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—before I decide, I need a few details: does the chest pain get worse with deep breathing or movement, and do you have shortness of breath, sweating, nausea/vomiting, or dizziness?  \nDoctor: Also, does it improve with antacids or sitting up, and when did it start (and has it been constant or comes in episodes)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It doesn’t get worse with deep breathing or movement. I don’t have shortness of breath, sweating, nausea/vomiting, or dizziness.  \n\nIt does feel like it improves if I sit up and with antacids, and it started today—more like episodes rather than completely constant.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you. Are you having any trouble swallowing, pain/burning when you lie down, a sour taste in your mouth, or a cough/hoarseness with the episodes?  \nDoctor: Also, can you tell me your age 65 is correct—do you have any history of heart disease, high blood pressure/diabetes, smoking, or prior similar chest pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have trouble swallowing. I do have burning pain that feels worse when I lie down, and I sometimes get a sour taste in my mouth. I don’t have cough or hoarseness with the episodes.  \n\nI’m 65. I have no known history of heart disease, high blood pressure, or diabetes, but I do smoke cigarettes and I’ve had similar chest/heartburn-type pain before.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given it improves with sitting up/antacids, is worse lying down, and you get sour taste, I’m concerned for acid reflux/esophageal irritation—have you had any pain when swallowing or black/bloody stools? Also, since you’re 65 and smoke, I need to check for red flags: do you have any new severe chest pain, fainting, or pain lasting >20 minutes?  \nDoctor: I’d like to examine you—could you tell me whether the pain is reproducible with pressing on the chest wall (tenderness), and I’ll request an ECG to be safe.  \nREQUEST TEST: ECG  \nREQUEST TEST: Chest_X-Ray",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have pain when swallowing, and I haven’t noticed black or bloody stools.  \n\nThe pain isn’t worse with pressing on the chest wall—it’s more internal/burning and radiating.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Alright—this sounds most consistent with acid-related esophagitis/GERD since it improves with sitting up and antacids, worsens lying down/after eating, and isn’t reproducible with chest-wall pressure; however I still need to rule out cardiac causes given your age and smoking. Have you had the ECG/any troponin blood test results yet, and do you currently have any ongoing pressure/tightness lasting more than 20 minutes?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t gotten the ECG or any blood test results yet.  \n\nRight now the pain isn’t ongoing as a continuous pressure/tightness for more than 20 minutes—it comes in episodes and it’s helped when I sit up.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—your symptoms (worse after eating/lying down, sour taste, relief with sitting up and antacids) strongly point to GERD with esophagitis, but because you’re 65 and smoke I still need one quick safety check: during episodes do you ever get exertional chest pressure, or pain that’s clearly triggered by walking/stairs?  \nDoctor: Also, I’ll request the results urgently—REQUEST TEST: Troponin_blood_test.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, it’s not triggered by walking or stairs, and I don’t get exertional chest pressure during the episodes.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your answers, the pain pattern fits GERD/esophagitis strongly (worse after eating and lying down, sour taste, relief with sitting up/antacids, not exertional).  \n\nDoctor: I need the pending safety tests you requested—REQUEST TEST: Troponin_blood_test—and I’ll review your ECG results to be sure we’re not missing cardiac causes.  \n\nDoctor: DIAGNOSIS READY: GERD with esophagitis (acid reflux–related chest pain); rule-out ACS pending ECG/troponin results\n\n[DDX]\n1. GERD",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "GERD",
+    "predicted_set_remapped": [
+      "GERD",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3888,
+      "completion_tokens": 628,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 5950,
+      "completion_tokens": 321
+    }
+  }
+}

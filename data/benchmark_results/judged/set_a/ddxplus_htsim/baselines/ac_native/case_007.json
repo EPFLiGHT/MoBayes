@@ -1,0 +1,209 @@
+{
+  "case_idx": 7,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {
+    "AGE": 17,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['contact allergy', 'diarrhea', 'pain', 'shortness of breath', 'dizziness/lightheadedness', 'skin lesions', 'nausea', 'edema', 'expiratory wheezing', 'increased risk of common allergies']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 17\n- I have been in contact with or ate something that I have an allergy to.\n- I have had diarrhea or an increase in stool frequency.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I feel lightheaded and dizzy or I feel like I am about to faint.\n- I have lesions, redness, or problems on my skin that I believe are related to the condition I am consulting for.\n- I am feeling nauseous or I feel like vomiting.\n- I have swelling in one or more areas of my body.\n- I have noticed a wheezing sound when I exhale.\n- I am more likely to develop common allergies than the general population.\n- On a scale of 0-10, the pain intensity is 6\n- On a scale of 0-10, the pain's location precision is 6\n- On a scale of 0-10, the pace at which the pain appear is 5\n- The color of the rash is pink.\n- On a scale of 0-10, the rash swelling is 4\n- On a scale of 0-10, the pain intensity caused by the rash is 3\n- The lesion (or lesions) are larger than 1cm.\n- On a scale of 0-10, the severity of the rash itching is 7\n- The pain is:\n* a cramp\n* sharp\n- The pain locations are:\n* flank(R)\n* iliac fossa(L)\n* hypochondrium(R)\n* hypochondrium(L)\n* belly\n- The pain radiates to these locations:\n* nowhere\n- The affected regions are:\n* back of the neck\n* mouth\n* thyroid cartilage\n* ankle(L)\n* thoracic spine\n- The swelling locations are:\n* forehead\n* cheek(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Anaphylaxis', 0.11979447073547347], ['Bronchospasm / acute asthma exacerbation', 0.09447517534334401], ['Boerhaave', 0.079600851424211], ['Anemia', 0.07472887472645108], ['GERD', 0.07423945181673175], ['HIV (initial infection)', 0.07272797753399378], ['Panic attack', 0.06873638298788642], ['Inguinal hernia', 0.067607067307954], ['PSVT', 0.062089855286589266], ['Guillain-Barré syndrome', 0.05842240961106716], ['Chagas', 0.05792149682810584], ['Atrial fibrillation', 0.055803965829098856], ['Acute dystonic reactions', 0.04114166729416418], ['Myasthenia gravis', 0.04114166729416418], ['Pulmonary embolism', 0.03156868598076495]]",
+    "PATHOLOGY": "Anaphylaxis",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['contact_allergie', 'diarrhee', 'douleurxx', 'douleurxx_carac_@_une_crampe', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_flanc_D_', 'douleurxx_endroitducorps_@_fosse_iliaque_G_', 'douleurxx_endroitducorps_@_hypochondre_D_', 'douleurxx_endroitducorps_@_hypochondre_G_', 'douleurxx_endroitducorps_@_ventre', 'douleurxx_intens_@_6', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_6', 'douleurxx_soudain_@_5', 'dyspn', 'faible', 'lesions_peau', 'lesions_peau_couleur_@_rose', 'lesions_peau_desquame_@_N', 'lesions_peau_elevee_@_4', 'lesions_peau_endroitducorps_@_arrière_du_cou', 'lesions_peau_endroitducorps_@_bouche', 'lesions_peau_endroitducorps_@_cartilage_thyroidien', 'lesions_peau_endroitducorps_@_cheville_G_', 'lesions_peau_endroitducorps_@_colonne_dorsale', 'lesions_peau_intens_@_3', 'lesions_peau_plusqu1cm_@_O', 'lesions_peau_prurit_@_7', 'nausee', 'oedeme', 'oedeme_endroitducorps_@_front', 'oedeme_endroitducorps_@_joue_G_', 'trav1_@_N', 'wheez', 'z84.89']",
+    "patient_id": "htsim_0252",
+    "_test_index": 252,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 17-year-old M patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency, and I’m having significant difficulty breathing with wheezing when I exhale. I also feel lightheaded and dizzy or like I’m about to faint, with nausea. I have pink skin lesions that itch a lot, along with swelling in my forehead and cheek on the left. My pain intensity is 6/10, and it’s in my flank/right, iliac fossa/left, hypochondrium/right and left, and my belly. The pain feels crampy and sharp, and it’s around a 5/10 for how quickly it appeared.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—first, I need to understand: how long ago did your symptoms start (minutes vs hours vs days), and do you also have fever or abdominal tenderness when I press your belly?  \nDoctor: And second, any recent new foods/meds (especially NSAIDs/antibiotics), known allergies, or similar episodes—plus do the pink itchy lesions look like hives that come and go within 24 hours?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine you now—please tell me: do you have any lip/tongue swelling or throat tightness, and are you wheezing right now with trouble speaking full sentences?  \nDoctor: Also, are the pink itchy lesions truly hives (raised, move around, and fade within a day), and have you had vomiting, blood in stool, or severe one-sided belly pain?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you—right now please tell me if you have lip or tongue swelling, hoarse voice, or throat tightness; also, do you feel your wheezing is worsening and are you able to speak full sentences.  \nDoctor: Next, for the pink itchy lesions: are they raised like hives and do they come and go within 24 hours, and is the facial swelling on the left new and sudden?  \nDoctor: REQUEST TEST: Pulse_Oximetry_and_Vitals; REQUEST TEST: CBC_CMP; REQUEST TEST: Serum_tryptase; REQUEST TEST: Urinalysis_and_Stool_tests; REQUEST TEST: ECG.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a possible allergic/anaphylactic reaction given wheezing, dizziness, nausea, itchy pink lesions, and facial swelling—can you check right now: are you feeling throat tightness, tongue/lip swelling, or worsening breathing, and do you have a history of allergies/asthma?  \nDoctor: Please also answer as best you can: is your facial swelling unilateral and new within the last few hours, and do your skin spots behave like hives (raised, very itchy, and move/fade within 24 hours)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to check your breathing right now—can you speak full sentences without stopping for breath, and do you have any lip/tongue swelling or throat tightness?  \nDoctor: Also, are the itchy pink spots raised like hives and do they appear/disappear within 24 hours, and is the left facial swelling sudden (within hours)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as a potential anaphylaxis/allergic reaction until proven otherwise—can you tell me *right now* if you have throat tightness or any lip/tongue swelling, and whether you can speak full sentences without stopping to breathe?  \nDoctor: I’m also requesting immediate vitals for safety—REQUEST TEST: Pulse_Oximetry_and_Vitals.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this could be anaphylaxis until proven otherwise—are you currently able to speak full sentences and is your wheeze getting worse right now?  \nDoctor: REQUEST TEST: Administer_IM_Epinephrine_if_Anaphylaxis_Suspected_and_Assess_Response; REQUEST TEST: Repeat_Pulse_Oximetry_and_Vitals_in_5_10_min.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as **possible anaphylaxis** due to **wheezing + dizziness/presyncope + nausea + itchy pink lesions + facial swelling**; do you have any throat tightness, lip/tongue swelling, or can you swallow normally right now?  \nDoctor: If you cannot confidently say “no,” I need you to give consent for **immediate IM epinephrine** and urgent monitoring while we obtain the vitals we ordered—can you confirm?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to act under “possible anaphylaxis” because you can’t confirm the key safety negatives; do you consent to immediate **IM epinephrine** and urgent monitoring?  \nDoctor: Also, right now please tell me: are you wheezing more than a moment ago, and can you swallow normally and speak full sentences?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to proceed as **suspected anaphylaxis** despite uncertainty—requesting **IM epinephrine now** and continuous monitoring; can you confirm you’re not having any prior severe reactions and are you able to breathe while we prepare?  \nDoctor: Do you have a known history of asthma/allergies or have you recently taken any new medication/food within the last 24 hours?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to continue treating this as **suspected anaphylaxis** because wheezing + presyncope/dizziness + nausea + itchy pink lesions with facial swelling can be life-threatening, especially since you can’t confirm “no” to throat/lip/tongue symptoms—do you consent to **immediate IM epinephrine** and urgent monitoring now?  \nDoctor: Next, can you tell me: are you currently struggling to breathe (any pause to catch your breath), and are the hives/itchy rash and facial swelling new within the last few hours?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as **suspected anaphylaxis**—please consent to **immediate IM epinephrine** and urgent monitoring now, even though you can’t confirm throat/lip/tongue symptoms.  \nDoctor: While you answer, can you take a full breath and tell me: are you currently wheezing or having trouble speaking full sentences?  \nDoctor: Also, do the itchy pink welts and the left facial swelling seem to have started suddenly within the last few hours?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a definitive safety answer: are you having **throat tightness** or **lip/tongue swelling** right now, and can you **speak full sentences** without stopping for breath?  \nDoctor: While you check, I’m placing you in urgent anaphylaxis care—**REQUEST TEST: Immediate epinephrine protocol + continuous pulse oximetry and cardiac monitoring**.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as **suspected anaphylaxis** right now—because you can’t confirm absence of throat/lip/tongue swelling and you have wheezing plus presyncope and an itchy rash with facial swelling.  \nDoctor: **REQUEST TEST: Immediate IM epinephrine + continuous pulse oximetry/vitals + call emergency response/bring crash cart**.  \nDoctor: I need one final yes/no: can you speak full sentences without stopping to breathe right now?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: “I can’t get the key ‘yes/no’ breathing/throat information, so I’m treating this as **possible anaphylaxis** based on your wheezing, dizziness/presyncope, nausea, itchy pink rash, and facial swelling—can emergency staff give **IM epinephrine immediately** and start continuous monitoring now?”  \nDoctor: “DIAGNOSIS READY: Suspected anaphylaxis (acute allergic reaction with bronchospasm/possible airway involvement)”\n\n[DDX]\n1. Anaphylaxis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Anaphylaxis",
+    "predicted_set_remapped": [
+      "Anaphylaxis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15319,
+      "completion_tokens": 1453,
+      "calls": 15
+    },
+    "patient": {
+      "prompt_tokens": 26265,
+      "completion_tokens": 240,
+      "calls": 15
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "case_idx": 2,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Acute laryngitis",
+  "objective_for_doctor": "A 37-year-old Female patient presents to the clinic. Chief complaint: I have a fever, a cough, and sensitive pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a fever and a cough, and my throat really hurts—both tonsils hurt and my palate/pharynx feels sensitive and painful. I also have hoarseness, and the pain is about 7 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—sorry you’re feeling so bad. How long has this been going on, and do you have any trouble swallowing, drooling, or shortness of breath?  \nDoctor: Also, have you noticed a runny nose/cold symptoms or any swollen neck glands, and what’s the highest measured temperature?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started recently—I’d say about the last few days, and I’ve had a cold about 2 weeks ago. I do have trouble because swallowing hurts, but I’m not drooling and I don’t feel short of breath.  \n\nI also have cold symptoms like a cough, and I’ve had fever but I don’t know the exact highest temperature measurement. I’m not sure about swollen neck glands.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—next questions: do you see white patches or pus on your tonsils, and do you have swollen/tender lymph nodes under your jaw or a bad-smelling breath? Also, any known exposure to strep/COVID/flu, or did symptoms start suddenly vs gradually?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed any white patches or pus on my tonsils. I’m not sure about swollen or tender lymph nodes under my jaw, and I don’t know about bad-smelling breath.  \n\nI don’t know of any specific exposure to strep, COVID, or flu, and it felt more gradual rather than suddenly starting.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I hear you—since this is gradual over a few days with fever, cough, hoarseness, and no visible tonsillar exudate, I need to ask: do you have nasal congestion or a runny nose now, and are you currently able to swallow liquids (or is it mostly solids)? Also, have you had any significant body aches or headache?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have nasal congestion/runny nose symptoms along with the cough. I can swallow liquids, but it hurts when I swallow.  \n\nI’m not sure about significant body aches or headache—I haven’t really paid attention to that.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check for signs that point more toward viral URI vs strep—do you have any known exposure to someone with confirmed strep/“strep throat,” and do you have a distinct rash? Also, during the last day, has your cough been mostly dry or productive (with phlegm)?  \nDoctor: For your exam, I’d like to look at your throat and neck—any visible swelling of the tonsils, and can you open wide so I can assess redness/ulcers?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know of any exposure to someone with confirmed strep. I don’t think I have a distinct rash.  \n\nMy cough is mostly dry, not much phlegm. And as for the throat exam, yes—go ahead and look; my tonsils and throat feel very sore.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—looking now: do your tonsils have any visible redness or ulcers, and are you feeling hoarse with a “voice change” more than throat-only pain?  \nDoctor: Next, any shortness of breath, wheezing, or chest pain, and do you have measurable fever (even an estimate) since home?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "My throat/tonsils look red and they feel very sore, but I don’t see ulcers. And yes, I’m hoarse—my voice feels changed, not just pain in my throat.  \n\nNo shortness of breath, no wheezing, and no chest pain. I’ve had fever, but I can’t measure it right now—just that I’ve been having fever at home.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on the red, very sore throat with hoarseness and prominent runny/nasal symptoms plus a mostly dry cough (and no ulcers/exudate, no dyspnea, no chest pain), this sounds more like a viral upper-respiratory infection with laryngopharyngeal involvement than strep.  \nDoctor: REQUEST TEST: Rapid_Strep_Test (or throat culture if rapid is negative)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor. I’m okay with the rapid strep test (and throat culture if needed). Please go ahead.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "REQUEST TEST: Rapid_Strep_Test  \nDoctor: While that’s pending, are you able to manage fluids and is your voice hoarseness improving or worsening over the last 24 hours?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m able to manage fluids, though it still hurts when I swallow. My hoarseness feels about the same to maybe a little worse over the last 24 hours.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since your hoarseness is persisting/worsening over 24 hours with a viral-type URI picture (runny nose, dry cough, red throat, no exudative ulcers), this fits viral laryngitis/pharyngitis; I want one more check: any severe one-sided throat pain, muffled “hot potato” voice, or neck swelling that makes turning your head hard?  \nDoctor: Also, do you have asthma, immunosuppression, or are you a smoker/vaper?  \nDoctor: If none of those are present and the rapid strep is negative, the diagnosis remains viral URI/laryngitis—recommend supportive care (fluids, acetaminophen/ibuprofen if safe, salt-water gargles, and voice rest) while awaiting the test.  \n\nDIAGNOSIS READY: Viral laryngitis/pharyngitis (acute viral upper respiratory infection), pending negative rapid strep.\n\n[ABSTAIN] free-text diagnosis 'Viral laryngitis/pharyngitis (acute viral upper respiratory infection), pending negative rapid strep.' did not map to the closed disease set",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5973,
+      "completion_tokens": 720,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 8722,
+      "completion_tokens": 474
+    }
+  }
+}

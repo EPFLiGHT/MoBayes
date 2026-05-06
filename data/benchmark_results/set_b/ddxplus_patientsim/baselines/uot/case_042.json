@@ -1,0 +1,69 @@
+{
+  "case_idx": 42,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "GERD",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Male\nChief Complaint: I have upper chest radiating pain, a cough, and haunting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having pain in my upper chest that radiates, with a cough. It feels like a knife-stab/haunting kind of pain and it gets worse after I eat, and I also have heartburn/acid reflux and pain in my epigastric area.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain/pressure that is worse with exertion or stress and improves with rest**?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t really notice it being worse with exertion or stress, but it does get worse after I eat. Rest doesn’t change it much compared to meals.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you currently having chest pain/pressure that is new, worsening, or occurring at rest (not just with exertion)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s happening now and it’s kind of new for me, and it can get worse. It’s not only when I’m exerting myself.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Possible NSTEMI / STEMI  , Unstable angina",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Possible NSTEMI / STEMI  ",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI  ",
+      "Unstable angina"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 2054,
+      "completion_tokens": 131
+    }
+  }
+}

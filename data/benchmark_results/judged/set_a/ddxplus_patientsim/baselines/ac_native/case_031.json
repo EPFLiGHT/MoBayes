@@ -1,0 +1,104 @@
+{
+  "case_idx": 31,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Pneumonia",
+  "objective_for_doctor": "A 46-year-old Male patient presents to the clinic. Chief complaint: I have right side of the chest pain, right posterior chest wall pain, and pleuritic chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have right-sided chest pain with right posterior chest wall pain, and it gets worse when I breathe in (pleuritic pain). I’ve also been coughing and I’m bringing up colored sputum and sometimes blood, and I’ve had fever and chills/shivers, plus I feel generally unwell and I’ve had a poor appetite.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have these symptoms been going on, and is the blood in your sputum small streaks or more than that?  \nDoctor: Do you have shortness of breath, rapid heart rate, or leg swelling/pain, and have you had any recent travel or long periods of immobility?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, the symptoms started pretty fast—like within a few hours to a day. The blood is more than just tiny streaks; it’s more noticeable when I cough.  \n\nI do feel short of breath with the coughing, but I don’t have leg swelling or leg pain. No recent travel, and I haven’t been immobile for a long time—though I did have surgery within the last month.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given fast onset pleuritic right-sided chest pain with fever/chills, productive cough with more-than-streaky hemoptysis, and recent surgery, I’m concerned about a lung infection/hemorrhage but also need to rule out pulmonary embolism or a pneumonia with complications; do you have any history of smoking or known lung disease (asthma/COPD), and is the pain localized to one spot on the chest wall or is it more “deep” in the lung?  \nDoctor: REQUEST TEST: Chest_X-Ray  \nDoctor: REQUEST TEST: CBC_with_diff_and_CRP/Procalcitonin + Basic_Metabolic_Panel, and if available REQUEST TEST: D-dimer or CT_Pulmonary_Angiography (depending on your vitals/risk and D-dimer).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have known COPD and also asthma—I’ve needed a bronchodilator in the past. I don’t smoke history that I can recall right now, but I do have those lung conditions.\n\nThe pain feels like it’s more localized to the right posterior chest wall area, kind of a knife-stroke feeling, not really spread throughout the whole chest—though it does feel deeper when I cough.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With COPD/asthma plus acute fever/chills and pleuritic “knife-stab” right posterior pain with productive cough and more-than-streaky hemoptysis after surgery, I’m still prioritizing pneumonia with possible lung abscess/hemorrhage and also ruling out pulmonary embolism or a post-procedure pulmonary complication; I’m ordering a CT scan if your vitals support it.  \nDoctor: REQUEST TEST: CT_Pulmonary_Angiography (or V/Q_scan if CT contraindicated) + REQUEST TEST: Sputum_Gram_stain_and_culture.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor. I can do the CT if you think my vitals support it. I don’t know my exact vitals right now, but I’m feeling pretty unwell overall—fever/chills and my coughing is still there with colored sputum and the blood when I cough.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few key safety questions: do you have low oxygen readings, fainting, severe worsening shortness of breath, or chest pain that’s rapidly escalating—also, after the surgery, were you bedridden for more than a day?  \nDoctor: What antibiotics (if any) have you taken since this started, and do you have night sweats, weight loss, or a history of tuberculosis?  \nDoctor: REQUEST TEST: Vital_Signs_including_O2_saturation + REQUEST TEST: Blood_cultures_before_antibiotics.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my oxygen numbers, but I’m not fainting. My shortness of breath is worse when I cough, and the chest pain isn’t rapidly escalating—it’s been mild like 1/10 overall, though it’s still pretty sharp with breathing in.  \n\nAfter the surgery, I wasn’t bedridden for more than a day. I haven’t taken any antibiotics since this started. I don’t have night sweats or known TB history.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your acute febrile illness with productive colored sputum and pleuritic right posterior “knife-stab” pain with more-than-streaky hemoptysis after recent surgery, this most strongly suggests pneumonia (possibly necrotizing/hemorrhagic) rather than PE, but we must still exclude PE/other post-op causes—what were your current vital signs including temperature, heart rate, blood pressure, respiratory rate, and O2 saturation?  \nDoctor: REQUEST TEST: Urgent CT_Chest_without_contrast (if not already done) OR CT_Pulmonary_Angiography if PE is still a concern based on vitals; also REQUEST TEST: Urinalysis + Lactic_acid (for severity) and REQUEST TEST: Coagulation_panel (PT/INR, aPTT).",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor, I don’t have my exact vital signs or oxygen saturation numbers with me right now. I can tell you I’ve had fever and chills/shivers, and I’m coughing up colored sputum with more than streaky blood, plus the sharp right posterior pleuritic pain.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely narrow this without your **vitals**—are you able to get/confirm: temperature, heart rate, blood pressure, respiratory rate, and **O₂ saturation** right now (including if you’re on oxygen)? Also, has the amount of blood in your sputum increased today, and do you feel lightheaded or worse with minimal exertion?  \nDoctor: REQUEST TEST: Vitals_all + O2_saturation. REQUEST TEST: Coagulation_panel (PT/INR, aPTT) and Repeat_CBC_with_diff.  \nDoctor: Based on your **acute fever/chills + colored sputum + pleuritic right posterior “knife-stab” pain + more-than-streaky hemoptysis after recent surgery**, my leading diagnosis is **community- or aspiration-acquired pneumonia with possible hemorrhagic/necrotizing component**, though **pulmonary embolism** must be excluded urgently if O₂ is low or HR is high.\n\nDIAGNOSIS READY: Hemorrhagic/necrotizing pneumonia (right-sided) with need to rule out pulmonary embolism post-op\n\n[DDX]\n1. Pulmonary embolism\n2. Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4726,
+      "completion_tokens": 889,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 8621,
+      "completion_tokens": 466
+    }
+  }
+}

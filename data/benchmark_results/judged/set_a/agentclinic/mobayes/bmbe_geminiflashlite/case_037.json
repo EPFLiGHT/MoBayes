@@ -1,0 +1,332 @@
+{
+  "case_idx": 37,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {
+    "Demographics": "33-year-old woman",
+    "History": "The patient reports feeling extremely fatigued and weak, especially towards the end of the day, to the point of difficulty in self-care. She mentions experiencing these symptoms currently. The patient has been traveling, hiking, and camping recently and notes having had multiple illnesses in the recent past.",
+    "Symptoms": {
+      "Primary_Symptom": "Weakness and fatigue",
+      "Secondary_Symptoms": [
+        "Mild diplopia"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Enjoys outdoor activities such as hiking and camping. No mention of smoking, alcohol, or drug use.",
+    "Review_of_Systems": "Denies fever, weight loss, headache, or any respiratory, gastrointestinal, or urinary symptoms."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with weakness and fatigue.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Doctor: Hello, what brings you in today? Patient: I’ve been feeling extremely fatigued and weak, especially toward the end of the day, to the point that it’s hard to care for myself. I also had a mild episode of double vision, and I’ve had multiple illnesses recently while traveling, hiking, and camping.",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_generalized_weakness_46c7373c": "yes",
+        "f_diplopia_a9378b9d": "yes",
+        "f_recent_travel_3ef3faf4": "yes",
+        "f_recent_camping_or_hiking_d8a0b10c": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2771517861419486
+        ],
+        [
+          "Chronic kidney failure",
+          0.08473197576853553
+        ],
+        [
+          "Somatization disorder",
+          0.08067659196502922
+        ],
+        [
+          "Pneumonia",
+          0.06386203099796034
+        ],
+        [
+          "Acalculous cholecystitis",
+          0.06060038935622014
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_vision_loss_fd887f0c",
+      "doctor_question": "I understand. To help me get a better picture of what you're experiencing, have you noticed any changes in your vision, such as blurriness, blind spots, or any loss of sight?",
+      "patient_answer": "Patient: My vision has mostly been clear, but the double vision comes and goes and seems worse when I’m really tired. I haven’t noticed any blind spots or any actual loss of sight, just that mild overlapping image.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.2744241579835756
+        ],
+        [
+          "Chronic kidney failure",
+          0.08596963153650462
+        ],
+        [
+          "Somatization disorder",
+          0.08185501190012395
+        ]
+      ],
+      "entropy": 3.9123100264751924
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_smoking_5cc22410",
+      "doctor_question": "To help me get a better picture of your overall health, could you tell me if you currently smoke or have a history of smoking?",
+      "patient_answer": "“I don’t smoke and I don’t have a history of smoking.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3144567062139389
+        ],
+        [
+          "Chronic kidney failure",
+          0.09851074105878528
+        ],
+        [
+          "Somatization disorder",
+          0.093795887426049
+        ]
+      ],
+      "entropy": 3.7564655619762433
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_nausea_072ff6bd",
+      "doctor_question": "I understand. To help me get a better picture of how you're feeling, have you been experiencing any nausea or feeling sick to your stomach lately?",
+      "patient_answer": "“No, I haven’t had any nausea or upset stomach—my main issues have been the fatigue and weakness later in the day, along with the mild, on-and-off double vision when I’m very tired.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3802382725769379
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.0793256366386146
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.0793256366386146
+        ]
+      ],
+      "entropy": 3.5873463260917595
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_painless_breast_mass_b4c891d4",
+      "doctor_question": "I understand. To help me get a better picture of your health, have you noticed any lumps or masses in your breast area that do not cause you any pain?",
+      "patient_answer": "“I haven’t noticed any breast lumps or masses, and nothing like that has been painful or otherwise. My concerns have mainly been the fatigue and weakness later in the day, with mild double vision that comes and goes when I’m very tired.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.3825752337555668
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.0798131754969155
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.0798131754969155
+        ]
+      ],
+      "entropy": 3.565605968541311
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_psychological_stress_391732fb",
+      "doctor_question": "I understand that physical symptoms can often be linked to how we are feeling emotionally. Lately, have you been experiencing a significant amount of stress or feeling under a lot of pressure?",
+      "patient_answer": "I don’t feel unusually stressed or under pressure lately. My symptoms seem to build during the day, and the double vision is mainly noticeable when I’m very tired.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.40283578098964695
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08403994834936405
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08403994834936405
+        ]
+      ],
+      "entropy": 3.4662209407116342
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_dark_urine_784225c0",
+      "doctor_question": "I understand. To help me get a better picture of your current health, have you noticed any changes in the color of your urine, such as it appearing darker than usual?",
+      "patient_answer": "“No, I haven’t noticed any changes in the color of my urine—it seems normal to me.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.41916454991889285
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08744647021803041
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08744647021803041
+        ]
+      ],
+      "entropy": 3.4095953787357547
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_rapidly_enlarging_breast_mass_80729460",
+      "doctor_question": "I understand that finding a change in your breast can be concerning. To help me better understand what you are experiencing, could you tell me if you have noticed this breast mass growing or changing in size rapidly over a short period of time?",
+      "patient_answer": "“No, I haven’t noticed any breast mass at all, so nothing has been growing or changing rapidly in size.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4209826561320135
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08782576510556235
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08782576510556235
+        ]
+      ],
+      "entropy": 3.3861657036374697
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_wrist_pain_7b0fd50f",
+      "doctor_question": "I'm sorry to hear you're not feeling well. To help me better understand what might be going on, could you tell me if you have been experiencing any pain in your wrist?",
+      "patient_answer": "“No, I haven’t had any pain in my wrist. My main problem has been the end-of-day weakness and fatigue, and the mild double vision that comes and goes when I’m very tired.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4242448883450899
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08850633480574396
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08850633480574396
+        ]
+      ],
+      "entropy": 3.3603824483796503
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "I understand. To help me get a clearer picture of what you're experiencing, could you please tell me if you have noticed any skin lesions, rashes, or unusual marks running along the veins of your arms?",
+      "patient_answer": "“No, I haven’t noticed any skin lesions, rashes, or unusual marks along the veins of my arms. My symptoms have mainly been the end-of-day fatigue and weakness, with the mild double vision that shows up when I’m really tired.”",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4242448883450899
+        ],
+        [
+          "Chronic lymphocytic leukemia",
+          0.08850633480574396
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.08850633480574396
+        ]
+      ],
+      "entropy": 3.3603824483796503
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_exertional_dyspnea_209a7fe6",
+      "doctor_question": "I understand. To help me get a better picture of your health, I’d like to ask about your breathing: Do you find that you experience shortness of breath or difficulty catching your breath when you are physically active, such as walking or climbing stairs?",
+      "patient_answer": "Patient: I don’t feel short of breath with normal activity, but I do get weak and have to rest more as the day goes on, especially when I’ve been physically active.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pneumonia",
+          0.35360438204585254
+        ],
+        [
+          "Chronic kidney failure",
+          0.28165852913818545
+        ],
+        [
+          "Myasthenia gravis",
+          0.13503065518662746
+        ]
+      ],
+      "entropy": 2.7656342053361995
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_top3": [
+      "Pneumonia",
+      "Chronic kidney failure",
+      "Myasthenia gravis"
+    ],
+    "confidence": 0.35360438204585254,
+    "final_entropy": 2.7656342053361995,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Chronic kidney failure",
+      "Myasthenia gravis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9421,
+      "completion_tokens": 528
+    },
+    "patient": {
+      "prompt_tokens": 7557,
+      "completion_tokens": 453,
+      "calls": 11
+    }
+  }
+}

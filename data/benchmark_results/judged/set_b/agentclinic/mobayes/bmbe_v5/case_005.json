@@ -1,0 +1,241 @@
+{
+  "case_idx": 5,
+  "baseline": "bmbe",
+  "column": "ac_set2",
+  "ground_truth": "Membranous nephropathy",
+  "patient_actor_hidden": {
+    "Demographics": "66-year-old white male",
+    "History": "The patient reports a 10-day history of fatigue and bilateral lower leg swelling. He mentions a weight loss of 3.6 kg (8 lbs) over the past 6 months without trying. He has a history of chronic bronchitis and uses an albuterol inhaler as needed.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower leg swelling",
+        "Unintentional weight loss"
+      ]
+    },
+    "Past_Medical_History": "Chronic bronchitis.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 44 years and drinks one alcoholic beverage daily.",
+    "Review_of_Systems": "The patient denies any recent cough, change in urinary habits, chest pain, dyspnea, or fevers."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, lower leg swelling, and weight loss.",
+  "kb_dir": "data/kbs/agentclinic_b",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Hi doctor. Over the last 10 days I’ve felt pretty fatigued and I’ve noticed swelling in both lower legs, and over the past 6 months I’ve lost about 8 pounds without trying. I have chronic bronchitis and mostly I use albuterol as needed.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_lower_extremity_edema_e6691da4": "yes",
+        "f_bilateral_lower_leg_swelling_88f73892": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_chronic_cough_4933172c": "yes",
+        "f_cough_1213c62f": "yes",
+        "f_shortness_of_breath_02802ea3": "no",
+        "f_wheezing_725d7130": "no",
+        "f_smoking_history_c4e78a96": "no"
+      },
+      "top5_posterior": [
+        [
+          "Histoplasmosis",
+          0.07969228295817818
+        ],
+        [
+          "Meigs syndrome",
+          0.07617267468320814
+        ],
+        [
+          "Minimal Change Disease",
+          0.0715270281334589
+        ],
+        [
+          "Membranous nephropathy",
+          0.0715270281334589
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.07138004733744263
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_involuntary_movements_2d7f5474",
+      "doctor_question": "Have you noticed any involuntary movements recently—like twitching, jerking, shaking, or sudden movements that you can’t control? (Yes or no)",
+      "patient_answer": "“No, doctor—I haven’t noticed any involuntary twitching, jerking, shaking, or sudden uncontrolled movements.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Meigs syndrome",
+          0.08198284388801781
+        ],
+        [
+          "Histoplasmosis",
+          0.07883993181600858
+        ],
+        [
+          "Minimal Change Disease",
+          0.07698284464378806
+        ]
+      ],
+      "entropy": 4.7907389019283055
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_painless_mobile_right_breast_lump_6b49d2b2",
+      "doctor_question": "Have you noticed a **lump in your right breast that doesn’t hurt** and feels like it **moves or shifts** when you touch it? (Yes or no)",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump in my right breast, and I haven’t felt anything that moves or shifts when I touch it.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Histoplasmosis",
+          0.08057231103467917
+        ],
+        [
+          "Minimal Change Disease",
+          0.07867441739357532
+        ],
+        [
+          "Membranous nephropathy",
+          0.07867441739357532
+        ]
+      ],
+      "entropy": 4.787849530780805
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_periumbilical_abdominal_tenderness_fdab7bcd",
+      "doctor_question": "When you press or touch around your belly button area, does it feel tender or painful? (yes/no)",
+      "patient_answer": "“No, doctor—pressing or touching around my belly button area doesn’t feel tender or painful.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.08912547793400662
+        ],
+        [
+          "Minimal Change Disease",
+          0.08912547793400662
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.08175507478489712
+        ]
+      ],
+      "entropy": 4.819020231440183
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_vomiting_7ed7266d",
+      "doctor_question": "Have you been vomiting recently (yes or no)?",
+      "patient_answer": "“No, doctor—I haven’t been vomiting recently.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.10285399411802222
+        ],
+        [
+          "Minimal Change Disease",
+          0.10285399411802222
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.09434828486721426
+        ]
+      ],
+      "entropy": 4.76312599258333
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_right_breast_mass_9100875c",
+      "doctor_question": "Have you noticed a lump or mass in your **right breast** (for example, a new or growing area you can feel)?",
+      "patient_answer": "“No, doctor—I haven’t noticed any lump or mass in my right breast, and nothing new or growing that I can feel.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.10679118987089543
+        ],
+        [
+          "Minimal Change Disease",
+          0.10679118987089543
+        ],
+        [
+          "Chronic obstructive pulmonary disease (COPD)",
+          0.09795988663003757
+        ]
+      ],
+      "entropy": 4.758900784505791
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_cloudy_lenses_in_both_eyes_a8062568",
+      "doctor_question": "Have you noticed that the lenses in **both** of your eyes look **cloudy or hazy**, making your vision seem less clear? (Yes/No)",
+      "patient_answer": "“Doctor, no—I haven’t noticed that the lenses in either of my eyes look cloudy or hazy, and my vision hasn’t seemed less clear.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Membranous nephropathy",
+          0.12114705926747514
+        ],
+        [
+          "Minimal Change Disease",
+          0.11135739791252769
+        ],
+        [
+          "Histoplasmosis",
+          0.06942330292453326
+        ]
+      ],
+      "entropy": 4.720766316882835
+    }
+  ],
+  "final": {
+    "predicted": "Membranous nephropathy",
+    "predicted_top3": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Histoplasmosis"
+    ],
+    "confidence": 0.12114705926747514,
+    "final_entropy": 4.720766316882835,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Membranous nephropathy",
+    "predicted_set_remapped": [
+      "Membranous nephropathy",
+      "Minimal Change Disease",
+      "Histoplasmosis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10493,
+      "completion_tokens": 391
+    },
+    "patient": {
+      "prompt_tokens": 3482,
+      "completion_tokens": 217,
+      "calls": 7
+    }
+  }
+}

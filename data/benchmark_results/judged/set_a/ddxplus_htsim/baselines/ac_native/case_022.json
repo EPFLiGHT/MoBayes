@@ -1,0 +1,129 @@
+{
+  "case_idx": 22,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Guillain-Barré syndrome",
+  "patient_actor_hidden": {
+    "AGE": 31,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "facial weakness",
+    "EVIDENCES_ENG": "['recent viral infection', 'shortness of breath', 'facial weakness', 'bilateral weakness', 'foot numbness', 'bilateral paresthesias', 'limb weakness/paralysis', 'generalized paresthesias']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 31\n- I have recently had a viral infection.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have noticed weakness in my facial muscles and/or eyes.\n- I feel weakness in both arms and/or both legs.\n- I have numbness, loss of sensation, or tingling in my feet.\n- I have recently had numbness, loss of sensation or tingling, in both arms and legs and around my mouth.\n- I previously, or I currently, have any weakness/paralysis in one or more of my limbs or in my face.\n- I currently, or did I ever, have numbness, loss of sensitivity or tingling anywhere on my body.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Guillain-Barré syndrome', 0.1701186156245057], ['Panic attack', 0.12557160248933974], ['Myasthenia gravis', 0.12027562482143216], ['Pulmonary embolism', 0.09883938552055062], ['Acute pulmonary edema', 0.0925832606024387], ['Atrial fibrillation', 0.08083360412668723], ['Acute dystonic reactions', 0.0595948549132363], ['Anemia', 0.0595948549132363], ['Anaphylaxis', 0.0595948549132363], ['Scombroid food poisoning', 0.037697146194120165], ['PSVT', 0.031833469845759764], ['SLE', 0.02758957305256422], ['Possible NSTEMI / STEMI', 0.017936576491446452], ['Chagas', 0.017936576491446452]]",
+    "PATHOLOGY": "Guillain-Barré syndrome",
+    "INITIAL_EVIDENCE": "faiblesse faciale",
+    "EVIDENCES": "['B34.9', 'dyspn', 'faiblesse faciale', 'faiblesse_msmi', 'footnumb', 'paresthesies_bilat', 'rds_paralys_gen', 'rds_paresthesie_gen', 'trav1_@_N']",
+    "patient_id": "htsim_0792",
+    "_test_index": 792,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 31-year-old M patient presents to the clinic. Chief complaint: facial weakness.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Facial weakness, and I’ve also had significant shortness of breath/difficulty breathing.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: When did the facial weakness and the shortness of breath start, and did they begin suddenly or gradually? Also, do you have any ear pain/hearing changes, fever, or rash?  \nDoctor: Any drooping of one side of the face, trouble speaking/swallowing, new weakness elsewhere, or chest pain/wheezing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started recently, after a viral infection. I’m not sure if it began suddenly or gradually. I don’t know about ear pain or hearing changes, fever, or rash. I don’t know about drooping of one side of my face, trouble speaking or swallowing, or chest pain or wheezing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll examine you now—please tell me if you have numbness/weakness on one side of your face, can you raise both eyebrows and smile equally, and does your breathing get worse when lying flat? Also, any new headache, double vision, or trouble walking?  \nDoctor: REQUEST TEST: Physical_neurologic_exam_full (cranial nerves, motor/sensation, gait)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had weakness in my facial muscles and/or eyes. I feel weakness in both arms and/or both legs. I’ve also had numbness, loss of sensation, or tingling in my feet, and I recently had numbness/tingling in both arms and legs and around my mouth.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned by facial weakness plus weakness and new numbness/tingling in *both* arms and legs—can you tell me if the symptoms progressed over hours to days, and whether you have trouble breathing or swallowing more when they’re most severe? Also, do you have any vision changes (double vision) or a recent new medication or vaccination?  \nDoctor: REQUEST TEST: MRI_Brain_And_Brainstem_With_DWI  \nDoctor: REQUEST TEST: Lumbar_puncture_CSF_analysis (cell count, protein, glucose, oligoclonal bands) and Serum_Vitamin_B12_TSH  \nDoctor: REQUEST TEST: CBC_CMP_And_Blood_glucose and Urgent_Pulmonary_function_test_NIF_FVC",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if the symptoms progressed over hours to days.  \n\nI do have significant shortness of breath/difficulty breathing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to check a few key danger features: do you have any trouble swallowing, a weak/hoarse voice, or breathing difficulty that’s worse sitting up? Also, do you have numbness/tingling that’s mostly symmetric, and any new back pain or loss of bladder/bowel control?  \nDoctor: REQUEST TEST: Serum_Creatine_Kinase_and_Magnesium_Phospate  \nDoctor: REQUEST TEST: Nerve_conduction_studies_EMG_and_Autoimmune_GBS_panel (anti-GQ1b/GM1 if available)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about trouble swallowing or a weak/hoarse voice. I also don’t know if the breathing difficulty is worse sitting up.\n\nThe numbness/tingling has been in both arms and legs and around my mouth, and also in my feet.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given recent viral illness plus progressive facial/ocular weakness and symmetric “both sides” arm/leg plus perioral numbness, I’m most worried about an acute neuromuscular process like Guillain-Barré (with facial nerve involvement) causing respiratory weakness—your shortness of breath is a red flag. While we await your urgent tests (MRI/CSF/PFT/EMG), do you have trouble taking a deep breath or speaking full sentences without stopping, and have you noticed worsening weakness in legs/arms today or overnight?  \n\nDoctor: REQUEST TEST: Repeat_urgent_Pulmonary_function_with_NIF_FVC_now_and_serial (and check oxygen saturation/ABG if available)  \n\nDoctor: REQUEST TEST: Bedside_swallow_screen_and_Wechsler_or_MRC_neuromuscular_strength_grading (including neck flexion/extensor)  \n\nDoctor: If you can, also tell me whether your symptoms are still mainly weakness (can’t move) vs mainly tingling/numbness (can feel less), and whether your reflexes feel reduced or “gone” compared with normal.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I can take a deep breath or speak full sentences without stopping.  \n\nI don’t know whether my breathing difficulty or symptoms worsened in legs/arms today or overnight.  \n\nMy symptoms include weakness in my facial muscles and/or eyes, weakness in both arms and/or both legs, and numbness/loss of sensation/tingling in my feet. I’ve also recently had numbness/loss of sensation or tingling in both arms and legs and around my mouth.  \n\nI don’t know whether my symptoms are mainly weakness versus mainly tingling/numbness, and I don’t know about whether my reflexes are reduced or gone.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as **possible Guillain-Barré syndrome (GBS) with facial involvement and early respiratory risk** until proven otherwise—your bilateral arm/leg symptoms plus perioral involvement after a viral illness and significant shortness of breath are concerning.  \nDoctor: I need your immediate results/assessments: **REQUEST TEST: Urgent_Pulmonary_function_with_NIF_FVC_now_and_ABG_O2_sat_and_serial**, and if available **REQUEST TEST: CSF_results_LP_and_EMG_NCS**; while waiting, are you having any trouble swallowing or a weak/hoarse voice, and can you lie flat without feeling like you’ll choke?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about trouble swallowing or a weak/hoarse voice.\n\nI don’t know whether I can lie flat without feeling like I’ll choke.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—because you have facial weakness plus rapidly evolving weakness/numbness in *both* arms and legs after a viral illness with significant shortness of breath, I’m treating this as **Guillain-Barré syndrome with possible bulbar/respiratory involvement** until tests prove otherwise. Are you currently having trouble swallowing saliva or speaking clearly, and do you feel weaker when you try to walk or lift your arms now?\n\nDoctor: DIAGNOSIS READY: Guillain-Barré syndrome (GBS), likely post-viral, with facial (cranial nerve VII) involvement and early respiratory risk.\n\n[DDX]\n1. Guillain-Barré syndrome",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Guillain-Barré syndrome",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Guillain-Barré syndrome",
+    "predicted_set_remapped": [
+      "Guillain-Barré syndrome",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5178,
+      "completion_tokens": 939,
+      "calls": 7
+    },
+    "patient": {
+      "prompt_tokens": 8194,
+      "completion_tokens": 404,
+      "calls": 7
+    }
+  }
+}

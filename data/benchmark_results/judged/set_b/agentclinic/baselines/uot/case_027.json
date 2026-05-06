@@ -1,0 +1,85 @@
+{
+  "case_idx": 27,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Asthma",
+  "patient_actor_hidden": {
+    "Demographics": "59-year-old female",
+    "History": "The patient reports a 1-month history of episodic cough and shortness of breath. The cough is nonproductive and worsens when climbing stairs and at night. She experienced fever, sore throat, and nasal congestion 8 weeks ago.",
+    "Symptoms": {
+      "Primary_Symptom": "Episodic cough and shortness of breath",
+      "Secondary_Symptoms": [
+        "Cough worsens with exertion and at night",
+        "History of recent upper respiratory tract infection symptoms such as fever, sore throat, and nasal congestion"
+      ]
+    },
+    "Past_Medical_History": "10-year history of hypertension, currently managed with enalapril. History of smoking half a pack of cigarettes daily for 16 years.",
+    "Social_History": "Smoker, half a pack of cigarettes daily for 16 years.",
+    "Review_of_Systems": "Denies chest pain or palpitations."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with episodic cough and shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had about a month of intermittent cough and shortness of breath. It’s nonproductive, gets worse when I climb stairs and at night, and started after I had fever, a sore throat, and nasal congestion about 8 weeks ago.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent cough with shortness of breath that worsens over time (chronic respiratory symptoms)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, it’s been about a month and it keeps coming back rather than fully going away. It doesn’t produce any mucus, and the shortness of breath and cough feel worse when I exert myself like climbing stairs and especially at night.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Asthma  , COPD",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Asthma",
+    "predicted_set": [
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "predicted_raw": [
+      "Asthma  ",
+      "COPD"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2,
+    "predicted_remapped": "Asthma",
+    "predicted_set_remapped": [
+      "Asthma",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 745,
+      "completion_tokens": 107,
+      "calls": 2
+    }
+  }
+}

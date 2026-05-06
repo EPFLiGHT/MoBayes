@@ -1,0 +1,115 @@
+{
+  "case_idx": 42,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "GERD",
+  "objective_for_doctor": "A 17-year-old Male patient presents to the clinic. Chief complaint: I have upper chest radiating pain, a cough, and haunting pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi, doctor. I’ve had upper chest pain that radiates, along with a cough. It feels like a haunting, knife-stroke kind of pain and it gets worse after I eat, with heartburn/acid reflux and epigastric pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. To narrow this down, do you have shortness of breath, fever, or coughing up blood? And is the pain worse when you take a deep breath or when you lie down?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have shortness of breath, fever, or coughing up blood. I can’t say it’s worse with a deep breath or when I lie down—I mainly notice it gets worse after eating.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since it’s worse after eating with heartburn/acid reflux and epigastric pain, could you tell me: do you get sour taste/regurgitation, and does antacids or acid-suppressing meds improve it? Also, is the pain associated with swallowing (trouble swallowing or food “sticking”)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I get heartburn/acid reflux, and I do sometimes get a sour taste or regurgitation. Antacids help a bit, and acid-suppressing meds also seem to improve it. I don’t have trouble swallowing or food “sticking.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the reflux symptoms and improvement with antacids/acid-suppressing meds—and no trouble swallowing—my leading concern is GERD/esophagitis causing “esophageal chest pain.” Do you have any unintentional weight loss, persistent vomiting, or symptoms waking you from sleep?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No unintentional weight loss, and I don’t have persistent vomiting. I’m not waking up from sleep due to it.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any nighttime cough, burning in the throat, or hoarseness, and do you have any history of asthma, NSAID use (ibuprofen/naproxen), smoking/vaping, or recent viral illness? Also, does the chest pain ever occur with exertion or is it strictly meal-related?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I do have a cough, but it’s mainly related to the same time as the chest discomfort after eating. I don’t know about nighttime cough or hoarseness—I haven’t noticed those. I do smoke cigarettes, and the chest pain is mostly strictly meal-related, not with exertion.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Smoking plus meal-related “burning/knife-stroke” chest pain that improves with antacids/acid meds strongly points to GERD causing esophagitis—still, I want to rule out complications: do you ever have black/bloody stools, trouble swallowing, or anemia symptoms (fatigue/paleness)?  \nDoctor: Also, have you been taking NSAIDs like ibuprofen/naproxen, and how long has this been going on (weeks vs months)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No black or bloody stools, and no anemia symptoms like unusual fatigue or paleness. I also haven’t had trouble swallowing. I haven’t been taking NSAIDs like ibuprofen or naproxen. It’s been going on for a few weeks, not months.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—no alarm features (no weight loss, GI bleeding, dysphagia, or anemia) and it’s weeks of meal-related burning/knife-like chest pain with reflux that improves on antacids/acid meds, most consistent with GERD causing reflux esophagitis. I’ll request: REQUEST TEST: Trial_of_PPI_response (start PPI for 2–4 weeks) and REQUEST TEST: Upper_GI_or_H_Pylori_testing_if_persistent.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Okay, doctor. I’m fine with trying a PPI for a couple weeks, and if it doesn’t fully go away we can do the H. pylori or upper GI testing.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Great—since the symptoms are clearly meal-related and responding somewhat to antacids, I recommend we start a PPI (e.g., omeprazole) daily for 2–4 weeks. While you’re starting that, do you have any severe/worsening trouble swallowing now or any vomiting (even occasional), and have you noticed you’re getting full very quickly after meals?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "No severe or worsening trouble swallowing, and I’m not vomiting—even occasionally. I don’t feel full very quickly after meals.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Good—no dysphagia, vomiting, or early satiety makes complications less likely, so GERD/esophagitis remains the top diagnosis; are you taking the PPI correctly (morning before food) and do symptoms improve within a few days?  \nDoctor: Since you smoke and symptoms are only a few weeks, I’d still proceed with the 2–4 week PPI trial plus lifestyle changes (avoid late meals, trigger foods, elevate head of bed)—if not improving, we’ll do H. pylori testing and/or upper GI evaluation.  \nDIAGNOSIS READY: GERD with reflux esophagitis (functional esophageal pain)\n\n[DDX]\n1. GERD",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "GERD",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5249,
+      "completion_tokens": 678,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 8234,
+      "completion_tokens": 372
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "case_idx": 22,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Influenza",
+  "objective_for_doctor": "A 55-year-old Female patient presents to the clinic. Chief complaint: I have a cough, sensitive pain, and exhausting pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a bad cough, and I feel a lot of pain and exhaustion. I also have chills/shivers, a sore throat, and I’m sweating much more than usual, plus there’s pain around the back of my neck and head (back/top/forehead and left temple).",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—I'll ask a few quick questions to narrow this down. When did your symptoms start, and do you have a fever (what’s the highest temperature), or any shortness of breath/wheezing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Symptoms started pretty fast—about a 5/10 speed, so within the last day or so. I don’t know my exact fever number, but I’ve had chills/shivers and I’m sweating a lot; I don’t have any shortness of breath or wheezing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Okay—any chest pain when you breathe deeply, and is the cough dry or are you bringing up phlegm (if yes, what color)? Also, have you had any sick contacts or recent travel?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain when I take a deep breath. The cough is there, but I’m not sure about the phlegm or its color—I think it’s mostly just cough. I haven’t had any recent travel, and I don’t know of any sick contacts.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—next: have you measured oxygen saturation (if you have a pulse ox), and do you have nasal congestion/runny nose or any rash? Also, is the severe headache/neck pain worse when you bend your neck forward (stiff neck)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t checked my oxygen saturation. I do have a sore throat, but I don’t know about nasal congestion or runny nose. Yes, I have a rash/redness on my skin, and the affected area feels like it’s at the back of my neck; the rash is pink and bigger than 1 cm, with some swelling and mild itching. My headache and neck pain are pretty bad, but I don’t know if it gets worse when I bend my neck forward.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask 3 quick questions: is the rash spreading or limited to the neck, do you have a stiff neck with difficulty bending forward, and have you noticed any burning/tingling pain on one side of the face or eye?  \nDoctor: REQUEST TEST: CBC_with_diff; REQUEST TEST: CRP_or_ESR; REQUEST TEST: Rapid_Strep/Respiratory_PCR; REQUEST TEST: Chest_X-Ray.  \nDoctor: While results are pending, are you able to swallow fluids and do you have any confusion, persistent vomiting, or severe drowsiness?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "The rash seems limited to the neck area (pink, bigger than 1 cm) and I don’t think it’s spreading fast. I don’t know if I have trouble bending my neck forward—my neck feels very painful, but I haven’t tested it carefully. No burning/tingling on one side of my face or eye.  \n\nYes, I can swallow fluids. I’m not confused, and I don’t have persistent vomiting or severe drowsiness.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. Given rapid onset cough with chills/sweats, sore throat, severe head/neck pain, and a localized pink rash on the neck, I’m concerned about an acute infectious process—possibly bacterial (e.g., meningococcal/other meningitis spectrum) versus viral; I need to quickly check for true meningismus and lung involvement.  \n\nDoctor: Do you have a true stiff neck (unable to comfortably touch chin to chest), and can you rate your current temperature if you can check now; also do you have any known immunosuppression or are you on new medications?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I can’t comfortably say I can touch my chin to my chest—I feel a lot of pain around the back of my neck and head, so it’s hard to bend. I don’t have a thermometer reading right now, so I can’t rate my temperature. I don’t know of any immunosuppression, and I haven’t started any new medications.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Based on your fast onset, chills/sweats, severe neck pain (possible meningismus), and a new rash, I’m treating this as potentially serious until proven otherwise—do you have any light sensitivity or confusion, and is the rash flat vs raised/purple spots? Also, are you able to have someone check your pulse and oxygen saturation right now.  \nDoctor: REQUEST TEST: Blood_cultures_x2_before_antibiotics; REQUEST TEST: BMP_CMP; REQUEST TEST: Urinalysis; REQUEST TEST: Lumbar_Puncture_if_safe; REQUEST TEST: Repeat_CBC_with_diff_and_diff_manual_review.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about light sensitivity—I haven’t really tested it. I’m not confused. The rash looks pink, and it’s a bit swollen; I don’t know if it’s purple.  \n\nI can’t have someone check my pulse ox right now, so I don’t have the oxygen saturation or pulse reading.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a serious infection involving the meninges and/or bloodstream because you have severe head/neck pain with a new rash and rapid onset—so I need immediate in-person evaluation, not waiting on results.  \nDoctor: While you arrange emergency care, can you tell me: is the rash *non-blanching* (press with a clear glass—does it stay dark/purple instead of turning lighter), and do you have any severe worsening headache, repeated vomiting, or fainting?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if the rash is non-blanching—I haven’t done the glass test. I haven’t fainted. I don’t have repeated vomiting, but my headache is severe and getting exhausting.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to be very clear: severe rapidly worsening headache/neck pain plus a new rash means I’m worried about meningitis or a bloodstream infection, and this can be life-threatening—please go to the Emergency Department now or call emergency services.  \nDoctor: Before you leave, can you check one more thing: do you have any non-blanching spots (glass test), and are you able to take antibiotics/fluids by mouth right now?  \nDoctor: DIAGNOSIS READY: Suspected meningitis/serious bacterial infection (meningococcal-spectrum) — immediate ER evaluation required\n\n[ABSTAIN] free-text diagnosis 'Suspected meningitis/serious bacterial infection (meningococcal-spectrum) — immediate ER evaluation required' did not map to the closed disease set",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6274,
+      "completion_tokens": 772,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 10022,
+      "completion_tokens": 569
+    }
+  }
+}

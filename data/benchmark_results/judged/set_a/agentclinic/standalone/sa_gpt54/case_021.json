@@ -1,0 +1,125 @@
+{
+  "case_idx": 21,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Chronic obstructive pulmonary disease",
+  "patient_actor_hidden": {
+    "Demographics": "56-year-old male",
+    "History": "The patient is a former construction worker and worked in a steel mill during high school. He is an active smoker with a 36-pack-year history. He presents a 1-year history of progressive shortness of breath and weight loss.",
+    "Symptoms": {
+      "Primary_Symptom": "Worsening shortness of breath",
+      "Secondary_Symptoms": [
+        "Weight loss"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history noted.",
+    "Social_History": "Active smoker. Former construction worker and steel mill worker. No other hazardous exposures mentioned.",
+    "Review_of_Systems": "Denies recent fevers, cough, or chest pain. No history of asthma or allergic diseases mentioned."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with a 1-year history of worsening shortness of breath and weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, over the past year my shortness of breath has been steadily getting worse, and I’ve also lost weight. I don’t have fevers, cough, or chest pain.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Do you smoke, or have you had significant exposure to dusts, chemicals, birds, mold, or asbestos?\nDo you smoke, or have you had significant exposure to dusts, chemicals, birds, mold, or asbestos?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, I’m an active smoker—about 36 pack-years. I also worked in a steel mill in high school and did construction work, but I don’t recall specific asbestos or heavy dust/chemical exposures beyond that.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you, and have you noticed wheezing or coughing up any blood?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m 56 years old. I haven’t noticed wheezing, and I haven’t coughed up any blood. My main issue has been steadily worsening shortness of breath along with weight loss.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you get short of breath mainly with exertion, and have you had any leg swelling, trouble breathing when lying flat, or waking up short of breath at night?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, it’s mainly with exertion, like walking or climbing stairs. I haven’t noticed leg swelling, I can breathe okay lying flat, and I’m not waking up short of breath at night.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any chest imaging or breathing tests, and if so, what did they show?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any chest imaging or breathing tests yet—no X-rays, CT scans, or spirometry—so far.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Any history of tuberculosis exposure, night sweats, or swollen lymph nodes?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I don’t recall any tuberculosis exposure, and I haven’t had night sweats or swollen lymph nodes. I’ve mainly just had steadily worsening shortness of breath with weight loss over the past year.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Insufficient evidence without exam, imaging, or spirometry to confidently narrow the cause of chronic progressive dyspnea and weight loss.\n[POSSIBLE] lung cancer, COPD/emphysema, interstitial lung disease, pulmonary hypertension, chronic heart failure",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "lung cancer",
+      "COPD/emphysema",
+      "interstitial lung disease",
+      "pulmonary hypertension",
+      "chronic heart failure"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Chronic obstructive pulmonary disease",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2616,
+      "completion_tokens": 211
+    },
+    "patient": {
+      "prompt_tokens": 2838,
+      "completion_tokens": 259,
+      "calls": 6
+    }
+  }
+}

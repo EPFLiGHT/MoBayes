@@ -1,0 +1,333 @@
+{
+  "case_idx": 17,
+  "baseline": "bmbe",
+  "column": "ac",
+  "ground_truth": "Chronic lymphocytic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "72-year-old male",
+    "History": "The patient reports a 6-month history of fatigue and an unintentional weight loss of 5 kg (11 lb) despite maintaining a good appetite. He denies any recent changes in his diet or physical activity. He takes no medications and does not smoke or use illicit drugs.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "5 kg unintentional weight loss over 6 months",
+        "Good appetite"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. Patient denies any chronic illnesses or prior hospitalizations.",
+    "Social_History": "Retired engineer; denies tobacco use or illicit drug use. Drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, night sweats, changes in bowel or bladder habits, recent infections, or bleeding disorders."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, unintentional weight loss, and abnormal physical examination findings.",
+  "kb_dir": "data/kbs/agentclinic_a",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "“Doctor, I’ve been feeling progressively fatigued for about six months, and I’ve lost around 5 kilograms without trying, even though my appetite has stayed good. I haven’t changed my diet or activity, and I don’t smoke or use drugs.”",
+      "extracted_features": {
+        "f_fatigue_5b792cc4": "yes",
+        "f_unintentional_weight_loss_7cb722ab": "yes",
+        "f_decreased_appetite_87a4f212": "no",
+        "f_smoking_5cc22410": "no",
+        "f_intravenous_drug_use_e35ac113": "no"
+      },
+      "top5_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.11040655961070814
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11040655961070814
+        ],
+        [
+          "Chronic kidney failure",
+          0.09598945817302844
+        ],
+        [
+          "Ewing sarcoma",
+          0.07887577512686653
+        ],
+        [
+          "Myasthenia gravis",
+          0.06662322753434362
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_morning_stiffness_d0767eab",
+      "doctor_question": "Good morning. I'd like to ask you a few questions about how you're feeling.\n\nDo you often notice stiffness in your joints, especially when you wake up in the morning? If so, how long does it usually last?",
+      "patient_answer": "“Doctor, I haven’t really noticed joint stiffness when I wake up, and if anything feels stiff it doesn’t last more than a few minutes. I mainly just feel tired and generally weaker, with the weight loss over the past six months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.11328321205361139
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.11328321205361139
+        ],
+        [
+          "Chronic kidney failure",
+          0.09849047179323385
+        ]
+      ],
+      "entropy": 4.467820984832026
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_chest_pain_27a0380f",
+      "doctor_question": "Hello, I'd like to ask you a few questions about how you're feeling today.\n\nAre you currently experiencing any chest pain or discomfort?",
+      "patient_answer": "“Doctor, I don’t have chest pain or discomfort. I’ve mostly just noticed persistent fatigue and the unintentional weight loss, but nothing like chest symptoms.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic lymphocytic leukemia",
+          0.1211733564402755
+        ],
+        [
+          "Chronic lymphocytic leukemia (CLL)",
+          0.1211733564402755
+        ],
+        [
+          "Chronic kidney failure",
+          0.10535030591226924
+        ]
+      ],
+      "entropy": 4.390568705869412
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_difficulty_lifting_objects_862b9d6b",
+      "doctor_question": "Hello! I'd like to ask you a few questions about your physical abilities lately.\n\n**Are you having any difficulty lifting objects?** For example, do you find it hard to lift things like groceries, a bag, or even everyday items that you could manage before?\n\nThis can help me understand if there's any weakness or limitation we should look into.",
+      "patient_answer": "“Doctor, I’m not noticing a specific problem lifting everyday objects like groceries, but I do feel generally weaker and more tired than I used to—more of an overall energy and stamina issue than true trouble with strength.”",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4444748279203321
+        ],
+        [
+          "Syringomyelia",
+          0.10211177193154064
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08169853059939869
+        ]
+      ],
+      "entropy": 3.2309262508835808
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_skin_lesions_along_arm_veins_496ebd74",
+      "doctor_question": "Hello, I'd like to ask you a few questions to help with your assessment.\n\nHave you noticed any skin changes, such as redness, bumps, or sores, along the veins in your arms?",
+      "patient_answer": "“Doctor, I haven’t noticed any skin redness, bumps, sores, or any changes along the veins in my arms. My main issues are the ongoing fatigue and the unintentional 5 kilograms of weight loss over the past six months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4444748279203322
+        ],
+        [
+          "Syringomyelia",
+          0.10211177193154064
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08169853059939869
+        ]
+      ],
+      "entropy": 3.230926250883581
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_flank_pain_72acfaaf",
+      "doctor_question": "Hello, I'd like to ask you a few questions about any discomfort you might be feeling.\n\nAre you currently experiencing any pain in your side or flank area — that is, on either side of your back, between your ribs and your hips?",
+      "patient_answer": "“Doctor, I don’t have any pain in my side or flank area. My main concern is the ongoing fatigue and the unintentional weight loss over the last six months, even with my good appetite.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4482557175198694
+        ],
+        [
+          "Syringomyelia",
+          0.10298037755830398
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08239349262027629
+        ]
+      ],
+      "entropy": 3.200225882356893
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_persistent_rough_scaly_skin_patch_73299e93",
+      "doctor_question": "Hello, thank you for sharing that with me. I'd like to ask you a few questions to help understand your symptoms better.\n\nHave you noticed any rough, scaly patches on your skin that have persisted for some time and haven't gone away?",
+      "patient_answer": "“Doctor, I haven’t noticed any rough, scaly patches on my skin or anything persistent like that. My main issue is still the ongoing fatigue and the unintentional weight loss over the past six months, even though my appetite has stayed good.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.45052490450278754
+        ],
+        [
+          "Syringomyelia",
+          0.10350169100310337
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08281058990118896
+        ]
+      ],
+      "entropy": 3.176029762406612
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_scalp_lesion_db458449",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your scalp.\n\nHave you noticed any unusual spots, bumps, or sores on your scalp?",
+      "patient_answer": "“Doctor, I haven’t noticed any unusual spots, bumps, or sores on my scalp. My main ongoing problem is still the progressive fatigue and the unintentional 5 kilograms weight loss over the past six months, despite keeping a good appetite.”",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4524871093984976
+        ],
+        [
+          "Syringomyelia",
+          0.10395247967820383
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08317126107229789
+        ]
+      ],
+      "entropy": 3.1551438797764035
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_food_cravings_56a68290",
+      "doctor_question": "Hello, I'd like to ask you a few questions about your eating habits and appetite.\n\nDo you often experience strong cravings for specific types of food?",
+      "patient_answer": "“Doctor, I wouldn’t say I have strong cravings for any particular foods—my appetite has stayed good overall. I’ve mainly just been getting progressively more fatigued with about 5 kilograms of unintentional weight loss over the last six months.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.4584346701547061
+        ],
+        [
+          "Syringomyelia",
+          0.10531884719631172
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08426447702944535
+        ]
+      ],
+      "entropy": 3.124005820304688
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_knee_pain_86af6967",
+      "doctor_question": "Hello! I'd like to ask you a few questions about how you're feeling. \n\nAre you currently experiencing any pain in your knee or knees?",
+      "patient_answer": "“Doctor, I don’t have any pain in my knee or knees. It’s mainly the persistent fatigue and the unintentional 5 kilograms of weight loss over the past six months, despite my appetite staying good.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.47514022153255214
+        ],
+        [
+          "Syringomyelia",
+          0.10915671009682
+        ],
+        [
+          "Adhesive capsulitis",
+          0.0873351098632746
+        ]
+      ],
+      "entropy": 3.0598775328854475
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_thigh_pain_with_knee_movement_dd79f650",
+      "doctor_question": "Hello! I'd like to ask you a quick question about your symptoms.\n\nWhen you move your knee—bending or straightening it—do you feel any pain in your thigh area? Please let me know if this happens or if it's something you don't experience.",
+      "patient_answer": "“Doctor, I don’t have any pain in my knee or thigh area when I bend or straighten it. My main issue is still the ongoing fatigue and the unintentional 5 kilograms of weight loss over the last six months, even though my appetite is good.”",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myasthenia gravis",
+          0.47514022153255203
+        ],
+        [
+          "Syringomyelia",
+          0.10915671009681994
+        ],
+        [
+          "Adhesive capsulitis",
+          0.08733510986327456
+        ]
+      ],
+      "entropy": 3.059877532885447
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_top3": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Adhesive capsulitis"
+    ],
+    "confidence": 0.47514022153255203,
+    "final_entropy": 3.059877532885447,
+    "top1_hit": false,
+    "top3_hit": false,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Myasthenia gravis",
+    "predicted_set_remapped": [
+      "Myasthenia gravis",
+      "Syringomyelia",
+      "Adhesive capsulitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12309,
+      "completion_tokens": 3834
+    },
+    "patient": {
+      "prompt_tokens": 8479,
+      "completion_tokens": 551,
+      "calls": 11
+    }
+  }
+}

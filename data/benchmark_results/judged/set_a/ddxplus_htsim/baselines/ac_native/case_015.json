@@ -1,0 +1,229 @@
+{
+  "case_idx": 15,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Chagas",
+  "patient_actor_hidden": {
+    "AGE": 45,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "nausea",
+    "EVIDENCES_ENG": "['diarrhea', 'pain', 'fever', 'nausea']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 45\n- I have had diarrhea or an increase in stool frequency.\n- I have pain somewhere related to my reason for consulting.\n- I have a fever (either felt or measured with a thermometer).\n- I am feeling nauseous or I feel like vomiting.\n- On a scale of 0-10, the pain intensity is 2\n- On a scale of 0-10, the pain's location precision is 2\n- On a scale of 0-10, the pace at which the pain appear is 4\n- The pain is:\n* tedious\n* sensitive\n* tugging\n* a pulse\n* sharp\n* exhausting\n- The pain locations are:\n* back of head\n* cervical spine\n* forehead\n* occiput\n* temple(L)\n- The pain radiates to these locations:\n* nowhere\n- The swelling locations are:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Chagas', 1.0]]",
+    "PATHOLOGY": "Chagas",
+    "INITIAL_EVIDENCE": "nausee",
+    "EVIDENCES": "['diarrhee', 'douleurxx', 'douleurxx_carac_@_pénible', 'douleurxx_carac_@_sensible', 'douleurxx_carac_@_un_tiraillement', 'douleurxx_carac_@_une_pulsation', 'douleurxx_carac_@_vive', 'douleurxx_carac_@_épuisante', 'douleurxx_endroitducorps_@_arrière_de_tête', 'douleurxx_endroitducorps_@_colonne_cervicale', 'douleurxx_endroitducorps_@_front', 'douleurxx_endroitducorps_@_occiput', 'douleurxx_endroitducorps_@_tempe_G_', 'douleurxx_intens_@_2', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_2', 'douleurxx_soudain_@_4', 'fievre', 'nausee', 'oedeme_endroitducorps_@_nulle_part', 'trav1_@_N']",
+    "patient_id": "htsim_0540",
+    "_test_index": 540,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 45-year-old F patient presents to the clinic. Chief complaint: nausea.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had nausea, and also diarrhea or an increase in my stool frequency. I’ve also had fever and pain somewhere related to why I’m consulting.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how many days have you had the nausea/diarrhea and what’s the highest temperature you’ve measured? Also, where is the pain located, and is there any blood or black stool?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure how many days I’ve had the nausea and diarrhea. My highest temperature measured—I don’t know. I’ve had pain in the back of my head, the cervical spine, the forehead, the occiput, and the temple (left). I don’t know about blood or black stool.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when you say fever, do you have chills/sweats or have you actually felt hot? Is the head pain severe/sudden or getting progressively worse, and do you have a stiff neck, light sensitivity, or vomiting?  \nDoctor: REQUEST TEST: CBC_with_diff; CMP; Urinalysis; Stool_Culture_or_CDIff_if_diarrhea_persists; Blood_Cultures_if_fever_suspected.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you check whether you have a stiff neck (difficulty bending chin to chest), sensitivity to light, and any repeated vomiting? Also, how many times per day are you having diarrhea and are you able to keep fluids down?  \nDoctor: REQUEST TEST: Pregnancy_test_if_applicable; CRP_and_ESR; CT_head_or_MRI_brain_if_neurologic_red_flags; Orthostatic_vitals_or_basic_neuro_exam.",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—do you have any neck stiffness or trouble looking down with your chin to your chest, and is light bothering your eyes? Also, is the diarrhea watery, and how many times in 24 hours (rough estimate) are you passing stool?  \nDoctor: REQUEST TEST: Vital_signs_including_temp; Basic_neuro_exam; TSH_or_other_if_needed_based_on_exam; COVID-Influenza_test_if_fever.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you don’t know about key details, I need a couple of direct answers: do you have **neck stiffness** and **light sensitivity** right now, and is the stool **watery**?  \nDoctor: Also, please estimate: **how many diarrhea stools per 24 hours** (e.g., 3–5 vs >10) and what is your **measured temperature** if you can check now.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t confirm neck stiffness, light sensitivity, stool type, or your temperature, I need safer triage: do you have **severe/worsening headache**, **confusion**, **fainting**, or **unable to keep liquids down**?  \nDoctor: REQUEST TEST: Vital_signs_with_repeat_temp; CBC_with_diff; CMP; Urinalysis; Stool_Culture_and_CDIff; CRP_and_ESR; Blood_Cultures_if_temp_high_or_rigors.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now I can’t safely pinpoint the cause because you can’t tell me fever/temperature, stool character, or key neurologic symptoms; are you able to check your temperature at home or in the clinic now, and approximately how many diarrhea episodes in the last 24 hours?  \nDoctor: Also, do you have neck stiffness when you try to touch your chin to your chest, and can you keep fluids down without repeated vomiting?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t provide temperature/diarrhea details, I need to ask: are you currently able to drink and keep fluids down (yes/no), and do you have severe headache (worst ever or worsening) or confusion (yes/no)?  \nDoctor: REQUEST TEST: Vital_signs_now_with_temperature.  \nDoctor: REQUEST TEST: CBC_with_diff; CMP; Urinalysis; Stool_Culture_and_CDIff_if_diarrhea.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you check your temperature right now (in °F/°C) and tell me if you can keep fluids down without vomiting (yes/no)?  \nDoctor: If you can, also estimate diarrhea frequency in the last 24 hours (about 1–3, 4–6, or >10).",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t provide your temperature, diarrhea frequency, or whether you can keep fluids down, I need you to do one thing right now: do you have a thermometer and can you check your temperature immediately (yes/no)?  \nDoctor: Also, in the last 24 hours, roughly how many diarrhea episodes have you had (1–3, 4–6, or >10)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t tell me your temperature, diarrhea frequency/type, or whether you can keep fluids down, this needs immediate in-person evaluation; do you have a thermometer and can someone measure your temperature right now (yes/no)?  \nDoctor: REQUEST TEST: Vital_signs_now_including_temperature_and_orthostatics",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given you can’t confirm your temperature, diarrhea severity, or whether you can keep fluids down, this needs urgent in-person evaluation; do you have a thermometer and can you take/record your temperature now (yes/no)?  \nDoctor: Also, are you able to drink fluids and keep them down without repeated vomiting (yes/no)?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you can’t check your temperature, diarrhea frequency, or whether you can keep fluids down, I can’t safely diagnose this remotely; do you feel so weak/dizzy that you might pass out, or do you have severe headache/neck stiffness **right now** (yes/no to either)?  \nDoctor: If yes to either—or if you still don’t know your temperature—please go to the nearest urgent care/ER now; if no, we still need immediate vitals and stool assessment: REQUEST TEST: Vital_signs_with_temperature_and_orthostatics; CBC_with_diff; CMP; Urinalysis; Stool_Culture_and_CDIff_if_diarrhea; CRP_ESR.",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now you’ve said “I don’t know” to temperature, diarrhea severity, and key neurologic/volume-depletion signs, so I can’t safely diagnose this in the clinic. Do you have any **severe/worsening headache, confusion, fainting/near-fainting, or can’t keep fluids down** right now (**yes/no**)?  \n\nDoctor: If **yes to any**, or if you still can’t obtain a temperature/diarrhea count, go to the **ER now** for vitals, dehydration assessment, and labs.",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—given you still don’t know about your temperature/diarrhea frequency or whether you can keep fluids down, I need one yes/no answer: do you have any **severe/worsening headache, confusion, fainting/near-fainting, or inability to keep liquids down right now**?  \nDoctor: If “yes” (or if you still can’t check your temperature within the next hour), go to the **ER now** for vitals, dehydration assessment, and labs; if “no,” tell me **yes/no** whether you can take your temperature immediately and measure it.",
+      "turn": 15
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 15
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you still can’t confirm your temperature, diarrhea frequency/severity, or whether you can keep fluids down, this can’t be safely diagnosed here; do you have **any** severe/worsening headache, confusion, fainting/near-fainting, or inability to keep liquids down right now (**yes/no**)?\nDoctor: If “yes” go to the **ER now**; if “no,” please check your temperature immediately—do you have a thermometer and can someone measure it now (**yes/no**)?",
+      "turn": 16
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know about fever/temperature, diarrhea frequency, or whether I can keep fluids down.",
+      "turn": 16
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you still can’t confirm temperature, diarrhea frequency/severity, or ability to keep fluids down, I can’t safely diagnose you and you need in-person urgent evaluation **now**; do you have anyone who can take you to the ER/urgent care right now?  \nDoctor: If you can’t, please call emergency services—meanwhile, stop solid foods and sip oral rehydration solution/water frequently if you’re able.  \nDIAGNOSIS READY: Unable to determine—needs urgent in-person evaluation for possible infectious gastroenteritis vs systemic infection/dehydration/meningeal/neuro red flags.\n\n[ABSTAIN] free-text diagnosis 'Unable to determine—needs urgent in-person evaluation for possible infectious gastroenteritis vs systemic infection/dehydration/meningeal/neuro red flags.' did not map to the closed disease set",
+      "turn": 17
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 17,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17866,
+      "completion_tokens": 1733,
+      "calls": 17
+    },
+    "patient": {
+      "prompt_tokens": 26862,
+      "completion_tokens": 240,
+      "calls": 17
+    }
+  }
+}

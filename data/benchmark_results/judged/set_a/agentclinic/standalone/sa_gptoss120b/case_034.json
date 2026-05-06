@@ -1,0 +1,120 @@
+{
+  "case_idx": 34,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Molluscum contagiosum",
+  "patient_actor_hidden": {
+    "Demographics": "2-year-old female",
+    "History": "The patient's mother reports noticing multiple painless, nonpruritic papules on the child's abdomen. The child attends daycare where another child was reported to have similar lesions recently. Patient's brother had chickenpox one month ago. Immunizations are up-to-date.",
+    "Symptoms": {
+      "Primary_Symptom": "Skin-colored, nontender, pearly papules with central umbilication on the abdomen and extremities",
+      "Secondary_Symptoms": []
+    },
+    "Past_Medical_History": "Previously healthy, up-to-date immunizations, no significant illnesses.",
+    "Social_History": "Attends daycare three times per week.",
+    "Review_of_Systems": "No fever, rash in other locations, itching, or systemic symptoms."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the pediatric patient presenting with multiple skin lesions.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: My mommy noticed lots of small, skin-colored bumps on my tummy that don’t hurt or itch, and there are some on my arms and legs too. I don’t feel sick, and I’ve been at daycare where another kid had similar bumps.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How long have the bumps been present?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: They’ve been there for about a week now.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Are the bumps firm or soft, and do they have any central dimple or “hole” in the middle?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: They feel kind of firm, and yes—each bump has a little dent or “hole” in the middle. They don’t seem to hurt or itch at all.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: About how big are the individual bumps—roughly a few millimeters, a centimeter, or larger?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: They’re pretty small—about a few millimeters each, not much bigger than a sesame seed.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DD",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "They’re just a few millimeters, like little bumps, and they don’t hurt or itch. I don’t have any fever or feel sick, and I’m still playing like normal.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Molluscum contagiosum, Viral warts (HPV), Folliculitis, Papular urticaria (insect bite reaction), Lichen nitidus",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Molluscum contagiosum",
+    "predicted_set": [
+      "Molluscum contagiosum",
+      "Viral warts (HPV)",
+      "Folliculitis",
+      "Papular urticaria (insect bite reaction)",
+      "Lichen nitidus"
+    ],
+    "predicted_raw": [
+      "Molluscum contagiosum",
+      "Viral warts (HPV)",
+      "Folliculitis",
+      "Papular urticaria (insect bite reaction)",
+      "Lichen nitidus"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Molluscum contagiosum",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Molluscum contagiosum",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2112,
+      "completion_tokens": 1190
+    },
+    "patient": {
+      "prompt_tokens": 2066,
+      "completion_tokens": 192,
+      "calls": 5
+    }
+  }
+}

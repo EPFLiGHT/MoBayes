@@ -1,0 +1,110 @@
+{
+  "case_idx": 11,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {
+    "AGE": 63,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "cough",
+    "EVIDENCES_ENG": "['cystic fibrosis', 'rheumatoid arthritis', \"crohn's disease or ulcerative colitis\", 'shortness of breath', 'productive cough', 'history of pneumonia', 'chronic obstructive pulmonary disease (copd)', 'cough', 'immunosuppression']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 63\n- I have cystic fibrosis.\n- I have Rheumatoid Arthritis.\n- I suffer from Crohn's disease or ulcerative colitis (UC).\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I have a cough that produces colored or more abundant sputum than usual.\n- I have had pneumonia.\n- I have a chronic obstructive pulmonary disease (COPD).\n- I have a cough.\n- I am immunosuppressed.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.1125784988375583], ['Bronchiectasis', 0.105114905287022], ['Pneumonia', 0.10234571926335075], ['Pulmonary neoplasm', 0.09369802842540272], ['Acute COPD exacerbation / infection', 0.08445598755584323], ['Guillain-Barré syndrome', 0.06044677031471686], ['Bronchospasm / acute asthma exacerbation', 0.05865916186937446], ['Atrial fibrillation', 0.05773759637060324], ['Myocarditis', 0.05701989142307141], ['Pulmonary embolism', 0.0512172380875425], ['Acute dystonic reactions', 0.04256724311528127], ['Myasthenia gravis', 0.04256724311528127], ['Anemia', 0.04256724311528127], ['Tuberculosis', 0.04066317963723147], ['PSVT', 0.02273792011240328], ['Possible NSTEMI / STEMI', 0.012811686735018136], ['Chagas', 0.012811686735018136]]",
+    "PATHOLOGY": "Bronchiectasis",
+    "INITIAL_EVIDENCE": "toux",
+    "EVIDENCES": "['ap_fk', 'ap_par', 'crohn_cu', 'dyspn', 'expecto', 'j17_j18', 'j44_j42', 'toux', 'trav1_@_N', 'z92.25']",
+    "patient_id": "htsim_0397",
+    "_test_index": 397,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 63-year-old M patient presents to the clinic. Chief complaint: cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough and I’m having shortness of breath in a significant way. I’m also producing colored sputum more than usual. Given my cystic fibrosis, COPD, and that I’m immunosuppressed, I’m concerned about this—especially since I’ve had pneumonia before.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long have you had the cough and shortness of breath, and have you had fever or chills?  \nDoctor: Also, is the sputum yellow/green/bloody, and have you noticed chest pain or worsening with exertion?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know how long I’ve had the cough and shortness of breath. I don’t know if I’ve had fever or chills. I don’t know if the sputum is yellow/green/bloody. I don’t know about chest pain or whether it’s worse with exertion.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’ll do a quick safety check—right now, are you able to speak full sentences without gasping, and do you have low oxygen readings if you’ve checked them (or blue lips)?  \nDoctor: Also, can you tell me whether your COPD/cystic fibrosis medications have changed recently or if you’ve recently been hospitalized or had antibiotic use in the last 30 days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I can speak full sentences without gasping, and I don’t know if I’ve had low oxygen readings or blue lips.\n\nI don’t know whether my COPD/cystic fibrosis medications have changed recently, and I don’t know if I’ve been hospitalized or had antibiotic use in the last 30 days.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned this could be an acute infection or COPD/CF exacerbation given your colored sputum and immunosuppression—can you please answer: do you have a fever (measured) or chills right now, and has your shortness of breath been rapidly worsening over hours to days?  \nDoctor: Also, can you describe the sputum (color and amount) and do you have any chest pain when breathing in or coughing?  \nREQUEST TEST: Chest_X-Ray",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know whether I have a fever (measured) or chills right now, and I don’t know if my shortness of breath has been rapidly worsening over hours to days.\n\nI don’t know what color or amount my sputum is. I don’t know if I have any chest pain when breathing in or coughing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the uncertainty but your history (COPD/CF + immunosuppressed + increased colored sputum), I’m going to treat this as possible pneumonia/serious lower-respiratory infection—REQUEST TEST: Chest_X-Ray, and I also need vitals including temperature and pulse oximetry.  \nDoctor: If your oxygen is <92% or you can’t speak full sentences, that’s an emergency—can you check your SpO2 and temperature right now?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my oxygen (SpO2) or temperature right now, and I don’t know if I can speak full sentences without gasping.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to get **immediate vitals**—please check **SpO2 and temperature now** (and whether you can speak full sentences).  \nDoctor: While you check, I’m ordering tests urgently—**REQUEST TEST: Chest_X-Ray** and **REQUEST TEST: CBC_with_diff, CMP, CRP/Procalcitonin**.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my oxygen (SpO2) or temperature right now, and I don’t know if I can speak full sentences without gasping.\n\nI don’t know whether I’ve been hospitalized or had antibiotic use in the last 30 days, and I don’t know if my COPD/cystic fibrosis medications have changed recently.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you can’t check SpO₂/temperature and you can’t tell me if you can speak full sentences, I consider this potentially urgent—are you having trouble breathing at rest or unable to complete one sentence?  \nDoctor: REQUEST TEST: Pulse_Oximetry_SpO2_now, REQUEST TEST: Vitals_Temperature_and_Heart_Rate_now, and I’m also requesting sputum culture if you can produce an adequate sample.  \nDoctor: DIAGNOSIS READY: Acute lower-respiratory infection (likely pneumonia with COPD/CF exacerbation) — pending chest X-ray and labs due to colored sputum and immunosuppression.\n\n[DDX]\n1. Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3651,
+      "completion_tokens": 559,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 5924,
+      "completion_tokens": 372,
+      "calls": 6
+    }
+  }
+}

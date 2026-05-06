@@ -1,0 +1,119 @@
+{
+  "case_idx": 49,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 93\nSex: F\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a cough and I also notice wheezing when I exhale. I have severe COPD and I’ve had flare-ups of COPD in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this sounds respiratory and COPD-related. One key discriminator is whether this is primarily an infection trigger vs a noninfectious flare.\n\n**Question 1 (one at a time):**  \nHave you had any **fever, chills, or increased sputum** (amount and/or color change) compared with your usual COPD baseline?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—let’s narrow it another way.\n\n**Question 2:**  \nOver the last few days, has your **shortness of breath** been **worse than your baseline**, and if so is it **gradual or sudden**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. We can use a more observable feature.\n\n**Question 3:**  \nWhen you cough, are you bringing up **phlegm/sputum**? If yes, has the **amount increased** from your usual?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Let’s focus on the wheeze pattern and triggers.\n\n**Question 4:**  \nDo you have **chest tightness** or **worsening wheeze after exposure** to something (cold air, smoke, dust, strong odors), or is it just steadily worsening?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—then we should screen for more dangerous mimics.\n\n**Question 5:**  \nAny **chest pain** (especially sharp/pleuritic or pressure-like), **fainting**, or **new leg swelling/pain**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "I’ll need a bit more concrete information to be safe.\n\n**Question 6:**  \nDo you have **any fever** or do you feel **systemically ill** (very weak, “flu-like”) right now?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Given that you’re not sure about fever, sputum, or symptom change, I can’t confidently distinguish COPD exacerbation/infection from other serious causes (like pneumonia, pulmonary embolism, or acute cardiac ischemia).\n\n**Question 7 (most discriminating with minimal recall):**  \nHave you noticed **low oxygen** being mentioned to you—e.g., your **home pulse oximeter** reading **< 90%** (or much lower than usual)?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "I’m still missing key discriminators (oxygen level, symptom change from baseline, sputum/infectious signs, and any chest pain/PE features). With “I don’t know” to most targeted questions, I can’t safely narrow to a confident top diagnosis.\n\n**[ABSTAIN]** Insufficient discriminating information (baseline vs change, sputum/infectious symptoms, oxygen level, and red-flag features are unknown).  \n[POSSIBLE] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Pulmonary embolism, Possible NSTEMI / STEMI",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 8
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8081,
+      "completion_tokens": 559
+    },
+    "patient": {}
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "case_idx": 32,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 72\nSex: Male\nChief Complaint: I have lightheadedness/near-fainting, significant dyspnea, and palpitations",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been feeling really lightheaded like I might faint, and I also have significant shortness of breath and palpitations. This started after I used a stimulant drug and also took some decongestants or other stuff that could have stimulant effects.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, based on your symptoms + stimulant/decongestant exposure):**\n- **Possible NSTEMI / STEMI:** 20%\n- **PSVT:** 20%\n- **Anaphylaxis:** 15%\n- **Pulmonary embolism:** 15%\n- **Atrial fibrillation:** 10%\n(Other causes like panic attack, pneumonia, etc. are less likely right now.)\n\n**Question 1 (most discriminating):**  \nWhen this started, did you have **chest pain or pressure** (even mild), or is it mainly palpitations + shortness of breath + lightheadedness?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain or pressure. It’s mainly the palpitations, the significant shortness of breath, and the lightheaded/near-faint feeling. I don’t have any pain (0/10).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “no chest pain/pressure”:** That lowers acute coronary syndrome likelihood a bit, and keeps arrhythmia/PE/anaphylaxis higher.\n\n**Current posterior:**\n- **PSVT:** 25%\n- **Possible NSTEMI / STEMI:** 12%\n- **Anaphylaxis:** 18%\n- **Pulmonary embolism:** 20%\n- **Atrial fibrillation:** 12%\n(others lower)\n\n**Question 2 (discriminates anaphylaxis vs others):**  \nDid you have **any allergic-type symptoms** with this—**hives/itching, facial/lip/tongue swelling, wheezing, or throat tightness**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No hives or itching, and no swelling of my face or lips. I don’t think I had throat tightness or wheezing—mostly it’s the breathing trouble, palpitations, and feeling like I might pass out.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “no hives/itching/swelling/throat symptoms”:** This makes **anaphylaxis** less likely.\n\n**Current posterior:**\n- **Pulmonary embolism:** 24%\n- **PSVT:** 28%\n- **Atrial fibrillation:** 14%\n- **Possible NSTEMI / STEMI:** 10%\n- **Anaphylaxis:** 6%\n\n**Question 3 (high-yield for PE):**  \nDo you have **pleuritic chest pain** (worse when you breathe in), **cough**, or **coughing blood**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No pleuritic chest pain. I don’t have a cough or coughing blood.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “no pleuritic pain/cough/hemoptysis”:** Lowers PE somewhat, but doesn’t rule it out.\n\n**Current posterior:**\n- **PSVT:** 32%\n- **Pulmonary embolism:** 18%\n- **Atrial fibrillation:** 16%\n- **Possible NSTEMI / STEMI:** 10%\n- **Anaphylaxis:** 5%\n\n**Question 4 (discriminates PSVT/AF):**  \nHow fast did the palpitations start—**suddenly like a switch** (seconds to minutes), or more gradually?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "They started pretty suddenly—like it came on in a short time, not gradually.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “sudden onset palpitations”:** Increases likelihood of a paroxysmal tachyarrhythmia (PSVT/AF) over PE/ACS.\n\n**Current posterior:**\n- **PSVT:** 40%\n- **Atrial fibrillation:** 22%\n- **Pulmonary embolism:** 14%\n- **Possible NSTEMI / STEMI:** 8%\n- **Anaphylaxis:** 3%\n\n**Question 5 (key discriminator PSVT vs AF):**  \nDo you know your **pulse/heart rate** during the episode (or can you estimate)? If you can, is it **very fast and regular** or **irregular/“skipping”**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t measured it, but it feels very fast and kind of steady—not really irregular or “skipping.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “very fast and steady/regular”:** This strongly favors **PSVT** over atrial fibrillation.\n\n**Current posterior:**\n- **PSVT:** 58%\n- **Atrial fibrillation:** 10%\n- **Pulmonary embolism:** 14%\n- **Possible NSTEMI / STEMI:** 7%\n- **Anaphylaxis:** 2%\n\nI’m not fully comfortable excluding PE/ACS yet without vitals and a couple more safety checks.\n\n**Question 6 (safety/PE discriminator):**  \nHave you had **leg swelling or pain** (especially one-sided), or any **recent long travel/immobility/surgery**, or are you on **hormones (estrogen) / have a clotting history**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or leg pain. I haven’t had recent long travel, surgery, or anything like that, and I’m not on estrogen or anything like that. I don’t know of any clotting history.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “no DVT/immobility/hormone risk”:** Lowers PE probability.\n\n**Current posterior:**\n- **PSVT:** 62%\n- **Pulmonary embolism:** 9%\n- **Atrial fibrillation:** 10%\n- **Possible NSTEMI / STEMI:** 8%\n- **Anaphylaxis:** 2%\n\n**Question 7 (stimulant-related arrhythmia):**  \nWhat stimulant drug and decongestant(s) did you take (name/dose if you know), and **how long after taking them** did the palpitations start?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I took a stimulant drug that I won’t name here, and I also used decongestants—mostly something like pseudoephedrine. The palpitations started fairly soon after, maybe within an hour.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “pseudoephedrine + stimulant, onset within ~1 hour”:** Strongly supports stimulant-triggered tachyarrhythmia (PSVT).\n\n**Current posterior:**\n- **PSVT:** 70%\n- **Possible NSTEMI / STEMI:** 6%\n- **Atrial fibrillation:** 8%\n- **Pulmonary embolism:** 7%\n- **Anaphylaxis:** 1%\n\nI’m still missing vitals (BP, HR, oxygen sat) and an ECG, which are crucial for safety—especially to rule out ACS/PE and to confirm the rhythm.\n\n**Question 8 (immediate safety):**  \nDo you have **fainting (actually passed out)**, severe ongoing shortness of breath, or **blue lips** right now?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t fully passed out, but I feel like I’m close to it. My shortness of breath is pretty significant right now, but I haven’t noticed blue lips.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “near-syncope + significant SOB”:** Raises concern for hemodynamically significant arrhythmia and also keeps ACS/PE in the differential, even if less likely.\n\n**Current posterior:**\n- **PSVT:** 62%\n- **Possible NSTEMI / STEMI:** 10%\n- **Pulmonary embolism:** 10%\n- **Atrial fibrillation:** 10%\n- **Anaphylaxis:** 1%\n(others low)\n\n**Question 9 (vitals surrogate):**  \nDo you know your **blood pressure** or **heart rate** right now, or can you tell me if you’re able to speak in full sentences?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my blood pressure or heart rate. I can speak, but I’m a bit short of breath—still able to talk in full sentences.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with “can speak full sentences”:** Slightly lowers likelihood of immediate respiratory failure, but doesn’t rule out dangerous arrhythmia/ACS.\n\n**Current posterior:**\n- **PSVT:** 60%\n- **Possible NSTEMI / STEMI:** 10%\n- **Pulmonary embolism:** 12%\n- **Atrial fibrillation:** 10%\n- **Anaphylaxis:** 2%\n\nI’m confident enough to give a working differential, but I want one more discriminating question to separate PE vs arrhythmia/ACS.\n\n**Question 10 (PE discriminator):**  \nHave you had **unexplained fever**, **recent infection**, or **pleuritic symptoms** at any point, or is it purely palpitations + SOB + near-fainting?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "It’s purely palpitations, significant shortness of breath, and feeling like I might pass out. I don’t have fever or any recent infection that I know of.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] PSVT, Pulmonary embolism, Possible NSTEMI / STEMI, Atrial fibrillation, Acute COPD exacerbation / infection",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "PSVT",
+    "predicted_set": [
+      "PSVT",
+      "Pulmonary embolism",
+      "Possible NSTEMI / STEMI",
+      "Atrial fibrillation",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 11
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 19172,
+      "completion_tokens": 1506
+    },
+    "patient": {
+      "prompt_tokens": 16110,
+      "completion_tokens": 422
+    }
+  }
+}

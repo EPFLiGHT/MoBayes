@@ -1,0 +1,129 @@
+{
+  "case_idx": 34,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Pneumonia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 23\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been coughing up blood and I have pain in my posterior chest wall (left). My cough is worse at night, and I also have a rash with pink lesions that peel off, with some itching and mild pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. I need to narrow this down quickly.\n\n**One question:** When did the symptoms start (coughing blood and the rash), and did they start at the same time?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—next question, one at a time:\n\n**Is the rash on the hands/feet or around the mouth, or is it mainly on the trunk/arms/legs?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Mainly on the trunk/arms/legs.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Do the pink lesions peel off like a “skin shedding” (desquamation) after a few days, or are they more like small blisters/ulcers?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "They peel off like skin shedding (desquamation).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Any fever, sore throat, or feeling flu-like in the days before the rash and cough?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you had any recent new medication (especially antibiotics, anti-seizure meds, allopurinol), or a recent infection?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Next question (most discriminating):\n\n**Is the chest pain worse when you take a deep breath or when you cough (pleuritic pain)?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my pain is worse related to my cough.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Do you have shortness of breath, wheezing, or low oxygen symptoms (can’t speak full sentences, feeling winded at rest)?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Next question:\n\n**Have you had any leg swelling or pain (especially one-sided), or recent long travel/immobility/surgery?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "I can’t get key discriminating details (timing/fever/meds/shortness of breath/PE risk). With only: **hemoptysis + pleuritic posterior left chest wall pain worse with cough + rash with peeling desquamation on trunk/limbs**, I’m not confident enough to choose a single diagnosis from the list.\n\n[ABSTAIN] Insufficient information to confidently narrow to one diagnosis (missing fever/med exposure, respiratory status, and thromboembolism risk).  \n[POSSIBLE] Pneumonia, Pulmonary embolism, Acute COPD exacerbation / infection, Influenza, Anaphylaxis",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Influenza",
+      "Anaphylaxis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8866,
+      "completion_tokens": 426
+    },
+    "patient": {}
+  }
+}

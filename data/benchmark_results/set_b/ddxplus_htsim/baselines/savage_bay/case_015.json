@@ -1,0 +1,129 @@
+{
+  "case_idx": 15,
+  "baseline": "savage_bay",
+  "column": "htsim_v1",
+  "ground_truth": "Chagas",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: F\nChief Complaint: weight loss or loss of appetite",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had diarrhea or an increase in stool frequency, I have a fever, and I’ve unintentionally lost weight or I’ve lost my appetite. I also have pain with intensity 7/10 and it’s in the back of my head/top of my head (occiput), including the back of the neck/cervical spine. The pain feels tedious/tugging/cramp/pulse and exhausting, and it started at a pace of 2/10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down step-by-step.\n\n**Current posterior (pre-test, rough):**\n- **Influenza:** 0.20  \n- **Pneumonia:** 0.10  \n- **Anemia:** 0.05  \n- **Meningitis/serious CNS infection (not in list):** 0.25  \n- **Other System Diseases (unspecified):** 0.40  \n\n(Your combination of **fever + severe occipital/head/neck pain** raises concern for a **serious infection involving the CNS/meninges**, which is time-critical.)\n\n**Question 1 (most discriminating):**  \nDo you have **neck stiffness**—for example, does it hurt or feel impossible to **touch your chin to your chest**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. We’ll probe it another way.\n\n**Current posterior (updated, still rough):**\n- **Influenza:** 0.18  \n- **Pneumonia:** 0.08  \n- **Anemia:** 0.04  \n- **Meningitis/serious CNS infection:** 0.30  \n- **Other System Diseases:** 0.40  \n\n**Question 2:**  \nWhen you try to look down (flex your neck) or turn your head, does it **significantly worsen the head/neck pain**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Current posterior (still rough):**\n- **Influenza:** 0.18  \n- **Pneumonia:** 0.08  \n- **Anemia:** 0.04  \n- **Meningitis/serious CNS infection:** 0.30  \n- **Other System Diseases:** 0.40  \n\n**Question 3 (very important):**  \nHave you had **confusion, unusual sleepiness, fainting, or trouble staying awake**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem—let’s focus on symptoms you can more easily observe.\n\n**Current posterior (still rough):**\n- **Influenza:** 0.18  \n- **Pneumonia:** 0.08  \n- **Anemia:** 0.04  \n- **Meningitis/serious CNS infection:** 0.30  \n- **Other System Diseases:** 0.40  \n\n**Question 4:**  \nDo you have a **rash** (especially purple spots/bruising that don’t fade when pressed) or **new skin discoloration**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Given you’re unsure on key “red flag” features, I need one more high-yield question to decide whether we can narrow safely.\n\n**Current posterior (still rough):**\n- **Influenza:** 0.18  \n- **Pneumonia:** 0.08  \n- **Anemia:** 0.04  \n- **Meningitis/serious CNS infection:** 0.30  \n- **Other System Diseases:** 0.40  \n\n**Question 5:**  \nDo you have **any severe abdominal pain**, or is the pain mainly the **head/neck**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "The pain is mainly in the back of my head/top of my head (occiput) and also in the back of the neck/cervical spine. It doesn’t radiate anywhere else, and I don’t have swelling anywhere.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated):**\n- **Influenza:** 0.22  \n- **Pneumonia:** 0.07  \n- **Anemia:** 0.03  \n- **Meningitis/serious CNS infection:** 0.28  \n- **Other System Diseases:** 0.40  \n\nYour description still keeps **serious CNS infection/meningitis** on the table because of **fever + severe occipital/neck pain**. Diarrhea/weight loss/appetite loss also fit systemic infection/inflammation.\n\n**Question 6 (critical):**  \nHave you had **vomiting** (especially repeated) or **light sensitivity** (photophobia)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still rough):**\n- **Influenza:** 0.22  \n- **Pneumonia:** 0.07  \n- **Anemia:** 0.03  \n- **Meningitis/serious CNS infection:** 0.28  \n- **Other System Diseases:** 0.40  \n\nBecause you’re unsure about multiple red-flag features, I can’t confidently narrow to one diagnosis yet—but we should treat this as potentially serious.\n\n**Question 7 (helps a lot):**  \nDo you have **a cough** or **shortness of breath**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (still rough):**\n- **Influenza:** 0.22  \n- **Pneumonia:** 0.07  \n- **Anemia:** 0.03  \n- **Meningitis/serious CNS infection:** 0.28  \n- **Other System Diseases:** 0.40  \n\nWe still lack key discriminators (respiratory vs CNS vs GI-only). I need one more question that can strongly separate “meningitis/serious infection” from “viral syndrome.”\n\n**Question 8:**  \nHave you had **new weakness/numbness**, **trouble walking**, or **seizure**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**[ABSTAIN]** Insufficient discriminating history: you’re unsure about multiple high-yield red flags (neck stiffness/photophobia/vomiting/confusion/seizure/cough/SOB/rash), so I can’t confidently narrow beyond “serious infection vs viral syndrome.”\n\n[POSSIBLE] Other System Diseases (serious infection/meningitis spectrum), Influenza, Pneumonia, Anemia, Acute COPD exacerbation / infection",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Other System Diseases (serious infection/meningitis spectrum)",
+      "Influenza",
+      "Pneumonia",
+      "Anemia",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13024,
+      "completion_tokens": 1135
+    },
+    "patient": {}
+  }
+}

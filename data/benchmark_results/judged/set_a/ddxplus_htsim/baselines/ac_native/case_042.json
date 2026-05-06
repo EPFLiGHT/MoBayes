@@ -1,0 +1,99 @@
+{
+  "case_idx": 42,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Spontaneous rib fracture",
+  "patient_actor_hidden": {
+    "AGE": 49,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "pain with movement",
+    "EVIDENCES_ENG": "['metastatic cancer', 'pain', 'shortness of breath', 'excessive alcohol consumption', 'cough', 'intense coughing fits', 'pain with movement', 'chest pain with deep breaths']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 49\n- I have metastatic cancer.\n- I have pain somewhere related to my reason for consulting.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I drink alcohol excessively or I have an addiction to alcohol.\n- I have a cough.\n- I have intense coughing fits.\n- I have pain that is increased with movement.\n- I have pain that is increased when I breathe in deeply.\n- On a scale of 0-10, the pain intensity is 9\n- On a scale of 0-10, the pain's location precision is 7\n- On a scale of 0-10, the pace at which the pain appear is 10\n- The pain is:\n* heartbreaking\n* haunting\n* a knife stroke\n* violent\n* sharp\n- The pain locations are:\n* side of the chest(R)\n* breast(R)\n* breast(L)\n* posterior chest wall(R)\n* posterior chest wall(L)\n- The pain radiates to these locations:\n* posterior chest wall(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Pulmonary embolism', 0.07426276322269021], ['Bronchitis', 0.07375597212906083], ['Spontaneous pneumothorax', 0.07267250896886647], ['Spontaneous rib fracture', 0.07135026896621492], ['Possible NSTEMI / STEMI', 0.06830863323737014], ['Pneumonia', 0.06012133349722535], ['Unstable angina', 0.052701866115444744], ['Pulmonary neoplasm', 0.05079877950404051], ['Stable angina', 0.049894620208987724], ['Whooping cough', 0.0488889791542514], ['Guillain-Barré syndrome', 0.046981998946739004], ['Bronchospasm / acute asthma exacerbation', 0.04559258777292463], ['Myocarditis', 0.042133362600472075], ['Pericarditis', 0.0417636744141031], ['Tuberculosis', 0.03896659503837219], ['Bronchiectasis', 0.03545636473823298], ['Acute dystonic reactions', 0.03308521134868338], ['Myasthenia gravis', 0.03308521134868338], ['Anemia', 0.03308521134868338], ['Sarcoidosis', 0.027094057438953767]]",
+    "PATHOLOGY": "Spontaneous rib fracture",
+    "INITIAL_EVIDENCE": "ww_bouger",
+    "EVIDENCES": "['cancer_méta', 'douleurxx', 'douleurxx_carac_@_déchirante', 'douleurxx_carac_@_lancinante_/_choc_électrique', 'douleurxx_carac_@_un_coup_de_couteau', 'douleurxx_carac_@_violente', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_côté_du_thorax_D_', 'douleurxx_endroitducorps_@_sein_D_', 'douleurxx_endroitducorps_@_sein_G_', 'douleurxx_endroitducorps_@_thorax_postérieur_D_', 'douleurxx_endroitducorps_@_thorax_postérieur_G_', 'douleurxx_intens_@_9', 'douleurxx_irrad_@_thorax_postérieur_G_', 'douleurxx_precis_@_7', 'douleurxx_soudain_@_10', 'dyspn', 'f10.129', 'toux', 'toux_sev', 'trav1_@_N', 'ww_bouger', 'ww_respi']",
+    "patient_id": "htsim_1512",
+    "_test_index": 1512,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 49-year-old M patient presents to the clinic. Chief complaint: pain with movement.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have severe pain that’s increased with movement—especially with deep breathing. I also have shortness of breath and a cough with intense coughing fits.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need a few details to narrow this down—where exactly is the pain (chest/side/upper abdomen/throat), and when did it start?  \nDoctor: Is your shortness of breath worse over time, and do you have fever or are you coughing up any phlegm/blood?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My pain is in my right side of the chest and both breasts, including my posterior chest wall on both sides (it radiates to my posterior chest wall on the left). It’s increased when I breathe in deeply and with movement.\n\nI don’t know about a fever. I don’t know about coughing up phlegm or blood.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: On a scale of 0–10, how severe is the pain, and does it feel sharp/pleuritic or more like pressure—and is it constant or only with breathing/moving?  \nDoctor: Do you have any recent long travel/immobility, leg swelling or pain, known cancer, recent surgery, or do you smoke/think you might have had COVID or pneumonia?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes— I have metastatic cancer.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—given metastatic cancer plus severe right-sided pleuritic chest pain and shortness of breath, I’m concerned about a pulmonary embolism or pneumonia/pleurisy. Do you have any leg swelling/pain, and is your breathing rapidly worsening?\n\nDoctor: REQUEST TEST: CT_Pulmonary_Angiography  \nDoctor: REQUEST TEST: D_dimer_and_CBC_and_Chest_XRay",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or leg pain.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any recent chemotherapy or recent immobilization, and have you been on anticoagulants? Also, do you have a current oxygen saturation reading or feel dizzy/faint?  \nDoctor: REQUEST TEST: Troponin_and_ECG  \nDoctor: DIAGNOSIS READY: Pulmonary embolism (high suspicion in setting of metastatic cancer with pleuritic chest pain and dyspnea)\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1604,
+      "completion_tokens": 319,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3694,
+      "completion_tokens": 124,
+      "calls": 4
+    }
+  }
+}

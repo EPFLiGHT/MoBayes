@@ -1,0 +1,159 @@
+{
+  "case_idx": 44,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Tuberculosis",
+  "patient_actor_hidden": {
+    "AGE": 33,
+    "SEX": "F",
+    "INITIAL_EVIDENCE_ENG": "coughing up blood",
+    "EVIDENCES_ENG": "['hiv infection', 'corticosteroid use', 'coughing up blood', 'intravenous drug use', 'excessive alcohol consumption', 'involuntary weight loss', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Female, Age: 33\n- I am infected with the human immunodeficiency virus (HIV).\n- I take corticosteroids.\n- I have been coughing up blood.\n- I am currently using intravenous drugs.\n- I drink alcohol excessively or I have an addiction to alcohol.\n- I have had an involuntary weight loss over the last 3 months.\n- I have a cough.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Bronchitis', 0.31804770339852023], ['Pulmonary neoplasm', 0.2817547338803509], ['Tuberculosis', 0.2802171149174098], ['Pulmonary embolism', 0.11998044780371905]]",
+    "PATHOLOGY": "Tuberculosis",
+    "INITIAL_EVIDENCE": "crach_sg",
+    "EVIDENCES": "['HIV', 'cortico', 'crach_sg', 'drogues_IV', 'f10.129', 'perte_poids', 'toux', 'trav1_@_N']",
+    "patient_id": "htsim_1584",
+    "_test_index": 1584,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 33-year-old F patient presents to the clinic. Chief complaint: coughing up blood.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've been coughing up blood, and I also have a cough.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long has the coughing up blood been happening, and is it more like streaks in mucus or a larger volume?  \nDoctor: Do you have fever, chest pain, shortness of breath, or any weight loss?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It’s been happening for a while, and it’s more than just streaks in mucus—I’ve been coughing up blood. I do have shortness of breath and weight loss over the last 3 months.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How much blood is it per episode (e.g., teaspoons/ tablespoons), and is it triggered by coughing or does it occur spontaneously? Also, do you smoke or have any history of tuberculosis or recent exposures?  \nDoctor: I’m going to request key tests to clarify the cause—REQUEST TEST: Chest_X-Ray, REQUEST TEST: CBC, REQUEST TEST: Coagulation_Panel_INR_PTT, REQUEST TEST: CT_Chest_with_contrast.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I have HIV, and I take corticosteroids. I’m also currently using intravenous drugs and I drink alcohol excessively or have an addiction to alcohol.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thank you—given HIV + systemic steroids + IV drug use with months of weight loss and now substantial hemoptysis, I need to rule out TB, fungal infection, lung malignancy, and pulmonary embolism; have you had night sweats or known TB exposure, and do you have any leg swelling or sudden pleuritic chest pain?  \nDoctor: Also, any recent dental/sinus bleeding, vomiting blood, or are you sure it’s from the lungs (coughing it up)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about night sweats or known TB exposure.\n\nNo, I don’t have leg swelling or sudden pleuritic chest pain.\n\nI have been coughing up blood, and I’m not sure whether it’s from the lungs since I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Any recent bruising/bleeding gums or black/tarry stools, and have you had anemia symptoms like marked fatigue or dizziness? Also, do you know your most recent CD4 count and whether you’re on antiretroviral therapy—or has it been stopped?  \nDoctor: While you answer, I’m going to request results that can change urgency—REQUEST TEST: Sputum_AFB_x3_and_GeneXpert_TB, REQUEST TEST: Urine_and_Serum_Pregnancy_test_if_applicable, REQUEST TEST: HIV_VL_and_CD4, REQUEST TEST: D-Dimer_or_CTPA_if_concerning_for_PE.  \nDoctor: Given months of weight loss plus HIV/immunosuppression and “more than streaks” hemoptysis, are you having fevers at all right now?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you’re HIV-positive with corticosteroid use and have months of weight loss plus significant hemoptysis, we must treat this as potentially TB/other serious infection or a lung bleed.  \nDoctor: On exam right now, I need to check your vitals (oxygen saturation, heart rate, blood pressure) and look for any signs of active bleeding—are you currently febrile (feeling hot/chills) or very weak/dizzy?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now I need your vitals urgently: what is your temperature, heart rate, blood pressure, and oxygen saturation (if you have a reading)? Also, roughly how many episodes today and how much blood each time (teaspoon/more), and do you feel lightheaded or like you might pass out?  \nDoctor: While you answer, I’m going to assess for instability and order emergency labs imaging: REQUEST TEST: Repeat_CBC_with_Hemoglobin_trend, REQUEST TEST: Type_and_Screen, REQUEST TEST: Vital_Signs_Continuous_PulseOximetry.",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—since you “don’t know” your vitals, I need you to get them immediately: temperature, heart rate, blood pressure, and oxygen saturation; also, are you lightheaded right now or actively bleeding again at this moment?  \nDoctor: If any of those are abnormal (low oxygen, fast heart rate, faintness), we treat as an emergency—can you tell me whether you can breathe comfortably and whether the blood amount today is more than a teaspoon?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t provide vitals and you have HIV/immunosuppression plus months of weight loss and ongoing hemoptysis, this is an emergency until proven otherwise; are you able to check and tell me your temperature, heart rate, blood pressure, and oxygen saturation *now*?  \nDoctor: Right now, are you lightheaded or short of breath at rest, and is the bleeding happening again at this moment (yes/no)?  \nDoctor: I’m making the call to send you for immediate stabilization and diagnostics: we will treat for potentially TB and other serious causes of hemoptysis—REQUEST TEST: Emergency_Evaluation_with_Vitals_and_O2_saturation_now, REQUEST TEST: Bedside_EKG, REQUEST TEST: CT_Chest_with_Contrast_or_CTPA_if_available, REQUEST TEST: Sputum_AFB/GeneXpert_TB_and_Bacterial_Culture.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—because you can’t provide vitals and you have HIV on corticosteroids with ongoing hemoptysis and weight loss, you need immediate ER assessment for stabilization. Are you able to get someone to take you to the emergency department now (yes/no), and are you actively coughing up blood right this moment (yes/no)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—this is an emergency given HIV, corticosteroid use, months of weight loss, and ongoing hemoptysis, so you must go to the ER now for vitals/O2 and imaging. Before you leave, tell me only: are you actively bleeding right this moment (yes/no) and can you get to the ER immediately with someone?  \nDoctor: DIAGNOSIS READY: Hemoptysis in an immunocompromised patient—highly concerning for pulmonary tuberculosis or another serious opportunistic pulmonary infection (needs immediate ER evaluation and CT/AFB/GeneXpert)\n\n[DDX]\n1. Tuberculosis",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "Tuberculosis",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 10,
+    "predicted_remapped": "Tuberculosis",
+    "predicted_set_remapped": [
+      "Tuberculosis",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 8039,
+      "completion_tokens": 1168,
+      "calls": 10
+    },
+    "patient": {
+      "prompt_tokens": 12074,
+      "completion_tokens": 200,
+      "calls": 10
+    }
+  }
+}

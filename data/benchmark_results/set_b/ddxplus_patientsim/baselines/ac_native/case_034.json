@@ -1,0 +1,65 @@
+{
+  "case_idx": 34,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Unstable angina",
+  "objective_for_doctor": "A 29-year-old Male patient presents to the clinic. Chief complaint: I have chest pain even at rest, right side of the chest pain, and left side of the chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m having chest pain at rest—both the right and left upper chest, kind of heavy and exhausting. I also get significantly sweaty and short of breath, and the pain goes to my left biceps/shoulder and even toward the thyroid cartilage, plus I feel epigastric pain.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent. When did the chest pain start, how long does each episode last, and do you feel it worsen with exertion or deep breathing? Also, do you have fever/cough, or any recent long travel/leg swelling?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started very suddenly—like a fast onset (about 9/10). It’s happening right now at rest, and I’d say the pain is around 4/10 but very intense/heavy where it’s located (about 7/10). It gets worse with exertion, and I don’t have fever or cough. No recent long travel, and I don’t have leg swelling.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a heart-related cause given the sudden onset at rest with sweating, shortness of breath, and radiation to your shoulder/arm—can you tell me your age, any history of hypertension/diabetes/high cholesterol, smoking or drug use (especially cocaine), and whether you’ve had similar episodes? Also, right now, is your pain constant or coming in waves?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m 29. I have diabetes and high cholesterol, and I currently smoke cigarettes. I don’t have drug use like cocaine (I’m not using it). This is happening right now, and it feels like it’s constant/heavy rather than coming in waves.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "DIAGNOSIS READY: Acute coronary syndrome (unstable angina / NSTEMI) likely—given sudden severe chest heaviness at rest with diaphoresis, shortness of breath, radiation to left shoulder/arm, plus diabetes, high cholesterol, and smoking.\n\n[DDX]\n1. Unstable angina\n2. Stable angina",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 1263,
+      "completion_tokens": 196,
+      "calls": 3
+    },
+    "patient": {
+      "prompt_tokens": 2765,
+      "completion_tokens": 207
+    }
+  }
+}

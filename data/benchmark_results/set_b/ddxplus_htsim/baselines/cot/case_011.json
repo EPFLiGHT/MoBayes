@@ -1,0 +1,89 @@
+{
+  "case_idx": 11,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Bronchiectasis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 63\nSex: M\nChief Complaint: cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m dealing with a cough, and I’ve been experiencing significant shortness of breath. My cough also produces colored (more abundant than usual) sputum. I have cystic fibrosis and COPD, and I’ve had pneumonia before.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: cough with increased/colored sputum, significant shortness of breath; history of cystic fibrosis and COPD; prior pneumonia. This pattern most strongly suggests an acute lower respiratory infection/exacerbation, but we still need to discriminate between COPD exacerbation/bronchitis/pneumonia and more dangerous causes like pulmonary embolism or acute pulmonary edema.\nTop candidates (provisional):\n1) Acute COPD exacerbation / infection — COPD + increased colored sputum + SOB fits well.\n2) Pneumonia — prior pneumonia and colored sputum with SOB raises concern for new pneumonia.\n3) Bronchitis — productive cough with SOB could be acute bronchitis, though pneumonia must be ruled out.\n4) Pulmonary embolism — can present with acute SOB; sputum may be present but is less typical; still must consider if symptoms are sudden/pleuritic.\n5) Acute pulmonary edema — would expect more prominent orthopnea/leg swelling and often frothy sputum; less supported but possible.\nMost informative next question: determine whether symptoms are more consistent with infection (fever/pleuritic pain) vs sudden cardiopulmonary event.\n[/REASONING]\nDo you have a fever (or chills) or any chest pain that’s worse when you take a deep breath?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have: cough with increased colored sputum + significant SOB; CF and COPD increase risk for infectious exacerbation and pneumonia. Fever/chills and pleuritic chest pain are currently unknown, which limits discrimination between pneumonia/bronchitis vs PE/other causes.\nTop candidates remain:\n1) Acute COPD exacerbation / infection\n2) Pneumonia\n3) Bronchitis\n4) Pulmonary embolism\n5) Acute pulmonary edema\nMost informative next question: ask about timing/suddenness and whether onset was abrupt (helps distinguish PE/edema from infection/COPD flare).\n[/REASONING]\nDid the shortness of breath start suddenly (within minutes to a few hours), or did it build gradually over a day or more?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill limited by uncertainty about onset and fever/pleuritic pain. With CF/COPD, infection-triggered COPD exacerbation and pneumonia are still most likely, but PE and acute pulmonary edema remain important to rule out.\nMost informative next question now: assess for leg swelling/pain or known clot risk factors, which would raise PE likelihood.\n[/REASONING]\nHave you had any leg swelling or pain (especially one-sided), or any recent long travel/immobility, surgery, or history of blood clots?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack discriminating negatives/positives: fever/chills/pleuritic pain, sudden vs gradual onset, and clot risk/leg symptoms are unknown. Given CF + COPD with increased colored sputum and SOB, infectious etiologies (COPD exacerbation/bronchitis/pneumonia) remain most likely, but we cannot confidently exclude PE or pulmonary edema without more data.\nMost informative next question: ask about wheezing/known COPD pattern and whether they’ve tried inhalers and if it helps—this helps distinguish COPD exacerbation/bronchospasm from pneumonia/PE.\n[/REASONING]\nDo you have wheezing or does your breathing feel like your usual COPD flare—and have you tried your rescue inhaler (e.g., albuterol) and did it help?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] Key discriminating details are missing (fever/chills, pleuritic chest pain, sudden vs gradual onset, wheeze/response to rescue inhaler, and clot/leg swelling risk factors). With only cough + increased colored sputum + significant SOB in a patient with CF/COPD, multiple serious causes remain plausible, so I can’t rank confidently yet.\n\n[POSSIBLE] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Pulmonary embolism, Acute pulmonary edema",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Pulmonary embolism",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6007,
+      "completion_tokens": 828
+    },
+    "patient": {}
+  }
+}

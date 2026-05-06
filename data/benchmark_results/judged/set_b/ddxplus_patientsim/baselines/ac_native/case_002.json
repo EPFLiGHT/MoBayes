@@ -1,0 +1,94 @@
+{
+  "case_idx": 2,
+  "baseline": "ac_native",
+  "column": "patientsim_v1",
+  "ground_truth": "Pulmonary embolism",
+  "objective_for_doctor": "A 52-year-old Male patient presents to the clinic. Chief complaint: I have right side of the chest pain, left side of the chest pain, and right posterior chest wall pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have severe chest pain on both sides—right and left—and also pain in my right back/posterior chest wall. It feels like a sharp, knife-stab type pain, and I’m having significant trouble breathing; my left calf is also swollen. I even lost consciousness at some point.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about something serious—before we proceed, can you tell me: when did this start, and do you have fever or cough or are the pains worse when you take a deep breath?  \nDoctor: Also, did you lose consciousness due to dizziness/lightheadedness (and how long were you out), and is your left calf swelling painful or red/warm?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty suddenly—about a short time ago, the onset felt fast (like 1 out of 10 for how quickly it came on). I don’t have a fever or cough that I’m aware of. Yes, it’s worse when I take a deep breath—it's pleuritic.  \n\nI lost consciousness—yes, I was out, but I can’t say exactly how long it lasted. My left calf swelling is there, and it feels concerning, but I don’t know about the redness or warmth.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This combination—sudden pleuritic chest pain, trouble breathing, calf swelling, and possible fainting—strongly suggests a pulmonary embolism; I need to rule this in/out urgently. REQUEST TEST: CT_Pulmonary_Angiography + REQUEST TEST: D-dimer + REQUEST TEST: ECG + REQUEST TEST: Troponin + REQUEST TEST: Chest_X-Ray, and while we wait are you currently on oxygen or having worsening shortness of breath?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about the oxygen yet—no one has put me on it in front of me. My shortness of breath is still bad and feels like it’s not improving.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to move fast—given your sudden pleuritic chest pain, worsening shortness of breath, and unilateral calf swelling with fainting, this is highly concerning for pulmonary embolism; please go to the ER/CCU now for immediate evaluation while we get the tests.  \nDoctor: One more question: do you have any known history of blood clots, recent surgery/long travel, cancer, or are you taking testosterone/estrogen?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have a history of deep vein thrombosis. I had surgery within the last month and I also had recent travel in North America. I have active cancer. I’m not on testosterone or estrogen.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: With prior DVT, recent surgery, cancer, and sudden pleuritic bilateral chest pain with severe dyspnea and calf swelling, my leading diagnosis is pulmonary embolism until proven otherwise—what are your current vital signs (HR, BP, oxygen saturation) if you have them?  \nDoctor: I’m ordering immediate escalation: REQUEST TEST: CT_Pulmonary_Angiography (if unstable, start with REQUEST TEST: Bedside_Chest_Ultrasound/Lower_Extremity_Doppler and labs) + REQUEST TEST: CBC + REQUEST TEST: CMP + REQUEST TEST: PT/INR + REQUEST TEST: aPTT.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have my vital signs with me right now—no one has told me my HR, BP, or oxygen saturation yet. I’m still very short of breath.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your severe, sudden pleuritic chest pain, ongoing severe shortness of breath, prior DVT, recent surgery, active cancer, and calf swelling—this is still most consistent with an acute pulmonary embolism; you need immediate ER/CCU assessment now.  \nDoctor: REQUEST TEST: Vital_Signs (HR/BP/SpO2) + REQUEST TEST: Immediate_Heparin_Anticoagulation_Assessment + REQUEST TEST: Bedside_Pulse_Oximetry + REQUEST TEST: CT_Pulmonary_Angiography (or V/Q_scan if contraindicated).  \n\nDIAGNOSIS READY: Acute pulmonary embolism (high-risk)\n\n[DDX]\n1. Pulmonary embolism",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5,
+    "predicted_remapped": "Pulmonary embolism",
+    "predicted_set_remapped": [
+      "Pulmonary embolism",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3007,
+      "completion_tokens": 549,
+      "calls": 5
+    },
+    "patient": {
+      "prompt_tokens": 5103,
+      "completion_tokens": 298
+    }
+  }
+}

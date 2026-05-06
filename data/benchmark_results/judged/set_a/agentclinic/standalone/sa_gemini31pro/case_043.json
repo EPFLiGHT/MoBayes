@@ -1,0 +1,133 @@
+{
+  "case_idx": 43,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Pancreatic adenocarcinoma",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old male",
+    "History": "The patient complains of persistent fatigue and reports poor sleep quality. He mentions adopting a vegetarian diet in recent months to improve his energy levels but hasn't noticed significant benefits. The patient reports losing weight without trying over the last month.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Poor sleep quality",
+        "Unintentional weight loss",
+        "Jaundice"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Smokes 1 pack of cigarettes per day and consumes 5 alcoholic beverages per day.",
+    "Review_of_Systems": "The patient does not report any fever, abdominal pain, or changes in bowel habits."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, weight loss, and jaundice.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: What brings you in today? Patient: I've been dealing with persistent fatigue and my sleep quality is poor. Over the past month I’ve lost weight without trying, and I’ve noticed some jaundice.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any abdominal pain, and if so, where is it located?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have any abdominal pain at all, and I haven’t noticed any specific area that hurts. I’m mainly just feeling very tired with poor sleep, along with the recent weight loss and jaundice.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any changes in the color of your urine or your stool, such as dark urine or pale, clay-colored stools?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: My urine has seemed darker than usual, and my stools look lighter than normal—more pale than brown. I haven’t noticed any new abdominal pain, though.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Are you experiencing any itching all over your body, or have you had any fevers or chills recently?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I have had some itching across my body, but I haven’t had any fevers or chills. I just feel worn out and can’t seem to sleep well.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have a history of smoking, alcohol use, or any previous medical conditions such as liver disease, gallstones, or inflammatory bowel disease?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I smoke about a pack of cigarettes a day and I drink around five alcoholic beverages daily. I don’t have any known past medical conditions like liver disease, gallstones, or inflammatory bowel disease.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m 65 years old.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any back pain, nausea,",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have back pain, and I haven’t really had nausea. I mainly feel constantly tired, my sleep has been poor, and I’ve had the dark urine, pale stools, jaundice, and body-wide itching.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pancreatic cancer, Cholangiocarcinoma,",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Pancreatic cancer",
+    "predicted_set": [
+      "Pancreatic cancer",
+      "Cholangiocarcinoma"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Pancreatic adenocarcinoma",
+    "top1_hit_remapped": true,
+    "predicted_set_remapped": [
+      "Pancreatic adenocarcinoma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2831,
+      "completion_tokens": 1584
+    },
+    "patient": {
+      "prompt_tokens": 3288,
+      "completion_tokens": 275,
+      "calls": 7
+    }
+  }
+}

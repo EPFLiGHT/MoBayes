@@ -1,0 +1,112 @@
+{
+  "case_idx": 41,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and exhausting pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a fever with chills, and I have painful spots and redness on my skin. My head hurts (back, top, and forehead), and my neck on the right side/back of my neck really hurts too, with very bad tiredness and body/muscle aches.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down.\n\n**Current posterior (initial, based on your symptoms of fever/chills + severe headache + neck pain + skin “painful spots/redness”):**\n- **Pneumonia:** 20%\n- **Influenza:** 18%\n- **Infectious & Parasitic Diseases (unspecified):** 15%\n- **Anemia:** 5%\n- **Meningitis/serious CNS infection (not in list):** 42%\n\n(Your description raises concern for a serious infection involving the nervous system, but I need key details.)\n\n**Question 1 (most important):**  \nDo you have **any neck stiffness** where you **can’t comfortably touch your chin to your chest**, or any **confusion, fainting, or new rash that’s spreading quickly**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My neck feels really painful on the back/right side, but I can still try to bend it—I’m not sure if I “can’t” touch my chin to my chest. I’m not confused and I haven’t fainted. The rash is there and looks pink, but I don’t know if it’s spreading quickly.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this helps.\n\n**Update (based on evidence):**\n- **Meningitis/serious CNS infection:** drops a bit (no confusion/fainting; neck pain could still be meningismus, but not clearly severe limitation)\n- **Influenza / other viral illness:** rises somewhat\n- **Skin infection / systemic infection:** becomes more plausible\n\n**Current posterior:**\n- **Influenza:** 26%\n- **Pneumonia:** 18%\n- **Infectious & Parasitic Diseases (unspecified):** 20%\n- **Acute rhinosinusitis / URTI:** 8%\n- **Meningitis/serious CNS infection (not in list):** 28%\n\n(Still not safe to rule out a serious CNS infection without more info.)\n\n**Question 2 (high-yield):**  \nWhen you look at the rash, is it **flat pink/red spots** or **raised/hive-like**, and do any spots look like **tiny bruises/purple dots that don’t fade when you press on them** (a “glass test”)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "The rash looks like pink/red spots, and it’s kind of painful. I don’t know about the “glass test” part—like if the purple dots don’t fade when you press. I haven’t noticed it being hive-like.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it.\n\n**Update (evidence: pink/red spots that are painful; no clear hives; no “bruising that doesn’t fade” described):**\n- **Anaphylaxis:** becomes very unlikely (no hives/itching/rapid swelling)\n- **Meningitis/serious CNS infection:** still possible but slightly less favored without non-blanching/petechiae description\n- **Influenza / other viral syndrome:** increases\n- **Skin/soft tissue infection or other bacterial infection:** increases\n\n**Current posterior:**\n- **Influenza:** 30%\n- **Pneumonia:** 18%\n- **Infectious & Parasitic Diseases (unspecified):** 22%\n- **Acute COPD exacerbation / infection:** 2%\n- **Acute rhinosinusitis / URTI:** 10%\n- **Meningitis/serious CNS infection (not in list):** 18%\n\n(Neck pain + severe headache keeps meningitis on the table even if you’re not confused.)\n\n**Question 3 (critical for safety):**  \nDo you have **any trouble breathing, chest pain, or a cough** (even if mild)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain, and I don’t feel like I’m having trouble breathing. I don’t have a cough that I can tell.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Update (no cough/chest pain; no breathing trouble):**\n- **Pneumonia:** decreases\n- **Influenza/viral syndrome:** increases\n- **Meningitis/serious CNS infection:** remains important because of fever + severe headache + neck pain\n- **Skin infection:** still possible\n\n**Current posterior:**\n- **Influenza:** 34%\n- **Infectious & Parasitic Diseases (unspecified):** 24%\n- **Meningitis/serious CNS infection (not in list):** 22%\n- **Acute rhinosinusitis / URTI:** 12%\n- **Pneumonia:** 8%\n\n**Question 4 (helps distinguish viral vs bacterial vs meningitis):**  \nHave you had **any vomiting**, **light sensitivity** (headache worse with bright light), or **a new severe headache that’s the “worst of your life”**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t vomited. I don’t know about light sensitivity, but my headache feels really strong and it hurts a lot on my forehead and top/back of my head. I don’t know if it’s the “worst of my life,” but it feels very bad.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Understood.\n\n**Update (evidence: very strong headache + fever + neck pain; no vomiting):**\n- **Meningitis/serious CNS infection:** increases (headache severity + neck pain + fever)\n- **Influenza/viral syndrome:** stays plausible but less dominant\n- **Skin/systemic bacterial infection:** still possible\n\n**Current posterior:**\n- **Meningitis/serious CNS infection (not in list):** 30%\n- **Influenza:** 30%\n- **Infectious & Parasitic Diseases (unspecified):** 20%\n- **Acute rhinosinusitis / URTI:** 10%\n- **Pneumonia:** 10%\n\n(We still need a couple key discriminators.)\n\n**Question 5 (very important):**  \nWhen you look at the rash, are there **any blisters**, **any skin peeling**, or **any rapidly spreading areas**? Also, do you have **sores in your mouth**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No blisters, and I don’t have peeling skin. I don’t know about rapidly spreading areas. I don’t have sores in my mouth.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks.\n\n**Update (no blisters/peeling/mouth sores):**\n- **Anaphylaxis** remains unlikely\n- **Meningitis/serious CNS infection** remains high because of fever + severe headache + neck pain\n- **Influenza/viral syndrome** remains plausible\n- **Other bacterial skin infections** remain possible\n\n**Current posterior:**\n- **Meningitis/serious CNS infection (not in list):** 28%\n- **Influenza:** 32%\n- **Infectious & Parasitic Diseases (unspecified):** 22%\n- **Acute rhinosinusitis / URTI:** 10%\n- **Pneumonia:** 8%\n\nAt this point, I still can’t map the “painful pink/red spots” to a specific item in your provided disease list, and I also can’t confirm meningitis vs a severe viral illness without exam/vitals (and possibly labs/LP). I need one more safety discriminator.\n\n**Question 6 (safety):**  \nDo you have a **measured fever** (what temperature), and are you **able to look at a light without worsening the headache**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know the exact temperature. I can try to look at the light, but I’m not sure if it makes the headache worse—I haven’t paid attention to that part.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to pause here: with **fever + very bad headache + significant neck pain** and a **painful pink/red rash**, this could represent a **serious infection** (including meningitis) but the history alone isn’t enough to confidently choose among the specific options in the list, and I don’t have key exam/vitals data (e.g., actual temperature, rash pattern such as non-blanching petechiae, oxygen saturation, blood pressure, neurologic exam).\n\n[ABSTAIN] Reason: Insufficient discriminating evidence to confidently map to a specific diagnosis from the provided list; meningitis/serious CNS infection remains a critical safety concern but is not among the listed diseases, and the rash description isn’t specific enough (e.g., non-blanching/petechial vs viral exanthem vs localized skin infection).\n\n[POSSIBLE] Influenza, Infectious & Parasitic Diseases, Pneumonia, Acute rhinosinusitis, Acute pulmonary edema",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Influenza",
+      "Infectious & Parasitic Diseases",
+      "Pneumonia",
+      "Acute rhinosinusitis",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11382,
+      "completion_tokens": 1509
+    },
+    "patient": {
+      "prompt_tokens": 10450,
+      "completion_tokens": 344
+    }
+  }
+}

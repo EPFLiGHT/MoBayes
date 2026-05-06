@@ -1,0 +1,132 @@
+{
+  "case_idx": 4,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Anaphylaxis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 29\nSex: Female\nChief Complaint: I have lightheadedness/near-fainting, feeling nauseous or do you feel like vomiting, and swelling in one or more areas of your body",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I came in because I think I’m having a severe allergic reaction. After eating or coming into contact with something I’m allergic to, I started feeling lightheaded/near-fainting, very nauseous, and I got swelling in my face (forehead and both cheeks) plus pink itchy redness around my mouth/neck area and my arms, and I also feel like my breathing is getting difficult with a stridor sound.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this—this sounds potentially life-threatening.  \n\n**One question:** Did the symptoms start **within minutes to 1 hour** after the exposure/food/contact (yes or no)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Yes—within minutes to about an hour after the exposure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Given that timing, this is high concern for anaphylaxis with possible upper-airway involvement.\n\n**One question:** Are you having **any trouble swallowing or a hoarse voice** right now?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I feel like my throat is affected around the thyroid cartilage area, and my voice feels hoarse.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That strongly suggests anaphylaxis with laryngeal/upper-airway edema (stridor/hoarseness).\n\n**One question:** Have you noticed **wheezing or chest tightness**, or is it mainly **throat/upper airway** difficulty? (Choose one: wheezing/chest tightness vs mainly throat)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Mainly throat/upper airway difficulty. I’m having stridor and hoarseness.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood—upper-airway involvement makes this anaphylaxis until proven otherwise.\n\n**One question:** Did you have **any hives/raised welts** anywhere on your body (not just redness), yes or no?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I have raised, itchy pink welts/red rash in multiple areas.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "This fits classic anaphylaxis (multisystem: skin + GI + hypotension/near-syncope + airway).\n\n**One question:** Do you feel **faint or like you might pass out** right now, or have you had **low blood pressure symptoms** (e.g., dizziness when standing)? (yes or no)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I feel lightheaded and like I might pass out, especially when I try to move or stand.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "That’s consistent with distributive shock from anaphylaxis.\n\n**One question:** Do you have **any known history of severe allergies** or prior anaphylaxis (yes or no)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I have a known severe food allergy, and I’m more likely to develop common allergies than most people.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—prior severe allergy increases likelihood further.\n\n**One question:** What was the trigger—**food**, **insect sting**, **medication (like antibiotics/NSAIDs)**, or **unknown**? (pick one)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Food.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Food-triggered anaphylaxis with airway symptoms is very likely.\n\n**One question:** How long ago was the exposure (minutes/hours)? (e.g., 20 minutes ago, 2 hours ago)",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It started about 30 to 40 minutes after I ate/was exposed.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Anaphylaxis, Acute dystonic reactions, Acute laryngitis, Epiglottitis, Acute pulmonary edema",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Acute dystonic reactions",
+      "Acute laryngitis",
+      "Epiglottitis",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10058,
+      "completion_tokens": 440
+    },
+    "patient": {
+      "prompt_tokens": 11460,
+      "completion_tokens": 242
+    }
+  }
+}

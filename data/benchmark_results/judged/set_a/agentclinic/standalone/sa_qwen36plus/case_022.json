@@ -1,0 +1,157 @@
+{
+  "case_idx": 22,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Ewing sarcoma",
+  "patient_actor_hidden": {
+    "Demographics": "13-year-old male",
+    "History": "The patient has been experiencing progressive left leg pain for 2 months, with recent interference with sleep. The pain was initially treated as 'growing pains' with ibuprofen, without improvement. He recalls being hit in the thigh by a baseball one week before the onset of symptoms, resulting in redness and swelling that lasted several days.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive left leg pain",
+      "Secondary_Symptoms": [
+        "Interference with sleep",
+        "History of trauma to the leg",
+        "Redness and swelling following injury"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history.",
+    "Social_History": "Attends middle school. Plays baseball.",
+    "Review_of_Systems": "No fever, weight loss, or other systemic symptoms reported."
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with progressive left leg pain and assess the pathological causes.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had progressive pain in my left leg for about two months, and it’s been keeping me up at night. It didn’t improve with ibuprofen, and I had redness and swelling for a few days after getting hit in the thigh by a baseball just before it started.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How old are you?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 13 years old.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you experienced any fever, unexplained weight loss, or fatigue over the past two months?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any fever, unexplained weight loss, or unusual fatigue during these two months.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any persistent swelling or a palpable lump in the painful area?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t think I’ve felt a clear lump, but the area sometimes looks a bit swollen compared to my other leg, especially after I’ve been on it. It’s more sore and tender than visibly swollen right now.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Where exactly is the pain located—is it in the mid-thigh, around the knee joint, or in the lower leg/shin?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“It’s mostly in the mid-thigh on the left side, not really around the knee or shin. It gets worse when I’m walking or playing, and it’s been steadily increasing over the last two months.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you developed a limp, difficulty bearing weight on that leg, or any pain in your hip or groin area?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I’ve started to limp a bit and it hurts to put full weight on the left leg, especially when I walk or play. I don’t really have pain in my hip or groin, it’s mainly in the mid-thigh.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Would you describe the pain as deep within the bone itself, or more in the surrounding muscle and soft tissue?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It feels more deep than just the muscle, like it’s coming from inside the bone, but the area around it is also really tender. When I press there or move, it’s the same sharp pain in that mid-thigh area.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any visible changes to the skin over the painful area, such as increased warmth, redness, or prominent veins?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“Yes, the skin got red and felt warm for a few days after the baseball hit, and since then the area can still look a little more tender and slightly swollen than my other leg, especially after I’m active. I haven’t noticed any prominent veins.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Did you have an X-ray taken right after the baseball injury, and were you told you had a fracture or just a soft tissue bruise?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“No, I didn’t get an X-ray after the baseball hit—at the time they said it was just a bruise or soft-tissue injury, and it seemed to settle for a few days before the deeper pain started and kept getting worse.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Osteosarcoma, Ewing sarcoma, Stress fracture, Chronic osteomyelitis, Aneurysmal bone cyst",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Osteosarcoma",
+    "predicted_set": [
+      "Osteosarcoma",
+      "Ewing sarcoma",
+      "Stress fracture",
+      "Chronic osteomyelitis",
+      "Aneurysmal bone cyst"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Unknown",
+    "top1_hit_remapped": false,
+    "predicted_set_remapped": [
+      "Unknown",
+      "Ewing sarcoma",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4767,
+      "completion_tokens": 22297
+    },
+    "patient": {
+      "prompt_tokens": 4927,
+      "completion_tokens": 426,
+      "calls": 9
+    }
+  }
+}

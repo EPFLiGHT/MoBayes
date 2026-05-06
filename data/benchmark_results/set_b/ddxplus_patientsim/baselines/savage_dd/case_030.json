@@ -1,0 +1,102 @@
+{
+  "case_idx": 30,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Scombroid food poisoning",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 17\nSex: Female\nChief Complaint: I have feeling nauseous or do you feel like vomiting, significant dyspnea, and did your cheeks suddenly turn red",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor—I'm feeling nauseous and I feel like I might vomit, and I’m having significant trouble breathing. My cheeks suddenly turned red and I also have a pink rash with itching (about 6/10) on different areas, including my mouth/around my throat and my right biceps and both ankles.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. First, I need to clarify the breathing issue because it can be life-threatening.\n\n**Question 1 (one at a time):**  \nDo you have **any swelling of your lips, tongue, or throat**, or **hoarseness/voice change** since this started?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about swelling of my lips or tongue, but yes—my mouth/around my throat area feels involved, and my voice feels a bit different.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "That’s concerning for an allergic reaction affecting the upper airway.\n\n**Question 2:**  \nDo you have **any wheezing or stridor** (a high-pitched sound when breathing in), or is it more like **tightness in the chest**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure about stridor or wheezing sounds, but it feels like my breathing is very hard—more like tightness and I can’t get enough air.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Given the rash/itching plus mouth/throat involvement and breathing difficulty, this could be anaphylaxis.\n\n**Question 3:**  \nHave you had **any lightheadedness, fainting, or feeling like your heart is racing**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel a bit lightheaded, and my heart feels like it’s racing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "This is strongly consistent with **anaphylaxis** (multi-system: skin + airway + cardiovascular).\n\n**Question 4:**  \nDid this start **suddenly within minutes to 1–2 hours** after a specific trigger (food, new medication, insect sting, or exposure), and do you know what that trigger might be?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it started pretty suddenly within the last hour or so after I ate dark-fleshed fish or Swiss cheese.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Fish/cheese exposure with sudden rash, itching, mouth/throat symptoms, and breathing difficulty raises concern for anaphylaxis, but also consider food-related toxin reactions.\n\n**Question 5:**  \nDid anyone else who ate the same food develop similar symptoms, and did symptoms start **very quickly (within minutes)** for them?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure if anyone else got sick. I think it happened to me pretty quickly—like within minutes to an hour after I ate.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Anaphylaxis, Scombroid food poisoning, Acute dystonic reactions, Acute pulmonary edema, Panic attack",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "predicted_set": [
+      "Anaphylaxis",
+      "Scombroid food poisoning",
+      "Acute dystonic reactions",
+      "Acute pulmonary edema",
+      "Panic attack"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6210,
+      "completion_tokens": 343
+    },
+    "patient": {
+      "prompt_tokens": 5575,
+      "completion_tokens": 221
+    }
+  }
+}

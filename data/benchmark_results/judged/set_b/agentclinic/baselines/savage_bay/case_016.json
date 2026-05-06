@@ -1,0 +1,162 @@
+{
+  "case_idx": 16,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Acute lymphoblastic leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "4-year-old girl",
+    "History": "The patient has been experiencing generalized fatigue and easy bruising for 3 weeks. Over the past week, she has developed a fever and severe leg pain that wakes her up at night.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue and easy bruising",
+      "Secondary_Symptoms": [
+        "Fever",
+        "Severe leg pain that disturbs sleep"
+      ]
+    },
+    "Past_Medical_History": "Unremarkable past medical history.",
+    "Social_History": "Attends preschool. Lives with parents and one younger sibling.",
+    "Review_of_Systems": "Positive for fever, bruising, and bone pain. Denies cough, vomiting, diarrhea, rash, or urinary symptoms."
+  },
+  "objective_for_doctor": "Evaluate and manage a pediatric patient presenting with a 3-week history of generalized fatigue, easy bruising, fever, and severe leg pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve been really tired for three weeks and I get bruises easily. This past week I also got a fever and my legs hurt very badly at night, like the pain wakes me up.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors; no key discriminating features yet):\n- Acute myelogenous leukemia: 0.22  \n- Acute lymphoblastic leukemia: 0.18  \n- Essential thrombocythemia: 0.05  \n- Hemophilia A: 0.04  \n- Fulminant hepatic failure: 0.04  \n- Histoplasmosis: 0.03  \n- Toxic exposure: 0.03  \n- Chronic Granulomatous Disease: 0.02  \n- Other/insufficient: 0.39  \n\nEvidence so far:\n- “Tired for 3 weeks + easy bruising” → strongly suggests a hematologic process with cytopenias (high LR toward acute leukemia; moderate against isolated coagulation disorders).\n- “Fever” → supports infection or inflammatory complication of marrow failure (also common in acute leukemia).\n\nTo narrow this quickly: **Are you having any bleeding besides bruising** (e.g., nosebleeds, bleeding gums, blood in urine/stool, or heavy menstrual bleeding)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any bleeding besides bruises—like nosebleeds, bleeding gums, blood in your urine or stool, or any unusually heavy bleeding? Patient: I don’t think so, doctor. I’ve mostly just had the bruises and I’ve been really sleepy and sick with the fever and bad leg pain.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.28  \n- Acute lymphoblastic leukemia: 0.23  \n- Essential thrombocythemia: 0.03  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Histoplasmosis: 0.05  \n- Chronic Granulomatous Disease: 0.03  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.30  \n\nEvidence update:\n- No additional overt bleeding (no mucosal/GI/urinary bleeding) → lowers likelihood of severe coagulopathy/hemophilia and some bleeding-predominant causes (LR < 1 for leukemia is small; leukemia still remains high because bruising can occur with thrombocytopenia even without other bleeding).\n\nNext discriminating question (one at a time):  \n**Have you noticed any swollen lymph nodes (lumps in the neck/armpit/groin) or bone pain elsewhere besides the legs (e.g., back, ribs)?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you noticed any swollen lymph nodes (lumps in the neck/armpit/groin) or bone pain elsewhere besides the legs? Patient: I haven’t felt any lumps, but my legs really hurt and the pain makes it hard to sleep.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.30  \n- Acute lymphoblastic leukemia: 0.25  \n- Histoplasmosis: 0.04  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Chronic Granulomatous Disease: 0.03  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.28  \n\nEvidence update:\n- Severe nocturnal leg pain without lymphadenopathy keeps acute leukemia on top (bone marrow involvement can cause deep bone pain; absence of lymph nodes doesn’t strongly argue against ALL, but it slightly favors AML over ALL).\n\nNext question (high-yield):  \n**Do you have any shortness of breath, chest pain, or feel your heart racing (especially with minimal activity)?**",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Do you have any shortness of breath, chest pain, or feel your heart racing, especially with minimal activity? Patient: I don’t think so, doctor—mostly I’ve just been very tired, with fever and my legs hurting so badly at night.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.31  \n- Acute lymphoblastic leukemia: 0.26  \n- Histoplasmosis: 0.05  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Chronic Granulomatous Disease: 0.03  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.25  \n\nEvidence update:\n- No cardiopulmonary symptoms doesn’t change much; it slightly reduces likelihood of some alternative systemic causes, but leukemia still best fits fatigue + fever + easy bruising + severe leg pain.\n\nNext discriminating question:  \n**Have you had any recent infections or exposures—like new medications, recent travel, or contact with someone sick?**",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any recent infections or exposures—new medications, recent travel, or contact with someone sick? Patient: I don’t take any new medicines, doctor, and I haven’t traveled, but a few kids at preschool were sick recently.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.30  \n- Acute lymphoblastic leukemia: 0.25  \n- Histoplasmosis: 0.06  \n- Chronic Granulomatous Disease: 0.04  \n- Toxic exposure: 0.03  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Other/insufficient: 0.25  \n\nEvidence update:\n- Preschool sick contacts could explain fever, but the combination with easy bruising and severe bone pain still strongly favors a marrow disorder; infection alone would be less likely to cause easy bruising. (Small LR toward leukemia remains >1.)\n\nNext question (to distinguish ALL/AML vs infection like histoplasmosis/CGD):  \n**Have you had any cough, shortness of breath, or chest symptoms—or any weight loss/night sweats?**",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any cough, shortness of breath, chest symptoms, or any weight loss or night sweats? Patient: No, doctor—my main problems are the fever, the bruises, and the really bad leg pain at night.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.32  \n- Acute lymphoblastic leukemia: 0.27  \n- Histoplasmosis: 0.04  \n- Chronic Granulomatous Disease: 0.05  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.22  \n\nEvidence update:\n- No respiratory symptoms/weight loss/night sweats makes histoplasmosis less likely (LR down).\n- Still, fever + bruising + severe bone pain keeps acute leukemia highest.\n\nNext discriminating question (one at a time):  \n**Have you noticed any mouth sores, gum swelling, or bleeding from the gums?**",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t have mouth sores or gum swelling, doctor. I haven’t noticed bleeding from my gums either—I’ve mostly had bruises, fever, and my legs hurt so badly at night.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.33  \n- Acute lymphoblastic leukemia: 0.28  \n- Chronic Granulomatous Disease: 0.05  \n- Histoplasmosis: 0.03  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.21  \n\nEvidence update:\n- No mucosal bleeding (mouth/gums) slightly lowers likelihood of profound thrombocytopenia/bleeding syndromes, but bruising can still occur—so leukemia remains dominant.\n\nNext question (very discriminating for leukemia subtype):  \n**Is the leg pain associated with any swelling, redness, or warmth in the legs (like one leg is more swollen than the other)?**",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Is the leg pain associated with any swelling, redness, or warmth in the legs—like one leg is more swollen than the other? Patient: I don’t think my legs look swollen, doctor—just that the pain is very strong and keeps me awake at night.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.34  \n- Acute lymphoblastic leukemia: 0.29  \n- Chronic Granulomatous Disease: 0.05  \n- Histoplasmosis: 0.03  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.19  \n\nEvidence update:\n- No unilateral swelling/redness/warmth makes DVT/cellulitis less likely (LR down for infection/vascular causes), keeping marrow pathology higher.\n\nNext question (to further separate leukemia vs other marrow/infectious causes):  \n**Have you had any headaches, vision changes, or new neurologic symptoms (confusion, weakness, trouble walking)?**",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Have you had any headaches, vision changes, or new neurologic symptoms like confusion, weakness, or trouble walking? Patient: I don’t think so, doctor—no headaches or vision changes. I’ve just been very tired, with fever and my leg pain at night.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior:\n- Acute myelogenous leukemia: 0.35  \n- Acute lymphoblastic leukemia: 0.30  \n- Chronic Granulomatous Disease: 0.06  \n- Histoplasmosis: 0.03  \n- Hemophilia A: 0.02  \n- Fulminant hepatic failure: 0.03  \n- Essential thrombocythemia: 0.02  \n- Toxic exposure: 0.03  \n- Other/insufficient: 0.16  \n\nEvidence update:\n- No neurologic symptoms doesn’t help much for ALL/AML vs other causes, but it keeps CNS-involving processes lower.\n\nAt this point, the evidence is most consistent with an acute hematologic malignancy causing marrow failure (fever, profound fatigue, easy bruising, and severe bone/leg pain). I’m going to provide the differential.\n\n[DDX] Acute myelogenous leukemia, Acute lymphoblastic leukemia, Chronic Granulomatous Disease, Histoplasmosis, Fulminant hepatic failure",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "Acute myelogenous leukemia",
+    "predicted_set": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Chronic Granulomatous Disease",
+      "Histoplasmosis",
+      "Fulminant hepatic failure"
+    ],
+    "predicted_raw": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Chronic Granulomatous Disease",
+      "Histoplasmosis",
+      "Fulminant hepatic failure"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 9,
+    "predicted_remapped": "Acute myelogenous leukemia",
+    "predicted_set_remapped": [
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Chronic Granulomatous Disease"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 17115,
+      "completion_tokens": 1775
+    },
+    "patient": {
+      "prompt_tokens": 11771,
+      "completion_tokens": 519,
+      "calls": 9
+    }
+  }
+}

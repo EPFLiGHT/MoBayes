@@ -1,0 +1,104 @@
+{
+  "case_idx": 12,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Bronchitis",
+  "objective_for_doctor": "A 102-year-old Male patient presents to the clinic. Chief complaint: I have upper chest pain, a cough that produces colored or more abundant sputum than usual, and a cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been having upper chest pain with a burning, sensitive feeling and a cough. I also have a sore throat, nasal congestion/runny nose, and I’m coughing up more colored sputum than usual, plus I feel pretty short of breath and I hear wheezing when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when did these symptoms start, and do you have fever or chills? Also, is the chest pain worse with deep breaths, and do you smoke or have asthma/COPD history?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "The symptoms started pretty fast—about 4/10 onset speed—and the chest pain is around 4/10 right now. I don’t know about fever or chills; I can’t say I have them. The chest pain is related to the cough and feels sensitive/burning, and I don’t think it’s worse with deep breaths specifically. I do have COPD, and I’ve had wheezing with exhaling.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—do you have a measured temperature, oxygen saturation (SpO₂) if available, and is the sputum yellow/green with any blood? Also, have you had recent sick contacts or worsening of your COPD baseline, and what inhalers/nebulizers are you using right now?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a measured temperature or my SpO₂ to tell you. The sputum is colored and more than usual, but I’m not sure about any blood. I haven’t had recent international travel, and I don’t know about sick contacts—my COPD feels worse with the wheezing and shortness of breath. Right now I’m using my COPD inhalers/nebulizer, but I can’t list the exact names for you.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—can you check your temperature and, if you can, your SpO₂ right now; and please describe the sputum color (yellow/green/rust) and whether the shortness of breath is worse than your usual COPD flare.  \nDoctor: Also, do you have any new leg swelling, severe pleuritic pain, or chest pressure, and have you been able to keep speaking in full sentences without stopping to breathe?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I can’t check my temperature or SpO₂ right now. The sputum is colored and more than usual, but I can’t say if it’s specifically yellow/green/rust. My shortness of breath feels worse than my usual COPD flare.\n\nI don’t have new leg swelling, and I don’t have severe pleuritic pain or chest pressure beyond the pain with the cough. I’m able to speak, but I do have to breathe more often than usual and I’m not sure I can do full sentences without stopping.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the COPD flare with colored sputum and worsening wheeze/SOB, I’m concerned about an acute exacerbation and possible pneumonia—REQUEST TEST: Chest_X-Ray, REQUEST TEST: CBC_with_diff, REQUEST TEST: Sputum_Gram_stain_and_culture, and REQUEST TEST: COVID_Influenza_PCR.  \nDoctor: While we wait, do you have any history of blood clots/heart failure, and is your breathing getting rapidly worse over hours or days?  \nDoctor: Also, do you have a rescue inhaler and have you used it more than usual without relief?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have any known history of blood clots or heart failure. My breathing feels like it’s getting worse over the last hours to a few days, not just suddenly in minutes.\n\nYes, I have a rescue inhaler, and I’ve used it more than usual but it hasn’t helped much.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—given COPD with worsening wheeze/SOB over 1–3 days, colored increased sputum, and possible infectious symptoms, I’m treating this as **COPD exacerbation likely due to bacterial infection and/or pneumonia** until proven otherwise.  \nDoctor: I need one quick check: do you currently have any fever that you feel/estimate (sweats, chills, hot to touch) and can you provide your pulse/heart rate if known?  \nDoctor: Next, I’m going to have you start/continue COPD exacerbation therapy while results return—REQUEST TEST: Procalcitonin and REQUEST TEST: Basic_Metabolic_Panel.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I have a fever—no clear hot feeling, sweats, or chills that I can say for sure. I also don’t know my pulse/heart rate.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: 102-year-old man with COPD, worsening wheeze and shortness of breath over hours–days plus increased colored sputum—this strongly suggests an acute COPD exacerbation, likely infectious (with or without pneumonia) despite unclear fever; do you have any “gurgling/crackles” on your breathing or foul-smelling sputum?  \n\nDoctor: I’m going to make a working diagnosis and manage accordingly: **DIAGNOSIS READY: Acute COPD exacerbation—likely infectious/possible bacterial pneumonia**.\n\n[DDX]\n1. Pneumonia",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Pneumonia",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Pneumonia",
+    "predicted_set_remapped": [
+      "Pneumonia",
+      "Influenza",
+      "Bronchitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4105,
+      "completion_tokens": 585,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6236,
+      "completion_tokens": 460
+    }
+  }
+}

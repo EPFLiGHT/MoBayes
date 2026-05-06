@@ -1,0 +1,70 @@
+{
+  "case_idx": 0,
+  "baseline": "uot",
+  "column": "patientsim",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 71\nSex: Male\nChief Complaint: I have a cough that produces colored or more abundant sputum than usual, a cough, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough for a while, and it’s bringing up colored sputum and more than usual. I also noticed a wheezing sound when I exhale.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have fever and symptoms of an upper respiratory infection (e.g., sore throat, runny nose, cough) that started within the last 7–10 days?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about fever—I haven’t mentioned it. I do have a cough, but I don’t have a sore throat or runny nose that I can tell you about.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection  , Acute laryngitis, Acute otitis media, Acute rhinosinusitis, Bronchiolitis",
+      "turn": 2
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Acute laryngitis",
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Bronchiolitis"
+    ],
+    "predicted_raw": [
+      "Acute COPD exacerbation / infection  ",
+      "Acute laryngitis",
+      "Acute otitis media",
+      "Acute rhinosinusitis",
+      "Bronchiolitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 2
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7866,
+      "completion_tokens": 10197,
+      "total_tokens": 18063
+    },
+    "patient": {
+      "prompt_tokens": 1214,
+      "completion_tokens": 80
+    }
+  }
+}

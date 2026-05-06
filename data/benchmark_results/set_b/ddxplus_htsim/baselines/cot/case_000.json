@@ -1,0 +1,109 @@
+{
+  "case_idx": 0,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: F\nChief Complaint: productive cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a productive cough with colored or more abundant sputum than usual, along with significant shortness of breath/difficulty breathing and wheezing when I exhale. I’ve also had COPD flare-ups in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nFindings so far: productive cough with increased/colored sputum, significant dyspnea, and expiratory wheezing; history of COPD with prior flare-ups. This strongly suggests an acute COPD exacerbation, potentially triggered by infection (bronchitis/pneumonia/influenza). Other serious causes of dyspnea/wheeze (e.g., pulmonary embolism, acute pulmonary edema, acute asthma) are less directly supported but still need consideration.\nTop candidates:\n1) Acute COPD exacerbation / infection — classic triad of COPD flare with increased sputum volume/color and worsening dyspnea; wheeze fits.\n2) Pneumonia — infectious trigger for COPD exacerbation; colored sputum and dyspnea could reflect pneumonia.\n3) Bronchitis — productive cough with sputum; can precipitate COPD exacerbation.\n4) Influenza — infectious trigger; may cause cough, dyspnea, wheeze (often with systemic symptoms).\n5) Pulmonary embolism — can cause acute dyspnea; wheeze is less typical, but must be considered if symptoms are sudden/pleuritic or risk factors present.\nMost informative next question: determine whether there are systemic/infectious symptoms (fever, chills) and/or focal chest symptoms to help separate pneumonia/influenza from uncomplicated COPD exacerbation.\n[/REASONING]\nDo you have a fever (or chills/sweats) or any chest pain",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have: productive colored/increased sputum, significant dyspnea, expiratory wheeze, and COPD history. We lack key discriminators: fever/chills (infection severity), chest pain (PE/pneumonia/ACS), onset pattern (sudden vs gradual), and risk factors (PE/ACS). “I don’t know” means we should ask a more concrete, easier-to-answer question.\nTop candidates remain:\n1) Acute COPD exacerbation / infection\n2) Pneumonia (as trigger)\n3) Bronchitis\n4) Influenza\n5) Pulmonary embolism (needs risk/suddenness)\nMost informative next question: ask about timing/onset and whether symptoms were sudden vs gradual, which helps separate PE/acute cardiopulmonary causes from COPD infectious flares.\n[/REASONING]\nDid the shortness of breath start suddenly (within minutes to a few hours) or has it been building gradually over a day or more?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings unchanged; timing is still unknown, which limits discrimination between PE/acute cardiogenic causes vs COPD infectious exacerbation. Since “sudden vs gradual” is hard, we can ask a simpler anchor: “When did you first notice you were worse than baseline?” and “Has it been getting worse steadily since then?”\nTop candidates:\n1) Acute COPD exacerbation / infection — still most consistent with wheeze + increased sputum.\n2) Pneumonia — could present as worsening dyspnea with productive sputum.\n3) Bronchitis — productive cough; can trigger COPD flare.\n4) Influenza — infectious trigger; often more systemic.\n5) Pulmonary embolism — still possible but less supported without timing/risk factors.\nMost informative next question: ask about trajectory since onset (steadily worsening vs intermittent) using a yes/no style.\n[/REASONING]\nHas your breathing been getting steadily worse since you first noticed it, or does it come and go?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It comes and goes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nNow we have: intermittent episodes of worsening dyspnea with productive colored/increased sputum and wheeze in a COPD patient. Intermittent pattern can fit COPD exacerbation (bronchospasm/airway reactivity) and also asthma/bronchospasm, but less typical for PE or acute pulmonary edema (often more continuous). Still need to assess for infectious symptoms and cardiac red flags.\nTop candidates:\n1) Acute COPD exacerbation / infection — intermittent wheeze and increased sputum strongly fit.\n2) Bronchospasm / acute asthma exacerbation — wheezing with dyspnea; less supported by COPD history but overlap possible.\n3) Bronchitis — productive cough; may cause intermittent flare.\n4) Pneumonia — can be intermittent early, but usually more persistent; still possible.\n5) Pulmonary embolism — less likely with intermittent course, but cannot exclude without risk factors.\nMost informative next question: ask about fever/chills or sick contacts, since that would support infection-triggered COPD exacerbation vs noninfectious bronchospasm.\n[/REASONING]\nHave you had any fever, chills, or known sick contacts recently?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack infection discriminators (fever/chills/sick contacts). We have intermittent dyspnea with wheeze and increased/colored sputum—this keeps acute COPD exacerbation high. To narrow further without relying on fever, we can ask about sputum characteristics and quantity trend (e.g., “more than usual” vs “same”), and whether there’s pleuritic chest pain, leg swelling, or hemoptysis (PE red flags). One question at a time: pleuritic pain/hemoptysis/leg swelling is high-yield.\nTop candidates:\n1) Acute COPD exacerbation / infection — most consistent overall.\n2) Pneumonia — infectious trigger; may have persistent symptoms but can start intermittently.\n3) Bronchitis — productive cough with sputum; may precipitate COPD flare.\n4) Pulmonary embolism — needs red-flag symptoms/risk factors; wheeze not classic but possible.\n5) Acute pulmonary edema — less likely without orthopnea/edema history, but still a consideration.\nMost informative next question: any pleuritic chest pain, coughing up blood, or leg swelling? (yes/no)\n[/REASONING]\nAny pleuritic chest pain, coughing up blood, or swelling/pain in one leg?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe’re still missing key red flags and infection markers; the history remains compatible with several respiratory causes. At this point, we can’t confidently exclude serious alternatives (PE, pneumonia, acute cardiogenic causes) because the patient can’t provide discriminating details. We should ask about baseline oxygen/known COPD severity? But that’s not discriminating enough. The most discriminating single question left is: do they have chest pain/pressure or new/worsening swelling/orthopnea (cardiac/edema). However patient doesn’t know—still, we can ask a very concrete question: “Can you lie flat?”.\nTop candidates remain the same, but confidence is limited.\nMost informative next question: Can you lie flat comfortably, or do you get significantly more short of breath when lying down? (yes/no)\n[/REASONING]\nDo you get significantly more short of breath when lying flat (or do you need extra pillows)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history provided (productive colored/increased sputum, intermittent dyspnea, expiratory wheeze, COPD history) supports an acute COPD exacerbation, but the patient can’t answer key discriminating questions (infection symptoms, timing, PE/cardiac red flags). Without those, I can’t confidently rank serious alternatives (pneumonia, PE, acute cardiogenic causes) versus COPD flare.  \n[POSSIBLE] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Bronchospasm / acute asthma exacerbation, Pulmonary embolism",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 7
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10873,
+      "completion_tokens": 1555
+    },
+    "patient": {}
+  }
+}

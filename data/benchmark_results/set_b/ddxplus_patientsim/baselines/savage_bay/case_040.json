@@ -1,0 +1,102 @@
+{
+  "case_idx": 40,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Allergic sinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: Male\nChief Complaint: I have a cough, is your nose or the back of your throat itchy, and severe itching in one or both eyes",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’ve had a cough, and my nose or the back of my throat feels itchy. My eyes also feel really itchy in one or both eyes.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "To start, I’m going to narrow this down between allergic/viral causes vs infection vs asthma-type symptoms.\n\n**Current posterior (pre-test):**\n- Allergic sinusitis: 0.30  \n- URTI (viral upper respiratory infection): 0.25  \n- Viral pharyngitis: 0.15  \n- Acute laryngitis: 0.10  \n- Bronchitis: 0.10  \n(Other causes less likely for now.)\n\n**Question 1 (most discriminating):**  \nDo you have **fever** (≥38°C / 100.4°F) or do you feel **generally ill** (chills, body aches)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No fever. I don’t feel really sick overall—mostly it’s the itchy nose/throat, itchy eyes, and the cough.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (no fever / not generally ill):**  \nLikelihood ratio: fever absent makes viral/infectious less likely vs allergic.  \n- Allergic sinusitis: LR ~2.0 → posterior ~0.45  \n- URTI: LR ~0.7 → posterior ~0.18  \n- Viral pharyngitis: LR ~0.6 → posterior ~0.08  \n- Acute laryngitis: LR ~0.8 → posterior ~0.07  \n- Bronchitis: LR ~0.7 → posterior ~0.07  \n(others remain low)\n\n**Question 2:**  \nAre your symptoms **worse when you’re around triggers** like **pollen, dust, pets, smoke, or during a particular season**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my symptoms seem worse around triggers like dust and in certain seasons, and I notice it more when the air feels dusty/smoky.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Update with evidence (trigger-related, seasonal, dust/smoke):**  \nLikelihood ratio: strongly supports allergic disease and/or bronchospasm/asthma-type irritation over infection.  \n- Allergic sinusitis: LR ~3.0 → posterior ~0.70  \n- Bronchospasm / acute asthma exacerbation: LR ~1.8 → posterior ~0.12  \n- URTI: LR ~0.4 → posterior ~0.07  \n- Acute laryngitis: LR ~0.5 → posterior ~0.03  \n- Viral pharyngitis: LR ~0.4 → posterior ~0.03  \n\n**Question 3 (key discriminating):**  \nDo you have **wheezing** or **shortness of breath**, especially with exertion or at night?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t think I have wheezing or shortness of breath. Mostly it’s coughing, and the itchy nose/throat and itchy eyes.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (no wheeze/SOB):**  \nThis lowers bronchospasm/asthma-type causes.  \n- Allergic sinusitis: LR ~1.2 → posterior ~0.78  \n- Bronchospasm / acute asthma exacerbation: LR ~0.5 → posterior ~0.06  \n- URTI: LR ~0.8 → posterior ~0.06  \n- Acute laryngitis: LR ~0.7 → posterior ~0.02  \n- Viral pharyngitis: LR ~0.7 → posterior ~0.02  \n\n**Question 4:**  \nIs the cough **dry** or are you bringing up **phlegm/mucus**? If mucus, what color?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It feels more like a dry cough. I’m not bringing up much mucus, and the color isn’t really noticeable.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (dry cough, minimal mucus):**  \nSupports allergic/irritant/post-nasal drip type cough more than infectious bronchitis/pneumonia.  \n- Allergic sinusitis: LR ~1.3 → posterior ~0.83  \n- URTI: LR ~0.7 → posterior ~0.04  \n- Bronchitis: LR ~0.6 → posterior ~0.02  \n- Acute laryngitis: LR ~0.8 → posterior ~0.02  \n- Bronchospasm/asthma: LR ~0.9 → posterior ~0.05  \n\n**Question 5 (to confirm allergic vs other):**  \nDo you have **watery eyes** and/or **sneezing**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Yes, my eyes are watery sometimes, and I’ve been sneezing too.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Update (watery eyes + sneezing):**  \nThis strongly supports allergic rhinitis/sinus involvement.  \n- Allergic sinusitis: LR ~4.0 → posterior ~0.95  \n- URTI: LR ~0.6 → posterior ~0.02  \n- Viral pharyngitis: LR ~0.5 → posterior ~0.01  \n- Acute laryngitis: LR ~0.4 → posterior ~0.00  \n- Bronchitis: LR ~0.4 → posterior ~0.00  \n\nAt this point, the evidence is strong enough to give a focused differential.\n\n[DDX] Allergic sinusitis, URTI (viral upper respiratory infection), Viral pharyngitis, Acute laryngitis, Bronchitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Allergic sinusitis",
+    "predicted_set": [
+      "Allergic sinusitis",
+      "URTI (viral upper respiratory infection)",
+      "Viral pharyngitis",
+      "Acute laryngitis",
+      "Bronchitis"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7600,
+      "completion_tokens": 938
+    },
+    "patient": {
+      "prompt_tokens": 5649,
+      "completion_tokens": 175
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "case_idx": 14,
+  "baseline": "uot",
+  "column": "ac",
+  "ground_truth": "Chronic kidney failure",
+  "patient_actor_hidden": {
+    "Demographics": "40-year-old female",
+    "History": "The patient reports feeling weaker over the past few months and notices unintentional weight loss. She denies any recent infections, bleeding, or changes in urination. She mentions a previous blood workup indicating elevated BUN and creatinine levels.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized weakness",
+      "Secondary_Symptoms": [
+        "Unintentional weight loss",
+        "No urinary symptoms",
+        "No bleeding"
+      ]
+    },
+    "Past_Medical_History": "Hypertension treated with medication. Father had kidney stones.",
+    "Social_History": "Non-smoker, occasional alcohol use. Works as an accountant.",
+    "Review_of_Systems": "Denies fever, nausea, vomiting, diarrhea, dysuria, or change in bowel habits."
+  },
+  "objective_for_doctor": "Evaluate the patient for the cause of anemia, weight loss, and deteriorating renal function.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: Over the past few months I’ve felt weaker and I’ve had unintentional weight loss. My prior blood work also showed elevated BUN and creatinine, and I’m concerned about what could be causing it.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had a persistent cough with shortness of breath that worsens over time (especially with exertion or smoking exposure)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had a persistent cough or shortness of breath, and I don’t smoke. I’ve mainly just noticed the gradual weakness and unintentional weight loss.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had persistent, progressive decline in kidney function (e.g., abnormal creatinine/eGFR or long-term kidney disease) rather than a single acute episode?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“I don’t recall a single sudden episode—my doctors told me my kidney labs were persistently elevated BUN and creatinine, and I feel like my overall condition has been gradually getting worse over the past few months.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Has the patient had a persistent belief that they are pregnant (or show pregnancy-like symptoms) despite no objective evidence of pregnancy?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t had any persistent belief that I’m pregnant and I haven’t had any pregnancy-like symptoms. I’m mainly dealing with the gradual weakness, unintentional weight loss, and the persistently elevated kidney labs.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Pancreatic adenocarcinoma**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not sure—I'm mainly dealing with the gradual weakness and unintentional weight loss, and my previous blood work showed elevated BUN and creatinine. I haven’t been told I have pancreatic adenocarcinoma specifically.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Chronic lymphocytic leukemia (CLL)**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t been told I have chronic lymphocytic leukemia, and I don’t have any specific symptoms like swollen lymph nodes or frequent infections—my main issues are gradual weakness, unintentional weight loss, and the persistently elevated BUN and creatinine.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Frontotemporal Dementia**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not having issues like changes in behavior, memory problems, or trouble with language—my main concerns are the gradual weakness, unintentional weight loss, and the persistently elevated BUN and creatinine. I haven’t been told I have frontotemporal dementia.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Are you experiencing **Brief Psychotic Disorder**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“No, I’m not having any hallucinations, delusions, or episodes where I can’t tell what’s real. My concerns are mainly the gradual weakness, unintentional weight loss, and the persistently elevated BUN and creatinine.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Brief Psychotic Disorder, Chronic lymphocytic leukemia (CLL)  , Frontotemporal Dementia, Pancreatic adenocarcinoma",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Brief Psychotic Disorder",
+    "predicted_set": [
+      "Brief Psychotic Disorder",
+      "Chronic lymphocytic leukemia (CLL)  ",
+      "Frontotemporal Dementia",
+      "Pancreatic adenocarcinoma"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Brief Psychotic Disorder",
+    "predicted_set_remapped": [
+      "Brief Psychotic Disorder",
+      "Chronic lymphocytic leukemia (CLL)",
+      "Frontotemporal Dementia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 4495,
+      "completion_tokens": 421,
+      "calls": 8
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "case_idx": 43,
+  "baseline": "cw",
+  "column": "ac_set2",
+  "ground_truth": "Pseudomonas keratitis",
+  "patient_actor_hidden": {
+    "Demographics": "45-year-old male",
+    "History": "The patient reports a 1-day history of increasing pain and blurry vision in his right eye, finding it difficult to open the eye due to the pain. The left eye is unaffected. He uses contact lenses regularly and mentions no recent changes in his vision or eye care routine until this episode. He has a history of bronchial asthma for which he uses inhaled salbutamol. Professionally, he is engaged as a kindergarten teacher.",
+    "Symptoms": {
+      "Primary_Symptom": "Progressive pain and blurry vision in the right eye",
+      "Secondary_Symptoms": [
+        "Difficulty opening the affected eye",
+        "No symptoms in the left eye",
+        "Uses contact lenses"
+      ]
+    },
+    "Past_Medical_History": "Bronchial Asthma treated with inhaled salbutamol",
+    "Social_History": "Kindergarten teacher, no reported smoking or significant alcohol use",
+    "Review_of_Systems": "Denies fever, nausea, or any other systemic symptoms"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the patient presenting with progressive pain and blurry vision in one eye.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: For the past day my right eye has been getting more painful and my vision is blurry. It’s hard to open the eye because the pain is so bad, and my left eye feels normal.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. **One question:** do you have **any redness** of the right eye (or discharge/watery tearing), and is the pain **worse when you look at light**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, the right eye is pretty red and watery, and I’ve noticed light makes the pain much worse. I don’t have any discharge beyond the tearing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—this sounds more like an inflammatory/ocular surface problem. **One question:** have you noticed any **swelling around the eye or eyelid**, or is it mainly **inside the eye** (deep pain)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, there’s some mild swelling around the eyelid and the area around the eye, but the worst pain feels pretty deep rather than just on the surface. I also notice it hurts a lot when I try to keep the eye open.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** do you wear **contact lenses**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I do wear contact lenses regularly. I’ve kept them out since this started because the pain and redness are getting worse.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** have you had any **recent eye trauma** (scratch, foreign body) or **chemical exposure**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I don’t recall any trauma, scratch, or anything getting into my eye, and there hasn’t been any chemical exposure.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** do you have **any headache, nausea/vomiting**, or do you feel **halos around lights** / very reduced vision?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes—today I’ve had a mild headache, and my vision feels much more reduced with some halos around lights. I don’t have any nausea or vomiting.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**One question:** is the right eye pain/vision change **rapidly worsening over hours**, and do you feel the eye is **tender/hard** compared with the left?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s been worsening pretty quickly over the last day, and the right eye feels much more tender—keeping it open is very painful—compared with the left.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute lymphoblastic leukemia, Acute myelogenous leukemia, Acute Mesenteric Ischemia, Takotsubo cardiomyopathy, Perforated gastric peptic ulcer",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Acute lymphoblastic leukemia",
+    "predicted_set": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Acute Mesenteric Ischemia",
+      "Takotsubo cardiomyopathy",
+      "Perforated gastric peptic ulcer"
+    ],
+    "predicted_raw": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Acute Mesenteric Ischemia",
+      "Takotsubo cardiomyopathy",
+      "Perforated gastric peptic ulcer"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Acute lymphoblastic leukemia",
+    "predicted_set_remapped": [
+      "Acute lymphoblastic leukemia",
+      "Acute myelogenous leukemia",
+      "Acute Mesenteric Ischemia"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6656,
+      "completion_tokens": 257
+    },
+    "patient": {
+      "prompt_tokens": 4024,
+      "completion_tokens": 282,
+      "calls": 7
+    }
+  }
+}

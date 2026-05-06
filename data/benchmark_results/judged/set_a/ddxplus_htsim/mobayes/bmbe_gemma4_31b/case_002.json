@@ -1,0 +1,155 @@
+{
+  "case_idx": 2,
+  "baseline": "bmbe",
+  "column": "htsim",
+  "ground_truth": "Acute laryngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 61\nSex: F\nChief Complaint: fever",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’ve had a fever, and I also have a cough. My voice has become deeper, softer, or hoarse. I also have sensitive, burning pain—around my left tonsil, under the jaw, and my trachea—with a pain intensity of 1. The pain didn’t start suddenly (pace 0) and doesn’t radiate anywhere. I’m also a cigarette smoker, and I live with 4 or more people.",
+      "extracted_features": {
+        "f_e_91": "yes",
+        "f_e_201": "yes",
+        "f_e_212": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_21": "yes",
+        "f_e_54_v_161": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_56": "1",
+        "f_e_59": "0",
+        "f_e_57_v_123": "no",
+        "f_ant_e_79": "yes",
+        "f_ant_e_48": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Acute laryngitis",
+          0.6958945713722084
+        ],
+        [
+          "Viral pharyngitis",
+          0.233777524308248
+        ],
+        [
+          "URTI",
+          0.016687651840510076
+        ],
+        [
+          "Bronchitis",
+          0.01524342343003902
+        ],
+        [
+          "Influenza",
+          0.008409860540977086
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_197",
+      "doctor_question": "Are you experiencing any pain or discomfort in your upper abdomen, specifically in the area just below your ribs?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute laryngitis",
+          0.7006390750540832
+        ],
+        [
+          "Viral pharyngitis",
+          0.2353713840255798
+        ],
+        [
+          "URTI",
+          0.016801425720715843
+        ]
+      ],
+      "entropy": 1.3225252982172035
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_20",
+      "doctor_question": "Are you experiencing any pain in your right tonsil area?",
+      "patient_answer": "I don't know.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute laryngitis",
+          0.6806258613547026
+        ],
+        [
+          "Viral pharyngitis",
+          0.1412238773304361
+        ],
+        [
+          "URTI",
+          0.04800442935223756
+        ]
+      ],
+      "entropy": 1.8159335923604785
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_148",
+      "doctor_question": "Are you experiencing any pain or soreness in your throat?",
+      "patient_answer": "Yes. I have sensitive, burning pain in my tonsil (left), under the jaw, and my trachea.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Acute laryngitis",
+          0.7570476633227409
+        ],
+        [
+          "Viral pharyngitis",
+          0.19278089443034038
+        ],
+        [
+          "Bronchitis",
+          0.03325461693370302
+        ]
+      ],
+      "entropy": 1.0569446910745512
+    }
+  ],
+  "final": {
+    "predicted": "Acute laryngitis",
+    "predicted_top3": [
+      "Acute laryngitis",
+      "Viral pharyngitis",
+      "Bronchitis"
+    ],
+    "confidence": 0.7570476633227409,
+    "final_entropy": 1.0569446910745512,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS",
+    "predicted_remapped": "Acute laryngitis",
+    "predicted_set_remapped": [
+      "Acute laryngitis",
+      "Viral pharyngitis",
+      "Bronchitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11566,
+      "completion_tokens": 296
+    },
+    "patient": {}
+  }
+}

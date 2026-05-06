@@ -1,0 +1,132 @@
+{
+  "case_idx": 5,
+  "baseline": "savage_dd",
+  "column": "patientsim_v1",
+  "ground_truth": "Sarcoidosis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 53\nSex: Male\nChief Complaint: I have swollen or painful lymph nodes, sensitive pain, and burning pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I have swollen and painful lymph nodes, with sensitive and burning pain. Also, I’ve had episodes where I lose consciousness or have seizures, and I’m feeling significant shortness of breath, plus my eyes are red.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. I need to narrow this down quickly.\n\n**One question:** When you say you “lose consciousness or have seizures,” did this happen **after** the shortness of breath started, or **before**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It happened after the shortness of breath started. The breathing problem came first, and then I had the episodes where I lost consciousness/seemed like seizures.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you. That timing suggests a cardiopulmonary cause (e.g., low oxygen/arrhythmia) rather than a primary seizure disorder.\n\n**One question:** Do you have **fever** or **chills**, and if yes, how high?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have fever or chills.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Got it—no fever/chills makes some infections less likely, though not all.\n\n**One question:** Are you having **chest pain** (pressure/tightness) or **palpitations** along with the shortness of breath?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’ve had some chest discomfort along with the shortness of breath, and I also feel like my heart is racing at times (palpitations).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. With SOB + chest discomfort + palpitations, and then loss of consciousness/seizure-like episodes afterward, an arrhythmia or cardiac ischemia becomes more likely.\n\n**One question:** When you lose consciousness, do you have **tongue biting** or **loss of bladder control**, or is it more like you just “black out” and then recover?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It’s more like I just black out. I don’t think I had tongue biting or loss of bladder control. Then I recover after.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—more consistent with syncope than true epileptic seizures.\n\n**One question:** Do you have **one-sided leg swelling/pain** or recent **long travel/immobility**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have one-sided leg swelling or pain, and I haven’t had recent long travel or long immobility.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Given SOB + chest discomfort + palpitations, with syncope afterward, and also **red eyes** plus **painful swollen lymph nodes**, I’m still not confident enough to pick a single diagnosis without a key discriminating detail.\n\n**One question:** Are the **red eyes** painful and light-sensitive (worse with bright light), or is it more just redness/irritation?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "It’s painful and I feel like light makes it worse, like it’s more sensitive with bright light.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "That light sensitivity with painful red eyes raises concern for **uveitis/iritis** or inflammatory causes, but we still need the respiratory/cardiac trigger.\n\n**One question:** Have you had **cough** (dry or productive), and if productive, what color is the sputum?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have cough.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "No cough—so primary pneumonia/bronchitis is less likely, but pulmonary embolism, cardiac causes, and asthma/bronchospasm still remain.\n\n**One question:** Do you have **wheezing** or a history of asthma/COPD?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have wheezing that I know of, and I don’t have a history of asthma or COPD.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I can’t confidently narrow to a single diagnosis yet because the combination of painful swollen lymph nodes + painful light-sensitive red eyes + acute SOB/chest discomfort/palpitations with syncope could fit multiple serious conditions (cardiac arrhythmia/ischemia, pulmonary embolism, inflammatory/autoimmune disease), and we still lack key discriminators (vitals, oxygen level, exam findings, and whether the lymph nodes are localized vs generalized).\n\n[POSSIBLE] Possible NSTEMI / STEMI, Pulmonary embolism, Atrial fibrillation, Acute COPD exacerbation / infection, SLE",
+      "turn": 9
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Pulmonary embolism",
+      "Atrial fibrillation",
+      "Acute COPD exacerbation / infection",
+      "SLE"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 9
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10209,
+      "completion_tokens": 610
+    },
+    "patient": {
+      "prompt_tokens": 8940,
+      "completion_tokens": 252
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "case_idx": 3,
+  "baseline": "cw",
+  "column": "htsim_v1",
+  "ground_truth": "Acute otitis media",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 32\nSex: M\nChief Complaint: irritability",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve been more irritable and my mood has been very unstable recently. I also have sharp, sensitive pain that’s very intense (8/10), mostly in both ears.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that. First question: do you have any fever or symptoms of a recent cold/upper respiratory infection (runny nose, sore throat, cough)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say I traveled out of the country to North America in the last 4 weeks, and I have sharp, sensitive ear pain in both ears that’s very intense (8/10).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—next question: do you have any ear drainage (fluid/pus/blood) from either ear, or does hearing seem reduced/muffled?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have sharp, sensitive pain in both ears that’s very intense (8/10), but I don’t have any information about drainage or reduced/muffled hearing.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. Next question (one key discriminator): do you have any sore throat, cough, or runny/stuffy nose right now?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. I can say I have sharp, sensitive pain in both ears that’s very intense (8/10), and I’m more irritable with very unstable mood recently.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Next question: have you had any recent new medications (especially antibiotics, anti-nausea meds like metoclopramide/compazine, or antipsychotics) or any episodes of muscle spasms/twitching or abnormal movements?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don't know. The only things I can say are that I’ve been more irritable with very unstable mood recently, and I have sharp, sensitive pain in both ears that’s very intense (8/10).",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more focused question: is the ear pain triggered by touching/moving the outer ear (like pulling on the ear or pressing the tragus), or is it more “deep inside”?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I can say the pain is sharp and sensitive, and it’s in both ears (right and left) with intensity 8/10.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have enough discriminating features to confidently narrow to a specific diagnosis (e.g., fever/URI symptoms, ear drainage or hearing changes, and whether the pain is worsened by moving the outer ear).  \n\n[POSSIBLE] Acute otitis media, Acute laryngitis, Acute rhinosinusitis, Viral pharyngitis, Acute COPD exacerbation / infection",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute otitis media",
+      "Acute laryngitis",
+      "Acute rhinosinusitis",
+      "Viral pharyngitis",
+      "Acute COPD exacerbation / infection"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5265,
+      "completion_tokens": 285
+    },
+    "patient": {}
+  }
+}

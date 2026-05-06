@@ -1,0 +1,119 @@
+{
+  "case_idx": 16,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "Chronic rhinosinusitis",
+  "patient_actor_hidden": {
+    "AGE": 6,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "cough",
+    "EVIDENCES_ENG": "['pain', 'cigarette smoking', 'recent cold', 'history of pneumonia', 'nasal polyps', 'deviated nasal septum', 'gastroesophageal reflux disease (gerd) diagnosis', 'purulent nasal discharge', 'cough']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 6\n- I have pain somewhere related to my reason for consulting.\n- I smoke cigarettes.\n- I have had a cold in the last 2 weeks.\n- I have had pneumonia.\n- I have polyps in my nose.\n- I have a deviated nasal septum.\n- I have been diagnosed with gastroesophageal reflux.\n- I have greenish or yellowish nasal discharge.\n- I have a cough.\n- On a scale of 0-10, the pain intensity is 4\n- On a scale of 0-10, the pain's location precision is 8\n- On a scale of 0-10, the pace at which the pain appear is 4\n- The pain is:\n* burning\n* sharp\n- The pain locations are:\n* mouth\n* forehead\n* cheek(R)\n* cheek(L)\n* nose\n- The pain radiates to these locations:\n* forehead\n* nose\n* temple(R)\n* temple(L)\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Acute rhinosinusitis', 0.19918626563872655], ['Bronchitis', 0.17906076072285096], ['Chronic rhinosinusitis', 0.12889044489438728], ['Acute laryngitis', 0.1272425889556312], ['Pneumonia', 0.12021103520994511], ['Viral pharyngitis', 0.1142907783303011], ['Chagas', 0.06555906312407893], ['Anemia', 0.06555906312407893]]",
+    "PATHOLOGY": "Chronic rhinosinusitis",
+    "INITIAL_EVIDENCE": "toux",
+    "EVIDENCES": "['douleurxx', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_carac_@_vive', 'douleurxx_endroitducorps_@_bouche', 'douleurxx_endroitducorps_@_front', 'douleurxx_endroitducorps_@_joue_D_', 'douleurxx_endroitducorps_@_joue_G_', 'douleurxx_endroitducorps_@_nez', 'douleurxx_intens_@_4', 'douleurxx_irrad_@_front', 'douleurxx_irrad_@_nez', 'douleurxx_irrad_@_tempe_D_', 'douleurxx_irrad_@_tempe_G_', 'douleurxx_precis_@_8', 'douleurxx_soudain_@_4', 'f17.210', 'j06.9', 'j17_j18', 'j33', 'j34.2', 'k21', 'rhino_pur', 'toux', 'trav1_@_N']",
+    "patient_id": "htsim_0576",
+    "_test_index": 576,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 6-year-old M patient presents to the clinic. Chief complaint: cough.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a cough, and I also have pain that feels burning and sharp. It’s around my mouth, forehead, both cheeks, and my nose, and it can go to my forehead, nose, and my temples on both sides. The pain intensity is 4 out of 10.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—let me understand: when did the cough start, and do you also have fever or a sore throat?  \nDoctor: And is the burning/sharp pain worse when you bend forward or during coughing, and do you have runny or blocked nose or thick nasal discharge?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started with my cold in the last 2 weeks. I don’t know about fever or sore throat.\n\nThe pain is worse when I bend forward. Yes, I have thick greenish or yellowish nasal discharge.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—so after a 2-week cold you now have a cough plus thick green/yellow nasal discharge and facial pain that worsens when bending forward, which makes me think about sinus inflammation; do you have tenderness/swelling over your cheeks or forehead, and is your cough worse at night?  \nDoctor: Also, have you had any bad-smelling breath, tooth pain (upper teeth), or symptoms on only one side vs both sides?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when you press on your cheeks/forehead, does it hurt more on both sides or mainly one side, and do you have tooth pain in the upper teeth or bad breath?  \nDoctor: Also, are your symptoms improving, staying the same, or getting worse over these last 2 weeks?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I had a cold in the last 2 weeks, and since then I’ve had a cough, thick greenish or yellowish nasal discharge, and burning/sharp pain around my mouth, forehead, both cheeks, and my nose (worse when I bend forward).",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given it’s been ~2 weeks with thick green/yellow discharge and facial pain worse on bending forward, I’m concerned for **acute bacterial rhinosinusitis**—do you have symptoms lasting **at least 10 days without improving**, or did they **worsen after initially getting better**?  \nDoctor: Also, any **high fever** (≥39°C), significant facial swelling, or **headache that’s severe/unusual**?  \nDoctor: If you can, I’ll request a **REQUEST TEST: Sinus_Exam_or_Focused_Head_and_Nasal_Exam** to confirm signs and decide whether antibiotics are needed.",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But since my cold in the last 2 weeks, I’ve had a cough, thick greenish or yellowish nasal discharge, and burning/sharp pain around my mouth, forehead, both cheeks, and my nose—worse when I bend forward.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—right now, with ~2 weeks of cold symptoms plus thick green/yellow discharge and facial pain worse when bending forward, I need to distinguish viral vs bacterial sinusitis; can you tell me if symptoms are clearly **worsening after day 5–7** or are they just slowly lingering without improvement?  \nDoctor: Also, do you have **fever** (even if you’re not sure of the number) or **upper tooth pain**?  \nDoctor: I’m going to request a quick checkup to look for sinus tenderness and nasal purulence: **REQUEST TEST: Focused_Sinus_Head_and_Nasal_Exam**.",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. But I’ve had the cough, thick greenish or yellowish nasal discharge, and burning/sharp pain around my mouth, forehead, both cheeks, and my nose that’s worse when I bend forward since my cold in the last 2 weeks.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—at this point your symptoms sound most consistent with **acute bacterial rhinosinusitis** (2 weeks of cold symptoms with thick green/yellow discharge and facial pain worse when bending forward). I’m going to order a focused exam to confirm (sinus tenderness, nasal discharge, and whether there are red flags): **REQUEST TEST: Focused_Sinus_Head_and_Nasal_Exam**.  \n\nDoctor: If you get worse quickly, have a true high fever, significant facial swelling, severe headache, vision changes, or stiff neck, you need urgent evaluation. DIAGNOSIS READY: Acute bacterial rhinosinusitis (likely maxillary/acute rhinosinusitis)\n\n[DDX]\n1. Acute rhinosinusitis",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute rhinosinusitis",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6,
+    "predicted_remapped": "Acute rhinosinusitis",
+    "predicted_set_remapped": [
+      "Acute rhinosinusitis",
+      "Chronic rhinosinusitis",
+      "Influenza"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3460,
+      "completion_tokens": 659,
+      "calls": 6
+    },
+    "patient": {
+      "prompt_tokens": 6419,
+      "completion_tokens": 297,
+      "calls": 6
+    }
+  }
+}

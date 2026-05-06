@@ -1,0 +1,136 @@
+{
+  "case_idx": 5,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Membranous nephropathy",
+  "patient_actor_hidden": {
+    "Demographics": "66-year-old white male",
+    "History": "The patient reports a 10-day history of fatigue and bilateral lower leg swelling. He mentions a weight loss of 3.6 kg (8 lbs) over the past 6 months without trying. He has a history of chronic bronchitis and uses an albuterol inhaler as needed.",
+    "Symptoms": {
+      "Primary_Symptom": "Fatigue",
+      "Secondary_Symptoms": [
+        "Lower leg swelling",
+        "Unintentional weight loss"
+      ]
+    },
+    "Past_Medical_History": "Chronic bronchitis.",
+    "Social_History": "History of smoking one pack of cigarettes daily for 44 years and drinks one alcoholic beverage daily.",
+    "Review_of_Systems": "The patient denies any recent cough, change in urinary habits, chest pain, dyspnea, or fevers."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with fatigue, lower leg swelling, and weight loss.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I'm your doctor today. What brings you in today? Patient: I’ve had about 10 days of fatigue, and my lower legs have been swelling on both sides. I’ve also lost some weight over the last 6 months without trying.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had **recurrent infections with catalase-positive organisms or granuloma formation** (e.g., frequent severe infections despite treatment)?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had recurrent severe infections or problems with granulomas that I’m aware of; I’ve mostly just been dealing with the fatigue and the swelling in both legs. My breathing has been relatively stable lately, and I haven’t had any recent fevers or unusual infections.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you been diagnosed with a blood clotting disorder (e.g., abnormal platelets or leukemia) rather than a kidney, liver, lung, skin, or thyroid condition?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t been told I have any blood clotting disorder, abnormal platelets, or leukemia—no one’s mentioned anything like that. As far as I know, this started recently with the fatigue and the swelling in both legs, along with some weight loss over the last 6 months.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **yellowing of the skin/eyes (jaundice) or severe liver failure symptoms**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any yellowing of my skin or eyes, and I don’t have severe symptoms like confusion or severe abdominal swelling. I’ve mainly been feeling the fatigue, with swelling in both lower legs, and the unintentional weight loss over the past several months.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have shortness of breath with chronic cough and/or wheezing (symptoms consistent with COPD)?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Not really—my chronic bronchitis is fairly stable. I use my albuterol as needed, but I haven’t had any new or worsening shortness of breath, cough, or wheezing recently.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **kidney disease with heavy proteinuria/edema (nephrotic syndrome)**?  ",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t been told I have kidney disease. I haven’t noticed changes in my urination like foamy urine or blood in it—my main issues have been fatigue, the swelling in both lower legs, and the weight loss.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you noticed new or worsening pale skin patches (loss of skin pigment) on any part of your body?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t noticed any pale or patchy areas of loss of skin pigment anywhere on my body. My main concerns are still the fatigue, the swelling in both lower legs, and the weight loss.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Hypothyroidism (not listed)  , Impaired erythropoietin production",
+      "turn": 7
+    }
+  ],
+  "final": {
+    "predicted": "Hypothyroidism (not listed)  ",
+    "predicted_set": [
+      "Hypothyroidism (not listed)  ",
+      "Impaired erythropoietin production"
+    ],
+    "predicted_raw": [
+      "Hypothyroidism (not listed)  ",
+      "Impaired erythropoietin production"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 7,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Impaired erythropoietin production",
+      "Unknown"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3970,
+      "completion_tokens": 382,
+      "calls": 7
+    }
+  }
+}

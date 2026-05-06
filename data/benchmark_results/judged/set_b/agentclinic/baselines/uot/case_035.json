@@ -1,0 +1,102 @@
+{
+  "case_idx": 35,
+  "baseline": "uot",
+  "column": "ac_set2",
+  "ground_truth": "Takotsubo cardiomyopathy",
+  "patient_actor_hidden": {
+    "Demographics": "43-year-old woman",
+    "History": "The patient has been brought to the emergency department by her brother due to severe chest pain. She is grieving the recent loss of her husband in a car accident and is still in a state of shock over the event.",
+    "Symptoms": {
+      "Primary_Symptom": "Severe chest pain",
+      "Secondary_Symptoms": [
+        "Shortness of breath",
+        "Emotional distress"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history provided.",
+    "Social_History": "Non-smoker. No history of alcohol or drug abuse. Recently widowed.",
+    "Review_of_Systems": "Denies recent illness, fever, or cough."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with severe chest pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m having severe chest pain, and I feel short of breath. My husband recently died in a car accident, and I’m still in shock, so it’s been hard and overwhelming.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had episodes of fainting (syncope) triggered by a situation or stress (e.g., standing up, emotional stress), with no clear heart attack or stroke diagnosis?  ",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, I haven’t fainted or blacked out. The pain feels severe and my breathing is tight, and it’s worse while I’m feeling extremely overwhelmed after my husband’s death.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Have you had episodes of severe chest pain or shortness of breath that started suddenly and were not explained by a blocked coronary artery (e.g., “stress-related” sudden heart failure symptoms)?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Yes—my chest pain and tight shortness of breath started suddenly, especially when I’m emotionally overwhelmed by my husband’s death. I don’t know what blocked coronary artery would be, and I haven’t been diagnosed with one.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Did the patient have a recent physical or emotional stressor shortly before the onset of symptoms (e.g., intense stress, trauma, acute illness)?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“I had an intense emotional stress right before it started—I’m still in shock from my husband’s death, and the pain began when I became extremely overwhelmed.” “I didn’t have any recent physical illness or trauma beyond that.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Takotsubo cardiomyopathy  ",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Takotsubo cardiomyopathy",
+    "predicted_set": [
+      "Takotsubo cardiomyopathy"
+    ],
+    "predicted_raw": [
+      "Takotsubo cardiomyopathy  "
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Takotsubo cardiomyopathy",
+    "predicted_set_remapped": [
+      "Takotsubo cardiomyopathy"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 1605,
+      "completion_tokens": 181,
+      "calls": 4
+    }
+  }
+}

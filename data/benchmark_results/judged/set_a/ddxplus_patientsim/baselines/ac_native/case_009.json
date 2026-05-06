@@ -1,0 +1,84 @@
+{
+  "case_idx": 9,
+  "baseline": "ac_native",
+  "column": "patientsim",
+  "ground_truth": "Atrial fibrillation",
+  "objective_for_doctor": "A 20-year-old Male patient presents to the clinic. Chief complaint: I have dizziness, significant dyspnea, and palpitations.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I’ve been having significant shortness of breath, dizziness, and palpitations. It gets worse with exertion, and I also have a history of hyperthyroidism, a heart valve problem, severe COPD, and high blood pressure.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—when you feel the palpitations, is your pulse fast/irregular, and do you have chest pain, fainting, or new swelling in your legs?  \nDoctor: Also, do you have measured oxygen saturation or any recent fever/cough change, and when did this episode start (hours, days, or weeks)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "When I feel the palpitations, it feels fast and kind of irregular to me. I don’t have chest pain or fainting, and I haven’t noticed new swelling in my legs.  \n\nI don’t know my oxygen saturation, and I haven’t had a fever or any major new cough change. This episode started today/within the last day (hours).",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since this started within hours with fast/irregular palpitations, do you have a history of atrial fibrillation or are you currently taking thyroid medication (and did you miss doses or recently change the dose)? Also, during the dizziness, can you check your heart rate/BP and tell me what they are if you can.  \nDoctor: If possible, REQUEST TEST: 12-lead ECG (STAT) and REQUEST TEST: Basic labs (CBC, BMP, magnesium) plus TSH/free T4; also REQUEST TEST: Chest_X_Ray and pulse oximetry now.",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know if I’ve ever been told I have atrial fibrillation. For my thyroid, I am currently taking thyroid medication, and I haven’t missed doses and I don’t think I recently changed the dose.  \n\nI can’t check my heart rate/BP right now.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the onset “within hours” plus fast/irregular palpitations, do you feel lightheaded to the point of nearly passing out when you stand, and are you more short of breath sitting up or lying down?  \nDoctor: Also, any black/tarry stools, vomiting/diarrhea, or recent heavy bleeding (which could worsen anemia), and have you used any new inhalers/stimulants/decongestants today?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I feel lightheaded—like I might nearly pass out when I stand. My shortness of breath is worse when I’m up and moving; I’m not sure about a difference between sitting up vs lying down.  \n\nI haven’t noticed black/tarry stools, vomiting/diarrhea, or heavy bleeding. I haven’t used any new inhalers or stimulants or decongestants today.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a fast irregular rhythm and possible orthostatic/circulatory compromise—if you can, do you have a way to measure your pulse (rate) right now, and are you currently able to speak full sentences or are you gasping? Also, are you having any wheezing/bronchospasm compared with your usual COPD?\nDoctor: DIAGNOSIS READY: Likely acute arrhythmia—most concerning for atrial fibrillation with rapid ventricular response (with orthostatic presyncope) given fast/irregular palpitations, dyspnea, and lightheadedness beginning within hours.\n\n[DDX]\n1. Atrial fibrillation",
+      "turn": 4
+    }
+  ],
+  "final": {
+    "predicted": "Atrial fibrillation",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 4,
+    "predicted_remapped": "Atrial fibrillation",
+    "predicted_set_remapped": [
+      "Atrial fibrillation",
+      "PSVT",
+      "Pulmonary embolism"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2063,
+      "completion_tokens": 430,
+      "calls": 4
+    },
+    "patient": {
+      "prompt_tokens": 3010,
+      "completion_tokens": 282
+    }
+  }
+}

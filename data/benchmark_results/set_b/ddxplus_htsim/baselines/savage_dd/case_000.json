@@ -1,0 +1,139 @@
+{
+  "case_idx": 0,
+  "baseline": "savage_dd",
+  "column": "htsim_v1",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 42\nSex: F\nChief Complaint: productive cough",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’m here because I have a productive cough, with colored or more abundant sputum than usual, along with significant shortness of breath and wheezing when I exhale. I’ve also had one or several COPD flare-ups in the past year.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—based on productive colored sputum plus COPD flare-ups and now shortness of breath/wheezing, I’m narrowing toward infectious COPD exacerbation vs other causes of wheeze/SOB.\n\n**One question:** Do you have a **fever** (measured ≥38°C) or **chills** with this illness?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **One question:** Have you noticed **any fever/chills at all**, even if you didn’t measure your temperature?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** Are you able to check your temperature now (or do you have a recent reading)? If not, do you feel **hot/sweaty** or **shivering**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "No problem. **One question:** When you say “significant shortness of breath,” is it **worse than your usual COPD baseline**—and if so, **how fast** did it worsen (hours vs days)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "It is significant for me, but I don’t know whether it’s worse than my usual COPD baseline or how fast it worsened (hours vs days).",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **One question:** Do you have **chest pain** with breathing or coughing (pleuritic pain), or any **new leg swelling/pain**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Okay. **One question:** Have you had **any recent exposure** that could trigger wheeze—like **smoke, dust, strong fumes, or a new respiratory infection** around you?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **One question:** Are you currently able to speak in full sentences, or do you get **winded at rest** / can’t finish sentences?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** Have you noticed **blue lips/face** or a **new confusion/drowsiness** since the shortness of breath started?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask one more targeted question to help separate COPD exacerbation from other serious causes.\n\n**One question:** Have you had **any recent hemoptysis** (coughing up blood) or **sudden** sharp chest pain?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] I don’t yet have key discriminating details (vital signs/fever, chest pain/pleuritic symptoms, hemoptysis, leg swelling, ability to speak/oxygenation, and timing), so I can’t confidently rank serious alternatives vs COPD exacerbation.\n\n[POSSIBLE] Acute COPD exacerbation / infection, Pneumonia, Pulmonary embolism, Bronchospasm / acute asthma exacerbation, Acute pulmonary edema",
+      "turn": 10
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Bronchospasm / acute asthma exacerbation",
+      "Acute pulmonary edema"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 10
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10570,
+      "completion_tokens": 498
+    },
+    "patient": {}
+  }
+}

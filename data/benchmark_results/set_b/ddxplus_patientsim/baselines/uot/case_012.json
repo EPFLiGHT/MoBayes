@@ -1,0 +1,89 @@
+{
+  "case_idx": 12,
+  "baseline": "uot",
+  "column": "patientsim_v1",
+  "ground_truth": "Spontaneous pneumothorax",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 8\nSex: Male\nChief Complaint: I have right side of the chest pain, left side of the chest pain, and upper chest pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have chest pain on both sides—right and left—and also in the upper chest. It feels like a knife-stab, very violent pain, and I’m really short of breath, especially when I move or try to exert myself. It also hurts more when I take a breath in.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **fever with cough and/or shortness of breath**?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No fever. I don’t have a cough. I do have shortness of breath though.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have **chest pain that is worse with breathing in (pleuritic pain)** or **sudden shortness of breath**?  ",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—my chest pain is worse when I breathe in. And my shortness of breath feels sudden too.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Does the patient have **pleuritic chest pain (worse with breathing) or shortness of breath**?  ",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes. The chest pain is worse when I breathe, and I’m very short of breath.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[ASK] Do you have pleuritic chest pain (sharp pain worse with deep breathing) or sudden chest pain with shortness of breath?  ",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it's sharp and worse with deep breathing, and the shortness of breath feels sudden.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Pulmonary embolism  , Spontaneous pneumothorax",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary embolism  ",
+    "predicted_set": [
+      "Pulmonary embolism  ",
+      "Spontaneous pneumothorax"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "patient": {
+      "prompt_tokens": 3728,
+      "completion_tokens": 153
+    }
+  }
+}

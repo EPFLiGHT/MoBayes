@@ -1,0 +1,192 @@
+{
+  "case_idx": 17,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 7\nSex: Female\nChief Complaint: I have a cough, sensitive pain, and burning pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a cough and burning, sensitive pain in my throat. My right and left tonsils hurt, and my pharynx and the area around my thyroid cartilage also hurt—my pain is about 8 out of 10 and started pretty fast. I also have a clear runny nose or nasal congestion.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Let’s narrow this down. First, a quick baseline: with **acute onset throat pain + cough + nasal congestion**, the leading possibilities are **viral URTI/viral pharyngitis**, **acute laryngitis**, or **acute rhinosinusitis**; less likely but important to consider depending on red flags are **epiglottitis** or **anaphylaxis**.\n\n**Current posterior (rough):**\n- Viral pharyngitis / URTI: **0.45**\n- Acute laryngitis: **0.20**\n- Acute rhinosinusitis: **0.15**\n- Epiglottitis: **0.10**\n- Pneumonia: **0.10**\n\n**Question 1 (most discriminating):**  \nDo you have **any trouble breathing, drooling, muffled “hot potato” voice, or difficulty swallowing saliva**? (Yes/No)",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. I don’t have trouble breathing, and I’m not drooling. I can swallow my saliva okay.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Good—those features make **epiglottitis** much less likely.\n\n**Update (approximate Bayesian):**\n- Viral pharyngitis / URTI: **0.50** (LR ~1.1)\n- Acute laryngitis: **0.22** (LR ~1.1)\n- Acute rhinosinusitis: **0.18** (LR ~1.2)\n- Epiglottitis: **0.03** (LR ~0.3)\n- Pneumonia: **0.07** (LR ~0.7)\n\n**Question 2:**  \nDo you have a **fever** (measured or felt), and if so what temperature?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know my temperature, doctor. I feel like I might have a fever, but I haven’t measured it.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Okay—“possible fever” is weak evidence, so we’ll treat it as mild support for infection.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.52** (LR ~1.1)\n- Acute laryngitis: **0.20** (LR ~1.0)\n- Acute rhinosinusitis: **0.18** (LR ~1.0)\n- Epiglottitis: **0.03** (LR ~1.0)\n- Pneumonia: **0.07** (LR ~1.1)\n\n**Question 3:**  \nDo you have **any shortness of breath, chest pain, or wheezing**, or is it mainly throat pain and cough? (Pick the closest: mainly throat/cough only vs any breathing/chest symptoms)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly throat pain and cough. I don’t have shortness of breath or chest pain, and I’m not wheezing.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "That pushes pneumonia and lower-airway disease down.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.56**\n- Acute laryngitis: **0.22**\n- Acute rhinosinusitis: **0.18**\n- Epiglottitis: **0.02**\n- Pneumonia: **0.02**\n\n**Question 4:**  \nIs your voice **hoarse** or has it changed (worse when you speak), or is it normal? (Yes/No)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, doctor—my voice feels hoarse and it hurts more when I speak.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Hoarseness that worsens with speaking strongly supports **laryngitis**.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.35** (LR ~0.7)\n- Acute laryngitis: **0.55** (LR ~2.5)\n- Acute rhinosinusitis: **0.08** (LR ~0.5)\n- Epiglottitis: **0.01**\n- Pneumonia: **0.01**\n\n**Question 5:**  \nDo you have **any ear pain** or a feeling of fullness in either ear? (Yes/No)",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. I don’t have ear pain or fullness.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "No ear symptoms make otitis media less likely (and it doesn’t strongly fit the current top diagnoses anyway).\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.36**\n- Acute laryngitis: **0.56**\n- Acute rhinosinusitis: **0.08**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 6:**  \nDo you have **any visible white patches/pus on the tonsils** or **swollen tender neck glands**? (Yes/No)",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor—I don’t see white patches or pus on my tonsils. I’m not sure about neck glands, but I don’t think they’re swollen.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "That lowers bacterial tonsillitis/strep-type presentations (though we’re not asked to include strep explicitly in the list).\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.45**\n- Acute laryngitis: **0.50**\n- Acute rhinosinusitis: **0.05**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 7:**  \nHow long has this been going on—**hours vs 1–3 days vs longer**?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It started pretty fast—about a day now, maybe less than 3 days.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Acute onset over ~1 day fits viral URTI/laryngitis well.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.48**\n- Acute laryngitis: **0.52**\n- Acute rhinosinusitis: **0.05**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 8:**  \nIs the nasal discharge **clear** (watery) or **thick/yellow-green**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "It’s clear and watery, doctor.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Watery clear rhinorrhea supports viral URI over bacterial sinusitis.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.50**\n- Acute laryngitis: **0.50**\n- Acute rhinosinusitis: **0.01**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 9:**  \nDo you have **cough that’s mostly dry** or **producing phlegm**? If phlegm, what color?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "My cough is mostly dry. I don’t have much phlegm.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Dry cough also fits viral URI/laryngitis.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.45**\n- Acute laryngitis: **0.55**\n- Acute rhinosinusitis: **0.01**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 10:**  \nAny **heartburn/reflux**, sour taste, or symptoms worse after lying down? (Yes/No)",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. It’s not like heartburn, and it’s not worse after lying down.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "That makes GERD less likely.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.46**\n- Acute laryngitis: **0.54**\n- Acute rhinosinusitis: **0.01**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 11:**  \nAny **known allergies** or history of allergic rhinitis/asthma, and do you have **itchy eyes/itchy nose**? (Yes/No)",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. I don’t have known allergies, and I don’t have itchy eyes or itchy nose.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "That lowers allergic causes.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.48**\n- Acute laryngitis: **0.52**\n- Acute rhinosinusitis: **0.00**\n- Epiglottitis: **0.00**\n- Anaphylaxis: **0.00**\n\n**Question 12:**  \nDo you have **any severe headache, facial pain/pressure**, or **tooth pain** that’s prominent? (Yes/No)",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. I don’t have severe headache or facial pain/pressure, and no tooth pain.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "That makes sinusitis even less likely.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.50**\n- Acute laryngitis: **0.50**\n- Acute rhinosinusitis: **0.00**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 13:**  \nAny **sore throat with one-sided swelling**, muffled voice, or inability to open your mouth well? (Yes/No)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. It’s sore on both sides, and I can open my mouth normally.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Great—bilateral sore throat without trismus or muffled voice supports uncomplicated viral illness rather than deep neck space infection.\n\n**Update (approximate):**\n- Viral pharyngitis / URTI: **0.48**\n- Acute laryngitis: **0.52**\n- Acute rhinosinusitis: **0.00**\n- Epiglottitis: **0.00**\n- Pneumonia: **0.00**\n\n**Question 14:**  \nAny **immunocompromise**, recent chemotherapy/steroids, or history of recurrent severe infections? (Yes/No)",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "No, doctor. I’m not immunocompromised, and I haven’t had chemo or steroids.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute laryngitis, URTI (viral pharyngitis), Acute rhinosinusitis, Pneumonia, GERD",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Acute laryngitis",
+    "predicted_set": [
+      "Acute laryngitis",
+      "URTI (viral pharyngitis)",
+      "Acute rhinosinusitis",
+      "Pneumonia",
+      "GERD"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 29873,
+      "completion_tokens": 1810
+    },
+    "patient": {
+      "prompt_tokens": 27021,
+      "completion_tokens": 395
+    }
+  }
+}

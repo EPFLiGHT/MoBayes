@@ -1,0 +1,192 @@
+{
+  "case_idx": 16,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "URTI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 57\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and forehead pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve had a fever and really sensitive pain, with pain in my forehead—also pain around both temples and my left cheek. I’ve also got a sore throat and nasal congestion/clear runny nose, and I was in contact with someone with similar symptoms in the last couple of weeks.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (pre-test priors, based on common ED causes of fever + URI symptoms + facial pain):\n- Influenza: 0.20  \n- URTI: 0.20  \n- Acute rhinosinusitis: 0.15  \n- Viral pharyngitis: 0.15  \n- Acute pulmonary edema: 0.00 (unlikely; included only as baseline list item)  \n\nTo narrow this down, one question at a time:\n\n**Question 1:** How high is the fever (highest temperature), and how many days has it been going on?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "My highest temperature was about **101.5°F (38.6°C)**. It’s been going on for **about 2 days**.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (updated with fever ~38.6°C for 2 days; modest fever and short duration favors viral illness):\n- Influenza: 0.25  \n- URTI: 0.22  \n- Acute rhinosinusitis: 0.14  \n- Viral pharyngitis: 0.14  \n- (others collectively): 0.25\n\n**Question 2:** Do you have any **facial swelling** or **tooth pain**, and is the facial pain **worse when you bend forward**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No facial swelling. I don’t have tooth pain. The facial pain is pretty bad, but I’m not sure about it being worse when I bend forward.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no swelling/tooth pain; facial pain present but not clearly positional):\n- Influenza: 0.27  \n- URTI: 0.24  \n- Acute rhinosinusitis: 0.16  \n- Viral pharyngitis: 0.13  \n- (others): 0.20\n\n**Question 3:** Any **eye pain**, **vision changes**, or **severe headache** that’s out of proportion to the fever?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "No eye pain and no vision changes. I don’t think it’s the worst kind of headache—it's mainly the forehead and temple pain with the fever.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no eye/vision symptoms; headache not “out of proportion”):\n- Influenza: 0.30  \n- URTI: 0.26  \n- Acute rhinosinusitis: 0.18  \n- Viral pharyngitis: 0.13  \n- (others): 0.13\n\n**Question 4:** Is your sore throat **mainly pain with swallowing**, and do you have **cough** (yes/no)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it hurts more when I swallow. I don’t have cough.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (odynophagia without cough shifts toward viral pharyngitis/URTI):\n- Influenza: 0.28  \n- Viral pharyngitis: 0.28  \n- URTI: 0.22  \n- Acute rhinosinusitis: 0.16  \n- (others): 0.06\n\n**Question 5:** Any **white patches on your tonsils**, **swollen/tender neck glands**, or **known strep exposure**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I haven’t noticed white patches on my tonsils. I think my neck glands might be a bit tender, but I’m not sure. I don’t know of any specific strep exposure.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no visible exudate; tender nodes possible):\n- Influenza: 0.27  \n- Viral pharyngitis: 0.30  \n- URTI: 0.23  \n- Acute rhinosinusitis: 0.17  \n- (others): 0.03\n\n**Question 6:** Do you have **body aches** or **fatigue** that are prominent (yes/no)?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I'm pretty tired and I have body aches.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (body aches/tiredness increases influenza likelihood):\n- Influenza: 0.38  \n- Viral pharyngitis: 0.26  \n- URTI: 0.20  \n- Acute rhinosinusitis: 0.16  \n- (others): 0.00\n\n**Question 7:** Any **cough at all** (even mild), or is it truly absent?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "It’s truly absent—I don’t have cough.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no cough slightly lowers influenza/URTI; raises isolated pharyngitis):\n- Influenza: 0.34  \n- Viral pharyngitis: 0.30  \n- URTI: 0.18  \n- Acute rhinosinusitis: 0.18\n\n**Question 8:** Are you having **nasal congestion with thick/purulent discharge** (yellow/green) or is it **clear runny nose** only?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Mostly it’s a **clear runny nose** and congestion. I don’t think it’s thick or yellow/green.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (clear rhinorrhea favors viral URTI over bacterial sinusitis):\n- Influenza: 0.36  \n- Viral pharyngitis: 0.31  \n- URTI: 0.20  \n- Acute rhinosinusitis: 0.13\n\n**Question 9:** Any **shortness of breath**, wheezing, or chest tightness?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "No shortness of breath, no wheezing, and no chest tightness.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no lower-respiratory symptoms):\n- Influenza: 0.40  \n- Viral pharyngitis: 0.33  \n- URTI: 0.20  \n- Acute rhinosinusitis: 0.07\n\n**Question 10:** Any **nausea/vomiting or diarrhea**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have nausea, vomiting, or diarrhea.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (no GI symptoms doesn’t exclude influenza/viral):\n- Influenza: 0.41  \n- Viral pharyngitis: 0.34  \n- URTI: 0.21  \n- Acute rhinosinusitis: 0.04\n\n**Question 11:** How old are you, and do you have any major immune problems (e.g., HIV, chemo, steroids)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m **57 years old**. And no—I don’t have any major immune problems like HIV, chemo, or taking steroids.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (age 57 slightly increases risk of influenza complications but still fits viral URI):\n- Influenza: 0.42  \n- Viral pharyngitis: 0.33  \n- URTI: 0.21  \n- Acute rhinosinusitis: 0.04\n\n**Question 12:** Have you had any **shortness of breath, chest pain, or leg swelling**, or is this purely upper-respiratory symptoms?",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "It’s purely upper-respiratory symptoms. I don’t have shortness of breath, chest pain, or leg swelling.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (purely upper-respiratory):\n- Influenza: 0.44  \n- Viral pharyngitis: 0.34  \n- URTI: 0.22  \n- Acute rhinosinusitis: 0.00\n\n**Question 13:** Did the symptoms start **suddenly** (within hours) or **gradually** (over a couple days)?",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "They started **gradually**, over a couple of days.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Current posterior (gradual onset favors URTI/viral pharyngitis over influenza’s often abrupt onset):\n- Influenza: 0.40  \n- Viral pharyngitis: 0.36  \n- URTI: 0.24  \n- Acute rhinosinusitis: 0.00\n\n**Question 14:** Any **tenderness/swelling over the face** or **pain that’s clearly one-sided** (left cheek more than right), or is it symmetric?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "It feels mostly **symmetric-ish**, but I notice the **left cheek** pain more than the right. I don’t see any swelling.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Influenza, Viral pharyngitis, URTI, Acute rhinosinusitis, Acute laryngitis",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_set": [
+      "Influenza",
+      "Viral pharyngitis",
+      "URTI",
+      "Acute rhinosinusitis",
+      "Acute laryngitis"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 26145,
+      "completion_tokens": 1350
+    },
+    "patient": {
+      "prompt_tokens": 22486,
+      "completion_tokens": 422
+    }
+  }
+}

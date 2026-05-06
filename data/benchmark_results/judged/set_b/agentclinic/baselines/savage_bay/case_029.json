@@ -1,0 +1,192 @@
+{
+  "case_idx": 29,
+  "baseline": "savage_bay",
+  "column": "ac_set2",
+  "ground_truth": "Acute myelogenous leukemia",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old male",
+    "History": "The patient complains of a 2-month history of generalized fatigue. He mentions no specific triggers but notes that the fatigue has been progressively worsening. He denies any recent infections, significant weight loss, or night sweats.",
+    "Symptoms": {
+      "Primary_Symptom": "Generalized fatigue",
+      "Secondary_Symptoms": [
+        "Appearance of pale skin",
+        "Presence of multiple pinpoint, red, nonblanching spots on extremities"
+      ]
+    },
+    "Past_Medical_History": "No significant past medical history. No known blood disorders or cancer history in the family.",
+    "Social_History": "Retired teacher, lives with his wife. Non-smoker and drinks alcohol socially.",
+    "Review_of_Systems": "Denies fever, significant weight loss, night sweats, or recent infections. Mentions occasional mild shortness of breath during exertion."
+  },
+  "objective_for_doctor": "Assess and diagnose the patient presenting with generalized fatigue, pallor, and abnormal blood findings.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve been feeling progressively worse generalized fatigue for about two months, and my skin looks pale lately. I’ve also noticed several small pinpoint red spots on my extremities that don’t seem to blanch, and I get mild shortness of breath with exertion.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a focused question to narrow this down.\n\n**Current posterior (after your initial symptoms):**\n- **Acute myelogenous leukemia:** 0.30  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Essential thrombocythemia:** 0.05  \n- **Impaired erythropoietin production:** 0.10  \n- **Fulminant hepatic failure:** 0.05  \n- **Chronic obstructive pulmonary disease (COPD):** 0.05  \n- **Other/insufficient for specific diagnosis:** 0.30  \n\nYour “pale” + non-blanching pinpoint red spots (possible petechiae) + progressive fatigue strongly raises concern for a hematologic process (especially leukemia), but I need one key detail.\n\n**Question 1 (one at a time):**  \nHave you had **fever, frequent infections, or night sweats** during these two months?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t had fever, frequent infections, or night sweats during these two months. It’s mostly just the worsening fatigue, the pallor, and those small non-blanching red spots on my extremities.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no fever/infections/night sweats”):**\n- **Acute myelogenous leukemia:** 0.35  \n- **Acute lymphoblastic leukemia:** 0.12  \n- **Essential thrombocythemia:** 0.04  \n- **Impaired erythropoietin production:** 0.12  \n- **Fulminant hepatic failure:** 0.03  \n- **Chronic obstructive pulmonary disease (COPD):** 0.03  \n- **Other/insufficient for specific diagnosis:** 0.31  \n\nAbsence of B-symptoms makes leukemia *less* likely than if present, but petechiae/non-blanching spots with pallor still keeps marrow/platelet disorders high on the list.\n\n**Question 2:**  \nDo you have **any bleeding symptoms**—for example **gum bleeding, nosebleeds, blood in urine/stool, or unusually heavy/prolonged menstrual bleeding**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t noticed gum or nose bleeding, blood in my urine or stool, or any unusual bleeding that I can tell; it’s mainly the progressive fatigue, the pale skin, and those small non-blanching red spots on my extremities.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no overt bleeding”):**\n- **Acute myelogenous leukemia:** 0.33  \n- **Acute lymphoblastic leukemia:** 0.11  \n- **Essential thrombocythemia:** 0.03  \n- **Impaired erythropoietin production:** 0.14  \n- **Fulminant hepatic failure:** 0.03  \n- **Chronic obstructive pulmonary disease (COPD):** 0.02  \n- **Other/insufficient for specific diagnosis:** 0.34  \n\nNo bleeding lowers the probability of severe thrombocytopenia, but petechiae can still occur with mild platelet dysfunction or early marrow disease. Pallor + exertional dyspnea also raises anemia from reduced production.\n\n**Question 3:**  \nHave you had **any unintentional weight loss** or **new bone pain** (back, hips, long bones) or **painful swollen lymph nodes**?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any unintentional weight loss, and I don’t have new bone pain or painful swollen lymph nodes—this has mainly been the worsening fatigue, the pallor, and those small non-blanching red spots on my extremities.”",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no weight loss/bone pain/lymphadenopathy”):**\n- **Acute myelogenous leukemia:** 0.30  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Essential thrombocythemia:** 0.02  \n- **Impaired erythropoietin production:** 0.18  \n- **Fulminant hepatic failure:** 0.03  \n- **Chronic obstructive pulmonary disease (COPD):** 0.02  \n- **Other/insufficient for specific diagnosis:** 0.35  \n\nThis pattern still fits a marrow/hematologic issue (petechiae + pallor), but the lack of bone pain/lymphadenopathy and B-symptoms makes acute leukemia a bit less dominant. “Impaired erythropoietin production” is rising, but petechiae are not classic—so I need a discriminating lab/clinical clue.\n\n**Question 4:**  \nDo you know if you’ve had **recent lab tests** (even at a clinic)—especially **hemoglobin/hematocrit, platelet count, or white blood cell count**?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I haven’t had any blood tests recently that I know of—no one’s checked my hemoglobin, platelets, or white blood cell count during these two months.”",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no prior labs”):**\n- **Acute myelogenous leukemia:** 0.28  \n- **Acute lymphoblastic leukemia:** 0.10  \n- **Essential thrombocythemia:** 0.02  \n- **Impaired erythropoietin production:** 0.20  \n- **Fulminant hepatic failure:** 0.03  \n- **Chronic obstructive pulmonary disease (COPD):** 0.02  \n- **Other/insufficient for specific diagnosis:** 0.35  \n\nWithout labs, we can’t distinguish anemia-from-low-EPO vs marrow failure vs other causes of petechiae. I’ll ask about the **character** of the red spots.\n\n**Question 5:**  \nAre the pinpoint red spots **flat** (like tiny dots in the skin) and do they **appear suddenly or spread**, and are they **on both legs/extremities**?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, the spots are flat, like tiny dots, and they’ve appeared gradually over time on both my legs and other extremities; I’d say they’re spreading a bit rather than suddenly flaring.”",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “gradual, flat pinpoint non-blanching spots on extremities”):**\n- **Acute myelogenous leukemia:** 0.26  \n- **Acute lymphoblastic leukemia:** 0.09  \n- **Essential thrombocythemia:** 0.02  \n- **Impaired erythropoietin production:** 0.22  \n- **Fulminant hepatic failure:** 0.05  \n- **Chronic obstructive pulmonary disease (COPD):** 0.01  \n- **Other/insufficient for specific diagnosis:** 0.35  \n\nGradual petechiae-like lesions + pallor still strongly suggests a hematologic process, but “impaired erythropoietin production” is also plausible for pallor/exertional dyspnea (though it doesn’t explain petechiae well). Fulminant hepatic failure is less likely without jaundice/encephalopathy, but I need to check for liver clues.\n\n**Question 6:**  \nAny **yellowing of the eyes/skin**, **dark urine**, **itching**, or **abdominal swelling**?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, no—I haven’t noticed any yellowing of my eyes or skin, dark urine, itching, or abdominal swelling. It’s mainly the worsening fatigue, the pale skin, and those flat pinpoint red spots on my extremities.”",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no jaundice/dark urine/itching/abdominal swelling”):**\n- **Acute myelogenous leukemia:** 0.25  \n- **Acute lymphoblastic leukemia:** 0.09  \n- **Essential thrombocythemia:** 0.02  \n- **Impaired erythropoietin production:** 0.24  \n- **Fulminant hepatic failure:** 0.02  \n- **Chronic obstructive pulmonary disease (COPD):** 0.01  \n- **Other/insufficient for specific diagnosis:** 0.37  \n\nAt this point, we have two competing buckets: (1) marrow/hematologic malignancy (AML/ALL) causing anemia and possible thrombocytopenia/petechiae; (2) anemia due to low erythropoietin (though petechiae is not typical). To discriminate, I need one more high-yield symptom: mucosal bleeding or easy bruising (thrombocytopenia) vs more isolated anemia.\n\n**Question 7:**  \nHave you noticed **easy bruising** or **bleeding from gums/nose** at all, even minor?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t had easy bruising or any bleeding from my gums or nose; it’s mainly the progressive fatigue, the pale skin, and the small flat non-blanching red dots on my extremities.”",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no easy bruising/mucosal bleeding”):**\n- **Acute myelogenous leukemia:** 0.22  \n- **Acute lymphoblastic leukemia:** 0.08  \n- **Essential thrombocythemia:** 0.02  \n- **Impaired erythropoietin production:** 0.28  \n- **Fulminant hepatic failure:** 0.02  \n- **Chronic obstructive pulmonary disease (COPD):** 0.01  \n- **Other/insufficient for specific diagnosis:** 0.37  \n\nNow “impaired erythropoietin production” is rising because the dominant symptom is pallor/exertional dyspnea without bleeding. But petechiae-like non-blanching dots still need explanation—could be thrombocytopenia that hasn’t declared itself as bruising, or another systemic process.\n\n**Question 8:**  \nDo you have **known kidney disease** or symptoms like **decreased urination, swelling in legs/around eyes, or long-standing diabetes/hypertension**?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I don’t have known kidney disease, and I haven’t noticed decreased urination, leg or eye swelling, or any long-standing diabetes or hypertension. It’s mainly the worsening fatigue, the pallor, and those flat pinpoint red spots on my extremities with mild shortness of breath on exertion.”",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no kidney disease/edema/diabetes/HTN”):**\n- **Acute myelogenous leukemia:** 0.20  \n- **Acute lymphoblastic leukemia:** 0.07  \n- **Essential thrombocythemia:** 0.02  \n- **Impaired erythropoietin production:** 0.30  \n- **Fulminant hepatic failure:** 0.02  \n- **Chronic obstructive pulmonary disease (COPD):** 0.01  \n- **Other/insufficient for specific diagnosis:** 0.38  \n\nWe still can’t reconcile petechiae with “impaired erythropoietin production” alone. At this point, the most discriminating next step would be whether the patient has **symptoms of anemia** beyond dyspnea (e.g., dizziness, palpitations) and/or any **GI symptoms** (which could suggest alternative causes of anemia, though not in our provided list). But since we must choose from the list, the hematologic malignancies remain top contenders.\n\n**Question 9:**  \nHave you had **dizziness, palpitations, headaches, or feeling like you might faint** when standing or exerting yourself?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve had some dizziness when I stand and occasional palpitations with exertion, but I haven’t fainted. It all seems to go along with the worsening fatigue and the pale skin, and I’m still seeing those tiny non-blanching red dots on my extremities.”",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “orthostatic dizziness + palpitations with exertion”):**\n- **Acute myelogenous leukemia:** 0.19  \n- **Acute lymphoblastic leukemia:** 0.07  \n- **Essential thrombocythemia:** 0.01  \n- **Impaired erythropoietin production:** 0.33  \n- **Fulminant hepatic failure:** 0.02  \n- **Chronic obstructive pulmonary disease (COPD): 0.01  \n- **Other/insufficient for specific diagnosis:** 0.37  \n\nOrthostatic symptoms/palpitations strengthen anemia as a driver, which supports low erythropoietin or marrow failure. However, petechiae-like non-blanching dots still point toward thrombocytopenia/marrow involvement, which would fit AML/ALL more than isolated low EPO—yet we don’t have bleeding/bruising.\n\nWe’re at the point where I need one more discriminating question: **any recent medication/exposure** that could cause cytopenias or platelet dysfunction (e.g., chemotherapy, radiation, new antibiotics, anticoagulants).  \n\n**Question 10:**  \nHave you started any **new medications** in the last 2–3 months (including blood thinners, aspirin/NSAIDs), or had any **recent chemotherapy/radiation/toxic exposure**?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "“No, doctor—I haven’t started any new medications, and I’m not on blood thinners or aspirin/NSAIDs. I haven’t had chemotherapy or radiation or any unusual toxic exposures that I’m aware of.”",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "**Current posterior (updated with “no new meds/anticoagulants/aspirin/toxic exposure”):**\n- **Acute myelogenous leukemia:** 0.18  \n- **Acute lymphoblastic leukemia:** 0.06  \n- **Essential thrombocythemia:** 0.01  \n- **Impaired erythropoietin production:** 0.36  \n- **Fulminant hepatic failure:** 0.02  \n- **Chronic obstructive pulmonary disease (COPD): 0.01  \n- **Other/insufficient for specific diagnosis:** 0.36  \n\nWe still can’t fully explain the non-blanching pinpoint rash with “impaired erythropoietin production” alone, but among the provided options, that remains the best match for progressive pallor + exertional dyspnea + orthostatic symptoms without bleeding or infection.\n\nGiven the uncertainty and the limited disease list, I can’t confidently produce a top-5 that truly fits *both* anemia symptoms and petechiae-like lesions.\n\n**Question 11:**  \nHave you noticed **any gum bleeding when brushing**, **easy bruising**, or **prolonged bleeding from small cuts** (even if you haven’t had nosebleeds)?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: “Have you noticed any gum bleeding when brushing, easy bruising, or prolonged bleeding from small cuts?” Patient: “No, doctor—my gums don’t bleed when I brush, I don’t bruise easily, and small cuts don’t seem to bleed longer than usual.”",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The history strongly suggests clinically significant anemia (pallor, exertional dyspnea, orthostatic dizziness/palpitations), but the “non-blanching pinpoint red dots” (petechiae) without any bleeding/bruising makes it hard to confidently map to a specific diagnosis from the provided list without objective vitals and labs (CBC with differential/platelets, smear, retic count, LFTs, etc.).\n\n[POSSIBLE] Impaired erythropoietin production, Acute myelogenous leukemia, Acute lymphoblastic leukemia, Fulminant hepatic failure, Essential thrombocythemia",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Impaired erythropoietin production",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Fulminant hepatic failure",
+      "Essential thrombocythemia"
+    ],
+    "predicted_raw": [
+      "Impaired erythropoietin production",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia",
+      "Fulminant hepatic failure",
+      "Essential thrombocythemia"
+    ],
+    "top1_hit": false,
+    "top3_hit": true,
+    "raw_top1_hit": false,
+    "raw_top3_hit": true,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 12,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Impaired erythropoietin production",
+      "Acute myelogenous leukemia",
+      "Acute lymphoblastic leukemia"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 28537,
+      "completion_tokens": 2706
+    },
+    "patient": {
+      "prompt_tokens": 21563,
+      "completion_tokens": 643,
+      "calls": 12
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "case_idx": 9,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Atrial fibrillation",
+  "patient_actor_hidden": {
+    "AGE": 11,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "shortness of breath",
+    "EVIDENCES_ENG": "['heart valve issue', 'shortness of breath', 'dizziness', 'high blood pressure', 'history of heart attack or angina', 'palpitations', 'irregular heartbeat', 'exertional symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 11\n- I have a known issue with one of my heart valves.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I feel slightly dizzy or lightheaded.\n- I have high blood pressure or do I take medications to treat high blood pressure.\n- I have had a heart attack or I have angina (chest pain).\n- My heart is beating fast (racing), irregularly (missing a beat), or I feel palpitations.\n- I feel my heart is beating very irregularly or in a disorganized pattern.\n- I have symptoms that are increased with physical exertion but alleviated with rest.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Atrial fibrillation', 0.152100122476311], ['PSVT', 0.13396475963769944], ['Myocarditis', 0.11548714812024098], ['Pulmonary embolism', 0.10563395343500293], ['Anemia', 0.09894776042800583], ['Guillain-Barré syndrome', 0.09044401669574155], ['Scombroid food poisoning', 0.0636916153992242], ['Acute dystonic reactions', 0.0636916153992242], ['Myasthenia gravis', 0.0636916153992242], ['Anaphylaxis', 0.0636916153992242], ['SLE', 0.029486177597899184], ['Chagas', 0.019169600012202383]]",
+    "PATHOLOGY": "Atrial fibrillation",
+    "INITIAL_EVIDENCE": "dyspn",
+    "EVIDENCES": "['ap_valve', 'dyspn', 'etourdissement', 'i10', 'i25.1', 'palpit', 'pls_irreg', 'trav1_@_N', 'ww_effort']",
+    "patient_id": "htsim_0325",
+    "_test_index": 325,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 11-year-old M patient presents to the clinic. Chief complaint: shortness of breath.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have shortness of breath or difficulty breathing in a significant way. I also feel slightly dizzy or lightheaded, and it gets worse with physical exertion but improves with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m Dr. Agent—how long has this been happening (hours/days/weeks), and do you have any fever, cough, chest pain, or wheezing?  \nDoctor: Also, do you have any swelling of the legs/face or known asthma/allergies, and has there been any recent illness, travel, or exposure to smoke/strong odors?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. Also, I have a known issue with one of my heart valves, and I’ve had my heart beating fast or irregularly, with palpitations. I also have had a heart attack or angina (chest pain), and my symptoms increase with physical exertion but are alleviated with rest.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your known heart valve problem plus fast/irregular heartbeat and shortness of breath worse with exertion, I need to check for red flags: do you ever faint or get severe chest pain, and have you had any leg swelling, waking up at night gasping, or trouble lying flat?  \nDoctor: I’m going to request tests to sort this out quickly: REQUEST TEST: ECG, REQUEST TEST: Chest_X-Ray, REQUEST TEST: Echocardiogram, REQUEST TEST: CBC_and_BMP (electrolytes/renal), REQUEST TEST: BNP_and_Troponin, REQUEST TEST: Pulse_Oximetry (rest and exertion).",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. Also, I’ve been having shortness of breath that gets worse with physical exertion but is relieved with rest, and I feel slightly dizzy or lightheaded. I also have a known issue with one of my heart valves and I’ve noticed my heart beating fast or irregularly with palpitations, including feeling it very irregularly or in a disorganized pattern.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about a potentially serious heart-related cause—right now, can you tell me if you’ve had any fainting or near-fainting, severe chest pain/pressure, bluish lips, or worsening breathing at night/while lying flat?  \nDoctor: Also, is your heart rhythm sometimes very fast even at rest, and do you have leg swelling or recent weight gain?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. Also, I have shortness of breath that gets worse with physical exertion but is alleviated with rest, and I feel slightly dizzy or lightheaded. I also have a known issue with one of my heart valves, and I’ve noticed my heart beating fast or irregularly, with palpitations, including feeling it very irregularly or in a disorganized pattern.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to do a focused physical exam now—listen to your heart and lungs, and I’ll check your vitals (including oxygen saturation) and look for any leg swelling; before that, can you tell me your age and whether you have any known valve type (e.g., mitral/aortic regurgitation or stenosis) and any recent missed doses of heart meds?  \nDoctor: Also, do you currently have shortness of breath at rest, or only with activity, and is the dizziness ever associated with feeling like you might pass out?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m 11 years old. I don’t know the specific type of my heart valve problem, and I don’t know about missed doses of heart meds.\n\nMy shortness of breath gets worse with physical exertion but is alleviated with rest. I don’t know if the dizziness is associated with feeling like I might pass out.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to request a critical rhythm assessment and oxygen status because you have exertional dyspnea, palpitations/irregular rhythm, and lightheadedness with a known heart valve issue—REQUEST TEST: Holter_Monitor_or_Event_Monitor and REQUEST TEST: Vitals_with_Postural_BP (orthostatics).  \nDoctor: While that’s pending, I need two quick answers: do you currently have chest pain/pressure, and can you tell me whether your heart rate feels *very fast* when the palpitations happen (roughly beats per minute, if you can)?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about chest pain/pressure.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I understand you don’t know about chest pain/pressure and the exact heart rate—right now, do you have any shortness of breath at rest, bluish lips, fainting/near-fainting, or leg swelling—and are you able to sit up comfortably or do you feel worse lying flat?  \nDoctor: Also, have you had any recent respiratory infection/fever, or any sudden onset episode where symptoms peaked within minutes?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you don’t know about those red-flag symptoms, I’m going to treat this as potentially cardiac until proven otherwise—today I need STAT findings, so please repeat: REQUEST TEST: Vitals_with_O2_sat (at rest, and after 1–2 minutes walking), REQUEST TEST: Holter_Monitor_or_Event_Monitor, and REQUEST TEST: Orthostatic_BP/HR.  \n\nDoctor: While we wait, I’m going to do a quick exam—can you tell me if you ever get symptoms during exercise that force you to stop, and whether anyone has noticed a murmur or an irregular pulse during those episodes?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. Also, I have shortness of breath that gets worse with physical exertion but is alleviated with rest, and I feel slightly dizzy or lightheaded. I also have a known issue with one of my heart valves, and my heart has been beating fast or irregularly with palpitations, including feeling it very irregularly or in a disorganized pattern.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to listen to your chest and heart now, and I need two immediate facts: do you have any history of fainting/near-fainting with exercise, and do you have a known diagnosis of what the valve problem is (e.g., stenosis vs regurgitation)?  \nDoctor: If you’re not sure, that’s okay—right now, tell me whether this episode can happen suddenly within minutes (like a burst) or if it builds gradually over time with exertion.",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since you don’t know the specifics, I’m going to clarify symptoms: does the shortness of breath come on suddenly (within minutes) or does it build gradually with exertion, and have you ever actually fainted/come close to fainting during sports or standing up?  \nDoctor: Also, do you have a way to check your heart rate during palpitations (watch/counting), and what heart medication(s) are you prescribed for your valve/heart rhythm?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to auscultate your heart and lungs and check your oxygen saturation and pulse now; while I do, can you confirm if you have any chest pain/pressure or fainting at all, and whether your shortness of breath started suddenly (minutes) or gradually (over days/weeks)?  \nDoctor: Based on your history of a known heart valve issue plus exertional shortness of breath and palpitations with possible irregular rhythm, I’m treating this as an urgent arrhythmia/heart failure risk until proven otherwise—**REQUEST TEST: STAT_ECG** and **REQUEST TEST: Pulse_Oximetry_with_1-2_min_Exertion**.",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. Also, I have shortness of breath or difficulty breathing in a significant way, and it gets worse with physical exertion but is alleviated with rest. I also feel slightly dizzy or lightheaded, and I’ve noticed my heart beating fast or irregularly with palpitations, including feeling it very irregularly or in a disorganized pattern.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as urgent because you have exertional shortness of breath, lightheadedness, and a known heart valve issue with fast/irregular/disorganized palpitations. **REQUEST TEST: STAT_ECG** and **REQUEST TEST: Chest_X-Ray**—then answer this: are you currently short of breath at rest right now, and does your breathing get worse when you lie flat?",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I’m not sure. Also, I have shortness of breath that gets worse with physical exertion but is alleviated with rest, and I feel slightly dizzy or lightheaded. I also have a known issue with one of my heart valves and I’ve noticed my heart beating fast or irregularly with palpitations, including feeling it very irregularly or in a disorganized pattern.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your exertional shortness of breath, lightheadedness, and disorganized palpitations with a known heart valve issue, I’m most concerned about a clinically significant arrhythmia (such as SVT/atrial arrhythmia) possibly triggered by structural valve disease—please tell me: did this start suddenly today vs build over weeks, and have you had any recent sore throat/fever or signs of infection?  \nDoctor: Regardless of your answers, I’m going to decide based on the pattern while tests are pending—DIAGNOSIS READY: Arrhythmia related to underlying valvular heart disease (suspected supraventricular/atrial arrhythmia causing exertional dyspnea and presyncope).\n\n[ABSTAIN] free-text diagnosis 'Arrhythmia related to underlying valvular heart disease (suspected supraventricular/atrial arrhythmia causing exertional dyspnea and presyncope).' did not map to the closed disease set",
+      "turn": 12
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 12,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13404,
+      "completion_tokens": 1365,
+      "calls": 12
+    },
+    "patient": {
+      "prompt_tokens": 18621,
+      "completion_tokens": 620,
+      "calls": 12
+    }
+  }
+}

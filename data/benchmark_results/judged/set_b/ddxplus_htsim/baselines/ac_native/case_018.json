@@ -1,0 +1,139 @@
+{
+  "case_idx": 18,
+  "baseline": "ac_native",
+  "column": "htsim_v1",
+  "ground_truth": "Croup",
+  "patient_actor_hidden": {
+    "AGE": 4,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "fever",
+    "EVIDENCES_ENG": "['family history of croup', 'fever', 'nasal congestion', 'excessive salivation', 'stridor', 'whooping cough', 'vaccination status', 'nocturnal symptoms']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 4\n- I or some members of my family have had croup.\n- I have a fever (either felt or measured with a thermometer).\n- I have nasal congestion or a clear runny nose.\n- I have noticed that I produce more saliva than usual.\n- I have noticed a high pitched sound when breathing in.\n- The person has a whooping cough.\n- My vaccinations are up to date.\n- My symptoms are more prominent at night.\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['Croup', 0.14704969279887056], ['Epiglottitis', 0.12024323969763388], ['Influenza', 0.11863756834718439], ['Pneumonia', 0.11420609001560253], ['URTI', 0.1115856276247743], ['Bronchitis', 0.10760327509919351], ['HIV (initial infection)', 0.0872719363686974], ['Larygospasm', 0.08601474453150003], ['Tuberculosis', 0.07968482269116751], ['Chagas', 0.02770300282537594]]",
+    "PATHOLOGY": "Croup",
+    "INITIAL_EVIDENCE": "fievre",
+    "EVIDENCES": "['J05.0', 'fievre', 'rhino_clair', 'sialorhee', 'stridor', 'toux_Aboy', 'trav1_@_N', 'vaccination', 'ww_nuit']",
+    "patient_id": "htsim_0649",
+    "_test_index": 649,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 4-year-old M patient presents to the clinic. Chief complaint: fever.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have a fever, and I have nasal congestion or a clear runny nose. I also make a high-pitched sound when breathing in, and it seems worse at night.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: How long has the fever and runny nose been going on, and what’s the highest temperature you measured? Also, when you listen, do you notice breathing faster than usual or any pulling-in of the skin around the ribs/neck?  \nDoctor: Have you noticed a barking cough or any drooling/trouble swallowing?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I do have nasal congestion or a clear runny nose, and a high-pitched sound when breathing in that’s more prominent at night.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’d like to clarify a few things—how old is the child exactly (still 4?), and do they have any barking cough, wheezing/coughing fits, or drooling/trouble swallowing? Also, is the high-pitched sound present even when they’re calm (at rest), and are they breathing noticeably faster or struggling?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes, I’m 4. I don’t know about a barking cough or drooling/trouble swallowing. The high-pitched sound when breathing in is more prominent at night.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Thanks—since I’m hearing a nighttime, inspiratory high-pitched sound (often a stridor-like noise), can you tell me: is the child breathing harder than usual right now, with pulling in at the ribs/neck (retractions), or are they able to drink and talk normally? Also, do they have any cough at all, or is it mainly nasal symptoms plus that sound?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I don’t know if they’re breathing harder right now or if there are pulling-in of the skin around the ribs/neck, and I don’t know if they can drink and talk normally. I do have nasal congestion or a clear runny nose, and a high-pitched sound when breathing in that’s more prominent at night.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given your inability to confirm breathing difficulty, I need to check safety—can you look right now and tell me if there are clear retractions (skin pulling in at ribs/neck), noisy breathing even when resting/asleep, and whether the child can drink/cry normally; also, is the fever present continuously or only some of the day?  \nDoctor: If you can’t observe those at home, I’ll examine in clinic—REQUEST TEST: Pulse_Oximetry (and I may do a quick throat/airway exam).",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have a fever and nasal congestion or a clear runny nose, and I notice a high-pitched sound when breathing in that’s more prominent at night. Also, I produce more saliva than usual.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to examine your throat and listen to your breathing right now, but first—can you tell me: do you have drooling or trouble swallowing (like refusing fluids), or is it only “more saliva than usual”?  \nDoctor: Also, does the high-pitched sound happen only when you’re sick/crying, or is it present when you’re resting/sleeping too?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about drooling or trouble swallowing. I have noticed that I produce more saliva than usual. The high-pitched sound when breathing in is more prominent at night.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to know if the drooling is causing you to leak from the mouth or refusing to drink—can you drink normally and is your voice/cry normal, or do you seem to have trouble swallowing? Also, does the high-pitched sound get worse when you’re calm/asleep rather than only when crying?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have noticed that I produce more saliva than usual, and the high-pitched sound when breathing in is more prominent at night.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m concerned about possible upper-airway swelling or significant croup/stridor given the nighttime inspiratory noise plus increased saliva—can you tell me if you’re having trouble breathing right now (fast breathing, ribs/neck pulling in), or if you can drink normally?  \nDoctor: I’m going to listen to your chest/throat and check your oxygen level now—REQUEST TEST: Pulse_Oximetry.",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. I have a fever, nasal congestion or a clear runny nose, and I produce more saliva than usual. I also notice a high-pitched sound when breathing in that’s more prominent at night.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Let’s do the clinic check right now—REQUEST TEST: Pulse_Oximetry, and I’ll also listen at the neck/lungs and look for stridor/retractions; can you confirm: are you drooling enough to spill out of your mouth or refusing fluids?  \nDoctor: If yes, that suggests significant upper-airway obstruction; if no and it’s mainly nasal congestion with nighttime inspiratory stridor, this most fits viral croup—DIAGNOSIS READY: Viral croup (laryngotracheitis) causing inspiratory stridor, likely worse at night.\n\n[DDX]\n1. Croup",
+      "turn": 8
+    }
+  ],
+  "final": {
+    "predicted": "Croup",
+    "predicted_set": [],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 8,
+    "predicted_remapped": "Croup",
+    "predicted_set_remapped": [
+      "Croup",
+      "Acute laryngitis",
+      "Bronchiolitis"
+    ],
+    "abstained_judged": false,
+    "top1_hit_judged": true,
+    "top3_hit_judged": true
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 5323,
+      "completion_tokens": 705,
+      "calls": 8
+    },
+    "patient": {
+      "prompt_tokens": 8487,
+      "completion_tokens": 359,
+      "calls": 8
+    }
+  }
+}

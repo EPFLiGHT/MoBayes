@@ -1,0 +1,209 @@
+{
+  "case_idx": 30,
+  "baseline": "ac_native",
+  "column": "htsim",
+  "ground_truth": "PSVT",
+  "patient_actor_hidden": {
+    "AGE": 38,
+    "SEX": "M",
+    "INITIAL_EVIDENCE_ENG": "pain",
+    "EVIDENCES_ENG": "['anxiety', 'pain', 'regular consumption of energy drinks', 'shortness of breath', 'dizziness', 'palpitations', 'recent use of decongestants or stimulant substances']",
+    "PATIENT_PROFILE": "patient profile: \"\"Sex: Male, Age: 38\n- I feel anxious.\n- I have pain somewhere related to my reason for consulting.\n- I consume energy drinks regularly.\n- I am experiencing shortness of breath or difficulty breathing in a significant way.\n- I feel slightly dizzy or lightheaded.\n- My heart is beating fast (racing), irregularly (missing a beat), or I feel palpitations.\n- I have recently taken decongestants or other substances that may have stimulant effects.\n- On a scale of 0-10, the pain intensity is 8\n- On a scale of 0-10, the pain's location precision is 5\n- On a scale of 0-10, the pace at which the pain appear is 2\n- The pain is:\n* burning\n- The pain locations are:\n* forehead\n- The pain radiates to these locations:\n* nowhere\"\"",
+    "DIFFERENTIAL_DIAGNOSIS": "[['PSVT', 0.2249801997605792], ['Atrial fibrillation', 0.2197516115126778], ['Anemia', 0.21007196869208006], ['Scombroid food poisoning', 0.11595670627472271], ['Acute dystonic reactions', 0.11595670627472271], ['Cluster headache', 0.11328280748521763]]",
+    "PATHOLOGY": "PSVT",
+    "INITIAL_EVIDENCE": "douleurxx",
+    "EVIDENCES": "['anxiete_s', 'douleurxx', 'douleurxx_carac_@_une_brûlure_ou_chaleur', 'douleurxx_endroitducorps_@_front', 'douleurxx_intens_@_8', 'douleurxx_irrad_@_nulle_part', 'douleurxx_precis_@_5', 'douleurxx_soudain_@_2', 'drink_energie', 'dyspn', 'etourdissement', 'palpit', 'trav1_@_N', 'wakeup']",
+    "patient_id": "htsim_1080",
+    "_test_index": 1080,
+    "_source": "streambench/ddxplus_kb/test"
+  },
+  "objective_for_doctor": "A 38-year-old M patient presents to the clinic. Chief complaint: pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I have burning pain in my forehead—about an 8 out of 10—and I feel anxious. I’m also having shortness of breath, slight dizziness/lightheadedness, and my heart feels like it’s beating fast with palpitations or missing a beat.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Let’s narrow this down—when did the burning forehead pain and anxiety start, and is it constant or comes in episodes? Also, have you noticed any chest pain or fever, and do you have any swelling or weakness/numbness on one side of your face or body?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. The pain is burning and it’s in my forehead (about 8/10), and it started with a slow pace (about 2/10). I feel anxious, and I have shortness of breath, slight dizziness/lightheadedness, and palpitations or missing a beat.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to ask a few key safety questions—do you have any chest pain/pressure, fainting, or new vision changes, and does the shortness of breath/palpitations worsen with exertion? Also, have you used any stimulants (caffeine/energy drinks, decongestants), any recreational drugs, or started new medications?  \nDoctor: REQUEST TEST: ECG_now_and_vitals (HR/BP/O2)",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I have recently taken decongestants or other substances that may have stimulant effects, and I consume energy drinks regularly.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Given the severe burning forehead pain plus anxiety, shortness of breath, and palpitations after stimulant/decongestant use, I’m concerned about stimulant-induced tachyarrhythmia/panic vs another acute cause—right now, are you having chest pressure, fainting, or one-sided weakness/vision loss?  \nDoctor: REQUEST TEST: ECG_now_and_vitals (HR/BP/O2)",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need to make sure this isn’t immediately dangerous—right now, are you having chest pain/pressure, are you able to speak normally, and do you have severe headache “worst ever,” vision changes, or fainting?  \nDoctor: Also, what’s your current heart rate (if you can check), your blood pressure, and your oxygen saturation, and when was the last energy drink/decongestant dose?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: Since you’re not sure about the symptoms, I need immediate objective data—REQUEST TEST: ECG_now_and_vitals (HR/BP/O2) and REQUEST TEST: Blood_glucose + basic_metabolic_panel + troponin (if chest symptoms) to rule out dangerous causes of palpitations/shortness of breath.  \nDoctor: While that’s running, can you tell me: do you have any severe “worst headache,” confusion, weakness/numbness, or do you feel like you might pass out right now?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as potentially urgent until proven otherwise—please do the ECG/vitals immediately (HR, BP, O2). Also, answer this: are you currently feeling like you might faint, and do you have any chest pain/pressure or “worst ever” headache right now?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need your vitals and safety check **right now**—can you confirm **your current heart rate, blood pressure, and oxygen saturation**, and are you currently having **chest pain/pressure** or a **worst-ever headache**, yes or no?  \nDoctor: REQUEST TEST: ECG_now_and_vitals (HR/BP/O2)",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely diagnose without objective status—please immediately get **HR/BP/O2** and then answer yes/no: **any chest pain/pressure** right now?  \nDoctor: If available, also tell me whether the burning forehead pain is **new-onset and the worst you’ve ever had**, and whether you have **fainting/near-fainting** right now?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to assume this is urgent until proven otherwise—please get an **ECG and vitals (HR/BP/O2) immediately** and tell me **yes or no**: are you having **chest pressure or trouble breathing right now**?  \nDoctor: Also, when was your last **energy drink/decongestant dose** (time), and do you have any **fainting/near-fainting** (yes/no)?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My pain is burning in my forehead (about 8/10), and I’m experiencing shortness of breath or difficulty breathing, slight dizziness/lightheadedness, and heart palpitations. I consume energy drinks regularly, and I recently took decongestants or other substances that may have stimulant effects.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m treating this as potentially urgent—REQUEST TEST: ECG_now_and_vitals (HR/BP/O2) immediately, and tell me your current HR and BP if you can; right now, are you having chest pressure/pain or fainting/near-fainting (yes/no)?  \nDoctor: While we check that, I need to ask: do you have any new weakness/numbness on one side, trouble speaking, or vision loss (yes/no)?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My burning forehead pain is about 8/10, and I’m experiencing shortness of breath, slight dizziness/lightheadedness, and heart palpitations. I consume energy drinks regularly and I recently took decongestants or other substances that may have stimulant effects.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I’m going to treat this as an emergency until proven otherwise—REQUEST TEST: ECG_now_and_vitals (HR/BP/O2) and REQUEST TEST: Troponin + Basic_metabolic_panel + Blood_glucose now. Right now, are you able to get someone to stay with you and call EMS/ER due to trouble breathing and palpitations (yes/no)?  \nDoctor: While that’s happening, if you have a way to measure it, tell me your current oxygen saturation (O2%), heart rate, and blood pressure, and please stop all caffeine/decongestants immediately.",
+      "turn": 11
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms are burning pain in my forehead (about 8/10), anxiety, shortness of breath/difficulty breathing in a significant way, slight dizziness/lightheadedness, and palpitations (beating fast/racing, irregularly/missing a beat). I consume energy drinks regularly and I recently took decongestants or other substances that may have stimulant effects.",
+      "turn": 11
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: This sounds potentially life-threatening given your significant shortness of breath and palpitations after stimulant/decongestant use—right now, can you **call emergency services / go to the ER immediately**, and do you have someone with you?  \nDoctor: I need one more detail: do you have **chest pressure/pain** or have you **fainted/been near-fainting** today (yes/no)?  \nDoctor: REQUEST TEST: ECG_now_and_vitals (HR/BP/O2) and REQUEST TEST: Troponin + Basic_metabolic_panel + Blood_glucose now.",
+      "turn": 12
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms are burning pain in my forehead (about 8/10), anxiety, shortness of breath/difficulty breathing in a significant way, slight dizziness/lightheadedness, and palpitations (beating fast/racing, irregularly/missing a beat). I consume energy drinks regularly and I recently took decongestants or other substances that may have stimulant effects.",
+      "turn": 12
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t get a safe diagnosis until we have your **ECG/vitals**, so please **call EMS/ER now** (or have someone drive you immediately) given significant shortness of breath + palpitations after stimulants/decongestants.  \nDoctor: REQUEST TEST: ECG_now_and_vitals (HR/BP/O2)",
+      "turn": 13
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 13
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I need you to do this now: call emergency services or go to the ER immediately—do not wait for answers—because you have significant shortness of breath and palpitations after stimulant/decongestant use.  \nDoctor: Can you tell me **your oxygen saturation (if available)** and **current heart rate** right now, and are you **able to speak in full sentences** without getting more short of breath (yes/no)?",
+      "turn": 14
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know. My symptoms are burning pain in my forehead (about 8/10), anxiety, shortness of breath/difficulty breathing in a significant way, slight dizziness/lightheadedness, and palpitations (beating fast/racing, irregularly/missing a beat). I consume energy drinks regularly and I recently took decongestants or other substances that may have stimulant effects.",
+      "turn": 14
+    },
+    {
+      "role": "doctor",
+      "content": "Doctor: I can’t safely diagnose you over chat—go to the ER or call EMS **now** for significant shortness of breath and palpitations after stimulant/decongestant use; if you can, take a single measurement: **O2 sat, heart rate, and BP** and read them to me.  \nDoctor: DIAGNOSIS READY: Suspected stimulant-induced tachyarrhythmia/palpitations (possibly panic vs SVT) with need to rule out acute coronary syndrome and other dangerous causes—requires immediate ECG/vitals/troponin.\n\n[ABSTAIN] free-text diagnosis 'Suspected stimulant-induced tachyarrhythmia/palpitations (possibly panic vs SVT) with need to rule out acute coronary syndrome and other dangerous causes—requires immediate ECG/vitals/troponin.' did not map to the closed disease set",
+      "turn": 15
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "abstained": true,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 15,
+    "predicted_remapped": "Unknown",
+    "predicted_set_remapped": [
+      "Unknown",
+      "Unknown",
+      "Unknown"
+    ],
+    "abstained_judged": true,
+    "top1_hit_judged": false,
+    "top3_hit_judged": false
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 15645,
+      "completion_tokens": 1414,
+      "calls": 15
+    },
+    "patient": {
+      "prompt_tokens": 23130,
+      "completion_tokens": 586,
+      "calls": 15
+    }
+  }
+}

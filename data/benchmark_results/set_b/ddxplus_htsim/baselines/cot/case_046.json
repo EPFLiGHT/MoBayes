@@ -1,0 +1,89 @@
+{
+  "case_idx": 46,
+  "baseline": "cot",
+  "column": "htsim_v1",
+  "ground_truth": "Unstable angina",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 70\nSex: F\nChief Complaint: pain",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had worsening symptoms over the last 2 weeks, with progressive less effort required to cause them. The main problem is pain—heavy pain in my lower chest/epigastric area, on the right and left breast/chest side—with radiation to my biceps (right and left), thyroid cartilage, thoracic spine, and shoulder (right). It’s a 4 out of 10 for intensity, and it gets worse with physical exertion but is alleviated with rest.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: 2 weeks of progressive “heavy” pain in lower chest/epigastric region (bilateral breast/chest sides), radiating to both biceps, thyroid cartilage, thoracic spine, and right shoulder; intensity 4/10; worse with exertion, better with rest. This exertional, radiating chest/upper torso pain raises concern for a cardiac ischemic process, but the epigastric component also keeps GERD/other GI causes on the table. We still need discriminators (associated symptoms, vitals, risk factors).\nTop candidates (tentative):\n1) Possible NSTEMI / STEMI — exertional chest/epigastric pain with radiation to arms/upper torso can be ischemia (though 4/10 and 2-week progression is less classic).\n2) Stable angina — exertional pain relieved by rest fits angina pattern.\n3) GERD — epigastric/chest pain can mimic cardiac pain; however exertional worsening is less typical.\n4) Pericarditis — can cause chest pain, but usually pleuritic/positional and not classically exertional-relieved-by-rest.\n5) Pulmonary embolism — can cause chest pain, but exertional worsening is common; radiation pattern is less specific and we need dyspnea/pleuritic features.\nMost informative next question: ask about associated symptoms that strongly discriminate cardiac vs",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe have limited associated-symptom information (“I don’t know”), so we need a high-yield, easy-to-answer discriminator.\nNext most informative: ask about shortness of breath, because dyspnea with chest pain supports PE/pneumonia/heart failure/ischemia, while its absence makes some causes less likely.\nTop candidates remain: Possible NSTEMI/STEMI, Stable angina, GERD, Pulmonary embolism, Pericarditis.\nSingle next question: shortness of breath?[/REASONING]\nDo you get shortness of breath when the pain happens (yes/no)?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nStill no associated-symptom clarity. We need another high-yield discriminator that can be answered without medical knowledge.\nNext: ask whether the pain is worse when taking a deep breath or lying flat (pleuritic/positional) vs not (more cardiac/GERD). This helps separate PE/pericarditis/pneumonia from angina/GERD.\nCandidates: Possible NSTEMI/STEMI, Stable angina, GERD, Pericarditis, Pulmonary embolism.\nNext question (one-at-a-time): Is the pain worse with deep breaths or when lying flat?[/REASONING]\nIs the pain worse when you take a deep breath or when you lie flat (yes/no)?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "I don't know.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still lack discriminating symptom data. At this point, we can’t confidently narrow beyond “exertional chest/epigastric pain” which is potentially cardiac until proven otherwise, but we don’t have enough to rank specific alternatives.\nWe must ask a question that is both easy and high-yield: any nausea/vomiting/diaphoresis (autonomic symptoms) during pain—supports ischemia.\nNext question: Do you get sweating (diaphoresis), nausea, or vomiting when the pain occurs? (yes/no) [/REASONING]\nDo you get sweating (diaphoresis), nausea, or vomiting when the pain occurs? (yes/no)",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nWe still have insufficient discriminating symptom information. However, the core feature—exertional, radiating chest/epigastric pain relieved by rest—keeps acute coronary syndrome (ACS) high on the list regardless of associated symptoms. Without vitals, risk factors, or symptom discriminators, we can’t responsibly rank other diagnoses.\nGiven the uncertainty, we should abstain from a confident top-5 ranking and instead provide a best candidate set.\nMost informative next step would be to ask about age and cardiac risk factors, but we’re at the limit of useful interview data.\n[/REASONING]\n[ABSTAIN] Insufficient symptom/risk-factor/vital information to confidently discriminate among serious causes (e.g., ACS vs PE vs pericarditis vs GERD).\n[POSSIBLE] Possible NSTEMI / STEMI, Stable angina, Pulmonary embolism, GERD, Pericarditis",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Possible NSTEMI / STEMI",
+      "Stable angina",
+      "Pulmonary embolism",
+      "GERD",
+      "Pericarditis"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": true,
+    "stop_reason": "ABSTAINED",
+    "turns": 5
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 6352,
+      "completion_tokens": 929
+    },
+    "patient": {}
+  }
+}

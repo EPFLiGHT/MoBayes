@@ -1,0 +1,102 @@
+{
+  "case_idx": 21,
+  "baseline": "savage_bay",
+  "column": "patientsim_v1",
+  "ground_truth": "Myasthenia gravis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 40\nSex: Female\nChief Complaint: I have pain or weakness in your jaw, weakness in both arms and/or both legs, and previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi. I’m having weakness and pain in my jaw, double vision, and trouble swallowing. I also feel very short of breath, and my arms and legs both feel weak. My eyelids are also hard to open/raise, and I’ve had weakness or paralysis in my face and limbs before.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to ask a few focused questions to narrow this down. First, I need to know how fast this started.\n\n**Question 1 (time course):** When did these symptoms begin—minutes, hours, or days? And are they getting steadily worse, or do they come and go?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started over the past **day**—not just minutes. It’s been **getting worse**, and it also **comes and goes** a bit, but overall it feels like it’s progressing.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. With **worsening over ~1 day** plus **jaw pain, double vision, trouble swallowing, eyelids hard to open, and limb weakness**, I’m most concerned about a neuromuscular cause (especially myasthenia) but I need a key discriminator.\n\n**Current posterior (rough):**\n- **Myasthenia gravis:** 0.45  \n- **Guillain-Barré syndrome:** 0.20  \n- **Acute dystonic reactions:** 0.05  \n- **Anemia:** 0.05  \n- **Possible NSTEMI / STEMI:** 0.05  \n(others lower)\n\n**Question 2 (pattern of weakness):** Do symptoms get **worse with use** (e.g., talking, chewing, walking) and **better with rest**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Yes—when I talk or chew, my jaw and face feel weaker more. Walking and using my arms also makes the weakness feel worse, and it can feel a little better when I rest.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "That “**worse with use, better with rest**” pattern strongly supports a neuromuscular junction problem.\n\n**Update (likelihood ratio):** This pattern is much more likely in **myasthenia gravis** than in GBS or most alternatives (LR ~5–10).  \n**Current posterior:**\n- **Myasthenia gravis:** ~0.80  \n- **Guillain-Barré syndrome:** ~0.10  \n- **Acute dystonic reactions:** ~0.03  \n- **Anemia:** ~0.03  \n- **Possible NSTEMI / STEMI:** ~0.02  \n\nNow I want to confirm the ocular/bulbar features and rule out other dangerous mimics.\n\n**Question 3 (ocular):** Is the double vision/eyelid drooping **present most when you’ve been using your eyes** (reading/looking around), and does it improve after resting your eyes?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes, it’s worse when I’m using my eyes—like reading or looking around—and it can look a little better after I rest.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Great—ocular symptoms that **worsen with use and improve with rest** is classic for **myasthenia gravis**.\n\n**Update (LR):** LR ~5–8 for myasthenia vs GBS/others.  \n**Current posterior:**\n- **Myasthenia gravis:** ~0.92  \n- **Guillain-Barré syndrome:** ~0.05  \n- **Acute dystonic reactions:** ~0.01  \n- **Anemia:** ~0.01  \n- **Possible NSTEMI / STEMI:** ~0.01  \n\nNext, we need to assess severity—trouble swallowing and shortness of breath could mean **myasthenic crisis** (respiratory failure risk).\n\n**Question 4 (respiratory severity):** Right now, can you speak in full sentences without pausing for breath? And do you have any choking on liquids or drooling?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I can’t really speak in full sentences without pausing—I get short of breath. I also have trouble swallowing, and liquids sometimes feel like they go the wrong way. I don’t know about drooling, but I’m definitely choking sometimes.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "This is concerning for **bulbar involvement with respiratory compromise**, which raises urgency for **myasthenic crisis**.\n\n**Update (LR):** Bulbar symptoms + dyspnea/weak speech strongly increases likelihood of myasthenia crisis (LR ~3–6 vs other causes).  \n**Current posterior:**\n- **Myasthenia gravis (crisis):** ~0.97  \n- **Guillain-Barré syndrome:** ~0.02  \n- **Other:** ~0.01  \n\nBefore I finalize, one more discriminator: GBS typically causes **ascending** weakness and sensory symptoms; myasthenia is usually **sensory-sparing** and fluctuates.\n\n**Question 5 (sensory symptoms):** Do you have numbness/tingling or loss of sensation in your hands/feet, or is it mainly weakness?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "It’s mainly weakness. I don’t really have numbness or tingling or loss of sensation in my hands or feet.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Myasthenia gravis, Guillain-Barré syndrome, Acute dystonic reactions, Anemia, Possible NSTEMI / STEMI",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Myasthenia gravis",
+    "predicted_set": [
+      "Myasthenia gravis",
+      "Guillain-Barré syndrome",
+      "Acute dystonic reactions",
+      "Anemia",
+      "Possible NSTEMI / STEMI"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 7804,
+      "completion_tokens": 851
+    },
+    "patient": {
+      "prompt_tokens": 6374,
+      "completion_tokens": 260
+    }
+  }
+}
