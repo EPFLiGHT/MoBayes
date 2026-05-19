@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate paper-quality plots for the MoBayes paper (NeurIPS 2026).
+Generate paper-quality plots for the MoBayes paper.
 
 Outputs (saved to figures/):
   stats_vs_scale.pdf       -- model size vs accuracy bubble chart
