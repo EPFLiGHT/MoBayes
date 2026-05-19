@@ -1,6 +1,6 @@
 # MoBayes — Modular Bayesian Framework for Conversational Clinical Decision Support
 
-Companion code for the NeurIPS 2026 submission *"MoBayes: A Modular Bayesian
+Companion code for the paper *"MoBayes: A Modular Bayesian
 Framework for Separating Reasoning from Language in Conversational Clinical
 Decision Support."*
 
