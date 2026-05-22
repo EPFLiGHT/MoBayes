@@ -1,10 +1,10 @@
 # MediQ-Expert baseline (setup)
 
 [MediQ](https://github.com/stellalisy/mediQ) (Li et al., NeurIPS 2024).
-The MoBayes wrapper drives `mediQ_benchmark.py` as a subprocess; the
-adapter that converts our DDxPlus profiles to MediQ's expected MCQ schema
-lives at `baselines/agentclinic/batch_smoke_mediq.py` (AC) and the bench
-row `bench/rows/mediq.py` (general).
+The MoBayes wrapper drives `mediQ_benchmark.py` as a subprocess. The
+AgentClinic patient adapter lives at
+`baselines/agentclinic/adapters/mediq.py`, and the general bench row at
+`bench/rows/mediq.py`.
 
 ## Clone + venv
 

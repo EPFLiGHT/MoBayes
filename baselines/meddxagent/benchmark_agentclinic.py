@@ -1,6 +1,6 @@
 """AgentClinic-50 benchmark loader for MEDDxAgent.
 
-Parallel to BMBEDDxPlus50 but reads our AgentClinic selected_cases.jsonl
+Parallel to MoBayesDDxPlus50 but reads our AgentClinic selected_cases.jsonl
 and converts each case into MEDDxAgent's internal patient row schema. The
 diagnosis_options are pinned to our 31-disease AC-50 KB list so the
 diagnosis agent picks from a closed set congruent with our setup.

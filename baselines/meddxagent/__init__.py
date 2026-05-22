@@ -7,17 +7,17 @@ etc.) can be imported in venvs that lack heavy deps like `datasets`.
 import importlib
 
 __all__ = [
-    "BMBEDDxPlus50",
-    "BMBEPatientAgent",
+    "MoBayesDDxPlus50",
+    "MoBayesPatientAgent",
     "ClosedWorldDDxRAG",
 ]
 
 
 def __getattr__(name: str):
-    if name == "BMBEDDxPlus50":
-        return importlib.import_module("baselines.meddxagent.benchmark").BMBEDDxPlus50
-    if name == "BMBEPatientAgent":
-        return importlib.import_module("baselines.meddxagent.patient").BMBEPatientAgent
+    if name == "MoBayesDDxPlus50":
+        return importlib.import_module("baselines.meddxagent.benchmark").MoBayesDDxPlus50
+    if name == "MoBayesPatientAgent":
+        return importlib.import_module("baselines.meddxagent.patient").MoBayesPatientAgent
     if name == "ClosedWorldDDxRAG":
         return importlib.import_module("baselines.meddxagent.rag").ClosedWorldDDxRAG
     raise AttributeError(name)

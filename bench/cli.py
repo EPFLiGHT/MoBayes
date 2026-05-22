@@ -8,7 +8,7 @@ from bench.runner import run
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Table 4 cell runner — one command per (row, column).")
+    p = argparse.ArgumentParser(description="Main table cell runner: one command per (row, column).")
     p.add_argument("--row", required=True,
                    help="Baseline name (loads bench.rows.<row>)")
     p.add_argument("--column", required=True,

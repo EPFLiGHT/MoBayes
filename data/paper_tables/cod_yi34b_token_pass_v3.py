@@ -27,7 +27,7 @@ ROOT = Path("data/benchmark_results")
 CELLS = {
     "CoD_patientsim_can": ("set_a/ddxplus_patientsim/baselines/cod_diagnosisgpt34b.jsonl",                 "dialog_history"),
     "CoD_patientsim_v1":  ("set_b/ddxplus_patientsim/baselines/cod/results.jsonl",                     "dialog_history"),
-    "CoD_htsim_can":      ("ddxplus_htsim_cases_a/clariden_cod_v2/results.jsonl",                    "dialog"),
+    "CoD_htsim_can":      ("ddxplus_htsim_cases_a/hpc_cod_v2/results.jsonl",                    "dialog"),
     "CoD_htsim_v1":       ("set_b/ddxplus_htsim/baselines/cod/results.jsonl",                          "dialog"),
     "CoD_ac_can":         ("set_a/agentclinic/baselines/cod_diagnosisgpt34b_v2.jsonl",          "dialog"),
     "CoD_ac_v1":          ("agentclinic_50_set2_cod/results.jsonl",                             "dialog"),

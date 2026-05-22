@@ -6,7 +6,7 @@
 # Prerequisite: PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --generate
 # Usage: bash experiments/ddxplus/disease_scaling.sh
 set -euo pipefail
-source .env
+[ -f .env ] && source .env || true
 
 PARALLEL=4
 PATIENT_MODEL="gpt-5.4-nano"

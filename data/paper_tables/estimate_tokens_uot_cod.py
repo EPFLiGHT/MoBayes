@@ -146,14 +146,14 @@ PLAN = [
 
     ("CoD", "patientsim", "can", "jsonl", "set_a/ddxplus_patientsim/baselines/cod_diagnosisgpt34b.jsonl"),
     ("CoD", "patientsim", "v1",  "jsonl", "set_b/ddxplus_patientsim/baselines/cod/results.jsonl"),
-    ("CoD", "htsim",      "can", "jsonl", "ddxplus_htsim_cases_a/clariden_cod_v2/results.jsonl"),
+    ("CoD", "htsim",      "can", "jsonl", "ddxplus_htsim_cases_a/hpc_cod_v2/results.jsonl"),
     ("CoD", "htsim",      "v1",  "jsonl", "set_b/ddxplus_htsim/baselines/cod/results.jsonl"),
     ("CoD", "ac",         "can", "jsonl", "agentclinic_50_set2_cod/results.jsonl"),  # v2_recovered above; canonical AC raw…
     ("CoD", "ac",         "v1",  "jsonl", "agentclinic_50_set2_cod/results.jsonl"),
 ]
 
-# Better canonical AC for CoD — use the raw clariden if available
-CANON_AC_COD_RAW = "agentclinic_50_meddxagent_paperbest_raw_clariden/results.json"  # not actual CoD path
+# Better canonical AC for CoD: use the raw HPC dump if available
+CANON_AC_COD_RAW = "agentclinic_50_meddxagent_paperbest_raw_hpc/results.json"  # not actual CoD path
 # Replace with canonical CoD AC if available
 PLAN[10] = ("CoD", "ac", "can", "jsonl", "set_a/agentclinic/baselines/cod_diagnosisgpt34b_v2.jsonl")
 

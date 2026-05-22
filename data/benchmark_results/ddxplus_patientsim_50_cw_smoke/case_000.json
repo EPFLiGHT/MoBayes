@@ -1,0 +1,79 @@
+{
+  "case_idx": 0,
+  "baseline": "cw",
+  "column": "patientsim",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 71\nSex: Male\nChief Complaint: I have a cough that produces colored or more abundant sputum than usual, a cough, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough that brings up colored sputum more than usual, and I noticed a wheezing sound when I exhale. I’m a current smoker, and with my COPD I’ve had flare-ups before, so this feels similar but worse.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—one question to narrow this down: **Do you also have fever or feel systemically ill (chills, body aches), or has the sputum change been the main new feature?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t have a fever that I noticed, and I don’t feel really systemically ill—mostly it’s the cough and the sputum being more and colored than usual, plus the wheezing when I breathe out.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **One more question:** **Any chest pain (especially sharp or worse with breathing), or shortness of breath that’s significantly worse than your usual COPD baseline?**",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No chest pain. And my breathing is worse than my usual COPD baseline—more wheezy, and the cough with more colored sputum is the main change.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection, Pneumonia, Bronchitis, Bronchospasm / acute asthma exacerbation, Pulmonary embolism",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "predicted_raw": [
+      "Acute COPD exacerbation / infection",
+      "Pneumonia",
+      "Bronchitis",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2324,
+      "completion_tokens": 118
+    },
+    "patient": {
+      "prompt_tokens": 1985,
+      "completion_tokens": 138
+    }
+  }
+}

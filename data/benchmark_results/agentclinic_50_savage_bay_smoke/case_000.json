@@ -1,0 +1,93 @@
+{
+  "case_idx": 0,
+  "baseline": "savage_bay",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old woman",
+    "History": "The patient has been in home hospice care and has experienced a recent change in mental status, showing signs of confusion and an inability to communicate her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status with confusion",
+      "Secondary_Symptoms": [
+        "Elevated temperature",
+        "Discomfort in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is in home hospice, indicating a history of significant chronic illness, though specifics are not provided. No explicit history of gallbladder disease mentioned.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "Unable to complete due to patient's altered mental state."
+  },
+  "objective_for_doctor": "Evaluate and manage a senior patient presenting with altered mental status and abdominal pain.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’ve been feeling very confused lately and I can’t seem to communicate my symptoms clearly. I also have had an elevated temperature and some discomfort in my right upper abdomen.”",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m going to narrow this down with a few focused questions.\n\n**Current posterior (pre-test, rough):**\n- **Neuroleptic Malignant Syndrome:** 0.20  \n- **Pneumonia:** 0.20  \n- **Acalculous cholecystitis:** 0.20  \n- **Chronic kidney failure:** 0.20  \n- **Brief Psychotic Disorder:** 0.20  \n\n**Question 1 (one at a time):**  \nHave you been taking any **antipsychotic medications** (or recently increased the dose), or any **medications that affect dopamine**—and did the confusion and fever start after that?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, I’m not sure which medicines I’ve been taking or if any dose was recently changed—I’m in home hospice, and I can’t reliably say whether I started or increased anything.”",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—since medication history is unclear, I’ll focus on the abdominal source.\n\n**Current posterior (updated with “meds unclear”):**\n- **Neuroleptic Malignant Syndrome:** 0.10  \n- **Pneumonia:** 0.20  \n- **Acalculous cholecystitis:** 0.30  \n- **Chronic kidney failure:** 0.20  \n- **Brief Psychotic Disorder:** 0.20  \n\n**Question 2 (one at a time):**  \nWhen you press on the **right upper abdomen**, do you get **significant pain**, and is there **nausea/vomiting** or **pain that worsens after eating**?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "“Doctor, when you press the right upper area it feels tender and uncomfortable, and I’ve had some nausea though I don’t remember vomiting clearly. I can’t tell you if it gets worse after eating, because I haven’t been able to keep track of that.”",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acalculous cholecystitis, Pneumonia, Chronic kidney failure, Neuroleptic Malignant Syndrome, Brief Psychotic Disorder",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acalculous cholecystitis",
+    "predicted_set": [
+      "Acalculous cholecystitis",
+      "Pneumonia",
+      "Chronic kidney failure",
+      "Neuroleptic Malignant Syndrome",
+      "Brief Psychotic Disorder"
+    ],
+    "predicted_raw": [
+      "Acalculous cholecystitis",
+      "Pneumonia",
+      "Chronic kidney failure",
+      "Neuroleptic Malignant Syndrome",
+      "Brief Psychotic Disorder"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2613,
+      "completion_tokens": 329
+    },
+    "patient": {
+      "prompt_tokens": 1415,
+      "completion_tokens": 139,
+      "calls": 3
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "case_idx": 2,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Actinic Keratosis",
+  "patient_actor_hidden": {
+    "Demographics": "65-year-old female",
+    "History": "The patient is here for an annual well-check. She has a history of well-controlled diabetes and hypertension, managed with metformin and losartan, respectively. She reports maintaining a healthy diet primarily consisting of vegetables and lean meat, denies any tobacco or alcohol use, and enjoys outdoor activities like walking and sunbathing.",
+    "Symptoms": {
+      "Primary_Symptom": "The presence of a rough, scaly, sandpaper-like plaque on the left dorsal hand",
+      "Secondary_Symptoms": [
+        "No tenderness",
+        "No pain"
+      ]
+    },
+    "Past_Medical_History": "Diabetes, Hypertension",
+    "Social_History": "Non-smoker, denies alcohol use, enjoys outdoor activities",
+    "Review_of_Systems": "Unremarkable except for the skin condition described"
+  },
+  "objective_for_doctor": "Evaluate and diagnose the skin condition present on the patient's left dorsal hand.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’m here for my annual well-check, and I’ve noticed a rough, scaly, sandpaper-like plaque on the left dorsal hand. It hasn’t been tender or painful.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "How long has the rough, scaly plaque on your left hand been there?\nHow long has the rough, scaly plaque on your left hand been there?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "Patient: It’s been there for a few months now, maybe around three to four months. It hasn’t been painful or tender, just a persistent rough, scaly spot on the left dorsal hand.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Has it changed over time—such as getting larger, thicker, bleeding, crusting, or ulcerating?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I think it’s slowly gotten a bit larger and thicker, but it hasn’t been bleeding or ulcerating—no crusting or open sore.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you get a lot of sun exposure on your hands, or have you had significant lifetime sun exposure, like outdoor work or frequent sunburns?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I do spend time outdoors and I enjoy walking and sunbathing, so I’d say I’ve had quite a bit of sun exposure over the years. I don’t recall frequent sunburns, but my hands are often out in the sun.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any similar rough spots elsewhere, or do you have a history of skin cancer or precancerous lesions?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I haven’t noticed similar rough spots anywhere else, and I don’t have a personal history of skin cancer or any precancerous lesions that I know of.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "What is your age?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’m 65 years old.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Actinic keratosis, squamous cell carcinoma in situ (Bowen disease), invasive cutaneous squamous cell carcinoma, irritated seborrheic keratosis, superficial basal cell carcinoma",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Actinic Keratosis",
+    "predicted_set": [
+      "Actinic Keratosis",
+      "squamous cell carcinoma in situ (Bowen disease)",
+      "invasive cutaneous squamous cell carcinoma",
+      "Seborrheic keratosis",
+      "superficial basal cell carcinoma"
+    ],
+    "predicted_raw": [
+      "Actinic keratosis",
+      "squamous cell carcinoma in situ (Bowen disease)",
+      "invasive cutaneous squamous cell carcinoma",
+      "irritated seborrheic keratosis",
+      "superficial basal cell carcinoma"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2591,
+      "completion_tokens": 180
+    },
+    "patient": {
+      "prompt_tokens": 2914,
+      "completion_tokens": 243,
+      "calls": 6
+    }
+  }
+}

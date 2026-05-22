@@ -14,13 +14,13 @@ from llm_interface.llm_client import OpenAILLMClient, sanitize_openai_text
 from llm_interface.prompt_templates import build_patient_system_prompt
 
 
-class BMBEPatientAgent(PatientAgent):
+class MoBayesPatientAgent(PatientAgent):
     """Patient agent that answers from our raw benchmark profiles."""
 
     def __init__(self, patient_agent_cfg):
         super().__init__(patient_agent_cfg)
-        self.modn_root = Path(
-            self.config.get("modn_root") or Path(__file__).resolve().parents[2]
+        self.repo_root = Path(
+            self.config.get("repo_root") or Path(__file__).resolve().parents[2]
         )
         self._load_env_file()
 
@@ -52,7 +52,7 @@ class BMBEPatientAgent(PatientAgent):
         )
 
     def _load_env_file(self) -> None:
-        env_path = self.modn_root / ".env"
+        env_path = self.repo_root / ".env"
         if not env_path.exists():
             return
         try:

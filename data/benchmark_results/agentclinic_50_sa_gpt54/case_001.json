@@ -1,0 +1,124 @@
+{
+  "case_idx": 1,
+  "baseline": "sa",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old female",
+    "History": "The patient has been in home hospice care and has exhibited a recent change in mental status, characterized by increased confusion and inability to verbalize her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Change in mental status and confusion",
+      "Secondary_Symptoms": [
+        "Inability to verbalize symptoms",
+        "Fever of 102°F",
+        "Discomfort upon palpation in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is under hospice care, suggesting a history of chronic illness, though details are not specified. Previous medical history should be explored, especially regarding liver or gallbladder issues.",
+    "Social_History": "Information not provided but may include details about lifestyle, diet, alcohol use, which are relevant to liver and gallbladder health.",
+    "Review_of_Systems": "The relevant systems review may indicate jaundice, changes in stool color, or other signs of liver dysfunction or infection."
+  },
+  "objective_for_doctor": "Evaluate a 67-year-old woman with a change in mental status and abdominal discomfort.",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Doctor: Hello, I’m your doctor today. What brings you in today? Patient: I’ve been getting more confused lately, and I can’t really explain what I’m feeling. I also have a fever around 102°F and it hurts when you press on my right upper abdomen.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "When did the confusion and fever start, and did they begin around the same time?\nWhen did the confusion and fever start, and did they begin around the same time?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I noticed the confusion getting worse about a day or two ago, and the fever came on around the same time. I can’t say an exact moment, but it feels like they started together.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Have you noticed any yellowing of your eyes or skin, dark urine, or pale stools?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve noticed I look a bit yellow in the mirror, and my urine seems darker than usual. I’m not sure about the stool color, but I haven’t seen it the way it normally is.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Do you have nausea or vomiting?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Patient: I’ve felt nauseated and a little sick to my stomach, but I haven’t been able to tell for sure about vomiting. If I have been vomiting, it hasn’t been very much.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Have you had any shaking chills or rigors?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Patient: Yes, I’ve had some shaking chills with the fever, like I can’t get warm and I’m trembling at times. I don’t know how often it’s been happening, but it seems to come and go.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Have you ever had gallstones, prior episodes like this, or any recent procedures involving the bile ducts or gallbladder, such as an ERCP?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "I don’t remember having gallstones before, and I don’t think I’ve had any procedures on my bile ducts or gallbladder like that. I’ve just been in hospice care, and I don’t recall anything recent other than getting weaker and more confused.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute ascending cholangitis from biliary obstruction, acute calculous/acalculous cholecystitis, pyogenic liver abscess, acute hepatitis, sepsis of another intra-abdominal source\n\nThe combination of fever, right upper quadrant tenderness, jaundice/dark urine, and confusion is highly concerning for **acute ascending cholangitis** (Charcot triad plus altered mental status/Reynolds pentad), which is a medical emergency. Shaking chills further support bacteremia/sepsis from biliary infection.",
+      "turn": 6
+    }
+  ],
+  "final": {
+    "predicted": "Acute ascending cholangitis from biliary obstruction",
+    "predicted_set": [
+      "Acute ascending cholangitis from biliary obstruction",
+      "acute calculous/acalculous cholecystitis",
+      "pyogenic liver abscess",
+      "acute hepatitis",
+      "sepsis of another intra-abdominal source\n\nThe combination of fever"
+    ],
+    "predicted_raw": [
+      "Acute ascending cholangitis from biliary obstruction",
+      "acute calculous/acalculous cholecystitis",
+      "pyogenic liver abscess",
+      "acute hepatitis",
+      "sepsis of another intra-abdominal source\n\nThe combination of fever"
+    ],
+    "top1_hit": false,
+    "top3_hit": false,
+    "raw_top1_hit": false,
+    "raw_top3_hit": false,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 6
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 2603,
+      "completion_tokens": 235
+    },
+    "patient": {
+      "prompt_tokens": 3086,
+      "completion_tokens": 299,
+      "calls": 6
+    }
+  }
+}

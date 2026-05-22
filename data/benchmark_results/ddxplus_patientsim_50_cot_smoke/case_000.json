@@ -1,0 +1,79 @@
+{
+  "case_idx": 0,
+  "baseline": "cot",
+  "column": "patientsim",
+  "ground_truth": "Acute COPD exacerbation / infection",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 71\nSex: Male\nChief Complaint: I have a cough that produces colored or more abundant sputum than usual, a cough, and noticed a wheezing sound when you exhale",
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "I’ve had a cough that’s bringing up colored or more sputum than usual, and I noticed a wheezing sound when I exhale. With my COPD, this feels like another flare-up, and I’m still smoking.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings so far: COPD history; increased sputum (colored/more than usual) and new wheeze on exhalation; feels like COPD flare; ongoing smoking. This most strongly suggests an acute COPD exacerbation, potentially triggered by infection (bronchitis/pneumonia/influenza) or bronchospasm.\nTop candidates:\n1) Acute COPD exacerbation / infection — COPD + increased sputum and wheeze; smoking increases infectious trigger risk.\n2) Bronchitis — productive cough with colored sputum and wheeze can occur; may be infectious.\n3) Pneumonia — colored sputum can be present; would need fever, pleuritic pain, focal lung findings, or hypoxia to support.\n4) Bronchospasm / acute asthma exacerbation — wheeze suggests bronchospasm, but COPD history makes this less likely unless asthma history.\n5) Influenza — can cause cough with sputum and wheeze, but would need systemic symptoms (fever, myalgias).\nMost informative next question: ask about fever/systemic symptoms to help distinguish infection/pneumonia/influenza from noninfectious COPD flare.\n[/REASONING]\nDo you have a fever (or chills/sweats), and if so how high?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know about a fever right now—I haven’t really noticed chills or sweating, and I don’t have a measured temperature to tell you.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "[REASONING]\nKey findings: COPD + increased/colored sputum + expiratory wheeze; no known chills/sweats or measured fever.\nCandidates:\n1) Acute COPD exacerbation / infection — still most likely even without known fever; infection can be present without prominent fever.\n2) Bronchitis — productive cough with colored sputum; wheeze can accompany.\n3) Pneumonia — less supported without fever/rigors, but still possible; would need hypoxia, pleuritic pain, or focal findings.\n4) Bronchospasm / acute asthma exacerbation — wheeze supports, but COPD history without asthma history makes it less likely.\n5) Pulmonary embolism — can cause cough/wheeze-like symptoms, but colored sputum is less typical; would need sudden onset, pleuritic pain, leg swelling, risk factors.\nMost informative next question: ask about shortness of breath severity and whether it’s worse than baseline, since that helps separate COPD exacerbation/bronchitis/pneumonia from other causes.\n[/REASONING]\nHow short of breath are you compared with your usual COPD baseline—has it been getting worse over hours to days, and can you speak full sentences?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s a bit worse than my usual baseline over the last couple of days, and I feel more tight in my chest. I can still speak, but I have to pause to catch my breath—so not full sentences without a break.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "[DDX] Acute COPD exacerbation / infection, Bronchitis, Pneumonia, Bronchospasm / acute asthma exacerbation, Pulmonary embolism",
+      "turn": 3
+    }
+  ],
+  "final": {
+    "predicted": "Acute COPD exacerbation / infection",
+    "predicted_set": [
+      "Acute COPD exacerbation / infection",
+      "Bronchitis",
+      "Pneumonia",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "predicted_raw": [
+      "Acute COPD exacerbation / infection",
+      "Bronchitis",
+      "Pneumonia",
+      "Bronchospasm / acute asthma exacerbation",
+      "Pulmonary embolism"
+    ],
+    "top1_hit": true,
+    "top3_hit": true,
+    "raw_top1_hit": true,
+    "raw_top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DDX_PROVIDED",
+    "turns": 3
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 3291,
+      "completion_tokens": 561
+    },
+    "patient": {
+      "prompt_tokens": 2630,
+      "completion_tokens": 133
+    }
+  }
+}

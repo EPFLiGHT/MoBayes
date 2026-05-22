@@ -405,20 +405,20 @@ def _doctor_tracked(records: list) -> bool:
     sum_doctor = sum(_tokens_one_record(r, doctor_only=True) for r in records)
     return sum_doctor > 0
 
-# Auxiliary token_usage.json files for MEDDxAgent (and other Clariden runs that
+# Auxiliary token_usage.json files for MEDDxAgent (and other HPC runs that
 # don't store tokens in their per-case results). Path is relative to RESULTS root.
 # Each file has shape {"usage": {"doctor": {...}, "patient": {...}}, ...config...}.
 MEDDX_AUX_TOKENS = {
     # canonical
     ("MEDDxAgent-pb", "patientsim", "can"): None,  # already in jsonl
     ("MEDDxAgent-pb", "htsim",      "can"): "set_a/ddxplus_htsim/_raw/meddxagent_paperbest/20260502_201308/token_usage.json",
-    ("MEDDxAgent-pb", "ac",         "can"): "agentclinic_50_meddxagent_paperbest_raw_clariden/token_usage.json",
+    ("MEDDxAgent-pb", "ac",         "can"): "agentclinic_50_meddxagent_paperbest_raw_hpc/token_usage.json",
     ("MEDDxAgent-cw", "patientsim", "can"): None,  # already in jsonl
     ("MEDDxAgent-cw", "htsim",      "can"): "set_a/ddxplus_htsim/_raw/meddxagent_cwabl/20260502_233138/token_usage.json",
     ("MEDDxAgent-cw", "ac",         "can"): "agentclinic_50_meddxagent_cw_raw/20260503_001840/token_usage.json",
     # v1
-    ("MEDDxAgent-pb", "patientsim", "v1"):  "set_b/ddxplus_patientsim/baselines/meddxagent_clariden_raw/20260505_123929/token_usage.json",
-    ("MEDDxAgent-pb", "htsim",      "v1"):  "set_b/ddxplus_htsim/baselines/meddxagent_clariden_raw/20260505_133301/token_usage.json",
+    ("MEDDxAgent-pb", "patientsim", "v1"):  "set_b/ddxplus_patientsim/baselines/meddxagent_hpc_raw/20260505_123929/token_usage.json",
+    ("MEDDxAgent-pb", "htsim",      "v1"):  "set_b/ddxplus_htsim/baselines/meddxagent_hpc_raw/20260505_133301/token_usage.json",
     ("MEDDxAgent-pb", "ac",         "v1"):  "agentclinic_50_set2_meddxagent_raw/20260505_171151/token_usage.json",
     ("MEDDxAgent-cw", "patientsim", "v1"):  "set_b/ddxplus_patientsim/baselines/meddxagent_cw_raw/20260504_214724/token_usage.json",
     ("MEDDxAgent-cw", "htsim",      "v1"):  "set_b/ddxplus_htsim/baselines/meddxagent_cw_raw/20260504_214724/token_usage.json",

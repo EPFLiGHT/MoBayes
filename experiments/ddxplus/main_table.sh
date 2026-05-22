@@ -1,17 +1,17 @@
 #!/bin/bash
-# Table 2 expansion — run 12 systems (6 SA + 6 BMBE) on HT-sim and AgentClinic.
+# Main table run: 12 systems (6 SA + 6 MoBayes) on HT-sim and AgentClinic.
 #
 # PatientSim results already exist in set_a/ddxplus_patientsim/.
-# BMBE + gpt-5.4-nano already exists for HT-sim and AC.
+# MoBayes + gpt-5.4-nano already exists for HT-sim and AC.
 # This script fills the remaining 21 cells.
 #
 # Usage:
-#   SMOKE=1 bash experiments/ddxplus/09_table2_expansion.sh          # n=3 smoke
-#   bash experiments/ddxplus/09_table2_expansion.sh                   # n=50 full
-#   COL=htsim bash experiments/ddxplus/09_table2_expansion.sh         # single column
-#   ROW=sa MODEL=gpt-5.4 bash experiments/ddxplus/09_table2_expansion.sh  # single cell
+#   SMOKE=1 bash experiments/ddxplus/main_table.sh          # n=3 smoke
+#   bash experiments/ddxplus/main_table.sh                  # n=50 full
+#   COL=htsim bash experiments/ddxplus/main_table.sh        # single column
+#   ROW=sa MODEL=gpt-5.4 bash experiments/ddxplus/main_table.sh  # single cell
 set -euo pipefail
-source .env
+[ -f .env ] && source .env || true
 
 OR_URL="https://openrouter.ai/api/v1"
 PATIENT_MODEL="gpt-5.4-nano"

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Convert LLM-generated KB (Julien's pipeline) → MoBayes internal KB format.
+Convert LLM-generated KB (feature + distribution JSONs) into the MoBayes
+internal KB format.
 
 Input:  generated_features.json + generated_distributions.json
 Output: diseases.csv, features.csv, likelihood_counts.csv, priors.csv
@@ -9,7 +10,7 @@ Usage:
     python3 scripts/data_prep/llmkb/convert_llmkb.py \
         --features  data/raw/llmkb/output/generated_features_diseases18.json \
         --distributions data/raw/llmkb/output/generated_distributions_diseases18.json \
-        --output data/llmkb/
+        --output data/kbs/llmkb_gpt/
 """
 import argparse
 import csv

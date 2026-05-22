@@ -1,7 +1,7 @@
-# bench/ — single entrypoint for every Table 4 cell
+# bench/ : single entrypoint for every main-table cell
 
 Replaces ~18 per-baseline runner scripts. Every (row, column) pair in
-`Paper/tables/tab_baseline_adaptations.tex` is one command:
+the paper's baseline-adaptations table is one command:
 
 ```bash
 PYTHONPATH=. python3 -m bench --row <row> --column <column> [opts]
@@ -29,7 +29,7 @@ bench/
     bmbe.py          # Bayesian engine + EIG (KB v1/v2 selectable)
     mediq.py         # subprocess to mediQ_benchmark.py + per-column patient
     meddxagent.py    # subprocess to MEDDxAgent driver + per-column bench
-    cod.py           # Clariden sbatch emit (DiagnosisGPT-34B local model)
+    cod.py           # HPC sbatch emit (DiagnosisGPT-34B local model)
 ```
 
 ---
@@ -49,7 +49,7 @@ row in tier 3: greeting → patient.respond → doctor.get_question loop with
 
 ---
 
-## Quick usage — every Table 4 cell
+## Quick usage: every main-table cell
 
 | Row × Column | Command |
 |---|---|
@@ -70,7 +70,7 @@ row in tier 3: greeting → patient.respond → doctor.get_question loop with
 | **MediQ × PatientSim** | `python -m bench --row mediq --column patientsim --max-turns 10` |
 | **MEDDxAgent CW × AC** | `python -m bench --row meddxagent --column ac` (default variant=paper-best; pass `--row-kwargs '{"variant":"closed-world"}'`) |
 | **MEDDxAgent paper-best × HT-sim** | `python -m bench --row meddxagent --column htsim` |
-| **CoD × {ac,htsim,patientsim}** | `python -m bench --row cod --column <col>` (emits Clariden sbatch; user runs sbatch manually) |
+| **CoD × {ac,htsim,patientsim}** | `python -m bench --row cod --column <col>` (emits HPC sbatch; user runs sbatch manually) |
 
 CLI flags: `--num-cases N`, `--start-idx N`, `--max-turns N`, `--doctor-model`,
 `--patient-model`, `--out-suffix STR`.
@@ -140,7 +140,7 @@ raw outputs stay untouched. Tables read the `top1_hit_judged`,
 | `MEDIQ_REPO=~/Documents/GitHub/mediQ` | env var (default ok) | row=mediq |
 | `MEDDXAGENT_REPO=~/Documents/GitHub/meddxagent` | env var (default ok) | row=meddxagent, column=htsim |
 | meddxagent venv (Python 3.12) | `~/Documents/GitHub/meddxagent/.venv` | column=htsim (LLMPatient uses 3.10+ syntax), row=meddxagent |
-| Clariden SSH access | `~/.ssh/cscs-key` (daily refresh) | row=cod |
+| HPC SSH access | `~/.ssh/hpc-key` (daily refresh) | row=cod |
 
 ---
 
@@ -153,8 +153,8 @@ combined n=100 reported in the paper. AgentClinic has no v1 (single
 canonical sample).
 
 MEDDxAgent paper-best (PubMed RAG + dynamic 5-shot fewshot) requires CUDA
-and runs on Clariden; sbatch wrappers under
-`scripts/clariden_meddxagent_pubmed_dynamic_*.sbatch`.
+and runs on an HPC node; sbatch wrappers under
+`scripts/hpc_meddxagent_pubmed_dynamic_*.sbatch`.
 
 ---
 

@@ -41,5 +41,5 @@ PYTHONPATH=. python -m bench --row meddxagent --column {patientsim,htsim,ac}
 ```
 
 See `bench/README.md` for the full Row × Column command table, including
-the paper-best / closed-world variants and the Clariden sbatch path for
+the paper-best / closed-world variants and the HPC sbatch path for
 the HT-sim paper-best run.

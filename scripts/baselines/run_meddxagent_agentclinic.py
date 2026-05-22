@@ -31,18 +31,18 @@ import yaml
 
 
 THIS_FILE = Path(__file__).resolve()
-MODN_ROOT = THIS_FILE.parents[2]
-REPO_ROOT = MODN_ROOT.parent
-DEFAULT_MEDDX_ROOT = REPO_ROOT.parent / "meddxagent"
+REPO_ROOT = THIS_FILE.parents[2]
+_REPO_PARENT = REPO_ROOT.parent
+DEFAULT_MEDDX_ROOT = _REPO_PARENT.parent / "meddxagent"
 
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     p.add_argument("--meddxagent-root", default=str(DEFAULT_MEDDX_ROOT))
     p.add_argument("--cases-path",
-                   default=str(MODN_ROOT / "data/cases/agentclinic_a/selected_cases.jsonl"))
+                   default=str(REPO_ROOT / "data/cases/agentclinic_a/selected_cases.jsonl"))
     p.add_argument("--diseases-csv",
-                   default=str(MODN_ROOT / "data/kbs/agentclinic_a/diseases.csv"))
+                   default=str(REPO_ROOT / "data/kbs/agentclinic_a/diseases.csv"))
     p.add_argument("--num-patients", type=int, default=10)
     p.add_argument("--doctor-model", default="gpt-5.4-nano")
     p.add_argument("--patient-model", default="gpt-5.4-nano")
@@ -56,7 +56,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--iterations", type=int, default=3)
     p.add_argument("--questions-per-iteration", type=int, default=5)
     p.add_argument("--experiment-dir",
-                   default=str(MODN_ROOT / "data/benchmark_results/agentclinic_10_meddxagent_raw"))
+                   default=str(REPO_ROOT / "data/benchmark_results/agentclinic_10_meddxagent_raw"))
     return p.parse_args()
 
 
@@ -75,7 +75,7 @@ def main() -> None:
     args = parse_args()
 
     # Load .env / mirror OPENAI_API_KEY -> OAI_KEY
-    env_path = MODN_ROOT / ".env"
+    env_path = REPO_ROOT / ".env"
     if env_path.exists():
         try:
             from dotenv import load_dotenv
@@ -89,7 +89,7 @@ def main() -> None:
     if not meddx_root.exists():
         raise FileNotFoundError(f"MEDDxAgent repo not found: {meddx_root}")
 
-    sys.path.insert(0, str(MODN_ROOT))
+    sys.path.insert(0, str(REPO_ROOT))
     sys.path.insert(0, str(meddx_root))
 
     from ddxdriver.run_ddxdriver import run_ddxdriver
@@ -131,7 +131,7 @@ def main() -> None:
         "class_name": "baselines.meddxagent.patient_agentclinic.ACMEDDxAgentPatient",
         "config": {
             "selected_cases_path": args.cases_path,
-            "modn_root": str(MODN_ROOT),
+            "repo_root": str(REPO_ROOT),
             "patient_model": args.patient_model,
         },
     }
@@ -146,7 +146,7 @@ def main() -> None:
             "config": {
                 "top_k_search": rag_cfg["config"].get("top_k_search", 2),
                 "max_keyword_searches": rag_cfg["config"].get("max_keyword_searches", 3),
-                "data_dir": str(MODN_ROOT / "data/cases/agentclinic_a"),
+                "data_dir": str(REPO_ROOT / "data/cases/agentclinic_a"),
                 "model": rag_cfg["config"]["model"],
             },
         }

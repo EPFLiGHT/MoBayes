@@ -1,4 +1,4 @@
-"""Run DiagnosisGPT-34B (Chain-of-Diagnosis) on the BMBE 50-patient DDxPlus set.
+"""Run DiagnosisGPT-34B (Chain-of-Diagnosis) on the 50-patient DDxPlus set.
 
 Architecture (from CoD's cod_cli.py):
 - DiagnosisGPT runs as a chatbot. First turn: patient describes chief complaint.
@@ -15,7 +15,7 @@ Apples-to-apples integration:
   to the 49-space via name matching (or LLM-based mapping if needed).
 
 CoD library is imported from a local clone. Model + retriever assets live on
-clariden scratch.
+HPC scratch.
 """
 
 from __future__ import annotations
@@ -44,14 +44,14 @@ def build_chief_complaint(profile: Dict) -> str:
     return f"I am a {age}-year-old {gender}. {chief}"
 
 
-def make_patient_callable(bmbe_profile: Dict, patient_model: str, api_key: str | None):
+def make_patient_callable(profile: Dict, patient_model: str, api_key: str | None):
     """Return a callable(question) -> answer that uses our PatientSim with
-    DDxPlus closed-world rules. Mirrors what BMBEPatientSim does for MediQ
-    and BMBEPatientAgent does for MEDDxAgent."""
+    DDxPlus closed-world rules. Mirrors what MoBayesPatientSim does for MediQ
+    and MoBayesPatientAgent does for MEDDxAgent."""
     from llm_interface.prompt_templates import build_patient_system_prompt
     from llm_interface.llm_client import OpenAILLMClient, sanitize_openai_text
 
-    system_prompt = build_patient_system_prompt(bmbe_profile)
+    system_prompt = build_patient_system_prompt(profile)
     messages = [{"role": "system", "content": system_prompt}]
     llm = OpenAILLMClient(model=patient_model, api_key=api_key, temperature=0.7)
 

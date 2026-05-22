@@ -4,9 +4,9 @@ DiagnosisGPT-34B (Wang et al. 2024, Yi-34B fine-tune over 9,604-disease
 universe). Requires a GPU node + 70 GB checkpoint.
 
 Local: not supported (no GPU + no checkpoint).
-Remote (Clariden GH200): emits a parameterised sbatch script next to the
-output dir and prints `sbatch` + `scp` instructions; the user submits and
-later runs ``--remote-fetch`` to pull back results.
+Remote (HPC, Slurm + single GPU): emits a parameterised sbatch script
+next to the output dir and prints `sbatch` + `scp` instructions; the user
+submits and later runs ``--remote-fetch`` to pull back results.
 """
 
 from __future__ import annotations
@@ -113,14 +113,14 @@ def _column_args(column_name: str) -> tuple[str, str]:
 def run_batch(*, cases: List[Dict[str, Any]], start_idx: int, column,
               doctor_model: str, patient_model: str, max_turns: int,
               api_key: str, out_dir: Path, row_kwargs: Dict[str, Any]) -> None:
-    remote = row_kwargs.get("remote", "clariden")
-    if remote != "clariden":
-        sys.exit("cod row requires --row-kwargs '{\"remote\":\"clariden\"}' "
+    remote = row_kwargs.get("remote", "hpc")
+    if remote != "hpc":
+        sys.exit("cod row requires --row-kwargs '{\"remote\":\"hpc\"}' "
                  "(local DiagnosisGPT-34B inference not supported on Mac).")
 
     runner, column_args = _column_args(column.NAME)
     run_name = f"cod_{column.NAME}_{len(cases)}"
-    sbatch_path = out_dir / f"clariden_{run_name}.sbatch"
+    sbatch_path = out_dir / f"hpc_{run_name}.sbatch"
     out_dir.mkdir(parents=True, exist_ok=True)
     sbatch_path.write_text(_SBATCH_TEMPLATE.format(
         column_name=column.NAME,

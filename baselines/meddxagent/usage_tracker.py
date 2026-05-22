@@ -2,12 +2,12 @@
 
 MEDDxAgent's own OpenAIChat throws away the usage dict. Their orchestrator
 spins up multiple Model instances (one per agent), so we can't simply keep
-a self.total_usage on the doctor side. Patient-side BMBEPatientAgent has a
+a self.total_usage on the doctor side. Patient-side MoBayesPatientAgent has a
 single OpenAILLMClient instance but the runner can't easily reach it after
 run_ddxdriver() returns.
 
 Approach: two module-level dicts (DOCTOR / PATIENT). The patched OpenAIChat
-adds to DOCTOR; BMBEPatientAgent adds to PATIENT after each chat. The runner
+adds to DOCTOR; MoBayesPatientAgent adds to PATIENT after each chat. The runner
 imports `snapshot()` after run_ddxdriver() and writes results to disk.
 """
 

@@ -1,0 +1,72 @@
+{
+  "case_idx": 0,
+  "baseline": "ac_native",
+  "column": "ac",
+  "ground_truth": "Acalculous cholecystitis",
+  "patient_actor_hidden": {
+    "Demographics": "67-year-old woman",
+    "History": "The patient has been in home hospice care and has experienced a recent change in mental status, showing signs of confusion and an inability to communicate her symptoms effectively.",
+    "Symptoms": {
+      "Primary_Symptom": "Altered mental status with confusion",
+      "Secondary_Symptoms": [
+        "Elevated temperature",
+        "Discomfort in the right upper quadrant of the abdomen"
+      ]
+    },
+    "Past_Medical_History": "The patient is in home hospice, indicating a history of significant chronic illness, though specifics are not provided. No explicit history of gallbladder disease mentioned.",
+    "Social_History": "Information not provided",
+    "Review_of_Systems": "Unable to complete due to patient's altered mental state."
+  },
+  "objective_for_doctor": "Evaluate and manage a senior patient presenting with altered mental status and abdominal pain.",
+  "turns": [
+    {
+      "turn": 1,
+      "role": "doctor",
+      "content": "Doctor: Hello—I'm Dr. Agent. I need to ask 3 quick questions: 1) Where exactly is the abdominal pain (and how severe 0–10)? 2) Any fever, vomiting, black/bloody stool, or trouble passing urine? 3) When did the confusion start and is it fluctuating or constant? Doctor: REQUEST TEST: CBC, CMP, LFTs, lipase, urinalysis, lactate, blood glucose. Doctor: REQUEST TEST: CT_Abdomen_Pelvis_with_contrast and CT_Head_wo_contrast.",
+      "final_turn_forced": false
+    },
+    {
+      "turn": 1,
+      "role": "measurement",
+      "content": "RESULTS: Temperature 38.9°C (102°F); BP 117/65 mmHg; Heart Rate 110 bpm; Respiratory Rate 19 breaths/min; Oxygen Saturation 95% on room air. Abdominal exam: right upper quadrant discomfort with palpable mass; no visible distension or jaundice; bowel sounds present; normal percussion; no generalized peritonitis. Laboratory: WBC elevated (exact value not provided); liver enzymes, bilirubin not provided. Imaging (abdominal ultrasound): pericholecystic fluid and gallbladder wall thickening without gallstones. Urinalysis, lactate, blood glucose, lipase, CMP/LFTs, CT abdomen/pelvis with contrast, and CT head without contrast: not provided—NORMAL READINGS for missing values."
+    },
+    {
+      "turn": 2,
+      "role": "doctor",
+      "content": "Doctor: I have one remaining question—are you having worsening confusion or severe right-upper-quadrant pain with nausea/vomiting, and do you feel chills or rigors? Doctor: Given fever, RUQ tenderness with a palpable mass, and ultrasound showing pericholecystic fluid and gallbladder wall thickening (classic for acute cholecystitis), and delirium/AMS likely from systemic infection, my diagnosis is acute calculous or acalculous cholecystitis causing sepsis-related encephalopathy. Doctor: DIAGNOSIS READY: Acute cholecystitis with sepsis-associated delirium/encephalopathy.",
+      "final_turn_forced": false
+    }
+  ],
+  "final": {
+    "predicted": "Doctor: I have one remaining question—are you having worsening confusion or severe right-upper-quadrant pain with nausea/vomiting, and do you feel chills or rigors? Doctor: Given fever, RUQ tenderness with a palpable mass, and ultrasound showing pericholecystic fluid and gallbladder wall thickening (classic for acute cholecystitis), and delirium/AMS likely from systemic infection, my diagnosis is acute calculous or acalculous cholecystitis causing sepsis-related encephalopathy. Doctor: DIAGNOSIS READY: Acute cholecystitis with sepsis-associated delirium/encephalopathy.",
+    "diagnosis_provided": true,
+    "moderator_correct": true,
+    "top1_hit": true,
+    "top3_hit": true,
+    "abstained": false,
+    "stop_reason": "DIAGNOSIS_READY",
+    "turns": 2
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 689,
+      "completion_tokens": 267,
+      "calls": 2
+    },
+    "patient": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "calls": 0
+    },
+    "measurement": {
+      "prompt_tokens": 425,
+      "completion_tokens": 166,
+      "calls": 1
+    },
+    "moderator": {
+      "prompt_tokens": 202,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}

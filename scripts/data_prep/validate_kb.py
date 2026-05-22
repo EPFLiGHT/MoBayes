@@ -8,6 +8,7 @@ Checks all constraints required by data_loader.py.
 Usage:
     python scripts/data_prep/validate_kb.py data/kbs/ddxplus/
 """
+import argparse
 import os
 import sys
 import json
@@ -168,11 +169,13 @@ def validate_kb(data_dir: str) -> Tuple[List[str], List[str]]:
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python scripts/data_prep/validate_kb.py <data_dir>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Validate a CSV-based MoBayes knowledge base directory.")
+    parser.add_argument("data_dir",
+                        help="KB directory containing diseases.csv, features.csv, etc.")
+    args = parser.parse_args()
 
-    data_dir = sys.argv[1]
+    data_dir = args.data_dir
     if not os.path.isdir(data_dir):
         print(f"Error: {data_dir} is not a directory")
         sys.exit(1)

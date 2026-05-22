@@ -1,6 +1,6 @@
 """MEDDxAgent patient adapter for AgentClinic-MedQA cases.
 
-Parallel to BMBEPatientAgent (patient.py) but loads AgentClinic cases and
+Parallel to MoBayesPatientAgent (patient.py) but loads AgentClinic cases and
 delegates each `__call__` to AgentClinic's own PatientAgent. Same wiring as
 the MediQ adapter (mediQ/src/patient_agentclinic.py): we bypass AC's legacy
 openai 0.x SDK with a modern OpenAI 1.x call but keep AC's prompts and
@@ -53,9 +53,9 @@ class ACMEDDxAgentPatient(PatientAgent):
         self._ac_agent = None  # built per-case in reset()
 
     def _load_env_file(self) -> None:
-        modn_root = Path(self.config.get("modn_root") or
+        repo_root = Path(self.config.get("repo_root") or
                           Path(__file__).resolve().parents[2])
-        env_path = modn_root / ".env"
+        env_path = repo_root / ".env"
         if not env_path.exists():
             return
         try:
@@ -112,7 +112,7 @@ class ACMEDDxAgentPatient(PatientAgent):
         answer = re.sub(r"\s+", " ", answer)
         agent.agent_hist += question + "\n\n" + answer + "\n\n"
 
-        # Track usage in shared module (matches BMBEPatientAgent behaviour)
+        # Track usage in shared module (matches MoBayesPatientAgent behaviour)
         try:
             from baselines.meddxagent.usage_tracker import add_patient
             usage = resp.usage

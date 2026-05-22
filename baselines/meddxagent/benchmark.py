@@ -103,12 +103,12 @@ def _profile_to_streambench_row(profile: dict, idx: int) -> dict:
     }
 
 
-class BMBEDDxPlus50(DDxPlus):
+class MoBayesDDxPlus50(DDxPlus):
     DATASET_NAME = "ddxplus"
 
     # Separate cache filename so we don't collide with MEDDxAgent's own cached
     # embeddings (which were built from a different 1764-patient pool).
-    FEWSHOT_EMBEDDINGS_FILE = "fewshot_embeddings_bmbe50.json"
+    FEWSHOT_EMBEDDINGS_FILE = "fewshot_embeddings_mobayes50.json"
 
     def __init__(self, profiles_path: str | None = None, *args, **kwargs):
         self.profiles_path = (

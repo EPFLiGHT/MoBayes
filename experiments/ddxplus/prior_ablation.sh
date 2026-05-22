@@ -4,7 +4,7 @@
 # n=25 per condition, 3 runs in parallel.
 # Usage: bash experiments/ddxplus/prior_ablation.sh
 set -euo pipefail
-source .env
+[ -f .env ] && source .env || true
 
 PROFILES="data/cases/ddxplus_patientsim_a/plain/profiles.json"
 DATA_DIR="data/kbs/ddxplus"

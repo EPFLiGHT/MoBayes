@@ -18,9 +18,9 @@ import yaml
 
 
 THIS_FILE = Path(__file__).resolve()
-MODN_ROOT = THIS_FILE.parents[2]
-REPO_ROOT = MODN_ROOT.parent
-DEFAULT_MEDDX_ROOT = REPO_ROOT.parent / "meddxagent"
+REPO_ROOT = THIS_FILE.parents[2]
+_REPO_PARENT = REPO_ROOT.parent
+DEFAULT_MEDDX_ROOT = _REPO_PARENT.parent / "meddxagent"
 
 
 def parse_args() -> argparse.Namespace:
@@ -32,7 +32,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--profiles",
-        default=str(MODN_ROOT / "data/cases/ddxplus_patientsim_a/plain/profiles.json"),
+        default=str(REPO_ROOT / "data/cases/ddxplus_patientsim_a/plain/profiles.json"),
         help="Path to MoBayes benchmark profiles.json.",
     )
     parser.add_argument(
@@ -63,7 +63,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--experiment-dir",
-        default=str(MODN_ROOT / "data/benchmark_results/meddxagent_patientsim"),
+        default=str(REPO_ROOT / "data/benchmark_results/meddxagent_patientsim"),
         help="Output directory for raw MEDDxAgent experiment artifacts.",
     )
     parser.add_argument(
@@ -109,8 +109,8 @@ def load_yaml(path: Path) -> dict:
         return yaml.safe_load(f)
 
 
-def ensure_api_env(modn_root: Path) -> None:
-    env_path = modn_root / ".env"
+def ensure_api_env(repo_root: Path) -> None:
+    env_path = repo_root / ".env"
     if env_path.exists():
         try:
             from dotenv import load_dotenv
@@ -135,13 +135,13 @@ def maybe_override_model(cfg: dict, model_name: str, base_url: str | None) -> No
 
 def main() -> None:
     args = parse_args()
-    ensure_api_env(MODN_ROOT)
+    ensure_api_env(REPO_ROOT)
 
     meddx_root = Path(args.meddxagent_root).expanduser().resolve()
     if not meddx_root.exists():
         raise FileNotFoundError(f"MEDDxAgent repo not found: {meddx_root}")
 
-    sys.path.insert(0, str(MODN_ROOT))
+    sys.path.insert(0, str(REPO_ROOT))
     sys.path.insert(0, str(meddx_root))
 
     from ddxdriver.run_ddxdriver import run_ddxdriver
@@ -157,7 +157,7 @@ def main() -> None:
     rag_agent_cfg = load_yaml(meddx_root / "configs/rag_agents/searchrag.yml")
 
     bench_cfg["num_patients"] = args.num_patients
-    bench_cfg["class_name"] = "baselines.meddxagent.benchmark.BMBEDDxPlus50"
+    bench_cfg["class_name"] = "baselines.meddxagent.benchmark.MoBayesDDxPlus50"
     bench_cfg.setdefault("config", {})
     bench_cfg["config"]["profiles_path"] = str(Path(args.profiles).expanduser().resolve())
     knn_cfg = bench_cfg["config"].setdefault("knn_search_cfg", {})
@@ -175,10 +175,10 @@ def main() -> None:
     diagnosis_agent_cfg["config"]["fewshot"]["num_shots"] = args.num_shots
 
     patient_agent_cfg = {
-        "class_name": "baselines.meddxagent.patient.BMBEPatientAgent",
+        "class_name": "baselines.meddxagent.patient.MoBayesPatientAgent",
         "config": {
             "profiles_path": str(Path(args.profiles).expanduser().resolve()),
-            "modn_root": str(MODN_ROOT),
+            "repo_root": str(REPO_ROOT),
             "patient_model": args.patient_model,
             "base_url": args.patient_base_url,
         },
@@ -195,7 +195,7 @@ def main() -> None:
             "config": {
                 "top_k_search": rag_agent_cfg["config"].get("top_k_search", 2),
                 "max_keyword_searches": rag_agent_cfg["config"].get("max_keyword_searches", 3),
-                "data_dir": str(MODN_ROOT / "data/kbs/ddxplus"),
+                "data_dir": str(REPO_ROOT / "data/kbs/ddxplus"),
                 "model": rag_agent_cfg["config"]["model"],
             },
         }

@@ -2,7 +2,7 @@
 
 MEDDxAgent's orchestrator drives the patient via a `PatientAgent` subclass
 with a `__call__(question) -> answer` interface (mirrors our existing
-BMBEPatientAgent). Here we provide an AC-backed equivalent.
+MoBayesPatientAgent). Here we provide an AC-backed equivalent.
 """
 
 from __future__ import annotations

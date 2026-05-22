@@ -3,7 +3,7 @@
 # Runs 4 personas x 2 modes (BMBE, SA) = 8 conditions, n=25 each.
 # Usage: bash experiments/ddxplus/persona_ablation.sh
 set -euo pipefail
-source .env
+[ -f .env ] && source .env || true
 
 DATA_DIR="data/kbs/ddxplus"
 PROFILE_DIR="data/cases/ddxplus_patientsim_a"

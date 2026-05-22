@@ -13,9 +13,9 @@ import yaml
 
 
 THIS_FILE = Path(__file__).resolve()
-MODN_ROOT = THIS_FILE.parents[2]
-REPO_ROOT = MODN_ROOT.parent
-DEFAULT_MEDDX_ROOT = REPO_ROOT.parent / "meddxagent"
+REPO_ROOT = THIS_FILE.parents[2]
+_REPO_PARENT = REPO_ROOT.parent
+DEFAULT_MEDDX_ROOT = _REPO_PARENT.parent / "meddxagent"
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,7 +33,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--iterations", type=int, default=3)
     p.add_argument("--questions-per-iteration", type=int, default=5)
     p.add_argument("--experiment-dir",
-                   default=str(MODN_ROOT / "data/benchmark_results/ddxplus_htsim_meddxagent_raw"))
+                   default=str(REPO_ROOT / "data/benchmark_results/ddxplus_htsim_meddxagent_raw"))
     return p.parse_args()
 
 
@@ -51,7 +51,7 @@ def maybe_override_model(cfg: dict, model_name: str) -> None:
 def main() -> None:
     args = parse_args()
 
-    env_path = MODN_ROOT / ".env"
+    env_path = REPO_ROOT / ".env"
     if env_path.exists():
         try:
             from dotenv import load_dotenv
@@ -65,7 +65,7 @@ def main() -> None:
     if not meddx_root.exists():
         raise FileNotFoundError(f"MEDDxAgent repo not found: {meddx_root}")
 
-    sys.path.insert(0, str(MODN_ROOT))
+    sys.path.insert(0, str(REPO_ROOT))
     sys.path.insert(0, str(meddx_root))
 
     from ddxdriver.run_ddxdriver import run_ddxdriver
@@ -110,7 +110,7 @@ def main() -> None:
             "config": {
                 "top_k_search": rag_cfg["config"].get("top_k_search", 2),
                 "max_keyword_searches": rag_cfg["config"].get("max_keyword_searches", 3),
-                "data_dir": str(MODN_ROOT / "data/kbs/ddxplus"),
+                "data_dir": str(REPO_ROOT / "data/kbs/ddxplus"),
                 "model": rag_cfg["config"]["model"],
             },
         }
