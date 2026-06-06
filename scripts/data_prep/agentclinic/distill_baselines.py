@@ -1,5 +1,5 @@
 """(Optional) Enrich the KB by distilling winning Q-A pairs from strong open-vocab
-baselines (e.g. MediQ-Expert, MEDDxAgent) into canonical BMBE features.
+baselines into canonical MoBayes features.
 
 Why it helps:
   Open-vocab baselines often ask narrowly-discriminative questions tightly bound
@@ -7,7 +7,8 @@ Why it helps:
   "central umbilication", "rapidly enlarging non-tender breast mass"). Their
   question repertoire encodes diagnostic discriminators that a closed-vocabulary
   feature set may lack. Distilling those into named features expands the
-  feature universe; the next step (`build_likelihoods.py`) then assigns
+  feature universe; the next step (the LLM elicitation in
+  `scripts/data_prep/llmkb/generate_distributions.py`) then assigns
   P(feature | disease) over the expanded set.
 
 Pipeline:

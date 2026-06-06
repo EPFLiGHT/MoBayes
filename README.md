@@ -54,10 +54,18 @@ pip install -r requirements.txt
 # 2. PYTHONPATH so engine imports work from the repo root
 export PYTHONPATH=$PYTHONPATH:$(pwd)
 
-# 3. API keys — needed for new LLM sessions, NOT for regenerating tables / figures
+# 3. API keys (only needed to run new LLM sessions, NOT to regenerate tables/figures)
 export OPENAI_API_KEY="..."
-export GEMINI_KEY="..."     # optional
-export OPEN_ROUTER="..."    # optional, used for some sensor models
+export OPEN_ROUTER="..."    # optional; used for non-OpenAI sensor / judge models via OpenRouter
+```
+
+The `experiments/*.sh` orchestrators source a local `.env` if one is
+present; you can either put the same exports there or just leave them in
+your shell. A minimal `.env` looks like:
+
+```bash
+OPENAI_API_KEY=sk-...
+OPEN_ROUTER=sk-or-...
 ```
 
 ### Optional baseline dependencies
@@ -68,10 +76,10 @@ needed when *re-running* the corresponding baselines.
 
 | Baseline | Clone | Env var | Notes |
 |---|---|---|---|
-| MediQ-Expert | `stellalisy/mediQ` | `MEDIQ_REPO` | — |
-| MEDDxAgent | `AgentAITech/meddxagent` | `MEDDXAGENT_REPO` | 2-line token-tracking patch — see `baselines/meddxagent/README.md` |
+| MediQ-Expert | `stellalisy/mediQ` | `MEDIQ_REPO` | see `baselines/mediq.md` for the patch set |
+| MEDDxAgent | `AgentAITech/meddxagent` | `MEDDXAGENT_REPO` | 2-line token-tracking patch, see `baselines/meddxagent/README.md` |
 | AgentClinic | `SamuelSchmidgall/AgentClinic` | `AGENTCLINIC_REPO` | — |
-| UoT | `bash baselines/uot/fetch_uot.sh` | — | clones into `baselines/uot/repo/` |
+| UoT | already vendored under `baselines/uot/repo/` | — | `baselines/uot/fetch_uot.sh` is a no-op when the clone is present (it skips with a message) |
 
 ---
 
@@ -92,6 +100,15 @@ Output goes to
 `data/benchmark_results/<column>_50_<row>[_<suffix>]/case_NNN.json`
 (one JSON per patient). See `bench/README.md` for the full Row × Column
 command table and the per-case JSON schema.
+
+> Note on layouts. The bench driver writes fresh runs to
+> `data/benchmark_results/<column>_50_<row>...` (per-case JSON). The
+> pre-committed paper results are stored in the older layout
+> `data/benchmark_results/{set_a,set_b}/<column>/<row>/*.jsonl`, which is
+> what `data/paper_tables/*.py` reads. To regenerate paper tables from
+> new bench runs you would need to re-aggregate into the `set_{a,b}`
+> layout; the saved results already do this so no extra step is needed
+> for reproduction.
 
 ### Interactive session (play as the patient)
 
@@ -142,10 +159,14 @@ Free-text doctor outputs are mapped to the closed disease list by a one-shot
 LLM judge pass; tables read the resulting `top1_hit_judged`, `top3_hit_judged`,
 `abstained_judged` fields. Judged outputs under
 `data/benchmark_results/judged/` are pre-committed; re-run only if you add
-new cells:
+new cells. The remap script takes a single `--in-dir` of `case_*.json`
+files at a time:
 
 ```bash
-PYTHONPATH=. python3 scripts/analysis/llm_remap_unified.py
+# Example: re-judge one new cell.
+PYTHONPATH=. python3 scripts/analysis/llm_remap_unified.py \
+  --in-dir data/benchmark_results/<column>_50_<row>[_<suffix>]
+# Then recompute aggregate metrics.
 PYTHONPATH=. python3 scripts/analysis/recompute_metrics_from_judged.py
 ```
 
@@ -168,35 +189,60 @@ PYTHONPATH=. python3 scripts/data_prep/validate_kb.py data/kbs/ddxplus/
 
 ### AgentClinic (LLM-elicited from cases)
 
-Two LLM-driven steps with an optional enrichment in between:
+The AC KB uses the same LLM-driven elicitation pipeline as Section 4.3
+(`scripts/data_prep/llmkb/`); the feature/disease vocabulary is grounded
+in the AC case set instead of a free-form disease list. Both AC sets
+(`agentclinic_a`, `agentclinic_b`) share the same driver, parameterised
+by their `raw_input/` directory.
 
 ```bash
+KB=data/kbs/agentclinic_a   # or agentclinic_b
+
+# (1) extract candidate features from the AC case set
 PYTHONPATH=. python3 scripts/data_prep/agentclinic/extract_features.py \
   --cases data/cases/agentclinic_a/selected_cases.jsonl \
   --out   data/cases/agentclinic_a/features.csv
 
-# Optional: distill features from competing baselines to broaden the
-# feature vocabulary with clinically discriminative items.
-PYTHONPATH=. python3 scripts/data_prep/agentclinic/distill_baselines.py
+# (2) LLM-driven P(feature|disease) elicitation (same script as Section 4.3)
+cd scripts/data_prep/llmkb && \
+  LLMKB_MODEL=gpt-5.4-nano \
+  LLMKB_DISEASES_JSON_PATH=../../../${KB}/raw_input/diseases.json \
+  LLMKB_FEATURES_JSON_PATH=../../../${KB}/raw_input/features.json \
+  LLMKB_DISTRIBUTIONS_JSON_PATH=../../../${KB}/raw_output/distributions.json \
+  PYTHONPATH=. python3 generate_distributions.py
+cd -
 
-PYTHONPATH=. python3 scripts/data_prep/agentclinic/build_likelihoods.py
+# (3) convert distributions.json into the MoBayes KB CSVs
+PYTHONPATH=. python3 scripts/data_prep/llmkb/convert_llmkb.py \
+  --features      ${KB}/raw_input/features.json \
+  --distributions ${KB}/raw_output/distributions.json \
+  --output        ${KB}
+
+PYTHONPATH=. python3 scripts/data_prep/validate_kb.py ${KB}
 ```
 
 ### General LLM-elicited KB (Section 4.3)
 
-The Gemini- and GPT-elicited KBs in Section 4.3 are built by the pipeline
-under `scripts/data_prep/llmkb/`:
+The Gemini- and GPT-elicited KBs reported in Section 4.3 are built by the
+pipeline under `scripts/data_prep/llmkb/`. The pipeline reads paths from
+`scripts/data_prep/llmkb/config.yml`; the input disease list lives at
+`scripts/data_prep/llmkb/config.yml::paths.diseases_json` (default points
+under `data/raw/llmkb/input/`). Place your `diseases<N>.json` there before
+running:
 
 ```bash
-PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_features.py \
-  --config scripts/data_prep/llmkb/config.yml
+PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_features.py
 PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_distributions.py
 PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_priors.py
-PYTHONPATH=. python3 scripts/data_prep/llmkb/convert_llmkb.py    # → MoBayes internal KB format
+PYTHONPATH=. python3 scripts/data_prep/llmkb/convert_llmkb.py \
+  --output data/kbs/llmkb_gpt        # or llmkb_gemini
 ```
 
-`config.yml` selects the elicitation backbone (GPT-5.4 or Gemini 2.5 Flash)
-and the disease list.
+`config.yml` selects the elicitation backbone (e.g. GPT-5.4 or Gemini
+3.1 Pro) and the disease list. Both the raw inputs (under
+`data/raw/llmkb/input/`) and the resulting KBs (under
+`data/kbs/llmkb_{gpt,gemini}/`) are pre-shipped; the
+`experiments/llmkb/` scripts read directly from the latter.
 
 ### Patient profiles (PatientSim)
 
@@ -227,7 +273,8 @@ Personas (`plain`, `dazed`, `distrustful`, `overanxious`,
 | `scripts/analysis/` | LLM-judge remapping and metric recomputation |
 | `experiments/` | Pre-defined paper experiments (`.sh` orchestrators) and figure generators |
 | `data/paper_tables/` | LaTeX table generators (read directly from `data/benchmark_results/`) |
-| `data/` | Knowledge bases, patient profiles, and saved per-case results |
+| `data/kbs/`, `data/cases/`, `data/benchmark_results/` | Knowledge bases, patient profiles, saved per-case results |
+| `data/raw/` | LLM-KB rebuild inputs (disease lists + intermediate generated features/distributions JSONs) |
 | `tables/`, `figures/` | Auto-generated LaTeX / PDF / PNG outputs (created on first run) |
 
 ---
@@ -264,9 +311,9 @@ Other utilities in `data/paper_tables/` cover paired-bootstrap significance
 ### Figures
 
 ```bash
-PYTHONPATH=. python3 experiments/analysis/generate_paper_plots.py   # cost-vs-scale + persona radar
-PYTHONPATH=. python3 experiments/analysis/plot_acc_coverage.py      # accuracy-coverage frontier
-PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py       # disease-scaling
+PYTHONPATH=. python3 experiments/analysis/generate_paper_plots.py        # cost-vs-scale + persona radar
+PYTHONPATH=. python3 experiments/analysis/plot_acc_coverage.py           # accuracy-coverage frontier
+PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --plot     # disease-scaling
 PYTHONPATH=. python3 experiments/analysis/failure_analysis.py \
   --data-dir data/kbs/ddxplus \
   --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json \
