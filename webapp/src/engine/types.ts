@@ -29,16 +29,15 @@ export type Feature = {
   values: Value[]
 }
 
-// A knowledge base, as loaded from public/kb/*.json
+// `diseases` fixes the index order of prior and every likelihood vector.
 export type KB = {
   id: string
   diseases: string[]
   names: string[]
-  prior: Float64Array
-  features: Map<FeatureId, Feature>
-  // feature -> value -> P(value | disease), one entry per disease.
-  likelihood: Map<FeatureId, Map<Value, Float64Array>>
-  parents: Map<string, string[]>
+  prior: number[]
+  features: Record<FeatureId, Feature>
+  likelihood: Record<FeatureId, Record<Value, number[]>>
+  parents: Record<string, string[]>
   roots: string[]
 }
 
@@ -48,16 +47,13 @@ export type Observation = {
   confidence: number
 }
 
-// Everything observed so far. Re-answering a feature replaces its observation;
-// insertion order is the order the features were asked.
-export type Evidence = Map<FeatureId, Observation>
+// Re-answering a feature replaces its observation.
+export type Evidence = Record<FeatureId, Observation>
 
 export type StopReason = 'CONFIDENT' | 'MAX_QUESTIONS' | 'FEATURES_EXHAUSTED'
 
 export type StopConfig = {
-  // Commit once the top posterior reaches this.
   tau: number
-  // Hard cap on distinct features asked.
   budget: number
 }
 
