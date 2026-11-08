@@ -302,13 +302,11 @@ Chain-of-Diagnosis) fetch it from upstream; it is not redistributed here.
 ## Citation
 
 ```bibtex
-@misc{kesmen2026mobayes,
-  title         = {MoBayes: A Modular Bayesian Framework for Separating Reasoning from Language in Conversational Clinical Decision Support},
-  author        = {Yusuf Kesmen and Fay Elhassan and Jiayi Ma and Julien Stalhandske and Yena Chang and David Sasu and Alexandra Kulinkina and Akhil Arora and Lars Klein and Mary-Anne Hartley},
-  year          = {2026},
-  eprint        = {2604.20022},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.LG},
-  url           = {https://arxiv.org/abs/2604.20022}
+@inproceedings{kesmen2026mobayes,
+  title     = {MoBayes: A Modular Bayesian Framework for Separating Reasoning from Language in Conversational Clinical Decision Support},
+  author    = {Yusuf Kesmen and Fay Elhassan and Jiayi Ma and Julien Stalhandske and Yena Chang and David Sasu and Alexandra Kulinkina and Akhil Arora and Lars Klein and Mary-Anne Hartley},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2604.20022}
 }
 ```
