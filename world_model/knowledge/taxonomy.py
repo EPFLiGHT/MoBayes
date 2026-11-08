@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Dict, List, Set, Optional
+from typing import Dict, List
 
 class DiseaseTaxonomy:
     """

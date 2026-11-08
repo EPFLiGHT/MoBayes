@@ -1,0 +1,154 @@
+{
+  "case_idx": 42,
+  "arm": "standalone",
+  "ground_truth": "Tuberculosis",
+  "excluded_disease_id": "d_tuberculosis",
+  "n_candidates_in_prompt": 48,
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’ve been having a fever and a bad cough, and I’ve been coughing up blood. I’ve also lost weight without trying, and I’m worried something is really wrong.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re dealing with that—let’s narrow this down. **First question:** How old are you, and do you have any major risk factors for lung disease (e.g., smoking history, recent travel, TB exposure, or immunosuppression like HIV)?",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "I’m 59. I don’t have recent international travel. I’m on corticosteroids, and I do have risk factors like IV drug use and heavy alcohol use—so I’m worried about infections. I don’t know about TB exposure or HIV for sure.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks—those risk factors matter. **Next question:** How long have the fever and cough been going on (days vs weeks vs months), and is the cough getting steadily worse?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "It’s been going on for a while—more than a few weeks. The fever and cough have been getting worse over time, not better.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **Next question:** When you cough up blood, is it just streaks in the sputum, or are you coughing up larger amounts (e.g., teaspoons/tablespoons), and how much in the last 24 hours?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "It’s more than just streaks. I’ve been coughing up larger amounts, and I’d say it’s been more than a few teaspoons in the last 24 hours.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "That’s concerning. **Next question:** Do you have shortness of breath at rest or with minimal activity, and any chest pain (sharp with breathing vs pressure-like)?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "I’m having trouble breathing with minimal activity, and I do get some chest discomfort when I breathe, but I don’t think it feels like pressure—more like pain with breathing.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "I hear you. **Next question:** Have you had any leg swelling/pain (especially one-sided), or sudden worsening of symptoms, or recent surgery/immobility?",
+      "turn": 5
+    },
+    {
+      "role": "patient",
+      "content": "No leg swelling or one-sided leg pain. I don’t have any recent surgery or immobilization. It’s been gradually getting worse rather than sudden.",
+      "turn": 5
+    },
+    {
+      "role": "doctor",
+      "content": "Thanks. **Next question:** Have you noticed night sweats, or any history of tuberculosis exposure, or prior TB infection?",
+      "turn": 6
+    },
+    {
+      "role": "patient",
+      "content": "Yes—I've had night sweats. I’m not sure about TB exposure or whether I had TB before. I don’t really know.",
+      "turn": 6
+    },
+    {
+      "role": "doctor",
+      "content": "Given fever, progressive cough, hemoptysis, weight loss, and night sweats, TB is a key concern. **Next question:** Are you currently wheezing or have a history of asthma/COPD, or is it more of a “productive cough” with mucus?",
+      "turn": 7
+    },
+    {
+      "role": "patient",
+      "content": "I’m not really wheezing. It’s more of a productive cough with mucus.",
+      "turn": 7
+    },
+    {
+      "role": "doctor",
+      "content": "**Next question:** Have you had any recent sick contacts or symptoms like sore throat/runny nose, or is it mainly chest symptoms?",
+      "turn": 8
+    },
+    {
+      "role": "patient",
+      "content": "Mostly chest symptoms. I don’t really have sore throat or runny nose. I’m not sure about sick contacts.",
+      "turn": 8
+    },
+    {
+      "role": "doctor",
+      "content": "**Next question:** Do you have any known heart history (atrial fibrillation, prior clots), and have you ever had similar episodes?",
+      "turn": 9
+    },
+    {
+      "role": "patient",
+      "content": "I don’t know of any heart problems like atrial fibrillation or prior clots. I haven’t had similar episodes like this before.",
+      "turn": 9
+    },
+    {
+      "role": "doctor",
+      "content": "**Next question:** Have you had any recent imaging or tests (like a chest X-ray/CT), and if so what did they show?",
+      "turn": 10
+    },
+    {
+      "role": "patient",
+      "content": "No, I haven’t had any chest imaging or tests yet.",
+      "turn": 10
+    },
+    {
+      "role": "doctor",
+      "content": "[ABSTAIN] The presentation strongly suggests a serious pulmonary process (e.g., TB, pneumonia, or pulmonary embolism), but with no vital signs, exam findings, or imaging/labs yet, I can’t narrow confidently to a specific top-5 diagnosis from the provided list.\n\n[POSSIBLE] Pneumonia, Pulmonary embolism, Acute COPD exacerbation / infection, Influenza, Pulmonary neoplasm",
+      "turn": 11
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "predicted_set": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Influenza",
+      "Pulmonary neoplasm"
+    ],
+    "predicted_raw": [
+      "Pneumonia",
+      "Pulmonary embolism",
+      "Acute COPD exacerbation / infection",
+      "Influenza",
+      "Pulmonary neoplasm"
+    ],
+    "abstained": true,
+    "true_disease_in_raw_preds": false,
+    "outcome": "abstain"
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11379,
+      "completion_tokens": 495
+    },
+    "patient": {
+      "prompt_tokens": 10057,
+      "completion_tokens": 365
+    }
+  }
+}

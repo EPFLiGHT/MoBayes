@@ -2,7 +2,7 @@
 
 Cases    : data/cases/ddxplus_htsim_a/selected_cases.jsonl (50, stratified by disease)
 Patient  : MEDDxAgent's published LLMPatient (closed-world history-taking
-           simulator) via baselines/streambench/adapters/base.py
+           simulator) via bench/patients/htsim.py
 Universe : DDxPlus 49 leaf diseases (full CSV is 58 rows incl. categories)
 """
 
@@ -28,8 +28,8 @@ def load_cases() -> List[Dict[str, Any]]:
 
 
 def make_patient(case: Dict[str, Any], patient_model: str):
-    """Wraps the StreamBench case in MEDDxAgent's LLMPatient."""
-    from baselines.streambench.adapters.base import LLMPatientWrapper
+    """Wraps the HT-sim case in MEDDxAgent's LLMPatient."""
+    from bench.patients.htsim import LLMPatientWrapper
     return LLMPatientWrapper(case, patient_model=patient_model)
 
 

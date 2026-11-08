@@ -8,17 +8,17 @@ Shows every step of MoBayes's diagnostic process:
   4. Belief state changes, top diseases, entropy after each step
 
 Usage:
-    python scripts/trace_session.py                        # First patient
-    python scripts/trace_session.py --patient-index 3      # 4th patient
-    python scripts/trace_session.py --patient-id ddx_085153
+    PYTHONPATH=. python3 scripts/utils/trace_session.py \
+        --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json                 # First patient
+    PYTHONPATH=. python3 scripts/utils/trace_session.py \
+        --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json --patient-index 3   # 4th patient
 """
 
 import os
 import sys
 import json
-import csv
 import numpy as np
-from typing import Dict, List, Optional
+from typing import Dict
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, BASE_DIR)
@@ -279,7 +279,7 @@ def trace_session(profile: Dict, data_dir: str,
     print(f"  {BOLD}Correct:{RESET}       {color}{'YES ✓' if is_correct else 'NO ✗'}{RESET}")
     print()
 
-    print(f"  Top 5 Differential:")
+    print("  Top 5 Differential:")
     for i, name in enumerate(results["top_diseases"][:5]):
         marker = " ◄ GT" if name.lower() == ground_truth.lower() else ""
         print(f"    {i+1}. {name}{marker}")

@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 import numpy as np
-import pandas as pd
-from typing import Dict, Any, Optional, List, Union
+from typing import Dict, Any, List
 
 class FeatureSchema:
     """

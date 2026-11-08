@@ -10,13 +10,16 @@ Scenarios:
 
 Usage:
     # Single patient test
-    python scripts/benchmark_patientsim.py --n 1
+    PYTHONPATH=. python3 scripts/core/benchmark_patientsim.py \
+        --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json --n 1
 
-    # Full benchmark with persona variations
-    python scripts/benchmark_patientsim.py --personas plain,overanxious,verbose
+    # Another patient persona (plain, overanxious, distrustful, dazed, verbose_lowrecall)
+    PYTHONPATH=. python3 scripts/core/benchmark_patientsim.py \
+        --profiles data/cases/ddxplus_patientsim_a/overanxious/profiles.json
 
     # Standalone doctor comparison
-    python scripts/benchmark_patientsim.py --doctor-mode standalone --n 10
+    PYTHONPATH=. python3 scripts/core/benchmark_patientsim.py \
+        --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json --doctor-mode standalone --n 10
 """
 
 import os
@@ -25,7 +28,7 @@ import json
 import time
 import argparse
 import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 # Add parent dir to path for imports
@@ -44,10 +47,9 @@ from decision_policy.policy import EIGPolicy
 from llm_interface.prompt_templates import (
     PromptTemplates, build_patient_system_prompt, build_standalone_doctor_prompt,
     STANDALONE_MAX_TURNS_MESSAGE,
-    PERSONA_INSTRUCTIONS, CEFR_INSTRUCTIONS, RECALL_INSTRUCTIONS, DAZED_INSTRUCTIONS,
 )
 from llm_interface.structured_parser import StructuredParser, enforce_schema
-from llm_interface.llm_client import OpenAILLMClient, sanitize_openai_text, sanitize_openai_messages
+from llm_interface.llm_client import OpenAILLMClient, sanitize_openai_text
 from llm_interface.ddxplus_display import (
     is_numeric_scale, prepare_display, resolve_negated_name, normalize_extracted_value,
 )
@@ -906,7 +908,7 @@ def run_benchmark(profiles_path: str,
                                             prior_mode=prior_mode,
                                             config=config)
         elif doctor_mode == "closed_world":
-            from baselines.closed_world_doctor import ClosedWorldDoctorAgent
+            from baselines.prompting.doctors import ClosedWorldDoctorAgent
             cw_doctor = ClosedWorldDoctorAgent(
                 disease_names=disease_name_list,
                 model=doctor_model,
@@ -925,7 +927,7 @@ def run_benchmark(profiles_path: str,
                                           doctor_override=cw_doctor,
                                           mode_label="closed_world")
         elif doctor_mode == "chain_of_thought":
-            from baselines.cot_doctor import ChainOfThoughtDoctorAgent
+            from baselines.prompting.doctors import ChainOfThoughtDoctorAgent
             cot_doctor = ChainOfThoughtDoctorAgent(
                 disease_names=disease_name_list,
                 model=doctor_model,
@@ -944,7 +946,7 @@ def run_benchmark(profiles_path: str,
                                           doctor_override=cot_doctor,
                                           mode_label="chain_of_thought")
         elif doctor_mode in ("savage_differential", "savage_bayesian"):
-            from baselines.savage_doctor import (
+            from baselines.prompting.doctors import (
                 DifferentialDiagnosisDoctorAgent,
                 BayesianReasoningDoctorAgent,
             )
@@ -1058,7 +1060,7 @@ def print_summary(results: List[BenchmarkResult], mode: str):
     reason_counts = {}
     for r in results:
         reason_counts[r.stop_reason] = reason_counts.get(r.stop_reason, 0) + 1
-    print(f"\n  Stop Reasons:")
+    print("\n  Stop Reasons:")
     for sr, cnt in sorted(reason_counts.items(), key=lambda x: -x[1]):
         print(f"    {sr:<30} {cnt:>3} ({cnt/n:.0%})")
 
@@ -1104,9 +1106,9 @@ def main():
     _defaults = MoBayesConfig()
     parser = argparse.ArgumentParser(description='PatientSim Benchmark for MoBayes')
     parser.add_argument('--profiles', default=None,
-                        help='Path to profiles.json (default: benchmark_data/profiles.json)')
+                        help='Path to profiles.json')
     parser.add_argument('--data-dir', default=None,
-                        help='Path to DDXPlus data dir (default: ddxplus_data/)')
+                        help='Path to KB data dir (default: data/kbs/ddxplus)')
     parser.add_argument('--doctor-mode', default='mobayes',
                         choices=['mobayes', 'standalone', 'closed_world',
                                  'chain_of_thought',

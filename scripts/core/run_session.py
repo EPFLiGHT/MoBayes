@@ -9,9 +9,9 @@ Uses the full MoBayes pipeline:
   - Jeffrey's conditioning for confidence-weighted updates
 
 Usage:
-    python scripts/run_session.py
-    python scripts/run_session.py --data-dir ddxplus_data/ --model gpt-4o
-    python scripts/run_session.py --max-questions 30 --no-llm
+    PYTHONPATH=. python3 scripts/core/run_session.py
+    PYTHONPATH=. python3 scripts/core/run_session.py --data-dir data/kbs/ddxplus --model gpt-4o
+    PYTHONPATH=. python3 scripts/core/run_session.py --max-questions 30 --no-llm
 """
 import os
 import sys

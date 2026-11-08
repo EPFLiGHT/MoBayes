@@ -1,0 +1,80 @@
+{
+  "case_idx": 5,
+  "arm": "mobayes",
+  "ground_truth": "Acute rhinosinusitis",
+  "excluded_disease_id": "d_acute_rhinosinusitis",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m 74, and I’ve been having a fever and a cough, plus a burning pain that feels like it’s in my face and head. I have pain in my forehead, right cheek, and both temples, and it also radiates toward my nose and the back of my head. I’d rate the pain about 3 out of 10, and it started pretty fast—like within a short time—and I also have greenish/yellow nasal discharge.",
+      "extracted_features": {
+        "f_e_91": "yes",
+        "f_e_55_v_89": "yes",
+        "f_e_55_v_166": "yes",
+        "f_e_55_v_108": "yes",
+        "f_e_55_v_25": "yes",
+        "f_e_53": "yes",
+        "f_e_57_v_89": "yes",
+        "f_e_57_v_25": "yes",
+        "f_e_57_v_122": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_201": "yes",
+        "f_e_182": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_120",
+      "doctor_question": "Do you have polyps in your nose (nasal polyps)?",
+      "patient_answer": "Yes, I’ve had polyps in my nose before.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_124",
+      "doctor_question": "Do you have asthma, or have you ever had to use a bronchodilator (like an inhaler) in the past?",
+      "patient_answer": "No, I don’t have asthma, and I haven’t needed to use a bronchodilator or inhaler in the past.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_103",
+      "doctor_question": "Have you lost your sense of smell, or noticed that things don’t smell the way they used to? (Yes or no)",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "Chronic rhinosinusitis",
+    "top_disease_if_forced": "Chronic rhinosinusitis",
+    "predicted_top3": [
+      "Chronic rhinosinusitis",
+      "URTI",
+      "Influenza"
+    ],
+    "confidence": 0.9781222613676746,
+    "final_entropy": 0.21943152874799776,
+    "tau": 0.9,
+    "abstained": false,
+    "outcome": "hallucinated_inlist"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10123,
+      "completion_tokens": 419
+    },
+    "patient": {
+      "prompt_tokens": 3093,
+      "completion_tokens": 149
+    }
+  }
+}

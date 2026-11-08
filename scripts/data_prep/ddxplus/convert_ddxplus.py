@@ -21,12 +21,12 @@ import argparse
 import numpy as np
 import pandas as pd
 from collections import defaultdict
-from typing import Dict, List, Tuple, Optional, Any
+from typing import Dict, List, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
 from scripts.data_prep.ddxplus.patientsim_format import (
-    convert_patient_data, load_features, load_diseases, load_patients,
+    convert_patient_data, load_features, load_diseases,
 )
 
 # ── ICD-10 Chapter Grouping ──────────────────────────────────────────────────

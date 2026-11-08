@@ -1,0 +1,112 @@
+{
+  "case_idx": 42,
+  "arm": "mobayes",
+  "ground_truth": "Tuberculosis",
+  "excluded_disease_id": "d_tuberculosis",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m 59. I’ve had a fever and a cough for a while, and I’ve also been coughing up blood. I’ve lost weight without trying too, and I’m also diabetic—I take corticosteroids—and I drink alcohol heavily and use IV drugs.",
+      "extracted_features": {
+        "f_e_91": "yes",
+        "f_e_201": "yes",
+        "f_e_45": "yes",
+        "f_e_162": "yes",
+        "f_ant_e_69": "yes",
+        "f_ant_e_44": "yes",
+        "f_ant_e_61": "yes",
+        "f_ant_e_78": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash?  \nFor example: **red, pink, dark, pale, yellow**, or is it **absent**?",
+      "patient_answer": "I don’t have a rash. It’s absent.",
+      "extracted_value": "absent",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_191",
+      "doctor_question": "To help with your medical history, have you ever smoked in the past but quit (a former smoker)?",
+      "patient_answer": "I don’t know / I’m not sure. I can’t say if I was a former smoker.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.5
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_197",
+      "doctor_question": "Do you feel any pain somewhere in your upper middle abdomen (the area just below your breastbone)?",
+      "patient_answer": "No, I don’t have pain there.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_ant_e_224",
+      "doctor_question": "Do you have any family members (such as a parent, sibling, or child) who have had lung cancer?",
+      "patient_answer": "I don’t know. My family history is unknown to me.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_ant_e_222",
+      "doctor_question": "Do you get exposed to secondhand cigarette smoke every day (for example, from someone smoking in the home, car, or nearby at work)?",
+      "patient_answer": "No, I don’t have daily exposure to secondhand smoke that I know of.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_148",
+      "doctor_question": "Do you feel any pain somewhere in your throat (pharynx) right now—yes or no?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_ant_e_73",
+      "doctor_question": "In the last month, have you been in contact with anyone who was infected with the Ebola virus? (Yes or no)",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "Bronchiolitis",
+    "predicted_top3": [
+      "Bronchiolitis",
+      "Pulmonary neoplasm",
+      "Spontaneous rib fracture"
+    ],
+    "confidence": 0.08754913565415055,
+    "final_entropy": 4.856838462651694,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11853,
+      "completion_tokens": 451
+    },
+    "patient": {
+      "prompt_tokens": 5542,
+      "completion_tokens": 154
+    }
+  }
+}

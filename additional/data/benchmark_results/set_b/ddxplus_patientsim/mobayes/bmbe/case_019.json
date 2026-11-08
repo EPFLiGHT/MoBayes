@@ -1,0 +1,172 @@
+{
+  "case_idx": 19,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Bronchitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 24\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’m a 24-year-old man, and I have COPD. For the past little while, I’ve had burning pain in my upper and lower chest, mostly on the right side, and I feel pretty short of breath. I also have a cough with more colored sputum than usual, fever, and some nasal congestion/runny nose, and when I breathe out I notice a wheezing sound.",
+      "extracted_features": {
+        "f_e_91": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_55_v_55": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_66": "yes",
+        "f_e_201": "yes",
+        "f_e_77": "yes",
+        "f_e_181": "yes",
+        "f_e_214": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Bronchitis",
+          0.8982419201189961
+        ],
+        [
+          "Pneumonia",
+          0.07412182205440355
+        ],
+        [
+          "Bronchiolitis",
+          0.0035013785538156104
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.0020217340771561147
+        ],
+        [
+          "Viral pharyngitis",
+          0.0018853420125145004
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_123",
+      "doctor_question": "Do you have chronic obstructive pulmonary disease (COPD)? (Yes or no)",
+      "patient_answer": "Yes. I have COPD.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.9257844386780181
+        ],
+        [
+          "Pneumonia",
+          0.07161993461280308
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.0009831889841076182
+        ]
+      ],
+      "entropy": 0.40523758812283034
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_197",
+      "doctor_question": "Do you feel any pain somewhere in your upper middle abdomen (the area just below your breastbone)?",
+      "patient_answer": "No. My pain is in my chest—upper and lower chest on the right side—not in the upper middle abdomen.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.9259184976309139
+        ],
+        [
+          "Pneumonia",
+          0.07163030559446958
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.0009833313555714298
+        ]
+      ],
+      "entropy": 0.4030617392890613
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_219",
+      "doctor_question": "Are your symptoms more prominent or worse at night? (Yes or no)",
+      "patient_answer": "No. I haven’t noticed that it’s more prominent or worse at night.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.9230429389202162
+        ],
+        [
+          "Pneumonia",
+          0.07140784848865613
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.0022279033951432448
+        ]
+      ],
+      "entropy": 0.4349385205771217
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_218",
+      "doctor_question": "Do you have symptoms that get worse when you’re physically active or exerting yourself, but improve or ease when you rest? (Yes or no)",
+      "patient_answer": "No. It’s not mainly worse with physical activity, and it doesn’t really ease when I rest.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Bronchitis",
+          0.92434776895485
+        ],
+        [
+          "Pneumonia",
+          0.07150879190254063
+        ],
+        [
+          "Acute COPD exacerbation / infection",
+          0.001825460270264772
+        ]
+      ],
+      "entropy": 0.4214854944373564
+    }
+  ],
+  "final": {
+    "predicted": "Bronchitis",
+    "predicted_top3": [
+      "Bronchitis",
+      "Pneumonia",
+      "Acute COPD exacerbation / infection"
+    ],
+    "confidence": 0.92434776895485,
+    "final_entropy": 0.4214854944373564,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10268,
+      "completion_tokens": 397
+    },
+    "patient": {
+      "prompt_tokens": 3842,
+      "completion_tokens": 165
+    }
+  }
+}

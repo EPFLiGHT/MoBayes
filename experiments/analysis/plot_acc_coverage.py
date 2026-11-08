@@ -92,7 +92,7 @@ def main():
     plt.tight_layout()
     plt.savefig(f"{FIGURES_DIR}/acc_coverage_ddxplus.pdf", bbox_inches='tight')
     plt.savefig(f"{FIGURES_DIR}/acc_coverage_ddxplus.png", dpi=150, bbox_inches='tight')
-    print(f"Saved DDXPlus plot")
+    print("Saved DDXPlus plot")
     plt.close()
 
 

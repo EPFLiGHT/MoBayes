@@ -13,14 +13,6 @@ from loaders import load_config
 
 """
 Ask the model to generate features (i.e. symptoms/medical antecedants) relevant to the list of diseases in the json file.
-TODO: The prompt for generating features currently leads to too many binary features and very few numerical ones. Try to find a better prompt.
-    For instance:
-    - Use "numerical" when a symptom is naturally graded in severity, intensity, or duration.
-    - If a numerical symptom feature uses 0 to represent absence, do not also create a separate binary symptom_presence feature for the same underlying symptom.
-    - In those cases, prefer the numerical feature.
-    - Use binary features for symptoms that are not naturally represented by a meaningful graded scale.
-
-Coded using ChatGPT
 """
 
 config = load_config("config.yml")
@@ -51,7 +43,7 @@ def make_client() -> OpenAI:
     return OpenAI(**kwargs)
 
 
-# Feature normalization / ID generation - TODO: change ID generation, it's not great
+# Feature normalization / ID generation
 def slugify(text: str) -> str:
     text = text.lower().strip()
     text = re.sub(r"[^a-z0-9]+", "_", text)
@@ -81,7 +73,6 @@ def make_feature_id(feature: Dict[str, Any]) -> str:
     """
     Deterministic feature_id from semantic content.
     This keeps duplicate discoveries across diseases stable.
-    TODO: improve
     """
     feature_type = feature["feature_type"]
     base_symptom = feature.get("base_symptom", "")

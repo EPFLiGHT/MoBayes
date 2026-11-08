@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import numpy as np
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, Any
 from config import ENTROPY_EPSILON
 from world_model import WorldModel
 

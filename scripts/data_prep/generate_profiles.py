@@ -29,7 +29,7 @@ import os
 import random
 import sys
 from collections import defaultdict
-from typing import Dict, List, Any
+from typing import Dict, List
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, BASE_DIR)
@@ -233,7 +233,7 @@ def main():
 
     # Summary
     print(f"\n{'='*55}")
-    print(f"  Profile Generation Complete")
+    print("  Profile Generation Complete")
     print(f"{'='*55}")
     print(f"  Patients   : {n_patients}")
     print(f"  Diseases   : {len(disease_counts)}")

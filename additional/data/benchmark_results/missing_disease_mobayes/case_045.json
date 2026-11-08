@@ -1,0 +1,96 @@
+{
+  "case_idx": 45,
+  "arm": "mobayes",
+  "ground_truth": "Viral pharyngitis",
+  "excluded_disease_id": "d_viral_pharyngitis",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m 4 years old, and I’ve had a fever and a cough. I’ve also been coughing up blood, and my throat really hurts—my right tonsil, the back of my mouth/palate, and my pharynx feel painful, and I think my throat cartilage hurts too. I have some clear runny nose or nasal congestion, and I live with a lot of people and go to daycare.",
+      "extracted_features": {
+        "f_e_91": "yes",
+        "f_e_201": "yes",
+        "f_e_45": "yes",
+        "f_e_97": "yes",
+        "f_e_148": "yes",
+        "f_e_181": "yes",
+        "f_e_55_v_148": "yes",
+        "f_e_55_v_20": "yes",
+        "f_e_55_v_137": "yes",
+        "f_e_55_v_33": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_53",
+      "doctor_question": "I’m sorry you’re dealing with this. **Do you have any pain somewhere that’s related to why you’re seeing a doctor today?**",
+      "patient_answer": "Yes. My throat really hurts and it feels sensitive. It’s mostly on the right side—right tonsil—and also the palate and pharynx feel painful. My pain is about 4 out of 10, and it feels like it’s in a more specific spot around 6 out of 10.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash (for example: red, pink, pale, dark, or yellow)? If there isn’t a rash, you can say “absent.”",
+      "patient_answer": "I don’t have a rash. Absent.",
+      "extracted_value": "absent",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_212",
+      "doctor_question": "Have you noticed that the tone of your voice has become deeper, softer, or hoarse?",
+      "patient_answer": "I think my voice sounds hoarse/sounds different, like it’s softer.",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_21",
+      "doctor_question": "Do you feel any pain somewhere in your body right now—specifically on the left side of your throat/tonsil area? (Yes or No)",
+      "patient_answer": "No. It’s mostly on the right side, not the left.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_181",
+      "doctor_question": "Do you feel your pain as a **burning** sensation? (Yes or no)",
+      "patient_answer": "No. It doesn’t feel burning. It’s more like sore and sensitive pain.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "URTI",
+    "predicted_top3": [
+      "URTI",
+      "Acute laryngitis",
+      "Epiglottitis"
+    ],
+    "confidence": 0.3766295203076892,
+    "final_entropy": 2.9059137841898193,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11020,
+      "completion_tokens": 438
+    },
+    "patient": {
+      "prompt_tokens": 5026,
+      "completion_tokens": 226
+    }
+  }
+}

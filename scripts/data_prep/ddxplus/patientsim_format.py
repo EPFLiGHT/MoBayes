@@ -17,7 +17,7 @@ and by generate_profiles.py (for persona wrapping).
 import csv
 import json
 import re
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Optional
 
 
 # ── V_ code resolution ───────────────────────────────────────────────────────

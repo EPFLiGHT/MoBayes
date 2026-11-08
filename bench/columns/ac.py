@@ -1,7 +1,7 @@
 """AgentClinic-MedQA column.
 
 Cases    : data/cases/agentclinic_a/selected_cases.jsonl (50, frequency-weighted from 213)
-Patient  : AC's published PatientAgent via baselines/agentclinic/adapters/base.py
+Patient  : AC's published PatientAgent via bench/patients/agentclinic.py
 Universe : 31 diseases from data/kbs/agentclinic_a/diseases.csv
 """
 
@@ -28,7 +28,7 @@ def load_cases() -> List[Dict[str, Any]]:
 
 def make_patient(case: Dict[str, Any], patient_model: str):
     """Wraps the AC OSCE case in AC's PatientAgent (modern openai 1.x)."""
-    from baselines.agentclinic.adapters.base import AgentClinicCaseWrapper
+    from bench.patients.agentclinic import AgentClinicCaseWrapper
     return AgentClinicCaseWrapper(case, patient_model=patient_model)
 
 

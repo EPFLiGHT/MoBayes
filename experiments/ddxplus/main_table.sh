@@ -1,13 +1,9 @@
 #!/bin/bash
-# Main table run: 12 systems (6 SA + 6 MoBayes) on HT-sim and AgentClinic.
-#
-# PatientSim results already exist in set_a/ddxplus_patientsim/.
-# MoBayes + gpt-5.4-nano already exists for HT-sim and AC.
-# This script fills the remaining 21 cells.
+# Main table (Table 2): 6 SA doctors and 5 MoBayes sensors on HT-sim and AgentClinic.
 #
 # Usage:
-#   SMOKE=1 bash experiments/ddxplus/main_table.sh          # n=3 smoke
-#   bash experiments/ddxplus/main_table.sh                  # n=50 full
+#   bash experiments/ddxplus/main_table.sh                  # n=50
+#   N=3 bash experiments/ddxplus/main_table.sh              # quick check
 #   COL=htsim bash experiments/ddxplus/main_table.sh        # single column
 #   ROW=sa MODEL=gpt-5.4 bash experiments/ddxplus/main_table.sh  # single cell
 set -euo pipefail
@@ -16,11 +12,7 @@ set -euo pipefail
 OR_URL="https://openrouter.ai/api/v1"
 PATIENT_MODEL="gpt-5.4-nano"
 
-if [ "${SMOKE:-}" = "1" ]; then
-  N=3; echo ">>> SMOKE TEST (n=3) <<<"
-else
-  N=50; echo ">>> FULL RUN (n=50) <<<"
-fi
+N="${N:-50}"
 
 # ── Model registry ──────────────────────────────────────────────
 # Format: "row_name|short_tag|model_slug|routing"
@@ -33,7 +25,7 @@ MODELS=(
   "sa|qwen36plus|qwen/qwen3.6-plus|or"
   "sa|kimi_k25|moonshotai/kimi-k2.5|or"
   "sa|gptoss120b|openai/gpt-oss-120b|or"
-  # BMBE sensors (skip gpt-5.4-nano — already has HT-sim + AC data)
+  # MoBayes sensors
   "bmbe|geminiflashlite|google/gemini-3.1-flash-lite-preview|or"
   "bmbe|gptoss20b|openai/gpt-oss-20b:nitro|or"
   "bmbe|minimax_m25|minimax/minimax-m2.5|or"
@@ -53,16 +45,9 @@ run_cell() {
   if [ -n "${ROW:-}" ] && [ "$row" != "$ROW" ]; then return 0; fi
   if [ -n "${MODEL:-}" ] && [ "$model" != "$MODEL" ]; then return 0; fi
 
-  local suffix="${tag}"
   local base_url_args=()
   if [ "$routing" = "or" ]; then
     base_url_args=(--doctor-base-url "$OR_URL" --doctor-api-key "$OPEN_ROUTER")
-  fi
-
-  # BMBE AC column uses v5 (distilled) KB.
-  local row_kwargs="{}"
-  if [ "$row" = "bmbe" ] && [ "$col" = "ac" ]; then
-    row_kwargs='{"kb_version":"v5"}'
   fi
 
   echo ""
@@ -72,8 +57,7 @@ run_cell() {
     --doctor-model "$model" \
     --patient-model "$PATIENT_MODEL" \
     --num-cases "$N" --max-turns 15 \
-    --out-suffix "$suffix" \
-    --row-kwargs "$row_kwargs" \
+    --out-suffix "$tag" \
     ${base_url_args[@]+"${base_url_args[@]}"}
 }
 
@@ -85,4 +69,4 @@ for col in "${COLUMNS[@]}"; do
 done
 
 echo ""
-echo "═══ All Table 2 expansion runs complete ═══"
+echo "═══ All main-table runs complete ═══"

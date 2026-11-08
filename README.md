@@ -2,13 +2,8 @@
 
 Companion code for the paper *"MoBayes: A Modular Bayesian
 Framework for Separating Reasoning from Language in Conversational Clinical
-Decision Support."*
-
-> **Anonymous release.** This repository is hosted on
-> [anonymous.4open.science](https://anonymous.4open.science/) and contains no
-> author names, institutional identifiers, or links to non-anonymous
-> repositories. Identifying information has also been stripped from
-> intermediate artefacts (logs, JSON case files).
+Decision Support"* (NeurIPS 2026;
+[arXiv:2604.20022](https://arxiv.org/abs/2604.20022)).
 
 ---
 
@@ -76,16 +71,18 @@ needed when *re-running* the corresponding baselines.
 
 | Baseline | Clone | Env var | Notes |
 |---|---|---|---|
-| MediQ-Expert | `stellalisy/mediQ` | `MEDIQ_REPO` | see `baselines/mediq.md` for the patch set |
-| MEDDxAgent | `AgentAITech/meddxagent` | `MEDDXAGENT_REPO` | 2-line token-tracking patch, see `baselines/meddxagent/README.md` |
+| MediQ-Expert | `stellalisy/mediQ` | `MEDIQ_REPO` | see `baselines/mediq/README.md` for the patch set |
+| MEDDxAgent | `nec-research/meddxagent` | `MEDDXAGENT_REPO` | 2-line token-tracking patch, see `baselines/meddxagent/README.md` |
 | AgentClinic | `SamuelSchmidgall/AgentClinic` | `AGENTCLINIC_REPO` | — |
-| UoT | already vendored under `baselines/uot/repo/` | — | `baselines/uot/fetch_uot.sh` is a no-op when the clone is present (it skips with a message) |
+| UoT | `zhiyuanhubj/UoT` @ `e08f17f` | — | `bash baselines/uot/fetch_uot.sh` clones it into `baselines/uot/repo/` |
 
 ---
 
 ## Running experiments
 
-Every (system × benchmark) cell goes through the unified driver:
+Every (system × benchmark) cell of the baseline comparison goes through the
+unified driver (the ablation and LLM-KB scripts under `experiments/` call
+`scripts/core/benchmark_patientsim.py` directly):
 
 ```bash
 PYTHONPATH=. python3 -m bench --row <row> --column <column> --num-cases 50
@@ -93,8 +90,8 @@ PYTHONPATH=. python3 -m bench --row <row> --column <column> --num-cases 50
 
 Rows: `bmbe`, `sa`, `cw`, `cot`, `savage_dd`, `savage_bay`, `ac_native`,
 `mediq`, `meddxagent`, `cod`, `uot`.
-Columns: `patientsim`, `htsim`, `ac`, plus disjoint v1 splits
-(`patientsim_v1`, `htsim_v1`) used for the combined n=100 evaluation.
+Columns: `patientsim`, `htsim`, `ac`, plus the disjoint second halves
+(`patientsim_v1`, `htsim_v1`, `ac_set2`) used for the combined n=100 evaluation.
 
 Output goes to
 `data/benchmark_results/<column>_50_<row>[_<suffix>]/case_NNN.json`
@@ -105,7 +102,7 @@ command table and the per-case JSON schema.
 > `data/benchmark_results/<column>_50_<row>...` (per-case JSON). The
 > pre-committed paper results are stored in the older layout
 > `data/benchmark_results/{set_a,set_b}/<column>/<row>/*.jsonl`, which is
-> what `data/paper_tables/*.py` reads. To regenerate paper tables from
+> what `scripts/paper_tables/*.py` reads. To regenerate paper tables from
 > new bench runs you would need to re-aggregate into the `set_{a,b}`
 > layout; the saved results already do this so no extra step is needed
 > for reproduction.
@@ -138,7 +135,7 @@ PYTHONPATH=. python3 scripts/utils/trace_session.py \
 ### Pre-defined paper experiments
 
 ```bash
-# Main table (Table 2): 6 SA + 6 MoBayes × 3 benchmarks
+# Main table (Table 2): SA doctors and MoBayes sensors on HT-sim and AgentClinic
 bash experiments/ddxplus/main_table.sh
 
 # Ablations (Appendix)
@@ -187,41 +184,7 @@ PYTHONPATH=. python3 scripts/data_prep/ddxplus/compute_conditional_priors.py
 PYTHONPATH=. python3 scripts/data_prep/validate_kb.py data/kbs/ddxplus/
 ```
 
-### AgentClinic (LLM-elicited from cases)
-
-The AC KB uses the same LLM-driven elicitation pipeline as Section 4.3
-(`scripts/data_prep/llmkb/`); the feature/disease vocabulary is grounded
-in the AC case set instead of a free-form disease list. Both AC sets
-(`agentclinic_a`, `agentclinic_b`) share the same driver, parameterised
-by their `raw_input/` directory.
-
-```bash
-KB=data/kbs/agentclinic_a   # or agentclinic_b
-
-# (1) extract candidate features from the AC case set
-PYTHONPATH=. python3 scripts/data_prep/agentclinic/extract_features.py \
-  --cases data/cases/agentclinic_a/selected_cases.jsonl \
-  --out   data/cases/agentclinic_a/features.csv
-
-# (2) LLM-driven P(feature|disease) elicitation (same script as Section 4.3)
-cd scripts/data_prep/llmkb && \
-  LLMKB_MODEL=gpt-5.4-nano \
-  LLMKB_DISEASES_JSON_PATH=../../../${KB}/raw_input/diseases.json \
-  LLMKB_FEATURES_JSON_PATH=../../../${KB}/raw_input/features.json \
-  LLMKB_DISTRIBUTIONS_JSON_PATH=../../../${KB}/raw_output/distributions.json \
-  PYTHONPATH=. python3 generate_distributions.py
-cd -
-
-# (3) convert distributions.json into the MoBayes KB CSVs
-PYTHONPATH=. python3 scripts/data_prep/llmkb/convert_llmkb.py \
-  --features      ${KB}/raw_input/features.json \
-  --distributions ${KB}/raw_output/distributions.json \
-  --output        ${KB}
-
-PYTHONPATH=. python3 scripts/data_prep/validate_kb.py ${KB}
-```
-
-### General LLM-elicited KB (Section 4.3)
+### LLM-elicited KBs (Section 4.3)
 
 The Gemini- and GPT-elicited KBs reported in Section 4.3 are built by the
 pipeline under `scripts/data_prep/llmkb/`. The pipeline reads paths from
@@ -233,16 +196,22 @@ running:
 ```bash
 PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_features.py
 PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_distributions.py
-PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_priors.py
+PYTHONPATH=. python3 scripts/data_prep/llmkb/generate_priors.py \
+  --diseases data/raw/llmkb/input/diseases18.json \
+  --output data/raw/llmkb/output/priors_diseases18.csv
 PYTHONPATH=. python3 scripts/data_prep/llmkb/convert_llmkb.py \
   --output data/kbs/llmkb_gpt        # or llmkb_gemini
 ```
 
 `config.yml` selects the elicitation backbone (e.g. GPT-5.4 or Gemini
-3.1 Pro) and the disease list. Both the raw inputs (under
-`data/raw/llmkb/input/`) and the resulting KBs (under
-`data/kbs/llmkb_{gpt,gemini}/`) are pre-shipped; the
-`experiments/llmkb/` scripts read directly from the latter.
+3.1 Pro) and the disease list. The resulting KBs (under
+`data/kbs/llmkb_{gpt,gemini}/`) are pre-shipped and the
+`experiments/llmkb/` scripts read directly from them; the raw inputs under
+`data/raw/` are not included in this release.
+
+The disease and symptom lists can also be extracted from a case set
+(`scripts/data_prep/agentclinic/extract_features.py`) instead of written by
+hand; the `LLMKB_*_JSON_PATH` variables point the scripts at those files.
 
 ### Patient profiles (PatientSim)
 
@@ -265,16 +234,16 @@ Personas (`plain`, `dazed`, `distrustful`, `overanxious`,
 | `world_model/` | Bayesian inference engine (Dirichlet-Categorical, Jeffrey's conditioning, stopping rules) |
 | `decision_policy/` | Expected information gain (EIG) question selection |
 | `llm_interface/` | LLM parsing and verbalisation (structured extraction + prompting) |
-| `bench/` | Unified benchmark driver (rows × columns) |
-| `baselines/` | Adapters for prior diagnostic-dialogue systems |
-| `scripts/core/` | Single-session and benchmark entry points |
-| `scripts/data_prep/` | Knowledge base construction (DDxPlus, AgentClinic, LLM-elicited) |
-| `scripts/baselines/` | Standalone runner scripts for heavyweight baselines (CoD, MEDDxAgent) |
+| `bench/` | Unified benchmark driver: columns (benchmarks + patient simulators), row registry, the MoBayes row |
+| `baselines/` | Prior systems, one folder each with its row and code (see `baselines/README.md`) |
+| `scripts/core/` | Single-session and PatientSim benchmark entry points (MoBayes doctor, PatientSim patient) |
+| `scripts/data_prep/` | Knowledge base and case construction (DDxPlus, AgentClinic, LLM-elicited) |
 | `scripts/analysis/` | LLM-judge remapping and metric recomputation |
 | `experiments/` | Pre-defined paper experiments (`.sh` orchestrators) and figure generators |
-| `data/paper_tables/` | LaTeX table generators (read directly from `data/benchmark_results/`) |
+| `additional/` | Appendix C.15–C.20 experiments, self-contained (see `additional/README.md`) |
+| `scripts/paper_tables/` | LaTeX table generators (read directly from `data/benchmark_results/`) |
 | `data/kbs/`, `data/cases/`, `data/benchmark_results/` | Knowledge bases, patient profiles, saved per-case results |
-| `data/raw/` | LLM-KB rebuild inputs (disease lists + intermediate generated features/distributions JSONs) |
+| `data/raw/` | LLM-KB rebuild inputs (not shipped; created when rebuilding an LLM KB) |
 | `tables/`, `figures/` | Auto-generated LaTeX / PDF / PNG outputs (created on first run) |
 
 ---
@@ -298,22 +267,24 @@ session.
 ### LaTeX tables
 
 ```bash
-python3 data/paper_tables/render_paper_tables.py     # headline tables
-python3 data/paper_tables/ci_tables.py               # bootstrap 95% CIs
-python3 data/paper_tables/tokentable.py              # token-usage column
+python3 scripts/paper_tables/render_paper_tables.py           # Table 1 + Table 21 → tables/
+python3 scripts/paper_tables/ci_tables.py --appendix > tables/tab_ci.tex   # Tables 19 + 20 (bootstrap CIs)
+python3 scripts/paper_tables/tokentable.py                    # per-cell token breakdown (Tok/case sources)
 ```
 
-Other utilities in `data/paper_tables/` cover paired-bootstrap significance
+Other utilities in `scripts/paper_tables/` cover paired-bootstrap significance
 (`m7_bootstrap_significance.py`), threshold tuning (`find_optimal_tau.py`,
-`m4_loocv_tau_tuning.py`), and a matcher-accuracy audit
-(`m11_matcher_audit.py`).
+`m4_loocv_tau_tuning.py`), a matcher-accuracy audit (`m11_matcher_audit.py`),
+and the token estimates for UoT / CoD whose runners did not log doctor tokens
+(`estimate_tokens_uot_cod.py`, `cod_yi34b_token_pass_v3.py`; their outputs are
+shipped in `data/benchmark_results/costs/`).
 
 ### Figures
 
 ```bash
 PYTHONPATH=. python3 experiments/analysis/generate_paper_plots.py        # cost-vs-scale + persona radar
 PYTHONPATH=. python3 experiments/analysis/plot_acc_coverage.py           # accuracy-coverage frontier
-PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --plot     # disease-scaling
+PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --plot     # disease scaling (Table 18 / Fig. 12)
 PYTHONPATH=. python3 experiments/analysis/failure_analysis.py \
   --data-dir data/kbs/ddxplus \
   --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json \
@@ -324,9 +295,20 @@ PYTHONPATH=. python3 experiments/analysis/failure_analysis.py \
 
 ## License
 
-Released under the MIT License — see `LICENSE`.
-Third-party code under `baselines/uot/repo/` retains its upstream license.
+Released under the Apache License 2.0 — see `LICENSE`.
+Baselines that need third-party code (UoT, MediQ, MEDDxAgent, AgentClinic,
+Chain-of-Diagnosis) fetch it from upstream; it is not redistributed here.
 
 ## Citation
 
-> *Anonymised for review.* Citation details will be added after acceptance.
+```bibtex
+@misc{kesmen2026mobayes,
+  title         = {MoBayes: A Modular Bayesian Framework for Separating Reasoning from Language in Conversational Clinical Decision Support},
+  author        = {Yusuf Kesmen and Fay Elhassan and Jiayi Ma and Julien Stalhandske and Yena Chang and David Sasu and Alexandra Kulinkina and Akhil Arora and Lars Klein and Mary-Anne Hartley},
+  year          = {2026},
+  eprint        = {2604.20022},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2604.20022}
+}
+```

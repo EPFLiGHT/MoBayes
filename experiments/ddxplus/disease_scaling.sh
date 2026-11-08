@@ -10,7 +10,7 @@ set -euo pipefail
 
 PARALLEL=4
 PATIENT_MODEL="gpt-5.4-nano"
-OUTPUT="data/benchmark_results/scaling_v2"
+OUTPUT="data/benchmark_results/set_a/scaling"
 mkdir -p "$OUTPUT"
 
 MANIFEST="data/kbs/scaling/manifest.json"
@@ -19,50 +19,35 @@ if [ ! -f "$MANIFEST" ]; then
     exit 1
 fi
 
-N_ENTRIES=$(python3 -c "import json; print(len(json.load(open('$MANIFEST'))))")
-echo "Manifest: $N_ENTRIES entries"
+# run_mode MODE NAME K PROFILES DATA_DIR: one run, skipped if it already has results.
+run_mode() {
+    local mode="$1" name="$2" k="$3" profiles="$4" data_dir="$5"
+    local out="$OUTPUT/$name"
+    if ls "$out"/*.jsonl 1>/dev/null 2>&1; then
+        echo "  ${name}: already done, skipping"
+        return
+    fi
+    echo "  ${name}..."
+    python3 scripts/core/benchmark_patientsim.py \
+        --profiles "$profiles" --data-dir "$data_dir" \
+        --doctor-mode "$mode" --doctor-model gpt-5.4-nano \
+        --patient-model "$PATIENT_MODEL" \
+        --n "$k" --parallel $PARALLEL \
+        --output "$out" < /dev/null
+}
 
-for i in $(seq 0 $((N_ENTRIES - 1))); do
-    K=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m[$i]['k'])")
-    SEED=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m[$i]['seed'])")
-    DATA_DIR=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m[$i]['kb_dir'])")
-    PROFILES=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m[$i]['profiles'])")
+while read -r K SEED DATA_DIR PROFILES; do
     TAG="k${K}_s${SEED}"
-
     if [ ! -f "$PROFILES" ]; then
         echo "SKIP ${TAG}: profiles not found"
         continue
     fi
-
     echo "=== K=${K} seed=${SEED} (N=${K}) ==="
-
-    # BMBE
-    BMBE_OUT="$OUTPUT/bmbe_${TAG}"
-    if [ -d "$BMBE_OUT" ] && ls "$BMBE_OUT"/*.jsonl 1>/dev/null 2>&1; then
-        echo "  BMBE ${TAG}: already done, skipping"
-    else
-        echo "  BMBE ${TAG}..."
-        python3 scripts/core/benchmark_patientsim.py \
-            --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-            --doctor-mode mobayes --doctor-model gpt-5.4-nano \
-            --patient-model "$PATIENT_MODEL" \
-            --n $K --parallel $PARALLEL \
-            --output "$BMBE_OUT"
-    fi
-
-    # SA (NO disease list — realistic)
-    SA_OUT="$OUTPUT/sa_${TAG}"
-    if [ -d "$SA_OUT" ] && ls "$SA_OUT"/*.jsonl 1>/dev/null 2>&1; then
-        echo "  SA ${TAG}: already done, skipping"
-    else
-        echo "  SA ${TAG}..."
-        python3 scripts/core/benchmark_patientsim.py \
-            --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-            --doctor-mode standalone --doctor-model gpt-5.4-nano \
-            --patient-model "$PATIENT_MODEL" \
-            --n $K --parallel $PARALLEL \
-            --output "$SA_OUT"
-    fi
-done
+    run_mode mobayes    "bmbe_${TAG}" "$K" "$PROFILES" "$DATA_DIR"
+    run_mode standalone "sa_${TAG}"   "$K" "$PROFILES" "$DATA_DIR"   # no disease list
+done < <(python3 -c "
+import json
+for m in json.load(open('$MANIFEST')):
+    print(m['k'], m['seed'], m['kb_dir'], m['profiles'])")
 
 echo "All done. Plot: PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --plot"

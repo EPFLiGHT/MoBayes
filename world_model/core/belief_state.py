@@ -1,5 +1,4 @@
 import numpy as np
-from typing import Optional
 from config import ENTROPY_EPSILON, LOG_FLOOR
 
 class BeliefState:

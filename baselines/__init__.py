@@ -1,1 +1,1 @@
-"""Baseline doctor agents for benchmark comparison against BMBE."""
+"""Prior diagnostic-dialogue systems compared against MoBayes (one module or folder per system). See README.md."""

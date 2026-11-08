@@ -1,0 +1,104 @@
+{
+  "case_idx": 37,
+  "arm": "mobayes",
+  "ground_truth": "Scombroid food poisoning",
+  "excluded_disease_id": "d_scombroid_food_poisoning",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m a 109-year-old man. Today I felt lightheaded like I might faint, and I’ve had diarrhea with more stool than usual, plus nausea and I felt like I might vomit.  \n\nI also noticed a pink rash with swelling and a lot of itching (about 7/10). It seems to be on my back of the neck, both upper arms (right biceps and left biceps), around my mouth, and near my thyroid area, and some spots are bigger than 1 cm.  \n\nBefore this started, I ate dark-fleshed fish or Swiss cheese.",
+      "extracted_features": {
+        "f_e_82": "yes",
+        "f_e_51": "yes",
+        "f_e_148": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_132": "absent",
+        "f_e_136": "7",
+        "f_e_135": "yes",
+        "f_ant_e_187": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_151",
+      "doctor_question": "Do you have swelling in one or more areas of your body?",
+      "patient_answer": "Yes. I have swelling as part of the rash in multiple areas—especially the pink rash on my back of the neck, both upper arms, around my mouth, and near the thyroid cartilage. The swelling feels about 4/10.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_91",
+      "doctor_question": "Do you currently have a fever—either that you feel (hot/flushed) or that you’ve measured with a thermometer?",
+      "patient_answer": "No, I don’t have a fever that I know of, and I don’t feel hot or flushed. I haven’t measured my temperature either.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Do your skin lesions peel off or shed (for example, flaking or coming off in layers)?",
+      "patient_answer": "No, the skin lesions are not peeling or shedding.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_ant_e_12",
+      "doctor_question": "Do you have a known severe food allergy (for example, a food that has caused a serious reaction like trouble breathing, swelling, or needing emergency treatment)?",
+      "patient_answer": "I don’t know of a known severe food allergy before this. But after I ate dark-fleshed fish or Swiss cheese, I got lightheaded, nausea/near vomiting, diarrhea, and a pink itchy swollen rash in several areas.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_161",
+      "doctor_question": "Do you have pain that feels **sensitive or tender to touch**? (yes/no)",
+      "patient_answer": "No. My pain is 0/10, and the rash area feels more itchy than tender (pain intensity is about 1/10).",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_183",
+      "doctor_question": "When you feel the pain, does it feel **heavy** (like a dull, weighty pressure) rather than sharp or burning?",
+      "patient_answer": "No. I don’t really have pain—more itching (7/10) and some mild discomfort (about 1/10). It doesn’t feel heavy or like dull pressure.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "Anaphylaxis",
+    "top_disease_if_forced": "Anaphylaxis",
+    "predicted_top3": [
+      "Anaphylaxis",
+      "Pancreatic neoplasm",
+      "HIV (initial infection)"
+    ],
+    "confidence": 0.9985500210934132,
+    "final_entropy": 0.018237302764363784,
+    "tau": 0.9,
+    "abstained": false,
+    "outcome": "hallucinated_inlist"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11195,
+      "completion_tokens": 419
+    },
+    "patient": {
+      "prompt_tokens": 6863,
+      "completion_tokens": 347
+    }
+  }
+}

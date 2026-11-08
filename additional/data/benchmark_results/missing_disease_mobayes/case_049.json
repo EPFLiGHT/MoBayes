@@ -1,0 +1,80 @@
+{
+  "case_idx": 49,
+  "arm": "mobayes",
+  "ground_truth": "GERD",
+  "excluded_disease_id": "d_gerd",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "I’m 65, and today I came in because I have a painful feeling in my upper chest that can radiate, and it feels haunting and sensitive—like burning and sickening pain too. It’s worse after eating, and I also get heartburn/acid reflux. I’m a current smoker and I drink heavily, and I’m also significantly overweight.",
+      "extracted_features": {
+        "f_e_55_v_101": "yes",
+        "f_e_53": "yes",
+        "f_e_57_v_101": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_54_v_112": "yes",
+        "f_e_54_v_193": "yes",
+        "f_e_54_v_11": "yes",
+        "f_e_215": "yes",
+        "f_e_173": "yes",
+        "f_ant_e_79": "yes",
+        "f_ant_e_78": "yes",
+        "f_ant_e_70": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_105",
+      "doctor_question": "Have you ever had a heart attack, or do you currently get angina—chest pain or discomfort (especially with activity or stress)?",
+      "patient_answer": "I don’t know about a past heart attack, and I can’t say I’ve been told I have angina. My chest pain mainly gets worse after eating, not specifically with activity or stress.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.5
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_69",
+      "doctor_question": "Do you have diabetes (either type 1 or type 2), or have you ever been told by a doctor that you do?",
+      "patient_answer": "No, I don’t have diabetes, and I haven’t been told by a doctor that I do.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_211",
+      "doctor_question": "Have you vomited several times, or have you made several efforts to vomit?",
+      "patient_answer": "No, I haven’t vomited several times, and I haven’t made several efforts to vomit.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "Possible NSTEMI / STEMI",
+    "predicted_top3": [
+      "Possible NSTEMI / STEMI",
+      "Boerhaave",
+      "Unstable angina"
+    ],
+    "confidence": 0.11531570648711251,
+    "final_entropy": 4.352966992464427,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10719,
+      "completion_tokens": 485
+    },
+    "patient": {
+      "prompt_tokens": 2907,
+      "completion_tokens": 167
+    }
+  }
+}

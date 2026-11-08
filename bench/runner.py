@@ -63,19 +63,11 @@ def _normalize_to_closed_set(
         return predictions
     try:
         from openai import OpenAI
+        from llm_interface.prompt_templates import PromptTemplates
         oai_key = os.environ.get("OPENAI_API_KEY") or api_key
         client = OpenAI(api_key=oai_key)
-        pred_list = "\n".join(f"{i+1}. {p}" for i, p in enumerate(predictions[:5]))
-        name_list = "\n".join(f"- {name}" for name in sorted(disease_universe))
-        prompt = (
-            "Match each diagnosis below to the closest disease from the reference list.\n"
-            "If a diagnosis does not match any disease in the list, write NO_MATCH.\n\n"
-            f"DIAGNOSES:\n{pred_list}\n\n"
-            f"REFERENCE DISEASE LIST:\n{name_list}\n\n"
-            "Output ONLY a numbered list with the matched disease name "
-            "(exactly as written in the reference list) or NO_MATCH.\n"
-            "Example format:\n1. Pneumonia\n2. NO_MATCH\n3. Gastroenteritis"
-        )
+        prompt = PromptTemplates.render_disease_matching_prompt(
+            predictions[:5], disease_universe)
         resp = client.chat.completions.create(
             model=_REMAP_MODEL,
             messages=[{"role": "user", "content": prompt}],

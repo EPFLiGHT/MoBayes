@@ -1,7 +1,8 @@
 # bench/ : single entrypoint for every main-table cell
 
-Replaces ~18 per-baseline runner scripts. Every (row, column) pair in
-the paper's baseline-adaptations table is one command:
+Every (row, column) pair in the paper's baseline comparison is one command.
+A **column** is a benchmark (cases + patient simulator + disease list), a
+**row** is a diagnostic system (MoBayes or a baseline):
 
 ```bash
 PYTHONPATH=. python3 -m bench --row <row> --column <column> [opts]
@@ -13,35 +14,38 @@ PYTHONPATH=. python3 -m bench --row <row> --column <column> [opts]
 
 ```
 bench/
-  __init__.py
-  __main__.py
-  cli.py             # argparse + dispatcher
+  cli.py             # argparse → runner.run
   runner.py          # generic per-case loop + 3-tier dispatch
-  columns/
-    __init__.py      # Protocol + lazy loader
-    ac.py            # AgentClinic-MedQA (50 cases, AC PatientAgent, 31 diseases)
-    htsim.py         # DDxPlus 50 + MEDDxAgent's LLMPatient (49 + 9 categories)
-    patientsim.py    # DDxPlus 50 + our SimplePatientAgent (49 + 9 categories)
-  rows/
-    __init__.py      # Protocol + lazy loader
-    cw.py            cot.py    savage_dd.py    savage_bay.py    # prompt-based
-    ac_native.py     # AC's published DoctorAgent (verbatim port)
-    bmbe.py          # Bayesian engine + EIG (KB v1/v2 selectable)
-    mediq.py         # subprocess to mediQ_benchmark.py + per-column patient
-    meddxagent.py    # subprocess to MEDDxAgent driver + per-column bench
-    cod.py           # HPC sbatch emit (DiagnosisGPT-34B local model)
+  parallel.py        # run several rows × columns in parallel
+  columns/           # benchmarks; each half of the n=100 split is its own column
+    patientsim.py    patientsim_v1.py   # DDxPlus + our PatientSim (sets a / b)
+    htsim.py         htsim_v1.py        # DDxPlus + MEDDxAgent's LLMPatient (sets a / b)
+    ac.py            ac_set2.py         # AgentClinic-MedQA + AC's PatientAgent (sets a / b)
+  patients/          # patient simulators shared with baseline runners
+    agentclinic.py   # AC PatientAgent wrapper
+    htsim.py         # MEDDxAgent LLMPatient wrapper
+  rows.py            # row registry: --row name → module (below)
+  mobayes.py         # row bmbe: MoBayes (Bayesian engine + EIG)
+
+baselines/           # one folder per prior system, each with its row
+  prompting/rows.py  # sa, cw, cot, savage_dd, savage_bay (doctors in prompting/doctors.py)
+  agentclinic/row.py # ac_native: AgentClinic's DoctorAgent
+  uot/row.py         # uot
+  mediq/row.py       # mediq: subprocess to mediQ_benchmark.py
+  meddxagent/row.py  # meddxagent: subprocess to meddxagent/run.py
+  cod/row.py         # cod: writes a Slurm script (DiagnosisGPT-34B needs a GPU)
 ```
 
 ---
 
 ## How dispatch works
 
-`runner.py::run` checks each row module in this order and uses the first
-one that exists:
+`runner.py::run` looks the row up in `rows.py` and uses the first of these
+it defines:
 
 1. `row.run_batch(...)`     — full-column subprocess (mediq, meddxagent, cod)
 2. `row.run_one_case(...)`  — custom per-case loop (ac_native, bmbe)
-3. `row.make_doctor(...)`   — generic per-case loop (cw, cot, savage_*)
+3. `row.make_doctor(...)`   — generic per-case loop (sa, cw, cot, savage_*, uot)
 
 The generic per-case loop in `runner.py::run_one_case` is shared by every
 row in tier 3: greeting → patient.respond → doctor.get_question loop with
@@ -62,7 +66,7 @@ row in tier 3: greeting → patient.respond → doctor.get_question loop with
 | **AC native × AC** | `python -m bench --row ac_native --column ac --max-turns 20` |
 | **AC native × HT-sim** | `$MEDDXAGENT_VENV/bin/python -m bench --row ac_native --column htsim --max-turns 20` |
 | **AC native × PatientSim** | `python -m bench --row ac_native --column patientsim --max-turns 20` |
-| **BMBE × AC (v2 KB)** | `python -m bench --row bmbe --column ac --max-turns 20` |
+| **BMBE × AC** | `python -m bench --row bmbe --column ac --max-turns 20` |
 | **BMBE × HT-sim** | `$MEDDXAGENT_VENV/bin/python -m bench --row bmbe --column htsim --max-turns 20` |
 | **BMBE × PatientSim** | `python -m bench --row bmbe --column patientsim --max-turns 20` |
 | **MediQ × AC** | `python -m bench --row mediq --column ac --max-turns 10` |
@@ -135,7 +139,7 @@ raw outputs stay untouched. Tables read the `top1_hit_judged`,
 
 | Dep | Where | Required for |
 |---|---|---|
-| `OPENAI_API_KEY` | env var (or `hybrid-diagnostic-system/.env`) | every row |
+| `OPENAI_API_KEY` | env var (or a repo-root `.env`) | every row |
 | `AGENTCLINIC_REPO=/tmp/agentclinic-tmp` | env var | column=ac, row=ac_native |
 | `MEDIQ_REPO=~/Documents/GitHub/mediQ` | env var (default ok) | row=mediq |
 | `MEDDXAGENT_REPO=~/Documents/GitHub/meddxagent` | env var (default ok) | row=meddxagent, column=htsim |
@@ -149,18 +153,18 @@ raw outputs stay untouched. Tables read the `top1_hit_judged`,
 `htsim_v1.py` and `patientsim_v1.py` are disjoint 50-patient samples used
 to replicate Table 1 on a fresh half. Outputs land under
 `data/benchmark_results/set_b/`; aggregated with `set_a/` they give the
-combined n=100 reported in the paper. AgentClinic has no v1 (single
-canonical sample).
+combined n=100 reported in the paper. The second AgentClinic half is the
+`ac_set2` column (cases in `data/cases/agentclinic_b/`).
 
 MEDDxAgent paper-best (PubMed RAG + dynamic 5-shot fewshot) requires CUDA
-and runs on an HPC node; sbatch wrappers under
-`scripts/hpc_meddxagent_pubmed_dynamic_*.sbatch`.
+and runs on an HPC node.
 
 ---
 
 ## Adding a new row or column
 
-**New row** — drop a file `bench/rows/<name>.py` that exposes `NAME` and any one of:
+**New row** — add a module (usually `baselines/<system>/row.py`) that exposes
+`NAME` and any one of the functions below, and register it in `bench/rows.py`:
 
 ```python
 def make_doctor(disease_universe, doctor_model, api_key, max_turns,

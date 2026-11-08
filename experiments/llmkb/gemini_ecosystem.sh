@@ -14,35 +14,20 @@ PATIENT_MODEL="gpt-5.4-nano"
 
 mkdir -p "$OUTPUT"
 
-# ── BMBE + Gemini 3.1 Flash Lite (sensor) with Gemini KB ──
-echo "=== Gemini KB: BMBE + Gemini FL ==="
-python3 scripts/core/benchmark_patientsim.py \
-  --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-  --doctor-mode mobayes --doctor-model "google/gemini-3.1-flash-lite-preview" \
-  --doctor-base-url "https://openrouter.ai/api/v1" \
-  --doctor-api-key "$OPEN_ROUTER" \
-  --patient-model "$PATIENT_MODEL" \
-  --force-max-turns --n $N --parallel $PARALLEL \
-  --output "$OUTPUT/bmbe_geminifl"
+# run NAME DOCTOR_MODEL [flags...]: doctor served through OpenRouter.
+run() {
+  local name="$1" model="$2"; shift 2
+  echo "=== Gemini KB: ${name} ==="
+  python3 scripts/core/benchmark_patientsim.py \
+    --profiles "$PROFILES" --data-dir "$DATA_DIR" \
+    "$@" --doctor-model "$model" \
+    --doctor-base-url "https://openrouter.ai/api/v1" \
+    --doctor-api-key "$OPEN_ROUTER" \
+    --patient-model "$PATIENT_MODEL" \
+    --n $N --parallel $PARALLEL \
+    --output "$OUTPUT/${name}"
+}
 
-# ── SA Gemini 3.1 Pro ──
-echo "=== Gemini KB: SA Gemini 3.1 Pro ==="
-python3 scripts/core/benchmark_patientsim.py \
-  --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-  --doctor-mode standalone --doctor-model "google/gemini-3.1-pro-preview" \
-  --doctor-base-url "https://openrouter.ai/api/v1" \
-  --doctor-api-key "$OPEN_ROUTER" \
-  --patient-model "$PATIENT_MODEL" \
-  --n $N --parallel $PARALLEL \
-  --output "$OUTPUT/sa_gemini31pro"
-
-# ── SA Gemini 3.1 Flash Lite ──
-echo "=== Gemini KB: SA Gemini FL ==="
-python3 scripts/core/benchmark_patientsim.py \
-  --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-  --doctor-mode standalone --doctor-model "google/gemini-3.1-flash-lite-preview" \
-  --doctor-base-url "https://openrouter.ai/api/v1" \
-  --doctor-api-key "$OPEN_ROUTER" \
-  --patient-model "$PATIENT_MODEL" \
-  --n $N --parallel $PARALLEL \
-  --output "$OUTPUT/sa_geminifl"
+run bmbe_geminifl  google/gemini-3.1-flash-lite-preview --doctor-mode mobayes --force-max-turns
+run sa_gemini31pro google/gemini-3.1-pro-preview        --doctor-mode standalone
+run sa_geminifl    google/gemini-3.1-flash-lite-preview --doctor-mode standalone

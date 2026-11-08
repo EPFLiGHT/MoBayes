@@ -1,0 +1,149 @@
+{
+  "case_idx": 17,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Viral pharyngitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 7\nSex: Female\nChief Complaint: I have a cough, sensitive pain, and burning pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’ve had a bad cough and a lot of pain in my throat. It feels sensitive and burning, and it hurts on both sides in my tonsils, also around my pharynx and where the thyroid cartilage is. I also have nasal congestion or a clear runny nose, and the pain has been getting bad pretty fast.",
+      "extracted_features": {
+        "f_e_201": "yes",
+        "f_e_97": "yes",
+        "f_e_181": "yes",
+        "f_e_55_v_148": "yes",
+        "f_e_55_v_21": "yes",
+        "f_e_55_v_20": "yes",
+        "f_e_55_v_33": "yes",
+        "f_e_53": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_54_v_192": "yes",
+        "f_e_54_v_11": "yes",
+        "f_e_59": "0"
+      },
+      "top5_posterior": [
+        [
+          "Viral pharyngitis",
+          0.8321459022564789
+        ],
+        [
+          "Acute laryngitis",
+          0.10565621817831117
+        ],
+        [
+          "Bronchitis",
+          0.023824327879965333
+        ],
+        [
+          "Epiglottitis",
+          0.007972017297144744
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.006327920510154642
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_137",
+      "doctor_question": "Do you feel any pain somewhere in your body right now—yes or no?",
+      "patient_answer": "Yes. My throat area really hurts—my tonsils, my pharynx, and around the thyroid cartilage.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Viral pharyngitis",
+          0.894914297398053
+        ],
+        [
+          "Acute laryngitis",
+          0.09516162400165883
+        ],
+        [
+          "Epiglottitis",
+          0.008466176227013405
+        ]
+      ],
+      "entropy": 0.542669830195378
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_49",
+      "doctor_question": "Do you attend or work in a daycare?",
+      "patient_answer": "Yes, I work/attend in a daycare.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Viral pharyngitis",
+          0.9180492484084737
+        ],
+        [
+          "Acute laryngitis",
+          0.08157429943191681
+        ],
+        [
+          "Epiglottitis",
+          0.00023794630910395822
+        ]
+      ],
+      "entropy": 0.4130621276189867
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_41",
+      "doctor_question": "In the past 2 weeks, have you been in contact with someone who had similar symptoms to yours? (Yes or no)",
+      "patient_answer": "Yes.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Viral pharyngitis",
+          0.9977128704438474
+        ],
+        [
+          "Acute laryngitis",
+          0.0021889604999171543
+        ],
+        [
+          "URTI",
+          9.059648474896726e-05
+        ]
+      ],
+      "entropy": 0.023990335998030722
+    }
+  ],
+  "final": {
+    "predicted": "Viral pharyngitis",
+    "predicted_top3": [
+      "Viral pharyngitis",
+      "Acute laryngitis",
+      "URTI"
+    ],
+    "confidence": 0.9977128704438474,
+    "final_entropy": 0.023990335998030722,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10097,
+      "completion_tokens": 421
+    },
+    "patient": {
+      "prompt_tokens": 2872,
+      "completion_tokens": 117
+    }
+  }
+}

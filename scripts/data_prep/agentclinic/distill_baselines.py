@@ -251,12 +251,12 @@ def main():
     print(f"[saved] {raw_out}/diff_vs_v2.json — review the new features before likelihood gen")
     print()
     print("Next: generate likelihoods for the v5 KB (this costs ~$0.50)")
-    print(f"  cd scripts/data_prep/llmkb && \\")
-    print(f"  LLMKB_MODEL=gpt-5.4-nano \\")
+    print("  cd scripts/data_prep/llmkb && \\")
+    print("  LLMKB_MODEL=gpt-5.4-nano \\")
     print(f"  LLMKB_DISEASES_JSON_PATH={OUT/'raw_input/diseases.json'} \\")
     print(f"  LLMKB_FEATURES_JSON_PATH={OUT/'raw_input/features.json'} \\")
     print(f"  LLMKB_DISTRIBUTIONS_JSON_PATH={OUT/'raw_output/distributions.json'} \\")
-    print(f"  PYTHONPATH=. python3 generate_distributions.py")
+    print("  PYTHONPATH=. python3 generate_distributions.py")
 
 
 if __name__ == "__main__":

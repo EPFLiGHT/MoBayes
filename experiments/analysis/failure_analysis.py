@@ -12,8 +12,7 @@ Categories:
      - Diverged: GT not in top-3 (engine went completely wrong direction)
 
 Usage:
-    cd hybrid-diagnostic-system
-    PYTHONPATH=. python3 experiments/analysis/failure_analysis_v2.py \
+    PYTHONPATH=. python3 experiments/analysis/failure_analysis.py \
         --data-dir data/kbs/ddxplus \
         --profiles data/cases/ddxplus_patientsim_a/plain/profiles.json \
         --results data/benchmark_results/set_a/ddxplus_patientsim/mobayes/bmbe_gpt54nano.jsonl \
@@ -22,7 +21,7 @@ Usage:
                   data/benchmark_results/set_a/ddxplus_patientsim/mobayes/bmbe_gptoss20b.jsonl \
                   data/benchmark_results/set_a/ddxplus_patientsim/mobayes/bmbe_gemma4_31b.jsonl \
                   data/benchmark_results/set_a/ddxplus_patientsim/mobayes/bmbe_minimax_m25.jsonl \
-        --output data/benchmark_results/set_a/ddxplus_patientsim/failure_analysis_v2.json
+        --output data/benchmark_results/set_a/ddxplus_patientsim/failure_analysis.json
 """
 
 import argparse
@@ -31,7 +30,7 @@ import os
 import sys
 import numpy as np
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import List, Tuple
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, BASE_DIR)
@@ -200,10 +199,7 @@ def run_analysis(data_dir: str, profiles_path: str, results_paths: List[str],
             is_we = ev["we_count"] > 0
             is_llm = is_fp or is_we
 
-            # 3. Inference Failure (residual)
-            is_inf = not is_kb and not is_llm
-
-            # Subtypes
+            # 3. Inference Failure (residual): neither KB nor LLM
             category = "kb" if is_kb else "llm" if is_llm else "inference"
             subtype = ""
             if is_kb:

@@ -145,9 +145,6 @@ def build_prompt_generate_distributions(disease: Dict[str, str], feature_chunk: 
       - Keep std > 0 and reasonably bounded.
       """
       
-    elif numerical_distribution_type == "zero_inflated_gaussian":
-      raise NotImplementedError
-    
     else:
       raise ValueError(f"Unknown distribution type : {numerical_distribution_type}")
 

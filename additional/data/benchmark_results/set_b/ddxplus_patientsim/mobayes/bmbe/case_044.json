@@ -1,0 +1,126 @@
+{
+  "case_idx": 44,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Acute rhinosinusitis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 18\nSex: Female\nChief Complaint: I have a cough, burning pain, and forehead pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi—I've been having a cough, and I also have burning pain along with pain in my forehead. The pain feels like it radiates to the back of my head and to my right temple, and it started pretty quickly. I also lost my sense of smell and I’ve had greenish/yellow nasal discharge; I had a cold about the last two weeks.",
+      "extracted_features": {
+        "f_e_201": "yes",
+        "f_e_55_v_89": "yes",
+        "f_e_55_v_62": "yes",
+        "f_e_55_v_25": "yes",
+        "f_e_55_v_166": "yes",
+        "f_e_53": "yes",
+        "f_e_57_v_25": "yes",
+        "f_e_57_v_166": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_59": "0",
+        "f_e_182": "yes",
+        "f_e_103": "yes",
+        "f_ant_e_116": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Chronic rhinosinusitis",
+          0.5656988380931139
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.4249547855009378
+        ],
+        [
+          "Influenza",
+          0.00301977775882108
+        ],
+        [
+          "Anemia",
+          0.0012234855526199525
+        ],
+        [
+          "HIV (initial infection)",
+          0.0012234855526199525
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_120",
+      "doctor_question": "Do you have any nasal polyps (growths inside your nose), yes or no?",
+      "patient_answer": "Yes. I’ve been told I have polyps in my nose.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic rhinosinusitis",
+          0.5709188601669594
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.4288760828615239
+        ],
+        [
+          "Influenza",
+          6.62531076196862e-05
+        ]
+      ],
+      "entropy": 0.9886587129208573
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_124",
+      "doctor_question": "Do you have asthma, or have you ever had to use a bronchodilator (like an inhaler) in the past?",
+      "patient_answer": "Yes. I’ve had asthma before, and I’ve used a bronchodilator/inhaler in the past.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Chronic rhinosinusitis",
+          0.5710304583425659
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.4289599157697495
+        ],
+        [
+          "GERD",
+          2.7165119071411134e-06
+        ]
+      ],
+      "entropy": 0.9855891529801885
+    }
+  ],
+  "final": {
+    "predicted": "Chronic rhinosinusitis",
+    "predicted_top3": [
+      "Chronic rhinosinusitis",
+      "Acute rhinosinusitis",
+      "GERD"
+    ],
+    "confidence": 0.5710304583425659,
+    "final_entropy": 0.9855891529801885,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 9956,
+      "completion_tokens": 440
+    },
+    "patient": {
+      "prompt_tokens": 2333,
+      "completion_tokens": 120
+    }
+  }
+}

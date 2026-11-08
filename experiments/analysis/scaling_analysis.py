@@ -10,7 +10,7 @@ Usage:
     PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --generate
 
     # Step 2: Run experiments
-    bash experiments/ddxplus/07_scaling.sh
+    bash experiments/ddxplus/disease_scaling.sh
 
     # Step 3: Plot results
     PYTHONPATH=. python3 experiments/analysis/scaling_analysis.py --plot
@@ -27,10 +27,10 @@ import shutil
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, BASE_DIR)
 
-DDXPLUS_DIR = os.path.join(BASE_DIR, "data", "ddxplus_kb")
-SCALING_DIR = os.path.join(BASE_DIR, "data", "scaling_random")
-PROFILES_DIR = os.path.join(BASE_DIR, "data", "cases")
-RESULTS_DIR = os.path.join(BASE_DIR, "data", "benchmark_results", "scaling_v2")
+DDXPLUS_DIR = os.path.join(BASE_DIR, "data", "kbs", "ddxplus")
+SCALING_DIR = os.path.join(BASE_DIR, "data", "kbs", "scaling")
+PROFILES_DIR = os.path.join(BASE_DIR, "data", "cases", "scaling")
+RESULTS_DIR = os.path.join(BASE_DIR, "data", "benchmark_results", "set_a", "scaling")
 
 K_VALUES = [10, 20, 30, 40]
 SEEDS = [42, 123, 777]
@@ -119,8 +119,7 @@ def create_kb_subset(k, seed, disease_ids):
 
 def create_profiles(k, seed, disease_ids, kb_dir):
     """Generate benchmark profiles for K-disease subset. N = K × N_PATIENTS_PER_DISEASE."""
-    tag = f"scaling_random_k{k}_s{seed}"
-    n_target = k * N_PATIENTS_PER_DISEASE
+    tag = f"k{k}_s{seed}"
 
     # Load all patients, filter to K diseases
     patients = []
@@ -191,13 +190,13 @@ def generate():
                 "k": k,
                 "seed": seed,
                 "diseases": sorted(subset),
-                "kb_dir": kb_dir,
-                "profiles": profiles_path,
+                "kb_dir": os.path.relpath(kb_dir, BASE_DIR),
+                "profiles": os.path.relpath(profiles_path, BASE_DIR),
             })
 
     # K=49 — full set, single run
     kb_49 = DDXPLUS_DIR
-    tag_49 = "scaling_random_k49_s0"
+    tag_49 = "k49_s0"
     profiles_49_dir = os.path.join(PROFILES_DIR, tag_49, "plain")
     if not os.path.exists(profiles_49_dir):
         # Generate profiles for K=49
@@ -206,8 +205,8 @@ def generate():
         "k": 49,
         "seed": 0,
         "diseases": sorted(all_diseases),
-        "kb_dir": kb_49,
-        "profiles": os.path.join(profiles_49_dir, "profiles.json"),
+        "kb_dir": os.path.relpath(kb_49, BASE_DIR),
+        "profiles": os.path.relpath(os.path.join(profiles_49_dir, "profiles.json"), BASE_DIR),
     })
 
     # Save manifest
@@ -216,7 +215,7 @@ def generate():
         json.dump(manifest, f, indent=2)
     print(f"\nManifest saved: {os.path.join(SCALING_DIR, 'manifest.json')}")
     print(f"Total runs: {len(manifest)} subsets × 2 methods = {len(manifest)*2}")
-    print("\nNow run: bash experiments/ddxplus/07_scaling.sh")
+    print("\nNow run: bash experiments/ddxplus/disease_scaling.sh")
 
 
 def load_results():

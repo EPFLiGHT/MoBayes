@@ -1,0 +1,120 @@
+{
+  "case_idx": 9,
+  "arm": "mobayes",
+  "ground_truth": "Atrial fibrillation",
+  "excluded_disease_id": "d_atrial_fibrillation",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m a 20-year-old man. I have a history of hyperthyroidism, a heart valve problem, severe COPD, and high blood pressure, and I take medications for that. \n\nToday I’ve been having significant trouble breathing, dizziness, and palpitations, especially when I exert myself. It’s been concerning enough that I came in.",
+      "extracted_features": {
+        "f_e_66": "yes",
+        "f_e_82": "yes",
+        "f_e_155": "yes",
+        "f_ant_e_19": "yes",
+        "f_ant_e_31": "yes",
+        "f_ant_e_104": "yes",
+        "f_ant_e_22": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_157",
+      "doctor_question": "Have you recently had any numbness, loss of sensation, or tingling in **both your arms and legs**, or **around your mouth**?",
+      "patient_answer": "No, I haven’t had numbness or tingling in both my arms and legs, and no tingling around my mouth.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Do your skin lesions peel off or shed (for example, flaking or coming off in layers)?",
+      "patient_answer": "No, I don’t have any skin lesions that peel off or shed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash? For example: **red, pink, pale, dark, yellow**, or is it **absent**?",
+      "patient_answer": "I don’t have a rash.",
+      "extracted_value": "absent",
+      "extraction_confidence": 0.8
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "To help me understand the size of the problem: **are the lesion(s) larger than 1 centimeter (about the width of a pencil eraser)?**  \nPlease answer **no**, **yes**, or **absent** (if there are no lesions).",
+      "patient_answer": "Absent.",
+      "extracted_value": "absent",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_ant_e_16",
+      "doctor_question": "Hi—are you feeling anxious right now? (Yes or no)",
+      "patient_answer": "Yes, I feel anxious right now because of the breathing trouble and the palpitations.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_111",
+      "doctor_question": "I’m sorry you’re going through this. **Do you feel like you are dying, or were you afraid that you were about to die?**",
+      "patient_answer": "Yes. I’m afraid I might be dying, because my breathing feels so bad and my heart is racing.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_e_76",
+      "doctor_question": "Do you feel slightly dizzy or lightheaded right now?",
+      "patient_answer": "Yes, I feel lightheaded and dizzy right now.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_ant_e_81",
+      "doctor_question": "Do you suffer from chronic anxiety—meaning you’ve been feeling anxious or on edge most days for a long time? (Yes or No)",
+      "patient_answer": "No, not most days for a long time. This anxiety is mostly because of what’s happening to my breathing and heart today.",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "PSVT",
+    "predicted_top3": [
+      "PSVT",
+      "Panic attack",
+      "Anemia"
+    ],
+    "confidence": 0.8206476651141194,
+    "final_entropy": 0.7386765522839953,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11460,
+      "completion_tokens": 462
+    },
+    "patient": {
+      "prompt_tokens": 6985,
+      "completion_tokens": 227
+    }
+  }
+}

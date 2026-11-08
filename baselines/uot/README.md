@@ -1,12 +1,13 @@
 # baselines/uot
 
-UoT (Hu et al., NeurIPS 2024) adapter. Vendor source at `repo/` is left
-untouched.
+UoT (Hu et al., NeurIPS 2024) adapter. The upstream code
+([zhiyuanhubj/UoT](https://github.com/zhiyuanhubj/UoT), commit `e08f17f`) is
+cloned into `repo/` (gitignored) and used unmodified.
 
 ## Setup
 
 ```bash
-bash baselines/uot/fetch_uot.sh   # clones zhiyuanhubj/UoT into ./repo
+bash baselines/uot/fetch_uot.sh   # clones zhiyuanhubj/UoT @ e08f17f into baselines/uot/repo/
 ```
 
 ## Running

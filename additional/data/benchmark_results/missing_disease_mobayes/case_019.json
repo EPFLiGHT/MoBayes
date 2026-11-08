@@ -1,0 +1,104 @@
+{
+  "case_idx": 19,
+  "arm": "mobayes",
+  "ground_truth": "GERD",
+  "excluded_disease_id": "d_gerd",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m 51 and I’m having upper chest pain with a cough and a burning feeling. It also feels like epigastric pain/acid reflux, and it gets worse after I eat—sometimes I feel like I need to sit up because of it (orthopnea). I have a hiatal hernia and I drink alcohol heavily.",
+      "extracted_features": {
+        "f_e_201": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_55_v_197": "yes",
+        "f_e_54_v_181": "yes",
+        "f_e_173": "yes",
+        "f_e_215": "yes",
+        "f_e_217": "yes",
+        "f_ant_e_78": "yes",
+        "f_ant_e_98": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_57_v_39",
+      "doctor_question": "I’m sorry you’re dealing with this. Does the pain in your thoracic (mid-back) area spread or radiate to another location—such as around to your chest, ribs, or toward your shoulder or arm? (Yes or No)",
+      "patient_answer": "Yes. It feels like it’s mostly in my upper chest but it also spreads around that area a bit.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_211",
+      "doctor_question": "Have you vomited several times, or have you made several efforts to vomit? (Yes/No)",
+      "patient_answer": "No. I haven’t vomited or tried to vomit.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Do your skin lesions peel off or shed (for example, flaking or coming off in layers)?",
+      "patient_answer": "No. I don’t have skin lesions that peel or shed.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash? For example, is it **red**, **pink**, **dark**, **pale**, or **yellow**—or is there **no rash**?",
+      "patient_answer": "There’s no rash.",
+      "extracted_value": "absent",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_57_v_128",
+      "doctor_question": "I’m sorry you’re dealing with this. Does the pain spread or radiate to another area—specifically toward your left shoulder blade (scapula)?",
+      "patient_answer": "Yes, it can spread toward my left shoulder blade a bit.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_112",
+      "doctor_question": "When you think about your pain, does it feel **haunting**—like it lingers or keeps coming back in a way that’s hard to shake? (Yes or no)",
+      "patient_answer": "Yes. It lingers and keeps coming back.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "Boerhaave",
+    "top_disease_if_forced": "Boerhaave",
+    "predicted_top3": [
+      "Boerhaave",
+      "Unstable angina",
+      "Pericarditis"
+    ],
+    "confidence": 0.9902033290137738,
+    "final_entropy": 0.10823096284132112,
+    "tau": 0.9,
+    "abstained": false,
+    "outcome": "hallucinated_inlist"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11150,
+      "completion_tokens": 380
+    },
+    "patient": {
+      "prompt_tokens": 5817,
+      "completion_tokens": 169
+    }
+  }
+}

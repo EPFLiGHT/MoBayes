@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Tuple, Optional, TYPE_CHECKING
+from typing import Tuple, TYPE_CHECKING
 from world_model.core.belief_state import BeliefState
 from world_model.stopping.stop_reason import StopReason
 

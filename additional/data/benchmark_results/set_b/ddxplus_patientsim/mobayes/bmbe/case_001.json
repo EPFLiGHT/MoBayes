@@ -1,0 +1,172 @@
+{
+  "case_idx": 1,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Myocarditis",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 16\nSex: Male\nChief Complaint: I have lower chest pain, left side of the chest pain, and upper chest pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m a 16-year-old male. For the last little while I’ve had chest pain—more in the lower and upper chest, mostly on the left side, and it feels like a “knife stroke” sometimes. I also get out of breath with minimal effort, I feel really short of breath, and I need to sit up (orthopnea), which gets worse with activity. I recently had a viral infection too, and I also feel pain near the right breast.",
+      "extracted_features": {
+        "f_e_55_v_29": "yes",
+        "f_e_55_v_101": "yes",
+        "f_e_55_v_56": "yes",
+        "f_e_55_v_159": "yes",
+        "f_e_54_v_179": "yes",
+        "f_e_53": "yes",
+        "f_e_57_v_39": "no",
+        "f_e_64": "yes",
+        "f_e_66": "yes",
+        "f_e_217": "yes",
+        "f_ant_e_0": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Myocarditis",
+          0.829367403651003
+        ],
+        [
+          "Pericarditis",
+          0.09831084803371892
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.02268309144309998
+        ],
+        [
+          "Acute pulmonary edema",
+          0.01555092143455327
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.005544531874447406
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_191",
+      "doctor_question": "When you have the pain, does it feel **violent**—like it’s intense, forceful, or overwhelming? (Yes/No)",
+      "patient_answer": "No. It’s more like a sharp “knife stroke” feeling, not violent or overwhelming.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.8482568656233069
+        ],
+        [
+          "Pericarditis",
+          0.1005499510141627
+        ],
+        [
+          "Acute pulmonary edema",
+          0.015905105283326636
+        ]
+      ],
+      "entropy": 0.9235781661348661
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_106",
+      "doctor_question": "Do you have heart failure (a condition where the heart can’t pump blood as well as it should)?",
+      "patient_answer": "I don’t know. I haven’t been told I have heart failure, but I do get very short of breath and need to sit up to breathe.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.4500629039500375
+        ],
+        [
+          "Acute pulmonary edema",
+          0.3881863093964043
+        ],
+        [
+          "Pneumonia",
+          0.09175930299746272
+        ]
+      ],
+      "entropy": 1.7461545683478472
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_151",
+      "doctor_question": "Do you have swelling in one or more areas of your body? (Yes or no)",
+      "patient_answer": "No. I haven’t noticed swelling in any area.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.7288109874891241
+        ],
+        [
+          "Pneumonia",
+          0.14859075840722594
+        ],
+        [
+          "Pericarditis",
+          0.08639117708380321
+        ]
+      ],
+      "entropy": 1.3308731897838124
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_129",
+      "doctor_question": "Do you have any skin changes—like lesions, redness, or other problems—that you think are related to the condition you’re asking about?",
+      "patient_answer": "No. I haven’t noticed any skin redness, lesions, or other skin changes.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Myocarditis",
+          0.8531587939114589
+        ],
+        [
+          "Pericarditis",
+          0.10113101162118347
+        ],
+        [
+          "Acute pulmonary edema",
+          0.014717256660386408
+        ]
+      ],
+      "entropy": 0.8791542660833608
+    }
+  ],
+  "final": {
+    "predicted": "Myocarditis",
+    "predicted_top3": [
+      "Myocarditis",
+      "Pericarditis",
+      "Acute pulmonary edema"
+    ],
+    "confidence": 0.8531587939114589,
+    "final_entropy": 0.8791542660833608,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10283,
+      "completion_tokens": 462
+    },
+    "patient": {
+      "prompt_tokens": 3721,
+      "completion_tokens": 190
+    }
+  }
+}

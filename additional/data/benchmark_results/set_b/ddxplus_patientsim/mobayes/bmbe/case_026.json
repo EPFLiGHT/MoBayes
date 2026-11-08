@@ -1,0 +1,423 @@
+{
+  "case_idx": 26,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Possible NSTEMI / STEMI",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 80\nSex: Male\nChief Complaint: I have lower chest pain, right side of the chest pain, and upper chest pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "I’m an 80-year-old man. Today I have severe lower chest pain on the right side and also upper chest pain—about 7 out of 10, sharp and heavy, like a scary sickening pain. I’m sweating a lot, I feel very short of breath, nauseous like I might vomit, and the pain also goes to my right and left biceps, my right shoulder, my thoracic spine, and even around the thyroid cartilage area, plus epigastric pain and right breast pain.",
+      "extracted_features": {},
+      "top5_posterior": [
+        [
+          "Pericarditis",
+          0.020408163265306124
+        ],
+        [
+          "Larygospasm",
+          0.020408163265306124
+        ],
+        [
+          "Scombroid food poisoning",
+          0.020408163265306124
+        ],
+        [
+          "Chagas",
+          0.020408163265306124
+        ],
+        [
+          "Allergic sinusitis",
+          0.020408163265306124
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash (for example: red, pink, dark, pale, or yellow)? If there isn’t a rash, tell me that too.",
+      "patient_answer": "I don’t have any rash.",
+      "extracted_value": "absent",
+      "extraction_confidence": 0.8,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.023738727760175483
+        ],
+        [
+          "Localized edema",
+          0.023738727760175483
+        ],
+        [
+          "Larygospasm",
+          0.023738727760175483
+        ]
+      ],
+      "entropy": 5.5016668492031755
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_53",
+      "doctor_question": "I’m sorry you’re dealing with this. Do you have any pain somewhere that’s related to the reason you’re consulting today? (Yes/No)",
+      "patient_answer": "Yes. The pain is in my lower chest and right side, and also upper chest, and it’s a heavy sharp sickening scary pain.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Pericarditis",
+          0.0361183524988041
+        ],
+        [
+          "Acute otitis media",
+          0.0361183524988041
+        ],
+        [
+          "Cluster headache",
+          0.0361183524988041
+        ]
+      ],
+      "entropy": 5.012479442491649
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_197",
+      "doctor_question": "Do you feel any pain somewhere in your upper middle abdomen (the area just below your breastbone)?",
+      "patient_answer": "Yes, I have epigastric pain in the upper middle abdomen, just below my breastbone.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Boerhaave",
+          0.15277472786021265
+        ],
+        [
+          "GERD",
+          0.15277472786021265
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.14087020361136493
+        ]
+      ],
+      "entropy": 3.5272778288865467
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_112",
+      "doctor_question": "When you think about your pain, does it feel **haunting**—like it lingers or keeps coming back in a way that’s hard to shake? (Yes/No)",
+      "patient_answer": "Yes. It feels like it keeps coming back and won’t really go away—it’s hard to shake.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Boerhaave",
+          0.5097207099467095
+        ],
+        [
+          "GERD",
+          0.40380471826947123
+        ],
+        [
+          "Cluster headache",
+          0.013239498959654794
+        ]
+      ],
+      "entropy": 1.6352479258922592
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_159",
+      "doctor_question": "Do you feel any pain somewhere in your **right breast** right now? (Yes or no)",
+      "patient_answer": "Yes, I have pain in my right breast right now.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Boerhaave",
+          0.17349913275279952
+        ],
+        [
+          "Spontaneous rib fracture",
+          0.1495914263168007
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.14751376761795626
+        ]
+      ],
+      "entropy": 3.0069464805100092
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_216",
+      "doctor_question": "Do you have pain that gets worse when you move (for example, when you walk, turn, or use the affected area)?",
+      "patient_answer": "No, not specifically with movement. It’s mainly the chest pain that’s heavy and sharp, but it doesn’t feel like it’s worse just because I move.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Boerhaave",
+          0.20330331729817996
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.17285411072695658
+        ],
+        [
+          "GERD",
+          0.1610584721453115
+        ]
+      ],
+      "entropy": 2.8437293904374163
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_e_55_v_160",
+      "doctor_question": "Do you feel any pain in your left breast right now? (Yes or no)",
+      "patient_answer": "I don’t have pain in my left breast right now.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Boerhaave",
+          0.34668528163357765
+        ],
+        [
+          "GERD",
+          0.2746467815538734
+        ],
+        [
+          "Stable angina",
+          0.09140761789740098
+        ]
+      ],
+      "entropy": 2.599316869220955
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_ant_e_105",
+      "doctor_question": "Have you ever had a heart attack, or do you currently get chest pain/angina? (Yes or no)",
+      "patient_answer": "Yes. I have a history of heart attack and I also get chest pain/angina.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Stable angina",
+          0.32289780163144705
+        ],
+        [
+          "Unstable angina",
+          0.31982219103410686
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.283896350643342
+        ]
+      ],
+      "entropy": 2.0014598441030826
+    },
+    {
+      "turn": 9,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_179",
+      "doctor_question": "When you describe your pain, does it feel like a **sudden, sharp “knife-like” stab**? (yes or no)",
+      "patient_answer": "Yes. It feels sharp like a knife-like stab.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Boerhaave",
+          0.364961196305575
+        ],
+        [
+          "GERD",
+          0.23206093838910546
+        ],
+        [
+          "Stable angina",
+          0.10508922242223616
+        ]
+      ],
+      "entropy": 2.537238467390356
+    },
+    {
+      "turn": 10,
+      "kind": "qa",
+      "feature_id": "f_ant_e_69",
+      "doctor_question": "Do you have diabetes (either type 1 or type 2), or have you ever been told by a doctor that you do?",
+      "patient_answer": "Yes, I have diabetes.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Stable angina",
+          0.32844332400567516
+        ],
+        [
+          "Unstable angina",
+          0.32531489215252
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.2887720529754726
+        ]
+      ],
+      "entropy": 1.9107385793226939
+    },
+    {
+      "turn": 11,
+      "kind": "qa",
+      "feature_id": "f_e_210",
+      "doctor_question": "Have you recently vomited blood, or vomited something that looks like coffee grounds (dark, grainy material)?",
+      "patient_answer": "No, I haven’t vomited blood and I don’t have coffee-ground looking vomit. I just feel nauseous like I might vomit.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Stable angina",
+          0.3374487203694727
+        ],
+        [
+          "Unstable angina",
+          0.3342345118639223
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.29668972584553144
+        ]
+      ],
+      "entropy": 1.8038457593143207
+    },
+    {
+      "turn": 12,
+      "kind": "qa",
+      "feature_id": "f_e_57_v_33",
+      "doctor_question": "I’m sorry you’re dealing with this. Does the pain spread or radiate to another area—such as toward your throat or around the thyroid cartilage area? (Yes or no)",
+      "patient_answer": "Yes. It spreads toward my thyroid cartilage area, and also to my shoulders and biceps.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Unstable angina",
+          0.34998503091888794
+        ],
+        [
+          "Stable angina",
+          0.3342506681077436
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.314869235039387
+        ]
+      ],
+      "entropy": 1.59450299359981
+    },
+    {
+      "turn": 13,
+      "kind": "qa",
+      "feature_id": "f_ant_e_225",
+      "doctor_question": "Do you have any close family members (like a parent, sibling, or child) who had a heart or blood-vessel problem before age 50?",
+      "patient_answer": "Yes. I have close family members who had a cardiovascular disease problem before age 50.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Unstable angina",
+          0.37612474602124024
+        ],
+        [
+          "Stable angina",
+          0.35921521363178416
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.2646353758161258
+        ]
+      ],
+      "entropy": 1.5691762946295458
+    },
+    {
+      "turn": 14,
+      "kind": "qa",
+      "feature_id": "f_ant_e_71",
+      "doctor_question": "Do you have high cholesterol, or are you taking any medications to treat high cholesterol?",
+      "patient_answer": "Yes. I have high cholesterol, and I take medications for it.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Unstable angina",
+          0.36925210606864145
+        ],
+        [
+          "Stable angina",
+          0.3526515486379162
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.2780956632130273
+        ]
+      ],
+      "entropy": 1.5744874080653108
+    },
+    {
+      "turn": 15,
+      "kind": "qa",
+      "feature_id": "f_e_57_v_194",
+      "doctor_question": "Does your pain radiate (spread) to another area—such as your right shoulder?",
+      "patient_answer": "Yes. The pain radiates to my right shoulder, and also into my biceps and thoracic spine.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Unstable angina",
+          0.37180796184928727
+        ],
+        [
+          "Stable angina",
+          0.3404996577105213
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.28769235676493415
+        ]
+      ],
+      "entropy": 1.5770369546360157
+    }
+  ],
+  "final": {
+    "predicted": "Unstable angina",
+    "predicted_top3": [
+      "Unstable angina",
+      "Stable angina",
+      "Possible NSTEMI / STEMI"
+    ],
+    "confidence": 0.37180796184928727,
+    "final_entropy": 1.5770369546360157,
+    "top1_hit": false,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 13142,
+      "completion_tokens": 950
+    },
+    "patient": {
+      "prompt_tokens": 22076,
+      "completion_tokens": 429
+    }
+  }
+}
