@@ -5,7 +5,8 @@ Three top-level groups:
 - `kbs/` — knowledge bases (priors, likelihoods, feature universe).
   - `ddxplus/` — empirical DDxPlus KB (49 diseases).
   - `agentclinic_a/`, `agentclinic_b/` — two LLM-elicited AgentClinic-MedQA KBs.
-  - `scaling/` — disease-scaling sweeps over the DDxPlus KB.
+  - `scaling/` — random K-disease subsets of the DDxPlus KB (disease-scaling
+    experiment; `manifest.json` lists the subsets).
 
 - `cases/` — patient profiles fed to the simulators.
   - `ddxplus_patientsim_{a,b}/<persona>/profiles.json` — PatientSim profiles
@@ -15,20 +16,23 @@ Three top-level groups:
   - `agentclinic_{a,b}/` — disjoint 50-case subsets of AgentClinic-MedQA.
   - `llmkb_gpt/`, `llmkb_gemini/` — LLM-elicited KB evaluation patients.
 
-- `benchmark_results/` — saved per-case results (one `case_*.json` per
-  session) that the paper tables and figures read.
+- `benchmark_results/` — saved results that the paper tables and figures
+  read (one `case_*.json` per session, or one `.jsonl` per run).
   - `set_a/`, `set_b/` — the two disjoint 50-patient halves; aggregating
     them gives the combined n=100 reported in the main tables.
   - `judged/{set_a,set_b}/` — same cases re-scored by the closed-list
     LLM judge (`top1_hit_judged`, `top3_hit_judged`, `abstained_judged`).
     Tables read these fields, not the strict-match originals.
-  - `costs/` — fallback token estimates for cells whose case JSONs lack
-    `record.token_usage` (see `costs/README.md`).
+  - `costs/` — token counts for UoT and CoD, the two baselines whose runners
+    did not log doctor tokens (see `costs/README.md`).
 
 Within each `set_*/<benchmark>/` cell, results are split by category:
 `mobayes/`, `standalone/`, `baselines/`, and (where applicable)
-`ablations/`.
+`ablations/`. Directories ending in `_raw` hold a baseline's native output
+format next to its converted results: MediQ's `results.jsonl`
+(`baselines/mediq_raw/`) and MEDDxAgent's per-run `results.json` /
+`token_usage.json` (`_raw/meddxagent_*`, `baselines/meddxagent*_raw/`).
+`set_a/scaling/` holds the disease-scaling runs (`{bmbe,sa}_k<K>_s<seed>/`).
 
-`paper_tables/` sits alongside the data it consumes: scripts here read
-the case files above and write LaTeX into the top-level `tables/`
-directory.
+The table generators in `scripts/paper_tables/` read the case files above
+and write LaTeX into the top-level `tables/` directory.

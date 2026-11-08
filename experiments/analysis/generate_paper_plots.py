@@ -12,14 +12,12 @@ Usage:
 Dependencies: matplotlib, numpy (standard conda/pip environment)
 """
 
-import json, os, math, re
+import json, os, math
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from matplotlib.patches import FancyArrowPatch
-from matplotlib.gridspec import GridSpec
 
 BASE   = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PAPER  = os.path.join(BASE, 'figures')

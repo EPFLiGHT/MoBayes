@@ -50,7 +50,7 @@ def main():
     parser.add_argument("--data-dir", default=None, help="Path to DDXPlus data dir")
     args = parser.parse_args()
 
-    data_dir = args.data_dir or os.path.join(BASE_DIR, "data", "ddxplus_kb")
+    data_dir = args.data_dir or os.path.join(BASE_DIR, "data", "kbs", "ddxplus")
     patients_path = os.path.join(data_dir, "patients.jsonl")
     output_path = os.path.join(data_dir, "conditional_priors.csv")
 

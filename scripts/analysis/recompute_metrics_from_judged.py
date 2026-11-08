@@ -16,10 +16,9 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import glob
 import json
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import List, Optional, Tuple
 
 REPO = Path(__file__).resolve().parents[2]
 ROOT = REPO / "data/benchmark_results/judged"

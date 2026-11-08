@@ -1,0 +1,195 @@
+{
+  "case_idx": 41,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Influenza",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 9\nSex: Female\nChief Complaint: I have a fever, sensitive pain, and exhausting pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’m 9 years old. For the last day or so I’ve had a fever with chills, and I feel very tired and weak. I also have pain on my head—back, top, and my forehead—and it hurts in my neck area on the right side too, with some pink redness/skin lesions there.",
+      "extracted_features": {
+        "f_e_91": "yes",
+        "f_e_94": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_25": "yes",
+        "f_e_55_v_62": "yes",
+        "f_e_55_v_55": "no",
+        "f_e_133_v_53": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "pink",
+        "f_e_89": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Influenza",
+          0.8998391800866181
+        ],
+        [
+          "Pneumonia",
+          0.046010377742340514
+        ],
+        [
+          "HIV (initial infection)",
+          0.02785668037236199
+        ],
+        [
+          "Anemia",
+          0.004778286198969263
+        ],
+        [
+          "Chagas",
+          0.004777647582751027
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_201",
+      "doctor_question": "Do you have a cough right now? (Yes or no)",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Influenza",
+          0.7461980661296961
+        ],
+        [
+          "HIV (initial infection)",
+          0.12158079543343725
+        ],
+        [
+          "Pneumonia",
+          0.036146306195845725
+        ]
+      ],
+      "entropy": 1.542536387556807
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_9",
+      "doctor_question": "Have you noticed any swollen or painful lymph nodes—such as lumps in your neck, under your arms, or in your groin?",
+      "patient_answer": "I don’t know about lumps under my arms or in my groin. In my neck area on the right side, it feels painful and swollen, but I don’t feel sure about any specific lump.",
+      "extracted_value": "yes",
+      "extraction_confidence": 0.5,
+      "top3_posterior": [
+        [
+          "Influenza",
+          0.6799814306147117
+        ],
+        [
+          "HIV (initial infection)",
+          0.18962455608257953
+        ],
+        [
+          "Pneumonia",
+          0.03293873049815245
+        ]
+      ],
+      "entropy": 1.6722570961195138
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_79",
+      "doctor_question": "Do you currently smoke cigarettes (yes or no)?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "HIV (initial infection)",
+          0.41061485321391067
+        ],
+        [
+          "Influenza",
+          0.38283398038172545
+        ],
+        [
+          "Chagas",
+          0.06171972771153897
+        ]
+      ],
+      "entropy": 2.2229097933474167
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_133_v_95",
+      "doctor_question": "Is the affected area located on the **right labia majora** (the outer fold of skin on the right side)?",
+      "patient_answer": "No. The affected area is on the right side of my neck/back of the neck, not my labia.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Influenza",
+          0.5564991661975458
+        ],
+        [
+          "HIV (initial infection)",
+          0.1432517499396624
+        ],
+        [
+          "Chagas",
+          0.0897176812130508
+        ]
+      ],
+      "entropy": 2.404042896043478
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_181",
+      "doctor_question": "Do you have nasal congestion or a clear runny nose right now? (Yes or no)",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Influenza",
+          0.3229532853536167
+        ],
+        [
+          "HIV (initial infection)",
+          0.23092588895095834
+        ],
+        [
+          "Chagas",
+          0.14462744990877197
+        ]
+      ],
+      "entropy": 2.979268948432973
+    }
+  ],
+  "final": {
+    "predicted": "Influenza",
+    "predicted_top3": [
+      "Influenza",
+      "HIV (initial infection)",
+      "Chagas"
+    ],
+    "confidence": 0.3229532853536167,
+    "final_entropy": 2.979268948432973,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10975,
+      "completion_tokens": 407
+    },
+    "patient": {
+      "prompt_tokens": 5024,
+      "completion_tokens": 156
+    }
+  }
+}

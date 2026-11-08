@@ -1,33 +1,24 @@
 # baselines/agentclinic
 
-Adapters and runners for the **AgentClinic-MedQA** column (50 cases sampled
-by frequency-weighted strategy from `agentclinic_medqa_extended.jsonl`,
-yielding a 31-disease closed world). Also hosts the cross-column AC-native
-doctor driver used by the HT-sim column.
+AgentClinic's published `DoctorAgent` (Schmidgall et al., 2024) as a baseline
+(row `ac_native`).
+
+| File | Role |
+|---|---|
+| `doctor.py` | Wraps AC's `DoctorAgent`; maps its free-text `DIAGNOSIS READY:` to the column's closed disease list. Used on the PatientSim and HT-sim columns |
+
+On the AgentClinic columns the row (`baselines/agentclinic/row.py`) runs AC's own
+per-case loop instead (`DoctorAgent` + `PatientAgent` + `MeasurementAgent`
++ LLM moderator). AC's `query_model` uses the legacy openai 0.x SDK with a
+fixed model list, so both paths keep AC's prompts but call the openai 1.x
+client directly.
 
 ## Setup
 
 ```bash
-git clone https://github.com/SamuelSchmidgall/AgentClinic /tmp/agentclinic-tmp
-export AGENTCLINIC_REPO=/tmp/agentclinic-tmp
+git clone https://github.com/SamuelSchmidgall/AgentClinic /path/to/agentclinic
+export AGENTCLINIC_REPO=/path/to/agentclinic
 ```
 
-## What's here
-
-| File | Role |
-|---|---|
-| `adapters/` | Per-baseline wrappers around AC's `PatientAgent` (`base`, `bmbe`, `cod`, `mediq`, `meddxagent`, `standalone`) — needed because AC's legacy `query_model` hardcodes a small whitelist of model names |
-| `ac_native_doctor.py` | Thin wrapper around AC's published `DoctorAgent` (translates `DIAGNOSIS READY:` ↔ `[DDX]`); reused by the HT-sim column |
-| `parsing_prompts.py` | Lenient `[DDX]/[ABSTAIN]` parser shared across `[DDX]`-emitting baselines |
-| `run_ac_native.py` | Verbatim port of `agentclinic.main()` per-case loop (final-turn forcing + `MeasurementAgent` + `compare_results` moderator) |
-| `posthoc_threshold_sweep.py` | Replays a force-max-turns BMBE run and picks DHS-optimal τ |
-
-## Running
-
-Every AC-MedQA cell goes through the unified driver:
-
-```bash
-PYTHONPATH=. python -m bench --row <row> --column ac --num-cases 50
-```
-
-See `bench/README.md` for the full Row × Column table.
+`AGENTCLINIC_REPO` is also needed by the `ac` / `ac_set2` columns, whose
+patient is AC's `PatientAgent` (`bench/patients/agentclinic.py`).

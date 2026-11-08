@@ -1,12 +1,12 @@
 # baselines/meddxagent
 
-MEDDxAgent ([Rao et al., 2025](https://arxiv.org/abs/2502.19175)) adapters
-for the PatientSim, HT-sim, and AgentClinic-MedQA columns.
+MEDDxAgent ([Rose et al., ACL 2025](https://arxiv.org/abs/2502.19175)) as a
+baseline (row `meddxagent`) on the PatientSim, HT-sim and AgentClinic-MedQA columns.
 
 ## Setup (one-time)
 
 ```bash
-git clone https://github.com/AgentAITech/meddxagent ~/Documents/GitHub/meddxagent
+git clone https://github.com/nec-research/meddxagent ~/Documents/GitHub/meddxagent
 cd ~/Documents/GitHub/meddxagent && uv sync
 export MEDDXAGENT_REPO=~/Documents/GitHub/meddxagent
 ```
@@ -22,15 +22,17 @@ counters. Without this the benchmark still runs, but tokens get conflated:
 
 ## What's here
 
+`row.py` (row `meddxagent`) calls `run.py --column <col>` in a subprocess with
+the MEDDxAgent venv, then converts MEDDxAgent's `results.json` to per-case JSON.
+
 | File | Role |
 |---|---|
-| `benchmark.py`, `patient.py` | PatientSim adapter (our profiles → MEDDxAgent's `Bench` / `PatientAgent`) |
-| `benchmark_agentclinic.py`, `patient_agentclinic.py` | AC-MedQA adapter |
-| `rag.py` | `ClosedWorldDDxRAG` — local DDxPlus KB retriever (closed-world ablation) |
-| `usage_tracker.py` | Module-level token accumulator fed by the patched `OpenAIChat` |
-
-The HT-sim adapter (`htsim_meddxagent_bench.py`) lives next door in
-`baselines/streambench/`.
+| `row.py` | Bench row |
+| `run.py` | Runner: builds MEDDxAgent's configs for the column and runs `ddxdriver` |
+| `benchmarks.py` | ddxdriver bench classes: `MoBayesDDxPlus50` (PatientSim), `DDxPlusHTSim50` (HT-sim), `AgentClinic50` |
+| `patients.py` | ddxdriver patients: `MoBayesPatientAgent` (PatientSim), `ACMEDDxAgentPatient` (AgentClinic); HT-sim uses MEDDxAgent's own `LLMPatient` |
+| `rag.py` | `ClosedWorldDDxRAG` — optional retriever over the column's KB (`run.py --rag-source closedworld`) |
+| `usage_tracker.py` | Token accumulator fed by the patched `OpenAIChat` |
 
 ## Running
 
@@ -40,6 +42,11 @@ All three columns go through the unified driver:
 PYTHONPATH=. python -m bench --row meddxagent --column {patientsim,htsim,ac}
 ```
 
-See `bench/README.md` for the full Row × Column command table, including
-the paper-best / closed-world variants and the HPC sbatch path for
-the HT-sim paper-best run.
+Variants (`--row-kwargs '{"variant": ...}'`):
+
+- `paper-best` (default): PubMed retrieval + 5 dynamic few-shot examples
+  (nearest neighbours by embedding). Needs CUDA.
+- `closed-world`: PubMed retrieval and few-shot examples disabled.
+
+In both variants the diagnosis agent's prompt lists the column's closed
+disease set ("Diagnosis Options").

@@ -12,9 +12,6 @@ from loaders import load_config
 """
 Generates the distributions P(feature|disease), requires a diseases JSON file and a features/symptom JSON file.
 Currently models numerical distributions as Gaussian. 
-TODO: more comments
-
-Coded using ChatGPT
 """
 
 config = load_config("config.yml")
@@ -168,9 +165,6 @@ def validate_response(
                     "scale_max": NUMERIC_SCALE_MAX,
                     "justification": row["justification"],
                 })
-
-            elif NUMERICAL_DISTRIBUTION_TYPE == "zero_inflated_gaussian":
-                raise NotImplementedError
 
             else:
                 raise ValueError(

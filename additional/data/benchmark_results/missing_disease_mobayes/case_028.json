@@ -1,0 +1,104 @@
+{
+  "case_idx": 28,
+  "arm": "mobayes",
+  "ground_truth": "Pancreatic neoplasm",
+  "excluded_disease_id": "d_pancreatic_neoplasm",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’m a 47-year-old man, and I came in because I’ve had a cough, and also I feel nauseous like I might vomit. I have crampy pain in my upper belly (epigastric area) and it also radiates to my thoracic spine.  \n\nI’ve also noticed some skin redness/yellow-colored lesions that itch a bit (about 3/10), and I’ve had pale stools and dark urine.",
+      "extracted_features": {
+        "f_e_201": "yes",
+        "f_e_148": "yes",
+        "f_e_53": "yes",
+        "f_e_57_v_39": "yes",
+        "f_e_55_v_197": "yes",
+        "f_e_129": "yes",
+        "f_e_130": "yellow",
+        "f_e_136": "3",
+        "f_e_188": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "To help me understand the size of the problem: **are the lesion(s) larger than 1 centimeter (about the width of a pencil eraser)?**  \nPlease answer **no**, **yes**, or **absent** (if there are no lesions).",
+      "patient_answer": "Yes.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_151",
+      "doctor_question": "Do you have swelling in one or more areas of your body? (Yes or no)",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_91",
+      "doctor_question": "Do you currently have a fever—either that you feel (hot/flushed) or that you’ve measured with a thermometer?",
+      "patient_answer": "I don’t have a fever that I know of. I haven’t measured one recently either.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_183",
+      "doctor_question": "When you feel the pain, does it feel **heavy** (like a dull, weighty pressure rather than sharp or burning)?",
+      "patient_answer": "Yes, it feels more heavy/dull pressure than sharp or burning.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Do your skin lesions peel off or flake away (for example, like skin shedding)?",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_88",
+      "doctor_question": "Do you feel so tired that you’re unable to do your usual activities, or are you stuck in bed all day long? (Yes or no)",
+      "patient_answer": "No.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "Inguinal hernia",
+    "predicted_top3": [
+      "Inguinal hernia",
+      "Influenza",
+      "SLE"
+    ],
+    "confidence": 0.8512421007172313,
+    "final_entropy": 0.8418150533030078,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11192,
+      "completion_tokens": 368
+    },
+    "patient": {
+      "prompt_tokens": 6178,
+      "completion_tokens": 157
+    }
+  }
+}

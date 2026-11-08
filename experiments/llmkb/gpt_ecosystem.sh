@@ -14,29 +14,18 @@ PATIENT_MODEL="gpt-5.4-nano"
 
 mkdir -p "$OUTPUT"
 
-# ── BMBE + GPT-5.4-nano (sensor) with GPT KB ──
-echo "=== GPT KB: BMBE + GPT-5.4-nano ==="
-python3 scripts/core/benchmark_patientsim.py \
-  --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-  --doctor-mode mobayes --doctor-model gpt-5.4-nano \
-  --patient-model "$PATIENT_MODEL" \
-  --force-max-turns --n $N --parallel $PARALLEL \
-  --output "$OUTPUT/bmbe_gpt54nano"
+# run NAME DOCTOR_MODEL [flags...]
+run() {
+  local name="$1" model="$2"; shift 2
+  echo "=== GPT KB: ${name} ==="
+  python3 scripts/core/benchmark_patientsim.py \
+    --profiles "$PROFILES" --data-dir "$DATA_DIR" \
+    "$@" --doctor-model "$model" \
+    --patient-model "$PATIENT_MODEL" \
+    --n $N --parallel $PARALLEL \
+    --output "$OUTPUT/${name}"
+}
 
-# ── SA GPT-5.4 ──
-echo "=== GPT KB: SA GPT-5.4 ==="
-python3 scripts/core/benchmark_patientsim.py \
-  --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-  --doctor-mode standalone --doctor-model "gpt-5.4" \
-  --patient-model "$PATIENT_MODEL" \
-  --n $N --parallel $PARALLEL \
-  --output "$OUTPUT/sa_gpt54"
-
-# ── SA GPT-5.4-nano ──
-echo "=== GPT KB: SA GPT-5.4-nano ==="
-python3 scripts/core/benchmark_patientsim.py \
-  --profiles "$PROFILES" --data-dir "$DATA_DIR" \
-  --doctor-mode standalone --doctor-model "gpt-5.4-nano" \
-  --patient-model "$PATIENT_MODEL" \
-  --n $N --parallel $PARALLEL \
-  --output "$OUTPUT/sa_gpt54nano"
+run bmbe_gpt54nano gpt-5.4-nano --doctor-mode mobayes --force-max-turns
+run sa_gpt54       gpt-5.4      --doctor-mode standalone
+run sa_gpt54nano   gpt-5.4-nano --doctor-mode standalone

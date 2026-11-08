@@ -1,0 +1,149 @@
+{
+  "case_idx": 47,
+  "baseline": "bmbe",
+  "column": "patientsim_v1",
+  "ground_truth": "Anemia",
+  "patient_actor_hidden": {},
+  "objective_for_doctor": "Age: 41\nSex: Female\nChief Complaint: I have dizziness, lightheadedness/near-fainting, and a cramp pain",
+  "kb_dir": "data/kbs/ddxplus",
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "doctor_opening": "Hello, what brings you in today? Could you tell me about yourself and what's been going on?",
+      "patient_opening": "Hi. I’ve been having dizziness and lightheadedness, like I might faint, along with severe fatigue that feels chronic. I also have cramp-type pain and pain in my forehead and both temples, and I’ve noticed black stools. My periods are very heavy or very long, and I’ve been told before that I have anemia—also some family members have anemia. I’m also taking oral anticoagulants, and I’m not sure if I could be pregnant.",
+      "extracted_features": {
+        "f_e_82": "yes",
+        "f_e_89": "yes",
+        "f_e_53": "yes",
+        "f_e_55_v_89": "yes",
+        "f_e_55_v_166": "yes",
+        "f_e_55_v_167": "yes",
+        "f_e_54_v_182": "yes",
+        "f_e_140": "yes",
+        "f_e_145": "yes",
+        "f_ant_e_24": "yes",
+        "f_ant_e_26": "yes",
+        "f_ant_e_146": "yes"
+      },
+      "top5_posterior": [
+        [
+          "Anemia",
+          0.9991789595034962
+        ],
+        [
+          "Chagas",
+          0.00018123349569814805
+        ],
+        [
+          "HIV (initial infection)",
+          0.00010382038565006546
+        ],
+        [
+          "Cluster headache",
+          8.071032480319072e-05
+        ],
+        [
+          "URTI",
+          7.349162647767783e-05
+        ]
+      ]
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_ant_e_208",
+      "doctor_question": "To check whether you might be underweight: **Is your BMI less than 18.5, or have you been told you’re underweight?** (yes/no)",
+      "patient_answer": "No, I haven’t been told I’m underweight, and I don’t know my BMI is under 18.5.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anemia",
+          0.9964533935770032
+        ],
+        [
+          "Chagas",
+          0.000785822286782429
+        ],
+        [
+          "HIV (initial infection)",
+          0.00045016166880128104
+        ]
+      ],
+      "entropy": 0.04839915339421913
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_ant_e_113",
+      "doctor_question": "Do you have chronic kidney failure (long-term kidney disease)?",
+      "patient_answer": "No, I don’t have chronic kidney failure.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anemia",
+          0.986495522790594
+        ],
+        [
+          "Chagas",
+          0.002992189686931467
+        ],
+        [
+          "HIV (initial infection)",
+          0.001714088701090744
+        ]
+      ],
+      "entropy": 0.15814362379434402
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_ant_e_7",
+      "doctor_question": "Do you feel you have a poor diet most of the time (for example, not eating enough fruits/vegetables, or eating a lot of processed or sugary foods)?",
+      "patient_answer": "Yes, I feel my diet is poor most of the time. I don’t eat enough healthy foods, and I think I eat a lot of processed foods.",
+      "extracted_value": "yes",
+      "extraction_confidence": 1.0,
+      "top3_posterior": [
+        [
+          "Anemia",
+          0.9996398838184801
+        ],
+        [
+          "Chagas",
+          7.979101358252024e-05
+        ],
+        [
+          "HIV (initial infection)",
+          4.5708624499215636e-05
+        ]
+      ],
+      "entropy": 0.0061035429389106
+    }
+  ],
+  "final": {
+    "predicted": "Anemia",
+    "predicted_top3": [
+      "Anemia",
+      "Chagas",
+      "HIV (initial infection)"
+    ],
+    "confidence": 0.9996398838184801,
+    "final_entropy": 0.0061035429389106,
+    "top1_hit": true,
+    "top3_hit": true,
+    "stop_reason": "MAX_QUESTIONS"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 10109,
+      "completion_tokens": 321
+    },
+    "patient": {
+      "prompt_tokens": 3206,
+      "completion_tokens": 175
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "case_idx": 34,
+  "arm": "standalone",
+  "ground_truth": "Pulmonary embolism",
+  "excluded_disease_id": "d_pulmonary_embolism",
+  "n_candidates_in_prompt": 48,
+  "turns": [
+    {
+      "role": "doctor",
+      "content": "Hello, I'm your doctor today. What brings you in today?",
+      "turn": 0
+    },
+    {
+      "role": "patient",
+      "content": "Hi doctor. I’m here because I have really bad lower chest pain that’s sharp and feels like a knife-stab, and it goes to my right and left back around the chest wall and up toward my scapulas. I’m also coughing up blood, and I feel very short of breath—plus my left calf is swollen.",
+      "turn": 0
+    },
+    {
+      "role": "doctor",
+      "content": "I’m sorry you’re going through this. First, to narrow down the cause of the chest pain and shortness of breath: **when did these symptoms start (exact time or how many hours/days ago)?**",
+      "turn": 1
+    },
+    {
+      "role": "patient",
+      "content": "It started suddenly—about **5 out of 10 for how fast it came on**—and I noticed it **today**. I can’t give an exact clock time, but it began within the last **few hours**.",
+      "turn": 1
+    },
+    {
+      "role": "doctor",
+      "content": "Thank you. **One question:** do you have any **fever** or **recent infection symptoms** (like sore throat, runny nose, or flu-like illness) in the past few days?",
+      "turn": 2
+    },
+    {
+      "role": "patient",
+      "content": "No, I don’t have fever and I haven’t had any recent infection symptoms like sore throat, runny nose, or flu-like illness.",
+      "turn": 2
+    },
+    {
+      "role": "doctor",
+      "content": "Understood. **One question:** does the chest pain **worsen with deep breathing or coughing**, or is it more constant regardless of breathing?",
+      "turn": 3
+    },
+    {
+      "role": "patient",
+      "content": "Yes—it's **worse with deep breathing and coughing**. It feels **pleuritic**, like it gets sharper when I take a deep breath or cough.",
+      "turn": 3
+    },
+    {
+      "role": "doctor",
+      "content": "Got it. **One question:** have you had any **recent long travel/immobility**, **surgery**, **leg injury**, or **known blood clot** history?",
+      "turn": 4
+    },
+    {
+      "role": "patient",
+      "content": "Yes. I had **recent international travel to North America**, and I also had **surgery within the last month**. My left calf is swollen, and I’ve had a history of **deep vein thrombosis** before.",
+      "turn": 4
+    },
+    {
+      "role": "doctor",
+      "content": "Given the sudden pleuritic chest pain, shortness of breath, hemoptysis, and a swollen calf with recent surgery and prior DVT, I’m concerned about a clot in the lungs.\n\n**[DDX] Pulmonary neoplasm, Possible NSTEMI / STEMI, Acute pulmonary edema, Spontaneous pneumothorax, Anaphylaxis**",
+      "turn": 5
+    }
+  ],
+  "final": {
+    "predicted": "Pulmonary neoplasm",
+    "predicted_set": [
+      "Pulmonary neoplasm",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Spontaneous pneumothorax",
+      "Anaphylaxis"
+    ],
+    "predicted_raw": [
+      "Pulmonary neoplasm",
+      "Possible NSTEMI / STEMI",
+      "Acute pulmonary edema",
+      "Spontaneous pneumothorax",
+      "Anaphylaxis**"
+    ],
+    "abstained": false,
+    "true_disease_in_raw_preds": false,
+    "outcome": "hallucinated_inlist"
+  },
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 4042,
+      "completion_tokens": 241
+    },
+    "patient": {
+      "prompt_tokens": 4820,
+      "completion_tokens": 237
+    }
+  }
+}

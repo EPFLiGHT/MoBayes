@@ -1,0 +1,120 @@
+{
+  "case_idx": 47,
+  "arm": "mobayes",
+  "ground_truth": "Anemia",
+  "excluded_disease_id": "d_anemia",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "I’m a 10-year-old boy. For some time now I’ve been feeling dizzy and lightheaded like I might faint, and I get really tired—sometimes it feels chronic. I also have sensitive crampy pain and pain on the top of my head, and I’ve noticed my skin is much paler than usual, plus I’ve had black stools. I’m also short of breath.",
+      "extracted_features": {
+        "f_e_55_v_62": "yes",
+        "f_e_54_v_182": "yes",
+        "f_e_82": "yes",
+        "f_e_89": "yes",
+        "f_e_154": "yes",
+        "f_e_140": "yes",
+        "f_e_66": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash (for example: red, pink, pale, dark, or yellow)? If there isn’t a rash, you can say “absent.”",
+      "patient_answer": "I don’t have a rash. My skin is just much paler than usual.",
+      "extracted_value": "pale",
+      "extraction_confidence": 0.8
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_131",
+      "doctor_question": "Do your skin lesions peel off or shed (for example, flaking or coming off in layers)?",
+      "patient_answer": "No, I don’t have skin lesions or peeling. My skin just looks much paler than usual.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_91",
+      "doctor_question": "Do you currently have a fever—either that you feel (hot/flushed/chills) or that you’ve measured with a thermometer?",
+      "patient_answer": "No, I don’t have a fever that I know of. I haven’t measured a fever with a thermometer either.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_206",
+      "doctor_question": "Do you currently have painful mouth ulcers or sores (yes or no)?",
+      "patient_answer": "No, I don’t have painful mouth ulcers or sores.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_54_v_183",
+      "doctor_question": "When you feel the pain, does it feel **heavy** (like a dull, weighty pressure rather than sharp or burning)? **Yes or no.**",
+      "patient_answer": "No. It feels more like crampy/sensitive pain, not heavy dull pressure.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_135",
+      "doctor_question": "To help assess it, could you tell me whether the lesion(s) are larger than 1 centimeter (about the width of a pencil eraser)?  \n- No  \n- Yes  \n- Not present / I don’t see any lesions",
+      "patient_answer": "Not present / I don’t see any lesions.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 7,
+      "kind": "qa",
+      "feature_id": "f_ant_e_3",
+      "doctor_question": "Have you ever been diagnosed with pericarditis (inflammation of the lining around the heart)?",
+      "patient_answer": "No, I’ve never been diagnosed with pericarditis.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 8,
+      "kind": "qa",
+      "feature_id": "f_e_144",
+      "doctor_question": "Do you have diffuse (widespread) muscle pain—pain in many areas of your body rather than just one spot?",
+      "patient_answer": "No, I don’t have muscle pain all over. My pain is mostly related to what’s been going on with me today (crampy/sensitive and top of my head).",
+      "extracted_value": "unknown",
+      "extraction_confidence": 0.8
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "Pancreatic neoplasm",
+    "predicted_top3": [
+      "Pancreatic neoplasm",
+      "Sarcoidosis",
+      "Anaphylaxis"
+    ],
+    "confidence": 0.43851068183776865,
+    "final_entropy": 1.72242244270902,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 12042,
+      "completion_tokens": 376
+    },
+    "patient": {
+      "prompt_tokens": 8507,
+      "completion_tokens": 260
+    }
+  }
+}

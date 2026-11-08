@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any, Dict
 
 
 # Structured output schema
@@ -134,9 +134,6 @@ def build_schema_generate_distributions(numerical_distribution_type: str = "disc
             "required": ["feature_id", "type", "mean", "std", "justification"],
             "additionalProperties": False,
         }
-
-    elif numerical_distribution_type == "zero_inflated_gaussian":
-        raise NotImplementedError
 
     else:
         raise ValueError(

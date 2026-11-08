@@ -1,0 +1,104 @@
+{
+  "case_idx": 8,
+  "arm": "mobayes",
+  "ground_truth": "Anemia",
+  "excluded_disease_id": "d_anemia",
+  "n_candidates": 48,
+  "turns": [
+    {
+      "turn": 0,
+      "kind": "opening",
+      "patient_opening": "Hi. I’ve been feeling lightheaded like I might faint, with severe fatigue, and my skin looks much paler than usual. I also have pain on the top of my head and in my forehead/left temple area, and I’ve noticed black stools and also some bloody stool. I’m also taking an oral anticoagulant, and I’m not sure if I’m pregnant or not.",
+      "extracted_features": {
+        "f_e_82": "yes",
+        "f_e_89": "yes",
+        "f_e_154": "yes",
+        "f_e_55_v_62": "yes",
+        "f_e_55_v_89": "yes",
+        "f_e_55_v_166": "yes",
+        "f_e_140": "yes",
+        "f_e_179": "yes",
+        "f_ant_e_146": "yes"
+      }
+    },
+    {
+      "turn": 1,
+      "kind": "qa",
+      "feature_id": "f_e_130",
+      "doctor_question": "What color is the rash (for example: red, pink, pale, dark, or yellow)? If there isn’t a rash, you can say “absent.”",
+      "patient_answer": "I don’t have a rash—so it’s absent. My skin just looks much paler than usual.",
+      "extracted_value": "absent",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 2,
+      "kind": "qa",
+      "feature_id": "f_e_155",
+      "doctor_question": "Do you feel your heart beating fast or racing, or irregularly (like a missed beat), or do you feel palpitations?",
+      "patient_answer": "I don’t feel my heart racing or palpitations—mostly it’s the lightheadedness/near-fainting and the fatigue.",
+      "extracted_value": "no",
+      "extraction_confidence": 0.8
+    },
+    {
+      "turn": 3,
+      "kind": "qa",
+      "feature_id": "f_e_181",
+      "doctor_question": "Do you have nasal congestion or a clear runny nose right now? (Yes or no)",
+      "patient_answer": "No. I don’t have nasal congestion or a clear runny nose right now.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 4,
+      "kind": "qa",
+      "feature_id": "f_e_51",
+      "doctor_question": "Have you had diarrhea or noticed you’re going to the bathroom more often than usual?",
+      "patient_answer": "No, I haven’t had diarrhea or gone more often than usual. I’ve noticed black stools and also bloody stool.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 5,
+      "kind": "qa",
+      "feature_id": "f_e_201",
+      "doctor_question": "Do you currently have a cough? (Yes or no)",
+      "patient_answer": "No, I don’t currently have a cough.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    },
+    {
+      "turn": 6,
+      "kind": "qa",
+      "feature_id": "f_e_91",
+      "doctor_question": "Do you currently have a fever—either that you feel (hot/flushed/chills) or that you’ve measured with a thermometer?",
+      "patient_answer": "No, I don’t have a fever that I feel, and I haven’t measured one with a thermometer.",
+      "extracted_value": "no",
+      "extraction_confidence": 1.0
+    }
+  ],
+  "final": {
+    "predicted": "ABSTAIN",
+    "top_disease_if_forced": "Cluster headache",
+    "predicted_top3": [
+      "Cluster headache",
+      "Chagas",
+      "PSVT"
+    ],
+    "confidence": 0.11699633539427463,
+    "final_entropy": 4.5373551404963095,
+    "tau": 0.9,
+    "abstained": true,
+    "outcome": "abstain"
+  },
+  "stop_reason": "MAX_QUESTIONS",
+  "token_usage": {
+    "doctor": {
+      "prompt_tokens": 11199,
+      "completion_tokens": 313
+    },
+    "patient": {
+      "prompt_tokens": 6501,
+      "completion_tokens": 224
+    }
+  }
+}

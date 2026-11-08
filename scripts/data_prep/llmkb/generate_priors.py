@@ -15,7 +15,7 @@ Usage:
     LLMKB_MODEL="google/gemini-2.5-flash" \
     python3 generate_priors.py \
         --diseases ../../../data/raw/llmkb/input/diseases18.json \
-        --output ../../../data/llmkb/priors.csv
+        --output ../../../data/raw/llmkb/output/priors_diseases18.csv
 """
 
 import argparse
@@ -70,7 +70,6 @@ Return ONLY valid JSON, no explanation. Example format:
 def validate_prevalence(prevalence: Dict[str, int], diseases: List[Dict[str, str]]) -> bool:
     """Sanity checks on LLM-generated prevalence estimates."""
     disease_ids = {d["disease_id"] for d in diseases}
-    disease_names = {d["disease_id"]: d["name"] for d in diseases}
 
     # Check all diseases present
     missing = disease_ids - set(prevalence.keys())
@@ -170,7 +169,7 @@ def main():
             # Convert string values to int if needed
             prevalence = {k: int(v) for k, v in prevalence.items()}
 
-            print(f"\n  Raw prevalence estimates (per 100K ED patients):")
+            print("\n  Raw prevalence estimates (per 100K ED patients):")
             for did in sorted(prevalence, key=prevalence.get, reverse=True):
                 name = next((d["name"] for d in diseases if d["disease_id"] == did), did)
                 print(f"    {prevalence[did]:>6d}  {name}")
@@ -187,7 +186,7 @@ def main():
                         w.writerow({"disease_id": did, "prior": round(priors[did], 6)})
 
                 print(f"\n  Priors written to {args.output}")
-                print(f"\n  Final priors:")
+                print("\n  Final priors:")
                 for did in sorted(priors, key=priors.get, reverse=True):
                     name = next((d["name"] for d in diseases if d["disease_id"] == did), did)
                     print(f"    {priors[did]:>8.4f}  ({priors[did]*100:>5.2f}%)  {name}")

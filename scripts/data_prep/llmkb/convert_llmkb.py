@@ -16,7 +16,6 @@ import argparse
 import csv
 import json
 import os
-import sys
 
 # ── Defaults ─────────────────────────────────────────────────────────────────
 DEFAULT_FEATURES = "data/raw/llmkb/output/generated_features_diseases18.json"
